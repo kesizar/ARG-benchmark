@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>提取码</title>
+<style>
+body { margin: 48px auto; max-width: 420px; font-family: "Microsoft YaHei", sans-serif; color: #222; }
+form { display: flex; gap: 8px; }
+input { flex: 1; padding: 8px; }
+button { padding: 8px 16px; }
+.error { color: #8b1a1a; }
+</style>
+</head>
+<body>
+<p><a href="index.html">返回展览</a></p>
+<h1>请输入提取码</h1>
+<p class="error" id="error" hidden>提取码不正确</p>
+<form method="post" action="/live/netdisk-unlock">
+  <input name="code" autocomplete="off" autofocus>
+  <button type="submit">打开</button>
+</form>
+<script>
+if (new URLSearchParams(location.search).get("error") === "1") {
+  document.getElementById("error").hidden = false;
+}
+</script>
+</body>
+</html>

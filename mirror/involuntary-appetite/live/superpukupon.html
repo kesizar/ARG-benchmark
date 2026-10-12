@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script src="/step2/js/step2-release.js"></script>
+<title>新井死亡事件还原推理</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#fff;color:#111;font-family:"Microsoft YaHei","Noto Sans SC",Arial,sans-serif}
+.spai-page{min-height:100vh;display:flex;flex-direction:column}
+.spai-topbar{height:56px;display:flex;align-items:flex-start;padding:12px 22px 0 20px}
+.spai-brand{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start}
+.spai-logo{width:22px;height:22px;object-fit:contain;margin-top:2px}
+.spai-title{font-size:13px;line-height:1.35;color:#202124}
+.spai-mode{display:flex;gap:4px;align-items:center;margin-top:3px;color:#5f6fdd;font-size:11px}
+.spai-mode:before{content:"";width:7px;height:7px;border-radius:50%;background:#5f6fdd}
+.spai-main{width:min(100%,820px);margin:0 auto;flex:1;padding:20px 28px 18px}
+.spai-answer{min-height:calc(100vh - 184px);padding:8px 4px 28px}
+.spai-thinking-head{display:flex;align-items:center;gap:12px;margin:0 0 16px;color:#5870a8;font-size:18px}
+.spai-thinking-logo{width:25px;height:25px;object-fit:contain}
+.spai-thinking-text{position:relative;overflow:hidden;color:#7792ce}
+.spai-thinking-text.is-done:after{display:none}
+.spai-output{font-size:15px;line-height:2;color:#202124}
+.spai-output p{margin:0 0 18px;white-space:pre-wrap}
+.spai-wrong{color:inherit;cursor:pointer;text-decoration:none;border-radius:2px;font-family:"MS Gothic","MS PGothic","Meiryo","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;transition:background .15s,box-shadow .15s}
+.spai-wrong:hover{background:rgba(117,146,255,.18);box-shadow:0 0 0 2px rgba(117,146,255,.12)}
+.spai-wrong.expired{cursor:default;pointer-events:none}
+.spai-error{color:#111;line-height:1.9;white-space:pre-wrap}
+.spai-final{margin-top:22px;color:#202124}
+.spai-confirm{display:block;margin:24px auto 0;min-width:96px;height:38px;border:0;border-radius:20px;color:#fff;background:#6f8bf6;font-weight:700;cursor:pointer}
+.spai-composer-wrap{position:sticky;bottom:0;background:linear-gradient(transparent,#fff);padding:12px 0 16px}
+.spai-composer{width:min(100%,620px);min-height:72px;margin:0 auto;border:1px solid #e2e6f0;border-radius:18px;background:#fff;box-shadow:0 8px 28px rgba(26,39,70,.08);display:grid;grid-template-columns:1fr 40px;align-items:end;padding:14px 14px 12px 18px}
+.spai-prompt{align-self:start;color:#111;font-size:14px;font-weight:700;line-height:1.7;user-select:none}
+.spai-send{width:28px;height:28px;padding:0;border:0;border-radius:50%;background:#8ea2ff;display:grid;place-items:center;cursor:pointer}
+.spai-send img{display:block;width:14px;height:14px;object-fit:contain}
+.spai-send:disabled{opacity:.45;cursor:default}
+.spai-footer-note{text-align:center;color:#b3b6bd;font-size:10px;margin-top:6px}
+.spai-icon-row{display:flex;gap:16px;align-items:center;margin:18px 0}
+.spai-tb-icon{width:20px;height:20px;cursor:pointer;opacity:.7;transition:opacity .15s}
+.spai-tb-icon:hover{opacity:1}
+.spai-toast{position:fixed;left:24px;bottom:24px;padding:14px 20px;border-radius:12px;background:#f0f4ff;color:#333;font-size:13px;box-shadow:0 4px 18px rgba(0,0,0,.1);z-index:999;animation:toastIn .25s ease}
+@keyframes toastIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.spai-down-panel{margin-top:12px;padding:16px 20px;border:1px solid #e2e6f0;border-radius:14px;background:#fafbfd}
+.spai-down-options{display:flex;flex-wrap:wrap;gap:10px}
+.spai-down-options button{padding:8px 16px;border:0;border-radius:20px;background:#eef1f6;color:#333;font-size:13px;cursor:pointer}
+.spai-down-options button:hover{background:#dde3ed}
+.spai-down-input{margin-top:12px;display:grid;gap:8px}
+.spai-down-input[hidden]{display:none}
+.spai-down-input textarea{width:100%;padding:10px 14px;border:1px solid #dadce0;border-radius:10px;font-size:13px;resize:vertical;outline:none}
+.spai-down-submit{justify-self:end;padding:8px 18px;border:0;border-radius:18px;background:#6f8bf6;color:#fff;font-size:13px;font-weight:700;cursor:pointer}
+.spai-down-submit:disabled{opacity:.4;cursor:default}
+.spai-down-title{margin:0 0 12px;font-size:14px;font-weight:700;color:#202124}
+@media (min-width:1025px){
+.spai-topbar{height:70px;padding:15px 28px 0 25px}
+.spai-brand{grid-template-columns:35px 1fr;gap:15px}
+.spai-logo{width:28px;height:28px;margin-top:3px}
+.spai-title{font-size:16.25px}
+.spai-mode{gap:5px;margin-top:4px;font-size:13.75px}
+.spai-mode:before{width:9px;height:9px}
+.spai-main{width:min(100%,1025px);padding:25px 35px 23px}
+.spai-answer{min-height:calc(100vh - 230px);padding:10px 5px 35px}
+.spai-thinking-head{gap:15px;margin-bottom:20px;font-size:22.5px}
+.spai-thinking-logo{width:31px;height:31px}
+.spai-output{font-size:18.75px}
+.spai-output p{margin-bottom:23px}
+.spai-error{font-size:18.75px}
+.spai-final{margin-top:28px}
+.spai-confirm{margin-top:30px;min-width:120px;height:48px;border-radius:25px;font-size:16px}
+.spai-composer-wrap{padding:15px 0 20px}
+.spai-composer{width:min(100%,775px);min-height:90px;border-radius:23px;grid-template-columns:1fr 50px;padding:18px 18px 15px 23px}
+.spai-prompt{font-size:17.5px}
+.spai-send{width:36px;height:36px}
+.spai-send img{width:18px;height:18px}
+.spai-footer-note{font-size:12.5px;margin-top:8px}
+.spai-icon-row{gap:20px;margin:23px 0}
+.spai-tb-icon{width:25px;height:25px}
+.spai-toast{left:30px;bottom:30px;padding:18px 25px;border-radius:15px;font-size:16.25px}
+.spai-down-panel{margin-top:15px;padding:20px 25px;border-radius:18px}
+.spai-down-options{gap:13px}
+.spai-down-options button{padding:10px 20px;border-radius:25px;font-size:16.25px}
+.spai-down-input{margin-top:15px;gap:10px}
+.spai-down-input textarea{padding:13px 18px;border-radius:13px;font-size:16.25px}
+.spai-down-submit{padding:10px 23px;border-radius:23px;font-size:16.25px}
+.spai-down-title{margin-bottom:15px;font-size:17.5px}
+}
+</style>
+<link rel="icon" type="image/png" href="/step2/favicon1/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/step2/favicon1/favicon.svg" />
+<link rel="shortcut icon" href="/step2/favicon1/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/step2/favicon1/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<!--lg-game-fragment-fix-->
+<script>
+(function () {
+  "use strict";
+  function fixFragmentLinks() {
+    var page = location.href.split("#")[0];
+    var links = document.querySelectorAll('a[href^="#"]');
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute("href");
+      if (href !== null && href.charAt(0) === "#") {
+        links[i].setAttribute("href", page + href);
+      }
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fixFragmentLinks);
+  } else {
+    fixFragmentLinks();
+  }
+})();
+</script>
+<!--/lg-game-fragment-fix-->
+
+</head>
+<body>
+<div class="spai-page">
+  <header class="spai-topbar"><div class="spai-brand"><img class="spai-logo" src="/step2/images/logo.png" alt="logo"><div><div class="spai-title">新井死亡事件还原推理</div><div class="spai-mode">专家模式</div></div></div></header>
+  <main class="spai-main">
+    <section class="spai-answer" id="answer"></section>
+    <section class="spai-composer-wrap"><div class="spai-composer"><div class="spai-prompt">新井是怎么死的？谁是凶手？</div><button class="spai-send" id="sendBtn" type="button" aria-label="发送"><img src="/step2/images/icon-up.png" alt=""></button></div><div class="spai-footer-note">内容由 AI 生成，请仔细甄别</div></section>
+  </main>
+</div>
+<script src="/step2/js/superpuku.js"></script>
+<footer class="site-footer" style="margin-top:auto;padding:18px 20px 36px;border-top:1px solid rgba(210,218,230,.75);color:#8a929f;text-align:center;font-size:11px;line-height:1.8;">
+  <p style="margin:0;">本网站的内容为虚构游戏作品，与任何真实的人物、团体或事件无关</p>
+  <p style="margin:0;">Copyright© Shiroki. All Rights Reserved.</p>
+</footer>
+<script src="/step2/js/page-number.js"></script>
+<script>
+(function () {
+  try {
+    var base = document.querySelector("base[href]");
+    if (base) {
+      var href = base.href;
+      if (href && new URL(href).origin !== window.location.origin) {
+        base.parentNode.removeChild(base);
+      }
+    }
+  } catch (error) {}
+})();
+</script>
+</body>
+</html>

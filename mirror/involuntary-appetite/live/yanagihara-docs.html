@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script src="/step2/js/step2-release.js"></script>
+<title>文档管理</title>
+<link rel="stylesheet" href="/step2/css/style.css">
+<link rel="stylesheet" href="/step2/css/arai-plugin.css">
+<link rel="icon" type="image/png" href="/step2/favicon1/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/step2/favicon1/favicon.svg" />
+<link rel="shortcut icon" href="/step2/favicon1/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/step2/favicon1/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<!--lg-game-fragment-fix-->
+<script>
+(function () {
+  "use strict";
+  function fixFragmentLinks() {
+    var page = location.href.split("#")[0];
+    var links = document.querySelectorAll('a[href^="#"]');
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute("href");
+      if (href !== null && href.charAt(0) === "#") {
+        links[i].setAttribute("href", page + href);
+      }
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fixFragmentLinks);
+  } else {
+    fixFragmentLinks();
+  }
+})();
+</script>
+<!--/lg-game-fragment-fix-->
+
+</head>
+<body class="arai-docs-page yanagihara-docs-page">
+<main class="arai-docs-shell">
+  <section class="arai-docs-password-gate" id="yanagiharaGate">
+    <p class="arai-docs-gate-hint">我最喜欢展品的作者名</p>
+    <div class="arai-docs-gate-form">
+      <input type="text" id="yanagiharaPassword" placeholder="输入密码" autocomplete="off">
+      <button type="button" id="yanagiharaSubmit">确认</button>
+    </div>
+    <p class="arai-docs-gate-error" id="yanagiharaError"></p>
+  </section>
+  <div id="yanagiharaDocsInner" hidden>
+    <header class="arai-docs-header">
+      <div>
+        <h1>文档管理</h1>
+        <p>查看所有文件</p>
+      </div>
+      <button class="arai-docs-reset" id="yanagiharaDocsReset" type="button">撤回操作</button>
+    </header>
+    <section class="arai-docs-list" id="yanagiharaDocsList" aria-label="文档列表"></section>
+    <button class="arai-docs-add" id="yanagiharaDocsAdd" type="button" aria-label="添加文档">+</button>
+    <div class="arai-docs-add-menu" id="yanagiharaDocsAddMenu" hidden>
+      <button type="button" data-doc-action="new">新建空白文档</button>
+      <button type="button" data-doc-action="upload">上传文件</button>
+    </div>
+    <input id="yanagiharaDocsUpload" type="file" multiple hidden accept=".txt,.doc,.docx,.rtf,.md,.png,.jpg,.jpeg,.gif,.webp">
+  </div>
+</main>
+<script src="/step2/js/password-verifier.js"></script>
+<footer class="site-footer" style="margin-top:auto;padding:18px 20px 36px;border-top:1px solid rgba(210,218,230,.75);color:#8a929f;text-align:center;font-size:11px;line-height:1.8;">
+  <p style="margin:0;">本网站的内容为虚构游戏作品，与任何真实的人物、团体或事件无关</p>
+  <p style="margin:0;">Copyright© Shiroki. All Rights Reserved.</p>
+</footer>
+<script src="/step2/js/page-number.js"></script>
+<script>
+(function () {
+  try {
+    var base = document.querySelector("base[href]");
+    if (base) {
+      var href = base.href;
+      if (href && new URL(href).origin !== window.location.origin) {
+        base.parentNode.removeChild(base);
+      }
+    }
+  } catch (error) {}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script src="/step2/js/step2-release.js"></script>
+<title>智能AI管理系统</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100vh;background:#000;color:#e0e0e0;font-family:"Microsoft YaHei","Noto Sans SC",monospace;overflow-x:hidden}
+.onair-page{min-height:100vh;display:flex;flex-direction:column}
+.onair-header{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:#0a0a0a;border-bottom:1px solid #1a1a1a}
+.onair-logo{height:28px;object-fit:contain}
+.onair-title-group{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+.onair-title{font-size:16px;color:#b0b0b0;letter-spacing:1px}
+.onair-skip{display:none;border:0;padding:0;color:#777;background:transparent;font:11px/1.2 "Microsoft YaHei","Noto Sans SC",sans-serif;letter-spacing:1px;cursor:pointer}
+.onair-skip.is-visible{display:block}
+.onair-skip:hover,.onair-skip:focus-visible{color:#d0d0d0}
+.onair-main{flex:1;padding:32px;max-width:1400px;width:100%;margin:0 auto}
+.onair-video-wrap{position:relative;width:100%;max-width:1200px;margin:0 auto 40px}
+.onair-video{width:100%;display:block;background:#000}
+.onair-clock{position:absolute;top:28px;right:32px;font-size:36px;line-height:1;color:#a8a8a8;font-family:monospace;pointer-events:none;user-select:none;text-shadow:0 0 8px rgba(0,0,0,.8)}
+@media (max-width:1024px){
+.onair-clock{top:clamp(7px,2.33vw,24px);right:clamp(8px,2.67vw,27px);font-size:clamp(10px,3vw,31px)}
+}
+.onair-transcript{max-width:1200px;margin:0 auto;padding:20px;min-height:400px}
+.onair-line{margin:0 0 24px;font-size:15px;line-height:1.9;color:#d0d0d0;white-space:pre-wrap;opacity:0;animation:fadeIn .4s forwards}
+@media (min-width:521px){
+.onair-line{font-size:26.25px}
+}
+@keyframes fadeIn{to{opacity:1}}
+.onair-ending{margin-top:60px;padding:48px 20px 60px;text-align:center;animation:fadeIn .8s forwards;opacity:0}
+.onair-ending-main{font-size:28px;font-weight:700;color:#e8e8e8;margin-bottom:32px}
+.onair-ending-credit{font-size:13px;color:#888;line-height:1.8;margin-bottom:40px}
+.onair-ending-survey{font-size:14px;color:#a0a0a0;margin-bottom:16px}
+.onair-ending-btn{display:inline-block;padding:12px 36px;border-radius:8px;background:linear-gradient(135deg,#4a1a6b,#6b2fa0,#3d0f5c);color:#d4b0f0;font-size:14px;font-weight:700;text-decoration:none;letter-spacing:1px;box-shadow:0 4px 20px rgba(80,20,130,.4),inset 0 0 12px rgba(120,40,180,.2);border:1px solid rgba(140,60,200,.3);transition:box-shadow .2s,transform .2s}
+.onair-ending-btn:hover{box-shadow:0 6px 28px rgba(100,30,160,.6),inset 0 0 16px rgba(140,60,200,.3);transform:scale(1.03)}
+</style>
+<link rel="icon" type="image/png" href="/step2/favicon1/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/step2/favicon1/favicon.svg" />
+<link rel="shortcut icon" href="/step2/favicon1/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/step2/favicon1/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<!--lg-game-fragment-fix-->
+<script>
+(function () {
+  "use strict";
+  function fixFragmentLinks() {
+    var page = location.href.split("#")[0];
+    var links = document.querySelectorAll('a[href^="#"]');
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute("href");
+      if (href !== null && href.charAt(0) === "#") {
+        links[i].setAttribute("href", page + href);
+      }
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fixFragmentLinks);
+  } else {
+    fixFragmentLinks();
+  }
+})();
+</script>
+<!--/lg-game-fragment-fix-->
+
+</head>
+<body>
+<div class="onair-page">
+  <header class="onair-header">
+    <img class="onair-logo" src="/step2/images/logo.png" alt="logo">
+    <div class="onair-title-group">
+      <div class="onair-title">智能AI管理系统</div>
+      <button class="onair-skip" id="skipButton" type="button">跳过</button>
+    </div>
+  </header>
+  <main class="onair-main">
+    <div class="onair-video-wrap">
+      <video class="onair-video" id="mainVideo" muted playsinline>
+        <source src="/step2/images/sound-only.mp4" type="video/mp4">
+      </video>
+      <div class="onair-clock" id="clock"></div>
+    </div>
+    <div class="onair-transcript" id="transcript"></div>
+  </main>
+</div>
+<audio id="mainAudio" preload="auto"><source src="/step2/images/sound-only.m4a" type="audio/mp4"></audio>
+<script>
+/* SCRIPT_PLACEHOLDER */
+(function(){
+const video=document.getElementById("mainVideo");
+const audio=document.getElementById("mainAudio");
+const clock=document.getElementById("clock");
+const transcript=document.getElementById("transcript");
+const skipButton=document.getElementById("skipButton");
+const skipStorageKey="contemporaryOnairEndingReached";
+const canSkip=localStorage.getItem(skipStorageKey)==="true";
+const startTime=Date.now();
+const segments=[
+{start:5,end:20,text:"我……我真的受不了了。看着那块警戒线，我闭上眼全是他挂在上面的样子……是我干的。"},
+{start:23,end:53,text:"昨天晚上我们在展馆大吵了一架。我当时……真的被气蒙了。他根本就不尊重别人的作品！他未经许可，擅自拿我作品里的音频，用作惊吓观众的素材。而且……他明知我对\u201c撞人族\u201d的阴影，还在吵架时用手肘狠狠撞我……他笑得那么肆无忌惮。"},
+{start:55,end:67,text:"面对完全讲不通道理的人，难道就只能永远忍气吞声吗？我这辈子……第一次产生想要报复别人的念头。"},
+{start:69,end:90,text:"当时我正在气头上，正好看见休息室桌上放着一瓶胶水……我就想到了那个办法。我爬上梯子，把新井作品旁边那盏射灯的角度调了，然后把胶水灌进了螺丝缝里。是我做的。"},
+{start:95,end:115,text:"我自己也是搞艺术的，知道作品对一个作者来说有多重要……但是，是他先挪用我的作品！是他先践踏我的底线！我当时只觉得这是有理由、合逻辑的报复..."},
+{start:117,end:134,text:"我从没想过后果会是这样……我只是希望他吃点苦头，真的没想过会是这样的结果。我真的没想杀他……"},
+{start:136,end:150,text:"柳原先生，你的自首供述我们记下了。刚才我们在现场还原的时候，注意到新井是在试图硬拧螺丝时掰断了零件，才产生的重心不稳。螺丝被胶水粘死这一点，和你说的吻合。"},
+{start:152,end:165,text:"但，只要梯子稳定，他可以立马抓住把手找回重心。真正导致他连人带梯子摔下来，其实是因为那架人字梯发生了侧滑。对于这个\u201c侧滑\u201d，你有什么要交代的？"},
+{start:169,end:180,text:"……什么？侧滑？我不知道……我发誓我绝对没有。我除了往螺丝里涂胶水，什么都没碰过。"},
+{start:182,end:191,text:"好吧。关于你的涉案程度以及现场的痕迹，我们还需要进一步技术鉴定。总之，你先跟我们走一趟吧。"},
+{start:193,end:196,text:"...嗯？这摄像头，怎么一直在闪烁？"},
+{start:197,end:201,text:"喂！鉴识，把那个摄像头关掉检查一下。"}
+];
+let segIndex=0,charIndex=0,currentP=null,endingShown=false,skipPlayback=false;
+function showEnding(){
+if(endingShown)return;endingShown=true;
+localStorage.setItem(skipStorageKey,"true");
+const ending=document.createElement("div");
+ending.className="onair-ending";
+ending.innerHTML='<div class="onair-ending-main">调查结束 你查明了事件的真相</div><div class="onair-ending-credit">感谢你体验这部作品！<br>《非自愿摄入》 &copy; 2026 银河电灯Shiroki</div><div class="onair-ending-survey">请协助我们回答调查问卷</div><a class="onair-ending-btn" href="https://v.wjx.cn/vm/eR8ILIS.aspx" target="_blank" rel="noopener noreferrer">由此进入</a>';
+document.querySelector(".onair-main").appendChild(ending);
+requestAnimationFrame(function(){ending.scrollIntoView({block:"start",behavior:"smooth"});window.setTimeout(function(){ending.style.opacity="1";},900);});
+setTimeout(function(){
+audio.src="/step2/images/So-Contemporary.mp3";
+audio.volume=0.6;
+audio.load();
+audio.play().catch(function(){
+document.addEventListener("click",function(){audio.play().catch(function(){});},{once:true});
+});
+},2000);
+}
+function pad(n){return n<10?"0"+n:n;}
+function updateClock(){const now=new Date();clock.textContent=pad(now.getHours())+":"+pad(now.getMinutes())+":"+pad(now.getSeconds());}
+function elapsed(){return(Date.now()-startTime)/1000;}
+function renderCompleteTranscript(){
+transcript.innerHTML="";
+segments.forEach(function(segment){
+const line=document.createElement("p");
+line.className="onair-line";
+line.textContent=segment.text;
+transcript.appendChild(line);
+});
+segIndex=segments.length;
+charIndex=0;
+currentP=null;
+}
+function typeNext(){
+if(skipPlayback||segIndex>=segments.length)return;
+const seg=segments[segIndex];
+const now=elapsed();
+if(now<seg.start){setTimeout(typeNext,100);return;}
+if(!currentP){currentP=document.createElement("p");currentP.className="onair-line";transcript.appendChild(currentP);charIndex=0;}
+if(charIndex<seg.text.length){
+currentP.textContent+=seg.text[charIndex];
+charIndex++;
+const delay=(seg.end-seg.start)*1000/seg.text.length;
+setTimeout(typeNext,delay);
+}else{segIndex++;currentP=null;charIndex=0;if(segIndex<segments.length){const next=segments[segIndex];setTimeout(typeNext,(next.start-now)*1000);}}
+}
+function finishInvestigation(){
+if(endingShown)return;
+video.pause();
+video.style.opacity="0";
+clock.style.opacity="0";
+showEnding();
+}
+function skipToEnding(){
+if(endingShown)return;
+skipPlayback=true;
+skipButton.classList.remove("is-visible");
+video.pause();
+audio.pause();
+renderCompleteTranscript();
+finishInvestigation();
+requestAnimationFrame(function(){document.querySelector(".onair-ending")?.scrollIntoView({block:"start"});});
+}
+if(canSkip){
+skipButton.classList.add("is-visible");
+skipButton.addEventListener("click",skipToEnding);
+}
+video.addEventListener("canplay",function(){if(!skipPlayback){video.play();}});
+video.addEventListener("ended",function(){if(!endingShown&&!skipPlayback){video.currentTime=0;video.play();}});
+audio.addEventListener("ended",finishInvestigation);
+updateClock();setInterval(updateClock,1000);
+setTimeout(function(){if(skipPlayback)return;audio.play().catch(function(){document.addEventListener("click",function(){if(!skipPlayback){audio.play();}},{once:true});});},2000);
+setTimeout(typeNext,5000);
+})();
+</script>
+<footer class="site-footer" style="margin-top:auto;padding:18px 20px 36px;border-top:1px solid rgba(210,218,230,.75);color:#8a929f;text-align:center;font-size:11px;line-height:1.8;">
+  <p style="margin:0;">本网站的内容为虚构游戏作品，与任何真实的人物、团体或事件无关</p>
+  <p style="margin:0;">Copyright© Shiroki. All Rights Reserved.</p>
+</footer>
+<script src="/step2/js/page-number.js"></script>
+<script>
+(function () {
+  try {
+    var base = document.querySelector("base[href]");
+    if (base) {
+      var href = base.href;
+      if (href && new URL(href).origin !== window.location.origin) {
+        base.parentNode.removeChild(base);
+      }
+    }
+  } catch (error) {}
+})();
+</script>
+</body>
+</html>

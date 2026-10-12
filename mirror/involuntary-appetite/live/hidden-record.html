@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script src="/step2/js/step2-release.js"></script>
+<title>录音记录</title>
+<style>
+@font-face{font-family:"GuchamojiPage";src:url("/step2/Guchamoji-Regular.ttf") format("truetype");font-style:normal;font-weight:400;font-display:block}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100vh;background:#0a0a0a;color:#d4d4d4;font-family:"Microsoft YaHei","Noto Sans SC",Arial,sans-serif}
+.hidden-page{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:40px 20px;position:relative}
+.hidden-content{width:min(100%,760px);padding:52px 58px 60px;border:1px solid rgba(255,255,255,.08);border-radius:28px;background:rgba(20,20,20,.9);box-shadow:0 24px 58px rgba(0,0,0,.5);font-size:22.5px;line-height:2.2;color:#c8c8c8}
+.hidden-content p{margin:0 0 18px}
+.hidden-content.is-guchamoji,.hidden-content.is-guchamoji p{font-family:"GuchamojiPage" !important;font-synthesis:none;user-select:none;-webkit-user-select:none}
+.puku-side{position:absolute;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;justify-content:center;gap:28px}
+.puku-side.left{right:calc(50% + 380px + 12px)}
+.puku-side.right{left:calc(50% + 380px + 12px)}
+.puku-side img{width:160px;height:160px;object-fit:contain;cursor:pointer;border-radius:8px;transition:transform .15s}
+.puku-side img:hover{transform:scale(1.12)}
+@media (min-width:521px) and (max-width:1024px){
+html,body{overflow-x:hidden}
+.hidden-page{display:grid;grid-template-columns:minmax(76px,18vw) minmax(0,620px) minmax(76px,18vw);gap:10px;width:100%;padding:32px 12px}
+.hidden-content{grid-column:2;grid-row:1;width:100%;min-width:0;padding:44px clamp(28px,5vw,50px) 52px}
+.puku-side{position:static;top:auto;transform:none;align-self:center;align-items:center;gap:clamp(14px,3vw,26px);min-width:0}
+.puku-side.left{grid-column:1;grid-row:1;right:auto}
+.puku-side.right{grid-column:3;grid-row:1;left:auto}
+.puku-side img{width:min(100%,112px);height:auto;aspect-ratio:1/1}
+}
+@media (max-width:520px){
+.hidden-page{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:16px;width:100%;padding:20px 12px}
+.hidden-content{order:2;width:100%;min-width:0;padding:30px 20px 34px;border-radius:22px;font-size:14px;line-height:2}
+.puku-side{position:static;top:auto;transform:none;display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:6px;width:100%}
+.puku-side.left{order:1;right:auto}
+.puku-side.right{order:3;left:auto}
+.puku-side img{width:calc((100% - 12px)/3);max-width:112px;height:auto;aspect-ratio:1/1}
+}
+</style>
+<link rel="icon" type="image/png" href="/step2/favicon1/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/step2/favicon1/favicon.svg" />
+<link rel="shortcut icon" href="/step2/favicon1/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/step2/favicon1/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<!--lg-game-fragment-fix-->
+<script>
+(function () {
+  "use strict";
+  function fixFragmentLinks() {
+    var page = location.href.split("#")[0];
+    var links = document.querySelectorAll('a[href^="#"]');
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute("href");
+      if (href !== null && href.charAt(0) === "#") {
+        links[i].setAttribute("href", page + href);
+      }
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fixFragmentLinks);
+  } else {
+    fixFragmentLinks();
+  }
+})();
+</script>
+<!--/lg-game-fragment-fix-->
+
+</head>
+<body>
+<div class="hidden-page">
+  <div class="puku-side left">
+    <img src="/step2/images/pukupon_back.png" alt="" data-puku>
+    <img src="/step2/images/pukupon_back.png" alt="" data-puku>
+    <img src="/step2/images/pukupon_back.png" alt="" data-puku>
+  </div>
+  <div class="hidden-content">
+    <p>心情差到了极点。</p>
+    <p>作品的效果完全不是我想要的。明明脑子里的画面那么好，怎么摆出来就成了这副样子？看着就烦。</p>
+    <p>本来还想趁着这次展会好好展示一下，现在根本不想把它放在那里给别人看。</p>
+    <p>大家倒是都很起劲，KAY和新井居然还策划了替换官网图片的把戏。看着他们兴奋地忙活，我就觉得好累哦。</p>
+    <p>这个展现在对我来说已经没有一点吸引力了。</p>
+    <p>要是能出点什么意外就好了。</p>
+    <p>比如谁不小心弄坏了总闸，或者因为什么奇怪的理由突然通知展馆不能用了之类的。随便什么都好，只要能有个正当理由把这个展会取消掉。</p>
+    <p>然后我们就可以直接跳过展会，提前去旅行啦。</p>
+    <p>对，直接去旅行多好啊。离开这个让人心情烦躁的展厅，去吃好吃的，去逛美术馆，不用再想这些烦心事。</p>
+    <p>真希望明天一觉醒来，就有人通知我展会办不下去了。</p>
+    <p>好想出去玩啊。</p>
+  </div>
+  <div class="puku-side right">
+    <img src="/step2/images/pukupon_back.png" alt="" data-puku>
+    <img src="/step2/images/pukupon_back.png" alt="" data-puku>
+    <img src="/step2/images/pukupon_back.png" alt="" data-puku>
+  </div>
+</div>
+<script>
+(function(){
+var faces=["/step2/images/pukupon.png","/step2/images/pukupon_cake.png","/step2/images/pukupon_disappointed.png","/step2/images/pukupon_excited.png","/step2/images/pukupon_satisfied.png","/step2/images/pukupon_surprised.PNG"];
+var glitch="/step2/images/pukupon_hosho.png";
+var back="/step2/images/pukupon_back.png";
+var replacementStarted=false;
+var replacementText=[
+"しぐえすぶぶば。",
+"たひをんのげせんとるばかぬ。ぼやめずひけふふれみび，ひんがまひふこおさあへけ？ぢねにみ。",
+"ぶむたびふねかのすみぢくじべむへ，ひじへれてぞいへはるふのれれえぶ。",
+"みかぬりておばげ，けいあぼわげぜひづみぢひねわもこふもぼうく。でわむはへたげはぶ，せろずむえでそ。",
+"ひぢきぶたそどはぎんぼむをむるづよどで。",
+"ごつしてぜにろばわぎにそ。",
+"れがたくよとかれふおみ，へさるらなうどぼりつぼりぶきぶいぐぢづべれちぶぐ。いべこどこぢ，ばづびんそほがにきわさおえぼぐだで。",
+"てわえとねざごでたはねのめ，えぐざさけへ。",
+"え，ふぶぼのがくでぜ。ぢるひれのあみごつけぶづう，みまぼせら，ばてぜべる，ぢぬぶぬよせもじや。",
+"からうはやへしずせ，わぎよげえかだぜよゆへりび。",
+"ばきるわやぼ。"
+];
+function replaceHiddenText(){
+  if(replacementStarted)return;
+  replacementStarted=true;
+  function beginReplacement(){
+  var content=document.querySelector(".hidden-content");
+  var paragraphs=Array.from(content.querySelectorAll("p"));
+  content.classList.add("is-guchamoji");
+  function replaceParagraph(index){
+    if(index>=paragraphs.length)return;
+    var paragraph=paragraphs[index],original=paragraph.textContent,target=replacementText[index]||"",charIndex=0;
+    function typeCharacter(){
+      if(charIndex>=target.length){paragraph.textContent=target;setTimeout(function(){replaceParagraph(index+1);},180);return;}
+      charIndex++;
+      var consumed=Math.floor(charIndex/target.length*original.length);
+      paragraph.textContent=target.slice(0,charIndex)+original.slice(consumed);
+      setTimeout(typeCharacter,65);
+    }
+    typeCharacter();
+  }
+  replaceParagraph(0);
+  }
+  if(document.fonts&&document.fonts.load){
+    document.fonts.load('22.5px "GuchamojiPage"').then(beginReplacement,beginReplacement);
+  }else{
+    beginReplacement();
+  }
+}
+var clicks=0;
+var nextGlitch=3+Math.floor(Math.random()*3);
+document.querySelectorAll("[data-puku]").forEach(function(img){
+  img.addEventListener("click",function(){
+    if(img.dataset.busy)return;
+    img.dataset.busy="1";
+    clicks++;
+    var face=faces[Math.floor(Math.random()*faces.length)];
+    if(clicks>=nextGlitch){
+      clicks=0;
+      nextGlitch=3+Math.floor(Math.random()*3);
+      img.src=glitch;
+      replaceHiddenText();
+      setTimeout(function(){
+        img.src=face;
+        setTimeout(function(){img.src=back;delete img.dataset.busy;},2000);
+      },1000);
+    } else {
+      img.src=face;
+      setTimeout(function(){img.src=back;delete img.dataset.busy;},2000);
+    }
+  });
+});
+})();
+
+(function(){
+var navKey="pukuScrewHiddenNavAt";
+var navCooldown=1400;
+var requiredHold=3000;
+var inputGapLimit=450;
+var holdStart=0;
+var lastInputAt=0;
+var navTimer=null;
+var touchY=0;
+var touching=false;
+var pulling=false;
+function atBottom(){return (window.innerHeight+window.scrollY)>=document.body.scrollHeight-2;}
+function recentlyNavigated(){return Date.now()-Number(sessionStorage.getItem(navKey)||0)<navCooldown;}
+function reset(){holdStart=0;lastInputAt=0;pulling=false;if(navTimer)clearInterval(navTimer);navTimer=null;}
+function startTimer(){
+  if(navTimer)return;
+  navTimer=setInterval(function(){
+    var now=Date.now();
+    var aliveByTouch=touching&&pulling;
+    if(!atBottom()||(!aliveByTouch&&now-lastInputAt>inputGapLimit)){reset();return;}
+    if(holdStart&&now-holdStart>=requiredHold){sessionStorage.setItem(navKey,String(now));reset();window.location.href="record.html?keyword="+encodeURIComponent("螺丝");}
+  },100);
+}
+function notePull(amount){
+  var now=Date.now();
+  if(recentlyNavigated()||!atBottom()||amount<=0){reset();return;}
+  if(!holdStart)holdStart=now;
+  lastInputAt=now;
+  pulling=true;
+  startTimer();
+}
+window.addEventListener("wheel",function(e){notePull(e.deltaY);},{passive:true});
+window.addEventListener("touchstart",function(e){touchY=e.touches[0].clientY;touching=true;},{passive:true});
+window.addEventListener("touchmove",function(e){var nextY=e.touches[0].clientY;var delta=touchY-nextY;touchY=nextY;if(delta>0)notePull(delta);},{passive:true});
+window.addEventListener("touchend",function(){touching=false;pulling=false;});
+window.addEventListener("touchcancel",function(){touching=false;pulling=false;});
+window.addEventListener("blur",reset);
+document.addEventListener("visibilitychange",reset);
+})();
+</script>
+<footer class="site-footer" style="margin-top:auto;padding:18px 20px 36px;border-top:1px solid rgba(210,218,230,.75);color:#8a929f;text-align:center;font-size:11px;line-height:1.8;">
+  <p style="margin:0;">本网站的内容为虚构游戏作品，与任何真实的人物、团体或事件无关</p>
+  <p style="margin:0;">Copyright© Shiroki. All Rights Reserved.</p>
+</footer>
+<script src="/step2/js/page-number.js"></script>
+<script>
+(function () {
+  try {
+    var base = document.querySelector("base[href]");
+    if (base) {
+      var href = base.href;
+      if (href && new URL(href).origin !== window.location.origin) {
+        base.parentNode.removeChild(base);
+      }
+    }
+  } catch (error) {}
+})();
+</script>
+</body>
+</html>

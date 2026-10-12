@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>面包屑不会带我回家 | KAY</title>
+<link rel="stylesheet" href="/step2/css/style.css">
+<link rel="icon" type="image/png" href="/step2/favicon2/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/step2/favicon2/favicon.svg" />
+<link rel="shortcut icon" href="/step2/favicon2/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/step2/favicon2/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<!--lg-game-fragment-fix-->
+<script>
+(function () {
+  "use strict";
+  function fixFragmentLinks() {
+    var page = location.href.split("#")[0];
+    var links = document.querySelectorAll('a[href^="#"]');
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute("href");
+      if (href !== null && href.charAt(0) === "#") {
+        links[i].setAttribute("href", page + href);
+      }
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fixFragmentLinks);
+  } else {
+    fixFragmentLinks();
+  }
+})();
+</script>
+<!--/lg-game-fragment-fix-->
+
+</head>
+<body class="kay-page breadcrumb-page">
+<header class="kay-header breadcrumb-header">
+  <a href="kay.html" class="kay-brand" aria-label="返回 KAY 官网"></a>
+  <nav class="kay-nav" aria-label="Breadcrumb navigation">
+    <a href="kay.html#work">Back</a>
+  </nav>
+</header>
+
+<main class="breadcrumb-shell">
+  <section class="breadcrumb-card" aria-live="polite">
+    <div class="breadcrumb-count" id="breadcrumbCount">01 / 07</div>
+    <div class="breadcrumb-images">
+      <img id="breadcrumbImageA" src="/step2/images/Breadcrumbs/breadcrumb01-1.jpg" alt="面包屑线索图一">
+      <img id="breadcrumbImageB" src="/step2/images/Breadcrumbs/breadcrumb01-2.jpg" alt="面包屑线索图二">
+    </div>
+    <p class="breadcrumb-text" id="breadcrumbText"></p>
+    <form class="breadcrumb-answer" id="breadcrumbForm">
+      <label for="breadcrumbInput">请告诉我，现在是哪个车站</label>
+      <div>
+        <input id="breadcrumbInput" type="text" autocomplete="off" required>
+        <button type="submit">确定</button>
+      </div>
+      <p class="breadcrumb-message" id="breadcrumbMessage"></p>
+    </form>
+    <div class="breadcrumb-question-nav" id="breadcrumbQuestionNav" aria-label="题目切换"></div>
+  </section>
+</main>
+
+<script src="/step2/js/page-number.js"></script>
+<script src="/step2/js/breadcrumbs.js"></script>
+<footer class="site-footer" style="margin-top:auto;padding:18px 20px 36px;border-top:1px solid rgba(210,218,230,.75);color:#8a929f;text-align:center;font-size:11px;line-height:1.8;">
+  <p style="margin:0;">本网站的内容为虚构游戏作品，与任何真实的人物、团体或事件无关</p>
+  <p style="margin:0;">Copyright© Shiroki. All Rights Reserved.</p>
+</footer>
+<script>
+(function () {
+  try {
+    var base = document.querySelector("base[href]");
+    if (base) {
+      var href = base.href;
+      if (href && new URL(href).origin !== window.location.origin) {
+        base.parentNode.removeChild(base);
+      }
+    }
+  } catch (error) {}
+})();
+</script>
+</body>
+</html>

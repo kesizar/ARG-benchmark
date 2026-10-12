@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script src="/step2/js/step2-release.js"></script>
+<title>回答结束</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100vh;background:#eef1f5;color:#333;font-family:"Microsoft YaHei","Noto Sans SC",sans-serif}
+.done-wrap{max-width:860px;margin:0 auto;padding:56px 20px 80px;text-align:center}
+.done-card{background:#fff;border-radius:12px;padding:60px 40px;box-shadow:0 2px 16px rgba(0,0,0,.06);margin-bottom:56px}
+.done-check{width:80px;height:80px;margin:0 auto 24px;display:block}
+.done-title{font-size:20px;color:#333;margin-bottom:10px}
+.done-warn{font-size:16.25px;color:#c0392b;margin-top:14px}
+.ending-section{padding:56px 20px;text-align:center}
+.ending-main{font-size:30px;font-weight:700;color:#5b8fd9;margin-bottom:24px}
+.ending-portraits{display:flex;flex-direction:column;align-items:center;gap:24px;width:min(100%,720px);margin:0 auto 48px}
+.ending-portraits img{display:block;width:100%;height:auto}
+.save-portrait-btn{display:inline-flex;align-items:center;justify-content:center;margin:20px 0 28px;padding:12px 34px;border:0;border-radius:999px;background:#222;color:#fff;font-size:14px;font-weight:700;letter-spacing:.08em;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.14);transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.save-portrait-btn:hover,.save-portrait-btn:focus-visible{background:#000;transform:translateY(-1px);box-shadow:0 12px 28px rgba(0,0,0,.2)}
+.ending-credit{font-size:15px;color:#888;line-height:1.8;margin-bottom:48px}
+.ending-staff{margin:52px auto 64px;color:#111;font-family:"Microsoft YaHei","SimHei",Arial,sans-serif;font-size:20px;font-weight:700;line-height:2;text-align:center}
+.ending-staff p{margin:0 0 18px}
+.ending-staff p:last-child{margin-bottom:0}
+.ending-images{display:flex;justify-content:center;gap:28px;flex-wrap:nowrap;max-width:800px;margin:0 auto}
+.ending-img-item{display:flex;flex-direction:column;align-items:center;gap:10px}
+.ending-img-item img{width:240px;height:auto;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.ending-img-item span{font-size:13px;color:#888}
+@media (max-width:1024px){
+.ending-images{width:100%;max-width:100%;gap:clamp(8px,2.5vw,24px)}
+.ending-img-item{flex:1 1 0;min-width:0;max-width:240px}
+.ending-img-item img{display:block;width:100%;max-width:240px;height:auto}
+}
+</style>
+<link rel="icon" type="image/png" href="/step2/favicon1/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/step2/favicon1/favicon.svg" />
+<link rel="shortcut icon" href="/step2/favicon1/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/step2/favicon1/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<!--lg-game-fragment-fix-->
+<script>
+(function () {
+  "use strict";
+  function fixFragmentLinks() {
+    var page = location.href.split("#")[0];
+    var links = document.querySelectorAll('a[href^="#"]');
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute("href");
+      if (href !== null && href.charAt(0) === "#") {
+        links[i].setAttribute("href", page + href);
+      }
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fixFragmentLinks);
+  } else {
+    fixFragmentLinks();
+  }
+})();
+</script>
+<!--/lg-game-fragment-fix-->
+
+</head>
+<body>
+<div class="done-wrap">
+  <div class="done-card">
+    <img class="done-check" src="/step2/images/check_mark.png" alt="完成">
+    <div class="done-title">回答结束。感谢您的作答！</div>
+    <div class="done-warn">我们很期待</div>
+  </div>
+  <div class="ending-section">
+    <div class="ending-main" style="color: red;">调查结束 恭喜成为基站！</div>
+    <div class="ending-portraits">
+      <img src="/step2/images/portraits.png" alt="人物肖像">
+      <button class="save-portrait-btn" type="button" data-save-portrait>保存图片</button>
+      <img src="/step2/images/portraits-2.png" alt="人物肖像">
+    </div>
+    <div class="ending-credit">感谢你体验这部作品！<br>《非自愿摄入》 &copy; 2026 银河电灯Shiroki</div>
+    <div class="ending-staff">
+      <p>-Staff-<br>制作：银河电灯Shiroki&nbsp;&nbsp;&nbsp;狂饮可乐</p>
+      <p>PV背景音乐：潮汐逃逸</p>
+      <p>人设半身绘：小熊挂角</p>
+      <p>~and 帮我测试游戏的朋友们~</p>
+    </div>
+    <div class="ending-images">
+      <div class="ending-img-item"><img src="/step2/images/red.png" alt="小红书"><span>小红书</span></div>
+      <div class="ending-img-item"><img src="/step2/images/wechat.jpg" alt="公众号"><span>公众号</span></div>
+      <div class="ending-img-item"><img src="/step2/images/aifadian.png" alt="爱发电"><span>爱发电</span></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer" style="margin-top:auto;padding:18px 20px 36px;border-top:1px solid rgba(210,218,230,.75);color:#8a929f;text-align:center;font-size:11px;line-height:1.8;">
+  <p style="margin:0;">本网站的内容为虚构游戏作品，与任何真实的人物、团体或事件无关</p>
+  <p style="margin:0;">Copyright© Shiroki. All Rights Reserved.</p>
+</footer>
+<script>
+document.querySelector("[data-save-portrait]").addEventListener("click",function(){
+  const link=document.createElement("a");
+  link.href="/step2/images/portraits.png";
+  link.download="portraits.png";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+});
+</script>
+<script src="/step2/js/page-number.js"></script>
+<script>
+(function () {
+  try {
+    var base = document.querySelector("base[href]");
+    if (base) {
+      var href = base.href;
+      if (href && new URL(href).origin !== window.location.origin) {
+        base.parentNode.removeChild(base);
+      }
+    }
+  } catch (error) {}
+})();
+</script>
+</body>
+</html>

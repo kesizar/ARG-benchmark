@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PORTFOLIO | KAY 2026</title>
+<link rel="stylesheet" href="/step2/css/style.css">
+<link rel="icon" type="image/png" href="/step2/favicon2/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/step2/favicon2/favicon.svg" />
+<link rel="shortcut icon" href="/step2/favicon2/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/step2/favicon2/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<!--lg-game-fragment-fix-->
+<script>
+(function () {
+  "use strict";
+  function fixFragmentLinks() {
+    var page = location.href.split("#")[0];
+    var links = document.querySelectorAll('a[href^="#"]');
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute("href");
+      if (href !== null && href.charAt(0) === "#") {
+        links[i].setAttribute("href", page + href);
+      }
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fixFragmentLinks);
+  } else {
+    fixFragmentLinks();
+  }
+})();
+</script>
+<!--/lg-game-fragment-fix-->
+
+</head>
+<body class="kay-page">
+<header class="kay-header">
+  <a href="index.html" class="kay-brand" aria-label="返回首页"></a>
+  <nav class="kay-nav" aria-label="KAY page navigation">
+    <a href="#about">About</a>
+    <a href="#work">Works</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main class="kay-main">
+  <section class="kay-hero" aria-label="KAY portfolio hero">
+    <div class="kay-hero-flow" aria-hidden="true">
+      <span class="kay-flow-layer kay-flow-layer-1"></span>
+      <span class="kay-flow-layer kay-flow-layer-2"></span>
+      <span class="kay-flow-layer kay-flow-layer-3"></span>
+    </div>
+    <div class="kay-hero-copy is-visible">
+      <h1>PORTFOLIO</h1>
+      <p>KAY 2026</p>
+    </div>
+  </section>
+
+  <section class="kay-about kay-reveal" id="about" data-reveal>
+    <div class="kay-section-label">About</div>
+    <div class="kay-about-content kay-reveal" data-reveal>
+      <span class="kay-small-title">Visual Communication</span>
+      <h2>KAY</h2>
+      <img class="kay-about-image" src="/step2/images/me.jpg" alt="KAY portrait">
+      <p>本名浅野慧（Kei Asano）。视觉传达设计专业硕士研究生。</p>
+      <p>我认为在当今时代，哪怕再优秀的内容，如果缺少契合的视觉呈现和传播方式，也很难精准地触达观众。这也是我选择当前专业的契机。</p>
+      <p>为了能够构建出更具吸引力的观感体验，我现在在自学网页设计与前端开发。代码也是包装创意、放大作品价值的有力工具。</p>
+      <p>爱好是收集过时的电子广告和看B级片。</p>
+      <div class="kay-skills">
+        <div class="kay-skill-row">
+          <span>Design & Art Direction</span>
+          <p>Figma / Illustrator / Photoshop / After Effects</p>
+        </div>
+        <div class="kay-skill-row">
+          <span>Coding & Motion</span>
+          <p>HTML / CSS / JavaScript / Three.js / GSAP / React</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kay-works kay-reveal" id="work" data-reveal>
+    <div class="kay-section-label">Works</div>
+    <div class="kay-work-list">
+      <article class="kay-work-item kay-reveal" data-reveal>
+        <div>
+          <h3>《特价清仓》</h3>
+          <p class="kay-work-note">（艺术展“非自愿摄入”参展作品）</p>
+          <time>2026.08.14</time>
+        </div>
+        <a href="index.html"><img class="kay-work-image" src="/step2/images/inventory-disposal.jpg" alt="特价清仓"></a>
+      </article>
+      <a class="kay-work-item kay-work-link kay-reveal" href="breadcrumbs.html" data-reveal>
+        <div>
+          <h3>《面包屑不会带我回家》</h3>
+          <time>2026.07.19</time>
+        </div>
+        <img class="kay-work-image" src="/step2/images/Breadcrumbs/breadcrumbs.png" alt="面包屑不会带我回家 预览图">
+      </a>
+    </div>
+  </section>
+
+  <section class="kay-contact kay-reveal" id="contact" data-reveal>
+    <div class="kay-section-label">Contact</div>
+    <a href="mailto:asanokei0203@gmail.com">asanokei0203@gmail.com</a>
+  </section>
+</main>
+<footer class="site-footer" style="margin-top:auto;padding:18px 20px 36px;border-top:1px solid rgba(210,218,230,.75);color:#8a929f;text-align:center;font-size:11px;line-height:1.8;">
+  <p style="margin:0;">本网站的内容为虚构游戏作品，与任何真实的人物、团体或事件无关</p>
+  <p style="margin:0;">Copyright© Shiroki. All Rights Reserved.</p>
+</footer>
+<script>
+(() => {
+  const targets = document.querySelectorAll('[data-reveal], .kay-work-item');
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach((item) => item.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle('is-visible', entry.isIntersecting);
+    });
+  }, { threshold: 0.18, rootMargin: '-8% 0px -8% 0px' });
+
+  targets.forEach((item) => observer.observe(item));
+})();
+</script>
+<script src="/step2/js/page-number.js"></script>
+<script>
+(function () {
+  try {
+    var base = document.querySelector("base[href]");
+    if (base) {
+      var href = base.href;
+      if (href && new URL(href).origin !== window.location.origin) {
+        base.parentNode.removeChild(base);
+      }
+    }
+  } catch (error) {}
+})();
+</script>
+</body>
+</html>

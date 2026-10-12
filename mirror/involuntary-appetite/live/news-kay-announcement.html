@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>致各位敏锐的参加者 | 展览新闻</title>
+<link rel="stylesheet" href="/step2/css/style.css">
+<link rel="icon" type="image/png" href="/step2/favicon1/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/step2/favicon1/favicon.svg" />
+<link rel="shortcut icon" href="/step2/favicon1/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/step2/favicon1/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<!--lg-game-fragment-fix-->
+<script>
+(function () {
+  "use strict";
+  function fixFragmentLinks() {
+    var page = location.href.split("#")[0];
+    var links = document.querySelectorAll('a[href^="#"]');
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute("href");
+      if (href !== null && href.charAt(0) === "#") {
+        links[i].setAttribute("href", page + href);
+      }
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fixFragmentLinks);
+  } else {
+    fixFragmentLinks();
+  }
+})();
+</script>
+<!--/lg-game-fragment-fix-->
+
+</head>
+<body class="news-page">
+<a class="logo" href="index.html" aria-label="返回首页"><img src="/step2/images/logo.png" alt="logo"></a>
+<main class="news-detail-shell">
+  <article class="news-detail hoax-detail">
+    <a class="news-back" href="index.html#news">Back to News</a>
+    <h1>致各位敏锐的参加者</h1>
+    <time>2026.08.13</time>
+    <p>恭喜大家！能看到这条公告，说明你们已经解开了所有的谜题。请允许我在此，为大家介绍整起事件的来龙去脉。</p>
+    <p>这出“杀人戏码”，其实是我此次的作品《特价清仓》的一部分。早在决定参展时，我就开始计划这一切了。我请银河电灯帮忙制作艺术展的官网和我的个人网站，都是为了将这部作品呈现给中国的各位。</p>
+    <p>我请新井当模特，用和原版作品相同构图拍摄了照片；我还伪造了录音，并向噗咚上传了精心剪辑过的录音文本。我希望你们最终拼凑出一个企图用尸体满足自己扭曲的艺术追求的疯子，被自己的“同类”反杀的故事。</p>
+    <p>当然，现场没有受害者、没有疯子，只有两个为了吓唬大家而乐此不疲的“共犯”。至于宋芬奇老师……她只是默许了这一切，而没有参与任何一部分计划。</p>
+    <p>或许大家会不解，为什么要大费周章地制造这样一场“恐慌”？</p>
+    <p>其实，《面包屑不会带我回家》中的文字并非虚构，描绘的正是我最真实的心境。这是我来到东京的第六年，这些年来，我无时无刻不在承受着一种巨大的焦虑——我害怕自己做不出震慑人心的东西，害怕自己毕业后会无声无息地隐没在人群里，最终流于默默无闻。</p>
+    <p>但与此同时，我骨子里又冒出一种莫名其妙的自尊心。我常常居高临下地去审视和鄙夷周遭的喧嚣，却又因为这种傲慢而让自己陷入更深的痛苦与纠结。就像最后一篇中写的那样，为了打破这种长久自我拉扯的痛苦，我决定”选择不正常“，做一次打破常规的尝试。</p>
+    <p>此次的作品叫做《特价清仓》。既然是清仓，就还需要有“消费者”的参与。于是，我用这种稍微出格的方式，在网络世界里散播商品信息，成功吸引了各位敏锐的“消费者”前来推理、怀疑、乃至质问。</p>
+    <p>你们在屏幕前寻找真相的每一个步骤，都实时重塑着这件作品的样貌。你们的介入，才是《特价清仓》最终的完成式。</p>
+    <p>最后，由衷地感谢每一位“消费者”的倾情参与。请保持这份敏锐，并满怀期待地等待我们即将正式开启的艺术展吧！</p>
+    <p>我们在现场见。</p>
+    <p class="hoax-signature">KAY（浅野 慧）</p>
+  </article>
+</main>
+<script>
+localStorage.setItem("storyPhase1Completed", "true");
+localStorage.setItem("pukuHoaxTeaserUnlocked", "true");
+</script>
+<footer class="site-footer" style="margin-top:auto;padding:18px 20px 36px;border-top:1px solid rgba(210,218,230,.75);color:#8a929f;text-align:center;font-size:11px;line-height:1.8;">
+  <p style="margin:0;">本网站的内容为虚构游戏作品，与任何真实的人物、团体或事件无关</p>
+  <p style="margin:0;">Copyright© Shiroki. All Rights Reserved.</p>
+</footer>
+<script src="/step2/js/page-number.js"></script>
+<script>
+(function () {
+  try {
+    var base = document.querySelector("base[href]");
+    if (base) {
+      var href = base.href;
+      if (href && new URL(href).origin !== window.location.origin) {
+        base.parentNode.removeChild(base);
+      }
+    }
+  } catch (error) {}
+})();
+</script>
+</body>
+</html>
