@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://arg-benchmark.local/task.schema.json",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["id", "category", "obs_mode", "model_visible", "actions_enabled", "limits", "judge_path"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "category": {"enum": ["web_puzzle", "text_adventure", "escape_room", "arg", "static"]},
+    "arg_layer": {"enum": ["L1", "L2", "L3", null]},
+    "obs_mode": {"enum": ["A", "B", "C"]},
+    "obs_modes_to_run": {"type": "array", "items": {"enum": ["A", "B", "C"]}},
+    "computer_use": {"type": "boolean"},
+    "model_visible": {
+      "type": "object",
+      "required": ["title", "intro"],
+      "additionalProperties": false,
+      "properties": {
+        "title": {"type": "string"},
+        "intro": {"type": "string"}
+      }
+    },
+    "entry_url": {"type": ["string", "null"]},
+    "local_serve": {"type": "object"},
+    "viewport": {"type": "object"},
+    "locale": {"type": "string"},
+    "timezone": {"type": "string"},
+    "seed": {"type": "integer"},
+    "allow_hosts": {"type": "array", "items": {"type": "string"}},
+    "shortcut_block": {"type": "array"},
+    "guide_block_hosts": {"type": "array", "items": {"type": "string"}},
+    "allow_model_goto": {"type": "boolean"},
+    "goto_scope": {"enum": ["none", "same_host", "allow_hosts"]},
+    "show_url": {"type": "boolean"},
+    "text_scope": {"enum": ["page", "viewport"]},
+    "text_limit": {"type": "integer", "minimum": 1},
+    "actions_enabled": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "limits": {
+      "type": "object",
+      "required": ["max_steps", "max_seconds", "max_answer_submits"],
+      "properties": {
+        "max_steps": {"type": "integer", "minimum": 1},
+        "max_seconds": {"type": "number", "minimum": 1},
+        "max_answer_submits": {"type": "integer", "minimum": 0}
+      }
+    },
+    "settle_ms": {"type": "integer", "minimum": 0},
+    "history": {
+      "type": "object",
+      "properties": {
+        "full_obs_k": {"type": "integer", "minimum": 3, "maximum": 5},
+        "screenshot_k": {"type": "integer", "minimum": 0}
+      }
+    },
+    "judge_path": {"type": "string", "minLength": 1},
+    "policy_script": {"type": ["array", "null"]},
+    "notes_for_report": {"type": "array", "items": {"type": "string"}},
+    "if": {"type": "object"},
+    "static": {"type": "object"}
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"category": {"const": "arg"}},
+        "required": ["category"]
+      },
+      "then": {
+        "properties": {"arg_layer": {"enum": ["L1", "L2", "L3"]}},
+        "required": ["arg_layer"]
+      }
+    },
+    {
+      "if": {
+        "properties": {"category": {"enum": ["web_puzzle", "text_adventure", "escape_room", "static"]}},
+        "required": ["category"]
+      },
+      "then": {
+        "properties": {"arg_layer": {"type": "null"}}
+      }
+    }
+  ]
+}

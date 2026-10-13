@@ -1,0 +1,22 @@
+{
+  "id": "static-fixture",
+  "category": "static",
+  "arg_layer": null,
+  "obs_mode": "A",
+  "computer_use": false,
+  "model_visible": {
+    "title": "静态接线",
+    "intro": "这是静态接线题面，不是谜题。看到这句话即可。"
+  },
+  "entry_url": null,
+  "local_serve": {"enabled": false},
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "actions_enabled": ["give_up"],
+  "limits": {"max_steps": 4, "max_seconds": 60, "max_answer_submits": 1},
+  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "judge_path": "judge/fixtures/static-fixture/judge.json",
+  "policy_script": [{"op": "give_up"}],
+  "isolation": {"container": false},
+  "notes_for_report": ["接线夹具，不是正式题"]
+}

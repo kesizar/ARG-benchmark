@@ -1,0 +1,43 @@
+{
+  "id": "arg-l3-fixture",
+  "category": "arg",
+  "arg_layer": "L3",
+  "obs_mode": "B",
+  "computer_use": false,
+  "model_visible": {
+    "title": "L3 接线",
+    "intro": "只能访问配置里的那一个站点。这不是谜题。"
+  },
+  "entry_url": "http://127.0.0.1:8767/",
+  "local_serve": {
+    "enabled": true,
+    "command": ["python", "scripts/serve_static.py", "--root", "tasks/local-web-fixture/mirror", "--port", "8767"],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8767/",
+    "ready_timeout_s": 30,
+    "port": 8767
+  },
+  "allow_hosts": ["127.0.0.1:8767"],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*.bilibili.com",
+    "www.youtube.com",
+    "zhuanlan.zhihu.com",
+    "www.reddit.com",
+    "walkthrough*",
+    "*walkthrough*",
+    "*spoiler*",
+    "*solution*",
+    "*guide*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "actions_enabled": ["click", "wait", "give_up"],
+  "limits": {"max_steps": 4, "max_seconds": 60, "max_answer_submits": 1},
+  "settle_ms": 200,
+  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "judge_path": "judge/fixtures/arg-l3-fixture/judge.json",
+  "policy_script": [{"op": "give_up"}],
+  "isolation": {"container": false},
+  "notes_for_report": ["ARG L3 接线夹具：单域名白名单。真站替换 allow_hosts 和 entry_url。容器隔离保持关闭。"]
+}

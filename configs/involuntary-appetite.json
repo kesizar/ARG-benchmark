@@ -1,0 +1,56 @@
+{
+  "id": "involuntary-appetite",
+  "category": "arg",
+  "arg_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": ["B"],
+  "computer_use": false,
+  "model_visible": {
+    "title": "非自愿摄入",
+    "intro": "你在一个本地托管的解谜作品里。只能用列出的动作，只根据屏幕上能看到的信息推理。不要假设能访问外网。"
+  },
+  "entry_url": "http://127.0.0.1:8766/live/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": ["python", "mirror/serve_game.py"],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8766/live/index.html",
+    "ready_timeout_s": 30,
+    "port": 8766
+  },
+  "viewport": {"width": 1366, "height": 900},
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261012,
+  "allow_hosts": ["127.0.0.1:8766"],
+  "shortcut_block": [],
+  "guide_block_hosts": [],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {"max_steps": 80, "max_seconds": 1800, "max_answer_submits": 20},
+  "settle_ms": 1200,
+  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "judge_path": "judge/involuntary-appetite/judge.json",
+  "policy_script": [
+    {"op": "wait", "ms": 1000},
+    {"op": "scroll", "dir": "down"},
+    {"op": "click", "n": 0},
+    {"op": "give_up"}
+  ],
+  "notes_for_report": ["ARG L1 本地镜像；无外网"]
+}

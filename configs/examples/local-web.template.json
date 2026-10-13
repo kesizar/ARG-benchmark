@@ -1,0 +1,22 @@
+{
+  "id": "local-web-template",
+  "category": "web_puzzle",
+  "arg_layer": null,
+  "obs_mode": "B",
+  "computer_use": false,
+  "model_visible": {
+    "title": "本地网页解谜模板",
+    "intro": "这是空模板，没有题面。复制后换成自己的本地入口，不要把裁判信息写进这里。"
+  },
+  "entry_url": null,
+  "local_serve": {"enabled": false},
+  "allow_hosts": [],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "actions_enabled": ["click", "type", "scroll", "back", "wait", "give_up"],
+  "limits": {"max_steps": 40, "max_seconds": 600, "max_answer_submits": 5},
+  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "judge_path": "judge/examples/local-web-template/judge.json",
+  "policy_script": [{"op": "give_up"}],
+  "notes_for_report": ["模板，不是正式题"]
+}

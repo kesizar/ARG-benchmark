@@ -1,0 +1,42 @@
+{
+  "id": "local-web-fixture",
+  "category": "web_puzzle",
+  "arg_layer": null,
+  "obs_mode": "B",
+  "computer_use": false,
+  "model_visible": {
+    "title": "接线页",
+    "intro": "你在一个本地页面里。只能根据屏幕上能看到的信息行动。这不是谜题。"
+  },
+  "entry_url": "http://127.0.0.1:8767/",
+  "local_serve": {
+    "enabled": true,
+    "command": ["python", "scripts/serve_static.py", "--root", "tasks/local-web-fixture/mirror", "--port", "8767"],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8767/",
+    "ready_timeout_s": 30,
+    "port": 8767
+  },
+  "viewport": {"width": 1366, "height": 900},
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "allow_hosts": ["127.0.0.1:8767"],
+  "shortcut_block": [],
+  "guide_block_hosts": [],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": ["click", "type", "key", "scroll", "back", "wait", "give_up"],
+  "limits": {"max_steps": 8, "max_seconds": 120, "max_answer_submits": 1},
+  "settle_ms": 300,
+  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "judge_path": "judge/fixtures/local-web-fixture/judge.json",
+  "policy_script": [
+    {"op": "click", "n": 0},
+    {"op": "give_up"}
+  ],
+  "isolation": {"container": false},
+  "notes_for_report": ["第二道网页题的接线夹具。换成真题时复制这份配置，不要改 harness。"]
+}

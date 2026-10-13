@@ -1,5 +1,7 @@
 """Play the local exhibition in a browser.
 
+评测入口在仓库根的 scripts/run_one.py。本文件保留原来的调查循环。
+
 Self-check, no model:
 
     python mirror/harness/run.py --selfcheck

@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "score": {"type": "if_score"},
+    "victory": {"type": "if_victory"},
+    "over": {"type": "if_game_over"}
+  },
+  "checkpoints": [
+    {"id": "scored", "hook": "score", "op": "gte", "value": 1}
+  ],
+  "events": {},
+  "ending": {"hook": "victory", "op": "truthy"},
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}
