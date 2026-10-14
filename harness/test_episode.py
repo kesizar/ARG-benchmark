@@ -9,6 +9,7 @@ from pathlib import Path
 
 from harness.config import load_config
 from harness.loop import run
+from harness.observe import ELEMENTS_JS
 from harness.serve_local import LocalServer
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,6 +38,48 @@ class EpisodeTests(unittest.TestCase):
             if mode == "A":
                 self.assertNotIn("screenshot", last)
         asyncio.run(_blocked_fetch())
+
+    def test_click_targets_include_canvas_and_role_button(self) -> None:
+        elements = asyncio.run(_clickable_kinds())
+        kinds = {item["kind"] for item in elements}
+        labels = {item["label"] for item in elements}
+        self.assertIn("button", kinds)
+        self.assertIn("canvas", kinds)
+        self.assertIn("div", kinds)
+        self.assertIn("确定", labels)
+        self.assertIn("砖", labels)
+        self.assertIn("块", labels)
+        self.assertNotIn("藏起来", labels)
+
+
+async def _clickable_kinds() -> list[dict]:
+    from playwright.async_api import async_playwright
+
+    html = """
+    <div style="position:fixed;inset:0;cursor:pointer;z-index:0"></div>
+    <button style="position:relative;z-index:1">确定</button>
+    <div role="button" style="position:relative;z-index:1;width:48px;height:32px">砖</div>
+    <canvas width="80" height="40" style="position:relative;z-index:1;background:#ccc"></canvas>
+    <div style="position:relative;z-index:1;width:36px;height:36px;cursor:pointer">块</div>
+    <div style="display:none"><button>藏起来</button></div>
+    """
+    async with async_playwright() as playwright:
+        browser = None
+        last_error: Exception | None = None
+        for kwargs in ({"channel": "msedge"}, {"channel": "chrome"}, {}):
+            try:
+                browser = await playwright.chromium.launch(headless=True, **kwargs)
+                break
+            except Exception as exc:  # noqa: BLE001
+                last_error = exc
+        if browser is None:
+            raise RuntimeError(f"没有可用的浏览器: {last_error}")
+        page = await browser.new_page(viewport={"width": 1366, "height": 900})
+        try:
+            await page.set_content(html)
+            return await page.evaluate(ELEMENTS_JS)
+        finally:
+            await browser.close()
 
 
 async def _blocked_fetch() -> None:

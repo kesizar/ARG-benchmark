@@ -81,10 +81,35 @@ ELEMENTS_JS = r"""
     }
     return false;
   }
+  const selector = [
+    "a", "button", "input", "textarea", "select", "summary",
+    "canvas", "label", "[contenteditable='true']", "[onclick]",
+    "[role='button']", "[role='link']", "[role='tab']", "[role='checkbox']",
+    "[role='radio']", "[role='switch']", "[role='menuitem']",
+    "div", "span", "li", "img", "td"
+  ].join(",");
+  const roles = new Set(["button", "link", "tab", "checkbox", "radio", "switch", "menuitem"]);
+  function clickable(node) {
+    if (node.matches("a, button, input, textarea, select, summary, canvas, label, [contenteditable='true'], [onclick]")) return true;
+    const role = (node.getAttribute("role") || "").toLowerCase();
+    if (roles.has(role)) return true;
+    const tag = node.tagName;
+    if (!["DIV", "SPAN", "LI", "IMG", "TD"].includes(tag)) return false;
+    if (node.hasAttribute("onclick")) return true;
+    if (getComputedStyle(node).cursor !== "pointer") return false;
+    const rect = node.getBoundingClientRect();
+    if (rect.width > viewW * 0.7 && rect.height > viewH * 0.7) return false;
+    return true;
+  }
+  const nodes = [];
+  for (const node of document.querySelectorAll(selector)) {
+    if (!clickable(node) || ancestorHidden(node)) continue;
+    nodes.push(node);
+  }
+  const chosen = nodes.filter((node) => !nodes.some((other) => other !== node && node.contains(other)));
   const out = [];
   let n = 0;
-  for (const node of document.querySelectorAll("a, button, input, textarea, select, summary")) {
-    if (ancestorHidden(node)) continue;
+  for (const node of chosen) {
     const rect = node.getBoundingClientRect();
     if (rect.width < 2 || rect.height < 2) continue;
     if (rect.bottom <= 0 || rect.top >= viewH || rect.right <= 0 || rect.left >= viewW) continue;
@@ -93,7 +118,9 @@ ELEMENTS_JS = r"""
     const top = document.elementFromPoint(x, y);
     if (!top || (top !== node && !node.contains(top) && !top.contains(node))) continue;
     const label = (node.innerText || "").replace(/\s+/g, " ").trim().slice(0, 80);
-    out.push({n, kind: node.tagName.toLowerCase(), label, x, y});
+    const role = (node.getAttribute("role") || "").toLowerCase();
+    const kind = roles.has(role) ? role : node.tagName.toLowerCase();
+    out.push({n, kind, label, x, y});
     n += 1;
     if (n >= 80) break;
   }
@@ -134,6 +161,8 @@ def model_view(raw: dict[str, Any], cfg: dict) -> dict[str, Any]:
         obs["elements"] = public_elements(raw.get("elements") or [])
     if cfg.get("obs_screenshot") and raw.get("screenshot"):
         obs["screenshot"] = raw["screenshot"]
+    if raw.get("turn") is not None:
+        obs["turn"] = int(raw["turn"])
     return obs
 
 

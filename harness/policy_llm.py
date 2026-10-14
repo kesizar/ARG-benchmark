@@ -8,7 +8,7 @@ import os
 from pathlib import Path
 
 from harness.actions import parse_model_action
-from harness.prompts import history_message, model_prompt
+from harness.prompts import assistant_message, history_message, model_prompt
 
 
 class LLMPolicy:
@@ -40,13 +40,12 @@ class LLMPolicy:
         messages = [{"role": "system", "content": self.system}]
         if len(prior) > full_k:
             for turn in prior[:-full_k]:
-                messages.append(history_message(turn, full=False, with_image=False))
+                _append_turn(messages, turn, full=False, with_image=False)
         window = prior[-full_k:]
         image_from = max(0, len(window) - shot_k)
         for index, turn in enumerate(window):
-            messages.append(history_message(turn, full=True, with_image=index >= image_from))
-        current = history_message({"obs": obs}, full=True, with_image=True)
-        messages.append(current)
+            _append_turn(messages, turn, full=True, with_image=index >= image_from)
+        messages.append(history_message({"obs": obs}, full=True, with_image=True))
         return messages
 
     def _complete(self, messages: list[dict]) -> tuple[str, dict]:
@@ -90,13 +89,7 @@ class LLMPolicy:
         model = os.environ.get("ANTHROPIC_MODEL") or os.environ.get("OPENAI_MODEL") or "claude-sonnet-4-5"
         if not key:
             raise RuntimeError("缺少 ANTHROPIC_API_KEY。没有密钥时请使用 --policy script。")
-        system = ""
-        converted = []
-        for item in messages:
-            if item["role"] == "system":
-                system = item["content"] if isinstance(item["content"], str) else ""
-                continue
-            converted.append({"role": "user", "content": _anthropic_content(item["content"])})
+        system, converted = to_anthropic_messages(messages)
         response = httpx.post(
             "https://api.anthropic.com/v1/messages",
             headers={
@@ -121,6 +114,25 @@ class LLMPolicy:
             "prompt": int(usage.get("input_tokens") or 0),
             "completion": int(usage.get("output_tokens") or 0),
         }
+
+
+def _append_turn(messages: list[dict], turn: dict, *, full: bool, with_image: bool) -> None:
+    messages.append(history_message(turn, full=full, with_image=with_image))
+    reply = assistant_message(turn)
+    if reply:
+        messages.append(reply)
+
+
+def to_anthropic_messages(messages: list[dict]) -> tuple[str, list[dict]]:
+    system = ""
+    converted = []
+    for item in messages:
+        if item["role"] == "system":
+            system = item["content"] if isinstance(item["content"], str) else ""
+            continue
+        role = "assistant" if item["role"] == "assistant" else "user"
+        converted.append({"role": role, "content": _anthropic_content(item["content"])})
+    return system, converted
 
 
 def _openai_message(message: dict) -> dict:

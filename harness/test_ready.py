@@ -15,7 +15,7 @@ from harness.batch import run_configs
 from harness.config import load_config
 from harness.if_harness import IFHarness
 from harness.loop import run
-from harness.policy_llm import LLMPolicy
+from harness.policy_llm import LLMPolicy, to_anthropic_messages
 from harness.scaffold import scaffold_task
 from harness.serve_local import check_server
 from harness.validate import validate_file
@@ -178,6 +178,16 @@ class ReadyTests(unittest.TestCase):
         short = [item for item in messages if item.get("role") == "user" and "visible_text" not in json.dumps(item)]
         self.assertEqual(len(full), 5)
         self.assertEqual(len(short), 2)
+        past = [item for item in full if "full-" in json.dumps(item)]
+        self.assertTrue(past)
+        self.assertTrue(all('"op": "wait"' in item["content"][0]["text"] for item in past))
+        roles = [item["role"] for item in messages if item["role"] != "system"]
+        self.assertEqual(roles[0], "user")
+        self.assertEqual(roles[-1], "user")
+        self.assertEqual(roles[1:-1:2], ["assistant"] * ((len(roles) - 1) // 2))
+        _system, converted = to_anthropic_messages(messages)
+        converted_roles = [item["role"] for item in converted]
+        self.assertEqual(converted_roles, roles)
 
 
 class _FakeJericho:

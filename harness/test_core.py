@@ -62,6 +62,15 @@ class ObsTests(unittest.TestCase):
         self.assertNotIn("elements", view)
         self.assertIn("screenshot", view)
 
+    def test_if_observation_keeps_turn(self) -> None:
+        cfg = load_config(TASK, obs_mode="A")
+        view = model_view(
+            {"visible_text": "你在一间屋子里。", "turn": 2, "url": "", "tabs": [], "dialogs": [], "pending_dialog": None},
+            cfg,
+        )
+        self.assertEqual(view["turn"], 2)
+        self.assertIn("visible_text", view)
+
     def test_elements_drop_private_fields(self) -> None:
         cleaned = public_elements([{"n": 0, "kind": "a", "label": "A", "x": 1, "y": 2, "href": "secret", "id": "x"}])
         self.assertEqual(set(cleaned[0]), {"n", "kind", "label", "x", "y"})
@@ -191,6 +200,17 @@ class PromptTests(unittest.TestCase):
         source = (ROOT / "harness" / "prompts.py").read_text(encoding="utf-8")
         self.assertNotIn("read_text", source)
         self.assertNotIn("open(", source)
+
+    def test_examples_follow_obs_mode(self) -> None:
+        mode_a = model_prompt(load_config(TASK, obs_mode="A"))
+        mode_c = model_prompt(load_config(TASK, obs_mode="C"))
+        self.assertIn('{"op":"click","n":0}', mode_a)
+        self.assertNotIn('{"op":"click","x":100,"y":200}', mode_a)
+        self.assertIn('{"op":"click","x":100,"y":200}', mode_c)
+        self.assertNotIn('{"op":"click","n":0}', mode_c)
+        story = model_prompt(load_config(ROOT / "configs" / "examples" / "text-adventure.template.json"))
+        self.assertIn('{"op":"type","text":"look","enter":true}', story)
+        self.assertNotIn('{"op":"click"', story)
 
     def test_missing_judge_still_finishes(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
