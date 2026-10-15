@@ -9,7 +9,7 @@ import unittest
 from pathlib import Path
 
 from harness.actions import last_json_object, normalize
-from harness.config import apply_obs_mode, load_config
+from harness.config import apply_defaults, apply_obs_mode, load_config
 from harness.if_harness import IFHarness
 from harness.judge import Judge, answer_sha256
 from harness.loop import run
@@ -70,6 +70,26 @@ class ObsTests(unittest.TestCase):
         )
         self.assertEqual(view["turn"], 2)
         self.assertIn("visible_text", view)
+
+    def test_notebook_is_on_by_default_and_visible_in_every_mode(self) -> None:
+        self.assertIn("note", load_config(TASK)["actions_enabled"])
+        raw = {
+            "visible_text": "画面",
+            "notebook": "门口的数字是 4815",
+            "url": "http://x",
+            "screenshot": "a.png",
+            "tabs": [],
+            "dialogs": [],
+            "pending_dialog": None,
+        }
+        for mode in ("A", "B", "C"):
+            view = model_view(raw, load_config(TASK, obs_mode=mode))
+            self.assertEqual(view["notebook"], "门口的数字是 4815")
+        disabled = {"category": "static", "arg_layer": None, "actions_enabled": ["give_up", "note"], "notebook": {"enabled": False}}
+        apply_defaults(disabled)
+        self.assertNotIn("note", disabled["actions_enabled"])
+        hidden = model_view(raw, disabled)
+        self.assertNotIn("notebook", hidden)
 
     def test_elements_drop_private_fields(self) -> None:
         cleaned = public_elements([{"n": 0, "kind": "a", "label": "A", "x": 1, "y": 2, "href": "secret", "id": "x"}])
@@ -211,6 +231,9 @@ class PromptTests(unittest.TestCase):
         story = model_prompt(load_config(ROOT / "configs" / "examples" / "text-adventure.template.json"))
         self.assertIn('{"op":"type","text":"look","enter":true}', story)
         self.assertNotIn('{"op":"click"', story)
+        self.assertIn("你有一本笔记", mode_a)
+        self.assertNotIn("进度", mode_a)
+        self.assertNotIn("规划", mode_a)
 
     def test_missing_judge_still_finishes(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -323,6 +346,21 @@ class IFTests(unittest.TestCase):
         self.assertEqual(saved, "该动作在本评测中禁用")
         self.assertEqual(moved, "ok")
         self.assertEqual(harness.if_status()["score"], 3)
+
+
+class TranscriptStatusTests(unittest.TestCase):
+    def test_score_layouts_from_dfrotz(self) -> None:
+        from harness.if_harness import read_transcript_status
+
+        labeled = read_transcript_status("   Outside                                                     Score: 0\n")
+        paired = read_transcript_status("   Computer Site                                               3/2\n")
+        clock = read_transcript_status("   Bedroom                                        Time:  9:05 am\n")
+        won = read_transcript_status("The end.\n*** You have won ***\n")
+        self.assertEqual(labeled["score"], 0)
+        self.assertEqual(paired["score"], 3)
+        self.assertIsNone(clock["score"])
+        self.assertTrue(won["victory"])
+        self.assertTrue(won["game_over"])
 
 
 class ReportTests(unittest.TestCase):

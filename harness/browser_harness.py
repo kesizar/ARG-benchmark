@@ -356,8 +356,9 @@ def _seed_script(seed: int) -> str:
 """
 
 
-def pack_observation(raw: dict, cfg: dict, *, last_result: str, budget: dict) -> dict:
+def pack_observation(raw: dict, cfg: dict, *, last_result: str, budget: dict, notebook: str = "") -> dict:
     raw = dict(raw)
     raw["last_result"] = last_result
     raw["budget"] = budget
+    raw["notebook"] = notebook
     return model_view(raw, cfg)

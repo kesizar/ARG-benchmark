@@ -4,8 +4,14 @@ from __future__ import annotations
 
 import sys
 
+print("***MORE***", flush=True)
+sys.stdin.readline()
 print("Room.", flush=True)
+print("   Place                                               4/1", flush=True)
 print(">", flush=True)
 for line in sys.stdin:
-    print(line.strip(), flush=True)
+    command = line.strip()
+    print(command, flush=True)
+    if command == "look":
+        print("Score: 2", flush=True)
     print(">", flush=True)

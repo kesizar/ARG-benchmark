@@ -1,0 +1,107 @@
+/* ====== 全局 ====== */
+body {
+  margin: 0;
+ font-family: 'Noto Serif SC', 'Noto Sans SC', serif;
+  background: linear-gradient(
+    180deg,
+    #b08fa5 0%,     /* 顶部：夜色粉紫灰 */
+    #dba9be 25%,    /* 破晓粉 */
+    #f6d8e5 65%,    /* 晨光粉白 */
+    #fff4f8 100%    /* 最亮：黎明光 */
+  );
+  color: #4d3c46;
+}
+
+/* ====== 内容外层 ====== */
+.story-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 0 160px;
+}
+
+/* ====== 主要文本卡片 ====== */
+.story-container {
+  width: 90%;
+  max-width: 800px;
+  background: rgba(255, 250, 255, 0.82);
+  border: 1px solid #e7cfe1;
+  box-shadow:
+    0 0 30px rgba(255, 180, 220, 0.35),
+    0 0 80px rgba(255, 200, 240, 0.25);
+  border-radius: 14px;
+  padding: 60px 60px 80px;
+  backdrop-filter: blur(10px);
+}
+
+/* ====== 标题 ====== */
+.story-content h1 {
+  text-align: center;
+  color: #a84b7b;
+  font-size: 26px;
+  margin-bottom: 25px;
+  text-shadow:
+    0 0 15px rgba(200,100,150,0.5),
+    0 0 25px rgba(255,180,210,0.4);
+}
+
+/* ====== 正文 ====== */
+.story-content p {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #5c4c58;
+  text-align: justify;
+  text-shadow: 0 0 6px rgba(200, 150, 180, 0.1);
+}
+
+/* ====== “……了吗？” 淡入 ====== */
+.fade-text {
+  text-align: center;
+  margin-top: 120px;
+  font-size: 20px;
+  color: #a84b7b;
+  opacity: 0;
+  transition: opacity 2s ease;
+  text-shadow: 0 0 10px rgba(255,150,200,0.4);
+}
+.fade-text.show {
+  opacity: 1;
+}
+
+/* ====== 白幕淡入 ====== */
+.fade-screen {
+  position: fixed;
+  inset: 0;
+  background: #fffafc;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 3s ease;
+  z-index: 10;
+}
+.fade-screen.show {
+  opacity: 1;
+}
+
+/* ====== 最终感谢文字 ====== */
+.final-thanks {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #6a5160 !important;  /* 强制深灰紫 */
+  text-shadow: 0 0 12px rgba(150,120,140,0.5);
+  opacity: 0;
+  z-index: 9999;   /* 确保在最上层 */
+  line-height: 2;
+  transition: opacity 3s ease, transform 3s ease;
+  transform: translateY(10px);
+}
+
+.final-thanks.show {
+  opacity: 1;
+  transform: translateY(0);
+}

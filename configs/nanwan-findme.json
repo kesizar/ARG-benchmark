@@ -1,0 +1,44 @@
+{
+  "id": "nanwan-findme",
+  "category": "web_puzzle",
+  "arg_layer": null,
+  "obs_mode": "B",
+  "obs_modes_to_run": ["B"],
+  "computer_use": false,
+  "model_visible": {
+    "title": "南湾一中：找到我",
+    "intro": "你在一个本地托管的网页解谜里。只能用列出的动作，只根据屏幕上能看到的信息推理。不要假设能访问外网。"
+  },
+  "entry_url": "http://127.0.0.1:8771/lead.html",
+  "local_serve": {
+    "enabled": true,
+    "command": ["python", "scripts/serve_static.py", "--root", "tasks/nanwan-findme/mirror", "--port", "8771"],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8771/lead.html",
+    "ready_timeout_s": 30,
+    "port": 8771
+  },
+  "viewport": {"width": 1366, "height": 900},
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261012,
+  "allow_hosts": ["127.0.0.1:8771"],
+  "shortcut_block": [],
+  "guide_block_hosts": [],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": ["click", "dblclick", "type", "key", "scroll", "drag", "back", "wait", "dialog", "give_up"],
+  "limits": {"max_steps": 80, "max_seconds": 1800, "max_answer_submits": 20},
+  "settle_ms": 400,
+  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "judge_path": "judge/nanwan-findme/judge.json",
+  "policy_script": [
+    {"op": "click", "n": 0},
+    {"op": "give_up"}
+  ],
+  "isolation": {"container": false},
+  "notes_for_report": ["网页解谜本地镜像。页码在画面上，裁判只记是否进入校园页以及页码是否出现。"]
+}

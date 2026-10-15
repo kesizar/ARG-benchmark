@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F5SSDGO5CT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-F5SSDGO5CT');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESCAPE THE WEBSITE — An Interactive Web Escape Game</title>
+  <meta name="description" content="ESCAPE THE WEBSITE is a cinematic interactive puzzle game. Explore a mysterious digital world, solve three hidden challenges, recover the keys, and escape.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#020408">
+  <meta name="google-site-verification" content="IHLIzwNtl0F5s1oQw2sBVoUtSdA8Ous8xC7bWpfHl-s" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://muhammedrinshad210.github.io/escape-the-website/">
+
+  <!-- Favicon Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ESCAPE THE WEBSITE">
+  <meta property="og:title" content="ESCAPE THE WEBSITE — An Interactive Web Escape Game">
+  <meta property="og:description" content="ESCAPE THE WEBSITE is a cinematic interactive puzzle game. Explore a mysterious digital world, solve three hidden challenges, recover the keys, and escape.">
+  <meta property="og:url" content="https://muhammedrinshad210.github.io/escape-the-website/">
+  <meta property="og:image" content="https://muhammedrinshad210.github.io/escape-the-website/assets/images/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ESCAPE THE WEBSITE - Cinematic Interactive Escape Game Preview">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ESCAPE THE WEBSITE — An Interactive Web Escape Game">
+  <meta name="twitter:description" content="ESCAPE THE WEBSITE is a cinematic interactive puzzle game. Explore a mysterious digital world, solve three hidden challenges, recover the keys, and escape.">
+  <meta name="twitter:image" content="https://muhammedrinshad210.github.io/escape-the-website/assets/images/og-preview.png">
+  <meta name="twitter:image:alt" content="ESCAPE THE WEBSITE - Cinematic Interactive Escape Game Preview">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ESCAPE THE WEBSITE",
+    "url": "https://muhammedrinshad210.github.io/escape-the-website/",
+    "description": "ESCAPE THE WEBSITE is a cinematic interactive puzzle game. Explore a mysterious digital world, solve three hidden challenges, recover the keys, and escape.",
+    "inLanguage": "en"
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="vendor/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Project Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Custom Ambient Cursor Elements (Desktop only) -->
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+  <div class="custom-cursor-ring" id="cursor-ring"></div>
+
+  <!-- Background Particle & Atmosphere Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+  <div class="ambient-vignette"></div>
+  <div class="scanline-overlay"></div>
+
+  <!-- Fullscreen Cinematic Intro -->
+  <section id="intro-screen">
+    <div class="intro-content">
+      <div class="intro-eyebrow" id="intro-eyebrow">
+        // SYSTEM ALERT &bull; ANOMALY DETECTED
+      </div>
+      
+      <h1 class="intro-title glitch-subtle" id="intro-title">
+        YOU ARE TRAPPED<br>INSIDE THIS WEBSITE.
+      </h1>
+
+      <p class="intro-subtitle" id="intro-subtitle">
+        There are <span class="key-highlight">3 keys</span> hidden somewhere inside.
+      </p>
+
+      <div class="intro-cta-wrapper" id="intro-cta">
+        <button type="button" id="btn-enter" class="btn-enter-website">
+          <span>ENTER THE WEBSITE</span>
+          <div class="btn-glow-pulse"></div>
+        </button>
+      </div>
+
+      <!-- Accessible Semantic Crawler Summary -->
+      <div class="visually-hidden">
+        <h2>About ESCAPE THE WEBSITE</h2>
+        <p>ESCAPE THE WEBSITE is an interactive cinematic digital escape game. Explore a mysterious digital environment, solve three hidden challenges, recover the cipher keys, and escape through the central security barrier.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Post-Intro Game World Container -->
+  <main id="game-world" aria-hidden="true">
+    
+    <!-- Minimal Game HUD -->
+    <header class="game-hud" id="main-game-hud">
+      <div class="hud-location">
+        <span class="hud-room-badge" id="hud-room-badge">ROOM 01</span>
+        <span class="hud-room-name" id="hud-room-name">THE LOBBY</span>
+      </div>
+
+      <div class="hud-meta-group">
+        <div class="hud-all-keys-banner d-none" id="hud-all-keys-banner">
+          &bull; ALL 3 ACCESS KEYS RECOVERED &bull;
+        </div>
+
+        <div class="hud-keys-panel" title="Keys Collected">
+          <span class="hud-keys-label">KEYS</span>
+          <div class="key-slots">
+            <span class="key-slot-icon" id="key-slot-1"></span>
+            <span class="key-slot-icon" id="key-slot-2"></span>
+            <span class="key-slot-icon" id="key-slot-3"></span>
+          </div>
+          <span class="hud-keys-counter" id="hud-keys-counter">0 / 3</span>
+        </div>
+
+        <button type="button" id="btn-toggle-audio" class="hud-audio-btn" title="Toggle Sound Subsystem">
+          SOUND <span id="audio-status-label">ON</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Escape Sequence Overlay Banner -->
+    <div id="escape-sequence-banner">
+      <div class="escape-banner-eyebrow" id="escape-banner-eyebrow">// ESCAPE PROTOCOL INITIATED</div>
+      <h2 class="escape-banner-title" id="escape-banner-title">ALL 3 ACCESS KEYS VERIFIED</h2>
+    </div>
+
+    <!-- ROOM 01: The Lobby -->
+    <section class="room-stage" id="stage-lobby">
+      
+      <!-- Background Architecture Layer -->
+      <div class="parallax-layer layer-background" id="layer-bg">
+        <div class="arch-perspective-grid"></div>
+        <div class="arch-conduit-strip"></div>
+        <div class="arch-pillar-left"></div>
+        <div class="arch-pillar-right"></div>
+      </div>
+
+      <!-- Midground Interactive Objects Layer -->
+      <div class="parallax-layer layer-midground" id="layer-mg">
+        <div class="lobby-composition-grid" id="lobby-grid">
+
+          <!-- 1. Central Locked Blast Door & Escape Gateway -->
+          <div class="interactive-node node-locked-door" id="node-door" role="button" tabindex="0" aria-label="Central Blast Portal Gateway">
+            <div class="node-header">
+              <span class="node-title" id="door-node-title">SECURITY BARRIER</span>
+              <span class="node-status-indicator red" id="door-status-indicator"></span>
+            </div>
+            <div class="door-portal-visual" id="door-portal-visual">
+              
+              <!-- 3 Mechanical Sequential Lock Clamps -->
+              <div class="door-lock-clamps">
+                <div class="lock-clamp-indicator" id="lock-clamp-1" title="Lock Relay 01"></div>
+                <div class="lock-clamp-indicator" id="lock-clamp-2" title="Lock Relay 02"></div>
+                <div class="lock-clamp-indicator" id="lock-clamp-3" title="Lock Relay 03"></div>
+              </div>
+
+              <div class="door-frame-outer" id="door-frame-outer">
+                <div class="door-radiant-aperture" id="door-radiant-aperture"></div>
+                <div class="door-panel-left" id="door-panel-left"></div>
+                <div class="door-panel-right" id="door-panel-right"></div>
+
+                <div class="door-lock-ring" id="door-lock-ring">
+                  <div class="door-lock-core" id="door-lock-core">
+                    <span class="door-lock-icon" id="door-lock-icon">✕</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="door-access-label" id="door-access-label">ACCESS LEVEL: UNKNOWN</div>
+              <div class="door-access-sub" id="door-access-sub">// SEALED BY PROTOCOL</div>
+            </div>
+          </div>
+
+          <!-- 2. Mainframe Terminal (KEY 02 - Terminal Investigation Puzzle) -->
+          <div class="interactive-node node-terminal" id="node-terminal" role="button" tabindex="0" aria-label="Access Mainframe Terminal">
+            <div class="node-header">
+              <span class="node-title">TERMINAL // 0x7F</span>
+              <span class="node-status-indicator active" id="terminal-obj-indicator"></span>
+            </div>
+            <div class="terminal-screen-preview">
+              <div class="terminal-code-line text-muted">&gt; sys.auth_daemon --chk</div>
+              <div class="terminal-code-line text-warning" id="terminal-preview-status">&gt; [!] ACCESS RESTRICTED</div>
+              <div class="terminal-code-line">
+                <span class="text-info">&gt; prompt:</span>
+                <span class="terminal-prompt-cursor"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Strange Object (KEY 01 - The Harmonic Resonator) -->
+          <div class="interactive-node node-strange-object" id="node-strange-object" role="button" tabindex="0" aria-label="Investigate Harmonic Resonator">
+            <div class="node-header">
+              <span class="node-title">ANOMALY // RESONATOR</span>
+              <span class="node-status-indicator amber" id="resonator-obj-indicator"></span>
+            </div>
+            <div class="strange-object-preview">
+              <div class="crystal-matrix-icon">
+                <span class="crystal-glyph-inner" id="resonator-glyph-core">◈</span>
+              </div>
+              <div class="strange-object-hint" id="resonator-obj-hint">// DORMANT FLUX DETECTED</div>
+            </div>
+          </div>
+
+          <!-- 4. Arcade / Simulation Machine (KEY 03 - System Defense) -->
+          <div class="interactive-node node-arcade" id="node-arcade" role="button" tabindex="0" aria-label="Engage Defense Arcade Console">
+            <div class="node-header">
+              <span class="node-title">DEFENSE CONSOLE</span>
+              <span class="node-status-indicator amber" id="arcade-obj-indicator"></span>
+            </div>
+            <div class="arcade-screen-preview">
+              <div class="arcade-marquee" id="arcade-preview-marquee">SYSTEM DEFENSE</div>
+              <div class="arcade-crt-frame" id="arcade-preview-frame">
+                <div class="arcade-power-icon" id="arcade-preview-icon">⚡</div>
+                <div class="arcade-status-tag" id="arcade-preview-tag">STATUS: READY</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ROOM 02: THE OBSERVATION CHAMBER (SECRET SECTOR 02) -->
+    <section class="room-stage" id="stage-sector02" aria-hidden="true">
+      <button type="button" class="btn-leave-sector02" id="btn-leave-sector02">
+        &larr; RETURN TO LOBBY
+      </button>
+
+      <div class="sector02-grid">
+        
+        <!-- 1. Large Observation Window -->
+        <div class="obs-window-card" id="obs-window-card" role="button" tabindex="0" aria-label="Inspect Observation Glass">
+          <div class="node-header">
+            <span class="node-title text-info">// OBSERVATION WINDOW // 0x00</span>
+            <span class="node-status-indicator violet"></span>
+          </div>
+          <div class="obs-feed-viewport">
+            <div class="obs-feed-scanlines"></div>
+            <div class="obs-feed-lobby-silhouette">
+              <div class="obs-ghost-figure">👤</div>
+              <div class="obs-feed-caption">[FEED: ROOM 01 &bull; SUBJECT PRESENT AT TERMINAL]</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Corrupted Surveillance Monitor -->
+        <div class="obs-monitor-card" id="obs-monitor-card" role="button" tabindex="0" aria-label="Inspect Surveillance Monitor">
+          <div class="obs-monitor-title">// OBSERVATION RECORD // CORRUPTED</div>
+          <div class="obs-monitor-content">
+            <div>&gt; SESSION: 0x88F</div>
+            <div>&gt; SUBJECT: PLAYER</div>
+            <div>&gt; CURRENT RUN: CONTINUOUS</div>
+            <div>&gt; EXIT STATUS: <span class="text-danger fw-bold">SIMULATED</span></div>
+            <div class="text-muted mt-2">// Click to inspect archive details</div>
+          </div>
+        </div>
+
+        <!-- 3. Secondary Terminal (Sector 02 Terminal) -->
+        <div class="obs-terminal-card" id="obs-terminal-card">
+          <div class="obs-terminal-title">// SECTOR 02 CONSOLE</div>
+          <div class="obs-terminal-stream" id="obs-terminal-stream">
+<div class="text-muted">&gt; SECTOR 02 ARCHIVE ONLINE</div>
+<div class="text-info">&gt; Available commands: TRACE, WATCH, ORIGIN, EXIT</div>
+          </div>
+          <div class="obs-terminal-input-bar">
+            <span class="text-info font-monospace small">&gt;</span>
+            <input type="text" id="obs-input" class="obs-input-field" placeholder="Enter command..." autocomplete="off" spellcheck="false" aria-label="Observation Terminal Input">
+          </div>
+          <div class="obs-quick-chips">
+            <button type="button" class="obs-chip" data-cmd="TRACE">TRACE</button>
+            <button type="button" class="obs-chip" data-cmd="WATCH">WATCH</button>
+            <button type="button" class="obs-chip" data-cmd="ORIGIN">ORIGIN</button>
+            <button type="button" class="obs-chip text-danger" data-cmd="EXIT">EXIT</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- The Secret Reveal Overlay Stage ("YOU THOUGHT YOU ESCAPED?") -->
+  <div id="obs-reveal-stage" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="reveal-content-box">
+      <div class="reveal-log-line" id="reveal-line-1">// CONNECTION STATUS: ACTIVE</div>
+      <div class="reveal-log-line" id="reveal-line-2">// EXIT STATUS: SIMULATED</div>
+      <div class="reveal-log-line" id="reveal-line-3">...</div>
+      
+      <h2 class="reveal-main-title" id="reveal-main-title">
+        YOU THOUGHT YOU ESCAPED?
+      </h2>
+
+      <p class="reveal-sub-quote" id="reveal-sub-quote">
+        "Every exit in this place leads somewhere. Sometimes back to the beginning."
+      </p>
+
+      <div class="d-flex justify-content-center gap-3">
+        <button type="button" class="btn btn-outline-info font-monospace px-4 py-2" id="btn-reveal-return-lobby">
+          RETURN TO CHAMBER
+        </button>
+        <button type="button" class="btn-claim-key" id="btn-reveal-play-again">
+          RESTART RECURSION
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- White Washout Transition Layer -->
+  <div id="escape-white-wash"></div>
+
+  <!-- Final Fullscreen Escape Results Screen -->
+  <section id="escape-result-screen" aria-hidden="true">
+    <div class="result-content-wrapper">
+      <div class="result-eyebrow" id="result-eyebrow">
+        // CONNECTION TERMINATED &bull; SYSTEM OFFLINE
+      </div>
+
+      <h1 class="result-title" id="result-main-title">
+        YOU ESCAPED.
+      </h1>
+
+      <div class="result-stats-card">
+        <div class="result-stat-grid">
+          <div class="result-stat-box">
+            <span class="result-stat-label">TIME</span>
+            <span class="result-stat-value" id="stat-time">00:00</span>
+          </div>
+          <div class="result-stat-box">
+            <span class="result-stat-label">SCORE</span>
+            <span class="result-stat-value cyan" id="stat-score">900</span>
+          </div>
+          <div class="result-stat-box">
+            <span class="result-stat-label">KEYS</span>
+            <span class="result-stat-value" id="stat-keys">3 / 3</span>
+          </div>
+          <div class="result-stat-box">
+            <span class="result-stat-label">ARCADE BEST</span>
+            <span class="result-stat-value amber" id="stat-arcade">0000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-actions-group">
+        <button type="button" class="btn-play-again" id="btn-play-again">
+          PLAY AGAIN
+        </button>
+        <button type="button" class="btn-share-score" id="btn-share-score">
+          SHARE MY SCORE
+        </button>
+        <button type="button" class="btn-explore-secret" id="btn-explore-secret" title="Sector 02">
+          EXPLORE SECRET
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Share Toast Feedback -->
+  <div id="escape-toast">RESULT COPIED TO CLIPBOARD</div>
+
+  <!-- KEY 03: Arcade System Defense Modal -->
+  <div id="arcade-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="arcade-arena-card" id="arcade-card">
+      <div class="arcade-arena-header">
+        <div class="arcade-arena-title-group">
+          <span class="arcade-arena-title">// SYSTEM DEFENSE // MATRIX</span>
+          <span class="arcade-best-badge" id="arcade-best-badge">BEST: 0000</span>
+        </div>
+        <button type="button" class="btn-close-modal" id="btn-arcade-close" aria-label="Close Arcade">✕ ESC</button>
+      </div>
+
+      <div class="arcade-hud-bar">
+        <div class="arcade-stat-item">
+          <span class="arcade-stat-label">SCORE:</span>
+          <span class="arcade-stat-val amber" id="arcade-score-val">0000</span>
+        </div>
+        <div class="arcade-stat-item">
+          <span class="arcade-stat-label">TIME:</span>
+          <span class="arcade-stat-val" id="arcade-time-val">20s</span>
+        </div>
+        <div class="arcade-stat-item">
+          <span class="arcade-stat-label">COMBO:</span>
+          <span class="arcade-stat-val emerald" id="arcade-combo-val">x1</span>
+        </div>
+        <div class="arcade-stat-item">
+          <span class="arcade-stat-label">TARGETS:</span>
+          <span class="arcade-stat-val" id="arcade-targets-val">0</span>
+        </div>
+      </div>
+
+      <div class="arcade-playfield" id="arcade-playfield">
+        <div class="arcade-grid-mesh"></div>
+        <div class="arcade-countdown-overlay" id="arcade-countdown-overlay">
+          <div class="countdown-number" id="countdown-num">3</div>
+          <div class="countdown-subtext" id="countdown-sub">CALIBRATING TARGETING GRID...</div>
+        </div>
+
+        <div class="arcade-summary-stage" id="arcade-summary-stage">
+          <h3 class="h4 fw-bold text-light mb-2 font-monospace" id="summary-status-title">SYSTEM DEFENSE COMPLETE</h3>
+          <p class="text-secondary small mb-3" id="summary-status-sub">Simulation evaluation finished.</p>
+
+          <div class="arcade-summary-card">
+            <div class="summary-stat-row">
+              <span class="text-secondary">FINAL SCORE:</span>
+              <span class="text-warning fw-bold" id="summary-final-score">0</span>
+            </div>
+            <div class="summary-stat-row">
+              <span class="text-secondary">TARGETS DESTROYED:</span>
+              <span class="text-light" id="summary-targets-destroyed">0</span>
+            </div>
+            <div class="summary-stat-row">
+              <span class="text-secondary">MAX COMBO:</span>
+              <span class="text-success fw-bold" id="summary-max-combo">x1</span>
+            </div>
+            <div class="summary-stat-row">
+              <span class="text-secondary">ALL-TIME BEST:</span>
+              <span class="text-info fw-bold" id="summary-best-score">0</span>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center gap-3">
+            <button type="button" class="btn-claim-key d-none" id="btn-claim-key-3">
+              CLAIM KEY 03 &bull; +300 PTS
+            </button>
+            <button type="button" class="btn btn-outline-info font-monospace px-4 py-2" id="btn-arcade-retry">
+              RETRY SIMULATION
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY 02: Mainframe CRT Terminal Modal -->
+  <div id="terminal-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="terminal-bezel-card" id="terminal-card">
+      <div class="terminal-top-bezel">
+        <div class="terminal-bezel-title">
+          <span class="term-led-indicator" id="term-led-indicator"></span>
+          <span>MAINFRAME TERMINAL // 0x7F</span>
+        </div>
+        <button type="button" class="btn-close-modal" id="btn-term-close" aria-label="Close Terminal">✕ ESC</button>
+      </div>
+
+      <div class="terminal-crt-screen">
+        <div class="terminal-crt-scanlines"></div>
+        <div class="terminal-output-stream" id="term-output-stream"></div>
+        <div class="terminal-input-bar">
+          <span class="terminal-prompt-tag">0x7F:&gt;</span>
+          <input type="text" id="term-input" class="terminal-input-field" placeholder="Type HELP for available commands..." autocomplete="off" spellcheck="false" aria-label="Terminal Command Input">
+          <button type="button" id="btn-term-send" class="btn-term-send">EXEC</button>
+        </div>
+      </div>
+
+      <div class="terminal-quick-chips">
+        <button type="button" class="term-chip" data-cmd="HELP">HELP</button>
+        <button type="button" class="term-chip" data-cmd="STATUS">STATUS</button>
+        <button type="button" class="term-chip" data-cmd="LOGS">LOGS</button>
+        <button type="button" class="term-chip" data-cmd="SCAN">SCAN</button>
+        <button type="button" class="term-chip" data-cmd="TRACE">TRACE</button>
+        <button type="button" class="term-chip" data-cmd="CLEAR">CLEAR</button>
+      </div>
+
+      <div class="terminal-key-extract-stage" id="term-key-extract-stage">
+        <div class="key-radiant-core"><span class="key-radiant-icon">⚷</span></div>
+        <h3 class="key-extract-title">KEY 02 RECOVERED</h3>
+        <p class="key-extract-sub">
+          Security protocol disabled. The mainframe access cipher has been decrypted and secured.
+        </p>
+        <button type="button" class="btn-claim-key" id="btn-claim-key-2">
+          CLAIM CIPHER KEY &bull; +300 PTS
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY 01: Specialized Harmonic Resonator Puzzle Modal -->
+  <div id="resonator-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="resonator-chamber-card" id="resonator-card">
+      <div class="resonator-header">
+        <div class="resonator-title-group">
+          <span class="resonator-title">// RESONANCE ARRAY</span>
+          <span class="resonator-status-badge" id="res-status-badge">STATUS: UNCALIBRATED</span>
+        </div>
+        <button type="button" class="btn-close-modal" id="btn-res-close" aria-label="Close Resonator">✕ ESC</button>
+      </div>
+
+      <div class="resonator-telemetry-panel">
+        <div class="telemetry-protocol-header">// HARMONIZATION PROTOCOL ACTIVE</div>
+        <div class="telemetry-clue-text" id="res-clue-text">
+          Telemetry signature: Harmonize nodes in order of <span class="text-info fw-bold">ascending harmonic frequency</span> (Phase I &rarr; IV).
+        </div>
+        <div class="telemetry-input-stream">
+          <span class="stream-label">SEQUENCE STREAM:</span>
+          <span class="stream-value" id="res-stream-display">WAITING FOR INPUT...</span>
+        </div>
+        <div class="res-hint-box d-none" id="res-hint-box"></div>
+      </div>
+
+      <div class="resonator-nodes-grid" id="res-nodes-grid">
+        <button type="button" class="resonance-node-card" data-node-id="01" aria-label="Resonance Node 01: 28.4 Gigahertz, Phase 2">
+          <div class="node-glyph-orb"><span class="node-glyph-char">Φ</span></div>
+          <div class="node-card-id">NODE 01</div>
+          <div class="node-card-freq">28.4 GHz</div>
+          <div class="node-card-phase">PHASE II</div>
+        </button>
+
+        <button type="button" class="resonance-node-card" data-node-id="02" aria-label="Resonance Node 02: 56.8 Gigahertz, Phase 4">
+          <div class="node-glyph-orb"><span class="node-glyph-char">Ω</span></div>
+          <div class="node-card-id">NODE 02</div>
+          <div class="node-card-freq">56.8 GHz</div>
+          <div class="node-card-phase">PHASE IV</div>
+        </button>
+
+        <button type="button" class="resonance-node-card" data-node-id="03" aria-label="Resonance Node 03: 14.2 Gigahertz, Phase 1">
+          <div class="node-glyph-orb"><span class="node-glyph-char">Ψ</span></div>
+          <div class="node-card-id">NODE 03</div>
+          <div class="node-card-freq">14.2 GHz</div>
+          <div class="node-card-phase">PHASE I</div>
+        </button>
+
+        <button type="button" class="resonance-node-card" data-node-id="04" aria-label="Resonance Node 04: 42.6 Gigahertz, Phase 3">
+          <div class="node-glyph-orb"><span class="node-glyph-char">Δ</span></div>
+          <div class="node-card-id">NODE 04</div>
+          <div class="node-card-freq">42.6 GHz</div>
+          <div class="node-card-phase">PHASE III</div>
+        </button>
+      </div>
+
+      <div class="key-extraction-stage" id="key-extract-stage">
+        <div class="key-radiant-core"><span class="key-radiant-icon">⚷</span></div>
+        <h3 class="key-extract-title">KEY 01 RECOVERED</h3>
+        <p class="key-extract-sub">
+          Harmonic resonance stabilized. The first master decryption cipher has been extracted into your inventory.
+        </p>
+        <button type="button" class="btn-claim-key" id="btn-claim-key">
+          CLAIM CIPHER KEY &bull; +300 PTS
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inspection Diagnostic Overlay for other objects -->
+  <div id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="cyber-modal-card" id="modal-card">
+      <div class="modal-cyber-header">
+        <span class="modal-cyber-title" id="modal-title">// SYSTEM NOTICE</span>
+        <button type="button" class="btn-close-modal" id="btn-modal-close" aria-label="Close modal">✕ ESC</button>
+      </div>
+      <div class="modal-cyber-body">
+        <div id="modal-content-body"></div>
+        <div class="modal-diag-log" id="modal-diag-log"></div>
+      </div>
+      <div class="modal-cyber-footer">
+        <button type="button" class="btn btn-sm btn-outline-secondary font-monospace" id="btn-modal-action">
+          DISMISS
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- External Libraries -->
+  <script src="vendor/bootstrap.bundle.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+
+  <!-- Game Modules -->
+  <script src="js/analytics.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/puzzles.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

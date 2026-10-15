@@ -1,0 +1,129 @@
+/* 页面整体字体 */
+body {
+  font-family: "Noto Sans SC", sans-serif;
+  margin: 40px;
+  background-color: #fff8f0; /* 温馨黄色背景 */
+  color: #333;
+}
+
+
+/* Tabs 样式 */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #fff3e0;
+  border: 1px solid #f4c27d;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  background-color: #f7b27b;
+  color: #fff;
+  border-color: #f5985e;
+}
+
+/* 加密邮箱 tab 血色闪烁动画 */
+.tab.flash-red {
+  background-color: #8B0000;
+  color: #fff;
+  border-color: #FF0000;
+  animation: flash 1s infinite alternate;
+}
+
+@keyframes flash {
+  0% { box-shadow: 0 0 5px #FF0000; }
+  50% { box-shadow: 0 0 15px #FF4500; }
+  100% { box-shadow: 0 0 5px #FF0000; }
+}
+
+/* 内容区域 */
+.content {
+  display: none;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #f4c27d;
+  background-color: #fff7f0;
+}
+
+.content.active {
+  display: block;
+}
+
+/* 表格样式 */
+.order-list {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.order-list th, .order-list td {
+  border: 1px solid #f4c27d;
+  padding: 10px;
+  text-align: left;
+}
+
+.order-list th {
+  background-color: #f7b27b;
+  color: #fff;
+}
+
+.order-list tbody tr:nth-child(even) {
+  background-color: #fff3e0;
+}
+
+/* 列宽 */
+.order-list th.time, .order-list td.time {
+  width: 200px;
+}
+.order-list th.what, .order-list td.what {
+  width: auto;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #fff3e0;
+  border: 1px solid #f4c27d;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.tab.active {
+  background-color: #f7b27b;
+  color: #fff;
+  border-color: #f5985e;
+}
+
+.tab:hover {
+  background-color: #f5985e;
+  color: #fff;
+}
+
+/* 伪 tab 链接 */
+.tab-link {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 悬停伪 tab 链接时效果 */
+.tab-link:hover {
+  background-color: #f5985e;
+  color: #fff;
+}

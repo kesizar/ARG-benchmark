@@ -1,0 +1,94 @@
+body {
+  font-family: "Noto Sans SC", sans-serif;
+  margin: 40px;
+  background-color: #fff8f0; /* 淡暖色背景 */
+  color: #333;
+}
+
+
+/* tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #fff3e0;
+  border: 1px solid #f4c27d;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  background-color: #f7b27b;
+  color: #fff;
+  border-color: #f5985e;
+}
+
+/* 内容区域 */
+.content {
+  display: none;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #f4c27d;
+  background-color: #fff7f0;
+}
+
+.content.active {
+  display: block;
+}
+
+/* 表格美化 */
+.order-list {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.order-list th, .order-list td {
+  border: 1px solid #f4c27d;
+  padding: 10px;
+  text-align: left;
+}
+
+.order-list th {
+  background-color: #f7b27b;
+  color: #fff;
+}
+
+.order-list tbody tr:nth-child(even) {
+  background-color: #fff3e0;
+}
+
+/* 下载链接 */
+.download-link {
+  color: #f7b27b;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.download-link:hover {
+  color: #f5985e;
+}
+
+/* 调整表格列宽 */
+.order-list th.time,
+.order-list td.time {
+  width: 170px;  /* 时间列更宽，可根据实际内容调整 */
+  min-width: 120px;
+}
+
+.order-list th.location,
+.order-list td.location {
+  width: 200px;  /* 地点列更宽 */
+  min-width: 150px;
+}
+
+.order-list th.what,
+.order-list td.what {
+  width: auto;  /* 具体事项列占剩余空间 */
+}

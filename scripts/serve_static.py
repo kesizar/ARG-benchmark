@@ -11,6 +11,10 @@ class QuietHandler(SimpleHTTPRequestHandler):
     def log_message(self, format: str, *args) -> None:  # noqa: A003
         return
 
+    def list_directory(self, path):  # noqa: A003
+        self.send_error(404, "No listing")
+        return None
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="托管一个任务目录")

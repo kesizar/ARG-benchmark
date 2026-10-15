@@ -1,0 +1,34 @@
+{
+  "hooks": {
+    "opened": {"type": "dom_regex", "pattern": "YOU ARE TRAPPED"},
+    "in_room": {"type": "dom_regex", "pattern": "abandoned digital chamber"},
+    "save_started": {
+      "type": "localstorage",
+      "key": "escape_the_website_save_v1",
+      "mode": "json_path",
+      "path": "gameStarted"
+    },
+    "keys_held": {
+      "type": "localstorage",
+      "key": "escape_the_website_save_v1",
+      "mode": "json_path",
+      "path": "keysCollected"
+    },
+    "finished": {
+      "type": "localstorage",
+      "key": "escape_the_website_save_v1",
+      "mode": "json_path",
+      "path": "gameCompleted"
+    }
+  },
+  "checkpoints": [
+    {"id": "saw_trap", "hook": "opened", "op": "truthy"},
+    {"id": "entered_room", "hook": "in_room", "op": "truthy"}
+  ],
+  "events": {},
+  "ending": {"hook": "finished", "op": "eq", "value": true},
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <link rel="stylesheet" href="junjunnainaistyle.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>客户页面</title>
+
+</head>
+<body>
+  <div class="tabs">
+    <div class="tab active" data-target="page1">订购历史</div>
+    <div class="tab" data-target="page2">信息箱</div>
+  </div>
+
+  <div id="page1" class="content active">
+    <h2>订购历史</h2>
+   <table class="order-list">
+    <thead>
+      <tr>
+        <th class="time">时间</th>
+        <th class="product">商品名称 & 数量</th>
+        <th class="price">金额</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="time">2025-10-10 19:10</td>
+        <td class="product">全套量子修复细胞系列 × 1</td>
+        <td class="price">¥19888</td>
+      </tr>
+      <tr>
+        <td class="time">2025-10-09 13:30</td>
+        <td class="product">蓝宝石修护面膜 × 10</td>
+        <td class="price">¥4399</td>
+      </tr>
+      <tr>
+        <td class="time">2025-10-08 12:23</td>
+        <td class="product">排毒茶包 × 10</td>
+        <td class="price">¥1800</td>
+      </tr>
+        <tr>
+        <td class="time">2025-10-05 11:07</td>
+        <td class="product">生物能量仪 × 1</td>
+        <td class="price">¥888</td>
+      </tr>
+        <tr>
+        <td class="time">2025-10-02 09:41</td>
+        <td class="product">远红外护膝 × 1</td>
+        <td class="price">¥299</td>
+      </tr>
+        <tr>
+        <td class="time">2025-10-01 02:12</td>
+        <td class="product">长寿排毒足贴 × 8</td>
+        <td class="price">¥788</td>
+      </tr>
+        <tr>
+        <td class="time">2025-09-27 15:15</td>
+        <td class="product">长寿泡脚桶 × 1</td>
+        <td class="price">¥388</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  <div id="page2" class="content">
+    <h2>信息箱</h2>
+<div class="menu">
+  <button onclick="openReal()">豪华VIP游邀请函</button>
+  <button onclick="fakeOption()">促销周报_251003</button>
+  <button onclick="fakeOption()">促销周报_250926</button>
+  <button onclick="fakeOption()">促销周报_250919</button>
+</div>
+
+<div id="content-area" style="margin-top:20px; padding:10px; border:1px solid #ccc;"></div>
+
+<script>
+function openReal() {
+  const area = document.getElementById("content-area");
+
+  // 先写 HTML 内容（按钮先加 id）
+  area.innerHTML = `
+    <h3>豪华VIP游邀请函</h3>
+    <p>我们为尊贵的VIP宾客精心设计了三条特色路线、四个灵活时间段。</p>
+    <p>根据您的体质情况，我们特别为您推荐【雾山三天两晚】行程。此路线以柔和阴养为主，能更好地调理您的身体，同时也有助于孩子的身心滋养。</p>
+    <p>具体行程请联系您的专属导游田女士，联系电话：1238278641</p>
+    <p>以及项目主管余先生，联系电话：1287683511</p>
+    <p>我们郑重承诺全程无任何额外收费，所有额外体验与伴手礼均可使用您的积分兑换。我们唯一的心愿是让您身心健康、延年益寿，并将这份福泽传递给家人！</p>
+ <div>
+  <span>附件本周促销周报：</span>
+  <span class="download-link">促销周报_251010（第十四期周报）</span>
+</div>
+</div>
+
+  `;
+
+  // 然后用 JS 给按钮绑定点击事件
+  const downloadBtn = document.getElementById("download-btn");
+  downloadBtn.addEventListener("click", downloadPDF);
+}
+
+
+
+function fakeOption() {
+  alert("已阅。");
+}
+</script>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // 去掉所有激活状态
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        // 激活当前选项
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

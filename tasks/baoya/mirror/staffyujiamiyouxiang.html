@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>加密邮箱 - 余胜宇</title>
+    <link rel="stylesheet" href="staffyujiamiyouxiangstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <h1 class="email-title">加密邮箱</h1>
+
+  <!-- 密码输入 -->
+  <div id="password-prompt" class="password-box">
+    <label for="email-password">请输入：</label>
+    <input type="text" id="email-password" placeholder="">
+    <button id="password-submit">解锁邮箱</button>
+    <p id="password-error" style="color:#ff5555; display:none;">中文口号错误，请重试</p>
+  </div>
+
+  <!-- 邮件列表 -->
+  <div class="email-list" style="display:none;"></div>
+
+  <!-- 邮件阅读页面 -->
+  <div class="email-read" style="display:none;">
+    <button id="back-btn">返回邮箱列表</button>
+    <div class="email-header">
+      <span class="time"></span> | <span class="from"></span> → <span class="to"></span>
+    </div>
+    <div class="email-content"></div>
+  </div>
+
+  <script>
+    // 邮件数据
+    const emails = [
+      "刚才电话断了。",
+      "就像我刚才说的，我们的献祭还差一个关键引子。前几次失败，全因为没有合适的药引。这次必须要一个年轻女性，最好是纯洁的。",
+      "那咱们只剩小田了？还是考虑去找别人？",
+      "最近发生的事你也清楚，别再搞更多的事出来了，就小田吧。",
+      "收到。"
+    ];
+
+    const senders = ["王老板","王老板","余胜宇（我）","王老板","余胜宇（我）"];
+    const receivers = ["余胜宇（我）","余胜宇（我）","王老板","余胜宇（我）","王老板"];
+    const times = ["25-09-25 16:22:23","25-09-25 16:25:12","25-09-25 16:27:01","25-09-25 16:27:54","25-09-25 16:29:16"];
+
+    const correctPassword = "健康长寿福泽家人";
+
+    // 元素
+    const submitBtn = document.getElementById('password-submit');
+    const input = document.getElementById('email-password');
+    const errorMsg = document.getElementById('password-error');
+    const passwordBox = document.getElementById('password-prompt');
+    const emailList = document.querySelector('.email-list');
+    const emailRead = document.querySelector('.email-read');
+    const backBtn = document.getElementById('back-btn');
+
+    // 密码验证
+    submitBtn.addEventListener('click', () => {
+      if(input.value.trim() === correctPassword){
+        passwordBox.style.display = 'none';
+        emailList.style.display = 'block';
+        errorMsg.style.display = 'none';
+        renderEmailList(); // 解锁后生成邮件列表
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter') submitBtn.click();
+    });
+
+    // 返回邮件列表
+    backBtn.addEventListener('click', () => {
+      emailRead.style.display = 'none';
+      emailList.style.display = 'block';
+    });
+
+    // 随机顺序渲染邮件列表函数
+    function renderEmailList() {
+      emailList.innerHTML = ""; // 清空列表
+
+      // 生成索引数组
+      let indices = emails.map((_, idx) => idx);
+
+      // Fisher–Yates 洗牌
+      for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+      }
+
+      // 渲染邮件
+      indices.forEach(idx => {
+        const div = document.createElement('div');
+        div.className = "email-item";
+        div.dataset.index = idx;
+        div.textContent = `时间：${times[idx]} | 发件人：${senders[idx]} | 收件人：${receivers[idx]}`;
+        emailList.appendChild(div);
+
+        // 点击显示邮件内容
+        div.addEventListener('click', () => {
+          emailRead.querySelector('.time').textContent = times[idx];
+          emailRead.querySelector('.from').textContent = senders[idx];
+          emailRead.querySelector('.to').textContent = receivers[idx];
+          emailRead.querySelector('.email-content').textContent = emails[idx];
+
+          emailList.style.display = 'none';
+          emailRead.style.display = 'block';
+        });
+      });
+    }
+  </script>
+</body>
+</html>

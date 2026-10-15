@@ -30,6 +30,7 @@ DEFAULT_ACTIONS = [
     "wait",
     "dialog",
     "give_up",
+    "note",
 ]
 
 
@@ -66,6 +67,17 @@ def apply_defaults(cfg: dict) -> dict:
     cfg.setdefault("allow_hosts", [])
     cfg.setdefault("notes_for_report", [])
     cfg.setdefault("actions_enabled", list(DEFAULT_ACTIONS))
+    if not isinstance(cfg.get("notebook"), dict):
+        cfg["notebook"] = {}
+    cfg["notebook"].setdefault("enabled", True)
+    cfg["notebook"].setdefault("max_chars", 4000)
+    actions = [str(item) for item in cfg.get("actions_enabled") or []]
+    if cfg["notebook"]["enabled"]:
+        if "note" not in actions:
+            actions.append("note")
+    else:
+        actions = [item for item in actions if item != "note"]
+    cfg["actions_enabled"] = actions
     cfg.setdefault("viewport", {"width": 1366, "height": 900})
     cfg.setdefault("locale", "zh-CN")
     cfg.setdefault("timezone", "Asia/Shanghai")

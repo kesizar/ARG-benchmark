@@ -1,6 +1,6 @@
 # 接入一道真题
 
-harness 不用改。每道题只加配置、材料和裁判。
+harness 不用改。每道题只加配置、材料和裁判。主榜默认有一本笔记：模型用 `note` 替换整篇内容，之后每步都能看到。不提供按步回看旧截图。对照可以在配置里写 `"notebook": {"enabled": false}`。
 
 ```bash
 mirror\harness\.venv\Scripts\python scripts/new_task.py --id my-game --category web_puzzle --port 8770

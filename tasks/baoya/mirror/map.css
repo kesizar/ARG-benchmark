@@ -1,0 +1,213 @@
+/* ===== 全局变量 ===== */
+:root {
+  --green: #00ff00;
+  --green-dim: #0f0;
+  --red: #ff0000;
+  --bg: #000;
+  --panel-w: 560px;
+ --font-mono: 'Fira Code', monospace;
+}
+
+/* ===== 整体布局 ===== */
+body {
+  margin: 0;
+  font-family: var(--font-mono);
+  background-color: var(--bg);
+  color: var(--green);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.game-root {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  gap: 50px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ===== 左侧面板 ===== */
+.hp-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--panel-w);
+}
+
+.hp-title {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: var(--green);
+  text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+}
+
+.hp-sub {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: var(--green-dim);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ===== 地图容器 ===== */
+.map-wrap {
+  width: 100%;
+  max-width: 100%;
+  background: linear-gradient(180deg, rgba(0,16,0,0.7), rgba(0,0,0,0.95));
+  border: 1px solid var(--green-dim);
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+/* ASCII 画布 */
+.map-canvas {
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--green);
+  white-space: pre;
+  text-align: center;
+  text-shadow: 0 0 4px rgba(0,255,0,0.5);
+  user-select: none;
+  margin: 0 auto;
+}
+
+/* ===== Terminal 显示 ===== */
+.hp-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--panel-w);
+}
+
+.terminal {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--green);
+  text-shadow: 0 0 5px var(--green);
+  text-align: center;
+  white-space: pre-wrap;
+  pointer-events: none;
+  width: 100%;
+}
+
+/* ===== 红色弹窗 / 恐怖效果 ===== */
+/* ===== 弹窗基础样式 ===== */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1a0000; /* 深红黑背景 */
+  border: 2px solid var(--red);
+  padding: 30px 40px;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  white-space: pre-wrap;
+  z-index: 999;
+  display: none;
+  max-width: 500px;
+  text-align: center;
+  color: var(--red);
+  border-radius: 8px;
+  box-shadow:
+    0 0 10px #ff0000,
+    0 0 20px #ff1a1a,
+    0 0 30px #ff4d4d inset,
+    0 0 50px #990000 inset;
+  /* 整个弹窗闪烁动画 */
+  animation: pulseModal 1s infinite alternate;
+}
+
+/* 弹窗显示时，先淡入 */
+.modal.show {
+  display: block;
+  animation: modalFadeIn 0.5s ease-out forwards, pulseModal 1s infinite alternate;
+}
+
+/* 入场淡入动画 */
+@keyframes modalFadeIn {
+  0% { opacity: 0; transform: translate(-50%, -48%); }
+  100% { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* 整个弹窗闪烁动画（背景 + 边框 + 文字） */
+@keyframes pulseModal {
+  0% {
+    background-color: #1a0000;
+    border-color: #ff0000;
+    color: #ff0000;
+    box-shadow:
+      0 0 10px #ff0000,
+      0 0 20px #ff1a1a,
+      0 0 30px #ff4d4d inset,
+      0 0 50px #990000 inset;
+  }
+  50% {
+    background-color: #330000;
+    border-color: #ff3300;
+    color: #ff3300;
+    box-shadow:
+      0 0 20px #ff3300,
+      0 0 30px #ff4d4d inset,
+      0 0 50px #ff1a1a inset,
+      0 0 60px #990000 inset;
+  }
+  100% {
+    background-color: #1a0000;
+    border-color: #ff0000;
+    color: #ff0000;
+    box-shadow:
+      0 0 10px #ff0000,
+      0 0 20px #ff1a1a,
+      0 0 30px #ff4d4d inset,
+      0 0 50px #990000 inset;
+  }
+}
+
+/* modalContent 内文字居中 */
+#modalContent {
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* 输入框容器居中 */
+#keyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+/* 输入框和按钮样式 */
+#keyContainer input,
+#keyContainer button {
+  display: block;
+  margin: 8px auto;
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  border: 1px solid var(--red);
+  border-radius: 4px;
+  background-color: #200000;
+  color: var(--red);
+  text-align: center;
+  outline: none;
+}
+
+#keyContainer button {
+  cursor: pointer;
+  background-color: #300000;
+  transition: 0.2s;
+}
+
+#keyContainer button:hover {
+  box-shadow: 0 0 10px #f00, 0 0 20px #ff4d4d inset;
+}

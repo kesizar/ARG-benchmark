@@ -192,6 +192,10 @@ def _clean(op: str, action: dict[str, Any], cfg: dict) -> dict[str, Any]:
         if "text" in action:
             cleaned["text"] = str(action.get("text") or "")[:200]
         return cleaned
+    if op == "note":
+        if "text" in action and not isinstance(action.get("text"), str):
+            raise ValueError(FORMAT_ERROR)
+        return {"op": "note", "text": str(action.get("text") or "")}
     if op in {"back", "give_up"}:
         return {"op": op}
     if op in {"switch_tab", "close_tab"}:

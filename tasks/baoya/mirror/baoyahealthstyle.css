@@ -1,0 +1,259 @@
+/* ===========================================
+   Google Fonts 加载
+   =========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+/* ===========================================
+   页面整体风格
+   =========================================== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans SC", "Noto Serif SC", sans-serif;
+  background: #fff8f0; /* 温暖淡红橘色背景 */
+  color: #333;
+  line-height: 1.8;
+}
+
+/* ===========================================
+   Banner 大图/头部
+   =========================================== */
+.banner {
+  width: 100%;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #c94b35, #f7b27b); /* 红-橙渐变 */
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.banner h1 {
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 800;
+  font-family: "Noto Serif SC", "Noto Sans SC", serif;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.banner p {
+  margin: 10px 0 0;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* ===========================================
+   页面正文段落
+   =========================================== */
+p {
+  max-width: 800px;
+  margin: 16px auto;
+  padding: 0 20px;
+  font-size: 1rem;
+}
+
+/* ===========================================
+   登录模块
+   =========================================== */
+.login-box {
+  width: 360px;
+  padding: 25px;
+  margin: 40px auto;
+  border: 1px solid #f2d7b5;
+  border-radius: 12px;
+  text-align: center;
+  background-color: #fff3e0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.login-box:hover {
+  transform: translateY(-3px);
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #d16a4c;
+  font-weight: 600;
+}
+
+.login-box input {
+  display: block;
+  width: 90%;
+  margin: 12px auto;
+  padding: 10px;
+  border: 1px solid #f2d7b5;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+.login-box input:hover,
+.login-box input:focus {
+  border-color: #f7b27b;
+  box-shadow: 0 0 8px rgba(247,178,123,0.5);
+  outline: none;
+}
+
+.login-box button {
+  width: 55%;
+  padding: 10px 0;
+  background-color: #f7b27b;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  margin-top: 12px;
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+.login-box button:hover {
+  background-color: #f5985e;
+  transform: translateY(-2px);
+}
+
+/* ===========================================
+   切换入口文字
+   =========================================== */
+#switch {
+  display: block;
+  margin-top: 12px;
+  color: #d16a4c;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+#switch:hover {
+  color: #f5985e;
+}
+
+/* ===========================================
+   密码提示问号
+   =========================================== */
+.password-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tooltip {
+  display: inline-block;
+  margin-left: 5px;
+  color: #d16a4c;
+  font-weight: normal;
+  cursor: pointer;
+  border: 1px solid #d16a4c;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  font-size: 11px;
+  user-select: none;
+  position: relative;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  min-width: 160px;
+  max-width: 240px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 10px;
+  position: absolute;
+  z-index: 10;
+  top: 28px; /* ✅ 下移一点，避免贴太近 */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  white-space: normal;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* 点击激活时显示 */
+.tooltip.active .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ===========================================
+   卡片/服务展示风格
+   =========================================== */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px 20px;
+  gap: 30px;
+}
+
+.card {
+  background-color: #fff3e0;
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  display: block;
+}
+
+.card-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-content h3 {
+  margin: 10px 0;
+  color: #d16a4c;
+  font-weight: 600;
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.card-content button {
+  margin-top: 12px;
+  padding: 10px 18px;
+  background-color: #f7b27b;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card-content button:hover {
+  background-color: #f5985e;
+  transform: translateY(-2px);
+}
+
+/* ===========================================
+   页脚
+   =========================================== */
+.footer {
+  width: 100%;
+  padding: 30px 20px;
+  background-color: #f7b27b;
+  color: #fff;
+  text-align: center;
+  font-size: 0.95rem;
+}

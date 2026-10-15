@@ -1,0 +1,132 @@
+/* 页面整体黑色恐怖风格 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Fira Code", monospace;
+  background: radial-gradient(circle at center, #050505 0%, #000 100%);
+  color: #f0f0f0;
+  min-height: 100vh;
+  line-height: 2.0;
+  letter-spacing: 1px;
+}
+
+
+/* 标题 */
+.email-title {
+  text-align: center;
+  margin: 60px 0 40px 0; /* 上下间距更大 */
+  color: #ff2222;
+  text-shadow: 0 0 10px #ff2222, 0 0 30px #aa0000, 0 0 50px #550000;
+  font-size: 3em; /* 更大更震撼 */
+  letter-spacing: 2px;
+  animation: flicker 2s infinite; /* 闪烁效果 */
+}
+
+/* 闪烁动画 */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.2;
+  }
+}
+
+/* 密码输入 */
+.password-box {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.password-box input {
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 1px solid #550000;
+  background-color: #111;
+  color: #ff5555;
+  outline: none;
+  font-size: 1.2em;
+  box-shadow: 0 0 10px #660000;
+}
+
+.password-box button {
+  padding: 10px 20px;
+  margin-left: 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #880000;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff0000, 0 0 40px #aa0000 inset;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.password-box button:hover {
+  box-shadow: 0 0 30px #ff2222, 0 0 50px #ff5555 inset;
+  transform: scale(1.05);
+}
+
+/* 邮件列表 */
+.email-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* 间距拉大，显得稀疏恐怖 */
+  width: 80%;
+  max-width: 900px;
+  margin: 80px auto 0;
+}
+
+.email-item {
+  padding: 25px;
+  background-color: #111;
+  border-left: 6px solid #880000;
+  cursor: pointer;
+  box-shadow: 0 0 15px #440000, 0 0 30px #220000 inset;
+  transition: all 0.4s ease;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+}
+
+.email-item:hover {
+  box-shadow: 0 0 40px #ff0000, 0 0 60px #aa0000 inset, 0 0 80px #550000;
+  transform: scale(1.02);
+}
+
+/* 邮件阅读页面 */
+.email-read {
+  width: 80%;
+  max-width: 900px;
+  margin: 80px auto 0;
+  padding: 30px;
+  background-color: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 30px #880000, 0 0 60px #440000 inset;
+  line-height: 2;
+}
+
+.email-read .email-header {
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #aa0000;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+}
+
+.email-read #back-btn {
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  background-color: #660000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff2222, 0 0 40px #aa0000 inset;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.email-read #back-btn:hover {
+  box-shadow: 0 0 30px #ff4444, 0 0 50px #ff8888 inset;
+  transform: scale(1.05);
+}

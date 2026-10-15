@@ -132,16 +132,21 @@ class ReadyTests(unittest.TestCase):
 
         async def go():
             await harness.reset()
+            opening = harness.if_status()["score"]
             banner = harness.output
             result = await harness.act({"op": "type", "text": "look"})
             seen = harness.output
             await harness.close()
-            return banner, result, seen
+            return banner, result, seen, opening
 
-        banner, result, seen = asyncio.run(go())
+        banner, result, seen, opening = asyncio.run(go())
         self.assertIn("Room.", banner)
+        self.assertNotIn("***MORE***", banner)
+        self.assertEqual(opening, 4)
         self.assertEqual(result, "ok")
         self.assertIn("look", seen)
+        self.assertEqual(harness.if_status()["score"], 2)
+        self.assertFalse(harness.if_status()["victory"])
 
     def test_llm_records_tokens_without_a_second_parse_call(self) -> None:
         replies = ["不是 json", '{"op":"give_up"}']
@@ -188,6 +193,31 @@ class ReadyTests(unittest.TestCase):
         _system, converted = to_anthropic_messages(messages)
         converted_roles = [item["role"] for item in converted]
         self.assertEqual(converted_roles, roles)
+        current = policy._messages({"url": "http://local/now", "visible_text": "current", "screenshot": "", "notebook": "记下了"})
+        self.assertIn("记下了", current[-1]["content"][0]["text"])
+        self.assertTrue(all("记下了" not in json.dumps(item) for item in current[:-1]))
+
+    def test_notebook_replace_rejects_text_over_the_limit(self) -> None:
+        cfg = json.loads(STATIC.read_text(encoding="utf-8"))
+        cfg["notebook"] = {"enabled": True, "max_chars": 20}
+        cfg["policy_script"] = [
+            {"op": "note", "text": "门口的数字是 4815"},
+            {"op": "note", "text": "超" * 21},
+            {"op": "give_up"},
+        ]
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "task.json"
+            path.write_text(json.dumps(cfg), encoding="utf-8")
+            summary = asyncio.run(run(path, policy="script", repo_root=ROOT))
+        self.assertTrue(summary["notebook_enabled"])
+        self.assertEqual(summary["ended_reason"], "give_up")
+        run_dir = _latest(ROOT / "runs" / "static-fixture" / "A")
+        self.assertEqual((run_dir / "notebook.txt").read_text(encoding="utf-8"), "门口的数字是 4815")
+        last = json.loads((run_dir / "last_obs.json").read_text(encoding="utf-8"))
+        self.assertEqual(last["notebook"], "门口的数字是 4815")
+        steps = (run_dir / "steps.jsonl").read_text(encoding="utf-8")
+        self.assertIn("已记下", steps)
+        self.assertIn("笔记超过长度上限", steps)
 
 
 class _FakeJericho:

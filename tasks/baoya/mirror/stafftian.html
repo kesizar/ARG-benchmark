@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>员工页面</title>
+  <link rel="stylesheet" href="stafftianstyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+   <h1 class="page-title">田佳怡个人员工账户</h1>
+  <div class="tabs">
+    <div class="tab active" data-target="page1">工作详情</div>
+    <div class="tab" data-target="page2">个人信息</div>
+  </div>
+
+  <div id="page1" class="content active">
+    <h2>工作安排</h2>
+    <table class="order-list">
+      <thead>
+        <tr>
+          <th class="time">时间</th>
+          <th class="location">地点</th>
+          <th class="what">具体事项</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time">2025年10月20日行程</td>
+          <td class="location">依恋山保护中心</td>
+          <td class="what">出发当天早晨无早餐，需自己准备VIP客户的早餐：一定不能太热，也不能太冷，不要太辣，也不要太甜，口感要恰到好处，卖相要色香味俱全。（如果石先生要求早晨多吃一颗水煮蛋，记住他的蛋一定不能太熟也不能太生）。与新司机沟通上下车时间，确保VIP客户不等、不挤、不迷路。</td>
+        </tr>
+        <tr>
+          <td class="time">2025年10月29日行程</td>
+          <td class="location">中湖巨嘴鸟生态栖息地</td>
+          <td class="what">路线提前踩点，预防堵车、施工、红绿灯延误等突发状况。检查车内温度、座椅角度，以及车上一定要播放公司给的养生音乐。</td>
+        </tr>
+        <tr>
+          <td class="time">2025年11月08日行程</td>
+          <td class="location">盟山沼泽地公园</td>
+          <td class="what">这条线路上的超级VIP陈女士有强烈洁癖，桌面、餐具、面包屑都要瞬间清理干净，不能留任何痕迹。</td>
+        </tr>
+        <tr>
+          <td class="time">2025年11月09日行程</td>
+          <td class="location">雾山</td>
+          <td class="what">暂无具体安排</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="page2" class="content">
+    <h2>个人信息</h2>
+    <p>姓名：田佳怡</p>
+    <p>出生年份：1998年</p>
+    <p>学历：XXXX大学2024届毕业生</p>
+    <p>专业：旅游管理</p>
+
+    <h2>工作经验</h2>
+    <ul>
+      <li>2021年至今，担任全职导游</li>
+      <li>熟悉多条热门旅游线路及VIP定制行程</li>
+      <li>擅长应对突发状况和客户投诉</li>
+    </ul>
+
+    <h2>技能特长</h2>
+    <ul>
+      <li>景区讲解、行程规划、酒店和交通协调</li>
+      <li>优秀的沟通能力与多任务处理能力</li>
+    </ul>
+
+   <h2>简历查看</h2>
+<p><a href="cv.html" target="_blank" class="download-link">小田简历</a></p>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const target = tab.getAttribute('data-target');
+        contents.forEach(c => c.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

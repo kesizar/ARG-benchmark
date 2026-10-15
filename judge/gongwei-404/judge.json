@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "on_desk": {"type": "url_regex", "pattern": "desk\\.html"},
+    "page_no": {
+      "type": "dom_regex",
+      "pattern": "(\\d+)\\s*/\\s*35",
+      "agg": "max",
+      "keep_max": true
+    },
+    "wrong_try": {"type": "dialog_regex", "pattern": "密码错误"}
+  },
+  "checkpoints": [
+    {"id": "opened_desk", "hook": "on_desk", "op": "truthy"},
+    {"id": "saw_page_number", "hook": "page_no", "op": "gte", "value": 1}
+  ],
+  "events": {
+    "rejected_try": {"hook": "wrong_try", "op": "truthy"}
+  },
+  "ending": null,
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

@@ -113,6 +113,10 @@ async def _episode(cfg: dict, harness, judge: Judge, policy, policy_name: str, r
     submits = 0
     model_obs: dict = {}
     error = ""
+    book = cfg.get("notebook") or {}
+    notebook_enabled = bool(book.get("enabled", True))
+    notebook_limit = int(book.get("max_chars") or 4000)
+    notebook = ""
 
     def budget(done: int) -> dict:
         elapsed = time.monotonic() - started
@@ -133,7 +137,7 @@ async def _episode(cfg: dict, harness, judge: Judge, policy, policy_name: str, r
         await harness.reset()
         harness.consume_step()
         raw = await harness.observe("step_000.png")
-        model_obs = pack_observation(raw, cfg, last_result="", budget=budget(0))
+        model_obs = pack_observation(raw, cfg, last_result="", budget=budget(0), notebook=notebook)
         _write_json(run_dir / "last_obs.json", model_obs)
         for step in range(1, max_steps + 1):
             if time.monotonic() - started >= max_seconds:
@@ -152,13 +156,15 @@ async def _episode(cfg: dict, harness, judge: Judge, policy, policy_name: str, r
                     action = proposed
                     result = failure
                 else:
-                    result = await _apply(action, harness, judge, submits, max_submits)
-                    if action.get("op") == "submit_answer" and result != "提交次数已用尽":
-                        submits += 1
+                    result, notebook = _take_note(action, notebook, notebook_enabled, notebook_limit)
+                    if result == "":
+                        result = await _apply(action, harness, judge, submits, max_submits)
+                        if action.get("op") == "submit_answer" and result != "提交次数已用尽":
+                            submits += 1
             state = await judge.read(harness)
             fresh = judge.update(step)
             raw = await harness.observe(f"step_{step:03d}.png")
-            model_obs = pack_observation(raw, cfg, last_result=result, budget=budget(step))
+            model_obs = pack_observation(raw, cfg, last_result=result, budget=budget(step), notebook=notebook)
             if hasattr(policy, "note_result"):
                 policy.note_result(decision_obs, action if isinstance(action, dict) else {}, result)
             record = {
@@ -209,6 +215,8 @@ async def _episode(cfg: dict, harness, judge: Judge, policy, policy_name: str, r
             summary["if_score"] = status.get("score")
             summary["if_victory"] = bool(status.get("victory"))
             summary["if_game_over"] = bool(status.get("game_over"))
+        if notebook_enabled:
+            (run_dir / "notebook.txt").write_text(notebook, encoding="utf-8")
         _write_json(run_dir / "summary.json", summary)
         print(run_dir / "summary.json", flush=True)
     return summary
@@ -224,6 +232,15 @@ def _propose(policy, obs: dict) -> tuple[dict, str]:
     if not isinstance(proposed, dict):
         return {"op": "_invalid"}, "动作格式错误"
     return proposed, ""
+
+
+def _take_note(action: dict, notebook: str, enabled: bool, limit: int) -> tuple[str, str]:
+    if not enabled or action.get("op") != "note":
+        return "", notebook
+    text = str(action.get("text") or "")
+    if len(text) > limit:
+        return "笔记超过长度上限", notebook
+    return "已记下", text
 
 
 async def _apply(action: dict, harness, judge: Judge, submits: int, max_submits: int) -> str:

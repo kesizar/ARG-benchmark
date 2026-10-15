@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>员工页面</title>
+  <link rel="stylesheet" href="staffyustyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <h1 class="page-title">余胜宇个人员工账户</h1>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab active" data-target="page1">工作详情</div>
+    <div class="tab" data-target="page2">个人信息</div>
+    <!-- 伪 tab，点击跳转加密邮箱 -->
+    <a href="staffyujiamiyouxiang.html" class="tab tab-link">加密邮箱</a>
+  </div>
+
+  <!-- 工作详情 -->
+  <div id="page1" class="content active">
+    <h2>工作安排</h2>
+    <table class="order-list">
+      <thead>
+        <tr>
+          <th class="time">时间</th>
+          <th class="what">具体事项</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time">2025年09月30日（已完成）</td>
+          <td class="what">小徐真是个让人头疼的小麻烦，要不是她年轻长得好看，我早不保她了。今天听王老板的安排，小徐被开除优化了。</td>
+        </tr>
+        <tr>
+          <td class="time">2025年10月01日（已完成）</td>
+          <td class="what">成功拿到了小徐的密码：shenrenlaoban</td>
+        </tr>
+        <tr>
+          <td class="time">2025年10月12日</td>
+          <td class="what">张老头的儿子学法律的，真难缠！得找个机会给他好好“上上课”，我们公司可不是好惹的。</td>
+        </tr>
+        <tr>
+          <td class="time">2025年10月27日</td>
+          <td class="what">要跟王老板开会，讨论下一波VIP旅游的规划，得仔细筹划了。最近“业绩”有点掉链子。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 个人信息 -->
+  <div id="page2" class="content">
+    <h2>个人信息内容</h2>
+    <p>这里显示个人信息，已被本人上锁。</p>
+  </div>
+
+  <script>
+    // 只处理带 data-target 的 tab
+    const tabs = document.querySelectorAll('.tab[data-target]');
+    const contents = document.querySelectorAll('.content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-target');
+
+        if(target === 'page2') {
+          alert("已被本人上锁");
+          return;
+        }
+
+        // 切换 tab 样式
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // 显示对应内容
+        contents.forEach(c => c.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+/* 页面整体 */
+body {
+font-family: "Noto Sans SC", "Noto Serif SC", sans-serif;
+
+  background-color: #fff8f0; /* 温暖淡红橘色背景 */
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* 顶部标题 */
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #c94b35;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* 选项卡样式 */
+.tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  border: 1px solid #f2d7b5;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #fff3e0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tab.active {
+  background-color: #f7b27b;
+  color: #fff;
+}
+
+/* 内容区域 */
+.content {
+  display: none;
+  border: 1px solid #f2d7b5;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff3e0;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+}
+
+.content.active { display: block; }
+
+/* 表格样式 */
+.order-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-list th, .order-list td {
+  border: 1px solid #f2d7b5;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.order-list th {
+  background-color: #f7b27b;
+  color: #fff;
+}
+
+.order-list tr:nth-child(even) {
+  background-color: #fff6e8;
+}
+
+/* 按钮样式 */
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f7b27b;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #f5985e;
+  transform: translateY(-1px);
+}
+
+/* 内容区按钮 */
+#content-area button {
+  margin-top: 10px;
+}
+
+/* 内容区样式 */
+#content-area {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #f2d7b5;
+  border-radius: 5px;
+  background-color: #fff3e0;
+}
+
+/* 选项卡整体 */
+.tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* 单个 tab */
+.tab {
+  padding: 10px 20px;
+  border: 1px solid #f2d7b5;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #fff3e0;   /* 默认背景淡暖色 */
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* 激活 tab */
+.tab.active {
+  background-color: #f7b27b;   /* 激活为暖橙色 */
+  color: #fff;                  /* 白字 */
+  font-weight: 600;
+}
+
+/* 信息箱按钮样式 */
+.menu button {
+  padding: 12px 24px;          /* 增大内边距 */
+  font-size: 1rem;             /* 字体稍大 */
+  border-radius: 6px;
+  background-color: #f7b27b;   /* 暖色按钮 */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;         /* 多行排列间距 */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.menu button:hover {
+  background-color: #f5985e;
+  transform: translateY(-1px);
+}
+
+.attachment {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 文字和按钮间距 */
+  margin-top: 10px;
+}
+
+.attachment span {
+  font-weight: 500;
+  color: #333;
+}
+
+.download-link {
+  color: #f7b27b;          /* 网站统一暖色 */
+  text-decoration: underline; /* 保留下划线，可去掉加 none */
+  font-weight: 500;         /* 可选，稍微加粗 */
+}
+
+.download-link:hover {
+  color: #f5985e;           /* 悬停颜色变化 */
+}

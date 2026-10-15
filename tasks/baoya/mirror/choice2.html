@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>结局二：黎明</title>
+  <link rel="stylesheet" href="choice2.css" />
+  <style>
+    /* ===== 结尾动画部分 ===== */
+    .fade-text {
+      text-align: center;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+    .fade-text.show { opacity: 1; }
+
+    /* 白幕淡入 */
+    .fade-screen {
+      position: fixed;
+      inset: 0;
+      background: #fffafc;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 3s ease;
+      z-index: 10;
+    }
+    .fade-screen.show {
+      opacity: 1;
+    }
+
+    /* 最终感谢文字 */
+    .final-thanks {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      color: #fff;
+      opacity: 0;
+      z-index: 11;
+      line-height: 1.8;
+      transition: opacity 3s ease;
+    }
+    .final-thanks.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="story-wrapper">
+    <div class="story-container">
+      <div class="story-content">
+        <h1>黎明</h1>
+        <p>
+          公司突然宣布，活动取消。<br><br>
+          “这是什么意思？为什么要取消？”人群中有人质问，却迟迟得不到回应。<br>
+          有人想去找小田导游，却发现她早已不见踪影。<br><br>
+          就在众人困惑不安的时候，王老板出现了。他手里握着一把刀，脸上画满了诡异的符号，嘴里低声念着难以听懂的咒语。<br><br>
+          他要将所有人献祭。<br>
+          场面陷入混乱，但王老板终究寡不敌众。趁着骚乱，小徐和小田抓住机会逃了出来。<br><br>
+          原来，被开除的小徐早已被囚禁在这里，而小田在刚抵达雾山时就被打晕并捆走。<br>
+          可这两位女孩都展现出了非凡的勇气与冷静。她们没有放弃，在恐惧中找到工具解开绳索，挣脱束缚，奋力逃生。<br><br>
+          随后，她们带领被困的老人们一路奔跑，穿过蜿蜒崎岖的山路，终于冲出了雾山。<br>
+          而你，虽未身在现场，却在网络的另一端监控着这一切。你及时报警，协助警方赶到。<br><br>
+          最终，所有人都成功脱险！<br>
+          那位曾侍奉邪神的王老板，也被绳之以法。<br>
+          雾山的阴霾，终于散去。<br>
+          诅咒被打破了。
+        </p>
+
+        <p id="ending" class="fade-text">……了吗？</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="fadeScreen" class="fade-screen"></div>
+  <div id="thanksFinal" class="final-thanks">
+    <div>感谢游玩</div>
+    <div>万物永远制作</div>
+  </div>
+
+  <script>
+    // 19 秒出现“……了吗？”
+    setTimeout(() => {
+      document.getElementById('ending').classList.add('show');
+    }, 17000);
+
+    // 27 秒后屏幕缓慢变白
+    setTimeout(() => {
+      document.getElementById('fadeScreen').classList.add('show');
+    }, 32000);
+
+    // 30 秒后出现“感谢游玩 / 万物永远制作”
+    setTimeout(() => {
+      document.getElementById('thanksFinal').classList.add('show');
+    }, 33000);
+  </script>
+
+  <div id="thanksFinal" class="final-thanks">
+  <div>感谢游玩</div>
+  <div>万物永远制作</div>
+</div>
+
+</body>
+</html>

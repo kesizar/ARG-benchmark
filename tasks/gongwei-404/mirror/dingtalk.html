@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钉钉</title>
+    <style>
+        :root {
+            --wps-color: #E63946;
+            --dingtalk-color: #1e88e5;
+            /* 新增：微信的绿色 */
+            --wechat-color: #07C160; 
+            --secret-color: #a040a0;
+            --desktop-icon-label-color: #333;
+            --shadow-window: 0 20px 60px rgba(0,0,0,0.3); /* 窗口阴影变量 */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 20%, #a1c4fd 60%, #c2e9fb 100%);
+            display: block;
+            user-select: text;
+        }
+
+        /* --- macOS Top Bar --- */
+        .mac-menubar {
+            position: fixed; top: 0; left: 0; width: 100%; height: 28px;
+            background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 20px; font-size: 13px; 
+            color: #333; 
+            z-index: 1000;
+        }
+        .menubar-left span { margin-right: 15px; font-weight: 500; text-shadow: none; }
+        .menubar-right span { margin-left: 15px; text-shadow: none; }
+
+
+        /* --- macOS Dock (底部应用栏) --- */
+        .mac-dock {
+            position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%);
+            height: 64px;
+            background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 18px;
+            display: flex; align-items: center; padding: 0 12px; gap: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+        /* Dock 链接样式：重要！覆盖 a 标签的默认下划线 */
+        .dock-link {
+            text-decoration: none;
+            color: inherit; /* 继承父元素的颜色 */
+        }
+        .dock-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            background: linear-gradient(to bottom, #fff, #f0f0f0);
+            display: flex; justify-content: center; align-items: center;
+            font-size: 26px; cursor: pointer; transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .dock-icon:hover { transform: translateY(-15px) scale(1.1); margin: 0 5px; }
+
+
+        /* --- 桌面图标 --- */
+        /* 移除桌面图标链接的下划线 */
+        .desktop-icon-link {
+            text-decoration: none; 
+        }
+        
+        .desktop-icons-container {
+            position: absolute;
+            top: 40px; 
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .desktop-icon {
+            width: 80px; height: 90px;
+            display: flex; flex-direction: column; align-items: center;
+            margin: 15px 0;
+            cursor: pointer;
+            text-align: center;
+        }
+                .progress-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            z-index: 9999;
+        }
+
+        .icon-image {
+            width: 64px; height: 64px; border-radius: 15px;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 30px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            transition: box-shadow 0.2s;
+            font-weight: 700;
+        }
+        .icon-image:hover { box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3); } 
+
+        .icon-label {
+            margin-top: 5px; font-size: 12px; 
+            color: var(--desktop-icon-label-color); 
+            background: rgba(255,255,255,0.6); 
+            padding: 2px 6px; border-radius: 4px;
+            font-weight: 500;
+            text-shadow: none; 
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .icon-folder {
+            background: linear-gradient(to top, #7d7d7d, #a0a0a0);
+            font-size: 35px;
+            padding-top: 5px;
+        }
+        .secret-label {
+            color: #cc0000; 
+            font-weight: 700;
+            background: rgba(255,255,255,0.8);
+        }
+
+        /* --- DingTalk Window --- */
+        .window {
+            /* 定位到屏幕中央 */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            width: 900px;
+            height: 600px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: var(--shadow-window);
+            display: flex;
+            overflow: hidden;
+            z-index: 500; /* 确保窗口在图标和Dock栏之上 */
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        /* Sidebar (Icon Nav + List) */
+        .sidebar {
+            width: 280px;
+            background: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        /* Traffic Lights */
+        .window-controls {
+            padding: 15px;
+            display: flex;
+            gap: 8px;
+        }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #FF5F56; }
+        .yellow { background: #FFBD2E; }
+        .green { background: #27C93F; }
+
+        /* Search Bar */
+        .search-box {
+            padding: 0 15px 15px;
+        }
+        .search-input {
+            width: 100%;
+            background: #e3e3e3;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            outline: none;
+        }
+
+        /* Chat List */
+        .chat-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+        .chat-item {
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .chat-item:hover { background: #e8e8e8; }
+        .chat-item.active { background: #cce9ff; }
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 4px;
+            background: #ccc;
+            margin-right: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .chat-info { flex: 1; }
+        .chat-name { font-size: 14px; font-weight: 500; color: #000; display: flex; justify-content: space-between;}
+        .chat-time { font-size: 10px; color: #999; }
+        .chat-preview { font-size: 12px; color: #888; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px;}
+
+        /* Main Chat Area */
+        .main-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #fefefe;
+        }
+
+        /* Header */
+        .chat-header {
+            height: 50px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            justify-content: space-between;
+        }
+        .header-title { font-size: 16px; font-weight: 600; }
+        .header-icons span { font-size: 18px; color: #666; margin-left: 15px; cursor: pointer; }
+
+        /* Messages */
+        .messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .message-bubble {
+            display: flex;
+            max-width: 70%;
+            align-items: flex-start;
+        }
+        .message-bubble.me {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+        .bubble-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 10px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        .bubble-content {
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+            position: relative;
+        }
+        .other .bubble-content {
+            background: #fff;
+            border: 1px solid #eee;
+            color: #333;
+            border-top-left-radius: 2px;
+        }
+        .me .bubble-content {
+            background: #cfe9ff; /* DingTalk light blue style */
+            color: #000;
+            border-top-right-radius: 2px;
+        }
+        .system-msg {
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+            margin: 10px 0;
+        }
+
+        /* Input Area */
+        .input-area {
+            height: 140px;
+            border-top: 1px solid #eee;
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .toolbar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+            color: #666;
+            font-size: 18px;
+        }
+        .input-text {
+            flex: 1;
+            border: none;
+            resize: none;
+            outline: none;
+            font-size: 14px;
+            color: #333;
+            background: transparent;
+        }
+        .send-bar {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .send-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 4px 15px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #666;
+            cursor: pointer;
+        }
+        .send-btn:hover { background: #f5f5f5; }
+
+        /* Colors for avatars */
+        .bg-blue { background: #0089FF; }
+        .bg-orange { background: #FF9F00; }
+        .bg-green { background: #00C853; }
+        .bg-purple { background: #6200EA; }
+
+    </style>
+</head>
+<body>
+
+    <div class="mac-menubar">
+        <div class="menubar-left">
+            <span></span>
+            <span>钉钉</span>
+            <span>文件</span>
+            <span>帮助</span>
+        </div>
+        <div class="menubar-right">
+            <span>100%</span>
+            <span>Wi-Fi</span>
+            <span>12月4日 周四</span>
+        </div>
+    </div>
+
+    <div class="window">
+        <div class="sidebar">
+            <div class="window-controls">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="搜索">
+            </div>
+            <div class="chat-list">
+                <div class="chat-item active">
+                    <div class="avatar bg-blue">产</div>
+                    <div class="chat-info">
+                        <div class="chat-name">产品研发组 (8)<span class="chat-time">10:47</span></div>
+                        <div class="chat-preview">林耀远：@吴佳怡 {"code":500,"message":"审核失败:} </div>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <div class="avatar bg-orange">U</div>
+                    <div class="chat-info">
+                        <div class="chat-name">UI设计群<span class="chat-time">昨天</span></div>
+                        <div class="chat-preview">[文件]首页UI_V3_Final_真不改了.pdf</div>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <div class="avatar bg-blue">江</div>
+                    <div class="chat-info">
+                        <div class="chat-name">江奕云<span class="chat-time">周一</span></div>
+                        <div class="chat-preview">本周周例会的会议记录请查收。</div>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <div class="avatar bg-green">财</div>
+                    <div class="chat-info">
+                        <div class="chat-name">财务报销群<span class="chat-time">周一</span></div>
+                        <div class="chat-preview">本月报销流程已更新，请查看...</div>
+                    </div>
+                </div>
+                 <div class="chat-item">
+                    <div class="avatar bg-purple">钉</div>
+                    <div class="chat-info">
+                        <div class="chat-name">钉钉小秘书<span class="chat-time">周一</span></div>
+                        <div class="chat-preview">考勤日报：您上周平均工时...</div>
+                    </div>
+                </div>
+                 <div class="chat-item">
+                    <div class="avatar bg-orange">📒</div>
+                    <div class="chat-info">
+                        <div class="chat-name">工作汇报（日志）<span class="chat-time">上周</span></div>
+                        <div class="chat-preview">[日志]江奕云的周报</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-area">
+            <div class="chat-header">
+                <div class="header-title">产品技术部 (8)</div>
+                <div class="header-icons">
+                    <span>📞</span>
+                    <span>🎥</span>
+                    <span>...</span>
+                </div>
+            </div>
+
+            <div class="messages">
+                <div class="system-msg">11月25日 15:37</div>
+                 <div class="message-bubble me">
+                    <div class="avatar bubble-avatar bg-blue">许</div>
+                    <div class="bubble-content">
+                        V3.0已经稳定运行一周了，实习岗位匹配这个核心功能反馈还不错，WAU大概涨了15%。接下来想启动 V4.0 需求讨论。
+                    </div>
+                </div>
+
+                
+                <div class="message-bubble other">
+                    <div class="avatar bubble-avatar bg-orange">王</div>
+                    <div class="bubble-content">
+                        页面结构会有大改吗，还是在现有信息架构上微调？
+                    </div>
+                </div>
+
+                <div class="message-bubble other">
+                    <div class="avatar bubble-avatar bg-green">彭</div>
+                    <div class="bubble-content">
+                        行为数据现在埋点够吗？不够的话这版得补采集。
+                    </div>
+                </div>
+
+                <div class="message-bubble me">
+                    <div class="avatar bubble-avatar bg-blue">许</div>
+                    <div class="bubble-content">
+                        @所有人 稍等我拉个会讨论一下。
+                    </div>
+                </div>
+                <div class="system-msg">11月28日 20:37</div>
+            
+                 <div class="message-bubble other">
+                    <div class="avatar bubble-avatar bg-green">张</div>
+                    <div class="bubble-content">
+                        📄 <b>首页UI_V2.3.pdf</b><br>
+                        <span style="font-size:10px; color:#666;">24.5MB</span>
+                    </div>
+                </div>
+
+                 <div class="system-msg">钱涛 发起了一个 “夜宵统计” 投票</div>
+                <div class="system-msg">12月4日 10:47</div>
+                <div class="message-bubble other">
+                    <div class="avatar bubble-avatar bg-blue">林</div>
+                    <div class="bubble-content">
+                        @吴佳怡 
+                        {"code":500,"message":"审核失败: failed to reconnect to RabbitMQ","data":{}}
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="input-area">
+                <div class="toolbar">
+                    <span>😊</span>
+                    <span>📁</span>
+                    <span>✂️</span>
+                </div>
+                <textarea class="input-text" placeholder="输入消息..."></textarea>
+                <div class="send-bar">
+                    <button class="send-btn">发送(S)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="desktop-icons-container">
+    
+        <a href="wps.html" target="_blank" class="desktop-icon-link">
+            <div class="desktop-icon">
+                <div class="icon-image" style="background:var(--wps-color); color:white; font-size:35px;">W</div>
+                <div class="icon-label">WPS Office</div>
+            </div>
+        </a>
+
+        <a href="dingtalk.html" target="_blank" class="desktop-icon-link">
+            <div class="desktop-icon">
+                <div class="icon-image" style="background:var(--dingtalk-color); color:white; font-size:35px;">钉</div>
+                <div class="icon-label">钉钉</div>
+            </div>
+        </a>
+        
+        <a href="wechat.html" target="_blank" class="desktop-icon-link">
+            <div class="desktop-icon">
+                <div class="icon-image" style="background:var(--wechat-color); color:white; font-size:35px;">微</div>
+                <div class="icon-label">微信</div>
+            </div>
+        </a>
+        
+        <div class="desktop-icon">
+            <div class="icon-image" style="background:#fff; color:#1e88e5;">🧭</div>
+            <div class="icon-label">Safari</div>
+        </div>
+        
+
+    </div>
+
+<div class="progress-indicator">8（extra）/35</div>
+    <div class="mac-dock">
+        <a href="note.html" target="_blank" class="dock-link">
+            <div class="dock-icon">📝</div> 
+        </a>
+        <a href="mailbox.html" target="_blank" class="dock-link">
+            <div class="dock-icon">📧</div>
+        </a>
+        <a href="calendar.html" target="_blank" class="dock-link">
+            <div class="dock-icon">📅</div>
+        </a>
+        <a href="message.html" target="_blank" class="dock-link">
+            <div class="dock-icon">💬</div>
+        </a>
+        <a href="setting.html" target="_blank" class="dock-link">
+            <div class="dock-icon">⚙️</div>
+        </a>
+    </div>
+
+</body>
+</html>

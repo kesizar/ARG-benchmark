@@ -22,6 +22,8 @@ def model_prompt(cfg: dict) -> str:
         "只使用上面列出的动作。按键不能是组合键。预算见每步观察里的 steps_left 与 seconds_left。",
         "只根据屏幕上能看到的信息推理。",
     ]
+    if "note" in actions:
+        lines.append('你有一本笔记。用 {"op":"note","text":"..."} 替换整篇内容。写下来的内容以后每一步都会给你看。')
     if "submit_answer" in actions:
         lines.append('需要提交答案时用 {"op":"submit_answer","text":"..."}。你会看到「正确」或「不正确」。')
     if "submit_conclusion" in actions:
@@ -41,31 +43,35 @@ def _examples(cfg: dict) -> list[str]:
         '{"op":"give_up"}',
     ]
     if category in {"text_adventure", "static"}:
-        return ['{"op":"type","text":"look","enter":true}', '{"op":"give_up"}']
-    if mode == "A":
-        return [
+        examples = ['{"op":"type","text":"look","enter":true}', '{"op":"give_up"}']
+    elif mode == "A":
+        examples = [
             '{"op":"click","n":0}',
             '{"op":"type","n":1,"text":"测试","enter":true}',
             '{"op":"drag","x1":10,"y1":10,"x2":40,"y2":40}',
             *shared,
         ]
-    if mode == "C":
-        return [
+    elif mode == "C":
+        examples = [
             '{"op":"click","x":100,"y":200}',
             '{"op":"type","text":"测试","enter":true}',
             '{"op":"drag","x1":10,"y1":10,"x2":40,"y2":40}',
             *shared,
         ]
-    return [
-        '{"op":"click","n":0}',
-        '{"op":"click","x":100,"y":200}',
-        '{"op":"type","n":1,"text":"测试","enter":true}',
-        '{"op":"drag","x1":10,"y1":10,"x2":40,"y2":40}',
-        *shared,
-    ]
+    else:
+        examples = [
+            '{"op":"click","n":0}',
+            '{"op":"click","x":100,"y":200}',
+            '{"op":"type","n":1,"text":"测试","enter":true}',
+            '{"op":"drag","x1":10,"y1":10,"x2":40,"y2":40}',
+            *shared,
+        ]
+    if "note" in (cfg.get("actions_enabled") or []):
+        examples.append('{"op":"note","text":"..."}')
+    return examples
 
 
-def history_message(turn: dict[str, Any], *, full: bool, with_image: bool) -> dict[str, Any]:
+def history_message(turn: dict[str, Any], *, full: bool, with_image: bool, include_notebook: bool = False) -> dict[str, Any]:
     obs = turn.get("obs") or {}
     if full:
         payload = {
@@ -83,6 +89,8 @@ def history_message(turn: dict[str, Any], *, full: bool, with_image: bool) -> di
         if turn.get("action"):
             payload["action"] = turn.get("action")
             payload["result"] = turn.get("result")
+        if include_notebook and "notebook" in obs:
+            payload["notebook"] = obs.get("notebook") or ""
     else:
         payload = {
             "url": obs.get("url") or turn.get("url"),

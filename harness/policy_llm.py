@@ -45,7 +45,7 @@ class LLMPolicy:
         image_from = max(0, len(window) - shot_k)
         for index, turn in enumerate(window):
             _append_turn(messages, turn, full=True, with_image=index >= image_from)
-        messages.append(history_message({"obs": obs}, full=True, with_image=True))
+        messages.append(history_message({"obs": obs}, full=True, with_image=True, include_notebook=True))
         return messages
 
     def _complete(self, messages: list[dict]) -> tuple[str, dict]:

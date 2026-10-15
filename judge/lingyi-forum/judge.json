@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "on_desk": {"type": "url_regex", "pattern": "desktop\\.html"}
+  },
+  "checkpoints": [
+    {"id": "opened_desk", "hook": "on_desk", "op": "truthy"}
+  ],
+  "events": {},
+  "ending": null,
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

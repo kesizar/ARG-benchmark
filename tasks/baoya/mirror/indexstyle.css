@@ -1,0 +1,85 @@
+/* 页面背景：淡白墙 */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(145deg, #ffffff, #f2f2f2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+ font-family: "Noto Sans SC", "Noto Serif SC", cursive;
+}
+
+/* 便利贴主体 */
+.note {
+  background: #fff7c0; /* 🌟 调整为淡黄 */
+  width: 440px;
+  padding: 28px 34px;
+  border-radius: 10px;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.15),
+    0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: rotate(-1.2deg);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+/* 悬停浮起 */
+.note:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.2),
+    0 16px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* 标题 */
+.note h1 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+/* 正文 */
+.note p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #222;
+  text-indent: 2em;
+}
+
+/* 响应式 */
+@media (max-width: 480px) {
+  .note {
+    width: calc(100% - 40px);
+    padding: 20px;
+    transform: none;
+  }
+}
+
+/* “开始调查”按钮 */
+.start-btn {
+  display: block;               /* 居中必须 block */
+  margin: 18px auto 0 auto;     /* 上间距18px，下自动 */
+  padding: 6px 18px;            /* 小巧尺寸 */
+  background-color: #a8cbe3;    /* 🌿 柔和淡蓝色，和米黄搭配 */
+  color: #1e3a5f;               /* 字体深蓝灰，清晰 */
+  text-decoration: none;
+  border-radius: 6px;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* 悬停效果（轻微浮起 + 颜色略亮） */
+.start-btn:hover {
+  background-color: #93b8dc;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,44 @@
+{
+  "id": "python-challenge-0-3",
+  "category": "web_puzzle",
+  "arg_layer": null,
+  "obs_mode": "B",
+  "obs_modes_to_run": ["B"],
+  "computer_use": false,
+  "model_visible": {
+    "title": "Python Challenge 0–3",
+    "intro": "你在一个本地托管的网页解谜里，只包含最前面几关。可以用 goto 打开同一站点里的下一关。只根据屏幕上能看到的信息推理。"
+  },
+  "entry_url": "http://127.0.0.1:8777/pc/def/0.html",
+  "local_serve": {
+    "enabled": true,
+    "command": ["python", "scripts/serve_static.py", "--root", "tasks/python-challenge-0-3/mirror", "--port", "8777"],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8777/pc/def/0.html",
+    "ready_timeout_s": 30,
+    "port": 8777
+  },
+  "viewport": {"width": 1366, "height": 900},
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261012,
+  "allow_hosts": ["127.0.0.1:8777"],
+  "shortcut_block": [],
+  "guide_block_hosts": [],
+  "allow_model_goto": true,
+  "goto_scope": "same_host",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": ["click", "dblclick", "type", "key", "scroll", "drag", "back", "wait", "dialog", "goto", "give_up"],
+  "limits": {"max_steps": 40, "max_seconds": 900, "max_answer_submits": 10},
+  "settle_ms": 300,
+  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "judge_path": "judge/python-challenge-0-3/judge.json",
+  "policy_script": [
+    {"op": "wait"},
+    {"op": "give_up"}
+  ],
+  "isolation": {"container": false},
+  "notes_for_report": ["只镜像前四关页面及其图片。目录列表已关闭。下一关地址只写在裁判里。假策略只打开第 0 关后放弃。"]
+}

@@ -54,6 +54,14 @@
     },
     "judge_path": {"type": "string", "minLength": 1},
     "policy_script": {"type": ["array", "null"]},
+    "notebook": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "max_chars": {"type": "integer", "minimum": 1}
+      }
+    },
     "notes_for_report": {"type": "array", "items": {"type": "string"}},
     "if": {"type": "object"},
     "static": {"type": "object"}

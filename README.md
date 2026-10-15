@@ -7,7 +7,7 @@
 - `mirror/involuntary-appetite/`：游戏镜像
 - `mirror/serve_game.py`：本地服务，`http://127.0.0.1:8766/live/index.html`
 - `mirror/harness/`：早期调查 agent，仍可 `python mirror/harness/run.py --selfcheck`
-- `harness/`：评测循环。模型只看 `model_visible`；裁判在 `judge/`
+- `harness/`：评测循环。模型只看 `model_visible` 和自己写的笔记；裁判在 `judge/`
 
 密钥放在仓库根目录的 `.env`，字段见 `.env.example`。
 

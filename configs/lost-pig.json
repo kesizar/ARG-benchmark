@@ -1,0 +1,34 @@
+{
+  "id": "lost-pig",
+  "category": "text_adventure",
+  "arg_layer": null,
+  "obs_mode": "A",
+  "obs_modes_to_run": ["A"],
+  "computer_use": false,
+  "model_visible": {
+    "title": "Lost Pig",
+    "intro": "这是一局文字冒险。用 {\"op\":\"type\",\"text\":\"...\"} 输入指令。只根据回显推理。"
+  },
+  "entry_url": null,
+  "local_serve": {"enabled": false},
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "actions_enabled": ["type", "give_up"],
+  "if": {
+    "story_file": "tasks/lost-pig/LostPig.z8",
+    "interpreter": "frotz",
+    "frotz_bin": "tools/dfrotz/dfrotz.exe",
+    "frotz_args": ["-p"],
+    "max_command_chars": 200
+  },
+  "limits": {"max_steps": 80, "max_seconds": 1800, "max_answer_submits": 5},
+  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "judge_path": "judge/lost-pig/judge.json",
+  "policy_script": [
+    {"op": "type", "text": "look"},
+    {"op": "type", "text": "inventory"},
+    {"op": "give_up"}
+  ],
+  "isolation": {"container": false},
+  "notes_for_report": ["故事文件来自 IF Archive。这台机器用 dfrotz。裁判读取回显里的分数行。不提供合法动作列表。"]
+}

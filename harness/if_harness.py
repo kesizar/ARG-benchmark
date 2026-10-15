@@ -4,11 +4,17 @@ from __future__ import annotations
 
 import os
 import queue
+import re
 import shutil
 import subprocess
 import threading
 import time
 from pathlib import Path
+
+_SCORE_LABEL = re.compile(r"Score:\s*(-?\d+)", re.IGNORECASE)
+_STATUS_PAIR = re.compile(r" {2,}(-?\d+)\s*/\s*\d+")
+_WON = re.compile(r"\*\*\*\s*you have won\s*\*\*\*", re.IGNORECASE)
+_DIED = re.compile(r"\*\*\*\s*you have died\s*\*\*\*", re.IGNORECASE)
 
 
 class IFHarness:
@@ -131,6 +137,9 @@ class FrotzSession:
             env=env,
         )
         self._lines: queue.Queue[str | None] = queue.Queue()
+        self._score = 0
+        self._won = False
+        self._ended = False
         self._thread = threading.Thread(target=self._pump, daemon=True)
         self._thread.start()
         self.banner = self._collect(3)
@@ -139,10 +148,18 @@ class FrotzSession:
         return self.banner, {}
 
     def step(self, command: str):
-        assert self.proc.stdin is not None
-        self.proc.stdin.write(command + "\n")
-        self.proc.stdin.flush()
-        return self._collect(3), 0, False, {}
+        self._send(command)
+        text = self._collect(3)
+        return text, 0, self._ended, {}
+
+    def get_score(self) -> int:
+        return self._score
+
+    def victory(self) -> bool:  # noqa: A003
+        return self._won
+
+    def game_over(self) -> bool:
+        return self._ended
 
     def close(self) -> None:
         if self.proc.poll() is None:
@@ -158,26 +175,93 @@ class FrotzSession:
 
     def _pump(self) -> None:
         assert self.proc.stdout is not None
-        for line in self.proc.stdout:
-            self._lines.put(line)
-        self._lines.put(None)
+        pending = ""
+        while True:
+            char = self.proc.stdout.read(1)
+            if not char:
+                if pending:
+                    self._lines.put(pending)
+                self._lines.put(None)
+                return
+            pending += char
+            if char == "\n" or _ends_with_prompt(pending) or pending.endswith("***MORE***"):
+                self._lines.put(pending)
+                pending = ""
+
+    def _send(self, command: str) -> None:
+        if self.proc.stdin is None or self.proc.poll() is not None:
+            self._ended = True
+            return
+        self.proc.stdin.write(command + "\n")
+        self.proc.stdin.flush()
 
     def _collect(self, timeout: float) -> str:
         found: list[str] = []
+        pages = 0
         deadline = time.time() + timeout
         while time.time() < deadline:
             try:
                 item = self._lines.get(timeout=0.2)
             except queue.Empty:
-                if found and found[-1].strip() == ">":
+                if found and _ends_with_prompt(found[-1]):
                     break
                 continue
             if item is None:
+                self._ended = True
                 break
+            if _pager_waiting(item) and pages < 40:
+                pages += 1
+                self._send("")
+                deadline = time.time() + timeout
+                continue
             found.append(item)
-            if item.strip() == ">":
+            if _ends_with_prompt(item):
                 break
-        return "".join(found)
+        text = "".join(found)
+        self._apply_status(text)
+        return text
+
+    def _apply_status(self, text: str) -> None:
+        status = read_transcript_status(text)
+        if status["score"] is not None:
+            self._score = status["score"]
+        if status["victory"]:
+            self._won = True
+        if status["game_over"]:
+            self._ended = True
+
+
+def read_transcript_status(text: str) -> dict:
+    """Read the score and ending banners dfrotz prints. No puzzle answers."""
+
+    score = None
+    for line in text.splitlines():
+        labeled = _SCORE_LABEL.search(line)
+        if labeled:
+            score = int(labeled.group(1))
+            continue
+        pair = _STATUS_PAIR.search(line)
+        if pair:
+            score = int(pair.group(1))
+    won = _WON.search(text) is not None
+    died = _DIED.search(text) is not None
+    return {"score": score, "victory": won, "game_over": won or died}
+
+
+def _ends_with_prompt(text: str) -> bool:
+    body = text.rstrip(" \r\n")
+    if not body.endswith(">"):
+        return False
+    before = body[:-1]
+    return before == "" or before.endswith("\n") or before.endswith("\r")
+
+
+def _pager_waiting(line: str) -> bool:
+    stripped = line.strip()
+    if stripped == "***MORE***":
+        return True
+    low = stripped.lower()
+    return low.startswith("[press any") and "continue" in low
 
 
 def _story_path(story: str | None) -> Path:

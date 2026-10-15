@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>结局一</title>
+  <link rel="stylesheet" href="choice1.css" />
+  <style>
+    /* ===== 结尾动画部分 ===== */
+    .fade-text {
+      text-align: center;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+    .fade-text.show { opacity: 1; }
+
+    /* 黑幕淡入 */
+    .fade-screen {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 3s ease;
+      z-index: 10;
+    }
+    .fade-screen.show {
+      opacity: 1;
+    }
+
+    /* 最终感谢文字 */
+    .final-thanks {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      color: #fff;
+      opacity: 0;
+      z-index: 11;
+      line-height: 1.8;
+      transition: opacity 3s ease;
+    }
+    .final-thanks.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="story-wrapper">
+    <div class="story-container">
+      <div class="story-content">
+        <h1>收割</h1>
+        <p>
+          所有的VIP们，尤其是那些滞留在雾山的贵宾，此刻都收到了同样的警告。<br><br>
+          然而，那些年长的叔叔阿姨却并不相信。<br>
+          “这家公司怎么可能骗我们呢？”他们半信半疑地小声议论着。<br><br>
+          就在他们讨论的时候，王老板早已完成了献祭的准备。<br>
+          在地下的秘密仪式场所，小徐和小田的身体已经被王老板划开，鲜血蔓延在冰冷的地面上，她们成了仪式的药引。<br><br>
+          王老板将她们奉给了邪神，而现在，收割的时刻已经到来。<br><br>
+          惊慌的VIP们看到王老板手里握着刀，脸上画着诡异的符号，嘴里不停地念着咒语。<br>
+          他们终于明白，那咒语是要将所有人献祭。<br><br>
+          有人想呼喊，却发现亲爱的导游小田已经不见了。<br><br>
+          恐惧在众人之间蔓延，可他们根本无处可逃。
+        </p>
+
+        <p id="ending" class="fade-text">……了吗？</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="fadeScreen" class="fade-screen"></div>
+  <div id="thanksFinal" class="final-thanks">
+    <div>感谢游玩</div>
+    <div>万物永远制作</div>
+  </div>
+
+  <script>
+    // 27 秒后屏幕缓慢变黑
+    setTimeout(() => {
+      document.getElementById('fadeScreen').classList.add('show');
+    }, 19000);
+
+    // 30 秒后出现“感谢游玩 / 万物永远制作”
+    setTimeout(() => {
+      document.getElementById('thanksFinal').classList.add('show');
+    }, 20000);
+  </script>
+</body>
+</html>

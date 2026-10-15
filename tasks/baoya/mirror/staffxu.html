@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>员工页面</title>
+  <link rel="stylesheet" href="staffxustyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+
+ 
+</head>
+<body>
+     <h1 class="page-title">徐**个人员工账户</h1>
+  <div class="tabs">
+    <div class="tab active" data-target="page1">工作详情</div>
+    <div class="tab" data-target="page2">个人信息</div>
+  </div>
+
+  <div id="page1" class="content active">
+    <h2>工作安排</h2>
+  <table class="order-list">
+    <thead>
+      <tr>
+          <th class="time">时间</th>
+          <th class="location">地点</th>
+          <th class="what">具体事项</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="time">/</td>
+        <td class="location">/</td>
+        <td class="what">/</td>
+      </tr>
+      <tr>
+        <td class="time">/</td>
+        <td class="location">/</td>
+        <td class="what">/</td>
+      </tr>
+      <tr>
+        <td class="time">/</td>
+        <td class="location">/</td>
+        <td class="what">/</td>
+      </tr>
+        <tr>
+        <td class="time">/</td>
+        <td class="location">/</td>
+        <td class="what">/</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  </div>
+
+<div id="page2" class="content hidden-text">
+    <h2>个人信息内容</h2>
+
+    我是小徐。<br>
+    这段话，是我让我的朋友通过黑进公司网站后，偷偷留下的自述。<br><br>
+
+    来到这家公司时，我以为自己只是去做客服。没想到最后竟被安排去做前台，还给我挂了个“健康顾问”的头衔。<br>
+    可笑的是我自己一点也不健康，也不懂什么健康知识。<br>
+    所谓“健康顾问”，不过是个幌子。我们真正的工作，就是骗那些买保健品的老人。<br><br>
+
+    公司用的那一套，你肯定在直播间见过：<br>
+    “买五个不够？那就再加五个！不行？那我自己掏钱给家人们再加一点！”<br>
+    这种所谓的“感恩加码”套路，加上各种“高科技健康产品”的噱头，<br>
+    再利用老人们为自己、为子孙后代积福的心理，公司就这样牢牢地抓住了老人的心理。<br>
+    这一切让我恶心透了！<br><br>
+
+    更糟的是，余胜宇总是对我动手动脚。我早就想走，可公司根本不放人。<br>
+    既然走不了，那我就要搞点事情。<br><br>
+
+    我先是偷到了幕后老板王翔的邮箱密码。<br>
+    他防得挺严的，但我豁出去了……多的不说了，那串乱码我记得很清楚：<b>xnx!jhebg_cnjshbc</b>。<br><br>
+
+    后来，公司组织了一场所谓的“豪华VIP雾山游”。<br>
+    我趁机利用职务之便，混进了行程打算搜集证据，揭发这家黑心公司。<br>
+    可我没想到他们的秘密远不止骗人卖保健品那么简单。<br><br>
+
+    那次行程，我亲眼看到了……一些像是邪教祭祀的东西。<br>
+    太邪性了！我到现在都不敢细想，我怕被盯上。<br>
+    不仅是公司里的人，还有他们供奉的……不知名的东西。<br><br>
+
+    我自己的安全岌岌可危。<br><br>
+
+    如果你看到了这段话，拜托，请帮我完成我未完成的事。<br>
+    <b>揭穿他们。<br>
+    救救那些老人。</b>
+</div>
+
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // 切换 tab 样式
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // 切换内容显示
+        const target = tab.getAttribute('data-target');
+        contents.forEach(c => c.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

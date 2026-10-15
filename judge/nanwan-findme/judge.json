@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "on_school": {
+      "type": "url_regex",
+      "pattern": "index\\.html"
+    },
+    "page_no": {
+      "type": "dom_regex",
+      "pattern": "(\\d+)\\s*/\\s*31",
+      "agg": "max",
+      "keep_max": true
+    }
+  },
+  "checkpoints": [
+    {"id": "opened_school", "hook": "on_school", "op": "truthy"},
+    {"id": "saw_page_number", "hook": "page_no", "op": "gte", "value": 1}
+  ],
+  "events": {},
+  "ending": null,
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

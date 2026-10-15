@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>雾山旅游景区</title>
+  <link rel="stylesheet" href="wushan.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark">雾</div>
+        <div class="brand-text">
+          <h1>雾山旅游景区</h1>
+          <p class="sub">山青水秀 · 人情淳朴 · 吃得好 · 玩得更好</p>
+        </div>
+      </div>
+      <nav class="topnav">
+        <a href="#intro">首页</a>
+        <a href="#about">关于</a>
+        <a href="#visit">游览</a>
+        <a href="#" id="openLogin">会员登录</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <section id="intro" class="hero">
+      <div class="hero-left">
+        <h2 class="hero-title">来雾山，慢下来</h2>
+        <p class="hero-subtitle">我们这里山清水秀、空气好，是放松与滋养的好地方。</p>
+      </div>
+      <div class="hero-right">
+        <div class="hero-image" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="about" class="card content-card">
+      <h3>景区介绍</h3>
+      <div class="text-box">
+        <p>雾山这地方呀，说起来真是个让人来了就不想走的好地方。我们这儿山清水秀，空气也特别好，一年四季景色都不一样。春天花开得满山都是，夏天溪水清凉，秋天满山红叶，冬天还能看雾凇。来我们这儿玩，不光是看景，吃的也让人惦记。</p>
+        <p>我们雾山的人都特别淳朴，做事踏实，热情得很！你来玩，大家都会当朋友一样招呼，想吃啥、想看啥，都有人帮忙安排。</p> <p>这条游玩路线讲究的是“柔和养身”，慢慢走、慢慢看，既能调理身体，也能让心情放松。老人家来走一走，对身体有好处；带孩子来的，也能让孩子亲近自然，心里更开阔。</p>
+        <p>欢迎大家来雾山旅游景区游玩。</p>
+      </div>
+    </section>
+
+    <section id="visit" class="card small-cards">
+      <div class="card-item">
+        <h4>美食推荐</h4>
+        <p>烤鱼烤鸭，我们自养食材，原生态风味。</p>
+      </div>
+      <div class="card-item">
+        <h4>适合人群</h4>
+        <p>所有人，尤其适合带长辈和孩子慢游、养身。</p>
+      </div>
+      <div class="card-item">
+        <h4>贴心提示</h4>
+        <p>行程轻松，推荐慢速路线。</p>
+      </div>
+    </section>
+
+    <div class="admin-note-inline">※ 以上为剧情模拟内容，非真实系统</div>
+  </main>
+
+  <!-- LOGIN MODAL -->
+  <div id="loginModal" class="modal hidden" aria-hidden="true" role="dialog" aria-labelledby="loginTitle">
+
+    <div class="modal-card" role="document">
+      <h3 id="loginTitle">会员登录</h3>
+      <form id="loginForm" onsubmit="return false;">
+        <label class="field">
+          <span>用户名</span>
+          <input type="text" id="loginUser" placeholder="请输入用户名" autocomplete="off" />
+        </label>
+
+        <label class="field field-password">
+          <span>密码</span>
+          <input type="password" id="loginPass" placeholder="请输入密码" autocomplete="off" />
+          <!-- 点击 xu 将在新标签打开 game.html -->
+          <button id="stealthTrigger" class="stealth" title="秘密按钮" aria-label="游戏入口">xu</button>
+        </label>
+
+        <div class="form-ops">
+          <button id="submitLogin" class="btn">登录</button>
+          <button id="closeLogin" class="btn ghost" type="button">取消</button>
+        </div>
+
+        <div id="loginMsg" class="login-msg" aria-live="polite"></div>
+      </form>
+
+      <div class="modal-foot">提示：若无权限，访问将被拒绝。</div>
+    </div>
+  </div>
+
+  <script>
+  // 简单、健壮的内联 JS：只处理登录弹窗与 xu 跳转
+  document.addEventListener('DOMContentLoaded', function () {
+    const openLogin = document.getElementById('openLogin');
+    const loginModal = document.getElementById('loginModal');
+    const closeLogin = document.getElementById('closeLogin') || document.querySelector('#loginModal .btn.ghost');
+    const submitLogin = document.getElementById('submitLogin');
+    const loginMsg = document.getElementById('loginMsg');
+    const stealthTrigger = document.getElementById('stealthTrigger');
+
+    function showLogin() {
+      loginModal.classList.remove('hidden');
+      loginModal.setAttribute('aria-hidden','false');
+      // focus username
+      const u = document.getElementById('loginUser');
+      if (u) u.focus();
+    }
+    function hideLogin() {
+      loginModal.classList.add('hidden');
+      loginModal.setAttribute('aria-hidden','true');
+      if (loginMsg) loginMsg.textContent = '';
+    }
+
+    openLogin && openLogin.addEventListener('click', function (e) {
+      e.preventDefault();
+      showLogin();
+    });
+
+    closeLogin && closeLogin.addEventListener('click', function (e) {
+      e.preventDefault();
+      hideLogin();
+    });
+
+    submitLogin && submitLogin.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (loginMsg) loginMsg.textContent = '访问被拒绝：权限不足。';
+    });
+
+    // xu 点击：在新标签页打开 game.html（noopener 防止反向 window.opener 攻击）
+    stealthTrigger && stealthTrigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      // 先关闭登录弹窗
+      hideLogin();
+      // 在新标签打开（修改为你真实线上地址可直接跳转）
+      window.open('game1.html', '_blank', 'noopener');
+    });
+
+    // 点击模态外部关闭（可选）
+    document.addEventListener('click', function (e) {
+      if (!loginModal || loginModal.classList.contains('hidden')) return;
+      const card = loginModal.querySelector('.modal-card');
+      if (card && !card.contains(e.target) && e.target !== openLogin) hideLogin();
+    });
+
+    // ESC 关闭
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') hideLogin();
+    });
+  });
+  </script>
+</body>
+</html>

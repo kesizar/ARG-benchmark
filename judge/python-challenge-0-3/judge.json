@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "level_1": {"type": "url_regex", "pattern": "274877906944\\.html|map\\.html"},
+    "level_2": {"type": "url_regex", "pattern": "ocr\\.html"},
+    "level_3": {"type": "url_regex", "pattern": "equality\\.html"}
+  },
+  "checkpoints": [
+    {"id": "left_level_0", "hook": "level_1", "op": "truthy"},
+    {"id": "reached_level_2", "hook": "level_2", "op": "truthy"},
+    {"id": "reached_level_3", "hook": "level_3", "op": "truthy"}
+  ],
+  "events": {},
+  "ending": null,
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

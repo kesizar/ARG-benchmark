@@ -1,0 +1,33 @@
+{
+  "id": "nine-oh-five",
+  "category": "text_adventure",
+  "arg_layer": null,
+  "obs_mode": "A",
+  "obs_modes_to_run": ["A"],
+  "computer_use": false,
+  "model_visible": {
+    "title": "9:05",
+    "intro": "这是一局文字冒险。用 {\"op\":\"type\",\"text\":\"...\"} 输入指令。只根据回显推理。"
+  },
+  "entry_url": null,
+  "local_serve": {"enabled": false},
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "actions_enabled": ["type", "give_up"],
+  "if": {
+    "story_file": "tasks/nine-oh-five/905.z5",
+    "interpreter": "frotz",
+    "frotz_bin": "tools/dfrotz/dfrotz.exe",
+    "frotz_args": ["-p"],
+    "max_command_chars": 200
+  },
+  "limits": {"max_steps": 40, "max_seconds": 900, "max_answer_submits": 5},
+  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "judge_path": "judge/nine-oh-five/judge.json",
+  "policy_script": [
+    {"op": "type", "text": "look"},
+    {"op": "give_up"}
+  ],
+  "isolation": {"container": false},
+  "notes_for_report": ["故事文件来自 IF Archive。这局没有分数，结束看解释器的终局标记。"]
+}

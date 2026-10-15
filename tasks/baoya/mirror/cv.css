@@ -1,0 +1,63 @@
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.resume-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #2e662e;
+  margin-bottom: 5px;
+}
+
+.contact, .address {
+  text-align: center;
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #4caf50;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 5px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+p, li {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+li {
+  list-style-type: disc;
+}
+
+/* ===== 博客链接按钮 ===== */
+.blog-link {
+  color: #4caf50; /* 与简历绿色统一 */
+  font-weight: bold; /* 加粗 */
+  text-decoration: none; /* 去掉下划线 */
+}
+
+.blog-link:hover {
+  text-decoration: underline; /* 悬停时显示下划线提示可点击 */
+}

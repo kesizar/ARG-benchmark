@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宝亚保健有限公司</title>
+    <link rel="stylesheet" href="baoyahealthstyle.css">
+</head>
+<body>
+    <!-- 顶部 Banner -->
+<div class="banner">
+  <h1>宝亚保健有限公司</h1>
+  <p>健康长寿，福泽家人</p>
+</div>
+
+    <p>宝亚保健有限公司专注于中老年健康领域，致力于生物科技、生物医疗及生物技术的研究与应用。我们以“健康长寿，福泽家人”为使命，用科学的力量守护生命质量。宝亚始终坚信客户不仅是我们的伙伴，更是我们的家人。</p>
+    <p>我们希望，每一位信任宝亚的用户，都能因我们的产品而拥有健康的身体、幸福的生活——自己有福，家人更福，子孙永福！</p>
+    <p>宝亚保健周年庆活动开始：一路相伴，感恩有您！</p>
+    <p>宝亚保健有限公司诚意回馈所有家人，全场商品五折优惠！但这还不够！我们要让家人们感受到我们的真心，在五折基础上，再加送五样超值赠品（我们的人气爆款产品）：【全套量子修复细胞系列】、【生物能量仪】、【纳米保健腰带】、【远红外护膝】、【长寿排毒足贴】。更有满2000减1000的超大额健康券，只为让更多家人轻松拥有健康生活！</p>
+    <p>详情请联系您的健康顾问小徐，联系电话：(189)-863-7891</p>
+    <p>不仅如此，在本次周年庆期间，宝亚保健隆重推出“豪华VIP游”。我们已将专属邀请函发送至尊贵VIP家人的邮箱，请您登录邮箱，进入私人信箱查收您的专属邀请！</p>
+    <p>宝亚与您一起，健康长寿，福泽家人！</p>
+
+<!-- 登录模块开始 -->
+<!-- 登录模块开始 -->
+<div class="login-box">
+  <h2 id="login-title">普通用户登录</h2>
+
+  <input type="text" id="username" name="username" placeholder="请输入账号" autocomplete="off">
+
+ 
+<div class="password-wrapper">
+  <input type="password" id="password" name="password" placeholder="请输入密码" autocomplete="new-password">
+  <span class="tooltip">?
+    <span class="tooltiptext">初始密码为宝亚公司首次推出促销周报的日期。</span>
+  </span>
+</div>
+
+  
+  <!-- 员工登录提示 -->
+  <p id="employee-hint" style="display:none; color: #e74c3c; font-size: 0.9em;">员工登录请使用手机号</p>
+
+  <button onclick="login()">登录</button>
+
+  <span id="switch" onclick="toggleMode()">切换到员工入口</span>
+</div>
+
+<script>
+  let isEmployeeMode = false;
+
+  const employees = {
+    "1238278641": { password: "250711", page: "stafftian.html" },
+    "1287683511": { password: "maomao1971", page: "staffyu.html" },
+    "1898637891": { password: "shenrenlaoban", page: "staffxu.html" }
+  };
+
+  function toggleMode() {
+    isEmployeeMode = !isEmployeeMode;
+    const title = document.getElementById("login-title");
+    const switchText = document.getElementById("switch");
+    const hint = document.getElementById("employee-hint");
+
+    if (isEmployeeMode) {
+      title.textContent = "员工登录入口";
+      switchText.textContent = "切换回普通入口";
+      hint.style.display = "block"; // 显示提示
+      document.getElementById("username").placeholder = "请输入手机号";
+    } else {
+      title.textContent = "普通用户登录";
+      switchText.textContent = "切换到员工入口";
+      hint.style.display = "none"; // 隐藏提示
+      document.getElementById("username").placeholder = "请输入账号";
+    }
+  }
+
+  function login() {
+    const user = document.getElementById("username").value.trim();
+    const pass = document.getElementById("password").value.trim();
+
+    if (!isEmployeeMode) {
+      // 普通用户登录
+      if (user === "junjunnainai" && pass === "051017") {
+        window.location.href = "junjunnainai.html";
+      } else {
+        alert("普通用户：账号或密码错误");
+      }
+    } else {
+      // 员工登录
+      const employee = employees[user];
+      if (employee && employee.password === pass) {
+        window.location.href = employee.page;
+      } else {
+        alert("员工登录：手机号或密码错误");
+      }
+    }
+
+  }
+
+</script>
+<!-- 登录模块结束 -->
+
+ <script>
+    document.addEventListener('click', function (event) {
+      const tooltips = document.querySelectorAll('.tooltip');
+
+      tooltips.forEach(t => {
+        if (t.contains(event.target)) {
+          // 点击的是当前 tooltip
+          t.classList.toggle('active');
+        } else {
+          // 点击其他地方 -> 关闭所有 tooltip
+          t.classList.remove('active');
+        }
+      });
+    });
+  </script>
+  
+</body>
+</html>

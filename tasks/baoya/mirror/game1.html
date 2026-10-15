@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WUSHAN — 入侵</title>
+  <link rel="stylesheet" href="game1.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <main class="game-root">
+    <div class="hack-panel">
+      <!-- 左侧操作面板 -->
+      <div class="hp-left">
+        <h2 class="hp-title">WUSHAN_CTRL_CORE · AUTH</h2>
+        <p class="hp-sub">连接通道已建立。按正确顺序组合代码片段以模拟建立管理通道。</p>
+
+        <div class="meta-row">
+          <div>尝试次数：<span id="attemptsCount">0</span></div>
+          <div>提示状态：<span id="hintState">—</span></div>
+        </div>
+
+        <div id="codePool" class="code-pool"></div>
+
+        <div class="target-area" id="targetArea">
+          <div class="slot" data-slot="0">1</div>
+          <div class="slot" data-slot="1">2</div>
+          <div class="slot" data-slot="2">3</div>
+        </div>
+
+        <div class="controls">
+          <button id="btnCheck" class="btn">提交检验</button>
+          <button id="btnHint" class="btn ghost">显示提示（消耗一次尝试）</button>
+          <button id="btnReset" class="btn alt">重置</button>
+        </div>
+
+        <div class="hint-box" id="hintBox"></div>
+        <div class="small-note">※ 以上为剧情模拟内容，非真实系统</div>
+      </div>
+
+      <!-- 右侧终端显示 -->
+      <div class="hp-right">
+        <div class="terminal" id="terminal">
+          <pre id="termOut">▉ WUSHAN_CTRL_CORE / ADMIN_PORT_4421
+> AUTH CHANNEL READY...</pre>
+        </div>
+
+        <div class="breach-area hidden" id="breachArea">
+          <div class="breach-msg" id="breachMsg">ACCESS</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="game1.js"></script>
+</body>
+</html>

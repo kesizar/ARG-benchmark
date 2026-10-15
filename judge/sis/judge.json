@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "loaded": {"type": "dom_regex", "pattern": "S\\s*I\\s*S"},
+    "left_loading": {"type": "dom_regex", "pattern": "请查收"}
+  },
+  "checkpoints": [
+    {"id": "page_loaded", "hook": "loaded", "op": "truthy"},
+    {"id": "past_loading", "hook": "left_loading", "op": "truthy"}
+  ],
+  "events": {},
+  "ending": null,
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

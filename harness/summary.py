@@ -27,6 +27,7 @@ SUMMARY_FIELDS = [
     "shortcut_blocks",
     "tokens",
     "history_k",
+    "notebook_enabled",
     "notes_for_report",
 ]
 
@@ -59,6 +60,7 @@ def build_summary(cfg: dict, *, model: dict, ended_reason: str, steps: int, seco
         "shortcut_blocks": shortcuts,
         "tokens": tokens,
         "history_k": (cfg.get("history") or {}).get("full_obs_k", 4),
+        "notebook_enabled": bool((cfg.get("notebook") or {}).get("enabled", True)),
         "notes_for_report": list(cfg.get("notes_for_report") or []),
     }
 
