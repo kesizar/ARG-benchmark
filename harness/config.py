@@ -69,7 +69,7 @@ def apply_defaults(cfg: dict) -> dict:
     cfg.setdefault("actions_enabled", list(DEFAULT_ACTIONS))
     if not isinstance(cfg.get("notebook"), dict):
         cfg["notebook"] = {}
-    cfg["notebook"].setdefault("enabled", True)
+    cfg["notebook"].setdefault("enabled", False)
     cfg["notebook"].setdefault("max_chars", 4000)
     actions = [str(item) for item in cfg.get("actions_enabled") or []]
     if cfg["notebook"]["enabled"]:

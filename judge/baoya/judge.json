@@ -3,10 +3,9 @@
     "on_mail": {"type": "url_regex", "pattern": "email\\.html"},
     "wrong_try": {"type": "dialog_regex", "pattern": "密码错误"}
   },
-  "checkpoints": [
-    {"id": "opened_mail", "hook": "on_mail", "op": "truthy"}
-  ],
+  "checkpoints": [],
   "events": {
+    "opened_mail": {"hook": "on_mail", "op": "truthy"},
     "rejected_try": {"hook": "wrong_try", "op": "truthy"}
   },
   "ending": null,

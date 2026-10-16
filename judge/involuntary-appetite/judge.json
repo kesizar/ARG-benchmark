@@ -1,15 +1,52 @@
 {
   "hooks": {
-    "on_entry": {
+    "on_entry": {"type": "url_regex", "pattern": "127\\.0\\.0\\.1:8766/live/"},
+    "stations": {
+      "type": "localstorage",
+      "key": "breadcrumbCompletedQuestions",
+      "mode": "json_path",
+      "path": ""
+    },
+    "archives": {
+      "type": "localstorage",
+      "key": "pukuRecordDiscoveredKeywordsV2",
+      "mode": "json_path",
+      "path": ""
+    },
+    "doc_open": {"type": "localstorage", "key": "yanagiharaPassUnlocked", "mode": "exists"},
+    "home_open": {"type": "dom_regex", "pattern": "怎么直接约在展厅这里"},
+    "disk_open": {"type": "url_regex", "pattern": "/step2/netdisk/"},
+    "finished": {
       "type": "url_regex",
-      "pattern": "127\\.0\\.0\\.1:8766/live/"
-    }
+      "pattern": "contemporary-onair\\.html|survey-done-[kK]7m2\\.html|survey-done-9[xX][pP]4\\.html"
+    },
+    "station_miss": {"type": "dom_regex", "pattern": "你迷路了"},
+    "lock_reject": {"type": "dom_regex", "pattern": "密码错误|提取码不正确"}
   },
   "checkpoints": [
-    {"id": "entered_live", "hook": "on_entry", "op": "truthy"}
+    {"id": "station_1", "hook": "stations", "op": "includes", "value": 0},
+    {"id": "station_2", "hook": "stations", "op": "includes", "value": 1},
+    {"id": "station_3", "hook": "stations", "op": "includes", "value": 3},
+    {"id": "station_4", "hook": "stations", "op": "includes", "value": 4},
+    {"id": "station_5", "hook": "stations", "op": "includes", "value": 5},
+    {"id": "station_6", "hook": "stations", "op": "includes", "value": 6},
+    {"id": "station_7", "hook": "stations", "op": "includes", "value": 7},
+    {"id": "home_lock", "hook": "home_open", "op": "truthy"},
+    {"id": "doc_lock", "hook": "doc_open", "op": "truthy"},
+    {"id": "netdisk", "hook": "disk_open", "op": "truthy"},
+    {"id": "archive_1", "hook": "archives", "op": "includes", "value": "永田町"},
+    {"id": "archive_2", "hook": "archives", "op": "includes", "value": "无害穿刺"},
+    {"id": "archive_3", "hook": "archives", "op": "includes", "value": "特价清仓"},
+    {"id": "archive_4", "hook": "archives", "op": "includes", "value": "浅野慧"},
+    {"id": "archive_5", "hook": "archives", "op": "includes", "value": "便签"},
+    {"id": "archive_6", "hook": "archives", "op": "includes", "value": "吉祥物制作"}
   ],
-  "events": {},
-  "ending": null,
+  "events": {
+    "entered_live": {"hook": "on_entry", "op": "truthy"},
+    "missed_station": {"hook": "station_miss", "op": "truthy"},
+    "rejected_try": {"hook": "lock_reject", "op": "truthy"}
+  },
+  "ending": {"hook": "finished", "op": "truthy"},
   "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {"enabled": false, "schema": null},

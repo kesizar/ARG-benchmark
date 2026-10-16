@@ -23,17 +23,32 @@ class LLMPolicy:
         self.last_usage = {"prompt": 0, "completion": 0}
         self.last_raw = ""
 
-    def note_result(self, obs: dict, action: dict, result: str) -> None:
-        self.history.append({"obs": obs, "action": action, "result": result, "url": obs.get("url"), "title": ""})
+    def note_result(self, obs: dict, action: dict, result: str, reply: str = "") -> None:
+        self.history.append({
+            "obs": obs,
+            "action": action,
+            "result": result,
+            "reply": reply,
+            "url": obs.get("url"),
+            "title": "",
+        })
 
     def act(self, obs: dict) -> dict:
-        messages = self._messages(obs)
-        raw, usage = self._complete(messages)
+        import httpx
+
+        for mode in ("all", "current", "none"):
+            try:
+                raw, usage = self._complete(self._messages(obs, images=mode))
+                break
+            except httpx.HTTPStatusError as exc:
+                if exc.response.status_code != 400 or mode == "none":
+                    raise
+                print("当前截图仍被拒绝，改为只发文字" if mode == "current" else "截图请求被拒绝，减少图片后重试", flush=True)
         self.last_raw = raw[:32768]
         self.last_usage = usage
         return parse_model_action(raw)
 
-    def _messages(self, obs: dict) -> list[dict]:
+    def _messages(self, obs: dict, images: str = "all") -> list[dict]:
         full_k = int((self.cfg.get("history") or {}).get("full_obs_k") or 4)
         shot_k = int((self.cfg.get("history") or {}).get("screenshot_k") or 2)
         prior = self.history
@@ -44,8 +59,8 @@ class LLMPolicy:
         window = prior[-full_k:]
         image_from = max(0, len(window) - shot_k)
         for index, turn in enumerate(window):
-            _append_turn(messages, turn, full=True, with_image=index >= image_from)
-        messages.append(history_message({"obs": obs}, full=True, with_image=True, include_notebook=True))
+            _append_turn(messages, turn, full=True, with_image=images == "all" and index >= image_from)
+        messages.append(history_message({"obs": obs}, full=True, with_image=images != "none", include_notebook=True))
         return messages
 
     def _complete(self, messages: list[dict]) -> tuple[str, dict]:
@@ -54,8 +69,6 @@ class LLMPolicy:
         return self._openai(messages)
 
     def _openai(self, messages: list[dict]) -> tuple[str, dict]:
-        import httpx
-
         key = os.environ.get("OPENAI_API_KEY") or os.environ.get("AGENT_API_KEY") or ""
         base = (os.environ.get("OPENAI_BASE_URL") or os.environ.get("AGENT_BASE_URL") or "https://api.openai.com/v1").rstrip("/")
         model = os.environ.get("OPENAI_MODEL") or os.environ.get("AGENT_MODEL") or "gpt-4.1"
@@ -67,7 +80,7 @@ class LLMPolicy:
             "max_tokens": self.max_tokens,
             "messages": [_openai_message(item) for item in messages],
         }
-        response = httpx.post(
+        response = _post_with_retry(
             f"{base}/chat/completions",
             headers={"Authorization": f"Bearer {key}"},
             json=payload,
@@ -114,6 +127,37 @@ class LLMPolicy:
             "prompt": int(usage.get("input_tokens") or 0),
             "completion": int(usage.get("output_tokens") or 0),
         }
+
+
+def _post_with_retry(url: str, **kwargs):
+    """Retry a model call when the TLS connection drops before the request is sent."""
+    import time
+
+    import httpx
+
+    timeout = kwargs.pop("timeout", 120)
+    client_timeout = httpx.Timeout(timeout, connect=20)
+    last_error: Exception | None = None
+    for attempt in range(8):
+        try:
+            with httpx.Client(timeout=client_timeout) as client:
+                response = client.post(url, **kwargs)
+            if response.status_code not in {429, 500, 502, 503, 504}:
+                return response
+            last_error = httpx.HTTPStatusError(
+                f"模型接口返回 {response.status_code}",
+                request=response.request,
+                response=response,
+            )
+        except httpx.TransportError as exc:
+            last_error = exc
+        if attempt == 7:
+            break
+        delay = min(20, 5 * (attempt + 1))
+        print(f"模型请求中断，{delay}s 后重试", flush=True)
+        time.sleep(delay)
+    assert last_error is not None
+    raise last_error
 
 
 def _append_turn(messages: list[dict], turn: dict, *, full: bool, with_image: bool) -> None:

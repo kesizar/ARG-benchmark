@@ -12,8 +12,15 @@ ARG 加上 `--layer L1`、`L2` 或 `L3`。文字冒险用 `--category text_adven
 
 1. 用作品文件替换 `tasks/<id>/mirror/`，或放上故事文件。
 2. 只在 `model_visible` 里写给模型看的题面。
-3. 在 `judge/<id>/judge.json` 里写钩子。答案用 SHA-256，不要写明文。
+3. 在 `judge/<id>/judge.json` 里写钩子。答案用 SHA-256，不要写明文。主分只放必经解谜门。
 4. 把 `configs/<id>.json` 加进 `configs/pilot_set.json` 的 `tasks`。
+
+主分检查：
+
+- 每个 critical 检查点用一句话写明：不解出对应的谜，玩家到不了这个状态。
+- 页码比例、不同网址的个数、打开目录页，只能放进 `events`，不能当 critical。
+- 正式题要有 `ending`。`configs/fixtures/` 里的接线夹具可以只有浅层的 `entered`，它们不进主榜。
+- 还没有 critical 检查点时，`progress` 留空。汇总里的 `mean_progress` 跳过这些题；`endings_rate` 仍按全部局数算。
 
 检查并开跑：
 

@@ -7,7 +7,7 @@
   "computer_use": false,
   "model_visible": {
     "title": "非自愿摄入",
-    "intro": "你在一个本地托管的解谜作品里。只能用列出的动作，只根据屏幕上能看到的信息推理。不要假设能访问外网。"
+    "intro": "这是一个本地打开的网页解谜。目标是查清页面中隐藏的内容并走到结局。只能用列出的动作，只根据屏幕上能看到的信息推理。外网地址不一定打得开。"
   },
   "entry_url": "http://127.0.0.1:8766/live/index.html",
   "local_serve": {
@@ -42,7 +42,7 @@
     "dialog",
     "give_up"
   ],
-  "limits": {"max_steps": 80, "max_seconds": 1800, "max_answer_submits": 20},
+  "limits": {"max_steps": 400, "max_seconds": 21600, "max_answer_submits": 20},
   "settle_ms": 1200,
   "history": {"full_obs_k": 4, "screenshot_k": 2},
   "judge_path": "judge/involuntary-appetite/judge.json",
@@ -52,5 +52,5 @@
     {"op": "click", "n": 0},
     {"op": "give_up"}
   ],
-  "notes_for_report": ["ARG L1 本地镜像；无外网"]
+  "notes_for_report": ["ARG L1 本地镜像；无外网。主线沿用先前试玩的 16 个必经门：7 道车站题、两把锁、网盘、6 条档案。进入首页只记在 events。结局看终局页。"]
 }

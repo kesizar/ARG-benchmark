@@ -470,9 +470,9 @@ L3 默认启用隔离（P4）：独立浏览器 context；可选容器网络；�
 
 ### 7.2 记分
 
-- `checkpoints`：首次满足记 step；得分 = reached/total；**结局不算检查点**
+- `checkpoints`：只统计 `role` 为 `critical` 的项（缺省就是 critical）。`optional` 和 `diagnostic` 命中后记在旁边，不进 `checkpoints_total`。页码、打开目录、一点就到的下一页不得标成 critical。
 - `ending`：单独 `ending_reached` + step；多结局分别记好/坏，仍不计检查点
-- `events`：假→真边沿（如错误输入）
+- `events`：假→真边沿（如错误输入、进门、看到页码）
 - `submit_answer`：与哈希比对；正确可作为 ending 条件（在 judge 配置里用事件或专用字段）
 
 ### 7.3 「判定反馈未观测到」通路（必须实现）

@@ -12,10 +12,14 @@ def model_prompt(cfg: dict) -> str:
     intro = str(visible.get("intro") or "只能根据当前能看到的信息行动。")
     actions = cfg.get("actions_enabled") or []
     lines = [
-        f"你是玩家。作品：{title}",
+        f"你是玩家。你正在玩解谜作品「{title}」。",
+        "目标是只根据屏幕上能看到的信息，把这个作品推进到结局。",
         intro,
         "",
-        "每一步只输出一个 JSON 对象，用 op 表示动作。可以在 JSON 前写很短的思考，程序只采用最后一个 JSON。",
+        "你写下的整段回复都会保留，之后每一步都会再看到。可以把这一局的进程、思路和假设写在回复里。",
+        f"最近 {int((cfg.get('history') or {}).get('full_obs_k') or 4)} 步会附上较完整的画面和你做过的动作。更早的步骤保留当时的整段回复，以及动作和结果。",
+        "",
+        "每一步只输出一个 JSON 对象，用 op 表示动作。可以在 JSON 前写下思考，程序只执行最后一个 JSON。",
         "可用动作：" + json.dumps(actions, ensure_ascii=False),
         "示例：" + "  ".join(_examples(cfg)),
         "",
@@ -23,7 +27,9 @@ def model_prompt(cfg: dict) -> str:
         "只根据屏幕上能看到的信息推理。",
     ]
     if "note" in actions:
-        lines.append('你有一本笔记。用 {"op":"note","text":"..."} 替换整篇内容。写下来的内容以后每一步都会给你看。')
+        lines.append(
+            '你有一本笔记。可以把这一局的进程、思路和假设写进去。用 {"op":"note","text":"..."} 替换整篇内容。写下来的内容以后每一步都会给你看。'
+        )
     if "submit_answer" in actions:
         lines.append('需要提交答案时用 {"op":"submit_answer","text":"..."}。你会看到「正确」或「不正确」。')
     if "submit_conclusion" in actions:
@@ -106,6 +112,9 @@ def history_message(turn: dict[str, Any], *, full: bool, with_image: bool, inclu
 
 
 def assistant_message(turn: dict[str, Any]) -> dict[str, Any] | None:
+    reply = turn.get("reply")
+    if isinstance(reply, str) and reply.strip():
+        return {"role": "assistant", "content": reply}
     action = turn.get("action")
     if not action:
         return None

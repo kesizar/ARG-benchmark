@@ -108,7 +108,6 @@
     const imagePrefix = getImagePrefix(currentIndex);
 
     count.textContent = getCountLabel(currentIndex);
-    if (window.setPageNumber) window.setPageNumber(`stepⅠ ${currentIndex + 6}/21`);
     imageA.src = `/step2/images/Breadcrumbs/${imagePrefix}1.jpg`;
     imageB.src = `/step2/images/Breadcrumbs/${imagePrefix}2.jpg`;
     imageA.alt = `面包屑第 ${currentIndex + 1} 页线索图一`;

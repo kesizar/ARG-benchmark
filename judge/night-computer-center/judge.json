@@ -3,10 +3,10 @@
     "score": {"type": "if_score"},
     "victory": {"type": "if_victory"}
   },
-  "checkpoints": [
-    {"id": "scored", "hook": "score", "op": "gte", "value": 1}
-  ],
-  "events": {},
+  "checkpoints": [],
+  "events": {
+    "scored": {"hook": "score", "op": "gte", "value": 1}
+  },
   "ending": {"hook": "victory", "op": "truthy"},
   "answer_hash_file": null,
   "request_milestones": [],

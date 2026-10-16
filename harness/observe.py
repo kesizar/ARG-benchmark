@@ -164,7 +164,7 @@ def model_view(raw: dict[str, Any], cfg: dict) -> dict[str, Any]:
     if raw.get("turn") is not None:
         obs["turn"] = int(raw["turn"])
     book = cfg.get("notebook") or {}
-    if book.get("enabled", True):
+    if book.get("enabled", False):
         obs["notebook"] = str(raw.get("notebook") or "")
     return obs
 

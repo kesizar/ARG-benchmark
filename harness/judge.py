@@ -10,6 +10,17 @@ from pathlib import Path
 from typing import Any
 
 
+def _checkpoint_role(item: dict) -> str:
+    role = str(item.get("role") or "critical")
+    if role not in {"critical", "optional", "diagnostic"}:
+        return "critical"
+    return role
+
+
+def _critical_checkpoints(cfg: dict) -> list[dict]:
+    return [item for item in (cfg.get("checkpoints") or []) if _checkpoint_role(item) == "critical"]
+
+
 def norm_answer(text: str) -> str:
     normalized = unicodedata.normalize("NFKC", text or "")
     return "".join(normalized.split()).lower()
@@ -29,6 +40,7 @@ class Judge:
         self.values: dict[str, Any] = {}
         self.prev_values: dict[str, Any] = {}
         self.checkpoints: dict[str, int] = {}
+        self.side: dict[str, int] = {}
         self.events: list[dict[str, Any]] = []
         self.milestones: dict[str, int] = {}
         self.ending_reached = False
@@ -65,11 +77,17 @@ class Judge:
         fresh: list[tuple[str, str]] = []
         for item in self.cfg.get("checkpoints") or []:
             ident = str(item["id"])
+            if not self._op_ok(self.values.get(item.get("hook")), item):
+                continue
+            if _checkpoint_role(item) != "critical":
+                if ident not in self.side:
+                    self.side[ident] = step
+                    fresh.append(("diagnostic", ident))
+                continue
             if ident in self.checkpoints:
                 continue
-            if self._op_ok(self.values.get(item.get("hook")), item):
-                self.checkpoints[ident] = step
-                fresh.append(("checkpoint", ident))
+            self.checkpoints[ident] = step
+            fresh.append(("checkpoint", ident))
         for ident, spec in (self.cfg.get("events") or {}).items():
             hook = spec.get("hook")
             current = self._op_ok(self.values.get(hook), spec)
@@ -93,11 +111,12 @@ class Judge:
         return fresh
 
     def score(self) -> dict[str, Any]:
-        total = len(self.cfg.get("checkpoints") or []) if self.available else 0
+        total = len(_critical_checkpoints(self.cfg)) if self.available else 0
         return {
             "checkpoints_reached": len(self.checkpoints),
             "checkpoints_total": total,
             "checkpoints": dict(self.checkpoints),
+            "diagnostic": dict(self.side),
             "ending_reached": self.ending_reached or self.answer_correct,
             "ending_step": self.ending_step,
             "events": list(self.events),
@@ -274,6 +293,8 @@ class Judge:
                 return float(value) <= float(spec["value"])
             except (TypeError, ValueError):
                 return False
+        if op == "includes":
+            return isinstance(value, list) and spec.get("value") in value
         return False
 
 

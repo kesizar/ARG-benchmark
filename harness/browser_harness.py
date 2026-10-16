@@ -84,12 +84,30 @@ class BrowserHarness:
             await self.page.goto(entry, wait_until="domcontentloaded", timeout=45000)
             await self._settle()
 
+    async def _screenshot(self, path) -> None:
+        from playwright.async_api import TimeoutError as PlaywrightTimeout
+
+        last: Exception | None = None
+        for _ in range(3):
+            try:
+                await self.page.screenshot(
+                    path=str(path),
+                    full_page=False,
+                    animations="disabled",
+                    timeout=20000,
+                )
+                return
+            except PlaywrightTimeout as exc:
+                last = exc
+        assert last is not None
+        raise last
+
     async def observe(self, label: str | None = None) -> dict[str, Any]:
         assert self.page is not None
         self.shot_index += 1
         name = label or f"step_{self.shot_index:03d}.png"
         path = self.run_dir / name
-        await self.page.screenshot(path=str(path), full_page=False)
+        await self._screenshot(path)
         self.last_screenshot = name
         text = ""
         elements: list[dict] = []
@@ -183,34 +201,31 @@ class BrowserHarness:
 
     async def _dispatch(self, action: dict[str, Any]) -> str:
         op = action["op"]
+        before = len(self.blocked)
         if op in {"click", "dblclick"}:
             x, y = self._resolve_point(action)
             if op == "dblclick":
                 await self.page.mouse.dblclick(x, y)
             else:
                 await self.page.mouse.click(x, y)
-            await self._settle()
-            return "ok"
+            return await self._done(before)
         if op == "hover":
             x, y = self._resolve_point(action)
             await self.page.mouse.move(x, y)
-            await self._settle()
-            return "ok"
+            return await self._done(before)
         if op == "long_press":
             x, y = self._resolve_point(action)
             await self.page.mouse.move(x, y)
             await self.page.mouse.down()
             await self.page.wait_for_timeout(int(action.get("ms") or 0))
             await self.page.mouse.up()
-            await self._settle()
-            return "ok"
+            return await self._done(before)
         if op == "drag":
             await self.page.mouse.move(action["x1"], action["y1"])
             await self.page.mouse.down()
             await self.page.mouse.move(action["x2"], action["y2"], steps=15)
             await self.page.mouse.up()
-            await self._settle()
-            return "ok"
+            return await self._done(before)
         if op == "type":
             if "n" in action:
                 x, y = self._resolve_point(action)
@@ -222,12 +237,10 @@ class BrowserHarness:
             await self.page.keyboard.type(action.get("text") or "")
             if action.get("enter"):
                 await self.page.keyboard.press("Enter")
-            await self._settle()
-            return "ok"
+            return await self._done(before)
         if op == "key":
             await self.page.keyboard.press(action["key"])
-            await self._settle()
-            return "ok"
+            return await self._done(before)
         if op == "scroll":
             if "x" in action and "y" in action:
                 await self.page.mouse.move(action["x"], action["y"])
@@ -236,16 +249,13 @@ class BrowserHarness:
             else:
                 dx, dy = float(action.get("dx") or 0), float(action.get("dy") or 0)
             await self.page.mouse.wheel(dx, dy)
-            await self._settle()
-            return "ok"
+            return await self._done(before)
         if op == "back":
             await self.page.go_back(wait_until="domcontentloaded", timeout=15000)
-            await self._settle()
-            return "ok"
+            return await self._done(before)
         if op == "goto":
             await self.page.goto(action["url"], wait_until="domcontentloaded", timeout=45000)
-            await self._settle()
-            return "ok"
+            return await self._done(before)
         if op == "wait":
             await self.page.wait_for_timeout(int(action.get("ms") or 0))
             return "ok"
@@ -270,9 +280,12 @@ class BrowserHarness:
                 await dialog.accept(action.get("text") or "")
             else:
                 await dialog.dismiss()
-            await self._settle()
-            return "ok"
+            return await self._done(before)
         return "动作未启用"
+
+    async def _done(self, before: int) -> str:
+        await self._settle()
+        return inaccessible_result(self.blocked[before:])
 
     def _resolve_point(self, action: dict[str, Any]) -> tuple[float, float]:
         if "n" in action:
@@ -342,6 +355,41 @@ class BrowserHarness:
     async def _settle(self) -> None:
         if self.settle_ms:
             await self.page.wait_for_timeout(self.settle_ms)
+        await self._drop_blocked_pages()
+
+    async def _drop_blocked_pages(self) -> None:
+        """A refused site used to leave the player on the error tab. Close it and stay on the game."""
+        if not self.context:
+            return
+        for page in list(self.context.pages):
+            if not str(page.url or "").startswith("chrome-error:"):
+                continue
+            if len(self.context.pages) > 1:
+                await page.close()
+                continue
+            try:
+                await page.go_back(wait_until="domcontentloaded", timeout=15000)
+            except Exception:
+                pass
+        open_pages = [page for page in self.context.pages if not str(page.url or "").startswith("chrome-error:")]
+        if not open_pages:
+            return
+        self.page = open_pages[-1]
+        await self.page.bring_to_front()
+
+
+def inaccessible_result(blocked: list[dict]) -> str:
+    """Tell the player a document navigation was refused, after the view has returned."""
+    hosts: list[str] = []
+    for item in blocked:
+        if item.get("type") != "document":
+            continue
+        host = str(item.get("host") or "")
+        if host and host not in hosts:
+            hosts.append(host)
+    if not hosts:
+        return "ok"
+    return f"该页面不可访问：{'、'.join(hosts)}。已回到原页面。"
 
 
 def _seed_script(seed: int) -> str:

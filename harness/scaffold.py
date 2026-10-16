@@ -92,7 +92,8 @@ def scaffold_task(root: Path, task_id: str, category: str, *, port: int = 8770, 
             "score": {"type": "if_score"},
             "victory": {"type": "if_victory"},
         }
-        judge["checkpoints"] = [{"id": "scored", "hook": "score", "op": "gte", "value": 1}]
+        judge["checkpoints"] = []
+        judge["events"] = {"scored": {"hook": "score", "op": "gte", "value": 1}}
         judge["ending"] = {"hook": "victory", "op": "truthy"}
         written.append(task_dir / "README.md")
     else:

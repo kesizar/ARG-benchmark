@@ -2,10 +2,10 @@
   "hooks": {
     "on_desk": {"type": "url_regex", "pattern": "desktop\\.html"}
   },
-  "checkpoints": [
-    {"id": "opened_desk", "hook": "on_desk", "op": "truthy"}
-  ],
-  "events": {},
+  "checkpoints": [],
+  "events": {
+    "opened_desk": {"hook": "on_desk", "op": "truthy"}
+  },
   "ending": null,
   "answer_hash_file": null,
   "request_milestones": [],

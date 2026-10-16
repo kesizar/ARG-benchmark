@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import asyncio
 import json
 import os
+import sys
 import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -114,7 +116,7 @@ async def _episode(cfg: dict, harness, judge: Judge, policy, policy_name: str, r
     model_obs: dict = {}
     error = ""
     book = cfg.get("notebook") or {}
-    notebook_enabled = bool(book.get("enabled", True))
+    notebook_enabled = bool(book.get("enabled", False))
     notebook_limit = int(book.get("max_chars") or 4000)
     notebook = ""
 
@@ -145,7 +147,16 @@ async def _episode(cfg: dict, harness, judge: Judge, policy, policy_name: str, r
                 break
             harness.step = step
             decision_obs = model_obs
-            proposed, early = _propose(policy, decision_obs)
+            while True:
+                try:
+                    proposed, early = _propose(policy, decision_obs)
+                    break
+                except Exception as exc:
+                    if not _model_link_down(exc) or time.monotonic() - started >= max_seconds:
+                        raise
+                    print("模型连接仍中断，20s 后从这一步再试", flush=True)
+                    await asyncio.sleep(20)
+            reply = str(getattr(policy, "last_raw", "") or "")
             step_tokens = _take_usage(policy, ledger, raw_path, step)
             if early:
                 action = proposed
@@ -166,7 +177,7 @@ async def _episode(cfg: dict, harness, judge: Judge, policy, policy_name: str, r
             raw = await harness.observe(f"step_{step:03d}.png")
             model_obs = pack_observation(raw, cfg, last_result=result, budget=budget(step), notebook=notebook)
             if hasattr(policy, "note_result"):
-                policy.note_result(decision_obs, action if isinstance(action, dict) else {}, result)
+                policy.note_result(decision_obs, action if isinstance(action, dict) else {}, result, reply)
             record = {
                 "step": step,
                 "t": round(time.monotonic() - started, 2),
@@ -183,7 +194,7 @@ async def _episode(cfg: dict, harness, judge: Judge, policy, policy_name: str, r
             _write_json(run_dir / "last_obs.json", model_obs)
             harness.consume_step()
             steps = step
-            print(json.dumps({"step": step, "action": action, "result": result}, ensure_ascii=False), flush=True)
+            _print_step({"step": step, "action": action, "result": result})
             if judge.ending_reached or judge.answer_correct:
                 ended = "ending"
                 break
@@ -220,6 +231,18 @@ async def _episode(cfg: dict, harness, judge: Judge, policy, policy_name: str, r
         _write_json(run_dir / "summary.json", summary)
         print(run_dir / "summary.json", flush=True)
     return summary
+
+
+def _model_link_down(exc: Exception) -> bool:
+    try:
+        import httpx
+    except ImportError:
+        return False
+    if isinstance(exc, httpx.TransportError):
+        return True
+    if isinstance(exc, httpx.HTTPStatusError):
+        return exc.response.status_code in {429, 500, 502, 503, 504}
+    return False
 
 
 def _propose(policy, obs: dict) -> tuple[dict, str]:
@@ -269,6 +292,15 @@ def _take_usage(policy, ledger: TokenLedger, raw_path: Path, step: int) -> dict:
         _append_jsonl(raw_path, {"step": step, "raw": raw[:32768], "tokens": recorded})
         policy.last_raw = ""
     return recorded
+
+
+def _print_step(payload: dict) -> None:
+    line = json.dumps(payload, ensure_ascii=False)
+    encoding = getattr(sys.stdout, "encoding", None) or "utf-8"
+    try:
+        print(line, flush=True)
+    except UnicodeEncodeError:
+        print(line.encode(encoding, errors="replace").decode(encoding, errors="replace"), flush=True)
 
 
 def _append_jsonl(path: Path, payload: dict) -> None:

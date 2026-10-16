@@ -53,6 +53,8 @@ class FixtureTests(unittest.TestCase):
                 "checkpoints_reached",
                 "checkpoints_total",
                 "endings",
+                "endings_rate",
+                "mean_progress",
                 "steps",
                 "tokens_total",
             ],

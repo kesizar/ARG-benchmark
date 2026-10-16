@@ -9,11 +9,10 @@
     },
     "wrong_try": {"type": "dialog_regex", "pattern": "密码错误"}
   },
-  "checkpoints": [
-    {"id": "opened_desk", "hook": "on_desk", "op": "truthy"},
-    {"id": "saw_page_number", "hook": "page_no", "op": "gte", "value": 1}
-  ],
+  "checkpoints": [],
   "events": {
+    "opened_desk": {"hook": "on_desk", "op": "truthy"},
+    "saw_page_number": {"hook": "page_no", "op": "gte", "value": 1},
     "rejected_try": {"hook": "wrong_try", "op": "truthy"}
   },
   "ending": null,

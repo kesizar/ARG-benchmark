@@ -1230,13 +1230,8 @@ KAY：嘿嘿，抱歉抱歉。那我们这就开始吧！今晚回去我就剪�
       render();
     });
 
-    const docPageNumbers = {
-      "preset-20260812-audio": "stepⅡ 7/19",
-      "preset-20260813": "stepⅡ 8/19",
-      "preset-20260807": "stepⅡ 9/19"
-    };
-    const docEditorStyles = `*{box-sizing:border-box;margin:0}body{background:#525659;display:flex;justify-content:center;padding:40px 20px;min-height:100vh}article{width:816px;min-height:1056px;padding:96px 72px;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.3);font:15px/2.4 "Microsoft YaHei","Noto Sans SC",Arial,sans-serif;color:#202124;word-break:break-word;outline:none;white-space:pre-wrap;letter-spacing:0.03em}img{max-width:100%;height:auto}.page-number{position:fixed;right:20px;bottom:20px;z-index:1000;padding:6px 12px;border-radius:999px;color:#fff;background:#000;box-shadow:0 4px 14px rgba(0,0,0,.24);font:700 14px/1.2 Arial,sans-serif;letter-spacing:.02em;white-space:nowrap;pointer-events:none}`;
-    const docPageNumberMarkup = (docId) => docPageNumbers[docId] ? `<div class="page-number" aria-label="页面进度">${docPageNumbers[docId]}</div>` : "";
+    const docEditorStyles = `*{box-sizing:border-box;margin:0}body{background:#525659;display:flex;justify-content:center;padding:40px 20px;min-height:100vh}article{width:816px;min-height:1056px;padding:96px 72px;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.3);font:15px/2.4 "Microsoft YaHei","Noto Sans SC",Arial,sans-serif;color:#202124;word-break:break-word;outline:none;white-space:pre-wrap;letter-spacing:0.03em}img{max-width:100%;height:auto}`;
+    const docPageNumberMarkup = () => "";
 
     const buildEditorPage = (title, bodyContent, docId) => `<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><title>${title}</title><style>${docEditorStyles}</style></head><body><article contenteditable="true">${bodyContent}</article>${docPageNumberMarkup(docId)}<script>
 var saved=false;
@@ -1593,10 +1588,9 @@ window.addEventListener("unload",function(){if(!saved){doSave()}});
       const upload = document.getElementById("yanagiharaDocsUpload");
       const reset = document.getElementById("yanagiharaDocsReset");
 
-      const docEditorStyles = `*{box-sizing:border-box;margin:0}body{background:#525659;display:flex;justify-content:center;padding:40px 20px;min-height:100vh}article{width:816px;min-height:1056px;padding:96px 72px;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.3);font:15px/2.4 "Microsoft YaHei","Noto Sans SC",Arial,sans-serif;color:#202124;word-break:break-word;outline:none;white-space:pre-wrap;letter-spacing:0.03em}img{max-width:100%;height:auto}.page-number{position:fixed;right:20px;bottom:20px;z-index:1000;padding:6px 12px;border-radius:999px;color:#fff;background:#000;box-shadow:0 4px 14px rgba(0,0,0,.24);font:700 14px/1.2 Arial,sans-serif;letter-spacing:.02em;white-space:nowrap;pointer-events:none}`;
+      const docEditorStyles = `*{box-sizing:border-box;margin:0}body{background:#525659;display:flex;justify-content:center;padding:40px 20px;min-height:100vh}article{width:816px;min-height:1056px;padding:96px 72px;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.3);font:15px/2.4 "Microsoft YaHei","Noto Sans SC",Arial,sans-serif;color:#202124;word-break:break-word;outline:none;white-space:pre-wrap;letter-spacing:0.03em}img{max-width:100%;height:auto}`;
       const buildEditorPage = (title, bodyContent, docId) => {
-        const pageNumber = docId === "yanagi-20260810" ? '<div class="page-number" aria-label="页面进度">stepⅡ 15/19</div>' : "";
-        return `<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><title>${title}</title><style>${docEditorStyles}</style></head><body><article contenteditable="true">${bodyContent}</article>${pageNumber}<script>var saved=false;var article=document.querySelector("article");window.addEventListener("beforeunload",function(e){if(!saved){e.preventDefault();e.returnValue=""}});window.addEventListener("keydown",function(e){if((e.ctrlKey||e.metaKey)&&e.key==="s"){e.preventDefault();doSave()}});function doSave(){saved=true;var data={araiDocSave:true,docId:"${docId}",storeKey:"${yDocsKey}",html:article.innerHTML};if(window.opener){window.opener.postMessage(data,"*")}if(window.parent&&window.parent!==window){window.parent.postMessage(data,"*")}}window.addEventListener("unload",function(){if(!saved){doSave()}});<\/script></body></html>`;
+        return `<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><title>${title}</title><style>${docEditorStyles}</style></head><body><article contenteditable="true">${bodyContent}</article><script>var saved=false;var article=document.querySelector("article");window.addEventListener("beforeunload",function(e){if(!saved){e.preventDefault();e.returnValue=""}});window.addEventListener("keydown",function(e){if((e.ctrlKey||e.metaKey)&&e.key==="s"){e.preventDefault();doSave()}});function doSave(){saved=true;var data={araiDocSave:true,docId:"${docId}",storeKey:"${yDocsKey}",html:article.innerHTML};if(window.opener){window.opener.postMessage(data,"*")}if(window.parent&&window.parent!==window){window.parent.postMessage(data,"*")}}window.addEventListener("unload",function(){if(!saved){doSave()}});<\/script></body></html>`;
       };
 
       window.addEventListener("message", (event) => {

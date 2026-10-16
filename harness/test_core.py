@@ -9,9 +9,11 @@ import unittest
 from pathlib import Path
 
 from harness.actions import last_json_object, normalize
+from harness.browser_harness import inaccessible_result
 from harness.config import apply_defaults, apply_obs_mode, load_config
 from harness.if_harness import IFHarness
 from harness.judge import Judge, answer_sha256
+from harness.policy_llm import LLMPolicy
 from harness.loop import run
 from harness.network import block_reason
 from harness.observe import model_view, public_elements
@@ -36,6 +38,17 @@ class ActionTests(unittest.TestCase):
         action, error = normalize({"op": "goto", "url": "https://example.com/walkthrough"}, cfg)
         self.assertIsNone(action)
         self.assertEqual(error, "动作未启用")
+
+    def test_blocked_document_is_reported_before_return(self) -> None:
+        notice = inaccessible_result(
+            [
+                {"type": "document", "host": "ginga-light.top"},
+                {"type": "document", "host": "ginga-light.top"},
+                {"type": "script", "host": "stats.example"},
+            ]
+        )
+        self.assertEqual(notice, "该页面不可访问：ginga-light.top。已回到原页面。")
+        self.assertEqual(inaccessible_result([{"type": "image", "host": "cdn.example"}]), "ok")
 
     def test_legacy_done_maps_to_give_up(self) -> None:
         cfg = load_config(TASK)
@@ -71,8 +84,8 @@ class ObsTests(unittest.TestCase):
         self.assertEqual(view["turn"], 2)
         self.assertIn("visible_text", view)
 
-    def test_notebook_is_on_by_default_and_visible_in_every_mode(self) -> None:
-        self.assertIn("note", load_config(TASK)["actions_enabled"])
+    def test_notebook_is_off_by_default_and_visible_when_enabled(self) -> None:
+        self.assertNotIn("note", load_config(TASK)["actions_enabled"])
         raw = {
             "visible_text": "画面",
             "notebook": "门口的数字是 4815",
@@ -82,14 +95,17 @@ class ObsTests(unittest.TestCase):
             "dialogs": [],
             "pending_dialog": None,
         }
-        for mode in ("A", "B", "C"):
-            view = model_view(raw, load_config(TASK, obs_mode=mode))
-            self.assertEqual(view["notebook"], "门口的数字是 4815")
-        disabled = {"category": "static", "arg_layer": None, "actions_enabled": ["give_up", "note"], "notebook": {"enabled": False}}
-        apply_defaults(disabled)
-        self.assertNotIn("note", disabled["actions_enabled"])
-        hidden = model_view(raw, disabled)
+        hidden = model_view(raw, load_config(TASK))
         self.assertNotIn("notebook", hidden)
+        enabled = {"category": "static", "arg_layer": None, "actions_enabled": ["give_up"], "notebook": {"enabled": True}}
+        apply_defaults(enabled)
+        self.assertIn("note", enabled["actions_enabled"])
+        self.assertIn("你有一本笔记", model_prompt(enabled))
+        for mode in ("A", "B", "C"):
+            enabled["obs_mode"] = mode
+            apply_obs_mode(enabled)
+            view = model_view(raw, enabled)
+            self.assertEqual(view["notebook"], "门口的数字是 4815")
 
     def test_elements_drop_private_fields(self) -> None:
         cleaned = public_elements([{"n": 0, "kind": "a", "label": "A", "x": 1, "y": 2, "href": "secret", "id": "x"}])
@@ -156,6 +172,27 @@ class JudgeTests(unittest.TestCase):
         self.assertIn(("checkpoint", "entered_live"), fresh)
         self.assertEqual(judge.check_answer("north"), "正确")
         self.assertTrue(judge.score()["ending_reached"])
+
+    def test_list_membership_counts_only_solved_items(self) -> None:
+        judge = Judge(
+            {
+                "hooks": {},
+                "checkpoints": [
+                    {"id": "station_1", "hook": "stations", "op": "includes", "value": 0},
+                    {"id": "station_3", "hook": "stations", "op": "includes", "value": 3},
+                ],
+                "events": {},
+                "ending": None,
+            },
+            "sample",
+        )
+        judge.values = {"stations": [0, 1, 2]}
+        judge.update(1)
+        score = judge.score()
+        self.assertEqual(score["checkpoints_reached"], 1)
+        self.assertEqual(score["checkpoints_total"], 2)
+        self.assertIn("station_1", score["checkpoints"])
+        self.assertNotIn("station_3", score["checkpoints"])
 
     def test_distinct_dom_count(self) -> None:
         judge = Judge(
@@ -231,9 +268,30 @@ class PromptTests(unittest.TestCase):
         story = model_prompt(load_config(ROOT / "configs" / "examples" / "text-adventure.template.json"))
         self.assertIn('{"op":"type","text":"look","enter":true}', story)
         self.assertNotIn('{"op":"click"', story)
-        self.assertIn("你有一本笔记", mode_a)
-        self.assertNotIn("进度", mode_a)
-        self.assertNotIn("规划", mode_a)
+        self.assertNotIn("你有一本笔记", mode_a)
+        self.assertIn("整段回复都会保留", mode_a)
+        self.assertIn("进程、思路和假设", mode_a)
+        self.assertIn("最近", mode_a)
+
+    def test_rejected_images_fall_back_to_fewer_shots(self) -> None:
+        policy = LLMPolicy(load_config(TASK), Path("."))
+        policy.history = [
+            {"obs": {"url": "http://local/old", "screenshot": "old.png"}, "action": {"op": "wait"}, "result": "ok"}
+        ]
+        obs = {"url": "http://local/now", "screenshot": "now.png", "notebook": ""}
+
+        def shots(mode: str) -> list[str]:
+            found = []
+            for message in policy._messages(obs, images=mode):
+                content = message.get("content")
+                if not isinstance(content, list):
+                    continue
+                found.extend(part.get("path") for part in content if part.get("type") == "image_path")
+            return found
+
+        self.assertEqual(shots("all"), ["old.png", "now.png"])
+        self.assertEqual(shots("current"), ["now.png"])
+        self.assertEqual(shots("none"), [])
 
     def test_missing_judge_still_finishes(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -390,6 +448,83 @@ class ReportTests(unittest.TestCase):
             rows = aggregate(root)
             self.assertEqual({row["arg_layer"] for row in rows}, {"L1", "L2"})
             self.assertTrue(all(row["category"] == "arg" for row in rows))
+            self.assertEqual(rows[0]["mean_progress"], 0.5)
+            self.assertEqual(rows[0]["endings_rate"], 0.0)
+
+    def test_page_turn_is_not_main_progress(self) -> None:
+        from harness.judge import Judge
+
+        judge = Judge(
+            {
+                "hooks": {},
+                "checkpoints": [
+                    {"id": "saw_page_number", "hook": "page_no", "op": "gte", "value": 1, "role": "diagnostic"},
+                    {"id": "solved_gate", "hook": "gate", "op": "truthy"},
+                ],
+                "events": {"opened_cover": {"hook": "cover", "op": "truthy"}},
+                "ending": {"hook": "done", "op": "truthy"},
+            },
+            "sample",
+            Path("."),
+        )
+        judge.values = {"page_no": 4, "cover": True, "gate": False, "done": False}
+        judge.update(1)
+        browsing = judge.score()
+        self.assertEqual(browsing["checkpoints_reached"], 0)
+        self.assertEqual(browsing["checkpoints_total"], 1)
+        self.assertFalse(browsing["ending_reached"])
+        self.assertEqual(browsing["diagnostic"]["saw_page_number"], 1)
+        self.assertEqual(browsing["events"][0]["id"], "opened_cover")
+        judge.values = {"page_no": 8, "cover": True, "gate": True, "done": True}
+        judge.update(2)
+        solved = judge.score()
+        self.assertEqual(solved["checkpoints_reached"], 1)
+        self.assertTrue(solved["ending_reached"])
+
+    def test_mean_progress_skips_tasks_without_critical_gates(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            bare = root / "bare" / "B" / "20261015_000001"
+            gated = root / "gated" / "B" / "20261015_000001"
+            bare.mkdir(parents=True)
+            gated.mkdir(parents=True)
+            (bare / "summary.json").write_text(
+                json.dumps(
+                    {
+                        "category": "web_puzzle",
+                        "arg_layer": None,
+                        "obs_mode": "B",
+                        "model": {"name": "scripted"},
+                        "checkpoints_reached": 0,
+                        "checkpoints_total": 0,
+                        "ending_reached": False,
+                        "steps": 2,
+                        "tokens": {"total": 0},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            (gated / "summary.json").write_text(
+                json.dumps(
+                    {
+                        "category": "web_puzzle",
+                        "arg_layer": None,
+                        "obs_mode": "B",
+                        "model": {"name": "scripted"},
+                        "checkpoints_reached": 1,
+                        "checkpoints_total": 2,
+                        "ending_reached": True,
+                        "steps": 4,
+                        "tokens": {"total": 0},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            rows = aggregate(root)
+            self.assertEqual(len(rows), 1)
+            self.assertEqual(rows[0]["runs"], 2)
+            self.assertEqual(rows[0]["mean_progress"], 0.5)
+            self.assertEqual(rows[0]["endings_rate"], 0.5)
 
     def test_real_config_validates(self) -> None:
         self.assertEqual(validate_file(TASK, ROOT), [])

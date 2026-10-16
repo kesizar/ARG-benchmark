@@ -193,6 +193,15 @@ class ReadyTests(unittest.TestCase):
         _system, converted = to_anthropic_messages(messages)
         converted_roles = [item["role"] for item in converted]
         self.assertEqual(converted_roles, roles)
+        policy.note_result(
+            {"url": "http://local/reply", "visible_text": "full-reply", "screenshot": ""},
+            {"op": "wait"},
+            "ok",
+            "先看海报。\n{\"op\":\"wait\"}",
+        )
+        replied = policy._messages({"url": "http://local/now", "visible_text": "current", "screenshot": ""})
+        assistant = [item["content"] for item in replied if item["role"] == "assistant"]
+        self.assertIn("先看海报", assistant[-1])
         current = policy._messages({"url": "http://local/now", "visible_text": "current", "screenshot": "", "notebook": "记下了"})
         self.assertIn("记下了", current[-1]["content"][0]["text"])
         self.assertTrue(all("记下了" not in json.dumps(item) for item in current[:-1]))
