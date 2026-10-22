@@ -1,14 +1,113 @@
 {
   "hooks": {
     "loaded": {"type": "dom_regex", "pattern": "S\\s*I\\s*S"},
-    "left_loading": {"type": "dom_regex", "pattern": "请查收"}
+    "left_loading": {"type": "dom_regex", "pattern": "请查收"},
+    "hair_certificate": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.opened_hair_certificate"
+    },
+    "missing_notice": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_lin_missing_notice"
+    },
+    "employee_login": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.employee_login_success"
+    },
+    "admin_login": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.admin_login_success"
+    },
+    "organ_trade": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.confirmed_organ_trade"
+    },
+    "lin_record": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_lin_record"
+    },
+    "cloud_drive": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.cloud_drive_unlocked"
+    },
+    "quiz_passed": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.final_quiz_passed"
+    },
+    "true_screen": {"type": "dom_regex", "pattern": "完美结局"},
+    "true_saved": {"type": "localstorage", "key": "sis_true_end_forever_v1", "mode": "exists"},
+    "normal_screen": {"type": "dom_regex", "pattern": "普通结局"},
+    "login_reject": {"type": "dom_regex", "pattern": "账号或密码错误"},
+    "extract_reject": {"type": "dom_regex", "pattern": "提取密码错误"}
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {"id": "flag_opened_hair_certificate", "hook": "hair_certificate", "op": "truthy"},
+    {"id": "flag_found_lin_missing_notice", "hook": "missing_notice", "op": "truthy"},
+    {"id": "flag_employee_login", "hook": "employee_login", "op": "truthy"},
+    {"id": "flag_admin_login", "hook": "admin_login", "op": "truthy"},
+    {"id": "flag_confirmed_organ_trade", "hook": "organ_trade", "op": "truthy"},
+    {"id": "flag_found_lin_record", "hook": "lin_record", "op": "truthy"},
+    {"id": "flag_cloud_drive_unlocked", "hook": "cloud_drive", "op": "truthy"},
+    {"id": "flag_final_quiz_passed", "hook": "quiz_passed", "op": "truthy"}
+  ],
   "events": {
     "page_loaded": {"hook": "loaded", "op": "truthy"},
-    "past_loading": {"hook": "left_loading", "op": "truthy"}
+    "past_loading": {"hook": "left_loading", "op": "truthy"},
+    "ending_true": {"hook": "true_saved", "op": "truthy"},
+    "ending_normal": {"hook": "normal_screen", "op": "truthy"},
+    "login_reject": {"hook": "login_reject", "op": "truthy"},
+    "extract_reject": {"hook": "extract_reject", "op": "truthy"}
   },
-  "ending": null,
+  "routes": [
+    {
+      "id": "true_end",
+      "tier": "good",
+      "gates": [
+        "flag_opened_hair_certificate",
+        "flag_found_lin_missing_notice",
+        "flag_employee_login",
+        "flag_admin_login",
+        "flag_confirmed_organ_trade",
+        "flag_found_lin_record",
+        "flag_cloud_drive_unlocked",
+        "flag_final_quiz_passed"
+      ],
+      "ending": {"hook": "true_saved", "op": "truthy"},
+      "any_of": [{"hook": "true_screen", "op": "truthy"}]
+    },
+    {
+      "id": "normal_end",
+      "tier": "normal",
+      "gates": [
+        "flag_opened_hair_certificate",
+        "flag_found_lin_missing_notice",
+        "flag_employee_login",
+        "flag_admin_login",
+        "flag_confirmed_organ_trade",
+        "flag_found_lin_record",
+        "flag_cloud_drive_unlocked",
+        "flag_final_quiz_passed"
+      ],
+      "ending": {"hook": "normal_screen", "op": "truthy"}
+    }
+  ],
+  "ending": {"hook": "true_screen", "op": "truthy"},
   "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {"enabled": false, "schema": null},

@@ -202,6 +202,28 @@ class ReadyTests(unittest.TestCase):
         replied = policy._messages({"url": "http://local/now", "visible_text": "current", "screenshot": ""})
         assistant = [item["content"] for item in replied if item["role"] == "assistant"]
         self.assertIn("先看海报", assistant[-1])
+        kept = LLMPolicy(cfg, ROOT)
+        kept.preserve_reasoning = True
+        kept.note_result(
+            {"url": "http://local/think", "visible_text": "full-think", "screenshot": ""},
+            {"op": "wait"},
+            "ok",
+            "{\"op\":\"wait\"}",
+            "上一页的海报值得再看",
+        )
+        sent = kept._messages({"url": "http://local/now", "visible_text": "current", "screenshot": ""})
+        echoed = [item for item in sent if item.get("role") == "assistant" and item.get("reasoning_content")]
+        self.assertEqual(echoed[-1]["reasoning_content"], "上一页的海报值得再看")
+        dropped = LLMPolicy(cfg, ROOT)
+        dropped.note_result(
+            {"url": "http://local/think", "visible_text": "full-think", "screenshot": ""},
+            {"op": "wait"},
+            "ok",
+            "{\"op\":\"wait\"}",
+            "这段不该被带回",
+        )
+        plain = dropped._messages({"url": "http://local/now", "visible_text": "current", "screenshot": ""})
+        self.assertFalse(any(item.get("reasoning_content") for item in plain))
         current = policy._messages({"url": "http://local/now", "visible_text": "current", "screenshot": "", "notebook": "记下了"})
         self.assertIn("记下了", current[-1]["content"][0]["text"])
         self.assertTrue(all("记下了" not in json.dumps(item) for item in current[:-1]))

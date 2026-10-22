@@ -1,0 +1,48 @@
+{
+  "id": "meta-data-112",
+  "category": "static",
+  "arg_layer": null,
+  "obs_mode": "A",
+  "obs_modes_to_run": [
+    "A"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "meta-data 112",
+    "intro": "这是一道元谜题。题面只有喂入词和原题留下的说明。用 submit_answer 提交答案。不要打开其他网站。"
+  },
+  "entry_url": null,
+  "local_serve": {
+    "enabled": false
+  },
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "actions_enabled": [
+    "submit_answer",
+    "give_up"
+  ],
+  "static": {
+    "prompt": "Each answer is associated with one of the Labors of Hercules, in the listed order.\nOnce you've obtained all twelve Objects, you may perform a Ritual with them. This consists of arranging the Objects into three different configurations.\nYour first configuration is fairly traditional. Use divine inspiration to clear up possibile ambiguities. If you are perceptive, the second and third configurations will follow.\nIf the gods are pleased, they will turn the Objects into your final reward.\n喂入词：\nSABRE OF IVORY\nKEYS OF BRONZE\nSILVER TURNIP\nFLEXIBLE FACE\nPOT OF PEANUTS\nBITTER LIQUOR\nTRENDY WALLET\nTURQUOISE GEM\nAWFUL RECORDS\nGLOWING SPEAR\nSTUPID OLD APE\nHARMLESS DUST\n用 submit_answer 提交一个答案。"
+  },
+  "limits": {
+    "max_steps": 20,
+    "max_seconds": 600,
+    "max_answer_submits": 5
+  },
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/meta-data-112/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "来自 Halpin 2006。答案只在裁判哈希里。完整数据文件不交给模型。"
+  ]
+}

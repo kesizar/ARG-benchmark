@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from urllib.parse import urlparse
 
 from harness.config import entry_allowed, exclusion_hit, load_config, load_exclude
+from harness.network import allow_rule_problem, is_local_host, rule_host
 
 
 def validate_file(path: Path, root: Path | None = None) -> list[str]:
@@ -39,4 +41,31 @@ def validate_file(path: Path, root: Path | None = None) -> list[str]:
         errors.append(f"裁判文件不存在：{judge_path}")
     if not entry_allowed(cfg):
         errors.append("entry_url 不在 allow_hosts 里")
+    errors.extend(l3_problems(cfg))
+    return errors
+
+
+def l3_problems(cfg: dict) -> list[str]:
+    """L3 is a live site on an explicit host list. Reject a config that is still local."""
+    if cfg.get("category") != "arg" or cfg.get("arg_layer") != "L3":
+        return []
+    errors: list[str] = []
+    if (cfg.get("local_serve") or {}).get("enabled"):
+        errors.append("L3 不能启用本地服务")
+    if (cfg.get("isolation") or {}).get("container"):
+        errors.append("L3 不能启用容器隔离")
+    entry = str(cfg.get("entry_url") or "")
+    parsed = urlparse(entry)
+    if parsed.scheme != "https":
+        errors.append("L3 的入口必须是 https 网址")
+    elif is_local_host(rule_host(parsed.hostname or "")):
+        errors.append("L3 的入口不能是本机地址")
+    hosts = [str(item) for item in (cfg.get("allow_hosts") or [])]
+    if not hosts:
+        errors.append("L3 的 allow_hosts 不能为空")
+    guide_patterns = cfg.get("guide_block_hosts")
+    for rule in hosts:
+        reason = allow_rule_problem(rule, guide_patterns)
+        if reason:
+            errors.append(f"L3 的白名单不能包含{reason}：{rule}")
     return errors

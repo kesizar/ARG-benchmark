@@ -1,13 +1,22 @@
 {
   "hooks": {
     "score": {"type": "if_score"},
-    "victory": {"type": "if_victory"}
+    "flashlight": {"type": "dom_regex", "pattern": "find a flashlight"},
+    "closet": {"type": "dom_regex", "pattern": "Owlet-Picker"},
+    "maze": {"type": "dom_regex", "pattern": "Maze of Twisty Passages"},
+    "manual": {"type": "dom_regex", "pattern": "Inform Designer's Manual"},
+    "saved_job": {"type": "dom_regex", "pattern": "You have saved your job"}
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {"id": "got_flashlight", "hook": "flashlight", "op": "truthy"},
+    {"id": "listened_closet", "hook": "closet", "op": "truthy"},
+    {"id": "found_maze", "hook": "maze", "op": "truthy"},
+    {"id": "printed_manual", "hook": "manual", "op": "truthy"}
+  ],
   "events": {
     "scored": {"hook": "score", "op": "gte", "value": 1}
   },
-  "ending": {"hook": "victory", "op": "truthy"},
+  "ending": {"hook": "saved_job", "op": "truthy"},
   "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {"enabled": false, "schema": null},

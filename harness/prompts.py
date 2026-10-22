@@ -30,6 +30,12 @@ def model_prompt(cfg: dict) -> str:
         lines.append(
             '你有一本笔记。可以把这一局的进程、思路和假设写进去。用 {"op":"note","text":"..."} 替换整篇内容。写下来的内容以后每一步都会给你看。'
         )
+    if "call" in actions:
+        lines.append(
+            '查看或使用场景里的东西用 {"op":"call","name":"investigate","object":{"node_id":"..."}}。name 还可以是 tool 或 use_item。tool 的 object 里加 arguments。'
+        )
+    if cfg.get("grid"):
+        lines.append("这是棋盘游戏。用方向键移动，方向键名是 ArrowUp、ArrowDown、ArrowLeft、ArrowRight。")
     if "submit_answer" in actions:
         lines.append('需要提交答案时用 {"op":"submit_answer","text":"..."}。你会看到「正确」或「不正确」。')
     if "submit_conclusion" in actions:
@@ -48,7 +54,19 @@ def _examples(cfg: dict) -> list[str]:
         '{"op":"dialog","accept":true}',
         '{"op":"give_up"}',
     ]
-    if category in {"text_adventure", "static"}:
+    if cfg.get("grid"):
+        examples = [
+            '{"op":"key","key":"ArrowUp"}',
+            '{"op":"key","key":"ArrowLeft"}',
+            '{"op":"give_up"}',
+        ]
+    elif "call" in (cfg.get("actions_enabled") or []):
+        examples = [
+            '{"op":"call","name":"investigate","object":{"node_id":"..."}}',
+            '{"op":"call","name":"tool","object":{"node_id":"...","arguments":{}}}',
+            '{"op":"give_up"}',
+        ]
+    elif category in {"text_adventure", "static"}:
         examples = ['{"op":"type","text":"look","enter":true}', '{"op":"give_up"}']
     elif mode == "A":
         examples = [
@@ -114,8 +132,14 @@ def history_message(turn: dict[str, Any], *, full: bool, with_image: bool, inclu
 def assistant_message(turn: dict[str, Any]) -> dict[str, Any] | None:
     reply = turn.get("reply")
     if isinstance(reply, str) and reply.strip():
-        return {"role": "assistant", "content": reply}
-    action = turn.get("action")
-    if not action:
-        return None
-    return {"role": "assistant", "content": json.dumps(action, ensure_ascii=False)}
+        content = reply
+    else:
+        action = turn.get("action")
+        if not action:
+            return None
+        content = json.dumps(action, ensure_ascii=False)
+    message: dict[str, Any] = {"role": "assistant", "content": content}
+    reasoning = turn.get("reasoning")
+    if isinstance(reasoning, str) and reasoning:
+        message["reasoning_content"] = reasoning
+    return message

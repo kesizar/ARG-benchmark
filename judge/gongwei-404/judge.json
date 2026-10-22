@@ -7,15 +7,33 @@
       "agg": "max",
       "keep_max": true
     },
-    "wrong_try": {"type": "dialog_regex", "pattern": "密码错误"}
+    "wrong_try": {"type": "dialog_regex", "pattern": "密码错误"},
+    "mailbox_body": {"type": "dom_regex", "pattern": "SYS-ACL-DEL-20251201-9472"},
+    "weibo_in": {"type": "url_regex", "pattern": "weiboWb\\$2025_xZ\\.html"},
+    "recording": {"type": "url_regex", "pattern": "recording\\.html"},
+    "expense": {"type": "url_regex", "pattern": "expenseflow\\.html"},
+    "changyuan": {"type": "url_regex", "pattern": "changyuan\\.html"},
+    "changyuan_row": {"type": "dom_regex", "pattern": "CY-DEV-2019"},
+    "final_page": {"type": "url_regex", "pattern": "finalX\\.html"},
+    "search_miss": {"type": "dom_regex", "pattern": "未找到匹配结果"},
+    "oa_reject": {"type": "dialog_regex", "pattern": "用户名或密码错误"}
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {"id": "mailbox_login", "hook": "mailbox_body", "op": "truthy"},
+    {"id": "weibo_login", "hook": "weibo_in", "op": "truthy"},
+    {"id": "wangpan_recording", "hook": "recording", "op": "truthy"},
+    {"id": "oa_finance_login", "hook": "expense", "op": "truthy"},
+    {"id": "changyuan_search", "hook": "changyuan", "op": "truthy"},
+    {"id": "changyuan_unlocked", "hook": "changyuan_row", "op": "truthy"}
+  ],
   "events": {
     "opened_desk": {"hook": "on_desk", "op": "truthy"},
     "saw_page_number": {"hook": "page_no", "op": "gte", "value": 1},
-    "rejected_try": {"hook": "wrong_try", "op": "truthy"}
+    "rejected_try": {"hook": "wrong_try", "op": "truthy"},
+    "search_miss": {"hook": "search_miss", "op": "truthy"},
+    "oa_reject": {"hook": "oa_reject", "op": "truthy"}
   },
-  "ending": null,
+  "ending": {"hook": "final_page", "op": "truthy"},
   "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {"enabled": false, "schema": null},

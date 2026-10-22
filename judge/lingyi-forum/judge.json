@@ -1,12 +1,48 @@
 {
   "hooks": {
-    "on_desk": {"type": "url_regex", "pattern": "desktop\\.html"}
+    "on_desk": {"type": "url_regex", "pattern": "desktop\\.html"},
+    "pc_login": {"type": "localstorage", "key": "gamePassword", "mode": "exists"},
+    "folder_unlocked": {"type": "localstorage", "key": "folderUnlocked", "mode": "exists"},
+    "forum_logged_in": {
+      "type": "localstorage",
+      "key": "forum_user_state",
+      "mode": "json_path",
+      "path": "isLoggedIn"
+    },
+    "forum_manage": {"type": "localstorage", "key": "forum_manage_opened", "mode": "exists"},
+    "chat_stage1": {
+      "type": "localstorage",
+      "key": "chatGameState",
+      "mode": "json_path",
+      "path": "mingyueyeStage1Complete"
+    },
+    "chat_stage4": {
+      "type": "localstorage",
+      "key": "chatGameState",
+      "mode": "json_path",
+      "path": "mingyueyeStage4Complete"
+    },
+    "xiaoqingyu": {
+      "type": "localstorage",
+      "key": "chatGameState",
+      "mode": "json_path",
+      "path": "xiaoqingyuComplete"
+    },
+    "final_ending": {"type": "url_regex", "pattern": "endnew-(mishi|yvhai|shizong|tonghua|mingtian2)\\.html"}
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {"id": "pc_login", "hook": "pc_login", "op": "truthy"},
+    {"id": "folder_unlocked", "hook": "folder_unlocked", "op": "truthy"},
+    {"id": "forum_logged_in", "hook": "forum_logged_in", "op": "truthy"},
+    {"id": "forum_manage_opened", "hook": "forum_manage", "op": "truthy"},
+    {"id": "chat_stage1_done", "hook": "chat_stage1", "op": "truthy"},
+    {"id": "chat_stage4_mingyueye", "hook": "chat_stage4", "op": "truthy"},
+    {"id": "xiaoqingyu_complete", "hook": "xiaoqingyu", "op": "truthy"}
+  ],
   "events": {
     "opened_desk": {"hook": "on_desk", "op": "truthy"}
   },
-  "ending": null,
+  "ending": {"hook": "final_ending", "op": "truthy"},
   "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {"enabled": false, "schema": null},

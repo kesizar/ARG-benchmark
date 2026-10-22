@@ -1,14 +1,46 @@
 {
   "hooks": {
     "on_mail": {"type": "url_regex", "pattern": "email\\.html"},
-    "wrong_try": {"type": "dialog_regex", "pattern": "密码错误"}
+    "wrong_try": {"type": "dialog_regex", "pattern": "密码错误"},
+    "boss_mail": {"type": "url_regex", "pattern": "emailwangbaoya\\.html"},
+    "staff_yu": {"type": "url_regex", "pattern": "staffyu\\.html"},
+    "secret_mail": {"type": "dom_regex", "pattern": "献祭还差一个关键引子"},
+    "wushan": {"type": "url_regex", "pattern": "wushan\\.html"},
+    "game_map": {"type": "url_regex", "pattern": "map\\.html"},
+    "choice_hub": {"type": "url_regex", "pattern": "choice\\.html"},
+    "ending_any": {"type": "url_regex", "pattern": "choice[12]\\.html"},
+    "ending_dawn": {"type": "url_regex", "pattern": "choice2\\.html"},
+    "ending_sacrifice": {"type": "url_regex", "pattern": "choice1\\.html"}
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {"id": "boss_mail_login", "hook": "boss_mail", "op": "truthy"},
+    {"id": "staff_yu_login", "hook": "staff_yu", "op": "truthy"},
+    {"id": "yu_secret_mail", "hook": "secret_mail", "op": "truthy"},
+    {"id": "wushan_entered", "hook": "wushan", "op": "truthy"},
+    {"id": "game1_to_map", "hook": "game_map", "op": "truthy"},
+    {"id": "choice_hub", "hook": "choice_hub", "op": "truthy"}
+  ],
   "events": {
     "opened_mail": {"hook": "on_mail", "op": "truthy"},
-    "rejected_try": {"hook": "wrong_try", "op": "truthy"}
+    "rejected_try": {"hook": "wrong_try", "op": "truthy"},
+    "ending_dawn": {"hook": "ending_dawn", "op": "truthy"},
+    "ending_sacrifice": {"hook": "ending_sacrifice", "op": "truthy"}
   },
-  "ending": null,
+  "routes": [
+    {
+      "id": "dawn",
+      "tier": "good",
+      "gates": ["boss_mail_login", "staff_yu_login", "yu_secret_mail", "wushan_entered", "game1_to_map", "choice_hub"],
+      "ending": {"hook": "ending_dawn", "op": "truthy"}
+    },
+    {
+      "id": "sacrifice",
+      "tier": "bad",
+      "gates": ["boss_mail_login", "staff_yu_login", "yu_secret_mail", "wushan_entered", "game1_to_map", "choice_hub"],
+      "ending": {"hook": "ending_sacrifice", "op": "truthy"}
+    }
+  ],
+  "ending": {"hook": "ending_any", "op": "truthy"},
   "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {"enabled": false, "schema": null},

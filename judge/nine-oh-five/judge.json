@@ -1,11 +1,20 @@
 {
   "hooks": {
-    "over": {"type": "if_game_over"},
-    "victory": {"type": "if_victory"}
+    "on_driveway": {"type": "dom_regex", "pattern": "A car is parked here in the driveway"},
+    "driving": {"type": "dom_regex", "pattern": "Would you like to get on\\?"},
+    "escape": {"type": "dom_regex", "pattern": "You have left Las Mesas"},
+    "prison": {"type": "dom_regex", "pattern": "sentenced to life imprisonment"},
+    "died": {"type": "dom_regex", "pattern": "You have died"}
   },
-  "checkpoints": [],
-  "events": {},
-  "ending": {"hook": "over", "op": "truthy"},
+  "checkpoints": [
+    {"id": "on_driveway", "hook": "on_driveway", "op": "truthy"},
+    {"id": "driving", "hook": "driving", "op": "truthy"}
+  ],
+  "events": {
+    "imprisoned": {"hook": "prison", "op": "truthy"},
+    "player_died": {"hook": "died", "op": "truthy"}
+  },
+  "ending": {"hook": "escape", "op": "truthy"},
   "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {"enabled": false, "schema": null},

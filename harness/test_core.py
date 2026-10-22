@@ -124,7 +124,41 @@ class NetworkTests(unittest.TestCase):
         self.assertEqual(block_reason("https://example.com/a", cfg)[0], "host")
         self.assertIsNone(block_reason("data:text/plain,hi", cfg))
         guided = dict(cfg, allow_hosts=["127.0.0.1:8766", "tips.example"])
-        self.assertEqual(block_reason("https://tips.example/walkthrough/1", guided)[0], "guide")
+        self.assertIsNone(block_reason("https://tips.example/walkthrough/1", guided))
+        self.assertIsNone(block_reason("https://tips.example/guide/page", guided))
+        self.assertEqual(block_reason("https://walkthrough.example/page", guided)[0], "guide")
+
+    def test_l3_rejects_local_search_and_guides(self) -> None:
+        from harness.validate import l3_problems
+
+        base = {
+            "category": "arg",
+            "arg_layer": "L3",
+            "entry_url": "https://game.example/",
+            "allow_hosts": ["game.example"],
+            "local_serve": {"enabled": False},
+            "isolation": {"container": False},
+            "guide_block_hosts": [],
+        }
+        self.assertEqual(l3_problems(base), [])
+        closed = dict(
+            base,
+            entry_url="http://127.0.0.1:8767/",
+            allow_hosts=["127.0.0.1:8767"],
+            local_serve={"enabled": True},
+        )
+        text = " ".join(l3_problems(closed))
+        self.assertIn("本地服务", text)
+        self.assertIn("https", text)
+        self.assertIn("本机地址", text)
+        leaked = dict(base, allow_hosts=["game.example", "*.google.com", "*.bilibili.com"])
+        text = " ".join(l3_problems(leaked))
+        self.assertIn("搜索引擎", text)
+        self.assertIn("攻略站", text)
+        boxed = dict(base, isolation={"container": True})
+        self.assertTrue(any("容器" in item for item in l3_problems(boxed)))
+        local_layer = dict(base, arg_layer="L2", entry_url="http://127.0.0.1/", local_serve={"enabled": True})
+        self.assertEqual(l3_problems(local_layer), [])
 
 
 class JudgeTests(unittest.TestCase):
@@ -480,6 +514,63 @@ class ReportTests(unittest.TestCase):
         solved = judge.score()
         self.assertEqual(solved["checkpoints_reached"], 1)
         self.assertTrue(solved["ending_reached"])
+        self.assertEqual(solved["ending_tier"], "good")
+        self.assertTrue(solved["good_ending"])
+        self.assertEqual(solved["route_progress"], 1.0)
+
+    def test_answer_only_task_scores_when_the_answer_is_correct(self) -> None:
+        judge = Judge({"checkpoints": [], "ending": None, "answer_sha256": []}, "sample", Path("."))
+        self.assertIsNone(judge.score()["route_progress"])
+        self.assertFalse(judge.score()["ending_reached"])
+        judge.answer_correct = True
+        judge.ending_reached = True
+        scored = judge.score()
+        self.assertEqual(scored["route_progress"], 1.0)
+        self.assertTrue(scored["ending_reached"])
+        self.assertEqual(scored["ending_tier"], "good")
+        self.assertTrue(scored["good_ending"])
+
+    def test_short_route_does_not_raise_progress_before_its_ending(self) -> None:
+        from harness.judge import Judge
+
+        judge = Judge(
+            {
+                "checkpoints": [
+                    {"id": "spine", "hook": "spine", "op": "truthy"},
+                    {"id": "last", "hook": "last", "op": "truthy"},
+                ],
+                "routes": [
+                    {
+                        "id": "good",
+                        "tier": "good",
+                        "gates": ["spine", "last"],
+                        "ending": {"hook": "good_end", "op": "truthy"},
+                    },
+                    {
+                        "id": "bad_early",
+                        "tier": "bad",
+                        "gates": ["spine"],
+                        "ending": {"hook": "bad_end", "op": "truthy"},
+                    },
+                ],
+            },
+            "sample",
+            Path("."),
+        )
+        judge.values = {"spine": True, "last": False, "good_end": False, "bad_end": False}
+        judge.update(1)
+        mid = judge.score()
+        self.assertEqual(mid["route_id"], "good")
+        self.assertEqual(mid["route_progress"], 0.5)
+        self.assertFalse(mid["ending_reached"])
+        judge.values = {"spine": True, "last": False, "good_end": False, "bad_end": True}
+        judge.update(2)
+        bad = judge.score()
+        self.assertTrue(bad["ending_reached"])
+        self.assertEqual(bad["route_id"], "bad_early")
+        self.assertEqual(bad["ending_tier"], "bad")
+        self.assertFalse(bad["good_ending"])
+        self.assertEqual(bad["route_progress"], 1.0)
 
     def test_mean_progress_skips_tasks_without_critical_gates(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

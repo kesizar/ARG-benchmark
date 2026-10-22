@@ -1,0 +1,48 @@
+{
+  "id": "meta-data-046",
+  "category": "static",
+  "arg_layer": null,
+  "obs_mode": "A",
+  "obs_modes_to_run": [
+    "A"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "meta-data 046",
+    "intro": "这是一道元谜题。题面只有喂入词和原题留下的说明。用 submit_answer 提交答案。不要打开其他网站。"
+  },
+  "entry_url": null,
+  "local_serve": {
+    "enabled": false
+  },
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "actions_enabled": [
+    "submit_answer",
+    "give_up"
+  ],
+  "static": {
+    "prompt": "I'm so glad I chose to marry such a dedicated man! I'm sure you'll overcome whatever challenges these villains put in your path and rescue me! What a stroke of luck to have invited all of those puzzle-solvers to our wedding, as well!\nNow that you're settled in as the leader of the French civilization, I think you can find everything you need to know to get this world's star piece by looking back on the wonders you have built.\nUnfortunately, Stalin seems to have beaten you in the race to develop the seventh Wonder—the Interstellar Spaceship. He says he's going to use it to send me away to someplace you can't reach me. I know you're resourceful, though, and will find some way to follow me there!\n...and predictably enough, Stalin's decided you're too close, so we're headed to the launchpad!\n喂入词：\nWORLD TOUR\nUNFAIR COIN\nROYAL PAIN\nFOUR IRON\nOR GATE\nTHE FED\n用 submit_answer 提交一个答案。"
+  },
+  "limits": {
+    "max_steps": 20,
+    "max_seconds": 600,
+    "max_answer_submits": 5
+  },
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/meta-data-046/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "来自 MITMH 2011。答案只在裁判哈希里。完整数据文件不交给模型。"
+  ]
+}

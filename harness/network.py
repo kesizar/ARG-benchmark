@@ -18,6 +18,22 @@ GUIDE_HOSTS = [
     "*guide*",
 ]
 
+SEARCH_BASES = (
+    "google.com",
+    "google.com.hk",
+    "bing.com",
+    "duckduckgo.com",
+    "baidu.com",
+    "yahoo.com",
+    "yandex.com",
+    "yandex.ru",
+    "sogou.com",
+    "so.com",
+    "search.brave.com",
+)
+
+LOCAL_HOSTS = {"localhost", "127.0.0.1", "0.0.0.0", "::1"}
+
 
 def _host(url: str) -> str:
     parsed = urlparse(url)
@@ -68,16 +84,57 @@ def shortcut_hit(url: str, rules: list[dict] | None) -> str | None:
 
 
 def guide_hit(url: str, patterns: list[str] | None) -> str | None:
+    """Match guide rules against the host only. A path like /guide stays reachable."""
     host = _host(url)
     netloc = _netloc(url)
-    haystacks = [host, netloc, url.lower()]
     for pattern in patterns or []:
         token = pattern.strip().lower()
         if not token:
             continue
-        for hay in haystacks:
-            if fnmatch.fnmatch(hay, token):
+        for hay in (host, netloc):
+            if hay and fnmatch.fnmatch(hay, token):
                 return pattern
+    return None
+
+
+def rule_host(rule: str) -> str:
+    token = rule.strip().lower()
+    if token.startswith("*."):
+        token = token[2:]
+    if token.startswith("["):
+        end = token.find("]")
+        return token[1:end] if end > 1 else token.strip("[]")
+    return token.split(":")[0]
+
+
+def is_local_host(host: str) -> bool:
+    return host in LOCAL_HOSTS or host.endswith(".localhost")
+
+
+def is_search_host(host: str) -> bool:
+    return any(host == base or host.endswith("." + base) for base in SEARCH_BASES)
+
+
+def is_guide_host(host: str, patterns: list[str] | None) -> bool:
+    probes = [host] if host.startswith("www.") else [host, "www." + host]
+    for probe in probes:
+        if guide_hit(f"https://{probe}/", patterns):
+            return True
+    return False
+
+
+def allow_rule_problem(rule: str, guide_patterns: list[str] | None = None) -> str | None:
+    """Why an L3 allow-list entry cannot be used, or None when it is a game host."""
+    host = rule_host(rule)
+    if not host:
+        return "空主机"
+    if is_local_host(host):
+        return "本机地址"
+    if is_search_host(host):
+        return "搜索引擎"
+    patterns = list(GUIDE_HOSTS) + list(guide_patterns or [])
+    if is_guide_host(host, patterns):
+        return "攻略站"
     return None
 
 

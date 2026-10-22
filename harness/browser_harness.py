@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -113,12 +114,13 @@ class BrowserHarness:
         elements: list[dict] = []
         if self.cfg.get("obs_text") or self.cfg.get("obs_elements"):
             if self.cfg.get("obs_text"):
-                text = await self.page.evaluate(
+                text = await self._evaluate(
+                    self.page,
                     TEXT_JS,
                     {"limit": int(self.cfg.get("text_limit") or 6000), "scope": self.cfg.get("text_scope") or "page"},
                 )
             if self.cfg.get("obs_elements"):
-                elements = await self.page.evaluate(ELEMENTS_JS)
+                elements = await self._evaluate(self.page, ELEMENTS_JS)
         self.elements = elements or []
         raw = {
             "url": self.page.url if self.cfg.get("show_url", True) else "",
@@ -151,10 +153,9 @@ class BrowserHarness:
             return texts
         for page in self.context.pages:
             for frame in page.frames:
-                try:
-                    texts.append(await frame.evaluate("() => document.body ? document.body.innerText : ''"))
-                except Exception:  # noqa: BLE001
-                    continue
+                text = await self._evaluate(frame, "() => document.body ? document.body.innerText : ''")
+                if isinstance(text, str):
+                    texts.append(text)
         return texts
 
     async def local_storage(self, frame_url_regex: str | None = None) -> dict[str, str]:
@@ -283,6 +284,20 @@ class BrowserHarness:
             return await self._done(before)
         return "动作未启用"
 
+    async def _evaluate(self, target, script: str, arg: Any | None = None, timeout: float = 15) -> Any:
+        try:
+            call = target.evaluate(script) if arg is None else target.evaluate(script, arg)
+            return await asyncio.wait_for(call, timeout)
+        except Exception:  # noqa: BLE001
+            return None
+
+    async def _page_title(self, page) -> str:
+        try:
+            title = await asyncio.wait_for(page.title(), 8)
+        except Exception:  # noqa: BLE001
+            return ""
+        return title or ""
+
     async def _done(self, before: int) -> str:
         await self._settle()
         return inaccessible_result(self.blocked[before:])
@@ -302,10 +317,7 @@ class BrowserHarness:
         hide_url = (not self.cfg.get("show_url", True)) or self.cfg.get("obs_mode") == "C"
         tabs = []
         for index, page in enumerate(self.context.pages):
-            try:
-                title = await page.title()
-            except Exception:  # noqa: BLE001
-                title = ""
+            title = await self._page_title(page)
             item = {"i": index, "title": title, "active": page == self.page}
             if not hide_url:
                 item["url"] = page.url

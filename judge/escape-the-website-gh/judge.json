@@ -2,18 +2,31 @@
   "hooks": {
     "opened": {"type": "dom_regex", "pattern": "YOU ARE TRAPPED"},
     "in_room": {"type": "dom_regex", "pattern": "abandoned digital chamber"},
+    "keys": {
+      "type": "localstorage",
+      "key": "escape_the_website_save_v1",
+      "mode": "json_path",
+      "path": "keysCollected"
+    },
     "finished": {
       "type": "localstorage",
       "key": "escape_the_website_save_v1",
       "mode": "json_path",
       "path": "gameCompleted"
-    }
+    },
+    "escaped_dom": {"type": "dom_regex", "pattern": "YOU ESCAPED\\."},
+    "arcade_fail": {"type": "dom_regex", "pattern": "INSUFFICIENT SCORE"}
   },
   "checkpoints": [
-    {"id": "entered_room", "hook": "in_room", "op": "truthy"}
+    {"id": "entered_room", "hook": "in_room", "op": "truthy", "role": "diagnostic"},
+    {"id": "key_01_collected", "hook": "keys", "op": "includes", "value": "key_01"},
+    {"id": "key_02_collected", "hook": "keys", "op": "includes", "value": "key_02"},
+    {"id": "key_03_collected", "hook": "keys", "op": "includes", "value": "key_03"}
   ],
   "events": {
-    "saw_trap": {"hook": "opened", "op": "truthy"}
+    "saw_trap": {"hook": "opened", "op": "truthy"},
+    "escaped_visible": {"hook": "escaped_dom", "op": "truthy"},
+    "arcade_fail": {"hook": "arcade_fail", "op": "truthy"}
   },
   "ending": {"hook": "finished", "op": "eq", "value": true},
   "answer_hash_file": null,

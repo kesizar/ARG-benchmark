@@ -1,0 +1,48 @@
+{
+  "id": "meta-data-144",
+  "category": "static",
+  "arg_layer": null,
+  "obs_mode": "A",
+  "obs_modes_to_run": [
+    "A"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "meta-data 144",
+    "intro": "这是一道元谜题。题面只有喂入词和原题留下的说明。用 submit_answer 提交答案。不要打开其他网站。"
+  },
+  "entry_url": null,
+  "local_serve": {
+    "enabled": false
+  },
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "actions_enabled": [
+    "submit_answer",
+    "give_up"
+  ],
+  "static": {
+    "prompt": "The puzzle page has a picture of a double helix.\nPuzzle Santa has left over some things that need to be translated.\n喂入词：\nDEVANAGARI\nFRIGGA\nGAUL\nISAAC\nLG CUP\nMORTGAGE\n用 submit_answer 提交一个答案。"
+  },
+  "limits": {
+    "max_steps": 20,
+    "max_seconds": 600,
+    "max_answer_submits": 5
+  },
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/meta-data-144/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "来自 ECPH 2022。答案只在裁判哈希里。完整数据文件不交给模型。"
+  ]
+}

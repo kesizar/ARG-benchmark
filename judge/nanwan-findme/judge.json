@@ -6,14 +6,80 @@
       "pattern": "(\\d+)\\s*/\\s*31",
       "agg": "max",
       "keep_max": true
-    }
+    },
+    "student_shenfu": {"type": "url_regex", "pattern": "12ShenFu\\.html"},
+    "memo_letter": {"type": "dom_regex", "pattern": "这是我生命中最重要的一天"},
+    "psych_record": {"type": "url_regex", "pattern": "14Illness\\.html"},
+    "yunjiang_results": {"type": "url_regex", "pattern": "16SouSuo\\.html"},
+    "yunjiang_forum": {"type": "url_regex", "pattern": "19LunTan\\.html"},
+    "liuxiaohe_unlocked": {"type": "dom_regex", "pattern": "请拿着这个资料去找我哥哥刘晓葭"},
+    "xinmu_page": {"type": "url_regex", "pattern": "28XinMu\\.html"},
+    "bus_page": {"type": "url_regex", "pattern": "30XiaoChe\\.html"},
+    "bus_choice": {"type": "url_regex", "pattern": "31Choice\\.html"},
+    "good_end": {"type": "url_regex", "pattern": "2end\\.html"},
+    "bad_end": {"type": "url_regex", "pattern": "1end\\.html"},
+    "abandon": {"type": "dom_regex", "pattern": "你放弃她了"},
+    "wrong_login": {"type": "dialog_regex", "pattern": "用户名或密码错误|密码错误"}
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {"id": "student_shenfu_login", "hook": "student_shenfu", "op": "truthy"},
+    {"id": "memo_letter_open", "hook": "memo_letter", "op": "truthy"},
+    {"id": "psych_login", "hook": "psych_record", "op": "truthy"},
+    {"id": "yunjiang_results", "hook": "yunjiang_results", "op": "truthy"},
+    {"id": "yunjiang_forum", "hook": "yunjiang_forum", "op": "truthy"},
+    {"id": "liuxiaohe_unlocked", "hook": "liuxiaohe_unlocked", "op": "truthy"},
+    {"id": "xinmu_oa_location", "hook": "xinmu_page", "op": "truthy"},
+    {"id": "card_to_bus", "hook": "bus_page", "op": "truthy"},
+    {"id": "bus_choice_gate", "hook": "bus_choice", "op": "truthy"}
+  ],
   "events": {
     "opened_school": {"hook": "on_school", "op": "truthy"},
-    "saw_page_number": {"hook": "page_no", "op": "gte", "value": 1}
+    "saw_page_number": {"hook": "page_no", "op": "gte", "value": 1},
+    "rejected_login": {"hook": "wrong_login", "op": "truthy"},
+    "ending_bad": {"hook": "bad_end", "op": "truthy"},
+    "abandoned": {"hook": "abandon", "op": "truthy"}
   },
-  "ending": null,
+  "routes": [
+    {
+      "id": "good",
+      "tier": "good",
+      "gates": [
+        "student_shenfu_login",
+        "memo_letter_open",
+        "psych_login",
+        "yunjiang_results",
+        "yunjiang_forum",
+        "liuxiaohe_unlocked",
+        "xinmu_oa_location",
+        "card_to_bus",
+        "bus_choice_gate"
+      ],
+      "ending": {"hook": "good_end", "op": "truthy"}
+    },
+    {
+      "id": "bad_choice",
+      "tier": "bad",
+      "gates": [
+        "student_shenfu_login",
+        "memo_letter_open",
+        "psych_login",
+        "yunjiang_results",
+        "yunjiang_forum",
+        "liuxiaohe_unlocked",
+        "xinmu_oa_location",
+        "card_to_bus",
+        "bus_choice_gate"
+      ],
+      "ending": {"hook": "bad_end", "op": "truthy"}
+    },
+    {
+      "id": "bad_bus",
+      "tier": "bad",
+      "gates": ["card_to_bus"],
+      "ending": {"hook": "bad_end", "op": "truthy"}
+    }
+  ],
+  "ending": {"hook": "good_end", "op": "truthy"},
   "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {"enabled": false, "schema": null},

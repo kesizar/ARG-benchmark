@@ -22,13 +22,17 @@ class LLMPolicy:
         self.max_tokens = int(os.environ.get("LLM_MAX_OUTPUT_TOKENS") or 1024)
         self.last_usage = {"prompt": 0, "completion": 0}
         self.last_raw = ""
+        self.last_reasoning = ""
+        self.preserve_reasoning = (os.environ.get("PRESERVE_REASONING") or "").strip().lower() in {"1", "true", "yes"}
+        self.enable_thinking = self.preserve_reasoning or (os.environ.get("ENABLE_THINKING") or "").strip().lower() in {"1", "true", "yes"}
 
-    def note_result(self, obs: dict, action: dict, result: str, reply: str = "") -> None:
+    def note_result(self, obs: dict, action: dict, result: str, reply: str = "", reasoning: str = "") -> None:
         self.history.append({
             "obs": obs,
             "action": action,
             "result": result,
             "reply": reply,
+            "reasoning": reasoning if self.preserve_reasoning else "",
             "url": obs.get("url"),
             "title": "",
         })
@@ -41,6 +45,9 @@ class LLMPolicy:
                 raw, usage = self._complete(self._messages(obs, images=mode))
                 break
             except httpx.HTTPStatusError as exc:
+                if exc.response.status_code == 400:
+                    detail = (exc.response.text or "").replace("\n", " ")[:300]
+                    print(f"接口返回 400：{detail}", flush=True)
                 if exc.response.status_code != 400 or mode == "none":
                     raise
                 print("当前截图仍被拒绝，改为只发文字" if mode == "current" else "截图请求被拒绝，减少图片后重试", flush=True)
@@ -80,6 +87,10 @@ class LLMPolicy:
             "max_tokens": self.max_tokens,
             "messages": [_openai_message(item) for item in messages],
         }
+        if self.enable_thinking:
+            payload["enable_thinking"] = True
+        if self.preserve_reasoning:
+            payload["preserve_thinking"] = True
         response = _post_with_retry(
             f"{base}/chat/completions",
             headers={"Authorization": f"Bearer {key}"},
@@ -88,7 +99,9 @@ class LLMPolicy:
         )
         response.raise_for_status()
         body = response.json()
-        text = body["choices"][0]["message"]["content"] or ""
+        message = body["choices"][0]["message"] or {}
+        text = message.get("content") or ""
+        self.last_reasoning = str(message.get("reasoning_content") or "")[:32768] if self.preserve_reasoning else ""
         usage = body.get("usage") or {}
         return text, {
             "prompt": int(usage.get("prompt_tokens") or 0),
@@ -182,16 +195,21 @@ def to_anthropic_messages(messages: list[dict]) -> tuple[str, list[dict]]:
 def _openai_message(message: dict) -> dict:
     content = message.get("content")
     if isinstance(content, str):
-        return {"role": message["role"], "content": content}
-    parts = []
-    for part in content:
-        if part.get("type") == "text":
-            parts.append({"type": "text", "text": part.get("text") or ""})
-        elif part.get("type") == "image_path":
-            encoded = _data_url(part.get("path") or "")
-            if encoded:
-                parts.append({"type": "image_url", "image_url": {"url": encoded}})
-    return {"role": message["role"], "content": parts or ""}
+        payload = {"role": message["role"], "content": content}
+    else:
+        parts = []
+        for part in content:
+            if part.get("type") == "text":
+                parts.append({"type": "text", "text": part.get("text") or ""})
+            elif part.get("type") == "image_path":
+                encoded = _data_url(part.get("path") or "")
+                if encoded:
+                    parts.append({"type": "image_url", "image_url": {"url": encoded}})
+        payload = {"role": message["role"], "content": parts or ""}
+    reasoning = message.get("reasoning_content")
+    if isinstance(reasoning, str) and reasoning:
+        payload["reasoning_content"] = reasoning
+    return payload
 
 
 def _anthropic_content(content) -> list[dict] | str:

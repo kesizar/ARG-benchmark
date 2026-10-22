@@ -1,13 +1,22 @@
 {
   "hooks": {
     "score": {"type": "if_score"},
-    "victory": {"type": "if_victory"}
+    "out_of_cell": {"type": "dom_regex", "pattern": "score has just gone up by four points"},
+    "past_camera": {"type": "dom_regex", "pattern": "grenade explodes|electronics fizzle"},
+    "appeased_female": {"type": "dom_regex", "pattern": "exclaims the barman"},
+    "appeased_male": {"type": "dom_regex", "pattern": "By jove|got me an invite"},
+    "won_banner": {"type": "dom_regex", "pattern": "\\*\\*\\*\\s*You have won\\s*\\*\\*\\*"}
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {"id": "out_of_cell", "hook": "out_of_cell", "op": "truthy"},
+    {"id": "past_camera", "hook": "past_camera", "op": "truthy"},
+    {"id": "appeased_female", "hook": "appeased_female", "op": "truthy"},
+    {"id": "appeased_male", "hook": "appeased_male", "op": "truthy"}
+  ],
   "events": {
     "scored": {"hook": "score", "op": "gte", "value": 1}
   },
-  "ending": {"hook": "victory", "op": "truthy"},
+  "ending": {"hook": "won_banner", "op": "truthy"},
   "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {"enabled": false, "schema": null},

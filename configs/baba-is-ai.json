@@ -1,0 +1,27 @@
+{
+  "id": "baba-is-ai",
+  "category": "text_adventure",
+  "arg_layer": null,
+  "obs_mode": "A",
+  "obs_modes_to_run": ["A"],
+  "computer_use": false,
+  "model_visible": {
+    "title": "Baba Is You",
+    "intro": "你在一局 Baba Is You 里。画面是文字棋盘，当前生效的规则写在最上面。用方向键移动，改动棋盘上的规则直到胜利。失败可以继续。"
+  },
+  "entry_url": null,
+  "local_serve": {"enabled": false},
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "actions_enabled": ["key", "wait", "give_up"],
+  "grid": {
+    "root": "tasks/baba-is-ai/src",
+    "env_id": "env/two_room-break_stop-make_win"
+  },
+  "limits": {"max_steps": 80, "max_seconds": 900, "max_answer_submits": 0},
+  "history": {"full_obs_k": 4, "screenshot_k": 0},
+  "judge_path": "judge/baba-is-ai/judge.json",
+  "policy_script": [{"op": "wait"}, {"op": "give_up"}],
+  "isolation": {"container": false},
+  "notes_for_report": ["先接一关 two_room-break_stop-make_win。观察是棋盘文本，不打开 Gym 窗口。两道门是拆掉挡路的规则，以及做出胜利规则。失败只记事件。"]
+}

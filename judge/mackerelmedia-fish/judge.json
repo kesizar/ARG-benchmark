@@ -1,0 +1,35 @@
+{
+  "hooks": {
+    "welcome": {"type": "dom_regex", "pattern": "Welcome to sweetEscape"},
+    "east": {"type": "url_regex", "pattern": "go%20east/?$"},
+    "village": {"type": "url_regex", "pattern": "east%20village/?(?:index\\.html)?$"},
+    "door": {"type": "url_regex", "pattern": "door%20to%20thataway/?$"},
+    "walking": {"type": "url_regex", "pattern": "keep%20walking/?$"},
+    "going": {"type": "url_regex", "pattern": "keep%20going/?$"},
+    "direction": {"type": "url_regex", "pattern": "lose%20all%20sense%20of%20direction/?$"},
+    "emptiness": {"type": "url_regex", "pattern": "the%20emptiness/?$"},
+    "end_dir": {"type": "url_regex", "pattern": "the%20end/?$"},
+    "letter": {"type": "url_regex", "pattern": "message%20to%20fish\\.html"},
+    "gave_up": {"type": "url_regex", "pattern": "give%20up/"}
+  },
+  "checkpoints": [
+    {"id": "saw_welcome", "hook": "welcome", "op": "truthy", "role": "diagnostic"},
+    {"id": "entered_village", "hook": "village", "op": "truthy"},
+    {"id": "through_door", "hook": "door", "op": "truthy"}
+  ],
+  "events": {
+    "opened": {"hook": "welcome", "op": "truthy"},
+    "headed_east": {"hook": "east", "op": "truthy"},
+    "kept_walking": {"hook": "walking", "op": "truthy"},
+    "kept_going": {"hook": "going", "op": "truthy"},
+    "lost_direction": {"hook": "direction", "op": "truthy"},
+    "reached_emptiness": {"hook": "emptiness", "op": "truthy"},
+    "reached_end": {"hook": "end_dir", "op": "truthy"},
+    "gave_up": {"hook": "gave_up", "op": "truthy"}
+  },
+  "ending": {"hook": "letter", "op": "truthy"},
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

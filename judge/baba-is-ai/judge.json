@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "stop": {"type": "state", "path": "stop_broken"},
+    "win_rule": {"type": "state", "path": "win_made"},
+    "won": {"type": "state", "path": "won"},
+    "lost": {"type": "state", "path": "lost"}
+  },
+  "checkpoints": [
+    {"id": "broke_stop", "hook": "stop", "op": "truthy"},
+    {"id": "made_win", "hook": "win_rule", "op": "truthy"}
+  ],
+  "events": {
+    "failed": {"hook": "lost", "op": "truthy"}
+  },
+  "ending": {"hook": "won", "op": "truthy"},
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

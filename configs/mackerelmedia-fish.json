@@ -1,0 +1,41 @@
+{
+  "id": "mackerelmedia-fish",
+  "category": "web_puzzle",
+  "arg_layer": null,
+  "obs_mode": "B",
+  "obs_modes_to_run": ["B"],
+  "computer_use": false,
+  "model_visible": {
+    "title": "sweetEscape",
+    "intro": "你在一个本地托管的开放目录里。只能用列出的动作，只根据屏幕上能看到的信息往前走。不要打开其他网站。"
+  },
+  "entry_url": "http://127.0.0.1:8785/",
+  "local_serve": {
+    "enabled": true,
+    "command": ["python", "scripts/serve_static.py", "--root", "tasks/mackerelmedia-fish/src/sweetEscape", "--port", "8785", "--listing"],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8785/",
+    "ready_timeout_s": 30,
+    "port": 8785
+  },
+  "viewport": {"width": 1366, "height": 900},
+  "locale": "en-US",
+  "timezone": "America/Los_Angeles",
+  "seed": 20261018,
+  "allow_hosts": ["127.0.0.1:8785"],
+  "shortcut_block": [],
+  "guide_block_hosts": ["*mackerelmediafish.com*", "*itch.io*", "*alienmelon*", "*walkthrough*", "*writeup*"],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": ["click", "dblclick", "type", "key", "scroll", "drag", "back", "wait", "dialog", "give_up"],
+  "limits": {"max_steps": 80, "max_seconds": 1800, "max_answer_submits": 5},
+  "settle_ms": 500,
+  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "judge_path": "judge/mackerelmedia-fish/judge.json",
+  "policy_script": [{"op": "wait"}, {"op": "give_up"}],
+  "isolation": {"container": false},
+  "notes_for_report": ["本地可玩的是源码里的 sweetEscape 开放目录，以及东村的 Hype 导出。站点首页的 Hype 工程没有导出成可打开的网页。源码说明里的口令文件已从仓库拿掉，本地目录不设这道认证。主分只有两道门：进入东村，以及从村里走出那扇门。打开目录和连续往前走只记事件。结局是打开那封信。放弃页和其余岔路不是结局。"]
+}

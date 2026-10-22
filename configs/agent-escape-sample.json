@@ -1,0 +1,27 @@
+{
+  "id": "agent-escape-sample",
+  "category": "escape_room",
+  "arg_layer": null,
+  "obs_mode": "A",
+  "obs_modes_to_run": ["A"],
+  "computer_use": false,
+  "model_visible": {
+    "title": "AgentEscapeBench 抽样",
+    "intro": "你在一个本地密室里。画面上有场景叙述、当前能看到的东西，以及一些没有标明用途的数值。用 call 查看和使用它们，直到能够离开。"
+  },
+  "entry_url": null,
+  "local_serve": {"enabled": false},
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "actions_enabled": ["call", "wait", "give_up"],
+  "scenario": {
+    "root": "tasks/agent-escape-bench/src",
+    "file": "tasks/agent-escape-bench/src/questions/5/narrative/skeleton_403798ad_narrative.json"
+  },
+  "limits": {"max_steps": 40, "max_seconds": 900, "max_answer_submits": 0},
+  "history": {"full_obs_k": 4, "screenshot_k": 0},
+  "judge_path": "judge/agent-escape-sample/judge.json",
+  "policy_script": [{"op": "wait"}, {"op": "give_up"}],
+  "isolation": {"container": false},
+  "notes_for_report": ["抽样一个五节点场景，在进程里调用它的工具模拟器，不启动它自带的服务。题面不包含获胜节点标记。门是揭示隐藏工具，以及三个必须算对的工具。结局是获胜工具的输出与场景记录一致。"]
+}

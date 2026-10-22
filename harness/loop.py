@@ -16,7 +16,9 @@ from harness.actions import normalize
 from harness.browser_harness import BrowserHarness, pack_observation
 from harness.config import entry_allowed, exclusion_hit, load_config, load_exclude, repo_root_from
 from harness.env import load_env
+from harness.grid_harness import GridHarness
 from harness.if_harness import IFHarness
+from harness.scenario_harness import ScenarioHarness
 from harness.judge import Judge
 from harness.observe import obs_summary
 from harness.policy_llm import LLMPolicy
@@ -30,6 +32,10 @@ from harness.tokens import TokenLedger
 
 
 def make_harness(cfg: dict, run_dir: Path, headless: bool):
+    if cfg.get("grid"):
+        return GridHarness(cfg, run_dir)
+    if cfg.get("scenario"):
+        return ScenarioHarness(cfg, run_dir)
     category = cfg.get("category")
     if category == "text_adventure":
         return IFHarness(cfg, run_dir)
@@ -132,6 +138,7 @@ async def _episode(cfg: dict, harness, judge: Judge, policy, policy_name: str, r
                 "provider": os.environ.get("LLM_PROVIDER") or "openai",
                 "name": os.environ.get("OPENAI_MODEL") or os.environ.get("ANTHROPIC_MODEL") or os.environ.get("AGENT_MODEL") or "",
                 "temperature": float(os.environ.get("LLM_TEMPERATURE") or 0),
+                "preserve_reasoning": (os.environ.get("PRESERVE_REASONING") or "").strip().lower() in {"1", "true", "yes"},
             }
         return {"provider": "script", "name": "scripted", "temperature": 0}
 
@@ -157,6 +164,7 @@ async def _episode(cfg: dict, harness, judge: Judge, policy, policy_name: str, r
                     print("模型连接仍中断，20s 后从这一步再试", flush=True)
                     await asyncio.sleep(20)
             reply = str(getattr(policy, "last_raw", "") or "")
+            reasoning = str(getattr(policy, "last_reasoning", "") or "")
             step_tokens = _take_usage(policy, ledger, raw_path, step)
             if early:
                 action = proposed
@@ -177,7 +185,7 @@ async def _episode(cfg: dict, harness, judge: Judge, policy, policy_name: str, r
             raw = await harness.observe(f"step_{step:03d}.png")
             model_obs = pack_observation(raw, cfg, last_result=result, budget=budget(step), notebook=notebook)
             if hasattr(policy, "note_result"):
-                policy.note_result(decision_obs, action if isinstance(action, dict) else {}, result, reply)
+                policy.note_result(decision_obs, action if isinstance(action, dict) else {}, result, reply, reasoning)
             record = {
                 "step": step,
                 "t": round(time.monotonic() - started, 2),

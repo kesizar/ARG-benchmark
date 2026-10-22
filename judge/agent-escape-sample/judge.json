@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "revealed": {"type": "state", "path": "revealed"},
+    "solved": {"type": "state", "path": "solved"},
+    "won": {"type": "state", "path": "won"}
+  },
+  "checkpoints": [
+    {"id": "found_hidden_tool", "hook": "revealed", "op": "includes", "value": "calc_inv_mod"},
+    {"id": "solved_multiplier", "hook": "solved", "op": "includes", "value": "calc_bigmul"},
+    {"id": "solved_comparator", "hook": "solved", "op": "includes", "value": "calc_gcd_83be"},
+    {"id": "solved_decoder", "hook": "solved", "op": "includes", "value": "calc_inv_mod"}
+  ],
+  "events": {},
+  "ending": {"hook": "won", "op": "truthy"},
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

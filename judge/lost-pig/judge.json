@@ -1,13 +1,26 @@
 {
   "hooks": {
     "score": {"type": "if_score"},
-    "victory": {"type": "if_victory"}
+    "heard_pig": {"type": "dom_regex", "pattern": "Must be pig, hiding in bushes"},
+    "got_coin": {"type": "dom_regex", "pattern": "coin inside fountain bowl"},
+    "unlocked_chest": {"type": "dom_regex", "pattern": "OK, chest unlocked"},
+    "secret_door": {"type": "dom_regex", "pattern": "part of north wall open up"},
+    "caught_pig": {"type": "dom_regex", "pattern": "grab pig real quick|Grunk win, pig lose"},
+    "escape_farm": {"type": "dom_regex", "pattern": "Grunk bring pig back to farm"},
+    "perfect_friend": {"type": "dom_regex", "pattern": "make new friend"}
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {"id": "heard_pig", "hook": "heard_pig", "op": "truthy"},
+    {"id": "got_coin", "hook": "got_coin", "op": "truthy"},
+    {"id": "unlocked_chest", "hook": "unlocked_chest", "op": "truthy"},
+    {"id": "found_secret_door", "hook": "secret_door", "op": "truthy"},
+    {"id": "caught_pig", "hook": "caught_pig", "op": "truthy"}
+  ],
   "events": {
-    "scored": {"hook": "score", "op": "gte", "value": 1}
+    "scored": {"hook": "score", "op": "gte", "value": 1},
+    "perfect_7": {"hook": "perfect_friend", "op": "truthy"}
   },
-  "ending": {"hook": "victory", "op": "truthy"},
+  "ending": {"hook": "escape_farm", "op": "truthy"},
   "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {"enabled": false, "schema": null},

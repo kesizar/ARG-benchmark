@@ -1,0 +1,48 @@
+{
+  "id": "meta-data-012",
+  "category": "static",
+  "arg_layer": null,
+  "obs_mode": "A",
+  "obs_modes_to_run": [
+    "A"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "meta-data 012",
+    "intro": "这是一道元谜题。题面只有喂入词和原题留下的说明。用 submit_answer 提交答案。不要打开其他网站。"
+  },
+  "entry_url": null,
+  "local_serve": {
+    "enabled": false
+  },
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "actions_enabled": [
+    "submit_answer",
+    "give_up"
+  ],
+  "static": {
+    "prompt": "Wednesday the boss went to church.\nWhen you come through the doors of Holy Trinity, a middle-aged priest at the other end of the nave sees you and strides down the center aisle to greet you. \"Good afternoon,\" he says warmly. \"I'm Msgr. Thurman--like the actress in Pulp Fiction,\" he explains. \"Can I help you?\"\nYou explain your investigation, and his face falls; he leads you into his office. He sets aside a book about the first Pope Gregory (\"Reading about the chants,\" he explains) and takes a seat behind his desk, looking saddened by the news.\n\"I'll miss him greatly,\" he tells you. \"I remember when he first came here to ask how he could help. Dame Fortune must have smiled on us; he's been a pillar of the community every since. Wednesday, in fact, he came to drop off some papers. Did you want to look through them?\"\n喂入词：\nECHO\nDIRE\nGALL\nFOOD\nGILA\nLEVI\nDOWN\nCARD\nBALL\nSALK\nSLOT\n用 submit_answer 提交一个答案。"
+  },
+  "limits": {
+    "max_steps": 20,
+    "max_seconds": 600,
+    "max_answer_submits": 5
+  },
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/meta-data-012/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "来自 MITMH 2003。答案只在裁判哈希里。完整数据文件不交给模型。"
+  ]
+}

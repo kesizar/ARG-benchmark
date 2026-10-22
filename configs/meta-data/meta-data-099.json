@@ -1,0 +1,48 @@
+{
+  "id": "meta-data-099",
+  "category": "static",
+  "arg_layer": null,
+  "obs_mode": "A",
+  "obs_modes_to_run": [
+    "A"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "meta-data 099",
+    "intro": "这是一道元谜题。题面只有喂入词和原题留下的说明。用 submit_answer 提交答案。不要打开其他网站。"
+  },
+  "entry_url": null,
+  "local_serve": {
+    "enabled": false
+  },
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "actions_enabled": [
+    "submit_answer",
+    "give_up"
+  ],
+  "static": {
+    "prompt": "We started at the coast, but the sight of all the sailboats with their jibs leaning in the wind was nauseating. While we were driving up, we couldn't get the damn radio in our rental car to shut up. Our ski lodge was much worse than in Colorado... at least our Vail room had heating! We nearly froze to death without our room providing warmth — ten degrees below zero I think it hit at one point. I had like five drinks that night even though it's not socially acceptable to have many at a bar by yourself. I hated every part of the trip, but hated no part as much as finally having to return home...\n喂入词：\nCUBANO\nMACHINATE\nMS PAINT\nPERUSAL\nPIRANHA\nROMANOV\n用 submit_answer 提交一个答案。"
+  },
+  "limits": {
+    "max_steps": 20,
+    "max_seconds": 600,
+    "max_answer_submits": 5
+  },
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/meta-data-099/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "来自 GPH 2019。答案只在裁判哈希里。完整数据文件不交给模型。"
+  ]
+}

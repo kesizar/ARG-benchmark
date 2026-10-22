@@ -207,6 +207,14 @@ def _clean(op: str, action: dict[str, Any], cfg: dict) -> dict[str, Any]:
         return {"op": "goto", "url": url}
     if op == "submit_answer":
         return {"op": "submit_answer", "text": str(action.get("text") or "")}
+    if op == "call":
+        name = str(action.get("name") or "")
+        if name not in {"investigate", "tool", "use_item"}:
+            raise ValueError(FORMAT_ERROR)
+        payload = action.get("object")
+        if not isinstance(payload, dict):
+            raise ValueError(FORMAT_ERROR)
+        return {"op": "call", "name": name, "object": payload}
     if op == "submit_conclusion":
         payload = action.get("object", action.get("conclusion"))
         if not isinstance(payload, dict):

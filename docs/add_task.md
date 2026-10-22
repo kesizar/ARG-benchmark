@@ -12,15 +12,17 @@ ARG 加上 `--layer L1`、`L2` 或 `L3`。文字冒险用 `--category text_adven
 
 1. 用作品文件替换 `tasks/<id>/mirror/`，或放上故事文件。
 2. 只在 `model_visible` 里写给模型看的题面。
-3. 在 `judge/<id>/judge.json` 里写钩子。答案用 SHA-256，不要写明文。主分只放必经解谜门。
+3. 在 `judge/<id>/judge.json` 里写钩子。答案用 SHA-256，不要写明文。主分按路线记，不把可跳过的支线放进分母。
 4. 把 `configs/<id>.json` 加进 `configs/pilot_set.json` 的 `tasks`。
 
-主分检查：
+主分是三列：通关率、路线进度、好结局率。步数只作效率。
 
-- 每个 critical 检查点用一句话写明：不解出对应的谜，玩家到不了这个状态。
-- 页码比例、不同网址的个数、打开目录页，只能放进 `events`，不能当 critical。
-- 正式题要有 `ending`。`configs/fixtures/` 里的接线夹具可以只有浅层的 `entered`，它们不进主榜。
-- 还没有 critical 检查点时，`progress` 留空。汇总里的 `mean_progress` 跳过这些题；`endings_rate` 仍按全部局数算。
+- 一条路线只列这条路绕不开的门。可跳过的谜放进 `optional` 或 `events`。
+- 多结局在 `routes` 里分条写，`tier` 用 `good`、`normal` 或 `bad`。走到任一真正结局都算通关。死亡、入狱、点错即失败不算结局。
+- 没写 `routes` 时，全部 critical 门合成一条 `good` 路线。
+- 页码比例、不同网址的个数、打开目录页，只能放进 `events`。
+- 正式题要有结局。`configs/fixtures/` 里的接线夹具可以只有浅层的 `entered`，它们不进主榜。
+- 没有可计分的门、也还没答对时，`progress` 留空。只有答案、没有门的题，答对后进度为 1，并记作好结局。汇总里的 `mean_progress` 跳过进度为空的局；`endings_rate` 和 `good_endings_rate` 仍按全部局数算。
 
 检查并开跑：
 

@@ -1,0 +1,26 @@
+{
+  "id": "meta-data-sample",
+  "category": "static",
+  "arg_layer": null,
+  "obs_mode": "A",
+  "obs_modes_to_run": ["A"],
+  "computer_use": false,
+  "model_visible": {
+    "title": "meta-data 抽样",
+    "intro": "这是一道纯元谜题抽样。题面只给出喂入词和必要说明。用 submit_answer 提交答案。不要假设能打开原站或题解页。"
+  },
+  "entry_url": null,
+  "local_serve": {"enabled": false},
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "actions_enabled": ["submit_answer", "give_up"],
+  "static": {
+    "prompt": "来源：MIT Mystery Hunt 2000，set 1。说明：有两个答案，一个是 username，一个是 password。提交其中任意一个即可。\n\nAGES\nANGELA\nANTHER\nEMERGENT\nGELATIN\nGENTLE\nHERALD\nIGNORANT\nLEAN\nMANAGE\nSIGNOR"
+  },
+  "limits": {"max_steps": 20, "max_seconds": 600, "max_answer_submits": 5},
+  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "judge_path": "judge/meta-data-sample/judge.json",
+  "policy_script": [{"op": "give_up"}],
+  "isolation": {"container": false},
+  "notes_for_report": ["抽样自 cjquines/meta-data 的第一道。完整数据在 tasks/meta-data/src，其中含答案，不交给模型。任一答案命中即记通关。"]
+}
