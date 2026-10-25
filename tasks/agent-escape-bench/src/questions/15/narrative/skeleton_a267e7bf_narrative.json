@@ -1,0 +1,897 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 18,
+    "win_node_id": "zlib_deflate",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "zlib_deflate",
+      "output_port": "hex",
+      "output_type": "Hex_String",
+      "description": "Execute Zlib Deflate and get the output from port 'hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "csv_query",
+        "zip_unzip_file",
+        "zip_unzip_file_9f8b",
+        "regex_search",
+        "zip_unzip_file_b3a1",
+        "json_get",
+        "checksum_crc32",
+        "regex_search_b430",
+        "container_2"
+      ],
+      "by_node": {
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {},
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_9f8b": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {},
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "zip_unzip_file_b3a1": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "JSON file ID"
+            },
+            "jsonpath": {
+              "type": "Text_Generic",
+              "description": "JSONPath expression"
+            }
+          },
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "regex_search_b430": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "pattern": {
+              "type": "Text_Generic",
+              "description": "Regex pattern"
+            },
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "container_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_2",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "csv_query": {
+        "init_inputs": {},
+        "init_outputs": {
+          "rows": "id,product,price\n101,Widget_A,25.50\n102,Widget_B,40.00\n103,Widget_C,15.75"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "inventory_data_sheet.csv"
+        }
+      },
+      "zip_unzip_file_9f8b": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "secure_payload_v2.zip"
+        }
+      },
+      "regex_search": {
+        "init_inputs": {},
+        "init_outputs": {
+          "matches": "[\"S3cur3P@ssw0rd!\"]"
+        }
+      },
+      "zip_unzip_file_b3a1": {
+        "init_inputs": {
+          "zip_id": "master_archive_2024.zip"
+        },
+        "init_outputs": {
+          "files": "internal_docs_bundle.zip"
+        }
+      },
+      "json_get": {
+        "init_inputs": {
+          "file_id": "app_config_production.json",
+          "jsonpath": "$.system.settings.export_path"
+        },
+        "init_outputs": {
+          "values": "[\"/var/data/exports/2024/summary.txt\"]"
+        }
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "4c6f72656d20697073756d20646f6c6f722073697420616d6574"
+        },
+        "init_outputs": {}
+      },
+      "regex_search_b430": {
+        "init_inputs": {
+          "pattern": "(?<=Error_Code:)\\d{4}",
+          "file_id": "system_error_logs.txt",
+          "text": "Timestamp: 2023-11-15 08:30:00 | Error_Code:4004 | Status: Critical"
+        },
+        "init_outputs": {
+          "matches": "[\"4004\"]"
+        }
+      },
+      "container_2": {
+        "init_inputs": {
+          "fingerprint_input": "a1b2c3d4e5f678901234567890abcdef1234567890abcdef1234567890abcdef"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You wake up in the dimly lit office of a disgraced private investigator who vanished weeks ago. Rain lashes against the frosted glass window, casting distorted shadows across a chaotic array of retro-tech machines and locked archives. The investigator was on the verge of uncovering a city-wide conspiracy, and now the culprits are coming for you. Your only way out is to piece together the evidence left behind, navigate the interconnected systems, and send out the final compressed distress signal before they breach the door. Time is running out.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "id,product,price\n101,Widget_A,25.50\n102,Widget_B,40.00\n103,Widget_C,15.75"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789ccb4cd12928ca4f294d2e01d299c9a95c8606863ae19929e9a925f18e3a46a67aa6064021239890938e89819e0148c81826e4ac6368aa676e0a0044011514"
+        }
+      ],
+      "narrative": "The Master Compressor. It requires input from the Suspect Database to generate the final transmission code and secure your escape."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "inventory_data_sheet.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "_)a"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "eJyLVtIvSyzST0ksSdRPrSjILyop1jcyMDLRLy7NzU0sqtQrqShRigUA/mINRA=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "id,product,price\n101,Widget_A,25.50\n102,Widget_B,40.00\n103,Widget_C,15.75"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "rows": "id,product,price\n101,Widget_A,25.50\n102,Widget_B,40.00\n103,Widget_C,15.75"
+        }
+      },
+      "narrative": "The precinct's Suspect Database terminal. It requires inputs from the Cipher Translator, the Signal Encoder, and the Main Evidence Archive to run a full background check."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "5f29d461"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "_)a"
+        }
+      ],
+      "narrative": "A dusty Cipher Translator. It requires input from the Integrity Scanner to function properly and reveal hidden meanings."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "789c8b56d22f4b2cd24f492c49d44fad28c82f2a29d637323032d12f2ecdcd4d2caad42ba928518a0500fe620d44"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "eJyLVtIvSyzST0ksSdRPrSjILyop1jcyMDLRLy7NzU0sqtQrqShRigUA/mINRA=="
+        }
+      ],
+      "narrative": "A retro Signal Encoder. It requires input from the Data Minimizer to broadcast the signal securely."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_payload_v2.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "_)a"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "inventory_data_sheet.csv"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "inventory_data_sheet.csv"
+        }
+      },
+      "narrative": "The Main Evidence Archive of the agency. It requires inputs from the Text Purifier and the Secondary Evidence Archive to grant access to the most crucial files."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "_)a"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "_)a"
+        }
+      ],
+      "narrative": "A specialized Text Purifier. It requires input from the Cipher Translator to clear out anomalies from the documents."
+    },
+    {
+      "id": "zip_unzip_file_9f8b",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "internal_docs_bundle.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"S3cur3P@ssw0rd!\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "secure_payload_v2.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "secure_payload_v2.zip"
+        }
+      },
+      "narrative": "A secure Secondary Evidence Archive. It requires inputs from the Pattern Analyzer and the Initial Evidence Archive to proceed."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An antique silver pocket watch resting on the detective's desk."
+    },
+    {
+      "id": "zlib_deflate_ddfd",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "[\"/var/data/exports/2024/summary.txt\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c8b56d22f4b2cd24f492c49d44fad28c82f2a29d637323032d12f2ecdcd4d2caad42ba928518a0500fe620d44"
+        }
+      ],
+      "narrative": "An industrial Data Minimizer. It requires input from the Digital Ledger to condense the sprawling financial records."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "_)a"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "internal_docs_bundle.zip"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "[\"4004\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"S3cur3P@ssw0rd!\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "matches": "[\"S3cur3P@ssw0rd!\"]"
+        }
+      },
+      "narrative": "An advanced Pattern Analyzer. It requires inputs from the Text Purifier, the Initial Evidence Archive, and the Document Scanner to compile a complete profile."
+    },
+    {
+      "id": "zip_unzip_file_b3a1",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "master_archive_2024.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "_)a"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "internal_docs_bundle.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "master_archive_2024.zip"
+        },
+        "outputs": {
+          "files": "internal_docs_bundle.zip"
+        }
+      },
+      "narrative": "An encrypted Initial Evidence Archive. It requires input from the Cipher Translator to unlock its contents."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "app_config_production.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "$.system.settings.export_path"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"/var/data/exports/2024/summary.txt\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "app_config_production.json",
+          "jsonpath": "$.system.settings.export_path"
+        },
+        "outputs": {
+          "values": "[\"/var/data/exports/2024/summary.txt\"]"
+        }
+      },
+      "narrative": "An old Digital Ledger abandoned on the desk, filled with cryptic transactions."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "4c6f72656d20697073756d20646f6c6f722073697420616d6574"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "5f29d461"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1596576865
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "4c6f72656d20697073756d20646f6c6f722073697420616d6574"
+        },
+        "outputs": {}
+      },
+      "narrative": "A handheld Integrity Scanner used for verifying raw data integrity."
+    },
+    {
+      "id": "regex_search_b430",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "(?<=Error_Code:)\\d{4}"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "system_error_logs.txt"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "Timestamp: 2023-11-15 08:30:00 | Error_Code:4004 | Status: Critical"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"4004\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "pattern": "(?<=Error_Code:)\\d{4}",
+          "file_id": "system_error_logs.txt",
+          "text": "Timestamp: 2023-11-15 08:30:00 | Error_Code:4004 | Status: Critical"
+        },
+        "outputs": {
+          "matches": "[\"4004\"]"
+        }
+      },
+      "narrative": "A portable Document Scanner used for finding specific keywords in physical paperwork."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "a1b2c3d4e5f678901234567890abcdef1234567890abcdef1234567890abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "a1b2c3d4e5f678901234567890abcdef1234567890abcdef1234567890abcdef"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy Locked Briefcase with a biometric lock."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "csv_query",
+      "target_id": "zlib_deflate",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "text"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "select"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "where"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "zip_unzip_file_9f8b",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "zip_unzip_file_9f8b",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "zlib_deflate_ddfd",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "zip_unzip_file_9f8b",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "password"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "pattern"
+    },
+    {
+      "source_id": "zip_unzip_file_b3a1",
+      "target_id": "regex_search",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "zlib_deflate_ddfd",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "text"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "zip_unzip_file_b3a1",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "zip_unzip_file_b3a1",
+      "target_id": "zip_unzip_file_9f8b",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "regex_search_b430",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "text"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "regex_search_b430",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    }
+  ]
+}

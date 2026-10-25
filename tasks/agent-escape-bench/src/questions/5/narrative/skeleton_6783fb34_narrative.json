@@ -1,0 +1,269 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "text_rotN",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "text_rotN",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute ROT-N Cipher and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "hash_md5",
+        "num_base_convert"
+      ],
+      "by_node": {
+        "hash_md5": {
+          "node_name": "MD5 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_md5",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "hash_md5": {
+        "init_inputs": {
+          "text": "Initiate_Sequence_Alpha_99283_Secure_Hash"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "82736459102938475610293847",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The irradiated winds howl across the desolate wasteland, stripping the paint from the armored doors of Outpost Echo. For months, you have chased the rumors of this buried pre-war military bunker, which supposedly holds the encrypted coordinates to Eden—the last known uncorrupted sanctuary on Earth. As you pry open the maintenance hatch and drop into the darkness, the air is thick with the smell of ozone, rust, and decay. The heavy main blast doors are firmly sealed, controlled by an array of dormant, dust-covered technology left behind by the old-world engineers. The geiger counter at your hip is ticking faster, warning you that a massive rad-storm is fast approaching. To unlock the final coordinates and secure your passage to the sanctuary, you must trace the fragmented data pathways and decipher the automated security protocols. Your survival depends on making these ancient machines speak to each other once more.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Wpcs0MJg6LCWVbl95aLyBg=="
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "82736459102938475610293847"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "Ngtj0DAx6CTNMsc95rCpSx=="
+        }
+      ],
+      "narrative": "This is the Bunker Mainframe. It requires inputs from both the Transceiver and the Signal Modulator to initiate the final decryption sequence."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "5a972cd0c260e8b09655b97de5a2f206"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "Wpcs0MJg6LCWVbl95aLyBg=="
+        }
+      ],
+      "narrative": "This is an old-world Transceiver. It requires input from the Biometric Scanner to process the data stream."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An old Faded Rations Tin, covered in radioactive dust."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Initiate_Sequence_Alpha_99283_Secure_Hash"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "5a972cd0c260e8b09655b97de5a2f206"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Initiate_Sequence_Alpha_99283_Secure_Hash"
+        },
+        "outputs": {}
+      },
+      "narrative": "A portable Biometric Scanner salvaged from the ruins."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "82736459102938475610293847"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "10"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "82736459102938475610293847"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "82736459102938475610293847",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "A rusted Signal Modulator used to calibrate radio frequencies."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "base64_encode",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "base64_encode",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "n"
+    }
+  ]
+}

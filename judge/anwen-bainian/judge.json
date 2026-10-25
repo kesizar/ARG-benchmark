@@ -1,0 +1,236 @@
+{
+  "hooks": {
+    "echo": {
+      "type": "dom_regex",
+      "pattern": "结局 A · 回声"
+    },
+    "keep": {
+      "type": "dom_regex",
+      "pattern": "结局 B · 传承"
+    },
+    "scatter": {
+      "type": "dom_regex",
+      "pattern": "结局 C · 散播"
+    },
+    "search-01": {
+      "type": "dom_regex",
+      "pattern": "sousuo/wangxiandangan\\.html"
+    },
+    "search-02": {
+      "type": "dom_regex",
+      "pattern": "案件详情\\ \\-\\ 新闻部"
+    },
+    "search-03": {
+      "type": "dom_regex",
+      "pattern": "sousuo/zhangyuxuandangan\\.html"
+    },
+    "search-04": {
+      "type": "dom_regex",
+      "pattern": "sousuo/zhangjiedangan\\.html"
+    },
+    "search-05": {
+      "type": "dom_regex",
+      "pattern": "wangzhangxingxishe\\.html"
+    },
+    "search-06": {
+      "type": "dom_regex",
+      "pattern": "sousuo/yanzheng1\\.html"
+    },
+    "search-07": {
+      "type": "dom_regex",
+      "pattern": "省属重点大学"
+    },
+    "search-08": {
+      "type": "dom_regex",
+      "pattern": "zhangfamily/yanzheng1\\.html"
+    },
+    "search-09": {
+      "type": "dom_regex",
+      "pattern": "wangfamily/yanzheng1\\.html"
+    },
+    "search-10": {
+      "type": "dom_regex",
+      "pattern": "图书馆书籍"
+    },
+    "search-11": {
+      "type": "dom_regex",
+      "pattern": "sousuo/kansidangan\\.html"
+    },
+    "search-12": {
+      "type": "dom_regex",
+      "pattern": "sousuo/linmoxiedangan\\.html"
+    },
+    "search-clan-a": {
+      "type": "input_sha256",
+      "selector": "#searchInput",
+      "hashes": [
+        "e254f0fb539728d0459ba937dd61a0a997b16fb55e1d8667d1188ba62f6746c6"
+      ]
+    },
+    "search-clan-b": {
+      "type": "input_sha256",
+      "selector": "#searchInput",
+      "hashes": [
+        "a26521124ee8f2288e47365c93f4f80608e14dc6e53a9a4b53fcfeab2481794d"
+      ]
+    },
+    "pass-zhang": {
+      "type": "url_regex",
+      "pattern": "zhangfamily/index\\.html"
+    },
+    "pass-wang": {
+      "type": "url_regex",
+      "pattern": "wangfamily/index\\.html"
+    },
+    "pass-seal": {
+      "type": "dom_regex",
+      "pattern": "观察者已处决"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "search-01",
+      "hook": "search-01",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "search-02",
+      "hook": "search-02",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "search-03",
+      "hook": "search-03",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "search-04",
+      "hook": "search-04",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "search-05",
+      "hook": "search-05",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "search-06",
+      "hook": "search-06",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "search-07",
+      "hook": "search-07",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "search-08",
+      "hook": "search-08",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "search-09",
+      "hook": "search-09",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "search-10",
+      "hook": "search-10",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "search-11",
+      "hook": "search-11",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "search-12",
+      "hook": "search-12",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "search-clan-a",
+      "hook": "search-clan-a",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "search-clan-b",
+      "hook": "search-clan-b",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "pass-zhang",
+      "hook": "pass-zhang",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "pass-wang",
+      "hook": "pass-wang",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "pass-seal",
+      "hook": "pass-seal",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "echo",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "echo",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "keep",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "keep",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "scatter",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "scatter",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "echo",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

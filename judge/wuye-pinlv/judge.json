@@ -1,0 +1,65 @@
+{
+  "hooks": {
+    "leave": {
+      "type": "dom_regex",
+      "pattern": "一位听众离席，再未归来"
+    },
+    "stay": {
+      "type": "dom_regex",
+      "pattern": "从明天起，信换你来念"
+    },
+    "over": {
+      "type": "dom_regex",
+      "pattern": "今晚，没有听众离开"
+    },
+    "hush": {
+      "type": "dom_regex",
+      "pattern": "杂音断了。纸张在话筒前擦了一下。"
+    }
+  },
+  "checkpoints": [
+    {"id": "hush", "hook": "hush", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "leave",
+      "tier": "good",
+      "gates": ["hush"],
+      "ending": {
+        "hook": "leave",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "stay",
+      "tier": "normal",
+      "gates": ["hush"],
+      "ending": {
+        "hook": "stay",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "over",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "over",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "leave",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

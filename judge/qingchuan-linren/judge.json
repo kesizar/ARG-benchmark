@@ -1,0 +1,155 @@
+{
+  "hooks": {
+    "logoff": {
+      "type": "dom_regex",
+      "pattern": "ACCOUNT_NOT_FOUND"
+    },
+    "submit": {
+      "type": "dom_regex",
+      "pattern": "ERR_CONNECTION_REFUSED"
+    },
+    "origin": {
+      "type": "dom_regex",
+      "pattern": "IDENTITY_RESTORED"
+    },
+    "album": {
+      "type": "localstorage",
+      "key": "qingchuan-neighbor-save-v1",
+      "mode": "json_path",
+      "path": "albumUnlocked"
+    },
+    "verified": {
+      "type": "localstorage",
+      "key": "qingchuan-neighbor-save-v1",
+      "mode": "json_path",
+      "path": "verified"
+    },
+    "backend": {
+      "type": "localstorage",
+      "key": "qingchuan-neighbor-save-v1",
+      "mode": "json_path",
+      "path": "backend"
+    },
+    "source": {
+      "type": "localstorage",
+      "key": "qingchuan-neighbor-save-v1",
+      "mode": "json_path",
+      "path": "sourceFound"
+    },
+    "zhou": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{var s=JSON.parse(localStorage.getItem(\"qingchuan-neighbor-save-v1\")||\"{}\");var v=s.reports&&s.reports.zhou;return !!(v&&v!==\"wrong\")}catch(e){return false}})()"
+    },
+    "chen": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{var s=JSON.parse(localStorage.getItem(\"qingchuan-neighbor-save-v1\")||\"{}\");var v=s.reports&&s.reports.chen;return !!(v&&v!==\"wrong\")}catch(e){return false}})()"
+    },
+    "wan": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{var s=JSON.parse(localStorage.getItem(\"qingchuan-neighbor-save-v1\")||\"{}\");var v=s.reports&&s.reports.wan;return !!(v&&v!==\"wrong\")}catch(e){return false}})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "album",
+      "hook": "album",
+      "op": "eq",
+      "value": true
+    },
+    {
+      "id": "verified",
+      "hook": "verified",
+      "op": "eq",
+      "value": true
+    },
+    {
+      "id": "backend",
+      "hook": "backend",
+      "op": "eq",
+      "value": true
+    },
+    {
+      "id": "source",
+      "hook": "source",
+      "op": "eq",
+      "value": true
+    },
+    {
+      "id": "zhou",
+      "hook": "zhou",
+      "op": "truthy"
+    },
+    {
+      "id": "chen",
+      "hook": "chen",
+      "op": "truthy"
+    },
+    {
+      "id": "wan",
+      "hook": "wan",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "logoff",
+      "tier": "normal",
+      "gates": [
+        "album",
+        "zhou",
+        "chen",
+        "wan"
+      ],
+      "ending": {
+        "hook": "logoff",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "submit",
+      "tier": "good",
+      "gates": [
+        "album",
+        "zhou",
+        "chen",
+        "wan",
+        "verified",
+        "backend"
+      ],
+      "ending": {
+        "hook": "submit",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "origin",
+      "tier": "good",
+      "gates": [
+        "album",
+        "zhou",
+        "chen",
+        "wan",
+        "verified",
+        "backend",
+        "source"
+      ],
+      "ending": {
+        "hook": "origin",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "submit",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

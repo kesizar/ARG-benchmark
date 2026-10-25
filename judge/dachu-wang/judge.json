@@ -1,0 +1,64 @@
+{
+  "hooks": {
+    "back": {
+      "type": "dom_regex",
+      "pattern": "登记成功 · 欢迎回来"
+    },
+    "mail_letter": {
+      "type": "dom_regex",
+      "pattern": "【求助】弟弟的留言"
+    },
+    "admin_room": {
+      "type": "dom_regex",
+      "pattern": "你听说了吗，有一个人准备升管理员"
+    },
+    "admin_name": {
+      "type": "dom_regex",
+      "pattern": "那个人就是你吧"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "mail_letter",
+      "hook": "mail_letter",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "admin_room",
+      "hook": "admin_room",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "admin_name",
+      "hook": "admin_name",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "back",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "back",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "back",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

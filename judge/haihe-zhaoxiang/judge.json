@@ -1,0 +1,116 @@
+{
+  "hooks": {
+    "archive": {
+      "type": "dom_regex",
+      "pattern": "所有的底片都已冲洗完毕"
+    },
+    "plate_1": {
+      "type": "localstorage",
+      "key": "hhPhotoProgress",
+      "mode": "json_path",
+      "path": "puzzleLevels.0"
+    },
+    "plate_2": {
+      "type": "localstorage",
+      "key": "hhPhotoProgress",
+      "mode": "json_path",
+      "path": "puzzleLevels.1"
+    },
+    "plate_3": {
+      "type": "localstorage",
+      "key": "hhPhotoProgress",
+      "mode": "json_path",
+      "path": "puzzleLevels.2"
+    },
+    "plate_4": {
+      "type": "localstorage",
+      "key": "hhPhotoProgress",
+      "mode": "json_path",
+      "path": "puzzleLevels.3"
+    },
+    "plate_5": {
+      "type": "localstorage",
+      "key": "hhPhotoProgress",
+      "mode": "json_path",
+      "path": "puzzleLevels.4"
+    },
+    "plate_6": {
+      "type": "localstorage",
+      "key": "hhPhotoProgress",
+      "mode": "json_path",
+      "path": "puzzleLevels.5"
+    },
+    "plate_order": {
+      "type": "dom_regex",
+      "pattern": "底片校验成功"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "plate_1",
+      "hook": "plate_1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "plate_2",
+      "hook": "plate_2",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "plate_3",
+      "hook": "plate_3",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "plate_4",
+      "hook": "plate_4",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "plate_5",
+      "hook": "plate_5",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "plate_6",
+      "hook": "plate_6",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "plate_order",
+      "hook": "plate_order",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "archive",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "archive",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "archive",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

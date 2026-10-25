@@ -1,0 +1,59 @@
+{
+  "hooks": {
+    "locker": {
+      "type": "dom_regex",
+      "pattern": "真结局 · 打开柜子"
+    },
+    "returned": {
+      "type": "dom_regex",
+      "pattern": "结局 A · 全部归还"
+    },
+    "waiting": {
+      "type": "dom_regex",
+      "pattern": "结局 B · 留下一件"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "locker",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "locker",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "returned",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "returned",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "waiting",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "waiting",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "locker",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,0 +1,274 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "base64_encode",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "base64_encode",
+      "output_port": "b64",
+      "output_type": "Text_Generic",
+      "description": "Execute Base64 Encoder and get the output from port 'b64'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "hmac_sha256",
+        "hash_sha256",
+        "container_2"
+      ],
+      "by_node": {
+        "hmac_sha256": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text message"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hash_sha256": {
+          "node_name": "SHA-256 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_sha256",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_2",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "hmac_sha256": {
+        "init_inputs": {
+          "text": "Authorization request payload for timestamp 1715629400"
+        },
+        "init_outputs": {}
+      },
+      "hash_sha256": {
+        "init_inputs": {
+          "text": "Initial seed string for key derivation process"
+        },
+        "init_outputs": {}
+      },
+      "container_2": {
+        "init_inputs": {
+          "fingerprint_input": "f1a2b3c4d5e6f7081928374650617283"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in the dimly lit command center of Orbital Station Aether-7, a top-secret research facility orbiting a gas giant. The warning klaxons are blaring a rhythmic pulse, signaling that the station's structural integrity is rapidly deteriorating after a massive micro-meteoroid impact. The automated systems are offline, and the primary AI has entered a hard lockdown, severing all communication arrays. Your only chance of survival is to manually bypass the security overrides and send a distress signal to the planetary fleet stationed on the moon below. The control room is littered with offline equipment, locked biometric safes, and experimental tech components scattered across the floor. You must navigate through the station's archaic data protocols, reactivate the necessary encryption modules, and broadcast your precise coordinates before the hull breaches completely and the oxygen runs out. Every second counts as the metal groans around you.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "1cd5af685cf12bd783ad431976a846bc65ae9bea10a106953e2f78775036ec30"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "HNWvaFzxK9eDrUMZdqhGvGWum+oQoQaVPi94d1A27DA="
+        }
+      ],
+      "narrative": "This is the main orbital transmitter. It requires input from the integrity verification terminal to finalize the transmission."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "ff508622f0581b13f8b7dcf5f78c849562f3134c43bbeeb3c955a63e0ff0812f"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Authorization request payload for timestamp 1715629400"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "1cd5af685cf12bd783ad431976a846bc65ae9bea10a106953e2f78775036ec30"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Authorization request payload for timestamp 1715629400"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is an integrity verification terminal. It requires input from the quantum hashing core."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Initial seed string for key derivation process"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "ff508622f0581b13f8b7dcf5f78c849562f3134c43bbeeb3c955a63e0ff0812f"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Initial seed string for key derivation process"
+        },
+        "outputs": {}
+      },
+      "narrative": "A quantum hashing core."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "f1a2b3c4d5e6f7081928374650617283"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "f1a2b3c4d5e6f7081928374650617283"
+        },
+        "outputs": {}
+      },
+      "narrative": "A biometric lockbox."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A dusty chronometer module."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "hmac_sha256",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_key"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "hash_sha256",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    }
+  ]
+}

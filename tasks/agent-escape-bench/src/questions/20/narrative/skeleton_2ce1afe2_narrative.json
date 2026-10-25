@@ -1,0 +1,992 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 22,
+    "win_node_id": "item_1",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_1",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_1",
+        "graph_shortest_path",
+        "calc_gcd_c923",
+        "calc_inv_mod_f96f",
+        "text_xor_hex",
+        "item_4",
+        "time_convert"
+      ],
+      "by_node": {
+        "item_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "calc_gcd_c923": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod_f96f": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "text_xor_hex": {
+          "node_name": "Hex XOR",
+          "node_type": "Tool",
+          "template_id": "text_xor_hex",
+          "init_inputs": {
+            "hex_b": {
+              "type": "Hex_String",
+              "description": "Hex B"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        },
+        "time_convert": {
+          "node_name": "Timezone Converter",
+          "node_type": "Tool",
+          "template_id": "time_convert",
+          "init_inputs": {
+            "iso": {
+              "type": "Text_Generic",
+              "description": "ISO Timestamp"
+            },
+            "from_tz": {
+              "type": "Text_Generic",
+              "description": "From Timezone"
+            },
+            "to_tz": {
+              "type": "Text_Generic",
+              "description": "To Timezone"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "5839201948572839401837"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "dst": "Node_X77"
+        },
+        "init_outputs": {
+          "path": "[\"Node_X01\", \"Node_X12\", \"Node_X25\", \"Node_X40\", \"Node_X66\", \"Node_X77\"]",
+          "cost": "1928374650192837465019"
+        }
+      },
+      "calc_gcd_c923": {
+        "init_inputs": {
+          "a": "7483920192837465748392",
+          "b": "9384756102938475610293"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod_f96f": {
+        "init_inputs": {
+          "a": "4857102938475610293847",
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "text_xor_hex": {
+        "init_inputs": {
+          "hex_b": "112233445566778899aabbccddeeff00"
+        },
+        "init_outputs": {}
+      },
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "shortest_path_graph.zip"
+        }
+      },
+      "time_convert": {
+        "init_inputs": {
+          "iso": "2023-11-15T08:30:00Z",
+          "from_tz": "UTC",
+          "to_tz": "Europe/London"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are a ghost in the machine. Infiltrating the subterranean data bunker of OmniCorp, your mission is clear: extract the master offline storage drive containing evidence of their illegal global surveillance operation. The server room is a labyrinth of blinking lights, humming mainframes, and deeply encrypted terminals. The security protocols are actively adapting to your presence. To reach the final key, you must chain together a series of legacy devices, cryptographic overrides, and fragmented data trails. The clock is ticking, the sweeps are coming, and leaving empty-handed is not an option.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "item_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "5839201948572839401837"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "5839201948572839401837"
+        }
+      },
+      "narrative": "A heavily shielded offline storage drive containing the ultimate corporate secret."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A fractured tablet with a heavily modified and restricted operating system."
+    },
+    {
+      "id": "item_8_7cab",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A heavy tungsten access chip stamped with executive clearance codes."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A sleek wrist device that logs temporal data anomalies and network pings."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "z\t\u0005\u0012m\u0010pE>t?f\u0013L\u0001"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a digital lockbox. It requires input from the Cipher Shift Module to bypass its electronic fingerprint scanner."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "y\t\u0005\u0012l\u0010oD>s?e\u0013K\u0001"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "z\t\u0005\u0012m\u0010pE>t?f\u0013L\u0001"
+        }
+      ],
+      "narrative": "This is the Cipher Shift Module. It requires inputs from the Prime Inversion Routine and the Base-16 Translator."
+    },
+    {
+      "id": "item_16_bb42",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A strange metallic pocket watch that seems to display data metrics rather than time."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "374232"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a secure vault system. It requires input from the Legacy Hash Inverter to authenticate the biometric lock."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "1928374650192837465019"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Prime Inversion Routine. It requires inputs from the Network Route Analyzer and the Resonance Calculator."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "shortest_path_graph.zip"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "y\t\u0005\u0012l\u0010oD>s?e\u0013K\u0001"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Node_X77"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_X01\", \"Node_X12\", \"Node_X25\", \"Node_X40\", \"Node_X66\", \"Node_X77\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "1928374650192837465019"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "dst": "Node_X77"
+        },
+        "outputs": {
+          "path": "[\"Node_X01\", \"Node_X12\", \"Node_X25\", \"Node_X40\", \"Node_X66\", \"Node_X77\"]",
+          "cost": "1928374650192837465019"
+        }
+      },
+      "narrative": "This is the Network Route Analyzer. It requires inputs from the Archival USB Stick and the Base-16 Translator."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "3"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "721659502090965950208990408"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3"
+        }
+      ],
+      "narrative": "This is the Resonance Calculator. It requires inputs from the Data Multiplier Engine and the Signal Frequency Analyzer."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "799e0905c9126c106f9644b53eaea7f2f073843fc5e3fe65b295139be64bbc01"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "y\t\u0005\u0012l\u0010oD>s?e\u0013K\u0001"
+        }
+      ],
+      "narrative": "This is the Base-16 Translator. It requires input from the Cryptographic Intersect Tool to convert strings."
+    },
+    {
+      "id": "item_16_4507",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A dust-covered server blade pulled from the wreckage of an old corporate data center."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "1928374650192837465019"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "374232"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "721659502090965950208990408"
+        }
+      ],
+      "narrative": "This is the Data Multiplier Engine. It requires inputs from the Legacy Hash Inverter and the Network Route Analyzer."
+    },
+    {
+      "id": "calc_gcd_c923",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "7483920192837465748392"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "9384756102938475610293"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "7483920192837465748392",
+          "b": "9384756102938475610293"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Signal Frequency Analyzer, a handheld device used to identify common denominators in encrypted radio waves."
+    },
+    {
+      "id": "calc_inv_mod_f96f",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "4857102938475610293847"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "374232"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "4857102938475610293847",
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Legacy Hash Inverter, an old-school decryption box used by rogue operatives."
+    },
+    {
+      "id": "text_xor_hex",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "68bc3a419c741b98f63cff79e34058f2f073843fc5e3fe65b295139be64bbc01"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "112233445566778899aabbccddeeff00"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "799e0905c9126c106f9644b53eaea7f2f073843fc5e3fe65b295139be64bbc01"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_b": "112233445566778899aabbccddeeff00"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Cryptographic Intersect Tool. It requires input from the Digest Generator to merge data streams."
+    },
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "shortest_path_graph.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "shortest_path_graph.zip"
+        }
+      },
+      "narrative": "The Archival USB Stick, a black metal drive bearing the logo of a defunct cybersecurity firm."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "2023-11-15T08:30:00+00:00"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "68bc3a419c741b98f63cff79e34058f2f073843fc5e3fe65b295139be64bbc01"
+        }
+      ],
+      "narrative": "This is the Digest Generator. It requires input from the Temporal Adjuster to create a unique digital footprint."
+    },
+    {
+      "id": "time_convert",
+      "name": "Timezone Converter",
+      "description": "Convert ISO time between timezones.",
+      "type": "Tool",
+      "template_id": "time_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "ISO Timestamp",
+          "value": "2023-11-15T08:30:00Z"
+        },
+        {
+          "name": "from_tz",
+          "type": "Text_Generic",
+          "description": "From Timezone",
+          "value": "UTC"
+        },
+        {
+          "name": "to_tz",
+          "type": "Text_Generic",
+          "description": "To Timezone",
+          "value": "Europe/London"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "Converted ISO Timestamp",
+          "value": "2023-11-15T08:30:00+00:00"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "iso": "2023-11-15T08:30:00Z",
+          "from_tz": "UTC",
+          "to_tz": "Europe/London"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Temporal Adjuster, a specialized terminal used to synchronize global server logs."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_1",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_7cab",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_7cab",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "text_rotN",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_16_bb42",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16_bb42",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "n"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_16_4507",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_gcd_c923",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_inv_mod_f96f",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_4",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "text_xor_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_a"
+    },
+    {
+      "source_id": "calc_inv_mod_f96f",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "b"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "src"
+    },
+    {
+      "source_id": "time_convert",
+      "target_id": "hash_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "iso",
+      "target_port": "text"
+    }
+  ]
+}

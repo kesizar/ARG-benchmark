@@ -1,0 +1,45 @@
+{
+  "hooks": {
+    "end": {
+      "type": "dom_regex",
+      "pattern": "恭喜通关！游戏到这里就结束啦。"
+    },
+    "private": {
+      "type": "dom_regex",
+      "pattern": "解锁成功"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "private",
+      "hook": "private",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "end",
+      "tier": "good",
+      "gates": [
+        "private"
+      ],
+      "ending": {
+        "hook": "end",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

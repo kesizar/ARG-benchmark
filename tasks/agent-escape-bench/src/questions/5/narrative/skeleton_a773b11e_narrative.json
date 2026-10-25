@@ -1,0 +1,213 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "zlib_inflate",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "zlib_inflate",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute Zlib Inflate and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_11"
+      ],
+      "by_node": {
+        "item_11": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_11",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_11": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "print('Target data payload ready for zlib compression chain.')"
+        }
+      }
+    },
+    "intro_narrative": "Welcome to the abandoned workshop of the late Inventor-General Silas Thorne. The air is thick with the scent of lubricating oil, burning coal, and faint traces of ozone. As you step deeper into the brass-lined room, the heavy iron doors grind shut behind you, sealed by a massive, steam-powered lock system. The pressure gauges are dropping quickly; you do not have much time before the breathable air is entirely replaced by furnace exhaust. Scattered across the heavy oak workbenches are various pneumatic tools, analytical machines, and strange mechanical devices left behind by the mad inventor. To escape this suffocating tomb, you must deduce how to reactivate the master override sequence. You will need to process the correct commands through a series of complex steam-driven apparatuses. Find the starting components, figure out the mechanical sequence, and restore the workshop's systems to unlock the grand doors and secure your freedom.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "zlib_inflate",
+      "name": "Zlib Inflate",
+      "description": "Inflate zlib-compressed data (hex) to text.",
+      "type": "Tool",
+      "template_id": "zlib_inflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Zlib compressed hex",
+          "value": "789c0b492c4a4f2d5148492c49542848acccc94f4c51284a4d4ca95448cb2f52a8cac94c5248cecf2d284a2d2ececccf5348ce48ccccd3e30200278a13c6"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Inflated text",
+          "value": "Target data payload ready for zlib compression chain.\n"
+        }
+      ],
+      "narrative": "This is the Steam-driven Expander. It requires input from the Aetheric Compressor to reveal the final override sequence."
+    },
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "Target data payload ready for zlib compression chain.\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c0b492c4a4f2d5148492c49542848acccc94f4c51284a4d4ca95448cb2f52a8cac94c5248cecf2d284a2d2ececccf5348ce48ccccd3e30200278a13c6"
+        }
+      ],
+      "narrative": "This is the Aetheric Compressor. It requires input from the Clockwork Difference Engine to condense the mechanical data."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print('Target data payload ready for zlib compression chain.')"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "Target data payload ready for zlib compression chain.\n"
+        }
+      ],
+      "narrative": "This is the Clockwork Difference Engine. It requires input from the Brass Punched Card to calculate the sequence."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A heavy Tarnished Gear resting quietly on a dusty shelf."
+    },
+    {
+      "id": "item_11",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_11",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print('Target data payload ready for zlib compression chain.')"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "print('Target data payload ready for zlib compression chain.')"
+        }
+      },
+      "narrative": "A Brass Punched Card inscribed with intricate analytical instructions."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "zlib_deflate",
+      "target_id": "zlib_inflate",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "zlib_deflate",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "zlib_deflate",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_11",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    }
+  ]
+}

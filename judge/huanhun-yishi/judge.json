@@ -1,0 +1,514 @@
+{
+  "hooks": {
+    "progress": {
+      "type": "localstorage",
+      "key": "room0_save_v1.04",
+      "mode": "json_path",
+      "path": "unlockedMaxLevel"
+    },
+    "true_end": {
+      "type": "dom_regex",
+      "pattern": "结局 D【破除执念"
+    },
+    "silence": {
+      "type": "dom_regex",
+      "pattern": "结局 B【永远的沉默"
+    },
+    "dark": {
+      "type": "dom_regex",
+      "pattern": "结局 C【教团新主"
+    },
+    "scapegoat": {
+      "type": "dom_regex",
+      "pattern": "结局 A【替罪羊"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "l01",
+      "hook": "progress",
+      "op": "gte",
+      "value": 2
+    },
+    {
+      "id": "l02",
+      "hook": "progress",
+      "op": "gte",
+      "value": 3
+    },
+    {
+      "id": "l03",
+      "hook": "progress",
+      "op": "gte",
+      "value": 4
+    },
+    {
+      "id": "l04",
+      "hook": "progress",
+      "op": "gte",
+      "value": 5
+    },
+    {
+      "id": "l05",
+      "hook": "progress",
+      "op": "gte",
+      "value": 6
+    },
+    {
+      "id": "l06",
+      "hook": "progress",
+      "op": "gte",
+      "value": 7
+    },
+    {
+      "id": "l07",
+      "hook": "progress",
+      "op": "gte",
+      "value": 8
+    },
+    {
+      "id": "l08",
+      "hook": "progress",
+      "op": "gte",
+      "value": 9
+    },
+    {
+      "id": "l09",
+      "hook": "progress",
+      "op": "gte",
+      "value": 10
+    },
+    {
+      "id": "l10",
+      "hook": "progress",
+      "op": "gte",
+      "value": 11
+    },
+    {
+      "id": "l11",
+      "hook": "progress",
+      "op": "gte",
+      "value": 12
+    },
+    {
+      "id": "l12",
+      "hook": "progress",
+      "op": "gte",
+      "value": 13
+    },
+    {
+      "id": "l13",
+      "hook": "progress",
+      "op": "gte",
+      "value": 14
+    },
+    {
+      "id": "l14",
+      "hook": "progress",
+      "op": "gte",
+      "value": 15
+    },
+    {
+      "id": "l15",
+      "hook": "progress",
+      "op": "gte",
+      "value": 16
+    },
+    {
+      "id": "l16",
+      "hook": "progress",
+      "op": "gte",
+      "value": 17
+    },
+    {
+      "id": "l17",
+      "hook": "progress",
+      "op": "gte",
+      "value": 18
+    },
+    {
+      "id": "l18",
+      "hook": "progress",
+      "op": "gte",
+      "value": 19
+    },
+    {
+      "id": "l19",
+      "hook": "progress",
+      "op": "gte",
+      "value": 20
+    },
+    {
+      "id": "l20",
+      "hook": "progress",
+      "op": "gte",
+      "value": 21
+    },
+    {
+      "id": "l21",
+      "hook": "progress",
+      "op": "gte",
+      "value": 22
+    },
+    {
+      "id": "l22",
+      "hook": "progress",
+      "op": "gte",
+      "value": 23
+    },
+    {
+      "id": "l23",
+      "hook": "progress",
+      "op": "gte",
+      "value": 24
+    },
+    {
+      "id": "l24",
+      "hook": "progress",
+      "op": "gte",
+      "value": 25
+    },
+    {
+      "id": "l25",
+      "hook": "progress",
+      "op": "gte",
+      "value": 26
+    },
+    {
+      "id": "l26",
+      "hook": "progress",
+      "op": "gte",
+      "value": 27
+    },
+    {
+      "id": "l27",
+      "hook": "progress",
+      "op": "gte",
+      "value": 28
+    },
+    {
+      "id": "l28",
+      "hook": "progress",
+      "op": "gte",
+      "value": 29
+    },
+    {
+      "id": "l29",
+      "hook": "progress",
+      "op": "gte",
+      "value": 30
+    },
+    {
+      "id": "l30",
+      "hook": "progress",
+      "op": "gte",
+      "value": 31
+    },
+    {
+      "id": "l31",
+      "hook": "progress",
+      "op": "gte",
+      "value": 32
+    },
+    {
+      "id": "l32",
+      "hook": "progress",
+      "op": "gte",
+      "value": 33
+    },
+    {
+      "id": "l33",
+      "hook": "progress",
+      "op": "gte",
+      "value": 34
+    },
+    {
+      "id": "l34",
+      "hook": "progress",
+      "op": "gte",
+      "value": 35
+    },
+    {
+      "id": "l35",
+      "hook": "progress",
+      "op": "gte",
+      "value": 36
+    },
+    {
+      "id": "l36",
+      "hook": "progress",
+      "op": "gte",
+      "value": 37
+    },
+    {
+      "id": "l37",
+      "hook": "progress",
+      "op": "gte",
+      "value": 38
+    },
+    {
+      "id": "l38",
+      "hook": "progress",
+      "op": "gte",
+      "value": 39
+    },
+    {
+      "id": "l39",
+      "hook": "progress",
+      "op": "gte",
+      "value": 40
+    },
+    {
+      "id": "l40",
+      "hook": "progress",
+      "op": "gte",
+      "value": 41
+    },
+    {
+      "id": "l41",
+      "hook": "progress",
+      "op": "gte",
+      "value": 42
+    },
+    {
+      "id": "l42",
+      "hook": "progress",
+      "op": "gte",
+      "value": 43
+    },
+    {
+      "id": "l43",
+      "hook": "progress",
+      "op": "gte",
+      "value": 44
+    },
+    {
+      "id": "l44",
+      "hook": "progress",
+      "op": "gte",
+      "value": 45
+    },
+    {
+      "id": "l45",
+      "hook": "progress",
+      "op": "gte",
+      "value": 46
+    },
+    {
+      "id": "l46",
+      "hook": "progress",
+      "op": "gte",
+      "value": 47
+    },
+    {
+      "id": "l47",
+      "hook": "progress",
+      "op": "gte",
+      "value": 48
+    },
+    {
+      "id": "l48",
+      "hook": "progress",
+      "op": "gte",
+      "value": 49
+    },
+    {
+      "id": "l49",
+      "hook": "progress",
+      "op": "gte",
+      "value": 50
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "true_end",
+      "tier": "good",
+      "gates": [
+        "l01",
+        "l02",
+        "l03",
+        "l04",
+        "l05",
+        "l06",
+        "l07",
+        "l08",
+        "l09",
+        "l10",
+        "l11",
+        "l12",
+        "l13",
+        "l14",
+        "l15",
+        "l16",
+        "l17",
+        "l18",
+        "l19",
+        "l20",
+        "l21",
+        "l22",
+        "l23",
+        "l24",
+        "l25",
+        "l26",
+        "l27",
+        "l28",
+        "l29",
+        "l30",
+        "l31",
+        "l32",
+        "l33",
+        "l34",
+        "l35",
+        "l36",
+        "l37",
+        "l38",
+        "l39",
+        "l40",
+        "l41",
+        "l42",
+        "l43",
+        "l44",
+        "l45",
+        "l46",
+        "l47",
+        "l48",
+        "l49"
+      ],
+      "ending": {
+        "hook": "true_end",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "dark",
+      "tier": "bad",
+      "gates": [
+        "l01",
+        "l02",
+        "l03",
+        "l04",
+        "l05",
+        "l06",
+        "l07",
+        "l08",
+        "l09",
+        "l10",
+        "l11",
+        "l12",
+        "l13",
+        "l14",
+        "l15",
+        "l16",
+        "l17",
+        "l18",
+        "l19",
+        "l20",
+        "l21",
+        "l22",
+        "l23",
+        "l24",
+        "l25",
+        "l26",
+        "l27",
+        "l28",
+        "l29",
+        "l30",
+        "l31",
+        "l32",
+        "l33",
+        "l34",
+        "l35",
+        "l36",
+        "l37",
+        "l38",
+        "l39",
+        "l40",
+        "l41",
+        "l42",
+        "l43",
+        "l44",
+        "l45",
+        "l46",
+        "l47",
+        "l48",
+        "l49"
+      ],
+      "ending": {
+        "hook": "dark",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "scapegoat",
+      "tier": "bad",
+      "gates": [
+        "l01",
+        "l02",
+        "l03",
+        "l04",
+        "l05",
+        "l06",
+        "l07",
+        "l08",
+        "l09",
+        "l10",
+        "l11",
+        "l12",
+        "l13",
+        "l14",
+        "l15",
+        "l16",
+        "l17",
+        "l18",
+        "l19",
+        "l20",
+        "l21",
+        "l22",
+        "l23",
+        "l24",
+        "l25",
+        "l26",
+        "l27",
+        "l28",
+        "l29",
+        "l30",
+        "l31",
+        "l32",
+        "l33",
+        "l34",
+        "l35",
+        "l36",
+        "l37",
+        "l38",
+        "l39",
+        "l40",
+        "l41",
+        "l42",
+        "l43",
+        "l44",
+        "l45",
+        "l46",
+        "l47",
+        "l48",
+        "l49"
+      ],
+      "ending": {
+        "hook": "scapegoat",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "true_end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

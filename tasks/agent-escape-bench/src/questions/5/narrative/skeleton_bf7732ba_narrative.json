@@ -1,0 +1,317 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_3",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_3",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_3",
+        "regex_search",
+        "regex_search_a4c4"
+      ],
+      "by_node": {
+        "item_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_3",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String",
+              "description": "The hex code"
+            }
+          }
+        },
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "pattern": {
+              "type": "Text_Generic",
+              "description": "Regex pattern"
+            },
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "regex_search_a4c4": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "pattern": {
+              "type": "Text_Generic",
+              "description": "Regex pattern"
+            },
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_3": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "8f2a1b9c3d4e5f60718293a4b5c6d7e8"
+        }
+      },
+      "regex_search": {
+        "init_inputs": {
+          "pattern": "blueprint_[A-Z]{3}_[0-9]{4}",
+          "file_id": "manufacturing_logs_v2.log"
+        },
+        "init_outputs": {
+          "matches": "[\"blueprint_EXT_9921\", \"blueprint_CORE_4821\", \"blueprint_ARM_1102\", \"blueprint_LEG_8833\", \"blueprint_HEAD_5521\"]"
+        }
+      },
+      "regex_search_a4c4": {
+        "init_inputs": {
+          "pattern": "error_code: [0-9]+",
+          "file_id": "debug_trace_2023.txt",
+          "text": "System failure at 0800. error_code: 503. Retry attempt. error_code: 404. Service restart. error_code: 200."
+        },
+        "init_outputs": {
+          "matches": "[\"error_code: 503\", \"error_code: 404\", \"error_code: 200\", \"error_code: 500\", \"error_code: 401\"]"
+        }
+      }
+    },
+    "intro_narrative": "Welcome to the Spire of the Lost Archmage. For centuries, this floating magical observatory has been sealed away, hiding the ultimate secret of arcane creation—a primordial hex code bound within a legendary tome. You are a seeker of forbidden knowledge who has finally breached the outer wards. The air hums with latent energy, and ancient magical instruments lie dormant, waiting to be awakened. Your objective is to unravel the ethereal clues left behind by the Archmage, weave raw data into physical artifacts, and ultimately extract the hidden code from the grand artifact at the heart of the room. Tread carefully, for the magic here is intertwined in complex chains of arcane resonance.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "item_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String",
+          "description": "The hex code",
+          "value": "8f2a1b9c3d4e5f60718293a4b5c6d7e8"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "8f2a1b9c3d4e5f60718293a4b5c6d7e8"
+        }
+      },
+      "narrative": "A heavy, magically sealed grimoire. It pulses with a faint, ancient power and holds the final secret."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_9045de9acf3ec1ec"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A shimmering chronos crystal that seems to capture the essence of different temporal realms."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "[\"blueprint_EXT_9921\", \"blueprint_CORE_4821\", \"blueprint_ARM_1102\", \"blueprint_LEG_8833\", \"blueprint_HEAD_5521\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_9045de9acf3ec1ec"
+        }
+      ],
+      "narrative": "This is the Creation Forge. It requires input from the Leyline Filter to weave pure ethereal energy into tangible, physical matter."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "blueprint_[A-Z]{3}_[0-9]{4}"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "manufacturing_logs_v2.log"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "[\"error_code: 503\", \"error_code: 404\", \"error_code: 200\", \"error_code: 500\", \"error_code: 401\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"blueprint_EXT_9921\", \"blueprint_CORE_4821\", \"blueprint_ARM_1102\", \"blueprint_LEG_8833\", \"blueprint_HEAD_5521\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "pattern": "blueprint_[A-Z]{3}_[0-9]{4}",
+          "file_id": "manufacturing_logs_v2.log"
+        },
+        "outputs": {
+          "matches": "[\"blueprint_EXT_9921\", \"blueprint_CORE_4821\", \"blueprint_ARM_1102\", \"blueprint_LEG_8833\", \"blueprint_HEAD_5521\"]"
+        }
+      },
+      "narrative": "This is the Leyline Filter. It requires input from the Ancient Rune Decoder to isolate and sift through the correct magical frequencies."
+    },
+    {
+      "id": "regex_search_a4c4",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "error_code: [0-9]+"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "debug_trace_2023.txt"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "System failure at 0800. error_code: 503. Retry attempt. error_code: 404. Service restart. error_code: 200."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"error_code: 503\", \"error_code: 404\", \"error_code: 200\", \"error_code: 500\", \"error_code: 401\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "pattern": "error_code: [0-9]+",
+          "file_id": "debug_trace_2023.txt",
+          "text": "System failure at 0800. error_code: 503. Retry attempt. error_code: 404. Service restart. error_code: 200."
+        },
+        "outputs": {
+          "matches": "[\"error_code: 503\", \"error_code: 404\", \"error_code: 200\", \"error_code: 500\", \"error_code: 401\"]"
+        }
+      },
+      "narrative": "The Ancient Rune Decoder. A mystical brass lens used to scan vast magical texts for hidden arcane patterns."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "regex_search_a4c4",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "text"
+    }
+  ]
+}

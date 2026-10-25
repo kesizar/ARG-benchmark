@@ -1,0 +1,174 @@
+{
+  "hooks": {
+    "end": {
+      "type": "dom_regex",
+      "pattern": "全剧终，感谢您的游玩！"
+    },
+    "p01": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P01\\ 已解开，新内容已解锁。"
+    },
+    "p02": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P02\\ 已解开，新内容已解锁。"
+    },
+    "p03": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P03\\ 已解开，新内容已解锁。"
+    },
+    "p04": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P04\\ 已解开，新内容已解锁。"
+    },
+    "p05": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P05\\ 已解开，新内容已解锁。"
+    },
+    "p06": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P06\\ 已解开，新内容已解锁。"
+    },
+    "p07": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P07\\ 已解开，新内容已解锁。"
+    },
+    "p08": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P08\\ 已解开，新内容已解锁。"
+    },
+    "p09": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P09\\ 已解开，新内容已解锁。"
+    },
+    "p10": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P10\\ 已解开，新内容已解锁。"
+    },
+    "p11": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P11\\ 已解开，新内容已解锁。"
+    },
+    "p12": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P12\\ 已解开，新内容已解锁。"
+    },
+    "p13": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P13\\ 已解开，新内容已解锁。"
+    },
+    "p14": {
+      "type": "dom_regex",
+      "pattern": "谜题\\ P14\\ 已解开，新内容已解锁。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "p01",
+      "hook": "p01",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p02",
+      "hook": "p02",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p03",
+      "hook": "p03",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p04",
+      "hook": "p04",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p05",
+      "hook": "p05",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p06",
+      "hook": "p06",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p07",
+      "hook": "p07",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p08",
+      "hook": "p08",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p09",
+      "hook": "p09",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p10",
+      "hook": "p10",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p11",
+      "hook": "p11",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p12",
+      "hook": "p12",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p13",
+      "hook": "p13",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p14",
+      "hook": "p14",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "end",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "end",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

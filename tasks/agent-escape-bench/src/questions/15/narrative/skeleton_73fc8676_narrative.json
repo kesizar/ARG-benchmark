@@ -1,0 +1,949 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 17,
+    "win_node_id": "zip_unzip_file",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "zip_unzip_file",
+      "output_port": "files",
+      "output_type": "File_Id",
+      "description": "Execute Zip Unzipper and get the output from port 'files'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "zip_unzip_file",
+        "calc_inv_mod",
+        "checksum_crc32",
+        "zip_unzip_file_9ea4",
+        "zip_unzip_file_65ce",
+        "hash_md5",
+        "graph_shortest_path",
+        "zip_unzip_file_9ec5",
+        "container_1",
+        "hash_md5_929c",
+        "hex_decode"
+      ],
+      "by_node": {
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_9ea4": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_65ce": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "hash_md5": {
+          "node_name": "MD5 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_md5",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file_9ec5": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hash_md5_929c": {
+          "node_name": "MD5 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_md5",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hex_decode": {
+          "node_name": "Hex to Text Decoder",
+          "node_type": "Tool",
+          "template_id": "hex_decode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex string"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "encrypted_archive_v1.zip"
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "8374659201928374655647382"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_9ea4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "intermediate_data_9ea4.zip"
+        }
+      },
+      "zip_unzip_file_65ce": {
+        "init_inputs": {
+          "password": "SuperSecretPass123!"
+        },
+        "init_outputs": {
+          "files": "unlocked_payload_65ce.zip"
+        }
+      },
+      "hash_md5": {
+        "init_inputs": {
+          "text": "Initial text block for hashing process."
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Node_Start"
+        },
+        "init_outputs": {
+          "path": "[\"Node_Start\", \"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_End\"]",
+          "cost": "9876543210987654321098765"
+        }
+      },
+      "zip_unzip_file_9ec5": {
+        "init_inputs": {
+          "zip_id": "secure_backup_9ec5.zip",
+          "password": "AnotherStrongPassword456"
+        },
+        "init_outputs": {
+          "files": "extracted_content_9ec5.txt"
+        }
+      },
+      "container_1": {
+        "init_inputs": {
+          "fingerprint_input": "112233445566778899aabbccddeeff00"
+        },
+        "init_outputs": {}
+      },
+      "hash_md5_929c": {
+        "init_inputs": {
+          "text": "Text to trigger container 2 fingerprint."
+        },
+        "init_outputs": {}
+      },
+      "hex_decode": {
+        "init_inputs": {
+          "hex": "5365637265744d65737361676548657265"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in the dark, humming server room of the abandoned space station 'Aethelgard'. The station's AI has locked down the central systems, including the critical navigation files needed to return to Earth. With oxygen levels slowly depleting and the emergency lights flickering, you must reactivate the station's dormant terminals and bypass a series of intricate security protocols. Your ultimate objective is to decrypt and extract the files from the main core before the life support systems completely fail. Time is running out, and every terminal holds a piece of the puzzle.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "intermediate_data_9ea4.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "\u0005g\u0018EJ\b"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "encrypted_archive_v1.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "encrypted_archive_v1.zip"
+        }
+      },
+      "narrative": "This is the Main Databank Extractor. The final extraction terminal for the central core system. It requires inputs from the Quantum Shift Decoder and the Secondary Databank Extractor to access the ultimate files."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "\u0005k\u0018IN\b"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "8374659201928374655647382"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "\u0005g\u0018EJ\b"
+        }
+      ],
+      "narrative": "This is the Quantum Shift Decoder. A text manipulation device based on quantum shifting technology. It requires inputs from the Temporal Inversion Module and the Asymmetric Decryption Core."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "8374659201928374655647382"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 429976841
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "8374659201928374655647382"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "8374659201928374655647382"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Temporal Inversion Module. A complex mathematical processor. It requires input from the Integrity Scanner to function properly."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "19a0ed09"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 429976841
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Integrity Scanner. A diagnostic scanner used by the engineers to verify system data integrity."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is the Chronos Log. A hidden data pad containing temporal coordinates left behind by the last crew member."
+    },
+    {
+      "id": "zip_unzip_file_9ea4",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "unlocked_payload_65ce.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "\u0005k\u0018IN\b"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "intermediate_data_9ea4.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "intermediate_data_9ea4.zip"
+        }
+      },
+      "narrative": "This is the Secondary Databank Extractor. An extraction tool for heavily encrypted station databanks. It requires inputs from the Network Archive Extractor and the Asymmetric Decryption Core."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "0180e69b1ee31a2fce6516a9ac879f5e"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "8374659201928374655647382"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "9876543210987654321098765"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u0005k\u0018IN\b"
+        }
+      ],
+      "narrative": "This is the Asymmetric Decryption Core. An advanced decryption engine. It requires inputs from the Security Hasher, the Temporal Inversion Module, and the Navigation Router to break the heavy cipher."
+    },
+    {
+      "id": "zip_unzip_file_65ce",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_content_9ec5.txt"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SuperSecretPass123!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "unlocked_payload_65ce.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "SuperSecretPass123!"
+        },
+        "outputs": {
+          "files": "unlocked_payload_65ce.zip"
+        }
+      },
+      "narrative": "This is the Network Archive Extractor. A secondary extraction system for deep-network files. It requires input from the Initial Archive Extractor to proceed."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Initial text block for hashing process."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "0180e69b1ee31a2fce6516a9ac879f5e"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Initial text block for hashing process."
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Security Hasher. A high-level console designed to process sensitive text into secure formats."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "unlocked_payload_65ce.zip"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_Start"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "SecretMessageHere"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Start\", \"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_End\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "9876543210987654321098765"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Node_Start"
+        },
+        "outputs": {
+          "path": "[\"Node_Start\", \"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_End\"]",
+          "cost": "9876543210987654321098765"
+        }
+      },
+      "narrative": "This is the Navigation Router. A routing system used to find optimal data paths across the station network. It requires inputs from the Network Archive Extractor and the Hexadecimal Translator."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "9cc5078367406780bb86a09c60190c8f"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Biometric Safe. A highly secure vault with a specialized locking mechanism. It requires input from the Access Hasher to authenticate and open."
+    },
+    {
+      "id": "zip_unzip_file_9ec5",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_backup_9ec5.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "AnotherStrongPassword456"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_content_9ec5.txt"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_backup_9ec5.zip",
+          "password": "AnotherStrongPassword456"
+        },
+        "outputs": {
+          "files": "extracted_content_9ec5.txt"
+        }
+      },
+      "narrative": "This is the Initial Archive Extractor. A file extraction terminal for handling basic compressed backups."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "112233445566778899aabbccddeeff00"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "112233445566778899aabbccddeeff00"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Storage Lockbox. A heavily armored wall compartment secured with an electronic keypad."
+    },
+    {
+      "id": "hash_md5_929c",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Text to trigger container 2 fingerprint."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "9cc5078367406780bb86a09c60190c8f"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Text to trigger container 2 fingerprint."
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Access Hasher. A basic terminal used for generating quick security digests for lower-level systems."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "5365637265744d65737361676548657265"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "SecretMessageHere"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "5365637265744d65737361676548657265"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Hexadecimal Translator. A translation interface that converts raw machine code into readable text."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "text_rotN",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "n"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "zip_unzip_file_9ea4",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "zip_unzip_file_65ce",
+      "target_id": "zip_unzip_file_9ea4",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "n"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "zip_unzip_file_9ea4",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "d"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "zip_unzip_file_65ce",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file_9ec5",
+      "target_id": "zip_unzip_file_65ce",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "hash_md5_929c",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "dst"
+    }
+  ]
+}

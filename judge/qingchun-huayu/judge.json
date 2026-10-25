@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "card": {
+      "type": "dom_regex",
+      "pattern": "下课铃一响，四个人刚好都在同一条走廊。"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "card",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "card",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "card",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

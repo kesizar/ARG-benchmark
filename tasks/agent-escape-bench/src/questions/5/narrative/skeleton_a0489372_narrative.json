@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_4",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_4",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_4"
+      ],
+      "by_node": {
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "this_is_the_victory_string.zip"
+        }
+      }
+    },
+    "intro_narrative": "The acid rain never stops in Sector 4. You have infiltrated the abandoned safehouse of a rogue netrunner who secured the ultimate corporate payday. Megacorp enforcers are already sweeping the lower floors, leaving you with mere minutes to locate the extracted files. The apartment is a chaotic web of glowing cables, scattered cyber-hardware, and dormant tech. You must scour the area to retrieve the hidden data cache before the sweepers arrive.",
+    "narrative_style": "cyberpunk"
+  },
+  "nodes": [
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "this_is_the_victory_string.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "this_is_the_victory_string.zip"
+        }
+      },
+      "narrative": "A highly classified corporate archive drive."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A heavy-duty corporate data synthesizer."
+    },
+    {
+      "id": "item_8_be6e",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A black-market integer sequencer terminal."
+    },
+    {
+      "id": "item_8_bfe8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A damaged portable signal decoder."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A glowing neon temporal chronometer."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_be6e",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_bfe8",
+      "target_id": "item_8_be6e",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_bfe8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    }
+  ]
+}

@@ -1,0 +1,923 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 20,
+    "win_node_id": "hash_md5",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "hash_md5",
+      "output_port": "hex",
+      "output_type": "Hex_String",
+      "description": "Execute MD5 Hasher and get the output from port 'hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "csv_query",
+        "zip_unzip_file",
+        "zip_unzip_file_7ab4",
+        "json_get",
+        "zip_unzip_file_5597",
+        "zip_unzip_file_5dab",
+        "terminal_1",
+        "hash_sha256",
+        "matter_synthesizer",
+        "calc_gcd"
+      ],
+      "by_node": {
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {},
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_7ab4": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {},
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "zip_unzip_file_5597": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_5dab": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "hash_sha256": {
+          "node_name": "SHA-256 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_sha256",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "matter_synthesizer": {
+          "node_name": "Matter Synthesizer",
+          "node_type": "Tool",
+          "template_id": "matter_synthesizer",
+          "init_inputs": {
+            "blueprint": {
+              "type": "Text_Generic",
+              "description": "Object Blueprint"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "csv_query": {
+        "init_inputs": {},
+        "init_outputs": {
+          "rows": "[{\"id\": 101, \"status\": \"active\", \"value\": 500}, {\"id\": 102, \"status\": \"pending\", \"value\": 350}]"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "financial_records.csv"
+        }
+      },
+      "zip_unzip_file_7ab4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "encrypted_ledger.zip"
+        }
+      },
+      "json_get": {
+        "init_inputs": {},
+        "init_outputs": {
+          "values": "DE21300098000004567890"
+        }
+      },
+      "zip_unzip_file_5597": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "intermediate_bundle.zip"
+        }
+      },
+      "zip_unzip_file_5dab": {
+        "init_inputs": {
+          "zip_id": "root_archive_v1.zip"
+        },
+        "init_outputs": {
+          "files": "level1_data.zip"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "SuperSecretPassword2024!",
+          "hex_output": "48656c6c6f576f726c6d",
+          "item_dispenser": "Admin Access Badge"
+        }
+      },
+      "hash_sha256": {
+        "init_inputs": {
+          "text": "Initiate secure hashing sequence alpha."
+        },
+        "init_outputs": {}
+      },
+      "matter_synthesizer": {
+        "init_inputs": {
+          "blueprint": "Schematic: Quantum Resonance Emitter"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "837465920183746592018374",
+          "b": "293847561029384756102938"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in the forgotten sanctum of the Archmage, a hidden subterranean chamber where reality bends and magic is woven into physical form. The air is thick with the scent of ozone, ancient dust, and old parchment. Flickering torches cast long, dancing shadows across walls etched with glowing runes. To escape this mystical prison, you must unlock the ultimate power of the sanctum and forge an artifact capable of breaking the warding seal. Many enchanted objects, arcane tools, and locked magical chests lie scattered around the room, each bound by intricate, interwoven dependencies. You will need to carefully trace the flow of arcane energy, using spells and artifacts in the precise order to uncover the final incantation. The ultimate goal is to ignite the master forge and synthesize the essence of pure magic to blast the doors open.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "[{\"id\": 101, \"status\": \"active\", \"value\": 500}, {\"id\": 102, \"status\": \"pending\", \"value\": 350}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "337d786e08792df7af8e8852f93dbc19"
+        }
+      ],
+      "narrative": "A blazing mystical furnace known as the Soul Forge. It requires input from the Archive of the Ancients to ignite its true power."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "financial_records.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "False"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "DE21300098000004567890"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"id\": 101, \"status\": \"active\", \"value\": 500}, {\"id\": 102, \"status\": \"pending\", \"value\": 350}]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "rows": "[{\"id\": 101, \"status\": \"active\", \"value\": 500}, {\"id\": 102, \"status\": \"pending\", \"value\": 350}]"
+        }
+      },
+      "narrative": "A massive library of magical scrolls, the Archive of the Ancients. It requires inputs from the Runic Authenticator, the Silver Chest, and the Scrying Pool to reveal its hidden secrets."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A strange, dusty relic pulsing with faint magical energy. It seems to have been left behind by a previous adventurer."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A smooth, glowing Moonstone resting on a velvet cushion. It hums softly when held in your hand."
+    },
+    {
+      "id": "iban_validate",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "DE21300098000004567890"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "False"
+        }
+      ],
+      "narrative": "An enchanted stone slab covered in validation runes, known as the Runic Authenticator. It requires input from the Scrying Pool to function properly."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "encrypted_ledger.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "financial_records.csv"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "financial_records.csv"
+        }
+      },
+      "narrative": "An ornate Silver Chest sealed by defensive magic. It requires inputs from the Bronze Chest and the Runic Authenticator to be safely opened."
+    },
+    {
+      "id": "zip_unzip_file_7ab4",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "intermediate_bundle.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "encrypted_ledger.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "encrypted_ledger.zip"
+        }
+      },
+      "narrative": "A sturdy Bronze Chest with a complex magical lock. It requires inputs from the Runic Authenticator and the Golden Chest to pop open."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "intermediate_bundle.zip"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "wCOgAxkBjsV2tlmamsLQ7TMOhO7EbeBAYofNwtsEK7Y="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "DE21300098000004567890"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "values": "DE21300098000004567890"
+        }
+      },
+      "narrative": "A dark, reflective Scrying Pool surrounded by candles. It requires inputs from the Golden Chest and the Celestial Translator to show you visions of what you seek."
+    },
+    {
+      "id": "zip_unzip_file_5597",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "level1_data.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SuperSecretPassword2024!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "intermediate_bundle.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "intermediate_bundle.zip"
+        }
+      },
+      "narrative": "A gleaming Golden Chest that radiates warmth. It requires inputs from the Iron Chest and the Altar of Equivalence to unlock its treasures."
+    },
+    {
+      "id": "zip_unzip_file_5dab",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "root_archive_v1.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SuperSecretPassword2024!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "level1_data.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "root_archive_v1.zip"
+        },
+        "outputs": {
+          "files": "level1_data.zip"
+        }
+      },
+      "narrative": "A heavy Iron Chest bound in thick, rusted chains. It requires input from the Altar of Equivalence to shatter its magical bindings."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "wCOgAxkBjsV2tlmamsLQ7TMOhO7EbeBAYofNwtsEK7Y="
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "SuperSecretPassword2024!"
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "48656c6c6f576f726c6d"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "Admin Access Badge"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "SuperSecretPassword2024!",
+          "hex_output": "48656c6c6f576f726c6d",
+          "item_dispenser": "Admin Access Badge"
+        }
+      },
+      "narrative": "An ancient stone table known as the Altar of Equivalence. It requires inputs from the Celestial Translator and the Abacus of the Fates to balance its scales."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool",
+          "value": "synthesized_item_674c4fc6b2542c46"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "c023a00319018ec576b6599a9ac2d0ed330e84eec46de0406287cdc2db042bb6"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "wCOgAxkBjsV2tlmamsLQ7TMOhO7EbeBAYofNwtsEK7Y="
+        }
+      ],
+      "narrative": "A delicate arrangement of star-glass lenses, the Celestial Translator. It requires input from the Crystal of Truth to decipher cosmic language."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Initiate secure hashing sequence alpha."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "c023a00319018ec576b6599a9ac2d0ed330e84eec46de0406287cdc2db042bb6"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Initiate secure hashing sequence alpha."
+        },
+        "outputs": {}
+      },
+      "narrative": "A flawless, multifaceted Crystal of Truth resting on a pedestal. It reflects the pure essence of whatever is placed before it."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "Schematic: Quantum Resonance Emitter"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_674c4fc6b2542c46"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "blueprint": "Schematic: Quantum Resonance Emitter"
+        },
+        "outputs": {}
+      },
+      "narrative": "A spinning wheel of pure magic, the Aether Loom, capable of weaving physical forms out of thin air."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "837465920183746592018374"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "293847561029384756102938"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "2"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "837465920183746592018374",
+          "b": "293847561029384756102938"
+        },
+        "outputs": {}
+      },
+      "narrative": "An intricate Abacus of the Fates made of carved bone and gold wire. Its ethereal beads seem to move on their own."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "csv_query",
+      "target_id": "hash_md5",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "csv_query",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "iban_validate",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "select"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file_7ab4",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "iban_validate",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "password"
+    },
+    {
+      "source_id": "iban_validate",
+      "target_id": "zip_unzip_file_7ab4",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "password"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "iban_validate",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "iban"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "where"
+    },
+    {
+      "source_id": "zip_unzip_file_5597",
+      "target_id": "json_get",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file_5dab",
+      "target_id": "zip_unzip_file_5597",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "zip_unzip_file_5597",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "password"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "zip_unzip_file_5597",
+      "target_id": "zip_unzip_file_7ab4",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "base64_encode",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "zip_unzip_file_5dab",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "password"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "json_get",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "jsonpath"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "slot_b"
+    }
+  ]
+}

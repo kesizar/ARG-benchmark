@@ -1,0 +1,1301 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 24,
+    "win_node_id": "crypto_rsa_decrypt_hex",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "crypto_rsa_decrypt_hex",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute RSA Decrypt and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "calc_modexp",
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "regex_search",
+        "item_7",
+        "text_xor_hex",
+        "zip_unzip_file_8f0a",
+        "hash_md5",
+        "terminal_2",
+        "base64_encode",
+        "zip_unzip_file_49ec",
+        "regex_search_2e4b",
+        "calc_bigmul",
+        "item_2",
+        "calc_inv_mod"
+      ],
+      "by_node": {
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "text_xor_hex": {
+          "node_name": "Hex XOR",
+          "node_type": "Tool",
+          "template_id": "text_xor_hex",
+          "init_inputs": {
+            "hex_a": {
+              "type": "Hex_String",
+              "description": "Hex A"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_8f0a": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "hash_md5": {
+          "node_name": "MD5 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_md5",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "base64_encode": {
+          "node_name": "Base64 Encoder",
+          "node_type": "Tool",
+          "template_id": "base64_encode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex bytes"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_49ec": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "regex_search_2e4b": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "The text"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "calc_modexp": {
+        "init_inputs": {
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"node_A\", \"node_B\", \"node_C\", \"node_D\", \"node_E\"]",
+          "cost": "54321"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "password": "secret_pass_123"
+        },
+        "init_outputs": {
+          "files": "extracted_data_1.csv"
+        }
+      },
+      "regex_search": {
+        "init_inputs": {
+          "file_id": "search_corpus.txt"
+        },
+        "init_outputs": {
+          "matches": "[\"match1\", \"match2\", \"match3\", \"match4\"]"
+        }
+      },
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "x = 42\nprint(x)"
+        }
+      },
+      "text_xor_hex": {
+        "init_inputs": {
+          "hex_a": "1a2b3c4d5e6f7a8b"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_8f0a": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "unzipped_content_8f.txt"
+        }
+      },
+      "hash_md5": {
+        "init_inputs": {
+          "text": "Text to hash with MD5 algorithm."
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "12345678901234567890"
+        },
+        "init_outputs": {
+          "text_result": "Terminal operation successful and data processed.",
+          "hex_result": "deadbeef12345678"
+        }
+      },
+      "base64_encode": {
+        "init_inputs": {
+          "hex": "0102030405060708"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_49ec": {
+        "init_inputs": {
+          "zip_id": "archive_49ec.zip"
+        },
+        "init_outputs": {
+          "files": "documents_49ec.pdf"
+        }
+      },
+      "regex_search_2e4b": {
+        "init_inputs": {
+          "file_id": "log_data.log",
+          "text": "Raw text content for regex searching."
+        },
+        "init_outputs": {
+          "matches": "[\"error_1\", \"error_2\", \"error_3\", \"error_4\"]"
+        }
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "98765432109876543210",
+          "b": "55555555555555555555"
+        },
+        "init_outputs": {}
+      },
+      "item_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "This is the text content extracted from item 2."
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "11111111112222222222",
+          "mod": "100003"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are a rogue operative trapped in a classified cyber-warfare facility known as 'The Black Box.' The facility has initiated a complete lockdown, and a countdown to a catastrophic data wipe—and potential structural purge—is ticking. The only way out is to hack into the central AI and execute the override command. The server room is a labyrinth of disconnected terminals, encrypted archives, and hardware modules. You must patch together the fragmented systems, map the network pathways, and unlock the Mainframe Decryptor before the facility erases all evidence, including you.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "90a42d4dd660d35e6a9633625e08af09"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "466438"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "54321"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u0007\u001a"
+        }
+      ],
+      "narrative": "This is the Mainframe Decryptor. It requires inputs from the Processing Core, the Network Map Analyzer, and the Signal Combiner to unlock the final system."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "5486968450548696844945130315494513031550"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "6879"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "466438"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Processing Core. It requires inputs from the Security Processor and the Analytics Engine to finalize calculations."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_data_1.csv"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "[\"match1\", \"match2\", \"match3\", \"match4\"]"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "[\"error_1\", \"error_2\", \"error_3\", \"error_4\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"node_A\", \"node_B\", \"node_C\", \"node_D\", \"node_E\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "54321"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"node_A\", \"node_B\", \"node_C\", \"node_D\", \"node_E\"]",
+          "cost": "54321"
+        }
+      },
+      "narrative": "This is the Network Map Analyzer. It requires inputs from the Final Archive Extractor, the Data Miner, and the Log Scanner."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "unzipped_content_8f.txt"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "secret_pass_123"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_data_1.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "secret_pass_123"
+        },
+        "outputs": {
+          "files": "extracted_data_1.csv"
+        }
+      },
+      "narrative": "This is the Final Archive Extractor. It requires input from the Secondary Archive Extractor to finish the process."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "AQIDBAUGBwg="
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "search_corpus.txt"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "42\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"match1\", \"match2\", \"match3\", \"match4\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "search_corpus.txt"
+        },
+        "outputs": {
+          "matches": "[\"match1\", \"match2\", \"match3\", \"match4\"]"
+        }
+      },
+      "narrative": "This is the Data Miner. It requires inputs from both the Script Interpreter and the Format Converter."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "x = 42\nprint(x)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "42\n"
+        }
+      ],
+      "narrative": "This is the Script Interpreter. It requires input from the Encrypted Payload to execute its routines."
+    },
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "x = 42\nprint(x)"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "x = 42\nprint(x)"
+        }
+      },
+      "narrative": "This is the Encrypted Payload. A mysterious software package embedded in the network."
+    },
+    {
+      "id": "text_xor_hex",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "1a2b3c4d5e6f7a8b"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "8a8f1100880fa9d56a9633625e08af09"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "90a42d4dd660d35e6a9633625e08af09"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_a": "1a2b3c4d5e6f7a8b"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Signal Combiner. It requires input from the Integrity Checker to function properly."
+    },
+    {
+      "id": "zip_unzip_file_8f0a",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "documents_49ec.pdf"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"match1\", \"match2\", \"match3\", \"match4\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "unzipped_content_8f.txt"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "unzipped_content_8f.txt"
+        }
+      },
+      "narrative": "This is the Secondary Archive Extractor. It requires inputs from the Data Miner and the Primary Archive Extractor."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is the Hidden Container. A data storage unit secured in a locked drawer."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Text to hash with MD5 algorithm."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "8a8f1100880fa9d56a9633625e08af09"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Text to hash with MD5 algorithm."
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Integrity Checker. A system module designed to verify file authenticity."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "12345678901234567890"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "6879"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal operation successful and data processed."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "deadbeef12345678"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "12345678901234567890"
+        },
+        "outputs": {
+          "text_result": "Terminal operation successful and data processed.",
+          "hex_result": "deadbeef12345678"
+        }
+      },
+      "narrative": "This is the Diagnostic Terminal. It requires input from the Security Processor to boot up."
+    },
+    {
+      "id": "calc_modexp_3d87",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "5486968450548696844945130315494513031550"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "51138"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "54321"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "6879"
+        }
+      ],
+      "narrative": "This is the Security Processor. It requires inputs from the Network Map Analyzer, the Analytics Engine, and the Reverse Authenticator."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "0102030405060708"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "AQIDBAUGBwg="
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "0102030405060708"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Format Converter. A legacy terminal that handles data encoding."
+    },
+    {
+      "id": "zip_unzip_file_49ec",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_49ec.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"match1\", \"match2\", \"match3\", \"match4\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "documents_49ec.pdf"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_49ec.zip"
+        },
+        "outputs": {
+          "files": "documents_49ec.pdf"
+        }
+      },
+      "narrative": "This is the Primary Archive Extractor. It requires input from the Data Miner to unlock the first layer."
+    },
+    {
+      "id": "item_8_81f2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is the Access Keycard. A heavily encrypted physical token."
+    },
+    {
+      "id": "regex_search_2e4b",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "This is the text content extracted from item 2."
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "log_data.log"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "Raw text content for regex searching."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"error_1\", \"error_2\", \"error_3\", \"error_4\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "log_data.log",
+          "text": "Raw text content for regex searching."
+        },
+        "outputs": {
+          "matches": "[\"error_1\", \"error_2\", \"error_3\", \"error_4\"]"
+        }
+      },
+      "narrative": "This is the Log Scanner. It requires input from the System Manual to initiate its scan."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "98765432109876543210"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "55555555555555555555"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "5486968450548696844945130315494513031550"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "98765432109876543210",
+          "b": "55555555555555555555"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Analytics Engine. A high-performance cluster used for complex mathematical operations."
+    },
+    {
+      "id": "item_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "The text",
+          "value": "This is the text content extracted from item 2."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "This is the text content extracted from item 2."
+        }
+      },
+      "narrative": "This is the System Manual. A thick technical document bound in synthetic leather."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "11111111112222222222"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "100003"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "51138"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "11111111112222222222",
+          "mod": "100003"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Reverse Authenticator. A specialized device used to bypass digital signatures."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_modexp",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "n"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "d"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "src"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_7",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "zip_unzip_file_8f0a",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "zip_unzip_file_8f0a",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "password"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "text_xor_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_b"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "text_xor_hex",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "calc_modexp_3d87",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "pattern"
+    },
+    {
+      "source_id": "zip_unzip_file_49ec",
+      "target_id": "zip_unzip_file_8f0a",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "calc_modexp_3d87",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_modexp_3d87",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "item_8_81f2",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "zip_unzip_file_49ec",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "password"
+    },
+    {
+      "source_id": "regex_search_2e4b",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_modexp_3d87",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "base"
+    },
+    {
+      "source_id": "item_2",
+      "target_id": "regex_search_2e4b",
+      "connection_type": "Text_Generic",
+      "source_port": "content",
+      "target_port": "pattern"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_modexp_3d87",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "exp"
+    }
+  ]
+}

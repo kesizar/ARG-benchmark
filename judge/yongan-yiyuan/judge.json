@@ -1,0 +1,71 @@
+{
+  "hooks": {
+    "apostle": {
+      "type": "dom_regex",
+      "pattern": "而你，将成为他的第二位使徒。"
+    },
+    "report": {
+      "type": "dom_regex",
+      "pattern": "你帮不了任何人。"
+    },
+    "obit": {
+      "type": "dom_regex",
+      "pattern": "匿名访客，性别不详，年龄不详。"
+    },
+    "chain": {
+      "type": "dom_regex",
+      "pattern": "证据链 / CHAIN OF CUSTODY"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "chain",
+      "hook": "chain",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "apostle",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "apostle",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "report",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "report",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "obit",
+      "tier": "bad",
+      "gates": [
+        "chain"
+      ],
+      "ending": {
+        "hook": "obit",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "apostle",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

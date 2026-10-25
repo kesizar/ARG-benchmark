@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "echo": {"type": "dom_regex", "pattern": "结局三 · 回声抵达"},
+    "late": {"type": "dom_regex", "pattern": "结局二 · 迟来的真相"},
+    "forgotten": {"type": "dom_regex", "pattern": "结局一 · 被遗忘的回声"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "echo", "tier": "good", "gates": [], "ending": {"hook": "echo", "op": "truthy"}},
+    {"id": "late", "tier": "normal", "gates": [], "ending": {"hook": "late", "op": "truthy"}},
+    {"id": "forgotten", "tier": "bad", "gates": [], "ending": {"hook": "forgotten", "op": "truthy"}}
+  ],
+  "ending": {"hook": "echo", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

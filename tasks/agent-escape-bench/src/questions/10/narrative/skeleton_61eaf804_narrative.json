@@ -1,0 +1,674 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 11,
+    "win_node_id": "container_1",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "container_1",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "container_1",
+        "terminal_1",
+        "container_3",
+        "calc_bigmul",
+        "base64_encode",
+        "calc_inv_mod_580a",
+        "calc_modexp",
+        "num_base_convert",
+        "item_1"
+      ],
+      "by_node": {
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "inner_space": {
+              "type": "Item",
+              "description": "Contents"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "container_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "base64_encode": {
+          "node_name": "Base64 Encoder",
+          "node_type": "Tool",
+          "template_id": "base64_encode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex bytes"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod_580a": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "container_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "inner_space": "Win_dajkdhjabxajkdhk"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Terminal initialized. Awaiting cryptographic parameters.",
+          "hex_output": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "item_dispenser": "Standard Issue Decryption Tool"
+        }
+      },
+      "container_3": {
+        "init_inputs": {
+          "fingerprint_input": "8374651029384756102938475610"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "b": "998877665544332211001234567890"
+        },
+        "init_outputs": {}
+      },
+      "base64_encode": {
+        "init_inputs": {
+          "hex": "48656c6c6f20576f726c6421"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod_580a": {
+        "init_inputs": {
+          "a": "3141592653589793238462643383",
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "mod": "524287"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "from_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "item_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "7733445566778899001122334455"
+        }
+      }
+    },
+    "intro_narrative": "You stand in the dim, chaotic office of Arthur Pendelton, an enigmatic cryptographer who vanished without a trace three weeks ago. The room is a labyrinth of jury-rigged mainframes, biometric lockboxes, and humming processors. Your objective is simple but daunting: breach Arthur's ultimate security measure, the main vault, to uncover the truth behind his disappearance. To do so, you must navigate his complex array of custom cryptographic machines, tracing the data flow from his encrypted notes to the final security console. Time is ticking, and whoever took Arthur might be coming back. Can you decipher the master cryptographer's final puzzle before it's too late?",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents",
+          "value": "Win_dajkdhjabxajkdhk"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "inner_space": "Win_dajkdhjabxajkdhk"
+        }
+      },
+      "narrative": "This is the main vault. It requires input from the security console."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "SGVsbG8gV29ybGQh"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "174361088664421997755742502467174730"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal initialized. Awaiting cryptographic parameters."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "Standard Issue Decryption Tool"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Terminal initialized. Awaiting cryptographic parameters.",
+          "hex_output": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "item_dispenser": "Standard Issue Decryption Tool"
+        }
+      },
+      "narrative": "This is the security console. It requires inputs from both the multiplication co-processor and the text encoder."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "8374651029384756102938475610"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "8374651029384756102938475610"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy biometric lockbox secured to the floorboards."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "174557"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "998877665544332211001234567890"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "174361088664421997755742502467174730"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "998877665544332211001234567890"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the multiplication co-processor. It requires input from the inversion engine."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "32895"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "457097"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "174557"
+        }
+      ],
+      "narrative": "This is the inversion engine. It requires inputs from both the primary inverter and the exponentiation module."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "48656c6c6f20576f726c6421"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "SGVsbG8gV29ybGQh"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "48656c6c6f20576f726c6421"
+        },
+        "outputs": {}
+      },
+      "narrative": "A standalone text encoder machine with a vintage mechanical keyboard."
+    },
+    {
+      "id": "calc_inv_mod_580a",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "3141592653589793238462643383"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "32895"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "3141592653589793238462643383",
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "A primary inverter device, humming softly with raw computing power."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "32895"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "7733445566778899001122334455"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "524287"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "457097"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "524287"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the exponentiation module. It requires inputs from both the base translator and the primary inverter."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "7733445566778899001122334455"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "10"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "32895"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "7733445566778899001122334455"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "from_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the base translator. It requires inputs from both the primary inverter and the encrypted dossier."
+    },
+    {
+      "id": "item_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "7733445566778899001122334455"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "7733445566778899001122334455"
+        }
+      },
+      "narrative": "A dusty encrypted dossier left behind on the cryptographer's desk."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "terminal_1",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "calc_inv_mod_580a",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_inv_mod_580a",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_inv_mod_580a",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "item_1",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "content",
+      "target_port": "s"
+    }
+  ]
+}

@@ -1,0 +1,758 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 15,
+    "win_node_id": "hex_encode",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "hex_encode",
+      "output_port": "hex",
+      "output_type": "Hex_String",
+      "description": "Execute Text to Hex Encoder and get the output from port 'hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "base64_decode",
+        "num_base_convert",
+        "graph_shortest_path",
+        "item_7",
+        "luhn_check",
+        "calc_bigmul_153f"
+      ],
+      "by_node": {
+        "base64_decode": {
+          "node_name": "Base64 Decoder",
+          "node_type": "Tool",
+          "template_id": "base64_decode",
+          "init_inputs": {
+            "data": {
+              "type": "Text_Generic",
+              "description": "Base64 string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "luhn_check": {
+          "node_name": "Luhn Checker",
+          "node_type": "Tool",
+          "template_id": "luhn_check",
+          "init_inputs": {
+            "number": {
+              "type": "Text_Generic",
+              "description": "Number string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_153f": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "base64_decode": {
+        "init_inputs": {
+          "data": "U2VjcmV0SW5pdGlhbGl6YXRpb25EYXRhU3RyZWFtMTIzNDU2"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "from_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "core_network_topology_v4.json",
+          "dst": "Datacenter_Region_East_Backup"
+        },
+        "init_outputs": {
+          "path": "[\"Gateway_Node_Alpha\", \"Router_Cluster_07\", \"Switch_Fabric_99\", \"Firewall_Edge_Secure\", \"Datacenter_Region_East_Backup\"]",
+          "cost": "16"
+        }
+      },
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "print('Gateway_Node_Alpha')"
+        }
+      },
+      "luhn_check": {
+        "init_inputs": {
+          "number": "4556737586899855"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_153f": {
+        "init_inputs": {
+          "a": "83746510293847561029384756",
+          "b": "38475610293847561029837465"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "Welcome to the forgotten Sanctum of Eldoria. You are an apprentice mage who has accidentally wandered into the archmage's forbidden laboratory. The door has sealed itself shut behind you, and the magical wards are slowly draining the oxygen from the room. To escape, you must reawaken the ancient magical artifacts scattered around the room and reconstruct the master's final spell. The magic flows in mysterious ways, and many objects will only reveal their true nature when infused with the energy of others. Pay close attention to how the magical essence must be channeled between the relics. Time is running out.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "hex_encode",
+      "name": "Text to Hex Encoder",
+      "description": "Encode UTF-8 text to hex.",
+      "type": "Tool",
+      "template_id": "hex_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "SecretInitializationDataStream123456"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Encoded hex",
+          "value": "536563726574496e697469616c697a6174696f6e4461746153747265616d313233343536"
+        }
+      ],
+      "narrative": "This is the Rune Translator. It requires input from the Ancient Cipher Scroll to function and reveal the final path."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "536563726574496e697469616c697a6174696f6e4461746153747265616d313233343536"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "SecretInitializationDataStream123456"
+        }
+      ],
+      "narrative": "This is the Ancient Cipher Scroll. It requires input from the Moonlight Altar to decipher its secrets."
+    },
+    {
+      "id": "base64_decode",
+      "name": "Base64 Decoder",
+      "description": "Decode base64 to hex bytes.",
+      "type": "Tool",
+      "template_id": "base64_decode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "data",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "U2VjcmV0SW5pdGlhbGl6YXRpb25EYXRhU3RyZWFtMTIzNDU2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "bytes_hex",
+          "type": "Hex_String",
+          "description": "Decoded bytes as Hex",
+          "value": "536563726574496e697469616c697a6174696f6e4461746153747265616d313233343536"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "data": "U2VjcmV0SW5pdGlhbGl6YXRpb25EYXRhU3RyZWFtMTIzNDU2"
+        },
+        "outputs": {}
+      },
+      "narrative": "A serene Moonlight Altar covered in forgotten inscriptions."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A fragile Crystal Vial that seems to hold a swirling mist."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "89cb7a7afe61c9a8a878a98def99122d0c7b895f1140"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Sealed Golden Chest. It requires input from the Elemental Transmuter to shatter its protective ward."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "51555169496572351235601425533589379179675962058936640"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "10"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "16"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "89cb7a7afe61c9a8a878a98def99122d0c7b895f1140"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "from_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Elemental Transmuter. It requires inputs from both the Astrolabe of Destiny and the Arcane Amplifier to stabilize its magic."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "core_network_topology_v4.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Gateway_Node_Alpha\n"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Datacenter_Region_East_Backup"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Gateway_Node_Alpha\", \"Router_Cluster_07\", \"Switch_Fabric_99\", \"Firewall_Edge_Secure\", \"Datacenter_Region_East_Backup\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "16"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "core_network_topology_v4.json",
+          "dst": "Datacenter_Region_East_Backup"
+        },
+        "outputs": {
+          "path": "[\"Gateway_Node_Alpha\", \"Router_Cluster_07\", \"Switch_Fabric_99\", \"Firewall_Edge_Secure\", \"Datacenter_Region_East_Backup\"]",
+          "cost": "16"
+        }
+      },
+      "narrative": "This is the Astrolabe of Destiny. It requires input from the Spell Weaver's Loom to chart the correct stellar path."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print('Gateway_Node_Alpha')"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "Gateway_Node_Alpha\n"
+        }
+      ],
+      "narrative": "This is the Spell Weaver's Loom. It requires input from the Torn Spellbook Page to weave the incantation."
+    },
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "print('Gateway_Node_Alpha')"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "print('Gateway_Node_Alpha')"
+        }
+      },
+      "narrative": "A Torn Spellbook Page containing faint, glowing magical writings."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "true"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Ironbound Vault. It requires input from the Oracle's Pendulum to unlock its heavy doors."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A Dusty Grimoire that has not been opened in centuries."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "4556737586899855"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "true"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "number": "4556737586899855"
+        },
+        "outputs": {}
+      },
+      "narrative": "An Oracle's Pendulum, traditionally used for truth divination."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "3222198093535771952225089095849336198729747628683540"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "16"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "51555169496572351235601425533589379179675962058936640"
+        }
+      ],
+      "narrative": "This is the Arcane Amplifier. It requires inputs from both the Astrolabe of Destiny and the Magical Resonator to channel its immense power."
+    },
+    {
+      "id": "calc_bigmul_153f",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "83746510293847561029384756"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "38475610293847561029837465"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "3222198093535771952225089095849336198729747628683540"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "83746510293847561029384756",
+          "b": "38475610293847561029837465"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Magical Resonator humming softly with dormant energy."
+    },
+    {
+      "id": "item_8_26bf",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A small Hidden Compartment tucked away in the shadows of the laboratory."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "hex_decode",
+      "target_id": "hex_encode",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "base64_decode",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "bytes_hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "base64_decode",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "src"
+    },
+    {
+      "source_id": "item_7",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "code_py_exec",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "s"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_bigmul_153f",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_8_26bf",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    }
+  ]
+}

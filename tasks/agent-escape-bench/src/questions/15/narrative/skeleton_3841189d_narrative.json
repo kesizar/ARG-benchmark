@@ -1,0 +1,626 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 14,
+    "win_node_id": "item_5",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_5",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_5",
+        "csv_query",
+        "checksum_crc32"
+      ],
+      "by_node": {
+        "item_5": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_5",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String_Key_AES",
+              "description": "AES Key"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            },
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            },
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_5": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {
+          "file_id": "bank_ledger_v2.csv",
+          "select": "iban_code, balance_amount, owner_name",
+          "where": "balance_amount < 0 AND account_status = 'OVERDRAWN'"
+        },
+        "init_outputs": {
+          "rows": "[\"['DE12345678901234567890', -450.25, 'John Doe']\", \"['FR09876543210987654321', -12.50, 'Jane Smith']\", \"['GB11223344556677889900', -1024.00, 'Robert Brown']\"]"
+        }
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "deadbeef69696969cafebabe"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You've finally infiltrated the abandoned safehouse of the notorious 'Phantom Syndicate'. For years, this elusive organization has manipulated global financial markets from the shadows. The room smells of stale coffee and ozone, filled with whirring servers, scattered ledgers, and heavily encrypted lockboxes. Your objective is clear: uncover the syndicate's ultimate master key to expose their network. But the place is rigged with a complex web of cryptographic tools, biometric scanners, and fragmented databases. Every digital terminal seems intricately connected, forming a labyrinth of data. You must trace the information flow, operate the terminals, and bypass the locks to reveal the truth before the syndicate's enforcers arrive.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "item_5",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_5",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String_Key_AES",
+          "description": "AES Key",
+          "value": "7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c"
+        }
+      },
+      "narrative": "This is the Final Encrypted Drive. A small, sleek black USB stick that radiates an aura of immense importance."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is the Decoded Ledger. A heavy bound book containing the true names of the syndicate's leaders."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is the Timezone Log. A worn notebook filled with international flight schedules and strange temporal annotations."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Master Vault. It requires input from the Final Authorization Module to release its heavy steel door."
+    },
+    {
+      "id": "item_8_56af",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is Financial Record D. A digitized document showing the final set of partial bank transfers."
+    },
+    {
+      "id": "item_8_5837",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is Financial Record C. A hidden dossier outlining illicit transfers between offshore shell corporations."
+    },
+    {
+      "id": "item_8_ae83",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is Financial Record B. A torn digital receipt that forms another piece of the accounting puzzle."
+    },
+    {
+      "id": "item_8_66b8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is Financial Record A. A highly classified page detailing the earliest known syndicate transactions."
+    },
+    {
+      "id": "item_16_268f",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is a Global Clock Fragment. A strange digital readout displaying a series of peculiar geographic coordinates."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is the Final Authorization Module. It requires input from the Secondary Security Scanner to confirm the ultimate digital signature."
+    },
+    {
+      "id": "luhn_check_96e5",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is the Secondary Security Scanner. It requires input from the Bank Credential Verifier to proceed with the clearance check."
+    },
+    {
+      "id": "iban_validate",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "[\"['DE12345678901234567890', -450.25, 'John Doe']\", \"['FR09876543210987654321', -12.50, 'Jane Smith']\", \"['GB11223344556677889900', -1024.00, 'Robert Brown']\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "False"
+        }
+      ],
+      "narrative": "This is the Bank Credential Verifier. It requires input from the Archive Database Terminal to cross-reference the extracted offshore account details."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "7f0b536b"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a Biometric Lockbox. It requires input from the Hash Generator to bypass its advanced physical security protocols."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "bank_ledger_v2.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "iban_code, balance_amount, owner_name"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "balance_amount < 0 AND account_status = 'OVERDRAWN'"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[\"['DE12345678901234567890', -450.25, 'John Doe']\", \"['FR09876543210987654321', -12.50, 'Jane Smith']\", \"['GB11223344556677889900', -1024.00, 'Robert Brown']\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "bank_ledger_v2.csv",
+          "select": "iban_code, balance_amount, owner_name",
+          "where": "balance_amount < 0 AND account_status = 'OVERDRAWN'"
+        },
+        "outputs": {
+          "rows": "[\"['DE12345678901234567890', -450.25, 'John Doe']\", \"['FR09876543210987654321', -12.50, 'Jane Smith']\", \"['GB11223344556677889900', -1024.00, 'Robert Brown']\"]"
+        }
+      },
+      "narrative": "This is the Archive Database Terminal. An old, dust-covered computer that holds a massive encrypted spreadsheet."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "deadbeef69696969cafebabe"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "7f0b536b"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2131448683
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "deadbeef69696969cafebabe"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Hash Generator. A standalone cryptographic tool left behind on a workbench by the syndicate's chief hacker."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_5",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_56af",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_5837",
+      "target_id": "item_8_56af",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_ae83",
+      "target_id": "item_8_5837",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_66b8",
+      "target_id": "item_8_ae83",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_268f",
+      "target_id": "item_8_66b8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "luhn_check_96e5",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "number"
+    },
+    {
+      "source_id": "iban_validate",
+      "target_id": "luhn_check_96e5",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "number"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "item_16_268f",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "iban_validate",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "iban"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    }
+  ]
+}

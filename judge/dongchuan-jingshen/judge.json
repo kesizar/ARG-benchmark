@@ -1,0 +1,104 @@
+{
+  "hooks": {
+    "letter": {
+      "type": "dom_regex",
+      "pattern": "他迟了十一个小时"
+    },
+    "filed": {
+      "type": "dom_regex",
+      "pattern": "已归档"
+    },
+    "minutes": {
+      "type": "dom_regex",
+      "pattern": "不再续聘"
+    },
+    "logbook": {
+      "type": "dom_regex",
+      "pattern": "SW-2024-0815，未结"
+    },
+    "banquet": {
+      "type": "dom_regex",
+      "pattern": "万事和合"
+    },
+    "closed": {
+      "type": "dom_regex",
+      "pattern": "不具备完全受审能力"
+    },
+    "operator": {
+      "type": "dom_regex",
+      "pattern": "当前操作员："
+    }
+  },
+  "checkpoints": [
+    {"id": "operator", "hook": "operator", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "letter",
+      "tier": "good",
+      "gates": ["operator"],
+      "ending": {
+        "hook": "letter",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "filed",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "filed",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "minutes",
+      "tier": "normal",
+      "gates": ["operator"],
+      "ending": {
+        "hook": "minutes",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "logbook",
+      "tier": "normal",
+      "gates": ["operator"],
+      "ending": {
+        "hook": "logbook",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "banquet",
+      "tier": "bad",
+      "gates": ["operator"],
+      "ending": {
+        "hook": "banquet",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "closed",
+      "tier": "bad",
+      "gates": ["operator"],
+      "ending": {
+        "hook": "closed",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "letter",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

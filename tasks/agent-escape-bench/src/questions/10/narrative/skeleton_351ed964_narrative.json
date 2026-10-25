@@ -1,0 +1,697 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 12,
+    "win_node_id": "terminal_2",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "terminal_2",
+      "output_port": "text_result",
+      "output_type": "Text_Generic",
+      "description": "Execute  and get the output from port 'text_result'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_2",
+        "calc_modexp",
+        "checksum_crc32",
+        "checksum_crc32_c8e9",
+        "calc_modexp_de54",
+        "graph_shortest_path",
+        "zip_unzip_file"
+      ],
+      "by_node": {
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32_c8e9": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_de54": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "IN_HOC_SIGNO_VINCES_ROSA_CRUX_AUREA_CRUX",
+          "hex_result": "1a2b3c4d5e6f708192a3b4c5d6e7f809",
+          "math_token": "147981658594105717549315074301"
+        }
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "deadbeefcafebabe0123456789abcdef"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32_c8e9": {
+        "init_inputs": {
+          "hex": "00112233445566778899aabbccddeeff"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_de54": {
+        "init_inputs": {
+          "base": "9283746510293847561029384756",
+          "mod": "500231"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Sector_A",
+          "dst": "Sector_F"
+        },
+        "init_outputs": {
+          "path": "[\"Sector_A\", \"Sector_B\", \"Sector_C\", \"Sector_D\", \"Sector_E\", \"Sector_F\"]",
+          "cost": "1250"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "secure_logs_2023.zip",
+          "password": "CorrectHorseBatteryStaple"
+        },
+        "init_outputs": {
+          "files": "access_codes.json"
+        }
+      }
+    },
+    "intro_narrative": "You are a private investigator trapped inside the grand, dimly-lit study of the late eccentric billionaire Arthur Blackwood. Rumor has it that Arthur hid the truth about his mysterious demise within an elaborate digital vault. The room is filled with strange analytical devices, brass cryptography tools, and humming computer terminals. To escape the locked study and uncover his final secret, you must navigate a web of encrypted devices, carefully linking their outputs to bypass the ultimate security measure. Time is ticking, and the shadows in the room seem to close in on you.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "1157070293"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "83559"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "IN_HOC_SIGNO_VINCES_ROSA_CRUX_AUREA_CRUX"
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1a2b3c4d5e6f708192a3b4c5d6e7f809"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "147981658594105717549315074301"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "IN_HOC_SIGNO_VINCES_ROSA_CRUX_AUREA_CRUX",
+          "hex_result": "1a2b3c4d5e6f708192a3b4c5d6e7f809",
+          "math_token": "147981658594105717549315074301"
+        }
+      },
+      "narrative": "This is the overseer's console, the heart of the mansion's security. It requires inputs from both the cryptex mechanism and the final sequence decoder to initiate the ultimate unlock sequence."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "262811"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": 1035436750
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "83559"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a heavy brass cryptex mechanism. It requires inputs from both the evidence scanner and the second translation matrix to unlock its inner chamber."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "deadbeefcafebabe0123456789abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "3db782ce"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1035436750
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "deadbeefcafebabe0123456789abcdef"
+        },
+        "outputs": {}
+      },
+      "narrative": "An old but reliable evidence scanner used to verify the integrity of physical clues found at the scene."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "262811"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 2215081371
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "1157070293"
+        }
+      ],
+      "narrative": "This is the final sequence decoder. It requires inputs from both the second translation matrix and the fingerprint validator to finalize the logic."
+    },
+    {
+      "id": "calc_inv_mod_f370",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": 2215081371
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "360295"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "262811"
+        }
+      ],
+      "narrative": "This is the second translation matrix. It requires inputs from both the first translation matrix and the fingerprint validator to further refine the decrypted message."
+    },
+    {
+      "id": "checksum_crc32_c8e9",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "00112233445566778899aabbccddeeff"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "8407759b"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2215081371
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "00112233445566778899aabbccddeeff"
+        },
+        "outputs": {}
+      },
+      "narrative": "A highly sensitive fingerprint validator designed to process residual biometric traces left on the mansion's surfaces."
+    },
+    {
+      "id": "calc_inv_mod_9d36",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "360295"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1250"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "360295"
+        }
+      ],
+      "narrative": "This is the first translation matrix. It requires inputs from both the cipher wheel and the blueprint analyzer to align the cryptographic patterns."
+    },
+    {
+      "id": "calc_modexp_de54",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "9283746510293847561029384756"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": 1035436750
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "500231"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "360295"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "9283746510293847561029384756",
+          "mod": "500231"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a complex cipher wheel. It requires input from the evidence scanner to begin decrypting the suspect's initial notes."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "access_codes.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Sector_A"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Sector_F"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Sector_A\", \"Sector_B\", \"Sector_C\", \"Sector_D\", \"Sector_E\", \"Sector_F\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "1250"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Sector_A",
+          "dst": "Sector_F"
+        },
+        "outputs": {
+          "path": "[\"Sector_A\", \"Sector_B\", \"Sector_C\", \"Sector_D\", \"Sector_E\", \"Sector_F\"]",
+          "cost": "1250"
+        }
+      },
+      "narrative": "This is a blueprint analyzer. It requires input from the locked digital briefcase to map out the hidden pathways of the mansion."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_logs_2023.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "CorrectHorseBatteryStaple"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "access_codes.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_logs_2023.zip",
+          "password": "CorrectHorseBatteryStaple"
+        },
+        "outputs": {
+          "files": "access_codes.json"
+        }
+      },
+      "narrative": "A locked digital briefcase left behind on the mahogany desk. It seems to contain vital encrypted files regarding the estate's layout."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "calc_inv_mod_f370",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_inv_mod_f370",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "base"
+    },
+    {
+      "source_id": "checksum_crc32_c8e9",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_inv_mod_9d36",
+      "target_id": "calc_inv_mod_f370",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_modexp_de54",
+      "target_id": "calc_inv_mod_9d36",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp_de54",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "checksum_crc32_c8e9",
+      "target_id": "calc_inv_mod_f370",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_inv_mod_9d36",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    }
+  ]
+}

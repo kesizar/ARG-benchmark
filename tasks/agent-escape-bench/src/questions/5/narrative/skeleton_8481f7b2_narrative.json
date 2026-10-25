@@ -1,0 +1,325 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_10",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_10",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_10",
+        "graph_shortest_path",
+        "zip_unzip_file"
+      ],
+      "by_node": {
+        "item_10": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_10",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_10": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "928374651029384756102938"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Station_Alpha",
+          "dst": "Station_Omega"
+        },
+        "init_outputs": {
+          "path": "[\"Station_Alpha\", \"Station_Beta\", \"Station_Gamma\", \"Station_Delta\", \"Station_Omega\"]",
+          "cost": "452198"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "secure_archive_v2.zip",
+          "password": "S3cureP@ssw0rd!2024"
+        },
+        "init_outputs": {
+          "files": "graph_topology_data.json"
+        }
+      }
+    },
+    "intro_narrative": "You awaken in the forgotten sanctum of Archmage Vaelor, a legendary sorcerer who vanished centuries ago, leaving behind only whispers of his unparalleled power. The air in the chamber hums with ancient, latent magic, and the heavy stone doors have irrevocably sealed shut behind you, trapping you within the dimly lit study. Dust dances in the shafts of moonlight piercing through the high stained-glass windows, illuminating esoteric symbols etched into the floorboards. To secure your escape, you must uncover the archmage's final secret hidden somewhere within this very room. Various arcane tools, enchanted containers, and dormant relics are scattered around the sanctum, each holding a piece of the puzzle. However, their magical energies are deeply intertwined, relying on one another to awaken their true potential. You must carefully observe your surroundings, navigate the complex flow of mystical power, and unlock the enchantments one by one to reveal the ultimate truth and find your way back to the outside world.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "item_10",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_10",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "928374651029384756102938"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "928374651029384756102938"
+        }
+      },
+      "narrative": "A glowing crystal of truth that holds the ultimate revelation."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "452198"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the ethereal vault. It requires input from the ley-line map to break its final magical seal."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "graph_topology_data.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Station_Alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Station_Omega"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Station_Alpha\", \"Station_Beta\", \"Station_Gamma\", \"Station_Delta\", \"Station_Omega\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "452198"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Station_Alpha",
+          "dst": "Station_Omega"
+        },
+        "outputs": {
+          "path": "[\"Station_Alpha\", \"Station_Beta\", \"Station_Gamma\", \"Station_Delta\", \"Station_Omega\"]",
+          "cost": "452198"
+        }
+      },
+      "narrative": "This is the ley-line map. It requires input from the spell unweaver to reveal the hidden magical pathways."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A sealed artifact emanating a faint, pulsating mystical aura."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_archive_v2.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "S3cureP@ssw0rd!2024"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "graph_topology_data.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_archive_v2.zip",
+          "password": "S3cureP@ssw0rd!2024"
+        },
+        "outputs": {
+          "files": "graph_topology_data.json"
+        }
+      },
+      "narrative": "A magical spell unweaver, designed to break protective wards on ancient texts."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_3",
+      "target_id": "item_10",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    }
+  ]
+}

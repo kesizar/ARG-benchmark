@@ -1,0 +1,582 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 12,
+    "win_node_id": "crypto_rsa_decrypt_hex",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "crypto_rsa_decrypt_hex",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute RSA Decrypt and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "crypto_rsa_decrypt_hex",
+        "csv_query",
+        "hmac_sha256",
+        "calc_gcd_7a5a"
+      ],
+      "by_node": {
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "n": {
+              "type": "Big_Int",
+              "description": "Modulus n"
+            }
+          },
+          "init_outputs": {}
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            },
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            },
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "hmac_sha256": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "hex_key": {
+              "type": "Hex_String",
+              "description": "Hex key"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text message"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd_7a5a": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "n": "928374651029384756102938475612"
+        },
+        "init_outputs": {}
+      },
+      "csv_query": {
+        "init_inputs": {
+          "file_id": "customer_transactions_2024.csv",
+          "select": "transaction_id, user, amount",
+          "where": "amount > 1000 AND status = 'completed'"
+        },
+        "init_outputs": {
+          "rows": "[{\"transaction_id\": \"TX9823\", \"user\": \"alice_k\", \"amount\": 1200}, {\"transaction_id\": \"TX9941\", \"user\": \"bob_m\", \"amount\": 3400}, {\"transaction_id\": \"TX9982\", \"user\": \"charlie_d\", \"amount\": 1550}]"
+        }
+      },
+      "hmac_sha256": {
+        "init_inputs": {
+          "hex_key": "4a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "text": "Authorize transfer of funds ID 8374"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd_7a5a": {
+        "init_inputs": {
+          "a": "485726381947582647382910384756",
+          "b": "293847561029384756102938475610"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are a rogue cyber-operative who has just infiltrated the subterranean server farm of 'OmniCorp', a shadowy tech conglomerate. They are about to launch a devastating global surveillance virus. The virus payload is locked behind a cascading encryption firewall. Alarms are blaring, and the lockdown protocols have been initiated. You have only minutes to navigate their complex security network, trace the data flows, and decrypt the master kill-switch before you are trapped forever and the virus goes live. Your handler 'Ghost' has provided you with remote access to some of the facility's initial nodes, but the rest is up to you. You must trace the data through various security checkpoints, linking terminals and processors to break the ultimate encryption.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "51594894e9b8d54054e5ae17e85baf25ec06223bd696ce519778c5a54b40d967"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "928374651029384756102938475612"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "1762273424"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u00074R?U-"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "n": "928374651029384756102938475612"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Master Decryption Interface. It requires inputs from both the Data Format Converter and the Secure Authenticator to finally breach the system's firewall."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": 1762273424
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "1"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "1207457333"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "1762273424"
+        }
+      ],
+      "narrative": "This is the Data Format Converter. It requires inputs from the Logic Synchronization Unit, the Quantum Inversion Core, and the Primary Integrity Checker to translate the encrypted signals."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "2"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "1207457333"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Logic Synchronization Unit. It requires inputs from both the Quantum Inversion Core and the Biometric Math Co-processor to synchronize the algorithms."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": 3350192045
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 1762273424
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "1207457333"
+        }
+      ],
+      "narrative": "This is the Quantum Inversion Core. It requires inputs from both the Primary Integrity Checker and the Secondary Integrity Checker to compute the modular shift."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "d856112f6b2ed06a37d67a3c97df7d49"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "690a2890"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1762273424
+        }
+      ],
+      "narrative": "This is the Primary Integrity Checker. It requires input from the Signature Generator Module to scan the generated signature."
+    },
+    {
+      "id": "checksum_crc32_2119",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "690a2890"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "c7afdfad"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3350192045
+        }
+      ],
+      "narrative": "This is the Secondary Integrity Checker. It requires input from the Primary Integrity Checker to perform a deeper verification."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "[{\"transaction_id\": \"TX9823\", \"user\": \"alice_k\", \"amount\": 1200}, {\"transaction_id\": \"TX9941\", \"user\": \"bob_m\", \"amount\": 3400}, {\"transaction_id\": \"TX9982\", \"user\": \"charlie_d\", \"amount\": 1550}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "d856112f6b2ed06a37d67a3c97df7d49"
+        }
+      ],
+      "narrative": "This is the Signature Generator Module. It requires input from the Mainframe Database Terminal to process the retrieved records."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "customer_transactions_2024.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "transaction_id, user, amount"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "amount > 1000 AND status = 'completed'"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"transaction_id\": \"TX9823\", \"user\": \"alice_k\", \"amount\": 1200}, {\"transaction_id\": \"TX9941\", \"user\": \"bob_m\", \"amount\": 3400}, {\"transaction_id\": \"TX9982\", \"user\": \"charlie_d\", \"amount\": 1550}]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "customer_transactions_2024.csv",
+          "select": "transaction_id, user, amount",
+          "where": "amount > 1000 AND status = 'completed'"
+        },
+        "outputs": {
+          "rows": "[{\"transaction_id\": \"TX9823\", \"user\": \"alice_k\", \"amount\": 1200}, {\"transaction_id\": \"TX9941\", \"user\": \"bob_m\", \"amount\": 3400}, {\"transaction_id\": \"TX9982\", \"user\": \"charlie_d\", \"amount\": 1550}]"
+        }
+      },
+      "narrative": "An old but heavily fortified Mainframe Database Terminal."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "4a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Authorize transfer of funds ID 8374"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "51594894e9b8d54054e5ae17e85baf25ec06223bd696ce519778c5a54b40d967"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_key": "4a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "text": "Authorize transfer of funds ID 8374"
+        },
+        "outputs": {}
+      },
+      "narrative": "A sleek and standalone Secure Authenticator device."
+    },
+    {
+      "id": "calc_gcd_7a5a",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "485726381947582647382910384756"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "293847561029384756102938475610"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "2"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "485726381947582647382910384756",
+          "b": "293847561029384756102938475610"
+        },
+        "outputs": {}
+      },
+      "narrative": "A specialized Biometric Math Co-processor for secure calculations."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "num_base_convert",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "d"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "s"
+    },
+    {
+      "source_id": "checksum_crc32_2119",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "checksum_crc32_2119",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "hash_md5",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "text"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "calc_gcd_7a5a",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    }
+  ]
+}

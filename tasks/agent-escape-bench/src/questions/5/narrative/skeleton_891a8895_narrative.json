@@ -1,0 +1,233 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "container_2",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "container_2",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "container_2",
+        "hex_encode"
+      ],
+      "by_node": {
+        "container_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "inner_space": {
+              "type": "Item",
+              "description": "Contents"
+            }
+          }
+        },
+        "hex_encode": {
+          "node_name": "Text to Hex Encoder",
+          "node_type": "Tool",
+          "template_id": "hex_encode",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "container_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "inner_space": "This cryptic item reveals absolutely nothing of use."
+        }
+      },
+      "hex_encode": {
+        "init_inputs": {
+          "text": "Encode this text string immediately."
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are a rogue archivist who just boarded the derelict orbital research station 'Aegis-VII'. The station has been drifting in silent space for over a decade following a mysterious, abrupt evacuation. Deep within its labyrinthine corridors lies a highly classified data core, said to contain revolutionary astrophysical research. Your sensors indicate that the prized data is protected by multiple layers of nested physical containment and advanced biometric security measures.\n\nAs you step into the dimly lit maintenance bay, the low hum of failing life support systems echoes around you. Emergency red lights flicker intermittently, casting long, unsettling shadows over forgotten equipment and scattered cargo. Your objective is to explore this decaying facility, utilize any functional tools left behind by the fleeing scientists, and breach the station's ultimate safe. To secure the data core, you must carefully navigate through hidden caches and bypass encrypted locks. The station's automated defenses may be offline, but its cryptographic barriers remain unyielding. Your success depends entirely on your observational skills and deductive reasoning.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "456e636f64652074686973207465787420737472696e6720696d6d6564696174656c792e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents",
+          "value": "This cryptic item reveals absolutely nothing of use."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "inner_space": "This cryptic item reveals absolutely nothing of use."
+        }
+      },
+      "narrative": "This is the high-security final vault. It requires input from the text encoder terminal to authenticate its unlocking sequence."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A biometric mini-safe designed to protect sensitive scientific materials during transit."
+    },
+    {
+      "id": "item_8_e9d8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A reinforced metal lockbox wrapped in standard-issue military plating."
+    },
+    {
+      "id": "hex_encode",
+      "name": "Text to Hex Encoder",
+      "description": "Encode UTF-8 text to hex.",
+      "type": "Tool",
+      "template_id": "hex_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Encode this text string immediately."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Encoded hex",
+          "value": "456e636f64652074686973207465787420737472696e6720696d6d6564696174656c792e"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Encode this text string immediately."
+        },
+        "outputs": {}
+      },
+      "narrative": "A text encoder terminal used by the station's crew for data conversion."
+    },
+    {
+      "id": "item_8_3d78",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A dusty cargo crate resting silently in the corner of the abandoned maintenance bay."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_e9d8",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "hex_encode",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_8_3d78",
+      "target_id": "item_8_e9d8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "hooks": {
+    "signal": {
+      "type": "dom_regex",
+      "pattern": "你选择了成为信号。"
+    },
+    "silence": {
+      "type": "dom_regex",
+      "pattern": "你选择了关闭广播。"
+    },
+    "truth": {
+      "type": "dom_regex",
+      "pattern": "你选择了公开真相。"
+    },
+    "merge": {
+      "type": "dom_regex",
+      "pattern": "你选择了融合。"
+    },
+    "tuned": {
+      "type": "dom_regex",
+      "pattern": "你调到了"
+    },
+    "found": {
+      "type": "dom_regex",
+      "pattern": "你找到了"
+    },
+    "listed": {
+      "type": "dom_regex",
+      "pattern": "搜索结果浮现："
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "tuned",
+      "hook": "tuned",
+      "op": "truthy"
+    },
+    {
+      "id": "found",
+      "hook": "found",
+      "op": "truthy"
+    },
+    {
+      "id": "listed",
+      "hook": "listed",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "signal",
+      "tier": "good",
+      "gates": [
+        "tuned",
+        "found",
+        "listed"
+      ],
+      "ending": {
+        "hook": "signal",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "silence",
+      "tier": "normal",
+      "gates": [
+        "tuned",
+        "found",
+        "listed"
+      ],
+      "ending": {
+        "hook": "silence",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "truth",
+      "tier": "good",
+      "gates": [
+        "tuned",
+        "found",
+        "listed"
+      ],
+      "ending": {
+        "hook": "truth",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "merge",
+      "tier": "normal",
+      "gates": [
+        "tuned",
+        "found",
+        "listed"
+      ],
+      "ending": {
+        "hook": "merge",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "signal",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,0 +1,145 @@
+{
+  "hooks": {
+    "sign": {
+      "type": "dom_regex",
+      "pattern": "结局：代签"
+    },
+    "file": {
+      "type": "dom_regex",
+      "pattern": "结局：断线归档"
+    },
+    "none": {
+      "type": "dom_regex",
+      "pattern": "结局：无人应答"
+    },
+    "pdf": {
+      "type": "localstorage",
+      "key": "mingrihuibo_v1",
+      "mode": "json_path",
+      "path": "flags.pdfUnlocked"
+    },
+    "desk": {
+      "type": "localstorage",
+      "key": "mingrihuibo_v1",
+      "mode": "json_path",
+      "path": "flags.loginSuccess"
+    },
+    "ren": {
+      "type": "localstorage",
+      "key": "mingrihuibo_v1",
+      "mode": "json_path",
+      "path": "tokens.ren"
+    },
+    "zhong": {
+      "type": "localstorage",
+      "key": "mingrihuibo_v1",
+      "mode": "json_path",
+      "path": "tokens.zhong"
+    },
+    "xian": {
+      "type": "localstorage",
+      "key": "mingrihuibo_v1",
+      "mode": "json_path",
+      "path": "tokens.xian"
+    },
+    "revoke": {
+      "type": "localstorage",
+      "key": "mingrihuibo_v1",
+      "mode": "json_path",
+      "path": "flags.revokeEntered"
+    },
+    "backdoor": {
+      "type": "localstorage",
+      "key": "mingrihuibo_v1",
+      "mode": "json_path",
+      "path": "flags.conflictResolved"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "pdf",
+      "hook": "pdf",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "desk",
+      "hook": "desk",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "ren",
+      "hook": "ren",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "zhong",
+      "hook": "zhong",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "xian",
+      "hook": "xian",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "revoke",
+      "hook": "revoke",
+      "op": "truthy"
+    },
+    {
+      "id": "backdoor",
+      "hook": "backdoor",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "sign",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "sign",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "file",
+      "tier": "normal",
+      "gates": [
+        "revoke",
+        "backdoor"
+      ],
+      "ending": {
+        "hook": "file",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "none",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "none",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "sign",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

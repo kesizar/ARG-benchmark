@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "certificate": {"type": "dom_regex", "pattern": "true master of magic"},
+    "herb2": {"type": "dom_regex", "pattern": "Oh no! In turning the page you’ve spilt ink"},
+    "herb3": {"type": "dom_regex", "pattern": "Now that you’ve removed the ink stain"},
+    "fawley2": {"type": "dom_regex", "pattern": "Well done, it seems like you aren’t an incompetent lot after all"},
+    "fawley3": {"type": "dom_regex", "pattern": "Very good, but let’s see if you’ve really got what it takes"}
+  },
+  "checkpoints": [
+    {"id": "herb2", "hook": "herb2", "op": "truthy"},
+    {"id": "herb3", "hook": "herb3", "op": "truthy"},
+    {"id": "fawley2", "hook": "fawley2", "op": "truthy"},
+    {"id": "fawley3", "hook": "fawley3", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {"id": "main", "tier": "good", "gates": ["herb2", "herb3", "fawley2", "fawley3"], "ending": {"hook": "certificate", "op": "truthy"}}
+  ],
+  "ending": {"hook": "certificate", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

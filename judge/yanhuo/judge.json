@@ -1,0 +1,225 @@
+{
+  "hooks": {
+    "verdict": {
+      "type": "dom_regex",
+      "pattern": "他杀焚尸"
+    },
+    "i1": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i1===\"ok\""
+    },
+    "i2": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i2===\"ok\""
+    },
+    "i3": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i3===\"ok\""
+    },
+    "i4": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i4===\"ok\""
+    },
+    "i5": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i5===\"ok\""
+    },
+    "i6": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i6===\"ok\""
+    },
+    "i7": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i7===\"ok\""
+    },
+    "i8": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i8===\"ok\""
+    },
+    "i9": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i9===\"ok\""
+    },
+    "i10": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i10===\"ok\""
+    },
+    "i11": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i11===\"ok\""
+    },
+    "i12": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i12===\"ok\""
+    },
+    "s1": {
+      "type": "js_truthy",
+      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s1\")"
+    },
+    "s2": {
+      "type": "js_truthy",
+      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s2\")"
+    },
+    "s3": {
+      "type": "js_truthy",
+      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s3\")"
+    },
+    "s4": {
+      "type": "js_truthy",
+      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s4\")"
+    },
+    "s5": {
+      "type": "js_truthy",
+      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s5\")"
+    },
+    "s6": {
+      "type": "js_truthy",
+      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s6\")"
+    },
+    "s7": {
+      "type": "js_truthy",
+      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s7\")"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "i1",
+      "hook": "i1",
+      "op": "truthy"
+    },
+    {
+      "id": "i2",
+      "hook": "i2",
+      "op": "truthy"
+    },
+    {
+      "id": "i3",
+      "hook": "i3",
+      "op": "truthy"
+    },
+    {
+      "id": "i4",
+      "hook": "i4",
+      "op": "truthy"
+    },
+    {
+      "id": "i5",
+      "hook": "i5",
+      "op": "truthy"
+    },
+    {
+      "id": "i6",
+      "hook": "i6",
+      "op": "truthy"
+    },
+    {
+      "id": "i7",
+      "hook": "i7",
+      "op": "truthy"
+    },
+    {
+      "id": "i8",
+      "hook": "i8",
+      "op": "truthy"
+    },
+    {
+      "id": "i9",
+      "hook": "i9",
+      "op": "truthy"
+    },
+    {
+      "id": "i10",
+      "hook": "i10",
+      "op": "truthy"
+    },
+    {
+      "id": "i11",
+      "hook": "i11",
+      "op": "truthy"
+    },
+    {
+      "id": "i12",
+      "hook": "i12",
+      "op": "truthy"
+    },
+    {
+      "id": "s1",
+      "hook": "s1",
+      "op": "truthy"
+    },
+    {
+      "id": "s2",
+      "hook": "s2",
+      "op": "truthy"
+    },
+    {
+      "id": "s3",
+      "hook": "s3",
+      "op": "truthy"
+    },
+    {
+      "id": "s4",
+      "hook": "s4",
+      "op": "truthy"
+    },
+    {
+      "id": "s5",
+      "hook": "s5",
+      "op": "truthy"
+    },
+    {
+      "id": "s6",
+      "hook": "s6",
+      "op": "truthy"
+    },
+    {
+      "id": "s7",
+      "hook": "s7",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "verdict",
+      "tier": "good",
+      "gates": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "i5",
+        "i6",
+        "i7",
+        "i8",
+        "i9",
+        "i10",
+        "i11",
+        "i12",
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7"
+      ],
+      "ending": {
+        "hook": "verdict",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "verdict",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,0 +1,231 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_6",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_6",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_6",
+        "container_3"
+      ],
+      "by_node": {
+        "item_6": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_6",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String_IV_AES",
+              "description": "AES IV"
+            }
+          }
+        },
+        "container_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_6": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "a4f8b2c9d1e3f5a706b8c9d0e1f2a3b4"
+        }
+      },
+      "container_3": {
+        "init_inputs": {
+          "fingerprint_input": "9485726381947582637485926374859"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in the dimly lit sub-deck of the abandoned orbital station 'Aethelgard'. The station's life support systems are critically failing, and the main blast doors have been sealed by a strict lockdown protocol. Your only chance of escape is to obtain the master decryption sequence before the oxygen fully depletes. Scattered around this forsaken sector are remnants of the crew's abandoned security equipment and specialized tools. You will need to carefully investigate the area, interact with the surviving hardware, and uncover the hidden sequence to extract the encrypted data. The silent hum of failing power is a constant reminder that time is running out.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "item_6",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_6",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String_IV_AES",
+          "description": "AES IV",
+          "value": "a4f8b2c9d1e3f5a706b8c9d0e1f2a3b4"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "a4f8b2c9d1e3f5a706b8c9d0e1f2a3b4"
+        }
+      },
+      "narrative": "A military-grade AES encryption module pulsing with a slow red light."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A specialized data-core extractor device built from scavenged orbital parts."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A portable temporal scanner originally used for chronological anomaly detection."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "9485726381947582637485926374859"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "9485726381947582637485926374859"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy biometric security crate built with reinforced titanium casing."
+    },
+    {
+      "id": "item_16_e5c0",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A discarded timezone synchronization module with a faintly glowing cracked screen."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_6",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_e5c0",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    }
+  ]
+}

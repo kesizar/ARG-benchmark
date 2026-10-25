@@ -1,0 +1,974 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 21,
+    "win_node_id": "item_5",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_5",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_5",
+        "terminal_2",
+        "terminal_2_1095",
+        "checksum_crc32",
+        "graph_shortest_path",
+        "item_4",
+        "item_15"
+      ],
+      "by_node": {
+        "item_5": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_5",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String_Key_AES",
+              "description": "AES Key"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "terminal_2_1095": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        },
+        "item_15": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_15",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "Timezone text"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_5": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "6f5a3b2c9d8e7f1a4c5b6a7d8e9f0c1b"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "8493028475610293847562910"
+        },
+        "init_outputs": {
+          "text_result": "First terminal sequence processed partially.",
+          "hex_result": "deadbeefcafebabe0123456789abcdef",
+          "math_token": "A shiny but ultimately useless math coin."
+        }
+      },
+      "terminal_2_1095": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Second terminal sequence executed.",
+          "hex_result": "8899aabbccddeeff0011223344556677"
+        }
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "a1b2c3d4e5f67890"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "dst": "Europe/London"
+        },
+        "init_outputs": {
+          "path": "[\"America/New_York\", \"Atlantic/Bermuda\", \"Atlantic/Azores\", \"Europe/Lisbon\", \"Europe/Madrid\", \"Europe/Paris\", \"Europe/London\"]",
+          "cost": "83749281938475629183"
+        }
+      },
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "graph_data.zip"
+        }
+      },
+      "item_15": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "America/New_York"
+        }
+      }
+    },
+    "intro_narrative": "You are a freelance operative hired by a shadow broker to infiltrate the abandoned subterranean servers of NeonCorp. The air is thick with the smell of ozone, and flickering neon lights cast long shadows across banks of dead hardware. Your primary objective is to locate and extract the highly classified contents of the Final Data Core. However, the system's architecture is deeply fragmented. You will need to carefully trace active data connections, bypass biometric vaults, and recompile scattered terminal operations to carve a path forward. One wrong move, and the automated lockdown protocols will trap you in this digital graveyard forever.",
+    "narrative_style": "cyberpunk"
+  },
+  "nodes": [
+    {
+      "id": "item_5",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_5",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String_Key_AES",
+          "description": "AES Key",
+          "value": "6f5a3b2c9d8e7f1a4c5b6a7d8e9f0c1b"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "6f5a3b2c9d8e7f1a4c5b6a7d8e9f0c1b"
+        }
+      },
+      "narrative": "The Final Data Core, heavily protected by layers of corporate security. A priceless asset in the right hands."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A Decryption Key glowing with a faint neon light."
+    },
+    {
+      "id": "item_8_b306",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "An Authorization Code scribbled on a piece of synthetic paper."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A small Backup Datapad containing encrypted corporate secrets."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "023fa3a3c2599004e1d4aaeb0e74944e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a Secure Biometric Safe. It requires input from the Security Signature Generator to authenticate and open."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "First terminal sequence processed partially."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "023fa3a3c2599004e1d4aaeb0e74944e"
+        }
+      ],
+      "narrative": "This is a Security Signature Generator. It requires input from the Data Purifier to process the cleaned data into a valid signature."
+    },
+    {
+      "id": "item_8_8f2e",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A Lost Keycard belonging to a high-ranking executive."
+    },
+    {
+      "id": "item_16_f630",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Security Token flashing with a faint red LED."
+    },
+    {
+      "id": "item_16_46b3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Sector Map embedded in a scratched neural chip."
+    },
+    {
+      "id": "container_2_7b94",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "deadbeefcafebabe0123456789abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a Secondary Biometric Vault. It requires input from the Secondary Access Terminal to unlock."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "8493028475610293847562910"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": 2092073077
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "First terminal sequence processed partially."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "deadbeefcafebabe0123456789abcdef"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "A shiny but ultimately useless math coin."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "8493028475610293847562910"
+        },
+        "outputs": {
+          "text_result": "First terminal sequence processed partially.",
+          "hex_result": "deadbeefcafebabe0123456789abcdef",
+          "math_token": "A shiny but ultimately useless math coin."
+        }
+      },
+      "narrative": "This is a Secondary Access Terminal. It requires input from the Data Validator to initiate its processing sequence."
+    },
+    {
+      "id": "item_16_94e6",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An old Encrypted Datapad found discarded on the floor."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "First terminal sequence processed partially."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "First terminal sequence processed partially."
+        }
+      ],
+      "narrative": "This is a Data Purifier. It requires input from the Secondary Access Terminal to sanitize the incoming data streams."
+    },
+    {
+      "id": "terminal_2_1095",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "83749281938475629183"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": 405212579
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Second terminal sequence executed."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "8899aabbccddeeff0011223344556677"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Second terminal sequence executed.",
+          "hex_result": "8899aabbccddeeff0011223344556677"
+        }
+      },
+      "narrative": "This is a Primary Access Terminal. It requires inputs from both the Integrity Checker and the Network Routing Tool to compile its operations."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "a1b2c3d4e5f67890"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "18270da3"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 405212579
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "a1b2c3d4e5f67890"
+        },
+        "outputs": {}
+      },
+      "narrative": "An Integrity Checker tool used for verifying raw signal dumps."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "graph_data.zip"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "America/New_York"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Europe/London"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"America/New_York\", \"Atlantic/Bermuda\", \"Atlantic/Azores\", \"Europe/Lisbon\", \"Europe/Madrid\", \"Europe/Paris\", \"Europe/London\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "83749281938475629183"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "dst": "Europe/London"
+        },
+        "outputs": {
+          "path": "[\"America/New_York\", \"Atlantic/Bermuda\", \"Atlantic/Azores\", \"Europe/Lisbon\", \"Europe/Madrid\", \"Europe/Paris\", \"Europe/London\"]",
+          "cost": "83749281938475629183"
+        }
+      },
+      "narrative": "This is a Network Routing Tool. It requires inputs from both the Encrypted Data Archive and the Location Identifier to calculate the optimal path."
+    },
+    {
+      "id": "checksum_crc32_2f43",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "8899aabbccddeeff0011223344556677"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "7cb28075"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2092073077
+        }
+      ],
+      "narrative": "This is a Data Validator. It requires input from the Primary Access Terminal to function."
+    },
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "graph_data.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "graph_data.zip"
+        }
+      },
+      "narrative": "An Encrypted Data Archive stored on a physical memory drive."
+    },
+    {
+      "id": "item_16_3203",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Mainframe Log device covered in digital dust."
+    },
+    {
+      "id": "item_15",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_15",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "Timezone text",
+          "value": "America/New_York"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "America/New_York"
+        }
+      },
+      "narrative": "A Location Identifier emitting a low hum."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_5",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_b306",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_b306",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_8_8f2e",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_16_f630",
+      "target_id": "hash_md5",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_16_46b3",
+      "target_id": "item_8_8f2e",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_2_7b94",
+      "target_id": "item_16_f630",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "container_2_7b94",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_16_94e6",
+      "target_id": "container_2_7b94",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "hash_md5",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "terminal_2_1095",
+      "target_id": "item_16_94e6",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "text"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_2_1095",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_2_1095",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "checksum_crc32_2f43",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "terminal_2_1095",
+      "target_id": "checksum_crc32_2f43",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_4",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "item_16_3203",
+      "target_id": "item_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_15",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "content",
+      "target_port": "src"
+    }
+  ]
+}

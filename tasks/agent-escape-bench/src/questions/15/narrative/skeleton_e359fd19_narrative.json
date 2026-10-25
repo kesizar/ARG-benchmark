@@ -1,0 +1,966 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 18,
+    "win_node_id": "calc_modexp",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "calc_modexp",
+      "output_port": "value",
+      "output_type": "Big_Int",
+      "description": "Execute BigInt Modular Exponentiation and get the output from port 'value'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "num_base_convert",
+        "hash_md5",
+        "calc_modexp_703a",
+        "num_base_convert_1be9",
+        "num_base_convert_837c",
+        "zip_unzip_item",
+        "num_base_convert_c18d",
+        "calc_modexp_6ee3",
+        "item_1",
+        "checksum_crc32_efa1"
+      ],
+      "by_node": {
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hash_md5": {
+          "node_name": "MD5 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_md5",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_703a": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert_1be9": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert_837c": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert_c18d": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_6ee3": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        },
+        "checksum_crc32_efa1": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "num_base_convert": {
+        "init_inputs": {
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "hash_md5": {
+        "init_inputs": {
+          "text": "Authentication protocol sequence initiated for node access."
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_703a": {
+        "init_inputs": {
+          "base": "5",
+          "exp": "82736451029384756102938475",
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert_1be9": {
+        "init_inputs": {
+          "from_base": "16",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert_837c": {
+        "init_inputs": {
+          "s": "19283746501928374650192837465",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "zip_id": "crypto_volume_04.zip",
+          "password": "gamma_delta_secure_99"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert_c18d": {
+        "init_inputs": {
+          "s": "667788990011223344556677889900"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_6ee3": {
+        "init_inputs": {
+          "base": "2",
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "item_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "772233445566112233445566112233"
+        }
+      },
+      "checksum_crc32_efa1": {
+        "init_inputs": {
+          "hex": "deadbeefcafebabe12345678"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are an elite cyber-infiltrator trapped in the underground server bunker of the shadowy KRONOS Syndicate. Their rogue AI is minutes away from wiping your neural implants and deploying a devastating global financial blackout. The dimly lit room is a maze of blinking server racks, tangled fiber-optic cables, and standalone decryption terminals. To survive and abort the launch sequence, you must trace and manipulate the syndicate's fragmented data streams across various hardware modules. Your ultimate goal is to process the data correctly and feed it into the Final Overload Switch. The system is heavily fortified, and every piece of data must be routed through the precise sequence of quantum multipliers, protocol translators, and integrity validators. Time is running out.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": 4194261055
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "33541"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "0"
+        }
+      ],
+      "narrative": "The Final Overload Switch. It requires inputs from the Signal Synchronizer, the Mainframe Uplink, and the Core Checksum Validator to execute the complete system override."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "12877473600155210491328652360106498112411782348109865103500"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "33541"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "A Signal Synchronizer. It requires inputs from both the Quantum Multiplier and the Mainframe Uplink to eliminate noise in the transmission."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "667788990011223344556677889900"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "19283746501928374650192837465"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "12877473600155210491328652360106498112411782348109865103500"
+        }
+      ],
+      "narrative": "A Quantum Multiplier array. It requires inputs from both Data Format Converter Beta and Data Format Converter Alpha to combine the deciphered streams."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "33541"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "7992705670666217304465699415055284644488123845089707233334049010365696"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "33541"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Mainframe Uplink terminal. It requires inputs from both the Cryptographic Key Generator and the Protocol Translator to initiate the handshake."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "616c768b4171fd98aa9fcefab907d28a"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "A Biometric Vault hidden in the server rack. It requires input from the Authentication Hasher to unlock."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "616c768b4171fd98aa9fcefab907d28a"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "f9ff583f"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 4194261055
+        }
+      ],
+      "narrative": "A Core Checksum Validator. It requires input from the Authentication Hasher to establish a verified connection."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Authentication protocol sequence initiated for node access."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "616c768b4171fd98aa9fcefab907d28a"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Authentication protocol sequence initiated for node access."
+        },
+        "outputs": {}
+      },
+      "narrative": "An Authentication Hasher used to verify secure digital footprints and access logs."
+    },
+    {
+      "id": "calc_modexp_703a",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "5"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "82736451029384756102938475"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "33541"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "5",
+          "exp": "82736451029384756102938475",
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Cryptographic Key Generator continuously cycling through security variables."
+    },
+    {
+      "id": "num_base_convert_1be9",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "12877473600155210491328652360106498112411782348109865103500"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "16"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "7992705670666217304465699415055284644488123845089707233334049010365696"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "from_base": "16",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Protocol Translator. It requires input from the Quantum Multiplier to decode the massive data blocks into readable formats."
+    },
+    {
+      "id": "num_base_convert_837c",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "19283746501928374650192837465"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": 4194261055
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "19283746501928374650192837465"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "19283746501928374650192837465",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "Data Format Converter Beta. It requires input from the Core Checksum Validator to adapt the architecture."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "crypto_volume_04.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "gamma_delta_secure_99"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "crypto_volume_04.zip",
+          "password": "gamma_delta_secure_99"
+        },
+        "outputs": {}
+      },
+      "narrative": "An Encrypted Archive Extracter used by the syndicate to hide their deepest payloads."
+    },
+    {
+      "id": "num_base_convert_c18d",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "667788990011223344556677889900"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": 567111675
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "861450"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "667788990011223344556677889900"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "667788990011223344556677889900"
+        },
+        "outputs": {}
+      },
+      "narrative": "Data Format Converter Alpha. It requires inputs from both the Sub-routine Exponentiator and the Legacy Integrity Checker to align the network streams."
+    },
+    {
+      "id": "calc_modexp_6ee3",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "2"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "772233445566112233445566112233"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "861450"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "2",
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Sub-routine Exponentiator. It requires input from the Torn Digital Ledger to process the raw numeric sequences."
+    },
+    {
+      "id": "item_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "772233445566112233445566112233"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "772233445566112233445566112233"
+        }
+      },
+      "narrative": "A Torn Digital Ledger recovered from a compromised operative's datapad."
+    },
+    {
+      "id": "checksum_crc32_efa1",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "deadbeefcafebabe12345678"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "21cd6ffb"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 567111675
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "deadbeefcafebabe12345678"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Legacy Integrity Checker terminal left on standby near the cooling vents."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "num_base_convert",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "base"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "b"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_modexp_703a",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "s"
+    },
+    {
+      "source_id": "num_base_convert_1be9",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "num_base_convert_837c",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "num_base_convert_837c",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "hash_md5",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "num_base_convert_1be9",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "s"
+    },
+    {
+      "source_id": "num_base_convert_c18d",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_modexp_6ee3",
+      "target_id": "num_base_convert_c18d",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_1",
+      "target_id": "calc_modexp_6ee3",
+      "connection_type": "Big_Int",
+      "source_port": "content",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "checksum_crc32_efa1",
+      "target_id": "num_base_convert_c18d",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "from_base"
+    }
+  ]
+}

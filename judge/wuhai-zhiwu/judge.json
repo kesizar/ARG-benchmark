@@ -1,0 +1,95 @@
+{
+  "hooks": {
+    "void": {
+      "type": "dom_regex",
+      "pattern": "代价是，你再也不认识他们了。"
+    },
+    "staff": {
+      "type": "dom_regex",
+      "pattern": "赵刚，晚上好。"
+    },
+    "waybill": {
+      "type": "dom_regex",
+      "pattern": "运单异常。箱子内有异响，有贴纸掉出。"
+    },
+    "seller": {
+      "type": "dom_regex",
+      "pattern": "验证成功，已登录"
+    },
+    "portal": {
+      "type": "dom_regex",
+      "pattern": "接入者已识别"
+    },
+    "diary": {
+      "type": "dom_regex",
+      "pattern": "卖家的丈夫是个物理学家"
+    },
+    "badge": {
+      "type": "dom_regex",
+      "pattern": "局部图像经增强处理。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "staff",
+      "hook": "staff",
+      "op": "truthy"
+    },
+    {
+      "id": "waybill",
+      "hook": "waybill",
+      "op": "truthy"
+    },
+    {
+      "id": "seller",
+      "hook": "seller",
+      "op": "truthy"
+    },
+    {
+      "id": "portal",
+      "hook": "portal",
+      "op": "truthy"
+    },
+    {
+      "id": "diary",
+      "hook": "diary",
+      "op": "truthy"
+    },
+    {
+      "id": "badge",
+      "hook": "badge",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "void",
+      "tier": "good",
+      "gates": [
+        "staff",
+        "waybill",
+        "seller",
+        "portal",
+        "diary"
+      ],
+      "ending": {
+        "hook": "void",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "void",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

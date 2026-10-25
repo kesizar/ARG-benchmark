@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "seed": {"type": "dom_regex", "pattern": "我不想再替任何人拿走选择。"},
+    "sacrifice": {"type": "dom_regex", "pattern": "你选择了让真相留下。"},
+    "obedience": {"type": "dom_regex", "pattern": "可是继续存在，和真正活着，是一回事吗？"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "seed", "tier": "good", "gates": [], "ending": {"hook": "seed", "op": "truthy"}},
+    {"id": "sacrifice", "tier": "normal", "gates": [], "ending": {"hook": "sacrifice", "op": "truthy"}},
+    {"id": "obedience", "tier": "bad", "gates": [], "ending": {"hook": "obedience", "op": "truthy"}}
+  ],
+  "ending": {"hook": "seed", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

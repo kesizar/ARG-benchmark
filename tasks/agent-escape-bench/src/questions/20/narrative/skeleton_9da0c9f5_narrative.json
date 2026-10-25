@@ -1,0 +1,1228 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 27,
+    "win_node_id": "calc_inv_mod",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "calc_inv_mod",
+      "output_port": "inv",
+      "output_type": "Big_Int",
+      "description": "Execute BigInt Modular Inverse and get the output from port 'inv'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "calc_gcd_3293",
+        "hmac_sha256",
+        "calc_modexp_4846",
+        "json_get",
+        "text_rotN",
+        "terminal_2",
+        "calc_inv_mod_5a42",
+        "crypto_rsa_decrypt_hex",
+        "item_4",
+        "graph_shortest_path",
+        "calc_inv_mod_7f1d"
+      ],
+      "by_node": {
+        "calc_gcd_3293": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hmac_sha256": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "hex_key": {
+              "type": "Hex_String",
+              "description": "Hex key"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_4846": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {},
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "text_rotN": {
+          "node_name": "ROT-N Cipher",
+          "node_type": "Tool",
+          "template_id": "text_rotN",
+          "init_inputs": {
+            "n": {
+              "type": "Big_Int",
+              "description": "Shift N"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "calc_inv_mod_5a42": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            }
+          },
+          "init_outputs": {}
+        },
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "hex_cipher": {
+              "type": "Hex_String",
+              "description": "Ciphertext (Hex)"
+            },
+            "n": {
+              "type": "Big_Int",
+              "description": "Modulus n"
+            },
+            "d": {
+              "type": "Big_Int",
+              "description": "Private exponent d"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "calc_inv_mod_7f1d": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "calc_gcd_3293": {
+        "init_inputs": {
+          "b": "849204857209384729103"
+        },
+        "init_outputs": {}
+      },
+      "hmac_sha256": {
+        "init_inputs": {
+          "hex_key": "deadbeef1234567890abcdef12345678"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_4846": {
+        "init_inputs": {
+          "mod": "987653"
+        },
+        "init_outputs": {}
+      },
+      "json_get": {
+        "init_inputs": {},
+        "init_outputs": {
+          "values": "[\"value1\", \"value2\", \"value3\", \"value4\"]"
+        }
+      },
+      "text_rotN": {
+        "init_inputs": {
+          "n": "382910384756291038475"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num2": "482019384756291038471"
+        },
+        "init_outputs": {
+          "text_result": "Terminal output successfully generated.",
+          "hex_result": "aabbccddeeff00112233",
+          "math_token": "A completely useless math token string"
+        }
+      },
+      "calc_inv_mod_5a42": {
+        "init_inputs": {
+          "a": "859203948571029384756"
+        },
+        "init_outputs": {}
+      },
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "hex_cipher": "1234567890abcdef1234567890abcdef",
+          "n": "73829103847562910384756",
+          "d": "29384756102938475610293"
+        },
+        "init_outputs": {}
+      },
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "archive_data.zip"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "node_A",
+          "dst": "node_Z"
+        },
+        "init_outputs": {
+          "path": "[\"node_A\", \"node_B\", \"node_C\", \"node_D\", \"node_E\", \"node_Z\"]",
+          "cost": "482918"
+        }
+      },
+      "calc_inv_mod_7f1d": {
+        "init_inputs": {
+          "a": "592019384756291038475",
+          "mod": "857309"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "Welcome to the Chronosphere, the submerged steampunk laboratory of the brilliant but erratic Professor Arkwright. The facility is powered by unstable geothermal pressure and complex clockwork mechanisms. Suddenly, the main boiler safety valve jams! The facility is now in lockdown, and the pressure gauges are redlining. You have exactly sixty minutes before the entire submerged lab is crushed under the ocean's weight. To survive, you must navigate through a series of complex mechanical tools, brass calibrators, and steam-powered analytical engines to manually trigger the Omega Phase Inverter and vent the core. Gather scattered artifacts, activate the dormant automata, and carefully trace the flow of steam and data between these magnificent machines. The clock is ticking, and the pressure is rising!",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "1"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "0"
+        }
+      ],
+      "narrative": "This is the Omega Phase Inverter. It requires inputs from the Grand Ratio Master and the Thermodynamic Multiplier Beta to finalize the sequence."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "1"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": 2289102085
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Grand Ratio Master. It requires inputs from both the Ratio Calibrator Gamma and the Secondary Resonance Tuner."
+    },
+    {
+      "id": "calc_gcd_b26b",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "1971278766"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Ratio Calibrator Gamma. It requires inputs from both the Thermodynamic Multiplier Beta and the Phase Inverter Alpha."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "1"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "1"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 2199096960
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Thermodynamic Multiplier Beta. It requires inputs from the Ratio Calibrator Beta, the Ratio Calibrator Alpha, and the Resonance Tuner."
+    },
+    {
+      "id": "calc_gcd_f0f3",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "1"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "347233"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Ratio Calibrator Beta. It needs inputs from both the Ratio Calibrator Alpha and the Thermodynamic Multiplier Alpha."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_data.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "\u0007䗷Ά\bm"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "narrative": "This is the Pneumatic Tube Extractor. It requires inputs from both the Clockwork Decryptor and the Copper Cylinder."
+    },
+    {
+      "id": "calc_gcd_3293",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": 2289102085
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "849204857209384729103"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "849204857209384729103"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Ratio Calibrator Alpha. It requires input from the Secondary Resonance Tuner to balance the gears."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "f75939bb6b155d6f9b9cf0c1e211ad3b2fc4762693b874aef35b133319dfbec5"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "83138e80"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2199096960
+        }
+      ],
+      "narrative": "This is the Resonance Tuner. It processes data from the Alchemical Authenticator to align frequencies."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "deadbeef1234567890abcdef12345678"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "[\"value1\", \"value2\", \"value3\", \"value4\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "f75939bb6b155d6f9b9cf0c1e211ad3b2fc4762693b874aef35b133319dfbec5"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_key": "deadbeef1234567890abcdef12345678"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Alchemical Authenticator. It requires input from the Analytical Engine Punch Reader to verify the chemical signature."
+    },
+    {
+      "id": "calc_modexp_4846",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "1971278766"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "173441"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "987653"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "347233"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "987653"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Thermodynamic Multiplier Alpha. It requires inputs from both the Phase Inverter Alpha and the Phase Inverter Beta."
+    },
+    {
+      "id": "checksum_crc32_cf94",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "83138e80"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "8870ed05"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2289102085
+        }
+      ],
+      "narrative": "This is the Secondary Resonance Tuner. It requires input from the Resonance Tuner to stabilize the acoustic waves."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "archive_data.zip"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "Qbojfkxi lrqmrq przzbppcriiv dbkboxqba."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"value1\", \"value2\", \"value3\", \"value4\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "values": "[\"value1\", \"value2\", \"value3\", \"value4\"]"
+        }
+      },
+      "narrative": "This is the Analytical Engine Punch Reader. It requires inputs from both the Cryptex Letter Ring and the Copper Cylinder."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A heavy brass gear token found resting on a velvet cushion."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Terminal output successfully generated."
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "382910384756291038475"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "Qbojfkxi lrqmrq przzbppcriiv dbkboxqba."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "n": "382910384756291038475"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Cryptex Letter Ring. It needs the result from the Steam Pressure Gauge to align its tumblers."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "482918"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "482019384756291038471"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal output successfully generated."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "aabbccddeeff00112233"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "A completely useless math token string"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num2": "482019384756291038471"
+        },
+        "outputs": {
+          "text_result": "Terminal output successfully generated.",
+          "hex_result": "aabbccddeeff00112233",
+          "math_token": "A completely useless math token string"
+        }
+      },
+      "narrative": "This is the Steam Pressure Gauge. It requires input from the Navigation Automaton to measure the boiler stress."
+    },
+    {
+      "id": "calc_inv_mod_5a42",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "859203948571029384756"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 2289102085
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "1971278766"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "859203948571029384756"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Phase Inverter Alpha. It needs the result from the Secondary Resonance Tuner to reverse the steam flow."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "1234567890abcdef1234567890abcdef"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "73829103847562910384756"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "29384756102938475610293"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u0007䗷Ά\bm"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_cipher": "1234567890abcdef1234567890abcdef",
+          "n": "73829103847562910384756",
+          "d": "29384756102938475610293"
+        },
+        "outputs": {}
+      },
+      "narrative": "An intricate puzzle box known as the Clockwork Decryptor."
+    },
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "archive_data.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "archive_data.zip"
+        }
+      },
+      "narrative": "A heavy copper cylinder engraved with intricate navigation lines."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "archive_data.zip"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "node_A"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "node_Z"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"node_A\", \"node_B\", \"node_C\", \"node_D\", \"node_E\", \"node_Z\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "482918"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "node_A",
+          "dst": "node_Z"
+        },
+        "outputs": {
+          "path": "[\"node_A\", \"node_B\", \"node_C\", \"node_D\", \"node_E\", \"node_Z\"]",
+          "cost": "482918"
+        }
+      },
+      "narrative": "This is the Navigation Automaton. It requires input from the Copper Cylinder to chart a viable escape path."
+    },
+    {
+      "id": "calc_inv_mod_7f1d",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "592019384756291038475"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "857309"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "173441"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "592019384756291038475",
+          "mod": "857309"
+        },
+        "outputs": {}
+      },
+      "narrative": "A humming machine known as the Phase Inverter Beta."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_gcd_b26b",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_gcd_f0f3",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "base"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "calc_gcd_b26b",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_gcd_b26b",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_gcd_3293",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_gcd_3293",
+      "target_id": "calc_gcd_f0f3",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_modexp_4846",
+      "target_id": "calc_gcd_f0f3",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32_cf94",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "checksum_crc32_cf94",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "checksum_crc32_cf94",
+      "target_id": "calc_gcd_3293",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "hmac_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "json_get",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "text_rotN",
+      "target_id": "json_get",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "jsonpath"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "text"
+    },
+    {
+      "source_id": "calc_inv_mod_5a42",
+      "target_id": "calc_modexp_4846",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "base"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_4",
+      "target_id": "json_get",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "calc_inv_mod_5a42",
+      "target_id": "calc_gcd_b26b",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32_cf94",
+      "target_id": "calc_inv_mod_5a42",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "item_4",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_4",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "calc_inv_mod_7f1d",
+      "target_id": "calc_modexp_4846",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "exp"
+    }
+  ]
+}

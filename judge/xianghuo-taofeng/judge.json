@@ -1,0 +1,72 @@
+{
+  "hooks": {
+    "shoufeng": {
+      "type": "dom_regex",
+      "pattern": "讨封成功 · 受封正神"
+    },
+    "pingheng": {
+      "type": "dom_regex",
+      "pattern": "一方守护 · 平衡之道"
+    },
+    "guwang": {
+      "type": "dom_regex",
+      "pattern": "蛊王临世 · 以毒证道"
+    },
+    "pingfan": {
+      "type": "dom_regex",
+      "pattern": "平凡香客"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "shoufeng",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "shoufeng",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "pingheng",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "pingheng",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "guwang",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "guwang",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "pingfan",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "pingfan",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "shoufeng",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

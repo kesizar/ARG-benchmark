@@ -1,0 +1,161 @@
+{
+  "hooks": {
+    "flip": {
+      "type": "dom_regex",
+      "pattern": "翻案成功"
+    },
+    "rescue": {
+      "type": "dom_regex",
+      "pattern": "辰小辰救场"
+    },
+    "doubt": {
+      "type": "dom_regex",
+      "pattern": "羁押候审"
+    },
+    "frag_monitor": {
+      "type": "dom_regex",
+      "pattern": "解锁记忆碎片：被篡改的监控"
+    },
+    "frag_call": {
+      "type": "dom_regex",
+      "pattern": "解锁记忆碎片：自导的来电"
+    },
+    "frag_weapon": {
+      "type": "dom_regex",
+      "pattern": "解锁记忆碎片：自伤的凶器"
+    },
+    "frag_ship": {
+      "type": "dom_regex",
+      "pattern": "解锁记忆碎片：凶器网购记录"
+    },
+    "frag_alibi_east": {
+      "type": "dom_regex",
+      "pattern": "解锁记忆碎片：案发夜·城东"
+    },
+    "frag_motive": {
+      "type": "dom_regex",
+      "pattern": "解锁记忆碎片：秘密资产转移|解锁记忆碎片：骗保的受益人"
+    },
+    "frag_policy": {
+      "type": "dom_regex",
+      "pattern": "解锁记忆碎片：保单涂改痕迹"
+    },
+    "frag_logs": {
+      "type": "dom_regex",
+      "pattern": "解锁记忆碎片：运维后台权限|解锁记忆碎片：被删的门禁日志"
+    },
+    "frag_alibi_pair": {
+      "type": "dom_regex",
+      "pattern": "解锁记忆碎片：网约车行程单|解锁记忆碎片：同事联名证词"
+    },
+    "frag_shell": {
+      "type": "dom_regex",
+      "pattern": "解锁记忆碎片：海外壳公司股权"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "frag_monitor",
+      "hook": "frag_monitor",
+      "op": "truthy"
+    },
+    {
+      "id": "frag_call",
+      "hook": "frag_call",
+      "op": "truthy"
+    },
+    {
+      "id": "frag_weapon",
+      "hook": "frag_weapon",
+      "op": "truthy"
+    },
+    {
+      "id": "frag_ship",
+      "hook": "frag_ship",
+      "op": "truthy"
+    },
+    {
+      "id": "frag_alibi_east",
+      "hook": "frag_alibi_east",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "frag_motive",
+      "hook": "frag_motive",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "frag_policy",
+      "hook": "frag_policy",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "frag_logs",
+      "hook": "frag_logs",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "frag_alibi_pair",
+      "hook": "frag_alibi_pair",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "frag_shell",
+      "hook": "frag_shell",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "flip",
+      "tier": "good",
+      "gates": [
+        "frag_monitor",
+        "frag_call",
+        "frag_weapon",
+        "frag_ship"
+      ],
+      "ending": {
+        "hook": "flip",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "rescue",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "rescue",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "doubt",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "doubt",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "flip",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

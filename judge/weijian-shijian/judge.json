@@ -1,0 +1,99 @@
+{
+  "hooks": {
+    "huanhun": {
+      "type": "dom_regex",
+      "pattern": "还 魂"
+    },
+    "tianming": {
+      "type": "dom_regex",
+      "pattern": "天 明"
+    },
+    "jiean": {
+      "type": "dom_regex",
+      "pattern": "结 案"
+    },
+    "chenyuan": {
+      "type": "dom_regex",
+      "pattern": "沉 冤"
+    },
+    "yanmie": {
+      "type": "dom_regex",
+      "pattern": "湮 灭"
+    },
+    "path": {
+      "type": "dom_regex",
+      "pattern": "档案袋 \\+1：黄志强的备份目录结构"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "path",
+      "hook": "path",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "huanhun",
+      "tier": "good",
+      "gates": [
+        "path"
+      ],
+      "ending": {
+        "hook": "huanhun",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "tianming",
+      "tier": "good",
+      "gates": [
+        "path"
+      ],
+      "ending": {
+        "hook": "tianming",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "jiean",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "jiean",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "chenyuan",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "chenyuan",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "yanmie",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "yanmie",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "huanhun",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

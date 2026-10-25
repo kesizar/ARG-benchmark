@@ -1,0 +1,765 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 14,
+    "win_node_id": "item_1",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_1",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_1",
+        "crypto_rsa_decrypt_hex",
+        "hmac_sha256",
+        "checksum_crc32",
+        "calc_modexp",
+        "terminal_2"
+      ],
+      "by_node": {
+        "item_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        },
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "d": {
+              "type": "Big_Int",
+              "description": "Private exponent d"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hmac_sha256": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text message"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "4810293847561029384756192837463582"
+        }
+      },
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "d": "9283746510293847561029384756129834"
+        },
+        "init_outputs": {}
+      },
+      "hmac_sha256": {
+        "init_inputs": {
+          "text": "Initiating HMAC calculation sequence with secure payload."
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "abcdef1234567890abcdef1234567890"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "314159265358979323846264338327",
+          "exp": "271828182845904523536028747135",
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "1000000000000000000012345",
+          "num2": "2000000000000000000023456"
+        },
+        "init_outputs": {
+          "text_result": "Terminal calculation output pending verification.",
+          "hex_result": "00112233445566778899aabbccddeeff",
+          "math_token": "Math_Auth_Token_V1"
+        }
+      }
+    },
+    "intro_narrative": "The surface world burned decades ago, leaving humanity to survive in subterranean bunkers. You are a scavenger who has stumbled upon Outpost Delta, a legendary military installation rumored to hold an untainted water purifier. The air is stale, and the emergency lights flicker ominously. Your Geiger counter clicks erratically, warning you that time is short. To secure the purifier and escape, you must navigate the outpost's ancient security systems, restore power to the forgotten consoles, and unlock the heavy blast doors before the radiation levels become lethal.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "item_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "4810293847561029384756192837463582"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "4810293847561029384756192837463582"
+        }
+      },
+      "narrative": "The final escape hatch leading to the surface. Its thick steel wheel is cold to the touch, representing your only way out of this irradiated outpost."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A heavily encrypted data module salvaged from the ruins of the lower levels."
+    },
+    {
+      "id": "item_8_3cbb",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A corroded memory drive caked in irradiated dust and dried mud."
+    },
+    {
+      "id": "item_8_aff5",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A dusty datapad with a cracked screen that barely functions."
+    },
+    {
+      "id": "item_8_558e",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A broken transmitter unit, its wires exposed and sparking."
+    },
+    {
+      "id": "item_8_41f4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A rusted scrap metal box that has been roughly welded shut."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A faded blueprint detailing the outpost's original schematics."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "L"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "The heavy blast door sealing off the most secure sector. It requires input from the central decryption console to disengage its locks."
+    },
+    {
+      "id": "item_8_bb8d",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A buried cache protruding from the radioactive dirt in the corner."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "18f543cadb380b000b607d0d2bbdf1ff173186d0718ab5e56183d9d64ef71b4c"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "99941"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "9283746510293847561029384756129834"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "L"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "d": "9283746510293847561029384756129834"
+        },
+        "outputs": {}
+      },
+      "narrative": "The central decryption console, an old-world military computer still humming with power. It requires inputs from both the authorization scanner and the quantum processor to function."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "07d06023"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Initiating HMAC calculation sequence with secure payload."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "18f543cadb380b000b607d0d2bbdf1ff173186d0718ab5e56183d9d64ef71b4c"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Initiating HMAC calculation sequence with secure payload."
+        },
+        "outputs": {}
+      },
+      "narrative": "The authorization scanner, a wall-mounted verification system. It requires input from the diagnostic tool to authenticate the signals."
+    },
+    {
+      "id": "container_4_ce5e",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "Terminal calculation output pending verification."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "The medical safe, a reinforced container holding old-world supplies. It requires input from the wasteland terminal to open."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "abcdef1234567890abcdef1234567890"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "07d06023"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 131096611
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "abcdef1234567890abcdef1234567890"
+        },
+        "outputs": {}
+      },
+      "narrative": "The diagnostic tool, a handheld device once used by engineers for checking data integrity."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "314159265358979323846264338327"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "271828182845904523536028747135"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "99941"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "314159265358979323846264338327",
+          "exp": "271828182845904523536028747135",
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "The quantum processor, a rugged computation module salvaged from a server rack."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "1000000000000000000012345"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "2000000000000000000023456"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal calculation output pending verification."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "00112233445566778899aabbccddeeff"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Math_Auth_Token_V1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "1000000000000000000012345",
+          "num2": "2000000000000000000023456"
+        },
+        "outputs": {
+          "text_result": "Terminal calculation output pending verification.",
+          "hex_result": "00112233445566778899aabbccddeeff",
+          "math_token": "Math_Auth_Token_V1"
+        }
+      },
+      "narrative": "The wasteland terminal, a flickering console with a green phosphor display waiting for operator commands."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_1",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_3cbb",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_aff5",
+      "target_id": "item_8_3cbb",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_558e",
+      "target_id": "item_8_aff5",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_41f4",
+      "target_id": "item_8_558e",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_41f4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_bb8d",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "container_4_ce5e",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "hmac_sha256",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_key"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "n"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "container_4_ce5e",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "fingerprint_input"
+    }
+  ]
+}

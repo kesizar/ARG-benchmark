@@ -1,0 +1,48 @@
+{
+  "hooks": {
+    "truth": {
+      "type": "dom_regex",
+      "pattern": "你已解锁江燕医院的最终真相"
+    },
+    "password": {
+      "type": "input_sha256",
+      "selector": "#searchInput",
+      "hashes": [
+        "df9b99674f501c8bc5d94f8c69dff8726f889dfb02ab6eaa21d421741a59909d",
+        "874ca6d5086d381a7752bb3170b18d663b3bdc7d65dc937dcfb979e87d047f12"
+      ]
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "password",
+      "hook": "password",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "ending": {
+    "hook": "truth",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null,
+  "routes": [
+    {
+      "id": "truth",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "truth",
+        "op": "truthy"
+      }
+    }
+  ]
+}

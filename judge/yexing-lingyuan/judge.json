@@ -1,0 +1,129 @@
+{
+  "hooks": {
+    "remember": {
+      "type": "dom_regex",
+      "pattern": "轮回，第一次被打破"
+    },
+    "next": {
+      "type": "dom_regex",
+      "pattern": "全剧终"
+    },
+    "post": {
+      "type": "dom_regex",
+      "pattern": "夜行当晚下架"
+    },
+    "run": {
+      "type": "dom_regex",
+      "pattern": "连夜搬离这座城市"
+    },
+    "zone": {
+      "type": "dom_regex",
+      "pattern": "区域码正确："
+    },
+    "year": {
+      "type": "dom_regex",
+      "pattern": "事故年正确："
+    },
+    "day": {
+      "type": "dom_regex",
+      "pattern": "事故日正确："
+    },
+    "decoded": {
+      "type": "dom_regex",
+      "pattern": "解码成功。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "zone",
+      "hook": "zone",
+      "op": "truthy"
+    },
+    {
+      "id": "year",
+      "hook": "year",
+      "op": "truthy"
+    },
+    {
+      "id": "day",
+      "hook": "day",
+      "op": "truthy"
+    },
+    {
+      "id": "decoded",
+      "hook": "decoded",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "remember",
+      "tier": "good",
+      "gates": [
+        "zone",
+        "year",
+        "day",
+        "decoded"
+      ],
+      "ending": {
+        "hook": "remember",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "next",
+      "tier": "normal",
+      "gates": [
+        "zone",
+        "year",
+        "day",
+        "decoded"
+      ],
+      "ending": {
+        "hook": "next",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "post",
+      "tier": "normal",
+      "gates": [
+        "zone",
+        "year",
+        "day",
+        "decoded"
+      ],
+      "ending": {
+        "hook": "post",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "run",
+      "tier": "normal",
+      "gates": [
+        "zone",
+        "year",
+        "day",
+        "decoded"
+      ],
+      "ending": {
+        "hook": "run",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "remember",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

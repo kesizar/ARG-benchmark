@@ -1,0 +1,1534 @@
+{
+  "metadata": {
+    "total_nodes": 25,
+    "total_edges": 36,
+    "win_node_id": "base64_encode",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "base64_encode",
+      "output_port": "b64",
+      "output_type": "Text_Generic",
+      "description": "Execute Base64 Encoder and get the output from port 'b64'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_2",
+        "calc_inv_mod",
+        "hmac_sha256",
+        "calc_modexp_8eaf",
+        "calc_bigmul_d726",
+        "calc_inv_mod_3ba3",
+        "terminal_1",
+        "terminal_1_7a6e",
+        "crypto_rsa_decrypt_hex",
+        "calc_bigmul_1aac",
+        "num_base_convert_d4c3"
+      ],
+      "by_node": {
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hmac_sha256": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "hex_key": {
+              "type": "Hex_String",
+              "description": "Hex key"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_8eaf": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_d726": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod_3ba3": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            },
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "terminal_1_7a6e": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            },
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "hex_cipher": {
+              "type": "Hex_String",
+              "description": "Ciphertext (Hex)"
+            },
+            "d": {
+              "type": "Big_Int",
+              "description": "Private exponent d"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_1aac": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert_d4c3": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Partial execution output gathered successfully.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "math_token": "Useless math token doing absolutely nothing."
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "mod": "982451"
+        },
+        "init_outputs": {}
+      },
+      "hmac_sha256": {
+        "init_inputs": {
+          "hex_key": "deadbeef1234567890abcdef12345678"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_8eaf": {
+        "init_inputs": {
+          "base": "16",
+          "exp": "54893029184756302948"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_d726": {
+        "init_inputs": {
+          "a": "19283746501928374650"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod_3ba3": {
+        "init_inputs": {
+          "a": "84759382716495827364",
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "Input sequence alpha initialized.",
+          "slot_b": "11223344556677889900"
+        },
+        "init_outputs": {
+          "text_output": "Terminal 1 generated text sequence alpha.",
+          "hex_output": "112233445566778899aabbccddeeff00"
+        }
+      },
+      "terminal_1_7a6e": {
+        "init_inputs": {
+          "slot_a": "Input sequence beta initialized.",
+          "slot_b": "99887766554433221100"
+        },
+        "init_outputs": {
+          "text_output": "Terminal 1 alternate sequence beta.",
+          "hex_output": "ffeeddccbbaa99887766554433221100"
+        }
+      },
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "hex_cipher": "00112233445566778899aabbccddeeff",
+          "d": "38475920384756102938"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_1aac": {
+        "init_inputs": {
+          "a": "74839201847563920184",
+          "b": "56473829104756382910"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert_d4c3": {
+        "init_inputs": {
+          "s": "31415926535897932384",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in the belly of an enormous airship, the steady thrum of its steam engines vibrating through the metal grates beneath your boots. The air is thick with the scent of ozone, coal smoke, and machine oil. Surrounding you is a complex network of brass pipes, ticking clockwork mechanisms, and hissing valves. This is the fabled Aether-Leviathan, a masterpiece of steampunk engineering that has mysteriously gone off course. The main hatch is sealed by heavy blast doors, and the only way to escape before the boiler pressure overloads the hull is to re-activate the Master Transmitter. However, the ship's intricate mechanical logic systems have scattered the activation sequence across multiple interconnected devices. You must carefully trace the flow of steam, gears, and aetheric energy from one apparatus to the next, operating them in the correct sequence to override the lockdown and send out an SOS.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "3791b5671d62863c0635b5e18f73acb99ea8b164c9d0793933e4244f3dc4c892"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "N5G1Zx1ihjwGNbXhj3OsuZ6osWTJ0Hk5M+QkTz3EyJI="
+        }
+      ],
+      "narrative": "A massive brass telegraph. It requires input from the Brass Analytical Engine to transmit the final signal."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Partial execution output gathered successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "3791b5671d62863c0635b5e18f73acb99ea8b164c9d0793933e4244f3dc4c892"
+        }
+      ],
+      "narrative": "A complex mechanical processor of spinning gears. It processes data from the Aetheric Console."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "640528730"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": 2038418444
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Partial execution output gathered successfully."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Useless math token doing absolutely nothing."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Partial execution output gathered successfully.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "math_token": "Useless math token doing absolutely nothing."
+        }
+      },
+      "narrative": "A glowing vacuum-tube interface. It requires inputs from both the Pressure Gauge Decoder and the Steam-powered Calculator."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "d183362b"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "797fcc0c"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2038418444
+        }
+      ],
+      "narrative": "A series of pressure-sensitive dials. It requires input from the Valve Calibration Unit to read the fluctuations."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "2038418444"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": 757016647
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "757016647"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "640528730"
+        }
+      ],
+      "narrative": "A massive calculating machine belching steam. It needs inputs from the Gear Ratio Converter, the Boiler Pressure Tester, and the Clockwork Translator."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": 757016647
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": 3515037227
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "2038418444"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "757016647"
+        }
+      ],
+      "narrative": "A mechanism of interlocking cogs. It needs inputs from the Clockwork Translator, the Valve Calibration Unit, and the Boiler Pressure Tester."
+    },
+    {
+      "id": "num_base_convert_1b29",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": 2038418444
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "175809"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "4"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "2038418444"
+        }
+      ],
+      "narrative": "A precise clockwork device. It requires inputs from the Pressure Gauge Decoder, the Rotary Reverser, and the Harmonic Synchronizer."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": 3515037227
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "982451"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "175809"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "982451"
+        },
+        "outputs": {}
+      },
+      "narrative": "A spinning turbine that reverses airflow. It requires input from the Valve Calibration Unit."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "1528417074471743004758067116"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "14856151216885572499950204481340376018335287064880"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "4"
+        }
+      ],
+      "narrative": "A set of tuning forks mounted on pipes. It needs inputs from the Pneumatic Multiplier and the Differential Engine."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": 3515037227
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "4226456295475692980463050009495781655440"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "14856151216885572499950204481340376018335287064880"
+        }
+      ],
+      "narrative": "A robust pneumatic cylinder system. It processes data from the Valve Calibration Unit and the Furnace Controller."
+    },
+    {
+      "id": "checksum_crc32_b67c",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "c3ad517ecef177174323bf6dcf4bcac9433b5ae51ed7011ad6c6ffde087dc981"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "2d1f2847"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 757016647
+        }
+      ],
+      "narrative": "A heavy brass cylinder with a release valve. It requires input from the Copper Authentication Lock."
+    },
+    {
+      "id": "checksum_crc32_c9c7",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "2d1f2847"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "d183362b"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3515037227
+        }
+      ],
+      "narrative": "A precision calibration tool for steam valves. It processes data from the Boiler Pressure Tester."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "deadbeef1234567890abcdef12345678"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "\u0001<\u000b\u0001"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "c3ad517ecef177174323bf6dcf4bcac9433b5ae51ed7011ad6c6ffde087dc981"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_key": "deadbeef1234567890abcdef12345678"
+        },
+        "outputs": {}
+      },
+      "narrative": "An intricate copper padlock. It requires input from the Typewriter Purifier."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "\u0001<\u000b\u0001"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "\u0001<\u000b\u0001"
+        }
+      ],
+      "narrative": "An automated typewriter mechanism. It processes data from the Cipher Phonograph."
+    },
+    {
+      "id": "calc_modexp_1f45",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": 2038418444
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "40793667592601177758852181100"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "2132841829151089399747329196"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1528417074471743004758067116"
+        }
+      ],
+      "narrative": "A magnificent difference engine powered by steam. It requires inputs from the Pressure Gauge Decoder, the Thermal Amplifier, and the Cogwheel Accelerator."
+    },
+    {
+      "id": "calc_modexp_8eaf",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "16"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "54893029184756302948"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "40793667592601177758852181100"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "2132841829151089399747329196"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "16",
+          "exp": "54893029184756302948"
+        },
+        "outputs": {}
+      },
+      "narrative": "A glass chamber encasing a gas flame. It requires input from the Cogwheel Accelerator."
+    },
+    {
+      "id": "calc_bigmul_d726",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "19283746501928374650"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "2115443054"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "40793667592601177758852181100"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "19283746501928374650"
+        },
+        "outputs": {}
+      },
+      "narrative": "A gearbox designed to increase rotational speed. It requires input from the Kinetic Expander."
+    },
+    {
+      "id": "calc_modexp_7a2a",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "175809"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "194406163913689"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 3515037227
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "2115443054"
+        }
+      ],
+      "narrative": "A heavy flywheel mechanism. It requires inputs from the Hydraulic Press, the Valve Calibration Unit, and the Rotary Reverser."
+    },
+    {
+      "id": "calc_bigmul_255a",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": 3515037227
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "55307"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "194406163913689"
+        }
+      ],
+      "narrative": "A massive industrial press. It requires inputs from the Valve Calibration Unit and the Gyroscopic Inverter."
+    },
+    {
+      "id": "calc_inv_mod_3ba3",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "84759382716495827364"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "55307"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "84759382716495827364",
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy brass gyroscope suspended in gimbals, humming softly with potential energy."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Input sequence alpha initialized."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "11223344556677889900"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal 1 generated text sequence alpha."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "112233445566778899aabbccddeeff00"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Input sequence alpha initialized.",
+          "slot_b": "11223344556677889900"
+        },
+        "outputs": {
+          "text_output": "Terminal 1 generated text sequence alpha.",
+          "hex_output": "112233445566778899aabbccddeeff00"
+        }
+      },
+      "narrative": "An old mechanical switchboard covered in coal dust and frayed wires."
+    },
+    {
+      "id": "terminal_1_7a6e",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Input sequence beta initialized."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "99887766554433221100"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal 1 alternate sequence beta."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "ffeeddccbbaa99887766554433221100"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Input sequence beta initialized.",
+          "slot_b": "99887766554433221100"
+        },
+        "outputs": {
+          "text_output": "Terminal 1 alternate sequence beta.",
+          "hex_output": "ffeeddccbbaa99887766554433221100"
+        }
+      },
+      "narrative": "A secondary panel of brass switches and vulcanite dials."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "00112233445566778899aabbccddeeff"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "31415926535897932384"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "38475920384756102938"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u0001<\u000b\u0001"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_cipher": "00112233445566778899aabbccddeeff",
+          "d": "38475920384756102938"
+        },
+        "outputs": {}
+      },
+      "narrative": "An intricate wax cylinder player. It requires input from the Magnetic Compass."
+    },
+    {
+      "id": "calc_bigmul_1aac",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "74839201847563920184"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "56473829104756382910"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "4226456295475692980463050009495781655440"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "74839201847563920184",
+          "b": "56473829104756382910"
+        },
+        "outputs": {}
+      },
+      "narrative": "A rusty cast-iron control panel used for regulating the main furnace temperatures."
+    },
+    {
+      "id": "num_base_convert_d4c3",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "31415926535897932384"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "10"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "31415926535897932384"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "31415926535897932384",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "A delicately balanced lodestone compass mounted on a brass pedestal."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "hash_sha256",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "hash_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "text"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "num_base_convert_1b29",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "num_base_convert_1b29",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "s"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "num_base_convert_1b29",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "num_base_convert_1b29",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32_b67c",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "num_base_convert_1b29",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "base"
+    },
+    {
+      "source_id": "checksum_crc32_c9c7",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "checksum_crc32_b67c",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "hmac_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "checksum_crc32_c9c7",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "checksum_crc32_b67c",
+      "target_id": "checksum_crc32_c9c7",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "checksum_crc32_c9c7",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_modexp_1f45",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp_1f45",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_modexp_8eaf",
+      "target_id": "calc_modexp_1f45",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "checksum_crc32_b67c",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "s"
+    },
+    {
+      "source_id": "calc_bigmul_d726",
+      "target_id": "calc_modexp_8eaf",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_modexp_7a2a",
+      "target_id": "calc_bigmul_d726",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_bigmul_255a",
+      "target_id": "calc_modexp_7a2a",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "checksum_crc32_c9c7",
+      "target_id": "calc_bigmul_255a",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul_d726",
+      "target_id": "calc_modexp_1f45",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "checksum_crc32_c9c7",
+      "target_id": "calc_modexp_7a2a",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_inv_mod_3ba3",
+      "target_id": "calc_bigmul_255a",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32_c9c7",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_modexp_7a2a",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "base"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "calc_inv_mod_3ba3",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "terminal_1_7a6e",
+      "target_id": "calc_bigmul",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "calc_bigmul_1aac",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "num_base_convert_d4c3",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "n"
+    }
+  ]
+}

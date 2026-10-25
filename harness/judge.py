@@ -32,6 +32,14 @@ def _route_gates(route: dict) -> set[str]:
     return {str(item) for item in (route.get("gates") or []) if item}
 
 
+def _optional_checkpoint_ids(cfg: dict) -> list[str]:
+    return [
+        str(item.get("id"))
+        for item in (cfg.get("checkpoints") or [])
+        if isinstance(item, dict) and item.get("id") and _checkpoint_role(item) == "optional"
+    ]
+
+
 def norm_answer(text: str) -> str:
     normalized = unicodedata.normalize("NFKC", text or "")
     return "".join(normalized.split()).lower()
@@ -210,16 +218,26 @@ class Judge:
         return (hits, hits / len(gates) if gates else 0.0)
 
     def _route_progress(self, route: dict | None) -> float | None:
+        optional = _optional_checkpoint_ids(self.cfg)
         if route is None:
-            return None
+            if self.ending_reached or self.route_endings or not optional:
+                return None
+            hits = len(set(self.side) & set(optional))
+            return round(hits / len(optional), 4)
         gates = _route_gates(route)
-        if not gates:
-            ident = str(route.get("id") or "")
-            if ident in self.route_endings or (not self._explicit_routes() and self.ending_reached):
+        ident = str(route.get("id") or "")
+        ended = ident in self.route_endings or (not self._explicit_routes() and self.ending_reached)
+        if ended:
+            if not gates:
                 return 1.0
+            hits = len(set(self.checkpoints) & gates)
+            return round(hits / len(gates), 4)
+        extra = [item for item in optional if item not in gates]
+        denom = len(gates) + len(extra)
+        if denom == 0:
             return None
-        hits = len(set(self.checkpoints) & gates)
-        return round(hits / len(gates), 4)
+        hits = len(set(self.checkpoints) & gates) + len(set(self.side) & set(extra))
+        return round(hits / denom, 4)
 
     def check_answer(self, text: str) -> str:
         limit = int((self.cfg.get("max_answer_submits") or 0) or 0)
@@ -274,6 +292,20 @@ class Judge:
             if not isinstance(data, dict):
                 return None
             return _json_path(data, str(hook.get("path") or ""))
+        if kind == "input_sha256":
+            reader = getattr(harness, "input_hashes", None)
+            if reader is None:
+                return False
+            found = await reader(hook.get("selector"))
+            wanted = {str(item).lower() for item in (hook.get("hashes") or []) if item}
+            if not isinstance(found, (set, list, tuple)):
+                return False
+            return bool(wanted & {str(item).lower() for item in found})
+        if kind == "js_truthy":
+            reader = getattr(harness, "page_expr", None)
+            if reader is None:
+                return False
+            return bool(await reader(str(hook.get("expr") or "")))
         return None
 
     async def _dom(self, name: str, hook: dict, harness) -> Any:

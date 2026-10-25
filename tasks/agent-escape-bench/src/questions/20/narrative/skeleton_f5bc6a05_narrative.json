@@ -1,0 +1,1066 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 27,
+    "win_node_id": "item_13",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_13",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_13",
+        "terminal_2",
+        "calc_bigmul",
+        "calc_gcd",
+        "calc_inv_mod",
+        "terminal_2_3dc7",
+        "calc_modexp"
+      ],
+      "by_node": {
+        "item_13": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_13",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String_Key_AES",
+              "description": "AES Key"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2_3dc7": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_13": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Partial computation completed.",
+          "hex_result": "aabbccddeeff00112233445566778899"
+        }
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "b": "847293847561029384756"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "b": "3847562938475610293847"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "10293847562039485761",
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2_3dc7": {
+        "init_inputs": {
+          "num1": "93847562019283746501"
+        },
+        "init_outputs": {
+          "text_result": "Secondary partial computation completed.",
+          "hex_result": "112233445566778899aabbccddeeff00"
+        }
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "16",
+          "exp": "58392048572619384756",
+          "mod": "999979"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You jolt awake on a metallic floor, the harsh hum of cooling fans and flickering ultraviolet lights assaulting your senses. You are trapped in Sub-Level 4, a clandestine cryptography lab previously operated by a rogue intelligence agency. The massive steel blast door sealing the exit is unyielding, and a grim digital countdown on the wall displays exactly sixty minutes until the facility initiates a complete thermobaric purge.\n\nYour only hope of survival lies in outsmarting the automated security matrix that now governs the lab. The facility's ultimate override sequence is hidden within an encrypted drive, safely locked away inside a heavily fortified biometric vault. To reach it, you must reactivate a sprawling network of dormant calculation modules, synthesizers, and cryptographic authenticators scattered around the room.\n\nEvery terminal and processor is connected in a complex web of data flow. You will need to carefully trace the outputs of one machine to the inputs of another, decrypting layers of security protocols as you go. Investigate the environment, restore the operational chains, and piece together the digital fragments. Find the master key and disable the lockdown before the timer reaches zero.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "item_13",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_13",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String_Key_AES",
+          "description": "AES Key",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "narrative": "The final master key. An encrypted drive that holds the ultimate secrets to escaping this facility."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "b38badd25c0e01c58ed09c659c00da2e7d189c1bb7e7fed7e303e7e8104639f5"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the biometric safe. It requires input from the secondary combiner to unlock its contents."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_4a00686609a7bbfa"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A synchronized watch, ticking with absolute precision in this chaotic and decaying environment."
+    },
+    {
+      "id": "text_xor_hex",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "aabbccddeeff00112233445566778899"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "1930610fb2f101d4ace3d830fa7752b77d189c1bb7e7fed7e303e7e8104639f5"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "b38badd25c0e01c58ed09c659c00da2e7d189c1bb7e7fed7e303e7e8104639f5"
+        }
+      ],
+      "narrative": "This is the secondary combiner. It requires inputs from both the primary combiner and the main console."
+    },
+    {
+      "id": "text_xor_hex_0044",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "6d494fb2934106b82390d3fe569d9938655dd7d88b31ac939e43200e01fd8c36"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "74792ebd21b0076c8f730bceaceacb8f18454bc33cd652447d40c7e611bbb5c3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "1930610fb2f101d4ace3d830fa7752b77d189c1bb7e7fed7e303e7e8104639f5"
+        }
+      ],
+      "narrative": "This is the primary combiner. It requires inputs from both the gamma authenticator and the beta authenticator."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "aabbccddeeff00112233445566778899"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "mIOA\u0006#V8e]؋1C \u000e\u00016"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "74792ebd21b0076c8f730bceaceacb8f18454bc33cd652447d40c7e611bbb5c3"
+        }
+      ],
+      "narrative": "This is the gamma authenticator. It requires inputs from both the text decoder and the main console."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "6d494fb2934106b82390d3fe569d9938655dd7d88b31ac939e43200e01fd8c36"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "mIOA\u0006#V8e]؋1C \u000e\u00016"
+        }
+      ],
+      "narrative": "This is the text decoder. It requires input from the beta authenticator to translate the raw signals."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "mIOA\u0006#V8e]؋1C \u000e\u00016"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_4a00686609a7bbfa"
+        }
+      ],
+      "narrative": "This is the fabricator unit. It requires input from the text decoder to construct physical objects."
+    },
+    {
+      "id": "hmac_sha256_a9db",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "b41e07630adfcfee76212a105b44a7078035092ea859a3e823380a40ea1cd058"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "6d494fb2934106b82390d3fe569d9938655dd7d88b31ac939e43200e01fd8c36"
+        }
+      ],
+      "narrative": "This is the beta authenticator. It requires inputs from both the alpha authenticator and the validation scanner."
+    },
+    {
+      "id": "hmac_sha256_4e69",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "68934a3e9455fa72420237eb05902327"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Partial computation completed."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "b41e07630adfcfee76212a105b44a7078035092ea859a3e823380a40ea1cd058"
+        }
+      ],
+      "narrative": "This is the alpha authenticator. It requires inputs from both the digest generator and the main console."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "2541881542683088154268"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "476289"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Partial computation completed."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "aabbccddeeff00112233445566778899"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Partial computation completed.",
+          "hex_result": "aabbccddeeff00112233445566778899"
+        }
+      },
+      "narrative": "This is the main console. It requires inputs from both the multiplier array and the inverse module to activate."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "68934a3e9455fa72420237eb05902327"
+        }
+      ],
+      "narrative": "This is the digest generator. It requires input from the validation scanner to process the sequence."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "3"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "847293847561029384756"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "2541881542683088154268"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "847293847561029384756"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the multiplier array. It requires input from the divisor processor to handle massive calculations."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "476289"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "3847562938475610293847"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "3847562938475610293847"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the divisor processor. It requires input from the inverse module to function properly."
+    },
+    {
+      "id": "item_16_9adb",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A broken chronometer with a shattered screen. Its hands are permanently frozen in time."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "Partial computation completed."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is the validation scanner. It requires input from the main console to verify the credentials."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "10293847562039485761"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "476289"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "10293847562039485761",
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the inverse module. A sleek arithmetic subsystem interface used for cryptography."
+    },
+    {
+      "id": "item_16_4ced",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A rusted datapad left behind by a previous researcher. It looks completely dead and worn out."
+    },
+    {
+      "id": "terminal_2_3dc7",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "93847562019283746501"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "79929"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Secondary partial computation completed."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "112233445566778899aabbccddeeff00"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "93847562019283746501"
+        },
+        "outputs": {
+          "text_result": "Secondary partial computation completed.",
+          "hex_result": "112233445566778899aabbccddeeff00"
+        }
+      },
+      "narrative": "This is the backup console. It requires input from the modular exp station to proceed with the bypass."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "16"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "58392048572619384756"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999979"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "79929"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "16",
+          "exp": "58392048572619384756",
+          "mod": "999979"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the modular exp station. An advanced computation rig humming with raw processing power."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_2",
+      "target_id": "item_13",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "text_xor_hex_0044",
+      "target_id": "text_xor_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_b"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "text_xor_hex_0044",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_b"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "hmac_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "hmac_sha256_a9db",
+      "target_id": "text_xor_hex_0044",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_a"
+    },
+    {
+      "source_id": "hmac_sha256_4e69",
+      "target_id": "hmac_sha256_a9db",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_key"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "hmac_sha256",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex_key"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "text_xor_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex_a"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "hmac_sha256_4e69",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_key"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_16_9adb",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "hmac_sha256_a9db",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "hmac_sha256_a9db",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "luhn_check",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "hash_md5",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_16_4ced",
+      "target_id": "hex_decode",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "number"
+    },
+    {
+      "source_id": "terminal_2_3dc7",
+      "target_id": "item_16_9adb",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "hmac_sha256_4e69",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "text"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_2_3dc7",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "num2"
+    }
+  ]
+}

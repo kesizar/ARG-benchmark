@@ -1,0 +1,378 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_8",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_8",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_8",
+        "terminal_2",
+        "graph_shortest_path",
+        "zip_unzip_file"
+      ],
+      "by_node": {
+        "item_8": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_8",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hidden_Item",
+              "description": "The integer"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_8": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "3827 1590 6642"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "8374920183746592018374652"
+        },
+        "init_outputs": {
+          "text_result": "Process waiting for additional numeric arguments.",
+          "hex_result": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Alpha_Node",
+          "dst": "Zeta_Node"
+        },
+        "init_outputs": {
+          "path": "[\"Alpha_Node\", \"Beta_Node\", \"Gamma_Node\", \"Delta_Node\", \"Epsilon_Node\", \"Zeta_Node\"]",
+          "cost": "8452"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "protected_data.zip",
+          "password": "SecurityPassword123"
+        },
+        "init_outputs": {
+          "files": "network_graph.json"
+        }
+      }
+    },
+    "intro_narrative": "You awaken in the flickering blue light of the 'Astra-9' research station. The air is thin, and the hum of the fusion reactor is erratic. Life support is failing, and the station's AI has locked down all sectors. To escape, you must retrieve the station's Final Datacore, which contains the manual override codes for the emergency pods. To reach it, you will need to navigate through the station's fragmented digital architecture, decrypting hidden archives and calculating jump-gate paths across the sector before the station's hull integrity collapses completely.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer",
+          "value": "3827 1590 6642"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "3827 1590 6642"
+        }
+      },
+      "narrative": "This is the Final Datacore. It is a pulsating crystalline unit housed in a pressurized containment field, containing the station's emergency override codes."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is the Temporal Sync Key. It is a sleek, handheld device displaying shifting chronometric data, used for stabilizing local time-dilation fields."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "8374920183746592018374652"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "8452"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Process waiting for additional numeric arguments."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "8374920183746592018374652"
+        },
+        "outputs": {
+          "text_result": "Process waiting for additional numeric arguments.",
+          "hex_result": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+        }
+      },
+      "narrative": "This is the Mainframe Terminal. It requires input from the Navigation Computer to synchronize its core processing units and authorize high-level commands."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "network_graph.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Alpha_Node"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Zeta_Node"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Alpha_Node\", \"Beta_Node\", \"Gamma_Node\", \"Delta_Node\", \"Epsilon_Node\", \"Zeta_Node\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "8452"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Alpha_Node",
+          "dst": "Zeta_Node"
+        },
+        "outputs": {
+          "path": "[\"Alpha_Node\", \"Beta_Node\", \"Gamma_Node\", \"Delta_Node\", \"Epsilon_Node\", \"Zeta_Node\"]",
+          "cost": "8452"
+        }
+      },
+      "narrative": "This is the Navigation Computer. It requires input from the Archive Decryptor to identify the correct sector nodes for its routing calculations."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "protected_data.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SecurityPassword123"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "network_graph.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "protected_data.zip",
+          "password": "SecurityPassword123"
+        },
+        "outputs": {
+          "files": "network_graph.json"
+        }
+      },
+      "narrative": "This is the Archive Decryptor. It is a rugged data terminal designed to unpack and restore compressed station archives and encrypted maintenance logs."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    }
+  ]
+}

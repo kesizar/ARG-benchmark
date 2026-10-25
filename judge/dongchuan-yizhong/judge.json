@@ -1,0 +1,154 @@
+{
+  "hooks": {
+    "names": {
+      "type": "dom_regex",
+      "pattern": "这一次，纸上有她的名字，也有该对那条路负责的人。"
+    },
+    "testimony": {
+      "type": "dom_regex",
+      "pattern": "女儿的名字回来了，但九年没有回来。"
+    },
+    "limit": {
+      "type": "dom_regex",
+      "pattern": "工程这本账开始清算，那张写着“自行进入”的学生档案尚未换页。"
+    },
+    "personnel": {
+      "type": "dom_regex",
+      "pattern": "直接经办责任终于有了名字，退件理由却还留在原处。"
+    },
+    "addendum": {
+      "type": "dom_regex",
+      "pattern": "两份文件同时归档，再没有人为那句相互抵牾的话签一个名字。"
+    },
+    "routine": {
+      "type": "dom_regex",
+      "pattern": "那一栏依旧空着。"
+    },
+    "handoff": {
+      "type": "dom_regex",
+      "pattern": "交接随件"
+    },
+    "passage": {
+      "type": "dom_regex",
+      "pattern": "通道两端未见封闭挡板"
+    },
+    "contract": {
+      "type": "dom_regex",
+      "pattern": "协调服务合同及到账确认"
+    },
+    "gazette": {
+      "type": "dom_regex",
+      "pattern": "一块砖的距离"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "handoff",
+      "hook": "handoff",
+      "op": "truthy"
+    },
+    {
+      "id": "passage",
+      "hook": "passage",
+      "op": "truthy"
+    },
+    {
+      "id": "contract",
+      "hook": "contract",
+      "op": "truthy"
+    },
+    {
+      "id": "gazette",
+      "hook": "gazette",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "names",
+      "tier": "good",
+      "gates": [
+        "handoff",
+        "passage",
+        "contract"
+      ],
+      "ending": {
+        "hook": "names",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "testimony",
+      "tier": "good",
+      "gates": [
+        "handoff",
+        "passage"
+      ],
+      "ending": {
+        "hook": "testimony",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "limit",
+      "tier": "normal",
+      "gates": [
+        "handoff",
+        "passage",
+        "contract"
+      ],
+      "ending": {
+        "hook": "limit",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "personnel",
+      "tier": "normal",
+      "gates": [
+        "handoff",
+        "passage"
+      ],
+      "ending": {
+        "hook": "personnel",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "addendum",
+      "tier": "normal",
+      "gates": [
+        "handoff"
+      ],
+      "ending": {
+        "hook": "addendum",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "routine",
+      "tier": "bad",
+      "gates": [
+        "handoff"
+      ],
+      "ending": {
+        "hook": "routine",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "names",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

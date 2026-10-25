@@ -1,0 +1,197 @@
+{
+  "hooks": {
+    "break": {
+      "type": "dom_regex",
+      "pattern": "你逃开继续同化，却无法抹除已经发生的复制。"
+    },
+    "sync": {
+      "type": "dom_regex",
+      "pattern": "你成为被完整收容的样本。"
+    },
+    "t01": {
+      "type": "dom_regex",
+      "pattern": "第一页作为官方活动宣传页面，是整套亲"
+    },
+    "t02": {
+      "type": "dom_regex",
+      "pattern": "第二页整页近乎空白，只有反复催促翻页"
+    },
+    "t03": {
+      "type": "dom_regex",
+      "pattern": "第三页揭露采集范围已经越过你主动输出"
+    },
+    "t04": {
+      "type": "dom_regex",
+      "pattern": "锚点会绑定当时时间、身体数据，同时缓"
+    },
+    "t05": {
+      "type": "dom_regex",
+      "pattern": "当你反复回想往事，传感器捕捉脑电与躯"
+    },
+    "t06": {
+      "type": "dom_regex",
+      "pattern": "系统过滤掉尖锐、叛逆、脆弱、不愿示人"
+    },
+    "t07": {
+      "type": "dom_regex",
+      "pattern": "当设备持续输出一套和你真实感受相悖的"
+    },
+    "t08": {
+      "type": "dom_regex",
+      "pattern": "很多用户误以为卸载手机APP就可以终"
+    },
+    "t09": {
+      "type": "dom_regex",
+      "pattern": "大量佩戴TJQ‑pleh腕带的个体，"
+    },
+    "t10": {
+      "type": "dom_regex",
+      "pattern": "它学习你的习惯，预判你的选择，模拟你"
+    },
+    "t11": {
+      "type": "dom_regex",
+      "pattern": "监控、复制、人格修改全部包裹亲情关爱"
+    },
+    "t12": {
+      "type": "dom_regex",
+      "pattern": "系统不会直接制造剧痛或者恐吓，而是启"
+    },
+    "t13": {
+      "type": "dom_regex",
+      "pattern": "现实肉体依旧正常存活生活，外表看不出"
+    },
+    "t14": {
+      "type": "dom_regex",
+      "pattern": "个体投影不再独立存在，拆解打散，汇入"
+    },
+    "t15": {
+      "type": "dom_regex",
+      "pattern": "TJQ‑pleh腕带“亲情守护活动”"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "t01",
+      "hook": "t01",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t02",
+      "hook": "t02",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t03",
+      "hook": "t03",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t04",
+      "hook": "t04",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t05",
+      "hook": "t05",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t06",
+      "hook": "t06",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t07",
+      "hook": "t07",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t08",
+      "hook": "t08",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t09",
+      "hook": "t09",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t10",
+      "hook": "t10",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t11",
+      "hook": "t11",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t12",
+      "hook": "t12",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t13",
+      "hook": "t13",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t14",
+      "hook": "t14",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "t15",
+      "hook": "t15",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "break",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "break",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "sync",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "sync",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "break",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,0 +1,738 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 14,
+    "win_node_id": "item_4",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_4",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_4",
+        "terminal_2",
+        "calc_gcd",
+        "checksum_crc32_66ce",
+        "text_xor_hex",
+        "hmac_sha256"
+      ],
+      "by_node": {
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32_66ce": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "text_xor_hex": {
+          "node_name": "Hex XOR",
+          "node_type": "Tool",
+          "template_id": "text_xor_hex",
+          "init_inputs": {
+            "hex_a": {
+              "type": "Hex_String",
+              "description": "Hex A"
+            },
+            "hex_b": {
+              "type": "Hex_String",
+              "description": "Hex B"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hmac_sha256": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "hex_key": {
+              "type": "Hex_String",
+              "description": "Hex key"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text message"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "secure_archive_data.zip"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Terminal output buffer initialized successfully.",
+          "hex_result": "48656c6c6f20576f726c6421"
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "92837465102938475620192837465"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32_66ce": {
+        "init_inputs": {
+          "hex": "aabbccddeeff00112233445566778899"
+        },
+        "init_outputs": {}
+      },
+      "text_xor_hex": {
+        "init_inputs": {
+          "hex_a": "1234567890abcdef1234567890abcdef",
+          "hex_b": "fedcba0987654321fedcba0987654321"
+        },
+        "init_outputs": {}
+      },
+      "hmac_sha256": {
+        "init_inputs": {
+          "hex_key": "0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20",
+          "text": "Authenticate this message using SHA256 HMAC"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken on the drifting orbital station Aegis-7. The life support systems are failing, and the central AI has initiated a total lockdown due to an anomalous system breach. Your only chance of survival is to retrieve the master override codes hidden deep within the station's main databanks. The facility is littered with cryptographic modules, corrupted memory shards, and isolated terminals. You must trace the correct data flows, repair the core systems, and extract the encrypted archive before the oxygen runs out.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "secure_archive_data.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "secure_archive_data.zip"
+        }
+      },
+      "narrative": "The Mainframe Core Data archive. A highly secure digital packet containing the station's master escape protocols."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Data Fragment Alpha. A glowing memory shard with corrupted headers."
+    },
+    {
+      "id": "item_8_2bd0",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Data Fragment Beta. A secondary memory shard detached from the mainframe."
+    },
+    {
+      "id": "item_8_84f2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Data Fragment Gamma. A heavily degraded memory stick found near the server racks."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "Chrono-Log Drive. A portable drive recording internal time-space anomalies."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": 2052146080
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal output buffer initialized successfully."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "48656c6c6f20576f726c6421"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Terminal output buffer initialized successfully.",
+          "hex_result": "48656c6c6f20576f726c6421"
+        }
+      },
+      "narrative": "The Main AI Terminal. It requires inputs from both the Quantum Harmonizer and the Basic Integrity Scanner to initiate the reboot sequence."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "92837465102938475620192837465"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": 1859518079
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "92837465102938475620192837465"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Quantum Harmonizer. It processes data from the Signal Validator to align internal computational frequencies."
+    },
+    {
+      "id": "item_8_0142",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Security Fragment. An isolated piece of security code trapped in a localized loop."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "063aebe51ea08e9d2917a2f22d4c952e7328958a03778c32e7bd90cf72beab26"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "6ed5fe7f"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1859518079
+        }
+      ],
+      "narrative": "The Signal Validator. It requires input from the Authentication Matrix to verify the incoming datastream."
+    },
+    {
+      "id": "item_16_21a9",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "Temporal Bypass Chip. A specialized circuit designed to trick internal station clocks."
+    },
+    {
+      "id": "checksum_crc32_66ce",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "aabbccddeeff00112233445566778899"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "7a5143a0"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2052146080
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "aabbccddeeff00112233445566778899"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Basic Integrity Scanner. A standard diagnostic tool for checking file corruption across localized systems."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "ece8ec7117ce8eceece8ec7117ce8ece"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "The Biometric Vault. A heavily armored storage unit. It requires input from the Cryptographic Combiner to bypass its electronic lock."
+    },
+    {
+      "id": "item_8_9bd5",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Encrypted Key Fragment. A small, physical digital token that hums with faint energy."
+    },
+    {
+      "id": "text_xor_hex",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "1234567890abcdef1234567890abcdef"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "fedcba0987654321fedcba0987654321"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "ece8ec7117ce8eceece8ec7117ce8ece"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_a": "1234567890abcdef1234567890abcdef",
+          "hex_b": "fedcba0987654321fedcba0987654321"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Cryptographic Combiner. A dual-input cryptographic processor used for merging isolated data streams."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Authenticate this message using SHA256 HMAC"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "063aebe51ea08e9d2917a2f22d4c952e7328958a03778c32e7bd90cf72beab26"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_key": "0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20",
+          "text": "Authenticate this message using SHA256 HMAC"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Authentication Matrix. A holographic interface designed to generate secure digital signatures."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_2bd0",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_84f2",
+      "target_id": "item_8_2bd0",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_84f2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "item_8_0142",
+      "target_id": "terminal_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "item_16_21a9",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "checksum_crc32_66ce",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16_21a9",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_9bd5",
+      "target_id": "item_8_0142",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    }
+  ]
+}

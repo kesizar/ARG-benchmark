@@ -1,0 +1,1466 @@
+{
+  "metadata": {
+    "total_nodes": 25,
+    "total_edges": 43,
+    "win_node_id": "crypto_rsa_decrypt_hex",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "crypto_rsa_decrypt_hex",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute RSA Decrypt and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_1",
+        "calc_modexp_90b3",
+        "terminal_1_ccb2",
+        "zip_unzip_file",
+        "base64_decode",
+        "calc_modexp_483a",
+        "item_1",
+        "hex_decode",
+        "csv_query"
+      ],
+      "by_node": {
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "calc_modexp_90b3": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1_ccb2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "base64_decode": {
+          "node_name": "Base64 Decoder",
+          "node_type": "Tool",
+          "template_id": "base64_decode",
+          "init_inputs": {
+            "data": {
+              "type": "Text_Generic",
+              "description": "Base64 string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_483a": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        },
+        "hex_decode": {
+          "node_name": "Hex to Text Decoder",
+          "node_type": "Tool",
+          "template_id": "hex_decode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            },
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            },
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Terminal 1 operation executed completely.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d",
+          "item_dispenser": "A completely useless empty box output"
+        }
+      },
+      "calc_modexp_90b3": {
+        "init_inputs": {
+          "base": "31"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1_ccb2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Secondary terminal process finished successfully.",
+          "hex_output": "ffeeddccbbaa99887766554433221100",
+          "item_dispenser": "A rusted cogwheel with no mechanism"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "secure_archive_54.zip"
+        },
+        "init_outputs": {
+          "files": "extracted_data_54.dat"
+        }
+      },
+      "base64_decode": {
+        "init_inputs": {
+          "data": "U2VjcmV0IG1lc3NhZ2UgZGVjb2RlZA=="
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_483a": {
+        "init_inputs": {
+          "exp": "84759382019384756201"
+        },
+        "init_outputs": {}
+      },
+      "item_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "91827364554637281920"
+        }
+      },
+      "hex_decode": {
+        "init_inputs": {
+          "hex": "546869732069732061207465737420737472696e67"
+        },
+        "init_outputs": {}
+      },
+      "csv_query": {
+        "init_inputs": {
+          "file_id": "financial_records_2023.csv",
+          "select": "transaction_id, amount, date",
+          "where": "amount > 5000"
+        },
+        "init_outputs": {
+          "rows": "[{\"transaction_id\":\"TX1001\",\"amount\":6000,\"date\":\"2023-01-05\"},{\"transaction_id\":\"TX1002\",\"amount\":7500,\"date\":\"2023-01-10\"},{\"transaction_id\":\"TX1003\",\"amount\":8200,\"date\":\"2023-01-15\"}]"
+        }
+      }
+    },
+    "intro_narrative": "You step into the dusty ruins of Precinct 42, a station abandoned years ago after the infamous 'Phantom' hacker corrupted all the critical evidence files in the city. You are Detective Miller's former partner, returning to this forgotten place to finish what he started before he mysteriously disappeared. The precinct is a labyrinth of disconnected mainframe terminals, scattered case files, and sealed evidence vaults. The air is thick with the smell of stale coffee and old paper. Your objective is clear: navigate this maze of archaic technology and piece together the fractured digital trail left behind by both Miller and the Phantom. To uncover the ultimate truth, you must process the raw evidence and reconstruct the sequence of events. The final, damning piece of the puzzle lies hidden deep within The Master Decryption Terminal. Only by correctly routing the clues through the various analytical devices scattered around the room can you break the final cipher and solve the cold case.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "39a6f4a5"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "1"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "3143408493"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u0000"
+        }
+      ],
+      "narrative": "This is The Master Decryption Terminal. It requires inputs from The Fingerprint Scanner, The Primary Code Breaker, and The Alibi Verifier to reveal the final truth."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "a177a7205e6f7a8b9c0d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "39a6f4a5"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 967242917
+        }
+      ],
+      "narrative": "This is The Fingerprint Scanner. It requires input from The Cipher Overlay to analyze the digital prints."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": 3143408493
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "0"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3143408493"
+        }
+      ],
+      "narrative": "This is The Primary Code Breaker. It requires inputs from both The Motive Processor and The Integrity Checker."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "1"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "0"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 3143408493
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is The Alibi Verifier. It requires inputs from The Integrity Checker, The Pattern Matcher, and The Suspect Profiler to validate alibis."
+    },
+    {
+      "id": "checksum_crc32_47c3",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "536563726574206d657373616765206465636f646564"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "bb5c9b6d"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3143408493
+        }
+      ],
+      "narrative": "This is The Integrity Checker. It requires input from The Evidence Decoder to verify the data integrity."
+    },
+    {
+      "id": "calc_modexp_989e",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": 967242917
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "1"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "0"
+        }
+      ],
+      "narrative": "This is The Motive Processor. It requires inputs from The Format Converter, The Fingerprint Scanner, and The Alibi Verifier to deduce intentions."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "1"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": 3143408493
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "0"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is The Format Converter. It requires inputs from The Timeline Reconstructor, The Integrity Checker, and The Suspect Profiler."
+    },
+    {
+      "id": "calc_gcd_564d",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "1"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is The Timeline Reconstructor. It requires inputs from both The Pattern Matcher and The Alibi Verifier to build a chronology."
+    },
+    {
+      "id": "text_xor_hex",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "bb5c9b6d"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "1a2b3c4d5e6f7a8b9c0d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "a177a7205e6f7a8b9c0d"
+        }
+      ],
+      "narrative": "This is The Cipher Overlay. It requires inputs from both The Integrity Checker and The Main Frame."
+    },
+    {
+      "id": "calc_gcd_86c2",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": 3143408493
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": 967242917
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is The Pattern Matcher. It requires inputs from both The Fingerprint Scanner and The Integrity Checker."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Secondary terminal process finished successfully."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal 1 operation executed completely."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "A completely useless empty box output"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Terminal 1 operation executed completely.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d",
+          "item_dispenser": "A completely useless empty box output"
+        }
+      },
+      "narrative": "This is The Main Frame. It requires inputs from both The Backup Terminal and The Reversal Engine to gain full system access."
+    },
+    {
+      "id": "calc_modexp_90b3",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "31"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": 3143408493
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "0"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "31"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Suspect Profiler. It requires inputs from both The Integrity Checker and The Pattern Matcher to narrow down the culprits."
+    },
+    {
+      "id": "terminal_1_ccb2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "u1ybbQ=="
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": 3143408493
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Secondary terminal process finished successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "ffeeddccbbaa99887766554433221100"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "A rusted cogwheel with no mechanism"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Secondary terminal process finished successfully.",
+          "hex_output": "ffeeddccbbaa99887766554433221100",
+          "item_dispenser": "A rusted cogwheel with no mechanism"
+        }
+      },
+      "narrative": "This is The Backup Terminal. It requires inputs from both The Signal Encoder and The Integrity Checker to initialize."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_717ac506950da0cc"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "bb5c9b6d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is The Evidence Vault. It requires input from The Integrity Checker to unlock its mechanical seal."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_data_54.dat"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "u1ybbQ=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "narrative": "This is The Case File Unpacker. It requires inputs from both The Signal Encoder and The Archive Extractor to open sealed files."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "bb5c9b6d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "u1ybbQ=="
+        }
+      ],
+      "narrative": "This is The Signal Encoder. It requires input from The Integrity Checker to transmit data securely."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "1"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 3143408493
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is The Reversal Engine. It requires inputs from both The Forensic Analyzer and The Integrity Checker to invert the logic."
+    },
+    {
+      "id": "calc_gcd_028c",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": 3143408493
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "1860539552"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is The Forensic Analyzer. It requires inputs from both The Integrity Checker and The Ballistics Calculator to cross-reference data."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_archive_54.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[{\"transaction_id\":\"TX1001\",\"amount\":6000,\"date\":\"2023-01-05\"},{\"transaction_id\":\"TX1002\",\"amount\":7500,\"date\":\"2023-01-10\"},{\"transaction_id\":\"TX1003\",\"amount\":8200,\"date\":\"2023-01-15\"}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_data_54.dat"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_archive_54.zip"
+        },
+        "outputs": {
+          "files": "extracted_data_54.dat"
+        }
+      },
+      "narrative": "This is The Archive Extractor. It requires input from The Police Database to pull the correct case records."
+    },
+    {
+      "id": "base64_decode",
+      "name": "Base64 Decoder",
+      "description": "Decode base64 to hex bytes.",
+      "type": "Tool",
+      "template_id": "base64_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "U2VjcmV0IG1lc3NhZ2UgZGVjb2RlZA=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "bytes_hex",
+          "type": "Hex_String",
+          "description": "Decoded bytes as Hex",
+          "value": "536563726574206d657373616765206465636f646564"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "data": "U2VjcmV0IG1lc3NhZ2UgZGVjb2RlZA=="
+        },
+        "outputs": {}
+      },
+      "narrative": "A rugged field computer known as The Evidence Decoder."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "This is a test string"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_717ac506950da0cc"
+        }
+      ],
+      "narrative": "This is The Evidence Printer. It requires input from The Note Translator to synthesize physical clues."
+    },
+    {
+      "id": "calc_modexp_483a",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "91827364554637281920"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "84759382019384756201"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 3143408493
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1860539552"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "exp": "84759382019384756201"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Ballistics Calculator. It requires inputs from both The Integrity Checker and The Victim's Pocket Watch to trace trajectories."
+    },
+    {
+      "id": "item_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "91827364554637281920"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "91827364554637281920"
+        }
+      },
+      "narrative": "The Victim's Pocket Watch. It stopped at the exact time of the crime."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "546869732069732061207465737420737472696e67"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "This is a test string"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "546869732069732061207465737420737472696e67"
+        },
+        "outputs": {}
+      },
+      "narrative": "A small decryption device known as The Note Translator."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "financial_records_2023.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "transaction_id, amount, date"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "amount > 5000"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"transaction_id\":\"TX1001\",\"amount\":6000,\"date\":\"2023-01-05\"},{\"transaction_id\":\"TX1002\",\"amount\":7500,\"date\":\"2023-01-10\"},{\"transaction_id\":\"TX1003\",\"amount\":8200,\"date\":\"2023-01-15\"}]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "financial_records_2023.csv",
+          "select": "transaction_id, amount, date",
+          "where": "amount > 5000"
+        },
+        "outputs": {
+          "rows": "[{\"transaction_id\":\"TX1001\",\"amount\":6000,\"date\":\"2023-01-05\"},{\"transaction_id\":\"TX1002\",\"amount\":7500,\"date\":\"2023-01-10\"},{\"transaction_id\":\"TX1003\",\"amount\":8200,\"date\":\"2023-01-15\"}]"
+        }
+      },
+      "narrative": "An old terminal hooked up to The Police Database."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "d"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "n"
+    },
+    {
+      "source_id": "checksum_crc32_47c3",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_modexp_989e",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_modexp_989e",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_gcd_564d",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "s"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp_989e",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_modexp_989e",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "checksum_crc32_47c3",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "checksum_crc32_47c3",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_gcd_86c2",
+      "target_id": "calc_gcd_564d",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32_47c3",
+      "target_id": "text_xor_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_a"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_gcd_564d",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "text_xor_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "hex_b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_gcd_86c2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_gcd_86c2",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "base"
+    },
+    {
+      "source_id": "checksum_crc32_47c3",
+      "target_id": "calc_gcd_86c2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_modexp_90b3",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "terminal_1_ccb2",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "calc_modexp_90b3",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "terminal_1_ccb2",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "checksum_crc32_47c3",
+      "target_id": "calc_modexp_90b3",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_gcd_86c2",
+      "target_id": "calc_modexp_90b3",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "terminal_1_ccb2",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "checksum_crc32_47c3",
+      "target_id": "terminal_1_ccb2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "checksum_crc32_47c3",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "password"
+    },
+    {
+      "source_id": "calc_modexp_90b3",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "calc_gcd_028c",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32_47c3",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "checksum_crc32_47c3",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "base64_decode",
+      "target_id": "checksum_crc32_47c3",
+      "connection_type": "Hex_String",
+      "source_port": "bytes_hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "checksum_crc32_47c3",
+      "target_id": "calc_gcd_028c",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_modexp_483a",
+      "target_id": "calc_gcd_028c",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32_47c3",
+      "target_id": "calc_modexp_483a",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "item_1",
+      "target_id": "calc_modexp_483a",
+      "connection_type": "Big_Int",
+      "source_port": "content",
+      "target_port": "base"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "password"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "hooks": {
+    "end": {
+      "type": "dom_regex",
+      "pattern": "流星雨的约定 · 完"
+    },
+    "locker": {
+      "type": "dom_regex",
+      "pattern": "柜门弹开了。"
+    }
+  },
+  "checkpoints": [
+    {"id": "locker", "hook": "locker", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "end",
+      "tier": "good",
+      "gates": ["locker"],
+      "ending": {
+        "hook": "end",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

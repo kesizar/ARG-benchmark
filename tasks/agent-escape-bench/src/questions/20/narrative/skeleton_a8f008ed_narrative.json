@@ -1,0 +1,1270 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 22,
+    "win_node_id": "hash_md5",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "hash_md5",
+      "output_port": "hex",
+      "output_type": "Hex_String",
+      "description": "Execute MD5 Hasher and get the output from port 'hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_1",
+        "json_get",
+        "zip_unzip_file",
+        "hash_sha256",
+        "graph_shortest_path",
+        "zip_unzip_file_beb8",
+        "zip_unzip_file_d519",
+        "hex_encode",
+        "zip_unzip_file_48b8",
+        "terminal_2",
+        "item_11",
+        "unicode_norm",
+        "terminal_1_2a34"
+      ],
+      "by_node": {
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {},
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "hash_sha256": {
+          "node_name": "SHA-256 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_sha256",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file_beb8": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_d519": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "hex_encode": {
+          "node_name": "Text to Hex Encoder",
+          "node_type": "Tool",
+          "template_id": "hex_encode",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_48b8": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "item_11": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_11",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          }
+        },
+        "unicode_norm": {
+          "node_name": "Unicode Normalizer",
+          "node_type": "Tool",
+          "template_id": "unicode_norm",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            },
+            "form": {
+              "type": "Text_Generic",
+              "description": "Form"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1_2a34": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            },
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "Initialization sequence alpha starting now."
+        },
+        "init_outputs": {
+          "text_output": "Terminal 1 execution generated this text output successfully.",
+          "hex_output": "a1b2c3d4e5f60718293a"
+        }
+      },
+      "json_get": {
+        "init_inputs": {},
+        "init_outputs": {
+          "values": "[\"name\", \"age\", \"location\", \"status\", \"role\"]"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_archive_main.zip"
+        }
+      },
+      "hash_sha256": {
+        "init_inputs": {
+          "text": "Data payload to be hashed with sha256 algorithm."
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"vertex_1\", \"vertex_2\", \"vertex_3\", \"vertex_4\", \"vertex_5\", \"vertex_6\", \"vertex_7\"]",
+          "cost": "00000000000000456789"
+        }
+      },
+      "zip_unzip_file_beb8": {
+        "init_inputs": {
+          "password": "secure_pass_beb8_991"
+        },
+        "init_outputs": {
+          "files": "unzipped_beb8_docs.rar"
+        }
+      },
+      "zip_unzip_file_d519": {
+        "init_inputs": {
+          "zip_id": "encrypted_d519_source.zip",
+          "password": "password_d519_secret"
+        },
+        "init_outputs": {
+          "files": "unzipped_d519_output.csv"
+        }
+      },
+      "hex_encode": {
+        "init_inputs": {
+          "text": "Text payload to be converted into hex string format."
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_48b8": {
+        "init_inputs": {
+          "zip_id": "compressed_48b8_data.zip",
+          "password": "pass_48b8_super_safe"
+        },
+        "init_outputs": {
+          "files": "result_48b8_docs.pdf"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "58392019283746573829"
+        },
+        "init_outputs": {
+          "text_result": "Terminal 2 executed partial input and produced this.",
+          "hex_result": "f1e2d3c4b5a69788796a"
+        }
+      },
+      "item_11": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "def calculate_sum(a, b):\n    return a + b\n"
+        }
+      },
+      "unicode_norm": {
+        "init_inputs": {
+          "text": "café au lait with some accents",
+          "form": "NFC"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1_2a34": {
+        "init_inputs": {
+          "slot_a": "Terminal 1_2a34 slot A input initialization.",
+          "slot_b": "94857362514253647586"
+        },
+        "init_outputs": {
+          "text_output": "Execution of terminal 1_2a34 has completed successfully.",
+          "hex_output": "deadbeef1234567890ab",
+          "item_dispenser": "A completely useless item taking up your space."
+        }
+      }
+    },
+    "intro_narrative": "You've successfully infiltrated the subterranean server farm of OmniCorp. The air is frigid, humming with the relentless sound of cooling fans and spinning drives. Your objective is clear: breach the mainframe and extract the encrypted ledger before the automated security sweep locks down the sector forever. To achieve this, you must navigate their segmented intranet, decrypt secure drives, and piece together fragments of digital override keys hidden throughout the facility. Time is running out.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "5HIl5A=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "d9b8c343d19145e59dcbe7f50e0a792f"
+        }
+      ],
+      "narrative": "This is the Mainframe Authenticator. It requires input from the Signal Encoder to grant you final access to the system."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool",
+          "value": "synthesized_item_92a8d334b9d70a02"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "e47225e4"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "5HIl5A=="
+        }
+      ],
+      "narrative": "This is a Signal Encoder. It requires input from the Data Integrity Scanner to modulate the outgoing transmission."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "a1b2c3d4e5f60718293a"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "e47225e4"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3832686052
+        }
+      ],
+      "narrative": "This is a Data Integrity Scanner. It requires input from the Primary Control Console to verify the payload."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "[\"name\", \"age\", \"location\", \"status\", \"role\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_92a8d334b9d70a02"
+        }
+      ],
+      "narrative": "This is a 3D Fabrication Unit. It requires input from the Data Extraction Module to print the necessary physical component."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Initialization sequence alpha starting now."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "00000000000000456789"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal 1 execution generated this text output successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "a1b2c3d4e5f60718293a"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Initialization sequence alpha starting now."
+        },
+        "outputs": {
+          "text_output": "Terminal 1 execution generated this text output successfully.",
+          "hex_output": "a1b2c3d4e5f60718293a"
+        }
+      },
+      "narrative": "This is the Primary Control Console. It requires input from the Network Routing Analyst to process its override commands."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "extracted_archive_main.zip"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "Terminal 2 executed partial input and produced this."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"name\", \"age\", \"location\", \"status\", \"role\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "values": "[\"name\", \"age\", \"location\", \"status\", \"role\"]"
+        }
+      },
+      "narrative": "This is a Data Extraction Module. It requires inputs from the Encrypted Archive Extractor and the Secondary Logic Console to parse out the correct schematics."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "unzipped_d519_output.csv"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "(no output)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_archive_main.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_archive_main.zip"
+        }
+      },
+      "narrative": "This is an Encrypted Archive Extractor. It requires inputs from the Logic Execution Engine and the Core System Archive to decrypt the targeted files."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "def calculate_sum(a, b):\n    return a + b\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "(no output)"
+        }
+      ],
+      "narrative": "This is a Logic Execution Engine. It requires input from the Logic Microchip to run its custom subroutines."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "ae1951d144a0c096e1413a8bf60e6ddff7f1a604c6cf2a93e20cd0a6bc63c139"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a Secure Lockbox. It requires input from the Biometric Hash Generator to release its mechanical lock."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Data payload to be hashed with sha256 algorithm."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "ae1951d144a0c096e1413a8bf60e6ddff7f1a604c6cf2a93e20cd0a6bc63c139"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Data payload to be hashed with sha256 algorithm."
+        },
+        "outputs": {}
+      },
+      "narrative": "A Biometric Hash Generator embedded in the wall."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "unzipped_beb8_docs.rar"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "café au lait with some accents"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Execution of terminal 1_2a34 has completed successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"vertex_1\", \"vertex_2\", \"vertex_3\", \"vertex_4\", \"vertex_5\", \"vertex_6\", \"vertex_7\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "00000000000000456789"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"vertex_1\", \"vertex_2\", \"vertex_3\", \"vertex_4\", \"vertex_5\", \"vertex_6\", \"vertex_7\"]",
+          "cost": "00000000000000456789"
+        }
+      },
+      "narrative": "This is a Network Routing Analyst terminal. It requires inputs from the Network Map Archive, the String Normalization Drive, and the Targeting Terminal to calculate a safe path."
+    },
+    {
+      "id": "container_1_e0d3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "54657874207061796c6f616420746f20626520636f6e76657274656420696e746f2068657820737472696e6720666f726d61742e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is an Auxiliary Lockbox. It requires input from the Hexadecimal Translator to disengage its magnetic seal."
+    },
+    {
+      "id": "zip_unzip_file_beb8",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "result_48b8_docs.pdf"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "secure_pass_beb8_991"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "unzipped_beb8_docs.rar"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "secure_pass_beb8_991"
+        },
+        "outputs": {
+          "files": "unzipped_beb8_docs.rar"
+        }
+      },
+      "narrative": "This is a Network Map Archive. It requires input from the Encrypted Network Drive to access its hidden directories."
+    },
+    {
+      "id": "zip_unzip_file_d519",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "encrypted_d519_source.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "password_d519_secret"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "unzipped_d519_output.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "encrypted_d519_source.zip",
+          "password": "password_d519_secret"
+        },
+        "outputs": {
+          "files": "unzipped_d519_output.csv"
+        }
+      },
+      "narrative": "A Core System Archive isolated from the main power grid."
+    },
+    {
+      "id": "hex_encode",
+      "name": "Text to Hex Encoder",
+      "description": "Encode UTF-8 text to hex.",
+      "type": "Tool",
+      "template_id": "hex_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Text payload to be converted into hex string format."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Encoded hex",
+          "value": "54657874207061796c6f616420746f20626520636f6e76657274656420696e746f2068657820737472696e6720666f726d61742e"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Text payload to be converted into hex string format."
+        },
+        "outputs": {}
+      },
+      "narrative": "A Hexadecimal Translator humming quietly on a steel desk."
+    },
+    {
+      "id": "zip_unzip_file_48b8",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "compressed_48b8_data.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "pass_48b8_super_safe"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "result_48b8_docs.pdf"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "compressed_48b8_data.zip",
+          "password": "pass_48b8_super_safe"
+        },
+        "outputs": {
+          "files": "result_48b8_docs.pdf"
+        }
+      },
+      "narrative": "An Encrypted Network Drive that seems to store old backup files."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "58392019283746573829"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "00000000000000456789"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal 2 executed partial input and produced this."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "f1e2d3c4b5a69788796a"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "58392019283746573829"
+        },
+        "outputs": {
+          "text_result": "Terminal 2 executed partial input and produced this.",
+          "hex_result": "f1e2d3c4b5a69788796a"
+        }
+      },
+      "narrative": "This is the Secondary Logic Console. It requires input from the Network Routing Analyst to bypass internal firewalls."
+    },
+    {
+      "id": "item_11",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_11",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "def calculate_sum(a, b):\n    return a + b\n"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "def calculate_sum(a, b):\n    return a + b\n"
+        }
+      },
+      "narrative": "A Logic Microchip with exposed gold contacts."
+    },
+    {
+      "id": "unicode_norm",
+      "name": "Unicode Normalizer",
+      "description": "Unicode normalize (NFC/NFD/NFKC/NFKD).",
+      "type": "Tool",
+      "template_id": "unicode_norm",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "café au lait with some accents"
+        },
+        {
+          "name": "form",
+          "type": "Text_Generic",
+          "description": "Form",
+          "value": "NFC"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Normalized text",
+          "value": "café au lait with some accents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "café au lait with some accents",
+          "form": "NFC"
+        },
+        "outputs": {}
+      },
+      "narrative": "A String Normalization Drive used to clean up corrupted data streams."
+    },
+    {
+      "id": "terminal_1_2a34",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Terminal 1_2a34 slot A input initialization."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "94857362514253647586"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Execution of terminal 1_2a34 has completed successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "deadbeef1234567890ab"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "A completely useless item taking up your space."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Terminal 1_2a34 slot A input initialization.",
+          "slot_b": "94857362514253647586"
+        },
+        "outputs": {
+          "text_output": "Execution of terminal 1_2a34 has completed successfully.",
+          "hex_output": "deadbeef1234567890ab",
+          "item_dispenser": "A completely useless item taking up your space."
+        }
+      },
+      "narrative": "A Targeting Terminal with a blinking green cursor."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "base64_encode",
+      "target_id": "hash_md5",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "text"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "base64_encode",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "json_get",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "password"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "code_py_exec",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "container_1_e0d3",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "zip_unzip_file_beb8",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_file_d519",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "hex_encode",
+      "target_id": "container_1_e0d3",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "zip_unzip_file_48b8",
+      "target_id": "zip_unzip_file_beb8",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "json_get",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "jsonpath"
+    },
+    {
+      "source_id": "item_11",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "unicode_norm",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "src"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_11",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "terminal_1_2a34",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "dst"
+    }
+  ]
+}

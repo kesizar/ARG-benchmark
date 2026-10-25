@@ -1,0 +1,963 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 18,
+    "win_node_id": "item_12",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_12",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_12",
+        "terminal_2",
+        "calc_modexp",
+        "calc_inv_mod",
+        "calc_inv_mod_cacc",
+        "calc_modexp_b336",
+        "calc_inv_mod_6328",
+        "terminal_2_6698",
+        "container_1",
+        "item_1",
+        "item_3"
+      ],
+      "by_node": {
+        "item_12": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_12",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String",
+              "description": "The hex code"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod_cacc": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_b336": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod_6328": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2_6698": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        },
+        "item_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_3",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String",
+              "description": "The hex code"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_12": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "4a7b9c2d1e8f0a3b"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Partial execution pending inputs.",
+          "hex_result": "00000000deadbeef"
+        }
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "17"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "982374651029384756102"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod_cacc": {
+        "init_inputs": {
+          "mod": "65537"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_b336": {
+        "init_inputs": {
+          "base": "23"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod_6328": {
+        "init_inputs": {
+          "mod": "10007"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2_6698": {
+        "init_inputs": {
+          "num1": "192837465564738291023",
+          "num2": "384756291029384756123"
+        },
+        "init_outputs": {
+          "text_result": "Calculation pending.",
+          "hex_result": "aabbccddeeff0011"
+        }
+      },
+      "container_1": {
+        "init_inputs": {
+          "fingerprint_input": "f1a2b3c4d5e6f708"
+        },
+        "init_outputs": {}
+      },
+      "item_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "56473829101928374655"
+        }
+      },
+      "item_3": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "11223344556677889900aabb"
+        }
+      }
+    },
+    "intro_narrative": "You are an apprentice wizard trapped in the forgotten Spire of Eldoria. The legendary Archmage's Crystal, a source of unimaginable power, is sealed within these ethereal walls. To claim it and earn the title of Sorcerer Supreme, you must navigate a complex web of arcane devices and enchanted relics left behind by the ancient masters. The spire is filled with intertwined magical currents. You must uncover the secrets of the artifacts, discover how their powers feed into one another, and master the flow of magical energy to break the final seal before the spire fades into the astral plane forever.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "item_12",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_12",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String",
+          "description": "The hex code",
+          "value": "4a7b9c2d1e8f0a3b"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "4a7b9c2d1e8f0a3b"
+        }
+      },
+      "narrative": "This is The Archmage's Crystal. A radiant gemstone pulsing with immense magical energy. Capturing its inner light is your ultimate goal."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "707297588831208709373"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": 2300213316
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Partial execution pending inputs."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "00000000deadbeef"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Partial execution pending inputs.",
+          "hex_result": "00000000deadbeef"
+        }
+      },
+      "narrative": "This is The Astral Observatory. It requires inputs from both The Aetheric Crucible and The Spirit Scaler to align the celestial bodies."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "17"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "3473"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "982374651029384756102"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "707297588831208709373"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "17"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Aetheric Crucible. It requires inputs from both The Moonstone Reverser and The Sunflare Forge to channel its potent magic."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "982374651029384756102"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "6632"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "982374651029384756102"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "982374651029384756102"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Moonstone Reverser. It requires input from The Starlight Weaver to reflect the magical currents."
+    },
+    {
+      "id": "calc_modexp_db29",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "1487"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": 2300213316
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "6632"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "3473"
+        }
+      ],
+      "narrative": "This is The Sunflare Forge. It requires inputs from The Starlight Weaver, The Void Catalyst, and The Spirit Scaler to ignite the sacred flames."
+    },
+    {
+      "id": "calc_inv_mod_cacc",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "8370"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "65537"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "6632"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "65537"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Starlight Weaver. It requires input from The Abyssal Mirror to untangle the constellations."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is The Chronomancer's Hourglass. An ancient hourglass where the shimmering sands flow upwards, defying the natural laws of time."
+    },
+    {
+      "id": "calc_modexp_b336",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "23"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "56473829101928374655"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "8370"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1487"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "23"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Void Catalyst. It requires inputs from both The Abyssal Mirror and The Flame Scroll to bridge the magical rift."
+    },
+    {
+      "id": "calc_inv_mod_6328",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": 2552293572
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "10007"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "8370"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "10007"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Abyssal Mirror. It requires input from The Enchanted Balancer to reveal the hidden depths of the dark waters."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "aabbccddeeff0011"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "891a7844"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2300213316
+        }
+      ],
+      "narrative": "This is The Spirit Scaler. It requires input from The Runestone Pedestal to weigh the gathered soul fragments."
+    },
+    {
+      "id": "terminal_2_6698",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "192837465564738291023"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "384756291029384756123"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Calculation pending."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "aabbccddeeff0011"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "192837465564738291023",
+          "num2": "384756291029384756123"
+        },
+        "outputs": {
+          "text_result": "Calculation pending.",
+          "hex_result": "aabbccddeeff0011"
+        }
+      },
+      "narrative": "This is The Runestone Pedestal. A carved stone pedestal covered in glowing, forgotten runes."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "f1a2b3c4d5e6f708"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "f1a2b3c4d5e6f708"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Dragonbone Chest. A heavy container crafted from the remains of an ancient drake, bound by mystical locks."
+    },
+    {
+      "id": "checksum_crc32_510a",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "11223344556677889900aabb"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "9820e8c4"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2552293572
+        }
+      ],
+      "narrative": "This is The Enchanted Balancer. It requires input from The Frost Tablet to harmonize the magical equilibrium."
+    },
+    {
+      "id": "item_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "56473829101928374655"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "56473829101928374655"
+        }
+      },
+      "narrative": "This is The Flame Scroll. A delicate parchment completely engulfed in a magical, unconsuming fire."
+    },
+    {
+      "id": "item_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String",
+          "description": "The hex code",
+          "value": "11223344556677889900aabb"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "11223344556677889900aabb"
+        }
+      },
+      "narrative": "This is The Frost Tablet. A heavy slab of ever-ice etched with glowing blue symbols."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_12",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_modexp_db29",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_inv_mod_cacc",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_inv_mod_cacc",
+      "target_id": "calc_modexp_db29",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_inv_mod_cacc",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_modexp_b336",
+      "target_id": "calc_modexp_db29",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_inv_mod_6328",
+      "target_id": "calc_modexp_b336",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp_db29",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "terminal_2_6698",
+      "target_id": "checksum_crc32",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "terminal_2_6698",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_inv_mod_6328",
+      "target_id": "calc_inv_mod_cacc",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "calc_inv_mod_6328",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "checksum_crc32_510a",
+      "target_id": "calc_inv_mod_6328",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_1",
+      "target_id": "calc_modexp_b336",
+      "connection_type": "Big_Int",
+      "source_port": "content",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "item_3",
+      "target_id": "checksum_crc32_510a",
+      "connection_type": "Hex_String",
+      "source_port": "content",
+      "target_port": "hex"
+    }
+  ]
+}

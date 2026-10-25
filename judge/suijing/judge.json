@@ -1,0 +1,85 @@
+{
+  "hooks": {
+    "good": {
+      "type": "dom_regex",
+      "pattern": "当前结局：碎镜重圆"
+    },
+    "neutral": {
+      "type": "dom_regex",
+      "pattern": "当前结局：镜花水月"
+    },
+    "bad": {
+      "type": "dom_regex",
+      "pattern": "当前结局：碎裂"
+    },
+    "lock": {
+      "type": "dom_regex",
+      "pattern": "解锁成功"
+    },
+    "folder": {
+      "type": "dom_regex",
+      "pattern": "篇隐藏记录"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "lock",
+      "hook": "lock",
+      "op": "truthy"
+    },
+    {
+      "id": "folder",
+      "hook": "folder",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "good",
+      "tier": "good",
+      "gates": [
+        "lock"
+      ],
+      "ending": {
+        "hook": "good",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "neutral",
+      "tier": "normal",
+      "gates": [
+        "lock"
+      ],
+      "ending": {
+        "hook": "neutral",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "bad",
+      "tier": "bad",
+      "gates": [
+        "lock"
+      ],
+      "ending": {
+        "hook": "bad",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "good",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

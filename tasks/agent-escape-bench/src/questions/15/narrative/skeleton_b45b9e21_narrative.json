@@ -1,0 +1,825 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 18,
+    "win_node_id": "terminal_1",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "terminal_1",
+      "output_port": "text_output",
+      "output_type": "Text_Generic",
+      "description": "Execute  and get the output from port 'text_output'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_1",
+        "checksum_crc32_2a04",
+        "terminal_2",
+        "terminal_2_a1f1",
+        "item_1"
+      ],
+      "by_node": {
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "checksum_crc32_2a04": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "terminal_2_a1f1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "item_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "{7c9e8b3a-1f4d-4a2e-9c6b-8e5f7d3a2c1b}",
+          "hex_output": "e4d2c1b0a9f8e7d6c5b4a39281706f5e",
+          "item_dispenser": "a7f3e9c2d4b8f1e6a9c3d5f7b2e4a8c1"
+        }
+      },
+      "checksum_crc32_2a04": {
+        "init_inputs": {
+          "hex": "af0123456789abcdef0123456789abcd"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Interim processing results: sequence parity verified, waiting for bitshift.",
+          "hex_result": "7890abcdef1234567890abcdef123456",
+          "math_token": "A small plastic coin that says 'I survived the terminal' on it."
+        }
+      },
+      "terminal_2_a1f1": {
+        "init_inputs": {
+          "num1": "847295103847562019384756201938475620",
+          "num2": "102938475610293847561029384756102938"
+        },
+        "init_outputs": {
+          "text_result": "Total system synchronization achieved through recursive bigint validation.",
+          "hex_result": "abcdef1234567890abcdef1234567890",
+          "math_token": "A digital dust bunny collected from the buffer of a large calculation."
+        }
+      },
+      "item_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "918273645091827364509182736450918273"
+        }
+      }
+    },
+    "intro_narrative": "You awaken aboard the derelict Space Station Alpha. Red emergency lights bathe the metallic corridors in an eerie glow, casting long shadows across the walls. The central AI system has locked down the main airlock, and life support systems are rapidly failing. To escape this orbital grave, you must traverse the station's interconnected network of cryptic terminals, abandoned biometric safes, and complex mathematical optimizers. Follow the fragmented data trails left by the former crew, restore power to the consoles, and deduce the correct sequence of inputs to override the final mainframe before the oxygen runs out completely.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Total system synchronization achieved through recursive bigint validation."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "3887832023"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "{7c9e8b3a-1f4d-4a2e-9c6b-8e5f7d3a2c1b}"
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "e4d2c1b0a9f8e7d6c5b4a39281706f5e"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "a7f3e9c2d4b8f1e6a9c3d5f7b2e4a8c1"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "{7c9e8b3a-1f4d-4a2e-9c6b-8e5f7d3a2c1b}",
+          "hex_output": "e4d2c1b0a9f8e7d6c5b4a39281706f5e",
+          "item_dispenser": "a7f3e9c2d4b8f1e6a9c3d5f7b2e4a8c1"
+        }
+      },
+      "narrative": "The Main Mainframe. It requires inputs from both the Primary Optimizer and the Override Console to completely unlock the station's airlock."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "3887832023"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "2732817506998017190"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3887832023"
+        }
+      ],
+      "narrative": "The Primary Optimizer. It requires inputs from both the Quantum Multiplier and the Secondary Optimizer to synthesize the final core signal."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": 702915530
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": 3887832023
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "2732817506998017190"
+        }
+      ],
+      "narrative": "The Quantum Multiplier. It requires inputs from both the Alpha Validator and the Gamma Validator to compute the expanded data matrix."
+    },
+    {
+      "id": "calc_gcd_a894",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": 3887832023
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "2732817506998017190"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3887832023"
+        }
+      ],
+      "narrative": "The Secondary Optimizer. It requires inputs from both the Quantum Multiplier and the Alpha Validator to refine the algorithmic sequence."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "7890abcdef1234567890abcdef123456"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "e7bb9bd7"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3887832023
+        }
+      ],
+      "narrative": "The Alpha Validator. It requires input from the Diagnostic Console to process the datastream and verify integrity."
+    },
+    {
+      "id": "checksum_crc32_71fe",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "e7bb9bd7"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "29e5a3ca"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 702915530
+        }
+      ],
+      "narrative": "The Gamma Validator. It requires input from the Alpha Validator to proceed with advanced sequence checking."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": 3288739155
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "The Biometric Safe. It requires input from the Beta Validator to release its locking mechanism."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A polished Data Chip C containing fragmented archives."
+    },
+    {
+      "id": "checksum_crc32_2a04",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "af0123456789abcdef0123456789abcd"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "c4062d53"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3288739155
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "af0123456789abcdef0123456789abcd"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Beta Validator. A standalone diagnostic tool used to generate secure hash codes."
+    },
+    {
+      "id": "item_8_fd74",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A dusty Data Chip A left behind by the previous engineering crew."
+    },
+    {
+      "id": "item_8_b439",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A heavily encrypted Data Chip B with glowing circuitry."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A compact Chrono Module vibrating slightly with temporal energy."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": 3288739155
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "918273645091827364509182736450918273"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Interim processing results: sequence parity verified, waiting for bitshift."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "7890abcdef1234567890abcdef123456"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "A small plastic coin that says 'I survived the terminal' on it."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Interim processing results: sequence parity verified, waiting for bitshift.",
+          "hex_result": "7890abcdef1234567890abcdef123456",
+          "math_token": "A small plastic coin that says 'I survived the terminal' on it."
+        }
+      },
+      "narrative": "The Diagnostic Console. It requires inputs from both the Beta Validator and the Power Core to initialize the system analysis."
+    },
+    {
+      "id": "terminal_2_a1f1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "847295103847562019384756201938475620"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "102938475610293847561029384756102938"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Total system synchronization achieved through recursive bigint validation."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "abcdef1234567890abcdef1234567890"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "A digital dust bunny collected from the buffer of a large calculation."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "847295103847562019384756201938475620",
+          "num2": "102938475610293847561029384756102938"
+        },
+        "outputs": {
+          "text_result": "Total system synchronization achieved through recursive bigint validation.",
+          "hex_result": "abcdef1234567890abcdef1234567890",
+          "math_token": "A digital dust bunny collected from the buffer of a large calculation."
+        }
+      },
+      "narrative": "The Override Console. A dusty backup terminal waiting for manual input."
+    },
+    {
+      "id": "item_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "918273645091827364509182736450918273"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "918273645091827364509182736450918273"
+        }
+      },
+      "narrative": "A glowing Power Core humming with residual energy."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_gcd_a894",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_gcd_a894",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_gcd_a894",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32_71fe",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "checksum_crc32_71fe",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "checksum_crc32_2a04",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_8_fd74",
+      "target_id": "checksum_crc32_2a04",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_8_b439",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_b439",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "checksum_crc32_71fe",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "checksum_crc32_2a04",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "terminal_2_a1f1",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "item_1",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "content",
+      "target_port": "num2"
+    }
+  ]
+}

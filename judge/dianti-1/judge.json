@@ -1,0 +1,71 @@
+{
+  "hooks": {
+    "panel": {
+      "type": "dom_regex",
+      "pattern": "密码正确！电梯门正在开启"
+    },
+    "escaped": {
+      "type": "dom_regex",
+      "pattern": "逃离成功"
+    },
+    "egg": {
+      "type": "dom_regex",
+      "pattern": "彩蛋结局"
+    },
+    "fell": {
+      "type": "dom_regex",
+      "pattern": "电梯坠落"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "panel",
+      "hook": "panel",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "escape",
+      "tier": "good",
+      "gates": [
+        "panel"
+      ],
+      "ending": {
+        "hook": "escaped",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "egg",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "egg",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "fall",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "fell",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "escaped",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

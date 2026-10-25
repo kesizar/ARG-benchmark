@@ -1,0 +1,214 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "base64_encode",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "base64_encode",
+      "output_port": "b64",
+      "output_type": "Text_Generic",
+      "description": "Execute Base64 Encoder and get the output from port 'b64'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "hash_md5"
+      ],
+      "by_node": {
+        "hash_md5": {
+          "node_name": "MD5 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_md5",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "hash_md5": {
+        "init_inputs": {
+          "text": "Project Top Secret Initialization Data 2024"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The rain outside smells of ozone and synthetic oil, a stark contrast to the sterile, chilled air of the underground corporate vault you've just infiltrated. You are a runner, hired by Fixer Jax to extract a highly guarded prototype AI core from a megacorporation's mainframe. The room is bathed in the eerie glow of neon blue and pink lights, humming with the low vibration of heavy server racks. Your objective is clear: override the mainframe and transmit the core data before the corporate security forces arrive. The system is layered with complex security protocols, scattered across various hacked devices left behind by a previous, less fortunate runner. You must navigate these makeshift tools, piece together the digital trail, and bypass the final override terminal to claim your prize and vanish into the neon-lit night.",
+    "narrative_style": "cyberpunk"
+  },
+  "nodes": [
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "d534c2c174e2fc3eb443ecd0f0f29945dcedbb6e8d9f404ad385fa8577160483"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "1TTCwXTi/D60Q+zQ8PKZRdztu26Nn0BK04X6hXcWBIM="
+        }
+      ],
+      "narrative": "The Mainframe Override Terminal. It requires input from the Quantum Decryptor to grant final system access."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "K7ZMEDOKgoaBUbvugOoyEA=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "d534c2c174e2fc3eb443ecd0f0f29945dcedbb6e8d9f404ad385fa8577160483"
+        }
+      ],
+      "narrative": "A humming Quantum Decryptor. It requires input from the Data Translator to break the next layer of security."
+    },
+    {
+      "id": "base64_encode_27d0",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "2bb64c10338a82868151bbee80ea3210"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "K7ZMEDOKgoaBUbvugOoyEA=="
+        }
+      ],
+      "narrative": "A black-market Data Translator. It requires input from the Neural Memory Extractor to process the extracted code."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A cracked Security Keycard lying under a pile of synthetic cables."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Project Top Secret Initialization Data 2024"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "2bb64c10338a82868151bbee80ea3210"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Project Top Secret Initialization Data 2024"
+        },
+        "outputs": {}
+      },
+      "narrative": "A dirty Neural Memory Extractor salvaged from a rogue cyborg."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "hash_sha256",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "base64_encode_27d0",
+      "target_id": "hash_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "base64_encode_27d0",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "base64_encode_27d0",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    }
+  ]
+}

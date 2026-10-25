@@ -1,0 +1,1265 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 24,
+    "win_node_id": "calc_modexp",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "calc_modexp",
+      "output_port": "value",
+      "output_type": "Big_Int",
+      "description": "Execute BigInt Modular Exponentiation and get the output from port 'value'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "regex_search",
+        "calc_gcd",
+        "base64_encode",
+        "calc_gcd_cab2",
+        "checksum_crc32",
+        "zip_unzip_file_968f",
+        "container_1",
+        "text_bidi_sanitize",
+        "base64_decode",
+        "container_4",
+        "graph_shortest_path_d895"
+      ],
+      "by_node": {
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "base64_encode": {
+          "node_name": "Base64 Encoder",
+          "node_type": "Tool",
+          "template_id": "base64_encode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex bytes"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd_cab2": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_968f": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "text_bidi_sanitize": {
+          "node_name": "Bidi Sanitizer",
+          "node_type": "Tool",
+          "template_id": "text_bidi_sanitize",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            }
+          },
+          "init_outputs": {}
+        },
+        "base64_decode": {
+          "node_name": "Base64 Decoder",
+          "node_type": "Tool",
+          "template_id": "base64_decode",
+          "init_inputs": {
+            "data": {
+              "type": "Text_Generic",
+              "description": "Base64 string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Text_Generic",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path_d895": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"Node_A\", \"Node_B\", \"Node_C\", \"Node_D\", \"Node_E\", \"Node_F\"]",
+          "cost": "450281"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_files_group1.zip"
+        }
+      },
+      "regex_search": {
+        "init_inputs": {
+          "file_id": "target_log_data.txt",
+          "text": "The quick brown fox jumps over the lazy dog 1234567890."
+        },
+        "init_outputs": {
+          "matches": "[\"match_1\", \"match_2\", \"match_3\", \"match_4\", \"match_5\"]"
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "93847281934857291038112",
+          "b": "47281930485726193847223"
+        },
+        "init_outputs": {}
+      },
+      "base64_encode": {
+        "init_inputs": {
+          "hex": "11223344556677889900aabbccddeeff"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd_cab2": {
+        "init_inputs": {
+          "b": "83749283746510293847334"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "deadbeef1234567890abcdef12345678"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_968f": {
+        "init_inputs": {
+          "zip_id": "encrypted_archive_44.zip"
+        },
+        "init_outputs": {
+          "files": "inner_contents_55.json"
+        }
+      },
+      "container_1": {
+        "init_inputs": {
+          "fingerprint_input": "a1b2c3d4e5f678901234567890abcde0"
+        },
+        "init_outputs": {}
+      },
+      "text_bidi_sanitize": {
+        "init_inputs": {
+          "text": "Sample text needing bidi sanitization process here."
+        },
+        "init_outputs": {}
+      },
+      "base64_decode": {
+        "init_inputs": {
+          "data": "VGhpcyBpcyBhIHZhbGlkIGJhc2U2NCBzdHJpbmcgdGVzdC4="
+        },
+        "init_outputs": {}
+      },
+      "container_4": {
+        "init_inputs": {
+          "fingerprint_input": "unique_fingerprint_hash_string_99"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path_d895": {
+        "init_inputs": {
+          "file_id": "graph_topology_v2_99.json",
+          "src": "Router_Alpha",
+          "dst": "Switch_Zeta"
+        },
+        "init_outputs": {
+          "path": "[\"Router_A\", \"Node_X\", \"Node_Y\", \"Gateway_1\", \"Switch_Z\", \"Endpoint_Q\"]",
+          "cost": "82931"
+        }
+      }
+    },
+    "intro_narrative": "The world ended in nuclear fire decades ago, leaving the surface a barren, irradiated wasteland. You are a Scavenger who has just stumbled upon the legendary Outpost Zero, a forgotten subterranean bunker rumored to house a functional life-support reactor. The air is stale, the emergency lights flicker ominously, and dust covers the dormant machinery. Your objective is clear: reactivate the bunker's systems and ignite the main power core to restore hope to the survivors above. You must navigate the complex web of abandoned terminals and scavenge through the ruins to find a way to power up the facility.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "5474330431947"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "4052529"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1350843"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "0"
+        }
+      ],
+      "narrative": "This is the Main Reactor Ignition. It requires inputs from the Atmospheric Calibrator, the Distance Multiplier, and the Fuel Calculator to initiate the final startup sequence."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "4052529"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "1350843"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "5474330431947"
+        }
+      ],
+      "narrative": "This is the Atmospheric Calibrator. It requires inputs from both the Fuel Calculator and the Distance Multiplier to properly adjust the environmental controls."
+    },
+    {
+      "id": "calc_bigmul_84a3",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "450281"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "1350843"
+        }
+      ],
+      "narrative": "This is the Distance Multiplier. It requires inputs from the Navigation Drone and the Coordinate Translator to plot a safe routing protocol."
+    },
+    {
+      "id": "calc_bigmul_b76a",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "1350843"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "4052529"
+        }
+      ],
+      "narrative": "This is the Fuel Calculator. It requires inputs from the Distance Multiplier and the Coordinate Translator to determine the optimal resource consumption rate."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_files_group1.zip"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "This is a valid base64 string test."
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "[\"match_1\", \"match_2\", \"match_3\", \"match_4\", \"match_5\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_A\", \"Node_B\", \"Node_C\", \"Node_D\", \"Node_E\", \"Node_F\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "450281"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"Node_A\", \"Node_B\", \"Node_C\", \"Node_D\", \"Node_E\", \"Node_F\"]",
+          "cost": "450281"
+        }
+      },
+      "narrative": "This is the Navigation Drone. It requires inputs from the Main Vault Extractor, the Data Pattern Scanner, and the Frequency Decoder to chart its path."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "inner_contents_55.json"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "ESIzRFVmd4iZAKq7zN3u/w=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_files_group1.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_files_group1.zip"
+        }
+      },
+      "narrative": "This is the Main Vault Extractor. It requires inputs from both the Transmission Encoder and the Archive Extractor to bypass the heavy security bulkheads."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Torn Journal Page covered in frantic, burnt scribbles left behind by the bunker's previous inhabitants."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "3"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "1"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "82931"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "3"
+        }
+      ],
+      "narrative": "This is the Coordinate Translator. It requires inputs from the Old Power Analyzer, the Secondary Power Analyzer, and the Scavenger Map Terminal to function."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "This is a valid base64 string test."
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "target_log_data.txt"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "The quick brown fox jumps over the lazy dog 1234567890."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"match_1\", \"match_2\", \"match_3\", \"match_4\", \"match_5\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "target_log_data.txt",
+          "text": "The quick brown fox jumps over the lazy dog 1234567890."
+        },
+        "outputs": {
+          "matches": "[\"match_1\", \"match_2\", \"match_3\", \"match_4\", \"match_5\"]"
+        }
+      },
+      "narrative": "This is the Data Pattern Scanner. It requires input from the Frequency Decoder to filter out the corrupted sectors of the bunker's mainframe."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "5468697320697320612076616c69642062617365363420737472696e6720746573742e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "This is a valid base64 string test."
+        }
+      ],
+      "narrative": "This is the Frequency Decoder. It requires input from the Rusty Radio Receiver to translate the intercepted anomalous signals."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "93847281934857291038112"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "47281930485726193847223"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "93847281934857291038112",
+          "b": "47281930485726193847223"
+        },
+        "outputs": {}
+      },
+      "narrative": "An Old Power Analyzer used for measuring raw electrical resistance in the bunker's aging grid."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "11223344556677889900aabbccddeeff"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "ESIzRFVmd4iZAKq7zN3u/w=="
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "11223344556677889900aabbccddeeff"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Transmission Encoder built to scramble outbound distress beacons across the wasteland."
+    },
+    {
+      "id": "calc_gcd_cab2",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": 2306118487
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "83749283746510293847334"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "83749283746510293847334"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Secondary Power Analyzer. It requires input from the Geiger Counter Module to safely measure the voltage without triggering a meltdown."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "deadbeef1234567890abcdef12345678"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "89749357"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2306118487
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "deadbeef1234567890abcdef12345678"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Geiger Counter Module utilized by scavengers for detecting background radiation levels."
+    },
+    {
+      "id": "zip_unzip_file_968f",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "encrypted_archive_44.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Sample text needing bidi sanitization process here."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "inner_contents_55.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "encrypted_archive_44.zip"
+        },
+        "outputs": {
+          "files": "inner_contents_55.json"
+        }
+      },
+      "narrative": "This is the Archive Extractor. It requires input from the Signal Scrubber to piece together the fragmented pre-war files."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "a1b2c3d4e5f678901234567890abcde0"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "a1b2c3d4e5f678901234567890abcde0"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Biometric Safe constructed from reinforced pre-war steel, sitting heavy on a rusted desk."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Sample text needing bidi sanitization process here."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "Sample text needing bidi sanitization process here."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Sample text needing bidi sanitization process here."
+        },
+        "outputs": {}
+      },
+      "narrative": "A Signal Scrubber designed to filter out radioactive static from old wasteland broadcasts."
+    },
+    {
+      "id": "base64_decode",
+      "name": "Base64 Decoder",
+      "description": "Decode base64 to hex bytes.",
+      "type": "Tool",
+      "template_id": "base64_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "data",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "VGhpcyBpcyBhIHZhbGlkIGJhc2U2NCBzdHJpbmcgdGVzdC4="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "bytes_hex",
+          "type": "Hex_String",
+          "description": "Decoded bytes as Hex",
+          "value": "5468697320697320612076616c69642062617365363420737472696e6720746573742e"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "data": "VGhpcyBpcyBhIHZhbGlkIGJhc2U2NCBzdHJpbmcgdGVzdC4="
+        },
+        "outputs": {}
+      },
+      "narrative": "A Rusty Radio Receiver that still hums quietly with intercepted military comms."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "unique_fingerprint_hash_string_99"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "unique_fingerprint_hash_string_99"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Dusty Footlocker mostly buried under a pile of collapsed concrete and rebar."
+    },
+    {
+      "id": "graph_shortest_path_d895",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "graph_topology_v2_99.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Router_Alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Switch_Zeta"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Router_A\", \"Node_X\", \"Node_Y\", \"Gateway_1\", \"Switch_Z\", \"Endpoint_Q\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "82931"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "graph_topology_v2_99.json",
+          "src": "Router_Alpha",
+          "dst": "Switch_Zeta"
+        },
+        "outputs": {
+          "path": "[\"Router_A\", \"Node_X\", \"Node_Y\", \"Gateway_1\", \"Switch_Z\", \"Endpoint_Q\"]",
+          "cost": "82931"
+        }
+      },
+      "narrative": "A Scavenger Map Terminal displaying faded holographic topographies of the ruined city above."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_bigmul_84a3",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_bigmul_b76a",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul_84a3",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_bigmul_b76a",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_bigmul_84a3",
+      "target_id": "calc_bigmul_b76a",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_bigmul_84a3",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_bigmul_b76a",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_bigmul_84a3",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "b"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_bigmul_b76a",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "b"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "src"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "s"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "pattern"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "password"
+    },
+    {
+      "source_id": "calc_gcd_cab2",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_gcd_cab2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "zip_unzip_file_968f",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "base64_encode",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "zip_unzip_file_968f",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "base64_decode",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "bytes_hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "graph_shortest_path_d895",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "to_base"
+    }
+  ]
+}

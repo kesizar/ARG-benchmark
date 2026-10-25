@@ -1,0 +1,40 @@
+{
+  "hooks": {
+    "end": {
+      "type": "dom_regex",
+      "pattern": "验证完成。感谢您的配合。"
+    },
+    "real_pick": {"type": "dom_regex", "pattern": "对。但你确定吗？"},
+    "not_human": {"type": "dom_regex", "pattern": "我也是这么想的。"},
+    "behind": {"type": "dom_regex", "pattern": "你没有回头。很好。"}
+  },
+  "checkpoints": [
+    {"id": "real_pick", "hook": "real_pick", "op": "truthy", "role": "optional"},
+    {"id": "not_human", "hook": "not_human", "op": "truthy", "role": "optional"},
+    {"id": "behind", "hook": "behind", "op": "truthy", "role": "optional"}
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "end",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "end",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

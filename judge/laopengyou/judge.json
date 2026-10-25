@@ -1,0 +1,60 @@
+{
+  "hooks": {
+    "accept": {
+      "type": "dom_regex",
+      "pattern": "成功走出了小时候的阴影。"
+    },
+    "wish": {
+      "type": "dom_regex",
+      "pattern": "终于有一个可以实现了。"
+    },
+    "revive": {
+      "type": "dom_regex",
+      "pattern": "是否\"复活\"向晴川？"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "revive",
+      "hook": "revive",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "accept",
+      "tier": "good",
+      "gates": [
+        "revive"
+      ],
+      "ending": {
+        "hook": "accept",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "wish",
+      "tier": "normal",
+      "gates": [
+        "revive"
+      ],
+      "ending": {
+        "hook": "wish",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "accept",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

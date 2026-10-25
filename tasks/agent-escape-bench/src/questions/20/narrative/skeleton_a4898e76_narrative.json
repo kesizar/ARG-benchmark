@@ -1,0 +1,1230 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 26,
+    "win_node_id": "text_rotN",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "text_rotN",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute ROT-N Cipher and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "calc_bigmul",
+        "terminal_1",
+        "calc_bigmul_ce3b",
+        "num_base_convert",
+        "graph_shortest_path",
+        "num_base_convert_c641",
+        "calc_modexp",
+        "zip_unzip_item",
+        "matter_synthesizer",
+        "unicode_norm",
+        "text_rotN_ef42"
+      ],
+      "by_node": {
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "calc_bigmul_ce3b": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "num_base_convert_c641": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {}
+        },
+        "matter_synthesizer": {
+          "node_name": "Matter Synthesizer",
+          "node_type": "Tool",
+          "template_id": "matter_synthesizer",
+          "init_inputs": {
+            "blueprint": {
+              "type": "Text_Generic",
+              "description": "Object Blueprint"
+            }
+          },
+          "init_outputs": {}
+        },
+        "unicode_norm": {
+          "node_name": "Unicode Normalizer",
+          "node_type": "Tool",
+          "template_id": "unicode_norm",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            },
+            "form": {
+              "type": "Text_Generic",
+              "description": "Form"
+            }
+          },
+          "init_outputs": {}
+        },
+        "text_rotN_ef42": {
+          "node_name": "ROT-N Cipher",
+          "node_type": "Tool",
+          "template_id": "text_rotN",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            },
+            "n": {
+              "type": "Big_Int",
+              "description": "Shift N"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "39581938501938491039"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "Initialization sequence initiated."
+        },
+        "init_outputs": {
+          "text_output": "Terminal accessed successfully with valid credentials.",
+          "hex_output": "a1b2c3d4e5f67890a1b2c3d4e5f67890"
+        }
+      },
+      "calc_bigmul_ce3b": {
+        "init_inputs": {
+          "a": "84920194827103847291"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "network_graph.json",
+          "dst": "Node_XYZ_99"
+        },
+        "init_outputs": {
+          "path": "[\"StartNode\", \"Node_12\", \"Node_44\", \"Node_78\", \"Node_90\", \"Node_XYZ_99\"]",
+          "cost": "482910"
+        }
+      },
+      "num_base_convert_c641": {
+        "init_inputs": {
+          "s": "19384729501837465920",
+          "to_base": "8"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "16",
+          "exp": "10293847561029384756",
+          "mod": "997331"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "zip_id": "secure_payload.zip"
+        },
+        "init_outputs": {}
+      },
+      "matter_synthesizer": {
+        "init_inputs": {
+          "blueprint": "Plasma_Rifle_Mk4_Blueprint_Data"
+        },
+        "init_outputs": {}
+      },
+      "unicode_norm": {
+        "init_inputs": {
+          "text": "Téxt tø nòrmalîzè for processing",
+          "form": "NFC"
+        },
+        "init_outputs": {}
+      },
+      "text_rotN_ef42": {
+        "init_inputs": {
+          "text": "Secret message requiring ROT-N encryption",
+          "n": "12345678901234567890"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are the lead detective on the infamous 'Midnight Syndicate' case. A string of high-profile cyber-heists has left the city's financial sector in ruins. The suspects have vanished, leaving behind a trail of cryptic clues, locked devices, and encrypted files scattered across their abandoned hideout. The precinct has set up a makeshift forensics lab here to piece together the evidence. Your objective is to follow the digital footprints, bypass the syndicate's security measures, and uncover the mastermind's true identity. The clock is ticking before they strike again. You'll need to carefully analyze every piece of evidence, using each discovery to unlock the next, until you crack the final code.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Téxt tø nòrmalîzè for processing"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "386622913"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "Uhyu uw oqsnbmmag gps qspdfttjoh"
+        }
+      ],
+      "narrative": "This is the Master Decoder. It requires inputs from both the Cryptographic Workbench and the Suspect's Diary to reveal the true culprit's identity."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": 386622913
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "15303284365806315552322576607"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "386622913"
+        }
+      ],
+      "narrative": "This is the Cryptographic Workbench. It requires inputs from both the Crime Scene Reconstructor and the Evidence Locker Keypad to break the encryption."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "39581938501938491039"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": 386622913
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "15303284365806315552322576607"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "39581938501938491039"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Crime Scene Reconstructor. It requires input from the Evidence Locker Keypad to load the correct virtual case data."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Initialization sequence initiated."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "243451380825690351991508638320276192598405414661853600000"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal accessed successfully with valid credentials."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "a1b2c3d4e5f67890a1b2c3d4e5f67890"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Initialization sequence initiated."
+        },
+        "outputs": {
+          "text_output": "Terminal accessed successfully with valid credentials.",
+          "hex_output": "a1b2c3d4e5f67890a1b2c3d4e5f67890"
+        }
+      },
+      "narrative": "This is the Captain's Terminal. It requires input from the License Plate Scanner to grant access to its highly classified files."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "a1b2c3d4e5f67890a1b2c3d4e5f67890"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "170b65c1"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 386622913
+        }
+      ],
+      "narrative": "This is the Evidence Locker Keypad. It requires input from the Captain's Terminal to accept a valid security passcode."
+    },
+    {
+      "id": "calc_bigmul_ce3b",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "84920194827103847291"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "2866825509778368421318464914469600000"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "243451380825690351991508638320276192598405414661853600000"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "84920194827103847291"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the License Plate Scanner. It requires input from the Wiretap Decoder to locate the suspects' getaway vehicle."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "2866825509778368421318464914469600000"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "4520559009387579802607269152000"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "2866825509778368421318464914469600000"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Wiretap Decoder. It requires inputs from both the Financial Records Server and the Ballistics Computer to descramble the audio."
+    },
+    {
+      "id": "calc_bigmul_89db",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "634175"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "4520559009387579802607269152000"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "2866825509778368421318464914469600000"
+        }
+      ],
+      "narrative": "This is the Financial Records Server. It requires inputs from both the Alibi Checker and the Police Database to trace the money."
+    },
+    {
+      "id": "calc_inv_mod_6b2b",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "4520559009387579802607269152000"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "482910"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "4520559009387579802607269152000"
+        }
+      ],
+      "narrative": "This is the Alibi Checker. It requires inputs from both the Ballistics Computer and the City Map Interface to cross-reference suspect movements."
+    },
+    {
+      "id": "calc_bigmul_537b",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "482910"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "9361079723732330667427200"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "4520559009387579802607269152000"
+        }
+      ],
+      "narrative": "This is the Ballistics Computer. It requires inputs from both the Fingerprint Matcher and the City Map Interface to determine the firing angle."
+    },
+    {
+      "id": "calc_bigmul_00d6",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "482910"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "19384729501837465920"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "9361079723732330667427200"
+        }
+      ],
+      "narrative": "This is the Fingerprint Matcher. It requires inputs from both the City Map Interface and the Forensic Analyzer to run its matching algorithms."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_bcdeb19c295336fb"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is the Suspect's Watch. A heavily damaged mechanical watch recovered from the suspect's abandoned apartment."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "network_graph.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Téxt tø nòrmalîzè for processing"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Node_XYZ_99"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"StartNode\", \"Node_12\", \"Node_44\", \"Node_78\", \"Node_90\", \"Node_XYZ_99\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "482910"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "network_graph.json",
+          "dst": "Node_XYZ_99"
+        },
+        "outputs": {
+          "path": "[\"StartNode\", \"Node_12\", \"Node_44\", \"Node_78\", \"Node_90\", \"Node_XYZ_99\"]",
+          "cost": "482910"
+        }
+      },
+      "narrative": "This is the City Map Interface. It requires input from the Suspect's Diary to calculate the most likely escape route."
+    },
+    {
+      "id": "num_base_convert_c641",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "19384729501837465920"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "482910"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "19384729501837465920"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "19384729501837465920",
+          "to_base": "8"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Forensic Analyzer. It requires input from the City Map Interface to calibrate its sensitive tracking sensors."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "16"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "10293847561029384756"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "997331"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "634175"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "16",
+          "exp": "10293847561029384756",
+          "mod": "997331"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Police Database. A secure central server terminal holding extensive criminal records and suspect profiling data."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_payload.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Gsqfsh asggous fseiwfwbu FCH-B sbqfmdhwcb"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_payload.zip"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Locked Evidence Safe. It requires input from the Anonymous Note to unlock its digital seals."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "Plasma_Rifle_Mk4_Blueprint_Data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_bcdeb19c295336fb"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "blueprint": "Plasma_Rifle_Mk4_Blueprint_Data"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Evidence Replicator. A specialized 3D printing device used to duplicate objects found at crime scenes."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is the Victim's Locket. A small silver locket found on the victim's body. It seems unusually heavy."
+    },
+    {
+      "id": "unicode_norm",
+      "name": "Unicode Normalizer",
+      "description": "Unicode normalize (NFC/NFD/NFKC/NFKD).",
+      "type": "Tool",
+      "template_id": "unicode_norm",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Téxt tø nòrmalîzè for processing"
+        },
+        {
+          "name": "form",
+          "type": "Text_Generic",
+          "description": "Form",
+          "value": "NFC"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Normalized text",
+          "value": "Téxt tø nòrmalîzè for processing"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Téxt tø nòrmalîzè for processing",
+          "form": "NFC"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Suspect's Diary. A battered leather-bound notebook containing erratic handwritten notes."
+    },
+    {
+      "id": "text_rotN_ef42",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Secret message requiring ROT-N encryption"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "12345678901234567890"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "Gsqfsh asggous fseiwfwbu FCH-B sbqfmdhwcb"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Secret message requiring ROT-N encryption",
+          "n": "12345678901234567890"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Anonymous Note. A threatening letter made entirely of cut-out magazine letters found at the scene."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "n"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_bigmul_ce3b",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_bigmul_ce3b",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_bigmul_89db",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "s"
+    },
+    {
+      "source_id": "calc_inv_mod_6b2b",
+      "target_id": "calc_bigmul_89db",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_bigmul_537b",
+      "target_id": "calc_inv_mod_6b2b",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul_537b",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_bigmul_00d6",
+      "target_id": "calc_bigmul_537b",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_inv_mod_6b2b",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_bigmul_00d6",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "num_base_convert_c641",
+      "target_id": "calc_bigmul_00d6",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "b"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_inv_mod_6b2b",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_bigmul_89db",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_bigmul_537b",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "terminal_1",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "num_base_convert_c641",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "unicode_norm",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "src"
+    },
+    {
+      "source_id": "unicode_norm",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "text_rotN_ef42",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    }
+  ]
+}

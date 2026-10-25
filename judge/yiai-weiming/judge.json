@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "rescued": {"type": "dom_regex", "pattern": "—— 解救 ——"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "rescued", "tier": "good", "gates": [], "ending": {"hook": "rescued", "op": "truthy"}}
+  ],
+  "ending": {"hook": "rescued", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

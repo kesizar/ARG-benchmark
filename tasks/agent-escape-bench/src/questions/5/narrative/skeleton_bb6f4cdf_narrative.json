@@ -1,0 +1,368 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_1",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_1",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_1",
+        "terminal_2",
+        "calc_bigmul",
+        "terminal_2_2622"
+      ],
+      "by_node": {
+        "item_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2_2622": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "5829103847562938475610293"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "2938475610293847562938475"
+        },
+        "init_outputs": {
+          "text_result": "Calculation result pending final variable integration.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "9485726351425364758697081",
+          "b": "1029384756102938475610293"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2_2622": {
+        "init_inputs": {
+          "num1": "6574839201928374650192837",
+          "num2": "4758693021847563920184756"
+        },
+        "init_outputs": {
+          "text_result": "Initialization sequence complete. Ready for trigger.",
+          "hex_result": "f0e1d2c3b4a5968778695a4b3c2d1e0f"
+        }
+      }
+    },
+    "intro_narrative": "The rain drums relentlessly against the reinforced glass of the server tower. You've breached the perimeter of the Synapse Corporation's restricted archive, a place where secrets are buried deep within layers of ICE and concrete. The air smells of ozone and stale coffee. Your objective is clear: locate the legendary Black Box and extract the payload hidden within. The room is filled with humming server racks and blinking terminals. You need to manipulate the data flow between these ancient systems to bypass the security protocols. Time is short; the corporate security daemons are already sniffing around your connection.",
+    "narrative_style": "cyberpunk"
+  },
+  "nodes": [
+    {
+      "id": "item_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "5829103847562938475610293"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "5829103847562938475610293"
+        }
+      },
+      "narrative": "The Black Box. A heavy, matte-black physical storage unit sitting isolated on a pedestal. It awaits a specific physical key to unlock its contents."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Time-Sync Module. A portable hardware component that stores encrypted temporal data."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "2938475610293847562938475"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "9764462106721215565014507119866696639770992654733"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Calculation result pending final variable integration."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "2938475610293847562938475"
+        },
+        "outputs": {
+          "text_result": "Calculation result pending final variable integration.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "narrative": "The Central Gatekeeper Terminal. This is the primary security hub for the sector. It requires processed data input from the Quantum Arithmetic Unit to verify the encryption sequence."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "9485726351425364758697081"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "1029384756102938475610293"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "9764462106721215565014507119866696639770992654733"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "9485726351425364758697081",
+          "b": "1029384756102938475610293"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Quantum Arithmetic Unit. A high-power cooling fan spins rapidly inside this dedicated calculation rig. It is designed to multiply massive data streams that standard processors cannot handle."
+    },
+    {
+      "id": "terminal_2_2622",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "6574839201928374650192837"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "4758693021847563920184756"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Initialization sequence complete. Ready for trigger."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "f0e1d2c3b4a5968778695a4b3c2d1e0f"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "6574839201928374650192837",
+          "num2": "4758693021847563920184756"
+        },
+        "outputs": {
+          "text_result": "Initialization sequence complete. Ready for trigger.",
+          "hex_result": "f0e1d2c3b4a5968778695a4b3c2d1e0f"
+        }
+      },
+      "narrative": "A Local Access Node. An older, flickering terminal mounted on the wall. It controls the preliminary authentication tokens for the room's subsystems."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_1",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "terminal_2_2622",
+      "target_id": "terminal_2",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    }
+  ]
+}

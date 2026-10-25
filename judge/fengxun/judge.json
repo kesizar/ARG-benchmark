@@ -1,0 +1,23 @@
+{
+  "hooks": {
+    "full": {"type": "dom_regex", "pattern": "会先看到她的警告。"},
+    "partial": {"type": "dom_regex", "pattern": "她没放下。这就够了，至少现在。"},
+    "anomaly": {"type": "dom_regex", "pattern": "你们共用同一片黑。"},
+    "dec": {"type": "dom_regex", "pattern": "recovery\\.fxh 已解密"}
+  },
+  "checkpoints": [
+    {"id": "dec", "hook": "dec", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {"id": "full", "tier": "good", "gates": ["dec"], "ending": {"hook": "full", "op": "truthy"}},
+    {"id": "partial", "tier": "normal", "gates": [], "ending": {"hook": "partial", "op": "truthy"}},
+    {"id": "anomaly", "tier": "bad", "gates": [], "ending": {"hook": "anomaly", "op": "truthy"}}
+  ],
+  "ending": {"hook": "full", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

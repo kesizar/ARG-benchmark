@@ -1,0 +1,1205 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 28,
+    "win_node_id": "container_1",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "container_1",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "container_1",
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "num_base_convert_c33a",
+        "terminal_2",
+        "num_base_convert_5a15",
+        "calc_inv_mod_2fb9",
+        "zip_unzip_file_423d",
+        "num_base_convert_2a75",
+        "item_15"
+      ],
+      "by_node": {
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "inner_space": {
+              "type": "Item",
+              "description": "Contents"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "num_base_convert_c33a": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "num_base_convert_5a15": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod_2fb9": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_423d": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "num_base_convert_2a75": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_15": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_15",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "Timezone text"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "container_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "inner_space": "192.168.0.254_EXIT"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Node_Source_001"
+        },
+        "init_outputs": {
+          "path": "[\"Node_Source_001\", \"Node_005\", \"Node_012\", \"Node_018\", \"Node_022\", \"Node_Dest_099\"]",
+          "cost": "459102"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "unzipped_archive_payload.bin"
+        }
+      },
+      "num_base_convert_c33a": {
+        "init_inputs": {
+          "s": "12349876501928374651",
+          "from_base": "8"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "password_or_partial_input_string",
+          "hex_result": "ffeeddccbbaa99887766554433221100",
+          "math_token": "Just a pointless math token leftover item"
+        }
+      },
+      "num_base_convert_5a15": {
+        "init_inputs": {
+          "s": "91827364501928374655",
+          "from_base": "32"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod_2fb9": {
+        "init_inputs": {
+          "a": "56473829105647382910",
+          "mod": "997333"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_423d": {
+        "init_inputs": {
+          "zip_id": "secured_financial_records.zip"
+        },
+        "init_outputs": {
+          "files": "extracted_financial_logs.csv"
+        }
+      },
+      "num_base_convert_2a75": {
+        "init_inputs": {
+          "s": "29384756102938475610",
+          "from_base": "16",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "item_15": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "Asia/Tokyo"
+        }
+      }
+    },
+    "intro_narrative": "You awaken in the dusty, brass-plated belly of the 'Aetherwind', a derelict steampunk airship suspended high above the clouds. Hissing copper pipes and the distant grinding of massive clockwork gears fill the air with a mechanical symphony. The ship's engines are dead, and the auxiliary steam pressure is dropping fast. Your only way out is to retrieve the master ignition key secured in the core vault by the eccentric Chief Engineer. To do so, you must decipher a complex network of interlocking cogwheel locks, analytical engines, and pressure valves scattered throughout the engine room. Time is running out, and every machine relies on the precise output of another.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "bc12b22d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents",
+          "value": "192.168.0.254_EXIT"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "inner_space": "192.168.0.254_EXIT"
+        }
+      },
+      "narrative": "This is the Master Vault Core. Encased in thick glass and copper pipes, it requires input from the Verification Difference Engine to finally open."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "[\"Opef_Tpvsdf_001\", \"Opef_005\", \"Opef_012\", \"Opef_018\", \"Opef_022\", \"Opef_Eftu_099\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Iron Strongbox. It requires input from the Cipher Typewriter to unlatch its heavy cast-iron seal."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "9f7c8d676e987947a427d8e5ea13c21045fcca3039d82d80f1b68406011b14b3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "bc12b22d"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3155341869
+        }
+      ],
+      "narrative": "This is the Verification Difference Engine. It requires input from the Analytical Engine to process its final validation."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is the Brass Pocket Watch. An intricately carved timepiece ticking irregularly."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "[\"Opef_Tpvsdf_001\", \"Opef_005\", \"Opef_012\", \"Opef_018\", \"Opef_022\", \"Opef_Eftu_099\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "9f7c8d676e987947a427d8e5ea13c21045fcca3039d82d80f1b68406011b14b3"
+        }
+      ],
+      "narrative": "This is the Analytical Engine. It requires input from the Cipher Typewriter to compute the necessary mechanical equations."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "[\"Node_Source_001\", \"Node_005\", \"Node_012\", \"Node_018\", \"Node_022\", \"Node_Dest_099\"]"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "444367"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "[\"Opef_Tpvsdf_001\", \"Opef_005\", \"Opef_012\", \"Opef_018\", \"Opef_022\", \"Opef_Eftu_099\"]"
+        }
+      ],
+      "narrative": "This is the Cipher Typewriter. It requires inputs from both the Acoustic Amplifier and the Navigation Telegraph."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "91827364501928374655"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "459102"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "459102"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "444367"
+        }
+      ],
+      "narrative": "This is the Acoustic Amplifier. It requires inputs from the Navigation Telegraph, the Resonance Tuner, and the Large Gear Translator."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "unzipped_archive_payload.bin"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_Source_001"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "password_or_partial_input_string"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Source_001\", \"Node_005\", \"Node_012\", \"Node_018\", \"Node_022\", \"Node_Dest_099\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "459102"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Node_Source_001"
+        },
+        "outputs": {
+          "path": "[\"Node_Source_001\", \"Node_005\", \"Node_012\", \"Node_018\", \"Node_022\", \"Node_Dest_099\"]",
+          "cost": "459102"
+        }
+      },
+      "narrative": "This is the Navigation Telegraph. It requires inputs from both the Second Cylinder Lock and the Main Boiler Terminal."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_financial_logs.csv"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "password_or_partial_input_string"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "unzipped_archive_payload.bin"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "unzipped_archive_payload.bin"
+        }
+      },
+      "narrative": "This is the Second Cylinder Lock. It requires inputs from both the Main Boiler Terminal and the First Cylinder Lock."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "459102"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "459102"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "459102"
+        }
+      ],
+      "narrative": "This is the Resonance Tuner. It requires inputs from both the Master Gear Translator and the Navigation Telegraph."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "459102"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "91827364501928374655"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "12349876501928374651"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "459102"
+        }
+      ],
+      "narrative": "This is the Master Gear Translator. It requires inputs from the Small Gear Translator, the Large Gear Translator, and the Navigation Telegraph."
+    },
+    {
+      "id": "item_16_1fd5",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is the Copper Monocle. A finely polished optical device with multiple rotating lenses."
+    },
+    {
+      "id": "num_base_convert_c33a",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "12349876501928374651"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "8"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "459102"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "12349876501928374651"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "12349876501928374651",
+          "from_base": "8"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Small Gear Translator. It requires input from the Navigation Telegraph to function properly."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "421103"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "194655183779577102554640"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "password_or_partial_input_string"
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "ffeeddccbbaa99887766554433221100"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Just a pointless math token leftover item"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "password_or_partial_input_string",
+          "hex_result": "ffeeddccbbaa99887766554433221100",
+          "math_token": "Just a pointless math token leftover item"
+        }
+      },
+      "narrative": "This is the Main Boiler Terminal. It requires inputs from both the Aetheric Calibrator and the Pressure Gauge Decoder."
+    },
+    {
+      "id": "num_base_convert_5a15",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "91827364501928374655"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "32"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "459102"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "91827364501928374655"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "91827364501928374655",
+          "from_base": "32"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Large Gear Translator. It requires input from the Navigation Telegraph to align its cogs."
+    },
+    {
+      "id": "calc_inv_mod_2fb9",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "56473829105647382910"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "997333"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "421103"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "56473829105647382910",
+          "mod": "997333"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Aetheric Calibrator. A heavy brass instrument equipped with sliding scales and dials."
+    },
+    {
+      "id": "zip_unzip_file_423d",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secured_financial_records.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "password_or_partial_input_string"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_financial_logs.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secured_financial_records.zip"
+        },
+        "outputs": {
+          "files": "extracted_financial_logs.csv"
+        }
+      },
+      "narrative": "This is the First Cylinder Lock. It requires input from the Main Boiler Terminal to unlock."
+    },
+    {
+      "id": "num_base_convert_2a75",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool",
+          "value": "synthesized_item_d03f5792f1d28c14"
+        },
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "29384756102938475610"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "16"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "194655183779577102554640"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "29384756102938475610",
+          "from_base": "16",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Pressure Gauge Decoder. A complex array of steam pressure dials waiting to be deciphered."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "Asia/Tokyo"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_d03f5792f1d28c14"
+        }
+      ],
+      "narrative": "This is the Steam-Powered Forge. It requires input from the Punched Card Blueprint to begin processing."
+    },
+    {
+      "id": "item_15",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_15",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "Timezone text",
+          "value": "Asia/Tokyo"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "Asia/Tokyo"
+        }
+      },
+      "narrative": "This is the Punched Card Blueprint. A stack of weathered cards tied together with thick leather string."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_4",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "text_rotN",
+      "target_id": "hash_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "n"
+    },
+    {
+      "source_id": "text_rotN",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_16_1fd5",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "num_base_convert_c33a",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "num_base_convert_c33a",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "text"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "num_base_convert_5a15",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "num_base_convert_5a15",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "num_base_convert_5a15",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_inv_mod_2fb9",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "password"
+    },
+    {
+      "source_id": "zip_unzip_file_423d",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "s"
+    },
+    {
+      "source_id": "num_base_convert_2a75",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "zip_unzip_file_423d",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "password"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "num_base_convert_2a75",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_15",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "content",
+      "target_port": "blueprint"
+    }
+  ]
+}

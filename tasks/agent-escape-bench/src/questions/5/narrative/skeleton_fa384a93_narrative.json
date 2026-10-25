@@ -1,0 +1,375 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 5,
+    "win_node_id": "crypto_rsa_decrypt_hex",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "crypto_rsa_decrypt_hex",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute RSA Decrypt and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "crypto_rsa_decrypt_hex",
+        "terminal_1",
+        "terminal_2"
+      ],
+      "by_node": {
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "d": {
+              "type": "Big_Int",
+              "description": "Private exponent d"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "d": "482910384756291038475629384751029384"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_b": "98374651209384756102938475610293"
+        },
+        "init_outputs": {
+          "text_output": "Terminal initialized. Please insert Item B to proceed with synthesis.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "item_dispenser": "The dispenser mechanism grinds loudly but yields nothing."
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "11223344556677889900112233445566",
+          "num2": "55667788990011223344556677889900"
+        },
+        "init_outputs": {
+          "text_result": "Calculation pending. Please provide valid numerical inputs.",
+          "hex_result": "cafebabe12345678deadbeef87654321",
+          "math_token": "A plastic token stamped with a seemingly incorrect equation."
+        }
+      }
+    },
+    "intro_narrative": "You stand in the center of 'The Architect's' safe house, a hidden bunker belonging to the city's most elusive cryptographer who vanished three days ago. The room is cold, lit only by the hum of server racks and the blinking cursors of various terminals. The Architect left behind a masterpiece of digital security—a final message that reveals the location of the stolen prototype. However, the system is fragmented. To uncover the truth, you must trace the flow of data through his vintage equipment, processing the signal step-by-step until the final encryption breaks. The air is thick with the smell of ozone and old paper. Time is running out before the security override locks the system forever.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "191bedeb"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": 421260779
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "482910384756291038475629384751029384"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u0000"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "d": "482910384756291038475629384751029384"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Master Decryption Mainframe. A massive supercomputer locking away the Architect's final secret. It requires the verified codes from the Verification Module to unlock the encryption."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "789c0dc8cb0980301004d056a68214e1cd9b071b08662003f9b1bb205abdbee33b695d23376828949b5e9684a3313bff735a600f766c888965f3220b6e45853f232a5d9e3e7ebb197a"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "191bedeb"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 421260779
+        }
+      ],
+      "narrative": "The Verification Module. A specialized scanner used to validate the integrity of condensed packages. It requires the output from the Compression Chamber to run its diagnostics."
+    },
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "Terminal initialized. Please insert Item B to proceed with synthesis."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c0dc8cb0980301004d056a68214e1cd9b071b08662003f9b1bb205abdbee33b695d23376828949b5e9684a3313bff735a600f766c888965f3220b6e45853f232a5d9e3e7ebb197a"
+        }
+      ],
+      "narrative": "The Compression Chamber. A pressurized pneumatic tube system designed to condense information for transport. It requires processed data from the Data Processor Unit to operate."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Calculation pending. Please provide valid numerical inputs."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "98374651209384756102938475610293"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal initialized. Please insert Item B to proceed with synthesis."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "The dispenser mechanism grinds loudly but yields nothing."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_b": "98374651209384756102938475610293"
+        },
+        "outputs": {
+          "text_output": "Terminal initialized. Please insert Item B to proceed with synthesis.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "item_dispenser": "The dispenser mechanism grinds loudly but yields nothing."
+        }
+      },
+      "narrative": "The Data Processor Unit. This heavy-duty server rack is currently in standby mode. It requires input from the Primary Input Console to begin its analysis sequence."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "11223344556677889900112233445566"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "55667788990011223344556677889900"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Calculation pending. Please provide valid numerical inputs."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "cafebabe12345678deadbeef87654321"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "A plastic token stamped with a seemingly incorrect equation."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "11223344556677889900112233445566",
+          "num2": "55667788990011223344556677889900"
+        },
+        "outputs": {
+          "text_result": "Calculation pending. Please provide valid numerical inputs.",
+          "hex_result": "cafebabe12345678deadbeef87654321",
+          "math_token": "A plastic token stamped with a seemingly incorrect equation."
+        }
+      },
+      "narrative": "The Primary Input Console. A vintage terminal glowing with amber text, waiting for manual numeric input to initialize the system's power sequence."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "n"
+    },
+    {
+      "source_id": "zlib_deflate",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "zlib_deflate",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "text"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "slot_a"
+    }
+  ]
+}

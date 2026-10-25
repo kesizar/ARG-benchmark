@@ -1,0 +1,370 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_6",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_6",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_6",
+        "zip_unzip_item",
+        "terminal_2",
+        "graph_shortest_path"
+      ],
+      "by_node": {
+        "item_6": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_6",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String_IV_AES",
+              "description": "AES IV"
+            }
+          }
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_6": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "8f3a1b9e2d4c6f0a5b7e8d9c0a1b2e3f"
+        }
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "zip_id": "secure_archive_payload.zip"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "5829301847562910384756291"
+        },
+        "init_outputs": {
+          "text_result": "Partial calculation result generated successfully.",
+          "hex_result": "aa99887766554433221100bbaaccffee",
+          "math_token": "This item is merely a distraction for the unwary."
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "network_topology_v3.json",
+          "src": "Server_Alpha",
+          "dst": "Database_Omega"
+        },
+        "init_outputs": {
+          "path": "[\"Server_Alpha\", \"Router_Node_1\", \"Switch_Cluster_A\", \"Gateway_Interface\", \"Proxy_Server_7\", \"Firewall_Exit\", \"Database_Omega\"]",
+          "cost": "45281"
+        }
+      }
+    },
+    "intro_narrative": "You step into the dimly lit office of Arthur Vance, a private investigator who vanished without a trace three days ago. The air is stale, smelling of old paper and cold coffee. Rain lashes against the frosted glass window. Scattered across his heavy oak desk are remnants of his final, unfinished case—strange devices, locked files, and an unyielding digital trail. The police found nothing, but you know Arthur always left a breadcrumb trail for those who knew how to look. Your objective is to bypass his security measures, access his most closely guarded secrets, and obtain the hidden evidence before whoever took Arthur comes back for you. Time is running out.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "item_6",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_6",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String_IV_AES",
+          "description": "AES IV",
+          "value": "8f3a1b9e2d4c6f0a5b7e8d9c0a1b2e3f"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "8f3a1b9e2d4c6f0a5b7e8d9c0a1b2e3f"
+        }
+      },
+      "narrative": "A heavy steel evidence lockbox."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A worn confidential dossier filled with heavily redacted documents."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_archive_payload.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Partial calculation result generated successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_archive_payload.zip"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a digital evidence extractor. It requires input from the security checkpoint terminal."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "5829301847562910384756291"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "45281"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Partial calculation result generated successfully."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "aa99887766554433221100bbaaccffee"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "This item is merely a distraction for the unwary."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "5829301847562910384756291"
+        },
+        "outputs": {
+          "text_result": "Partial calculation result generated successfully.",
+          "hex_result": "aa99887766554433221100bbaaccffee",
+          "math_token": "This item is merely a distraction for the unwary."
+        }
+      },
+      "narrative": "This is a security checkpoint terminal. It requires input from the city map interface."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "network_topology_v3.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Server_Alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Database_Omega"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Server_Alpha\", \"Router_Node_1\", \"Switch_Cluster_A\", \"Gateway_Interface\", \"Proxy_Server_7\", \"Firewall_Exit\", \"Database_Omega\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "45281"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "network_topology_v3.json",
+          "src": "Server_Alpha",
+          "dst": "Database_Omega"
+        },
+        "outputs": {
+          "path": "[\"Server_Alpha\", \"Router_Node_1\", \"Switch_Cluster_A\", \"Gateway_Interface\", \"Proxy_Server_7\", \"Firewall_Exit\", \"Database_Omega\"]",
+          "cost": "45281"
+        }
+      },
+      "narrative": "An interactive city map interface."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_6",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "password"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num2"
+    }
+  ]
+}

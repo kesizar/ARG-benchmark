@@ -1,0 +1,111 @@
+{
+  "hooks": {
+    "echo": {
+      "type": "dom_regex",
+      "pattern": "结局\\ A\\ ·\\ 回声"
+    },
+    "inherit": {
+      "type": "dom_regex",
+      "pattern": "结局\\ B\\ ·\\ 传承"
+    },
+    "scatter": {
+      "type": "dom_regex",
+      "pattern": "结局\\ C\\ ·\\ 散播"
+    },
+    "shop": {
+      "type": "dom_regex",
+      "pattern": "密码正确。「修表铺」文件夹打开了。"
+    },
+    "roster": {
+      "type": "dom_regex",
+      "pattern": "数百个替人传信、消失在乱世里的名字。"
+    },
+    "radio": {
+      "type": "dom_regex",
+      "pattern": "电台随后静默。"
+    },
+    "digits": {
+      "type": "dom_regex",
+      "pattern": "1970 年，话第一次变成数字。它将在铁皮盒里躺二十七年。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "shop",
+      "hook": "shop",
+      "op": "truthy"
+    },
+    {
+      "id": "roster",
+      "hook": "roster",
+      "op": "truthy"
+    },
+    {
+      "id": "radio",
+      "hook": "radio",
+      "op": "truthy"
+    },
+    {
+      "id": "digits",
+      "hook": "digits",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "echo",
+      "tier": "good",
+      "gates": [
+        "shop",
+        "roster",
+        "radio",
+        "digits"
+      ],
+      "ending": {
+        "hook": "echo",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "inherit",
+      "tier": "good",
+      "gates": [
+        "shop",
+        "roster",
+        "radio",
+        "digits"
+      ],
+      "ending": {
+        "hook": "inherit",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "scatter",
+      "tier": "good",
+      "gates": [
+        "shop",
+        "roster",
+        "radio",
+        "digits"
+      ],
+      "ending": {
+        "hook": "scatter",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "echo",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

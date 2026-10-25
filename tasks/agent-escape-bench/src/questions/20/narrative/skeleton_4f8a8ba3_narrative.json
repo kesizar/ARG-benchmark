@@ -1,0 +1,1094 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 20,
+    "win_node_id": "iban_validate",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "iban_validate",
+      "output_port": "valid",
+      "output_type": "Text_Generic",
+      "description": "Execute IBAN Validator and get the output from port 'valid'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "json_get",
+        "zip_unzip_file",
+        "item_7",
+        "zip_unzip_file_4345",
+        "zip_unzip_file_dea9",
+        "item_7_1239",
+        "terminal_1",
+        "zip_unzip_file_f0bf",
+        "zip_unzip_item",
+        "matter_synthesizer",
+        "calc_modexp"
+      ],
+      "by_node": {
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {},
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "zip_unzip_file_4345": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_dea9": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "item_7_1239": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "zip_unzip_file_f0bf": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        },
+        "matter_synthesizer": {
+          "node_name": "Matter Synthesizer",
+          "node_type": "Tool",
+          "template_id": "matter_synthesizer",
+          "init_inputs": {
+            "blueprint": {
+              "type": "Text_Generic",
+              "description": "Object Blueprint"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "json_get": {
+        "init_inputs": {},
+        "init_outputs": {
+          "values": "[\"IBAN_543981\", \"IBAN_993821\", \"IBAN_102934\", \"IBAN_554839\", \"IBAN_293847\"]"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "financial_records_decrypted.json"
+        }
+      },
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "def generate_integer():\n    return 89234857\nprint(generate_integer())"
+        }
+      },
+      "zip_unzip_file_4345": {
+        "init_inputs": {
+          "password": "SecurePassword_4345_!@#"
+        },
+        "init_outputs": {
+          "files": "intermediate_archive_4345.zip"
+        }
+      },
+      "zip_unzip_file_dea9": {
+        "init_inputs": {
+          "password": "VaultKey_dea9_7761"
+        },
+        "init_outputs": {
+          "files": "secondary_backup_dea9.zip"
+        }
+      },
+      "item_7_1239": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "import random\nval = 1239\nprint(f'Computed value is {val}')"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "Initialization Code Alpha-901"
+        },
+        "init_outputs": {
+          "text_output": "Terminal initialized properly. Sequence accepted.",
+          "hex_output": "8b3a1c9e4d5f2a0b7c6d1e2f3a4b5c6d"
+        }
+      },
+      "zip_unzip_file_f0bf": {
+        "init_inputs": {
+          "zip_id": "encrypted_payload_f0bf.zip",
+          "password": "Unlock_F0BF_Data_992"
+        },
+        "init_outputs": {
+          "files": "extracted_assets_f0bf.zip"
+        }
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "password": "Item_Access_Pwd_8123"
+        },
+        "init_outputs": {}
+      },
+      "matter_synthesizer": {
+        "init_inputs": {
+          "blueprint": "Blueprint Schematic: Plasma Converter Module v3"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "31",
+          "exp": "8937461528394756201938475",
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You've finally breached the perimeter of the derelict Kurokawa Server Farm, deep in the neon-drenched underbelly of Sector 7. The air is thick with the smell of ozone and damp rust. Your mission is clear: you need to authorize a massive credit transfer from the megacorp's shadow accounts. To do this, you must successfully execute the final banking validation on their network. The server room is a maze of locked terminals, encrypted archives, and scattered data shards left behind by previous rogue runners. You'll need to power up the decryptors, piece together broken script fragments, and trace the data flow through this chaotic web of corporate tech to finalize the transfer and get out before the corporate enforcers arrive.",
+    "narrative_style": "cyberpunk"
+  },
+  "nodes": [
+    {
+      "id": "iban_validate",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "[\"IBAN_543981\", \"IBAN_993821\", \"IBAN_102934\", \"IBAN_554839\", \"IBAN_293847\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "False"
+        }
+      ],
+      "narrative": "A high-security Banking Validator connected to the megacorp's network. It requires input from the Data Extractor to verify the targeted offshore account."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "financial_records_decrypted.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "89234857\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"IBAN_543981\", \"IBAN_993821\", \"IBAN_102934\", \"IBAN_554839\", \"IBAN_293847\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "values": "[\"IBAN_543981\", \"IBAN_993821\", \"IBAN_102934\", \"IBAN_554839\", \"IBAN_293847\"]"
+        }
+      },
+      "narrative": "A localized Data Extractor designed to slice through corporate databanks. It requires inputs from both the Mainframe Executor and the Master Archive Decrypter."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "def generate_integer():\n    return 89234857\nprint(generate_integer())"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "89234857\n"
+        }
+      ],
+      "narrative": "A powerful Mainframe Executor with a direct link to the neural net. It requires input from the Corrupted Script Fragment."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "intermediate_archive_4345.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Computed value is 1239\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "financial_records_decrypted.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "financial_records_decrypted.json"
+        }
+      },
+      "narrative": "The Master Archive Decrypter terminal. It requires inputs from both the Sub-Archive Decrypter and the Auxiliary Executor."
+    },
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "def generate_integer():\n    return 89234857\nprint(generate_integer())"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "def generate_integer():\n    return 89234857\nprint(generate_integer())"
+        }
+      },
+      "narrative": "A Corrupted Script Fragment lying in a puddle of synthetic cooling fluid."
+    },
+    {
+      "id": "zip_unzip_file_4345",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secondary_backup_dea9.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SecurePassword_4345_!@#"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "intermediate_archive_4345.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "SecurePassword_4345_!@#"
+        },
+        "outputs": {
+          "files": "intermediate_archive_4345.zip"
+        }
+      },
+      "narrative": "A secondary Sub-Archive Decrypter terminal. It requires input from the Deep Archive Decrypter."
+    },
+    {
+      "id": "zip_unzip_file_dea9",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_assets_f0bf.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "VaultKey_dea9_7761"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "secondary_backup_dea9.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "VaultKey_dea9_7761"
+        },
+        "outputs": {
+          "files": "secondary_backup_dea9.zip"
+        }
+      },
+      "narrative": "An underground Deep Archive Decrypter system. It requires input from the Base Archive Decrypter."
+    },
+    {
+      "id": "code_py_exec_6636",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "import random\nval = 1239\nprint(f'Computed value is {val}')"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "Computed value is 1239\n"
+        }
+      ],
+      "narrative": "An Auxiliary Executor used for processing external code files. It requires input from the Clean Script Fragment."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An Encrypted Comms Shard emitting a faint, pulsating neon glow."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A digital Smuggler's Note hastily saved on an old holodisc."
+    },
+    {
+      "id": "item_7_1239",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "import random\nval = 1239\nprint(f'Computed value is {val}')"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "import random\nval = 1239\nprint(f'Computed value is {val}')"
+        }
+      },
+      "narrative": "A Clean Script Fragment encased in anti-static glass."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal",
+          "value": "synthesized_item_1b658c90f170228c"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Initialization Code Alpha-901"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "536232"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal initialized properly. Sequence accepted."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "8b3a1c9e4d5f2a0b7c6d1e2f3a4b5c6d"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Initialization Code Alpha-901"
+        },
+        "outputs": {
+          "text_output": "Terminal initialized properly. Sequence accepted.",
+          "hex_output": "8b3a1c9e4d5f2a0b7c6d1e2f3a4b5c6d"
+        }
+      },
+      "narrative": "A heavily guarded Access Terminal. It requires input from the Quantum math processor."
+    },
+    {
+      "id": "item_8_a86c",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A battered Mercenary's log drive covered in scratches."
+    },
+    {
+      "id": "zip_unzip_file_f0bf",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "encrypted_payload_f0bf.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Unlock_F0BF_Data_992"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_assets_f0bf.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "encrypted_payload_f0bf.zip",
+          "password": "Unlock_F0BF_Data_992"
+        },
+        "outputs": {
+          "files": "extracted_assets_f0bf.zip"
+        }
+      },
+      "narrative": "An old but reliable Base Archive Decrypter terminal."
+    },
+    {
+      "id": "item_8_9dee",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A Hacker's Diary file containing paranoid ramblings."
+    },
+    {
+      "id": "item_16_9780",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A sleek Corpo datapad bearing the golden logo of a rival megacorp."
+    },
+    {
+      "id": "item_16_6cd2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A bright Neon shard smelling faintly of burnt wires."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_assets_f0bf.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Item_Access_Pwd_8123"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "Item_Access_Pwd_8123"
+        },
+        "outputs": {}
+      },
+      "narrative": "An Item Extraction Protocol designed to physically materialize encrypted data. It requires input from the Base Archive Decrypter."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "Blueprint Schematic: Plasma Converter Module v3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_1b658c90f170228c"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "blueprint": "Blueprint Schematic: Plasma Converter Module v3"
+        },
+        "outputs": {}
+      },
+      "narrative": "A glowing Nano-fabricator capable of assembling physical objects."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "31"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "8937461528394756201938475"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "536232"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "31",
+          "exp": "8937461528394756201938475",
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Quantum math processor rack constantly humming as it calculates."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "json_get",
+      "target_id": "iban_validate",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "iban"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "json_get",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "jsonpath"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "json_get",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "item_7",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "zip_unzip_file_4345",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file_dea9",
+      "target_id": "zip_unzip_file_4345",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "code_py_exec_6636",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "zip_unzip_file_dea9",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_7_1239",
+      "target_id": "code_py_exec_6636",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "code_py_exec",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_8_a86c",
+      "target_id": "item_7_1239",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_file_f0bf",
+      "target_id": "zip_unzip_file_dea9",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_8_9dee",
+      "target_id": "zip_unzip_file_f0bf",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_16_9780",
+      "target_id": "item_8_9dee",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_6cd2",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_file_f0bf",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "terminal_1",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "slot_b"
+    }
+  ]
+}

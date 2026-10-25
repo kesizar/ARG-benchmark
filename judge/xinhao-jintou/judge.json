@@ -1,0 +1,59 @@
+{
+  "hooks": {
+    "meta": {
+      "type": "dom_regex",
+      "pattern": "你看见了真正的自己：whoami --real 的答案，是「拾柒」。"
+    },
+    "reject": {
+      "type": "dom_regex",
+      "pattern": "你拒绝了认领。"
+    },
+    "accept": {
+      "type": "dom_regex",
+      "pattern": "你认领了 WY-201。这不是通关，是接班"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "meta",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "meta",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "reject",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "reject",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "accept",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "accept",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "meta",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

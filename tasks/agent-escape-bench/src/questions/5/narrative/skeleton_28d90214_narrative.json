@@ -1,0 +1,335 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_4",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_4",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_4",
+        "terminal_1",
+        "terminal_1_22f8"
+      ],
+      "by_node": {
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            },
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "terminal_1_22f8": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            },
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "secure_archive_v4.zip"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "Primary system initialization request received.",
+          "slot_b": "928374651029384756102938"
+        },
+        "init_outputs": {
+          "text_output": "Terminal 1 active. Awaiting operator input.",
+          "hex_output": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        }
+      },
+      "terminal_1_22f8": {
+        "init_inputs": {
+          "slot_a": "Secondary backup protocol engaged.",
+          "slot_b": "5647382910192837465564738"
+        },
+        "init_outputs": {
+          "text_output": "Auxiliary terminal online. Status nominal.",
+          "hex_output": "11223344556677889900aabbccddeeff"
+        }
+      }
+    },
+    "intro_narrative": "The notorious hacker known only as 'The Cipher' has successfully infiltrated the police department's highly secure underground server room. All systems were abruptly locked down at midnight, cutting off access to crucial ongoing investigations. As the precinct's lead cyber-detective, you have been urgently called in to investigate the breach before the morning shift arrives. The room is dead silent, save for the rhythmic humming of the cooling units and the blinking lights of the mainframes. The Cipher is known for leaving intricate digital trails and booby-trapped logic puzzles to mock the authorities. Your primary objective tonight is to trace the hacker's steps and locate the hidden digital archive where the stolen, highly sensitive case files have been compressed and stashed. If you fail to find the exact file path by dawn, years of critical police work will be permanently erased or leaked to the criminal underworld. The clock is ticking, and the shadows of the server room seem to close in around you. You must carefully examine every piece of physical and digital evidence left behind, relying entirely on your deductive skills to recover the compromised data.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "secure_archive_v4.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "secure_archive_v4.zip"
+        }
+      },
+      "narrative": "A restricted digital archive containing sensitive police records."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A sealed digital evidence folder used for tracking metadata."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A confiscated encrypted flash drive found at the crime scene."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Primary system initialization request received."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "928374651029384756102938"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal 1 active. Awaiting operator input."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Primary system initialization request received.",
+          "slot_b": "928374651029384756102938"
+        },
+        "outputs": {
+          "text_output": "Terminal 1 active. Awaiting operator input.",
+          "hex_output": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        }
+      },
+      "narrative": "A secure data kiosk used by evidence technicians for processing."
+    },
+    {
+      "id": "terminal_1_22f8",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Secondary backup protocol engaged."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "5647382910192837465564738"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Auxiliary terminal online. Status nominal."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "11223344556677889900aabbccddeeff"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Secondary backup protocol engaged.",
+          "slot_b": "5647382910192837465564738"
+        },
+        "outputs": {
+          "text_output": "Auxiliary terminal online. Status nominal.",
+          "hex_output": "11223344556677889900aabbccddeeff"
+        }
+      },
+      "narrative": "The primary evidence logging terminal, glowing softly in the dark."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_1_22f8",
+      "target_id": "terminal_1",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "trigger_item"
+    }
+  ]
+}

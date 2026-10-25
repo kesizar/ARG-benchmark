@@ -1,0 +1,97 @@
+{
+  "hooks": {
+    "hidden-2": {
+      "type": "dom_regex",
+      "pattern": "隐藏结局 · 二"
+    },
+    "hidden-1": {
+      "type": "dom_regex",
+      "pattern": "隐藏结局 · 一"
+    },
+    "plain-3": {
+      "type": "dom_regex",
+      "pattern": "常规结局 · 三"
+    },
+    "plain-2": {
+      "type": "dom_regex",
+      "pattern": "常规结局 · 二"
+    },
+    "plain-1": {
+      "type": "dom_regex",
+      "pattern": "常规结局 · 一"
+    },
+    "counted": {
+      "type": "dom_regex",
+      "pattern": "你还是数了："
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "counted",
+      "hook": "counted",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "hidden-2",
+      "tier": "good",
+      "gates": [
+        "counted"
+      ],
+      "ending": {
+        "hook": "hidden-2",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "hidden-1",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "hidden-1",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "plain-3",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "plain-3",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "plain-2",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "plain-2",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "plain-1",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "plain-1",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "hidden-2",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

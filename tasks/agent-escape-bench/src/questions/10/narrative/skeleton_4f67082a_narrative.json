@@ -1,0 +1,685 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 13,
+    "win_node_id": "terminal_2",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "terminal_2",
+      "output_port": "text_result",
+      "output_type": "Text_Generic",
+      "description": "Execute  and get the output from port 'text_result'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_2",
+        "calc_inv_mod_9313",
+        "calc_modexp_8de3",
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "container_3"
+      ],
+      "by_node": {
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "calc_inv_mod_9313": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_8de3": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "container_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "ARMA_VIRUMQUE_CANO_TROIAE_QUI_PRIMUS_AB_ORIS",
+          "hex_result": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "math_token": "MathVerificationToken_Valid"
+        }
+      },
+      "calc_inv_mod_9313": {
+        "init_inputs": {
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_8de3": {
+        "init_inputs": {
+          "base": "10",
+          "exp": "8472910384756291038475621",
+          "mod": "998244"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Node_Start_Point",
+          "dst": "Node_End_Point"
+        },
+        "init_outputs": {
+          "path": "[\"Node_Start_Point\", \"Node_A\", \"Node_B\", \"Node_C\", \"Node_D\", \"Node_End_Point\"]",
+          "cost": "450120"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "secure_archive_data.zip",
+          "password": "StrongPassword!2024"
+        },
+        "init_outputs": {
+          "files": "extracted_config_file.json"
+        }
+      },
+      "container_3": {
+        "init_inputs": {
+          "fingerprint_input": "3847561928374651029384756"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are an elite cyber-operative infiltrated into the clandestine underground server farm of the shadowy 'Apex Syndicate'. The facility has just entered an emergency lockdown, alarms blaring as the central servers begin purging critical evidence of their global operations. Your primary objective is to bypass their multi-layered cryptographic defenses and extract the syndicate's master ledger before it's permanently erased. Time is ticking, and the syndicate's heavily armed enforcers are already sweeping the upper floors, closing in on your position. The room is filled with the hum of high-end servers, glowing monitors, and sophisticated lock mechanisms. You must navigate their intricate digital and physical systems, decode intercepted files, and manipulate their heavily guarded algorithms. Keep your wits about you, trace the data flow through their secure modules, and unlock the main terminal before the data—and your only way out—is lost forever.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "99964"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "99964"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "ARMA_VIRUMQUE_CANO_TROIAE_QUI_PRIMUS_AB_ORIS"
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "MathVerificationToken_Valid"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "ARMA_VIRUMQUE_CANO_TROIAE_QUI_PRIMUS_AB_ORIS",
+          "hex_result": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "math_token": "MathVerificationToken_Valid"
+        }
+      },
+      "narrative": "This is the Mainframe Terminal. It requires inputs from the Protocol Inverter and the Cryptographic Sequencer to grant full system access and secure the victory."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "99964"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "4"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "99964"
+        }
+      ],
+      "narrative": "This is a Protocol Inverter. It requires inputs from the Signal Synchronizer and the Cryptographic Sequencer to reverse the final security protocols."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "99964"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "24992"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "4"
+        }
+      ],
+      "narrative": "This is a Signal Synchronizer. It requires inputs from the Secondary Firewall and the Cryptographic Sequencer to align the encrypted frequencies."
+    },
+    {
+      "id": "calc_inv_mod_9313",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "180424"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "99964"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Cryptographic Sequencer. It requires input from the Primary Firewall to generate the correct bypass codes."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A specialized Temporal Keycard with an embedded microchip, used for overriding deep-level physical security locks."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "180424"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "450120"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "99964"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "24992"
+        }
+      ],
+      "narrative": "This is a Secondary Firewall. It requires inputs from the Cryptographic Sequencer, the Network Routing Module, and the Primary Firewall to process the authentication layer."
+    },
+    {
+      "id": "calc_modexp_8de3",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "10"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "8472910384756291038475621"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "998244"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "180424"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "10",
+          "exp": "8472910384756291038475621",
+          "mod": "998244"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Primary Firewall terminal pulses with a red warning light. It guards the outermost layer of the syndicate's network."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_config_file.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_Start_Point"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Node_End_Point"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Start_Point\", \"Node_A\", \"Node_B\", \"Node_C\", \"Node_D\", \"Node_End_Point\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "450120"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Node_Start_Point",
+          "dst": "Node_End_Point"
+        },
+        "outputs": {
+          "path": "[\"Node_Start_Point\", \"Node_A\", \"Node_B\", \"Node_C\", \"Node_D\", \"Node_End_Point\"]",
+          "cost": "450120"
+        }
+      },
+      "narrative": "This is a Network Routing Module. It requires input from the Archive Extractor to accurately map the secure access pathways."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_archive_data.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "StrongPassword!2024"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_config_file.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_archive_data.zip",
+          "password": "StrongPassword!2024"
+        },
+        "outputs": {
+          "files": "extracted_config_file.json"
+        }
+      },
+      "narrative": "An Archive Extractor software module running quietly on a secondary monitor, ready to decompress secure files."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "3847561928374651029384756"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "3847561928374651029384756"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy Biometric Safe secured to the server room floor. It hums with power, waiting for an authorized biological signature."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_inv_mod_9313",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_inv_mod_9313",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_inv_mod_9313",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "calc_inv_mod_9313",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_inv_mod_9313",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_modexp_8de3",
+      "target_id": "calc_inv_mod_9313",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "calc_modexp_8de3",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "base"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    }
+  ]
+}

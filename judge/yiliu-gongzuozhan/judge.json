@@ -1,0 +1,96 @@
+{
+  "hooks": {
+    "true_end": {
+      "type": "dom_regex",
+      "pattern": "海风与新生"
+    },
+    "hidden_end": {
+      "type": "dom_regex",
+      "pattern": "海风来信"
+    },
+    "stay": {
+      "type": "dom_regex",
+      "pattern": "留在原地"
+    },
+    "desk": {
+      "type": "dom_regex",
+      "pattern": "欢迎回来。"
+    },
+    "diary": {
+      "type": "dom_regex",
+      "pattern": "日记已解锁。"
+    },
+    "chat": {
+      "type": "dom_regex",
+      "pattern": "私信客户端已解锁。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "desk",
+      "hook": "desk",
+      "op": "truthy"
+    },
+    {
+      "id": "diary",
+      "hook": "diary",
+      "op": "truthy"
+    },
+    {
+      "id": "chat",
+      "hook": "chat",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "sea",
+      "tier": "good",
+      "gates": [
+        "desk"
+      ],
+      "ending": {
+        "hook": "true_end",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "letter",
+      "tier": "normal",
+      "gates": [
+        "desk",
+        "diary",
+        "chat"
+      ],
+      "ending": {
+        "hook": "hidden_end",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "stay",
+      "tier": "normal",
+      "gates": [
+        "desk",
+        "diary"
+      ],
+      "ending": {
+        "hook": "stay",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "true_end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

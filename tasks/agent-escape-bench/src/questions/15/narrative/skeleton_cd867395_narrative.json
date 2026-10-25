@@ -1,0 +1,816 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 20,
+    "win_node_id": "item_5",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_5",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_5",
+        "calc_modexp",
+        "calc_modexp_e777",
+        "terminal_2",
+        "calc_inv_mod_3ec2",
+        "calc_gcd"
+      ],
+      "by_node": {
+        "item_5": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_5",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String_Key_AES",
+              "description": "AES Key"
+            }
+          }
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_e777": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_inv_mod_3ec2": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_5": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "a4f2b1c8d3e90756a4f2b1c8d3e90756a4f2b1c8d3e90756a4f2b1c8d3e90756"
+        }
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "exp": "827364519283746519283746"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_e777": {
+        "init_inputs": {
+          "exp": "918273645019283746510293"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "192837465019283746501928"
+        },
+        "init_outputs": {
+          "text_result": "System ready awaiting secondary numeric input stream.",
+          "hex_result": "1234567890abcdef1234567890abcdef"
+        }
+      },
+      "calc_inv_mod_3ec2": {
+        "init_inputs": {
+          "a": "283746510293847561029384",
+          "mod": "492837"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "374651029384756102938475",
+          "b": "485762130495867213049586"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are the Chief Engineer of the stellar cruiser Aethelgard. Waking from cryosleep, you find the ship adrift in the void, systems critical and the main reactor offline. The AI is unresponsive, leaving only the manual override subsystems active. To restart the core and survive, you must navigate the complex web of backup protocols, synchronize the drifting navigation arrays, and synthesize the Core Activation Key. The silence of space is deafening; time is running out before life support fails completely.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "item_5",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_5",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String_Key_AES",
+          "description": "AES Key",
+          "value": "a4f2b1c8d3e90756a4f2b1c8d3e90756a4f2b1c8d3e90756a4f2b1c8d3e90756"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "a4f2b1c8d3e90756a4f2b1c8d3e90756a4f2b1c8d3e90756a4f2b1c8d3e90756"
+        }
+      },
+      "narrative": "The Core Activation Key. This is the final sequence required to restart the Aethelgard's reactor."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A hidden data fragment extracted from the Captain's Log."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Captain's personal logbook, retrieved from the safe. It contains time-stamped entries."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "The Captain's Safe. It is a heavy, plasteel box welded to the bulkhead. The locking mechanism requires a specific code derived from the Coordinates Translator to disengage."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "1"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "404897"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "0"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "1"
+        }
+      ],
+      "narrative": "The Coordinates Translator. This holographic projection table calculates deep-space vectors. It requires data streams from the Stabilizer Algorithm, the Backup Power Array, and the Primary Nav-Computer to function."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "1"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "0"
+        }
+      ],
+      "narrative": "The Stabilizer Algorithm. This system manages the ship's gyroscopes. To calibrate it, you must input the calculated values from the Engine Ignition Sequence and the Backup Power Array."
+    },
+    {
+      "id": "item_16_1be4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A technical maintenance manual found inside the locker."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "1"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "827364519283746519283746"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "404897"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "exp": "827364519283746519283746"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Engine Ignition Sequence. This complex interface controls the spark plugs for the thrusters. It requires synchronization data from both the Primary Nav-Computer and the Signal Harmonizer."
+    },
+    {
+      "id": "calc_modexp_e777",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "1"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "918273645019283746510293"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "404897"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "exp": "918273645019283746510293"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Backup Power Array. This panel monitors the auxiliary battery cells and displays current voltage parameters."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "1234567890abcdef1234567890abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "A Maintenance Locker located in the engineering bay. The biometric scanner on the front is active and requires a specific hex verification code generated by the Command Console."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "192837465019283746501928"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "System ready awaiting secondary numeric input stream."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1234567890abcdef1234567890abcdef"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "192837465019283746501928"
+        },
+        "outputs": {
+          "text_result": "System ready awaiting secondary numeric input stream.",
+          "hex_result": "1234567890abcdef1234567890abcdef"
+        }
+      },
+      "narrative": "The Command Console. This is the central operations terminal. While one input accepts manual entry, the second parameter requires live data from the Engine Ignition Sequence."
+    },
+    {
+      "id": "item_8_a6e7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A decrypted security token processed from the emergency protocols."
+    },
+    {
+      "id": "calc_inv_mod_3ec2",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "283746510293847561029384"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "492837"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "404897"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "283746510293847561029384",
+          "mod": "492837"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Primary Nav-Computer. It displays the ship's current orbital trajectory parameters."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "374651029384756102938475"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "485762130495867213049586"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "374651029384756102938475",
+          "b": "485762130495867213049586"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Signal Harmonizer. A frequency tool used to analyze conflicting wavelengths."
+    },
+    {
+      "id": "item_8_d043",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Emergency Protocol Alpha. A red data tape labeled for catastrophic failure scenarios."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_5",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "item_16_1be4",
+      "target_id": "num_base_convert",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_modexp_e777",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "s"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16_1be4",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_a6e7",
+      "target_id": "calc_modexp",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_modexp_e777",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_inv_mod_3ec2",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_modexp_e777",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "calc_inv_mod_3ec2",
+      "target_id": "calc_modexp_e777",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_inv_mod_3ec2",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "base"
+    },
+    {
+      "source_id": "item_8_d043",
+      "target_id": "item_8_a6e7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    }
+  ]
+}

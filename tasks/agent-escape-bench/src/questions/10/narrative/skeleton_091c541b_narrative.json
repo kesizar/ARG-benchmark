@@ -1,0 +1,522 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 9,
+    "win_node_id": "item_3",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_3",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_3",
+        "text_xor_hex",
+        "zlib_deflate",
+        "container_1_fb10",
+        "terminal_1"
+      ],
+      "by_node": {
+        "item_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_3",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String",
+              "description": "The hex code"
+            }
+          }
+        },
+        "text_xor_hex": {
+          "node_name": "Hex XOR",
+          "node_type": "Tool",
+          "template_id": "text_xor_hex",
+          "init_inputs": {
+            "hex_b": {
+              "type": "Hex_String",
+              "description": "Hex B"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zlib_deflate": {
+          "node_name": "Zlib Deflate",
+          "node_type": "Tool",
+          "template_id": "zlib_deflate",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to compress"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_1_fb10": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            },
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_3": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "4a7b9c2d5e8f1a3b0c6d9e2f5a8b1c4d"
+        }
+      },
+      "text_xor_hex": {
+        "init_inputs": {
+          "hex_b": "1234567890abcdef1234567890abcdef"
+        },
+        "init_outputs": {}
+      },
+      "zlib_deflate": {
+        "init_inputs": {
+          "text": "Compress this payload to verify zlib functionality."
+        },
+        "init_outputs": {}
+      },
+      "container_1_fb10": {
+        "init_inputs": {
+          "fingerprint_input": "cafebabedeadbeef0011223344556677"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "Authorization Code: Alpha-Seven-Two",
+          "slot_b": "98273645102938475610293847"
+        },
+        "init_outputs": {
+          "text_output": "Terminal initialization complete. Systems active.",
+          "hex_output": "00aabbccddeeff112233445566778899"
+        }
+      }
+    },
+    "intro_narrative": "You stand in the center of a dimly lit operations room, the air humming with the sound of cooling fans and old electronics. This was the workspace of 'The Architect,' a notorious data broker who vanished leaving behind a fortune in encrypted assets. The exit is sealed, and the only way out is to retrieve the Master Key hidden somewhere in this digital labyrinth. Around you are various terminals, secure containers, and strange processing devices. They seem dormant, waiting for the right sequence of interactions to wake up. You must trace the flow of data, manipulate the signals, and unlock the layers of security to find the prize.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "item_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String",
+          "description": "The hex code",
+          "value": "4a7b9c2d5e8f1a3b0c6d9e2f5a8b1c4d"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "4a7b9c2d5e8f1a3b0c6d9e2f5a8b1c4d"
+        }
+      },
+      "narrative": "A small, unassuming black drive labeled 'Master Key'. It is protected by layers of logical security."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "An abstract data packet representing a fragmented memory block."
+    },
+    {
+      "id": "item_8_1d75",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A corrupted system log file found within the system architecture."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A digital display showing the current system timezone, flickering slightly."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "6aa825b65f86e5a53f1a00505963e1b92848acccc94f4c5128c957284b2dca4cab54a8cac94c52482bcd4b2ec9cccf4bccc92ca9d40300fa87138f"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "A heavy, reinforced titanium container known as the Bio-Vault. It requires input from the Signal Mixer to override its biometric lock."
+    },
+    {
+      "id": "text_xor_hex",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "789c73cecf2d284a2d2e5628c9c82c562848acccc94f4c5128c957284b2dca4cab54a8cac94c52482bcd4b2ec9cccf4bccc92ca9d40300fa87138f"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "1234567890abcdef1234567890abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "6aa825b65f86e5a53f1a00505963e1b92848acccc94f4c5128c957284b2dca4cab54a8cac94c52482bcd4b2ec9cccf4bccc92ca9d40300fa87138f"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_b": "1234567890abcdef1234567890abcdef"
+        },
+        "outputs": {}
+      },
+      "narrative": "A dual-input processing console labeled 'Signal Mixer'. It requires input from the Data Compressor to correctly modulate the signal."
+    },
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "Compress this payload to verify zlib functionality."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c73cecf2d284a2d2e5628c9c82c562848acccc94f4c5128c957284b2dca4cab54a8cac94c52482bcd4b2ec9cccf4bccc92ca9d40300fa87138f"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Compress this payload to verify zlib functionality."
+        },
+        "outputs": {}
+      },
+      "narrative": "A specialized hardware component labeled 'Data Compressor', designed to shrink large text streams into raw code."
+    },
+    {
+      "id": "container_1_fb10",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "cafebabedeadbeef0011223344556677"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "cafebabedeadbeef0011223344556677"
+        },
+        "outputs": {}
+      },
+      "narrative": "A standard supply cache locked with a basic electronic latch."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Authorization Code: Alpha-Seven-Two"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "98273645102938475610293847"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal initialization complete. Systems active."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "00aabbccddeeff112233445566778899"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Authorization Code: Alpha-Seven-Two",
+          "slot_b": "98273645102938475610293847"
+        },
+        "outputs": {
+          "text_output": "Terminal initialization complete. Systems active.",
+          "hex_output": "00aabbccddeeff112233445566778899"
+        }
+      },
+      "narrative": "The Mainframe Terminal, glowing with a waiting command prompt. It controls the power distribution for the room."
+    },
+    {
+      "id": "item_8_fcf6",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A hidden system trigger located behind a loose panel."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_1d75",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_1d75",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "zlib_deflate",
+      "target_id": "text_xor_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_a"
+    },
+    {
+      "source_id": "container_1_fb10",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "container_1_fb10",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_fcf6",
+      "target_id": "terminal_1",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    }
+  ]
+}

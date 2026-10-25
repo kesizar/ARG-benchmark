@@ -1,0 +1,55 @@
+{
+  "hooks": {
+    "hidden": {
+      "type": "dom_regex",
+      "pattern": "今天没有失窃"
+    },
+    "login": {
+      "type": "dom_regex",
+      "pattern": "星匣艺术馆馆务系统 v2\\.6"
+    },
+    "date": {
+      "type": "url_regex",
+      "pattern": "hidden\\.html"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "login",
+      "hook": "login",
+      "op": "truthy"
+    },
+    {
+      "id": "date",
+      "hook": "date",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "hidden",
+      "tier": "good",
+      "gates": [
+        "login",
+        "date"
+      ],
+      "ending": {
+        "hook": "hidden",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "hidden",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "last": {
+      "type": "dom_regex",
+      "pattern": "恭喜你，找到了宇宙的答案"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "last",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "last",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "last",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

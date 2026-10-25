@@ -1,0 +1,77 @@
+{
+  "hooks": {
+    "end-a": {
+      "type": "dom_regex",
+      "pattern": "结 局 A · 服 从"
+    },
+    "end-b": {
+      "type": "dom_regex",
+      "pattern": "结 局 B · 永 久 断 连"
+    },
+    "channel": {
+      "type": "dom_regex",
+      "pattern": "已解锁时光塔 2005 广告档案搜索"
+    },
+    "mark-l": {
+      "type": "dom_regex",
+      "pattern": "成就已解锁：林念，林深|已获得成就：林念，林深"
+    },
+    "mark-d": {
+      "type": "dom_regex",
+      "pattern": "成就已解锁：戴远辰"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "channel",
+      "hook": "channel",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "mark-l",
+      "hook": "mark-l",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "mark-d",
+      "hook": "mark-d",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "obey",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "end-a",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "cut",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "end-b",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end-b",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

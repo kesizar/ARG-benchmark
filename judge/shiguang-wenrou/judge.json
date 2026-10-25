@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "corner": {"type": "dom_regex", "pattern": "她还在。只是从今以后，我不会再回头找她了。"},
+    "cherish": {"type": "dom_regex", "pattern": "我做了一场很美的梦。醒来以后，还是今天。"},
+    "cannot": {"type": "dom_regex", "pattern": "她没回我。"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "corner", "tier": "good", "gates": [], "ending": {"hook": "corner", "op": "truthy"}},
+    {"id": "cherish", "tier": "normal", "gates": [], "ending": {"hook": "cherish", "op": "truthy"}},
+    {"id": "cannot", "tier": "bad", "gates": [], "ending": {"hook": "cannot", "op": "truthy"}}
+  ],
+  "ending": {"hook": "corner", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

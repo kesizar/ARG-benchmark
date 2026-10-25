@@ -1,0 +1,612 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 11,
+    "win_node_id": "crypto_rsa_decrypt_hex",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "crypto_rsa_decrypt_hex",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute RSA Decrypt and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "graph_shortest_path",
+        "calc_gcd",
+        "calc_inv_mod_4b42",
+        "calc_modexp",
+        "zip_unzip_file"
+      ],
+      "by_node": {
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod_4b42": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Node_Source_A1",
+          "dst": "Node_Dest_Z9"
+        },
+        "init_outputs": {
+          "path": "[\"Node_Source_A1\", \"Node_Inter_B2\", \"Node_Inter_C3\", \"Node_Dest_Z9\"]",
+          "cost": "48291038475629103847"
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "b": "7483920184756293018475"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod_4b42": {
+        "init_inputs": {
+          "mod": "837461"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "12",
+          "exp": "9384756201928374651092",
+          "mod": "562819"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "secure_graph_data.zip",
+          "password": "Unlock_Password_123"
+        },
+        "init_outputs": {
+          "files": "topology_graph.json"
+        }
+      }
+    },
+    "intro_narrative": "You have breached the high tower of the Clockwork Architect. The air is thick with the smell of ozone and grease. Around you, gears grind in a rhythmic slumber, waiting to be awakened. The Architect left his greatest secret locked behind a series of interconnected mechanisms. To escape before the steam pressure reaches critical levels, you must decipher the flow of data through these brass and copper machines, restoring the sequence to the Grand Engine.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "789c8b56f2cb4f498d0fce2f2d4a4e8d773454d251808878e695a416c53b19a109381bc3055c528b4be2a32c956201f42215b1"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "48291038475629103847"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u0001+Er."
+        }
+      ],
+      "narrative": "The Grand Analytical Engine. The masterpiece of the room. To reveal the final exit code, it requires synchronized inputs from the Central Synchronization Unit, the Aether Navigation Table, and the Pneumatic Steam Press."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "1"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "808708"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "1"
+        }
+      ],
+      "narrative": "The Central Synchronization Unit. A hub of ticking metronomes. It requires inputs from both the Differential Gearbox and the Harmonic Tuner to stabilize the system."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "topology_graph.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_Source_A1"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Node_Dest_Z9"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Source_A1\", \"Node_Inter_B2\", \"Node_Inter_C3\", \"Node_Dest_Z9\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "48291038475629103847"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Node_Source_A1",
+          "dst": "Node_Dest_Z9"
+        },
+        "outputs": {
+          "path": "[\"Node_Source_A1\", \"Node_Inter_B2\", \"Node_Inter_C3\", \"Node_Dest_Z9\"]",
+          "cost": "48291038475629103847"
+        }
+      },
+      "narrative": "The Aether Navigation Table. A complex map of pipes and valves. It requires the extracted schematics from the Sealed Brass Canister to plot the correct energy flow."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "362623"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "7483920184756293018475"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "7483920184756293018475"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Differential Gearbox. A set of interlocking brass gears. It requires the energy output from the Boiler Pressure Engine to calculate the common ratio."
+    },
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "[\"Node_Source_A1\", \"Node_Inter_B2\", \"Node_Inter_C3\", \"Node_Dest_Z9\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c8b56f2cb4f498d0fce2f2d4a4e8d773454d251808878e695a416c53b19a109381bc3055c528b4be2a32c956201f42215b1"
+        }
+      ],
+      "narrative": "The Pneumatic Steam Press. A heavy industrial compressor. It requires the validation result from the Identification Validator to condense the data."
+    },
+    {
+      "id": "calc_inv_mod_4b42",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "48291038475629103847"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "837461"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "808708"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "837461"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Harmonic Tuner. A delicate device for adjusting resonance. It requires the calculated flow cost from the Aether Navigation Table to calibrate its frequency."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "[\"Node_Source_A1\", \"Node_Inter_B2\", \"Node_Inter_C3\", \"Node_Dest_Z9\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "[\"Node_Source_A1\", \"Node_Inter_B2\", \"Node_Inter_C3\", \"Node_Dest_Z9\"]"
+        }
+      ],
+      "narrative": "The Identification Validator. A mechanical card reader designed to verify sequences. It requires the path data from the Aether Navigation Table to perform its check."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "12"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "9384756201928374651092"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "562819"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "362623"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "12",
+          "exp": "9384756201928374651092",
+          "mod": "562819"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Boiler Pressure Engine. A massive furnace roaring with contained power. It awaits specific operational parameters to generate force."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_graph_data.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Unlock_Password_123"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "topology_graph.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_graph_data.zip",
+          "password": "Unlock_Password_123"
+        },
+        "outputs": {
+          "files": "topology_graph.json"
+        }
+      },
+      "narrative": "A sealed brass canister covered in rotating tumblers. It appears to hold vital schematics."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An ornate chronometer found resting on a velvet cushion. Its hands move backward."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "d"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "n"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "zlib_deflate",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "calc_inv_mod_4b42",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_inv_mod_4b42",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "zlib_deflate",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "number"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_modexp",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    }
+  ]
+}

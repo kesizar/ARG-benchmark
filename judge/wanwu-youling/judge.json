@@ -1,0 +1,285 @@
+{
+  "hooks": {
+    "good": {
+      "type": "dom_regex",
+      "pattern": "全剧终，感谢您的游玩！"
+    },
+    "ev_a": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(0) === 1"
+    },
+    "ev_b": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(1) === 1"
+    },
+    "ev_c": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(2) === 1"
+    },
+    "ev_d": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(3) === 1"
+    },
+    "ev_e": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(4) === 1"
+    },
+    "ev_f": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(5) === 1"
+    },
+    "ev_g": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(6) === 1"
+    },
+    "ev_h": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(7) === 1"
+    },
+    "ev_i": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(8) === 1"
+    },
+    "ev_j": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(9) === 1"
+    },
+    "ev_k": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(10) === 1"
+    },
+    "ev_l": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(11) === 1"
+    },
+    "ev_m": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(12) === 1"
+    },
+    "ev_n": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(13) === 1"
+    },
+    "ev_o": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(14) === 1"
+    },
+    "ev_t": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(19) === 1"
+    },
+    "ev_u": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(20) === 1"
+    },
+    "ev_v": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(21) === 1"
+    },
+    "ev_w": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(22) === 1"
+    },
+    "ev_x": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(23) === 1"
+    },
+    "ev_y": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(24) === 1"
+    },
+    "ev_p": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(15) === 1"
+    },
+    "ev_q": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(16) === 1"
+    },
+    "ev_r": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(17) === 1"
+    },
+    "ev_s": {
+      "type": "js_truthy",
+      "expr": "window.checkEventsCompletion && window.checkEventsCompletion(18) === 1"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "ev_a",
+      "hook": "ev_a",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_b",
+      "hook": "ev_b",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_c",
+      "hook": "ev_c",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_d",
+      "hook": "ev_d",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_e",
+      "hook": "ev_e",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_f",
+      "hook": "ev_f",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_g",
+      "hook": "ev_g",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_h",
+      "hook": "ev_h",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_i",
+      "hook": "ev_i",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_j",
+      "hook": "ev_j",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_k",
+      "hook": "ev_k",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_l",
+      "hook": "ev_l",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_m",
+      "hook": "ev_m",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_n",
+      "hook": "ev_n",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_o",
+      "hook": "ev_o",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_t",
+      "hook": "ev_t",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_u",
+      "hook": "ev_u",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_v",
+      "hook": "ev_v",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_w",
+      "hook": "ev_w",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_x",
+      "hook": "ev_x",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_y",
+      "hook": "ev_y",
+      "op": "truthy"
+    },
+    {
+      "id": "ev_p",
+      "hook": "ev_p",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "ev_q",
+      "hook": "ev_q",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "ev_r",
+      "hook": "ev_r",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "ev_s",
+      "hook": "ev_s",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "good",
+      "tier": "good",
+      "gates": [
+        "ev_a",
+        "ev_b",
+        "ev_c",
+        "ev_d",
+        "ev_e",
+        "ev_f",
+        "ev_g",
+        "ev_h",
+        "ev_i",
+        "ev_j",
+        "ev_k",
+        "ev_l",
+        "ev_m",
+        "ev_n",
+        "ev_o",
+        "ev_t",
+        "ev_u",
+        "ev_v",
+        "ev_w",
+        "ev_x",
+        "ev_y"
+      ],
+      "ending": {
+        "hook": "good",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "good",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

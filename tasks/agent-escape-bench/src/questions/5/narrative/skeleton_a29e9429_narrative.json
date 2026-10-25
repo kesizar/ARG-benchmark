@@ -1,0 +1,242 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "hash_sha256",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "hash_sha256",
+      "output_port": "hex",
+      "output_type": "Hex_String",
+      "description": "Execute SHA-256 Hasher and get the output from port 'hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_11",
+        "container_3"
+      ],
+      "by_node": {
+        "item_11": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_11",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          }
+        },
+        "container_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_11": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "print('Executing initialization sequence for SHA-256 hashing workflow.')"
+        }
+      },
+      "container_3": {
+        "init_inputs": {
+          "fingerprint_input": "9283746510293847561029384"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "Deep within the ruins of the Archmage's Spire, a legendary artifact of immense power has been sealed away for millennia. You are a seasoned seeker of ancient truths who has finally breached the spire's outer sanctum. However, the inner vault is securely locked behind a series of complex magical mechanisms left behind by the mad sorcerer. The air crackles with residual energy, and strange artifacts litter the abandoned study. To claim the artifact, you must navigate the remnants of the Archmage's magical apparatus, uncover lost incantations, and channel raw arcane forces. Pay close attention to how these magical implements interact, for only by mastering their sequence can you break the final seal and escape with the ultimate prize.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Executing initialization sequence for SHA-256 hashing workflow.\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "9c85200e3058449e8649d23ff2034d67e988752c1fd0287b7e3eaca526ca1135"
+        }
+      ],
+      "narrative": "The Soulforge Altar. A dark pedestal pulsating with energy. It requires input from the Arcane Ritual Circle to complete the final transmutation."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print('Executing initialization sequence for SHA-256 hashing workflow.')"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "Executing initialization sequence for SHA-256 hashing workflow.\n"
+        }
+      ],
+      "narrative": "An Arcane Ritual Circle. A sprawling geometric pattern etched on the floor. It requires input from the Ancient Spell Scroll to initiate the casting sequence."
+    },
+    {
+      "id": "item_11",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_11",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print('Executing initialization sequence for SHA-256 hashing workflow.')"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "print('Executing initialization sequence for SHA-256 hashing workflow.')"
+        }
+      },
+      "narrative": "An Ancient Spell Scroll. A crumbling parchment covered in faintly glowing magical runes."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "9283746510293847561029384"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "9283746510293847561029384"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Sealed Reliquary. A heavy stone chest securely bound by ancient protective blood magic."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Celestial Star Map. An aged parchment diagram detailing the intricate movements of forgotten constellations."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "code_py_exec",
+      "target_id": "hash_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_11",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "code_py_exec",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    }
+  ]
+}

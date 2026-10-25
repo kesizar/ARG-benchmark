@@ -1,0 +1,1344 @@
+{
+  "metadata": {
+    "total_nodes": 25,
+    "total_edges": 29,
+    "win_node_id": "item_5",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_5",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_5",
+        "terminal_2",
+        "num_base_convert",
+        "calc_bigmul_e997",
+        "terminal_2_df1b",
+        "terminal_2_b20d",
+        "calc_gcd",
+        "zip_unzip_item",
+        "item_10",
+        "text_xor_hex"
+      ],
+      "by_node": {
+        "item_5": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_5",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String_Key_AES",
+              "description": "AES Key"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_e997": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2_df1b": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "terminal_2_b20d": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_10": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_10",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        },
+        "text_xor_hex": {
+          "node_name": "Hex XOR",
+          "node_type": "Tool",
+          "template_id": "text_xor_hex",
+          "init_inputs": {
+            "hex_a": {
+              "type": "Hex_String",
+              "description": "Hex A"
+            },
+            "hex_b": {
+              "type": "Hex_String",
+              "description": "Hex B"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_5": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "8d4f6a1e3b2c9d7a5f0e4b8c1a2d3e4f"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Initial computation resulted in this text.",
+          "hex_result": "0a1b2c3d4e5f"
+        }
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "5738291029384756382910",
+          "from_base": "16",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_e997": {
+        "init_inputs": {
+          "a": "1122334455667788990011",
+          "b": "9988776655443322110099"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2_df1b": {
+        "init_inputs": {
+          "num2": "3141592653589793238462"
+        },
+        "init_outputs": {
+          "text_result": "The terminal has partially computed the task.",
+          "hex_result": "1a2b3c4d5e6f",
+          "math_token": "A completely useless piece of math token."
+        }
+      },
+      "terminal_2_b20d": {
+        "init_inputs": {
+          "num1": "2718281828459045235360"
+        },
+        "init_outputs": {
+          "text_result": "Terminal b20d output completed.",
+          "hex_result": "2a3b4c5d6e7f",
+          "math_token": "Yet another useless object for inventory."
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "1234567890123456789012",
+          "b": "9876543210987654321098"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "zip_id": "data_package_1.zip",
+          "password": "password_qweasd123"
+        },
+        "init_outputs": {}
+      },
+      "item_10": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "5555566666777778888899"
+        }
+      },
+      "text_xor_hex": {
+        "init_inputs": {
+          "hex_a": "1234567890abcdef",
+          "hex_b": "fedcba0987654321"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in the hidden sanctuary of the Grand Wizard Aldous, a master of dimensional magic who has mysteriously vanished. The room is filled with esoteric artifacts, glowing crystals, and strange mechanical devices pulsing with magical energy. A central pedestal displays a message etched in glowing runes: 'Only those who can harmonize the celestial energies and decode the arcane secrets may unlock the ultimate treasure chest and inherit my legacy.' You must carefully study the ancient tools, magical terminals, and celestial sundials scattered around the room to find the correct path of activation. Your final objective is to obtain the master key hidden deep within the ultimate treasure chest. The secrets of the universe await.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "item_5",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_5",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String_Key_AES",
+          "description": "AES Key",
+          "value": "8d4f6a1e3b2c9d7a5f0e4b8c1a2d3e4f"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "8d4f6a1e3b2c9d7a5f0e4b8c1a2d3e4f"
+        }
+      },
+      "narrative": "The ultimate treasure chest."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A mystical scroll."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An ancient sundial."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "11117963973852212532249898887473187004922609035256064"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "11117963973852212532249898887473187004922609035256064"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Initial computation resulted in this text."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "0a1b2c3d4e5f"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Initial computation resulted in this text.",
+          "hex_result": "0a1b2c3d4e5f"
+        }
+      },
+      "narrative": "This is the grand wizard's terminal. It requires inputs from the astral inverter and the celestial inverter."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "11117963973852212532249898887473187004922609035256064"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "123609122923875681191513219127763133199780146827391935564497792119308993534565038025920637144942048772096"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "11117963973852212532249898887473187004922609035256064"
+        }
+      ],
+      "narrative": "This is the astral inverter. It requires inputs from the celestial inverter and the cosmos multiplier."
+    },
+    {
+      "id": "calc_inv_mod_1726",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "11117963973852212532249898887473187004922609035256064"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "11210748210374098778011361778402556553221089"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "11117963973852212532249898887473187004922609035256064"
+        }
+      ],
+      "narrative": "This is the celestial inverter. It requires inputs from the aether multiplier and the void multiplier."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "11117963973852212532249898887473187004922609035256064"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "11117963973852212532249898887473187004922609035256064"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "123609122923875681191513219127763133199780146827391935564497792119308993534565038025920637144942048772096"
+        }
+      ],
+      "narrative": "This is the cosmos multiplier. It requires inputs from the celestial inverter and the aether multiplier."
+    },
+    {
+      "id": "item_16_31d8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A cosmic sundial."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "7OjscRfOjs4="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the sealed reliquary. It requires input from the runic transcriber."
+    },
+    {
+      "id": "calc_bigmul_22cd",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "105441756310544318115358992"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "105441756310544318115358992"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "11117963973852212532249898887473187004922609035256064"
+        }
+      ],
+      "narrative": "This is the aether multiplier. It requires inputs from the stellar inverter and the elemental converter."
+    },
+    {
+      "id": "item_16_4bb3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An ethereal sundial."
+    },
+    {
+      "id": "item_8_e9e7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A forgotten scroll."
+    },
+    {
+      "id": "item_16_0568",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A mysterious shadow sundial."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "1a2b3c4d5e6f"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the starlight chest. It requires input from the oracle's terminal."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "ece8ec7117ce8ece"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "7OjscRfOjs4="
+        }
+      ],
+      "narrative": "This is the runic transcriber. It requires input from the arcane weaver."
+    },
+    {
+      "id": "calc_inv_mod_30b5",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "105441756310544318115358992"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "11210748210374098778011361778402556553221089"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "105441756310544318115358992"
+        }
+      ],
+      "narrative": "This is the stellar inverter. It requires inputs from the elemental converter and the void multiplier."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "5738291029384756382910"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "16"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "105441756310544318115358992"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "5738291029384756382910",
+          "from_base": "16",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "An ancient elemental converter."
+    },
+    {
+      "id": "calc_bigmul_e997",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "1122334455667788990011"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "9988776655443322110099"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "11210748210374098778011361778402556553221089"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "1122334455667788990011",
+          "b": "9988776655443322110099"
+        },
+        "outputs": {}
+      },
+      "narrative": "A magical void multiplier."
+    },
+    {
+      "id": "terminal_2_df1b",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "5555566666777778888899"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "3141592653589793238462"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "The terminal has partially computed the task."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1a2b3c4d5e6f"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "A completely useless piece of math token."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num2": "3141592653589793238462"
+        },
+        "outputs": {
+          "text_result": "The terminal has partially computed the task.",
+          "hex_result": "1a2b3c4d5e6f",
+          "math_token": "A completely useless piece of math token."
+        }
+      },
+      "narrative": "This is the oracle's terminal. It requires input from the crystal sphere."
+    },
+    {
+      "id": "terminal_2_b20d",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "2718281828459045235360"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal b20d output completed."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "2a3b4c5d6e7f"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Yet another useless object for inventory."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "2718281828459045235360"
+        },
+        "outputs": {
+          "text_result": "Terminal b20d output completed.",
+          "hex_result": "2a3b4c5d6e7f",
+          "math_token": "Yet another useless object for inventory."
+        }
+      },
+      "narrative": "This is the apprentice's terminal. It requires input from the harmonic aligner."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "1234567890123456789012"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "9876543210987654321098"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "2"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "1234567890123456789012",
+          "b": "9876543210987654321098"
+        },
+        "outputs": {}
+      },
+      "narrative": "An ancient harmonic aligner."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "data_package_1.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "password_qweasd123"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "data_package_1.zip",
+          "password": "password_qweasd123"
+        },
+        "outputs": {}
+      },
+      "narrative": "A mystical spell unweaver."
+    },
+    {
+      "id": "item_10",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_10",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "5555566666777778888899"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "5555566666777778888899"
+        }
+      },
+      "narrative": "A glowing crystal sphere."
+    },
+    {
+      "id": "text_xor_hex",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "1234567890abcdef"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "fedcba0987654321"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "ece8ec7117ce8ece"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_a": "1234567890abcdef",
+          "hex_b": "fedcba0987654321"
+        },
+        "outputs": {}
+      },
+      "narrative": "An arcane weaver."
+    },
+    {
+      "id": "item_8_d0cf",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "An elemental scroll."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_5",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "calc_inv_mod_1726",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "calc_inv_mod_1726",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "item_16_31d8",
+      "target_id": "calc_bigmul",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "item_16_31d8",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_inv_mod_1726",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul_22cd",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "item_16_4bb3",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_e9e7",
+      "target_id": "calc_bigmul_22cd",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_bigmul_22cd",
+      "target_id": "calc_inv_mod_1726",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_16_0568",
+      "target_id": "item_8_e9e7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16_0568",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_inv_mod_30b5",
+      "target_id": "calc_bigmul_22cd",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_inv_mod_30b5",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_bigmul_22cd",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_bigmul_e997",
+      "target_id": "calc_inv_mod_1726",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_bigmul_e997",
+      "target_id": "calc_inv_mod_30b5",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "terminal_2_df1b",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_2_b20d",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_2_b20d",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16_4bb3",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_10",
+      "target_id": "terminal_2_df1b",
+      "connection_type": "Big_Int",
+      "source_port": "content",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_8_d0cf",
+      "target_id": "calc_gcd",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    }
+  ]
+}

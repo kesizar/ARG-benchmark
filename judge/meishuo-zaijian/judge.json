@@ -1,0 +1,70 @@
+{
+  "hooks": {
+    "send": {
+      "type": "dom_regex",
+      "pattern": "结局 B · 发送失败"
+    },
+    "keep": {
+      "type": "dom_regex",
+      "pattern": "结局 A · 不发送"
+    },
+    "login": {
+      "type": "dom_regex",
+      "pattern": "密码正确"
+    },
+    "sort": {
+      "type": "dom_regex",
+      "pattern": "顺序正确。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "login",
+      "hook": "login",
+      "op": "truthy"
+    },
+    {
+      "id": "sort",
+      "hook": "sort",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "send",
+      "tier": "good",
+      "gates": [
+        "login"
+      ],
+      "ending": {
+        "hook": "send",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "keep",
+      "tier": "normal",
+      "gates": [
+        "login"
+      ],
+      "ending": {
+        "hook": "keep",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "send",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

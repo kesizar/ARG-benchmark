@@ -1,0 +1,281 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "luhn_check",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "luhn_check",
+      "output_port": "valid",
+      "output_type": "Text_Generic",
+      "description": "Execute Luhn Checker and get the output from port 'valid'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "code_py_exec",
+        "container_1",
+        "zip_unzip_item"
+      ],
+      "by_node": {
+        "code_py_exec": {
+          "node_name": "Python Executor",
+          "node_type": "Tool",
+          "template_id": "code_py_exec",
+          "init_inputs": {
+            "code": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "code_py_exec": {
+        "init_inputs": {
+          "code": "print('49927398716')"
+        },
+        "init_outputs": {}
+      },
+      "container_1": {
+        "init_inputs": {
+          "fingerprint_input": "1a2b3c4d5e6f78901234567890abcdef"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "zip_id": "archive_payload_v1.zip",
+          "password": "SecurePassword123!"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken to the blaring sirens and flashing red lights of the Delta-9 Orbital Research Station. The air is growing thin; life support systems are failing fast. According to the garbled transmission echoing through the PA system, the station's central AI has initiated a complete lockdown protocol due to a suspected anomaly in the main reactor. All personnel have evacuated, except for you. The only way off this dying station is via the last remaining emergency escape pod, but the bay doors are sealed behind a heavily encrypted blast door. To authorize an emergency launch, you must manually generate, clean, and verify a pristine override sequence. The station's fragmented diagnostic systems, isolated tools, and scattered data fragments hold the key to your survival. Time is running out. You must navigate the isolated command center, utilize the abandoned terminals, and piece together the correct access sequence before the station's orbit degrades entirely.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "49927398716\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is the main Access Validator. It requires input from the Data Purifier to confirm the emergency override code and unlock the escape pods."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "49927398716\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "49927398716\n"
+        }
+      ],
+      "narrative": "This is a Data Purifier. It requires input from the Diagnostic Console to strip away corrupted anomalies from the sequence."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print('49927398716')"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "49927398716\n"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "code": "print('49927398716')"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Diagnostic Console used to execute emergency station scripts."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "1a2b3c4d5e6f78901234567890abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "1a2b3c4d5e6f78901234567890abcdef"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavily armored Biometric Lockbox securing sensitive hardware."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_payload_v1.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SecurePassword123!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_payload_v1.zip",
+          "password": "SecurePassword123!"
+        },
+        "outputs": {}
+      },
+      "narrative": "An Archive Extractor terminal used for accessing compressed station logs."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "number"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "text"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    }
+  ]
+}

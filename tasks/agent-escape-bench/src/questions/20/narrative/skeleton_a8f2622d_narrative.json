@@ -1,0 +1,976 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 21,
+    "win_node_id": "item_16",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_16",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_16",
+        "terminal_2",
+        "crypto_rsa_decrypt_hex",
+        "checksum_crc32",
+        "calc_bigmul",
+        "item_1",
+        "regex_search"
+      ],
+      "by_node": {
+        "item_16": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_16",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hidden_Item",
+              "description": "Timezone text"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "hex_cipher": {
+              "type": "Hex_String",
+              "description": "Ciphertext (Hex)"
+            },
+            "n": {
+              "type": "Big_Int",
+              "description": "Modulus n"
+            },
+            "d": {
+              "type": "Big_Int",
+              "description": "Private exponent d"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        },
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "pattern": {
+              "type": "Text_Generic",
+              "description": "Regex pattern"
+            },
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_16": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "VmFuaXNoaW5nVGhlU3VuQXRUaGVNaWRuaWdodA=="
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Partial execution text outcome.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "hex_cipher": "deadbeef1234567890abcdef12345678",
+          "n": "8273649182736491827364918273649",
+          "d": "3948572019283746501928374650192"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "0123456789abcdef"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "123456789012345678901234567890"
+        },
+        "init_outputs": {}
+      },
+      "item_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "583920184756392018475639201847"
+        }
+      },
+      "regex_search": {
+        "init_inputs": {
+          "pattern": "\\d{16}",
+          "file_id": "log_dump.txt",
+          "text": "Searching through this block of text for patterns."
+        },
+        "init_outputs": {
+          "matches": "[\"1234567890123456\", \"9876543210987654\", \"1122334455667788\"]"
+        }
+      }
+    },
+    "intro_narrative": "Rain lashes against the window of your dimly lit precinct office. You are the lead detective on a high-profile corporate espionage case that has just turned into a murder investigation. The victim left behind a trail of encrypted files, hidden containers, and locked terminals. To find the killer, you must piece together the fragmented evidence scattered across your office and the crime scene. Your ultimate goal is to retrieve the final confidential evidence file that will blow this entire syndicate wide open.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text",
+          "value": "VmFuaXNoaW5nVGhlU3VuQXRUaGVNaWRuaWdodA=="
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "VmFuaXNoaW5nVGhlU3VuQXRUaGVNaWRuaWdodA=="
+        }
+      },
+      "narrative": "A confidential Evidence File containing the final proof to close the case."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "0e23f2cd3a61874f30fdce7c4c596c1d595bf90e3249fa9a0b826e2c7f7cc901"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a Biometric Safe. It requires input from the Authentication Server to disengage its locks."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "7317bae3f964bc4c33b9aab902ab90e8"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "C2dVF3JOHTIKJw=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "0e23f2cd3a61874f30fdce7c4c596c1d595bf90e3249fa9a0b826e2c7f7cc901"
+        }
+      ],
+      "narrative": "This is an Authentication Server. It requires inputs from both the Fingerprint Scanner and the Text Filter to grant access."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Partial execution text outcome."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "7317bae3f964bc4c33b9aab902ab90e8"
+        }
+      ],
+      "narrative": "This is a Fingerprint Scanner. It requires input from the Main Computer to calibrate."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "C2dVF3JOHTIKJw=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "C2dVF3JOHTIKJw=="
+        }
+      ],
+      "narrative": "This is a Text Filter. It requires input from the Transmission Uplink to clear out corrupted data."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Hidden Box D, a heavy iron container."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "[\"1234567890123456\", \"9876543210987654\", \"1122334455667788\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is an Evidence Locker. It requires input from the Police Database to verify authorization."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "0b675517724e1d320a27"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "C2dVF3JOHTIKJw=="
+        }
+      ],
+      "narrative": "This is a Transmission Uplink. It requires input from the Format Converter to establish a secure line."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "72088911049519796931183070275599707399517659834125534892830"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": 684183982
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Partial execution text outcome."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Partial execution text outcome.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "narrative": "This is the Main Computer. It requires inputs from both the Integrity Checker and the Scale Calculator to boot up."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "0b675517724e1d320a27"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a Locked Drawer. It requires input from the Format Converter to spring open."
+    },
+    {
+      "id": "hex_encode",
+      "name": "Text to Hex Encoder",
+      "description": "Encode UTF-8 text to hex.",
+      "type": "Tool",
+      "template_id": "hex_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "\u000bgU\u0017rN\u001d2\n'"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Encoded hex",
+          "value": "0b675517724e1d320a27"
+        }
+      ],
+      "narrative": "This is a Format Converter. It requires input from the Decoder Ring to process the encrypted clues."
+    },
+    {
+      "id": "item_8_6b71",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Hidden Box C, discovered behind a suspect's portrait."
+    },
+    {
+      "id": "item_8_3ecf",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Hidden Box B, wrapped in crime scene tape."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "deadbeef1234567890abcdef12345678"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "8273649182736491827364918273649"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "3948572019283746501928374650192"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u000bgU\u0017rN\u001d2\n'"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_cipher": "deadbeef1234567890abcdef12345678",
+          "n": "8273649182736491827364918273649",
+          "d": "3948572019283746501928374650192"
+        },
+        "outputs": {}
+      },
+      "narrative": "An antique Decoder Ring confiscated from the crime scene."
+    },
+    {
+      "id": "item_8_c12e",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Hidden Box A, concealed beneath a loose floorboard."
+    },
+    {
+      "id": "item_8_57e7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A dusty Old Chest tucked in the corner of the room."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "0123456789abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "28c7d1ae"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 684183982
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "0123456789abcdef"
+        },
+        "outputs": {}
+      },
+      "narrative": "A digital Integrity Checker used by the cyber forensics team."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "123456789012345678901234567890"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "583920184756392018475639201847"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "72088911049519796931183070275599707399517659834125534892830"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "123456789012345678901234567890"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Scale Calculator. It requires input from the Victim's Ledger to reconstruct the fraudulent transactions."
+    },
+    {
+      "id": "item_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "583920184756392018475639201847"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "583920184756392018475639201847"
+        }
+      },
+      "narrative": "The Victim's Ledger, found half-burnt in the fireplace."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "\\d{16}"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "log_dump.txt"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "Searching through this block of text for patterns."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"1234567890123456\", \"9876543210987654\", \"1122334455667788\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "pattern": "\\d{16}",
+          "file_id": "log_dump.txt",
+          "text": "Searching through this block of text for patterns."
+        },
+        "outputs": {
+          "matches": "[\"1234567890123456\", \"9876543210987654\", \"1122334455667788\"]"
+        }
+      },
+      "narrative": "A direct line to the central Police Database."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "hmac_sha256",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_key"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "hmac_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "text"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "hash_md5",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "text"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "base64_encode",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "hex_encode",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_8_6b71",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "hex_encode",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_8_3ecf",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "hex_encode",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_8_c12e",
+      "target_id": "item_8_6b71",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_57e7",
+      "target_id": "item_8_c12e",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "item_1",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "content",
+      "target_port": "b"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "fingerprint_input"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "hooks": {
+    "truth": {
+      "type": "dom_regex",
+      "pattern": "「真相大白」"
+    },
+    "mirror": {
+      "type": "dom_regex",
+      "pattern": "「镜中人」"
+    },
+    "cycle": {
+      "type": "dom_regex",
+      "pattern": "「血色轮回」"
+    },
+    "roof": {
+      "type": "dom_regex",
+      "pattern": "「天台之约」"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "truth",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "truth",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "mirror",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "mirror",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "cycle",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "cycle",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "roof",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "roof",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "truth",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

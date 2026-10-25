@@ -1,0 +1,1119 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 21,
+    "win_node_id": "item_2",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_2",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_2",
+        "calc_inv_mod",
+        "num_base_convert",
+        "container_3_7568",
+        "calc_bigmul_5f92",
+        "container_3_61cb",
+        "container_4",
+        "graph_shortest_path",
+        "item_10",
+        "item_9",
+        "terminal_2"
+      ],
+      "by_node": {
+        "item_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "The text"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_3_7568": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_5f92": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_3_61cb": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Text_Generic",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "item_10": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_10",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        },
+        "item_9": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_9",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "JSON file path"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "5d41402abc4b2a76b9719d911017c592"
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "738491028374958273641029"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "container_3_7568": {
+        "init_inputs": {
+          "fingerprint_input": "192837465019283746501928"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_5f92": {
+        "init_inputs": {
+          "a": "837465918273645019283746"
+        },
+        "init_outputs": {}
+      },
+      "container_3_61cb": {
+        "init_inputs": {
+          "fingerprint_input": "564738291048573627184950"
+        },
+        "init_outputs": {}
+      },
+      "container_4": {
+        "init_inputs": {
+          "fingerprint_input": "container_4_fingerprint_hash"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "NodeA",
+          "dst": "NodeH"
+        },
+        "init_outputs": {
+          "path": "[\"NodeA\", \"NodeB\", \"NodeC\", \"NodeD\", \"NodeE\", \"NodeF\", \"NodeG\", \"NodeH\"]",
+          "cost": "385629"
+        }
+      },
+      "item_10": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "948573625103948576210394"
+        }
+      },
+      "item_9": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "network_graph_data.json"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "102938475610293847561029",
+          "num2": "847561029384756102938475"
+        },
+        "init_outputs": {
+          "text_result": "Partial computation indicates a successful system start.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      }
+    },
+    "intro_narrative": "You awaken in the dimly lit bowels of an abandoned clockwork dreadnought, the air thick with the smell of grease and escaping steam. Hissing pipes and grinding gears echo through the labyrinth of rusted iron corridors. Your only hope of escaping this mechanical tomb before its boiler goes critical is to locate the final blueprint hidden deep within the ship's mechanical heart. To find it, you must decipher the interconnected logic of the dreadnought's archaic brass machinery, navigating a path of cryptic engines and pneumatic locks.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "item_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "The text",
+          "value": "5d41402abc4b2a76b9719d911017c592"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "5d41402abc4b2a76b9719d911017c592"
+        }
+      },
+      "narrative": "The Final Blueprint."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Copper Cylinder."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "3157732046168030970868856730874888531568860825058834776909"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "A Brass Vault. It requires input from the Master Gear Tuner."
+    },
+    {
+      "id": "item_16_dfef",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Clockwork Key."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "738491028374958273641029"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "3298731140120672994328376330081560932011700783822052579680"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "3157732046168030970868856730874888531568860825058834776909"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "738491028374958273641029"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Master Gear Tuner. It requires input from the Primary Gear Tuner."
+    },
+    {
+      "id": "calc_inv_mod_a285",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "3298731140120672994328376330081560932011700783822052579680"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 4152491320
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "3298731140120672994328376330081560932011700783822052579680"
+        }
+      ],
+      "narrative": "A Primary Gear Tuner. It requires inputs from both the Pressure Validator and the Dial Calibrator."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "f781fd38"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "An Iron Lockbox. It requires input from the Pressure Validator."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "36875e00da1d78136875e08da1d78336875e10da1d78536875e18da1d787"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "f781fd38"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 4152491320
+        }
+      ],
+      "narrative": "A Pressure Validator. It requires input from the Telegraph Decoder."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "3298731140120672994328376330081560932011700783822052579680"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "10"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "3298731140120672994328376330081560932011700783822052579680"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Dial Calibrator. It requires input from the Differential Engine."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "3477569956427140327336987882084720"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "948573625103948576210394"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "3298731140120672994328376330081560932011700783822052579680"
+        }
+      ],
+      "narrative": "A Differential Engine. It requires inputs from both the Auxiliary Engine and the Punched Card."
+    },
+    {
+      "id": "container_3_7568",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "192837465019283746501928"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "192837465019283746501928"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Steam Vent Safe."
+    },
+    {
+      "id": "base64_decode",
+      "name": "Base64 Decoder",
+      "description": "Decode base64 to hex bytes.",
+      "type": "Tool",
+      "template_id": "base64_decode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "data",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "[\"NodeA\", \"NodeB\", \"NodeC\", \"NodeD\", \"NodeE\", \"NodeF\", \"NodeG\", \"NodeH\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "bytes_hex",
+          "type": "Hex_String",
+          "description": "Decoded bytes as Hex",
+          "value": "36875e00da1d78136875e08da1d78336875e10da1d78536875e18da1d787"
+        }
+      ],
+      "narrative": "A Telegraph Decoder. It requires input from the Navigation Compass."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A Hidden Valve."
+    },
+    {
+      "id": "calc_bigmul_5f92",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "837465918273645019283746"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": 4152491320
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "3477569956427140327336987882084720"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "837465918273645019283746"
+        },
+        "outputs": {}
+      },
+      "narrative": "An Auxiliary Engine. It requires input from the Pressure Validator."
+    },
+    {
+      "id": "container_3_61cb",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "564738291048573627184950"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "564738291048573627184950"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Furnace Hatch."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "container_4_fingerprint_hash"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "container_4_fingerprint_hash"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Cogwheel Chest."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "network_graph_data.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "NodeA"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "NodeH"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"NodeA\", \"NodeB\", \"NodeC\", \"NodeD\", \"NodeE\", \"NodeF\", \"NodeG\", \"NodeH\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "385629"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "NodeA",
+          "dst": "NodeH"
+        },
+        "outputs": {
+          "path": "[\"NodeA\", \"NodeB\", \"NodeC\", \"NodeD\", \"NodeE\", \"NodeF\", \"NodeG\", \"NodeH\"]",
+          "cost": "385629"
+        }
+      },
+      "narrative": "A Navigation Compass. It requires input from the Transit Log."
+    },
+    {
+      "id": "item_10",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_10",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "948573625103948576210394"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "948573625103948576210394"
+        }
+      },
+      "narrative": "A Punched Card."
+    },
+    {
+      "id": "item_9",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_9",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "JSON file path",
+          "value": "network_graph_data.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "network_graph_data.json"
+        }
+      },
+      "narrative": "A Transit Log."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "102938475610293847561029"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "847561029384756102938475"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Partial computation indicates a successful system start."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "102938475610293847561029",
+          "num2": "847561029384756102938475"
+        },
+        "outputs": {
+          "text_result": "Partial computation indicates a successful system start.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "narrative": "An Engine Terminal."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_dfef",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_inv_mod_a285",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16_dfef",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_inv_mod_a285",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_inv_mod_a285",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "s"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "container_3_7568",
+      "target_id": "checksum_crc32",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "base64_decode",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "bytes_hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "num_base_convert",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_bigmul_5f92",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_bigmul_5f92",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "container_3_61cb",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "base64_decode",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "base64_decode",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "data"
+    },
+    {
+      "source_id": "item_10",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "content",
+      "target_port": "b"
+    },
+    {
+      "source_id": "item_9",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_10",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    }
+  ]
+}

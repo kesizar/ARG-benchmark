@@ -1,0 +1,806 @@
+{
+  "hooks": {
+    "hidden-2": {
+      "type": "dom_regex",
+      "pattern": "隐藏结局 · 二"
+    },
+    "plain-3": {
+      "type": "dom_regex",
+      "pattern": "常规结局 · 三"
+    },
+    "hidden-1": {
+      "type": "dom_regex",
+      "pattern": "隐藏结局 · 一"
+    },
+    "plain-2": {
+      "type": "dom_regex",
+      "pattern": "常规结局 · 二"
+    },
+    "plain-1": {
+      "type": "dom_regex",
+      "pattern": "常规结局 · 一"
+    },
+    "tape-01": {
+      "type": "dom_regex",
+      "pattern": "摇摇晃晃的脚步声由远至近，一个穿着粗气的人在录音机前坐下"
+    },
+    "tape-02": {
+      "type": "dom_regex",
+      "pattern": "十分安静，听不到任何背景音乐"
+    },
+    "tape-03": {
+      "type": "dom_regex",
+      "pattern": "突如其来的打喷嚏声，暂时中断了店内其他客人的交谈"
+    },
+    "tape-04": {
+      "type": "dom_regex",
+      "pattern": "伴随吧台远端的客人连连发出的赞叹声，一堆冰块被倒进水槽里"
+    },
+    "tape-05": {
+      "type": "dom_regex",
+      "pattern": "扫帚扫过碎玻璃的声音，背景中隐约有人在叫骂"
+    },
+    "tape-06": {
+      "type": "dom_regex",
+      "pattern": "喧闹的交谈混合着酒杯相互碰撞的声音，一阵脚步声由远至近传来"
+    },
+    "tape-07": {
+      "type": "dom_regex",
+      "pattern": "安静的空间，背景音乐声音小的几乎听不见"
+    },
+    "tape-08": {
+      "type": "dom_regex",
+      "pattern": "店内熙熙攘攘，气氛松弛而愉悦，随着开门声响起，人群说话声音骤然停住"
+    },
+    "tape-09": {
+      "type": "dom_regex",
+      "pattern": "麦克风有轻微剐蹭声，似乎被人装在口袋里，随着脚步移动着"
+    },
+    "tape-10": {
+      "type": "dom_regex",
+      "pattern": "背景中，嘈杂的电子音乐声渐渐变小，爵士钢琴缓慢响起，远处的酒客发出质疑的"
+    },
+    "tape-11": {
+      "type": "dom_regex",
+      "pattern": "熙熙攘攘的喧闹人声，几个粗哑的嗓音组合在一起，正在唱着生日歌"
+    },
+    "tape-12": {
+      "type": "dom_regex",
+      "pattern": "空间安静，背景音乐缓慢得让人沉睡"
+    },
+    "tape-13": {
+      "type": "dom_regex",
+      "pattern": "冰块在摇酒壶中相互碰撞，酒液被倒入杯子里"
+    },
+    "tape-14": {
+      "type": "dom_regex",
+      "pattern": "安静的酒吧内，背景音乐是温暖的爵士钢琴，推门声响起"
+    },
+    "tape-15": {
+      "type": "dom_regex",
+      "pattern": "（先后两声推开门的声音，脚步声一前一后"
+    },
+    "tape-16": {
+      "type": "dom_regex",
+      "pattern": "苹果__：不好意思，又当着你的面碎了俩杯子"
+    },
+    "tape-17": {
+      "type": "dom_regex",
+      "pattern": "脚步声一前一后，由远至近"
+    },
+    "tape-18": {
+      "type": "dom_regex",
+      "pattern": "苹果：准备做一杯新酒来着，最后决定掺着世涛喝吧"
+    },
+    "post-01": {
+      "type": "dom_regex",
+      "pattern": "使用子弹杯装满金酒，扔进盛放啤酒的杯子里"
+    },
+    "post-02": {
+      "type": "dom_regex",
+      "pattern": "我不知道，尝起来根本两码事"
+    },
+    "post-03": {
+      "type": "dom_regex",
+      "pattern": "店里有些客人对这杯酒的喜爱达到了狂热的程度，甚至声称再难找到比它更美味的"
+    },
+    "post-04": {
+      "type": "dom_regex",
+      "pattern": "原来诀窍就在于，少放那一点点的威士忌"
+    },
+    "post-05": {
+      "type": "dom_regex",
+      "pattern": "一天晚上__做了两杯，得到了两种完全不同的评价"
+    },
+    "post-06": {
+      "type": "dom_regex",
+      "pattern": "算是__Boulevardier__的变种吗"
+    },
+    "post-07": {
+      "type": "dom_regex",
+      "pattern": "Sotol是种蛮少见的一种烈酒，产自墨西哥北部"
+    },
+    "post-08": {
+      "type": "dom_regex",
+      "pattern": "每年__4月25日__是酒吧的__店庆日__，这天酒吧不营业，只招待老客"
+    },
+    "post-09": {
+      "type": "dom_regex",
+      "pattern": "翻那堆老配方有了新发现，可由于店里长期没有烧酒，到__立春__那天，有人"
+    },
+    "post-10": {
+      "type": "dom_regex",
+      "pattern": "今晚之前我从不知道世上存在这种酒，也不知道店里还有一小口这种酒，更不知道"
+    },
+    "post-11": {
+      "type": "dom_regex",
+      "pattern": "为一个酒吧工作__超过两年__后，我终于做了自己的第一款原创鸡尾酒"
+    },
+    "post-12": {
+      "type": "dom_regex",
+      "pattern": "第一次做根本懒得尝，第二次——也就是今天，也只尝到了在酒壶里预调时的那一"
+    },
+    "post-13": {
+      "type": "dom_regex",
+      "pattern": "有种别人偷走宝贝的失落感（并没有"
+    },
+    "post-14": {
+      "type": "dom_regex",
+      "pattern": "不完美就不完美呗，反正剩的半杯，常温下放了一个多小时，我再喝也觉得挺好喝"
+    },
+    "post-15": {
+      "type": "dom_regex",
+      "pattern": "我把小说的扫描文件录入到博客，以便之后有时间再慢慢看"
+    },
+    "post-16": {
+      "type": "dom_regex",
+      "pattern": "他说在帕乌斯托夫斯基的小说里，苏联人把任何用热水泡出味道的饮品都称之为茶"
+    },
+    "post-17": {
+      "type": "dom_regex",
+      "pattern": "还在学习基酒和利口酒呢，忽然给我搞这么一杯，用的还全是我不认识的材料"
+    },
+    "post-18": {
+      "type": "dom_regex",
+      "pattern": "我说过，这个店里到处都是配方"
+    },
+    "tape-19": {
+      "type": "dom_regex",
+      "pattern": "Staggering\\ footsteps\\ approach\\ from\\ a"
+    },
+    "tape-20": {
+      "type": "dom_regex",
+      "pattern": "Very\\ quiet,\\ no\\ background\\ music\\ can\\ "
+    },
+    "tape-21": {
+      "type": "dom_regex",
+      "pattern": "Quiet,\\ soothing\\ piano\\ solo\\.\\ A\\ sudden"
+    },
+    "tape-22": {
+      "type": "dom_regex",
+      "pattern": "Accompanied\\ by\\ customers\\ at\\ the\\ far\\ "
+    },
+    "tape-23": {
+      "type": "dom_regex",
+      "pattern": "Sound\\ of\\ a\\ broom\\ sweeping\\ broken\\ gla"
+    },
+    "tape-24": {
+      "type": "dom_regex",
+      "pattern": "Noisy\\ chatter\\ mixed\\ with\\ clinking\\ gl"
+    },
+    "tape-25": {
+      "type": "dom_regex",
+      "pattern": "Apple__：Yes,\\ yes\\.\\ Sorry,\\ I\\ fell\\ asle"
+    },
+    "tape-26": {
+      "type": "dom_regex",
+      "pattern": "Foot\\ steps\\ gradually\\ approach\\ the\\ ba"
+    },
+    "tape-27": {
+      "type": "dom_regex",
+      "pattern": "Microphone\\ makes\\ slight\\ scraping\\ sou"
+    },
+    "tape-28": {
+      "type": "dom_regex",
+      "pattern": "In\\ the\\ background,\\ noisy\\ electronic\\ "
+    },
+    "tape-29": {
+      "type": "dom_regex",
+      "pattern": "Bustling\\ noise,\\ several\\ hoarse\\ voice"
+    },
+    "tape-30": {
+      "type": "dom_regex",
+      "pattern": "Quiet\\ space,\\ background\\ music\\ so\\ slo"
+    },
+    "tape-31": {
+      "type": "dom_regex",
+      "pattern": "Ice\\ clinking\\ in\\ shaker,\\ liquid\\ poure"
+    },
+    "tape-32": {
+      "type": "dom_regex",
+      "pattern": "Quiet\\ bar,\\ background\\ music\\ is\\ warm\\ "
+    },
+    "tape-33": {
+      "type": "dom_regex",
+      "pattern": "Two\\ sounds\\ of\\ door\\ opening,\\ footstep"
+    },
+    "tape-34": {
+      "type": "dom_regex",
+      "pattern": "Sound\\ of\\ glass\\ breaking\\."
+    },
+    "tape-35": {
+      "type": "dom_regex",
+      "pattern": "Footsteps\\ one\\ after\\ another,\\ from\\ fa"
+    },
+    "tape-36": {
+      "type": "dom_regex",
+      "pattern": "Quiet\\ piano\\ music\\."
+    },
+    "post-19": {
+      "type": "dom_regex",
+      "pattern": "The\\ botanical\\ notes\\ of\\ gin\\ enhance\\ t"
+    },
+    "post-20": {
+      "type": "dom_regex",
+      "pattern": "Just\\ two\\ days__\\ after\\ learning\\ it,\\ a"
+    },
+    "post-21": {
+      "type": "dom_regex",
+      "pattern": "Some\\ customers\\ here\\ love\\ this\\ drink\\ "
+    },
+    "post-22": {
+      "type": "dom_regex",
+      "pattern": "But\\ where\\ did\\ he\\ go"
+    },
+    "post-23": {
+      "type": "dom_regex",
+      "pattern": "Made\\ two\\ drinks\\ __one\\ evening__,\\ got"
+    },
+    "post-24": {
+      "type": "dom_regex",
+      "pattern": "Is\\ this\\ a\\ __Boulevardier__\\ variant"
+    },
+    "post-25": {
+      "type": "dom_regex",
+      "pattern": "Or\\ maybe\\ it's\\ something\\ else\\ entirel"
+    },
+    "post-26": {
+      "type": "dom_regex",
+      "pattern": "Every\\ year\\ __April\\ 25th__\\ is\\ the\\ bar"
+    },
+    "post-27": {
+      "type": "dom_regex",
+      "pattern": "Found\\ something\\ new\\ going\\ through\\ th"
+    },
+    "post-28": {
+      "type": "dom_regex",
+      "pattern": "Before\\ tonight\\ I\\ never\\ knew\\ this\\ liq"
+    },
+    "post-29": {
+      "type": "dom_regex",
+      "pattern": "After\\ working\\ at\\ a\\ bar\\ for\\ __over\\ tw"
+    },
+    "post-30": {
+      "type": "dom_regex",
+      "pattern": "Never\\ tasted\\ the\\ finished\\ product\\.\\ F"
+    },
+    "post-31": {
+      "type": "dom_regex",
+      "pattern": "Damn,\\ secret's\\ been\\ discovered"
+    },
+    "post-32": {
+      "type": "dom_regex",
+      "pattern": "Is\\ this\\ aging"
+    },
+    "post-33": {
+      "type": "dom_regex",
+      "pattern": "sometimes\\ even\\ the\\ opposite,\\ deliber"
+    },
+    "post-34": {
+      "type": "dom_regex",
+      "pattern": "Still\\ learning\\ base\\ spirits\\ and\\ liqu"
+    },
+    "post-35": {
+      "type": "dom_regex",
+      "pattern": "I\\ said,\\ this\\ bar\\ is\\ full\\ of\\ recipes\\ "
+    },
+    "post-36": {
+      "type": "dom_regex",
+      "pattern": "is\\ a\\ novel,\\ authored\\ by\\ __Taylor\\ Soi"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "tape-01",
+      "hook": "tape-01",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-02",
+      "hook": "tape-02",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-03",
+      "hook": "tape-03",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-04",
+      "hook": "tape-04",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-05",
+      "hook": "tape-05",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-06",
+      "hook": "tape-06",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-07",
+      "hook": "tape-07",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-08",
+      "hook": "tape-08",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-09",
+      "hook": "tape-09",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-10",
+      "hook": "tape-10",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-11",
+      "hook": "tape-11",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-12",
+      "hook": "tape-12",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-13",
+      "hook": "tape-13",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-14",
+      "hook": "tape-14",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-15",
+      "hook": "tape-15",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-16",
+      "hook": "tape-16",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-17",
+      "hook": "tape-17",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-18",
+      "hook": "tape-18",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-01",
+      "hook": "post-01",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-02",
+      "hook": "post-02",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-03",
+      "hook": "post-03",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-04",
+      "hook": "post-04",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-05",
+      "hook": "post-05",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-06",
+      "hook": "post-06",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-07",
+      "hook": "post-07",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-08",
+      "hook": "post-08",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-09",
+      "hook": "post-09",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-10",
+      "hook": "post-10",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-11",
+      "hook": "post-11",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-12",
+      "hook": "post-12",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-13",
+      "hook": "post-13",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-14",
+      "hook": "post-14",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-15",
+      "hook": "post-15",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-16",
+      "hook": "post-16",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-17",
+      "hook": "post-17",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-18",
+      "hook": "post-18",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-19",
+      "hook": "tape-19",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-20",
+      "hook": "tape-20",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-21",
+      "hook": "tape-21",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-22",
+      "hook": "tape-22",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-23",
+      "hook": "tape-23",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-24",
+      "hook": "tape-24",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-25",
+      "hook": "tape-25",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-26",
+      "hook": "tape-26",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-27",
+      "hook": "tape-27",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-28",
+      "hook": "tape-28",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-29",
+      "hook": "tape-29",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-30",
+      "hook": "tape-30",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-31",
+      "hook": "tape-31",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-32",
+      "hook": "tape-32",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-33",
+      "hook": "tape-33",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-34",
+      "hook": "tape-34",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-35",
+      "hook": "tape-35",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tape-36",
+      "hook": "tape-36",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-19",
+      "hook": "post-19",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-20",
+      "hook": "post-20",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-21",
+      "hook": "post-21",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-22",
+      "hook": "post-22",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-23",
+      "hook": "post-23",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-24",
+      "hook": "post-24",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-25",
+      "hook": "post-25",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-26",
+      "hook": "post-26",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-27",
+      "hook": "post-27",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-28",
+      "hook": "post-28",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-29",
+      "hook": "post-29",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-30",
+      "hook": "post-30",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-31",
+      "hook": "post-31",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-32",
+      "hook": "post-32",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-33",
+      "hook": "post-33",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-34",
+      "hook": "post-34",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-35",
+      "hook": "post-35",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post-36",
+      "hook": "post-36",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "hidden-2",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "hidden-2",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "plain-3",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "plain-3",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "plain-1",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "plain-1",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "hidden-1",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "hidden-1",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "plain-2",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "plain-2",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "hidden-2",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

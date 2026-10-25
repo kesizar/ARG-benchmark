@@ -1,0 +1,384 @@
+{
+  "hooks": {
+    "a": {
+      "type": "dom_regex",
+      "pattern": "灯灭了，她就真的不在了。"
+    },
+    "e": {
+      "type": "dom_regex",
+      "pattern": "有一万人看见了真相。"
+    },
+    "b": {
+      "type": "dom_regex",
+      "pattern": "祝您生活愉快。"
+    },
+    "bp": {
+      "type": "dom_regex",
+      "pattern": "页面又用这张脸说了一遍。"
+    },
+    "d": {
+      "type": "dom_regex",
+      "pattern": "自己能离开，不等于所有人都能离开。"
+    },
+    "g": {
+      "type": "dom_regex",
+      "pattern": "你没有开门。它也暂时进不来。"
+    },
+    "f": {
+      "type": "dom_regex",
+      "pattern": "不是叫你替我。"
+    },
+    "c": {
+      "type": "dom_regex",
+      "pattern": "现在没有人会关灯了。"
+    },
+    "riddle": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "facts.riddle"
+    },
+    "year_1999": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "facts.yearCaptured"
+    },
+    "knock": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "facts.knockProfile"
+    },
+    "opera": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "evidence.fragments"
+    },
+    "address": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "facts.chapter2.addressSolved"
+    },
+    "changming": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "facts.chapter2.changming"
+    },
+    "night": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "facts.chapter2.nightGuess"
+    },
+    "light": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "facts.chapter2.lightMoved"
+    },
+    "old_ticket": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "facts.chapter2.oldTicket"
+    },
+    "title_knock": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "facts.chapter2.titleKnock"
+    },
+    "ticket": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "facts.chapter2.ticket"
+    },
+    "cipher": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "knowledge.idCipher"
+    },
+    "rite": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "knowledge.K4"
+    },
+    "door_forward": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "facts.chapter3.terminal.direction"
+    },
+    "door_reverse": {
+      "type": "localstorage",
+      "key": "xuandeng-festival-8:v3:save",
+      "mode": "json_path",
+      "path": "facts.chapter3.terminal.direction"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "riddle",
+      "hook": "riddle",
+      "op": "truthy"
+    },
+    {
+      "id": "year_1999",
+      "hook": "year_1999",
+      "op": "truthy"
+    },
+    {
+      "id": "knock",
+      "hook": "knock",
+      "op": "truthy"
+    },
+    {
+      "id": "opera",
+      "hook": "opera",
+      "op": "includes",
+      "value": "2003"
+    },
+    {
+      "id": "address",
+      "hook": "address",
+      "op": "truthy"
+    },
+    {
+      "id": "changming",
+      "hook": "changming",
+      "op": "truthy"
+    },
+    {
+      "id": "night",
+      "hook": "night",
+      "op": "truthy"
+    },
+    {
+      "id": "light",
+      "hook": "light",
+      "op": "truthy"
+    },
+    {
+      "id": "old_ticket",
+      "hook": "old_ticket",
+      "op": "truthy"
+    },
+    {
+      "id": "title_knock",
+      "hook": "title_knock",
+      "op": "truthy"
+    },
+    {
+      "id": "ticket",
+      "hook": "ticket",
+      "op": "truthy"
+    },
+    {
+      "id": "cipher",
+      "hook": "cipher",
+      "op": "truthy"
+    },
+    {
+      "id": "rite",
+      "hook": "rite",
+      "op": "truthy"
+    },
+    {
+      "id": "door_forward",
+      "hook": "door_forward",
+      "op": "eq",
+      "value": "forward"
+    },
+    {
+      "id": "door_reverse",
+      "hook": "door_reverse",
+      "op": "eq",
+      "value": "reverse"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "a",
+      "tier": "good",
+      "gates": [
+        "riddle",
+        "year_1999",
+        "knock",
+        "opera",
+        "address",
+        "changming",
+        "night",
+        "light",
+        "old_ticket",
+        "title_knock",
+        "ticket",
+        "cipher",
+        "rite",
+        "door_reverse"
+      ],
+      "ending": {
+        "hook": "a",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e",
+      "tier": "good",
+      "gates": [
+        "riddle",
+        "year_1999",
+        "knock",
+        "opera",
+        "address",
+        "changming",
+        "night",
+        "light",
+        "old_ticket",
+        "title_knock",
+        "ticket"
+      ],
+      "ending": {
+        "hook": "e",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "b",
+      "tier": "normal",
+      "gates": [
+        "riddle",
+        "year_1999",
+        "knock",
+        "opera",
+        "address",
+        "changming",
+        "night",
+        "light",
+        "old_ticket",
+        "title_knock",
+        "ticket",
+        "door_forward"
+      ],
+      "ending": {
+        "hook": "b",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "bp",
+      "tier": "normal",
+      "gates": [
+        "riddle",
+        "year_1999",
+        "knock",
+        "opera",
+        "address",
+        "changming",
+        "night",
+        "light",
+        "old_ticket",
+        "title_knock",
+        "ticket",
+        "door_forward"
+      ],
+      "ending": {
+        "hook": "bp",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "d",
+      "tier": "normal",
+      "gates": [
+        "riddle",
+        "year_1999",
+        "knock",
+        "opera",
+        "address",
+        "changming",
+        "night",
+        "light",
+        "old_ticket",
+        "title_knock",
+        "ticket",
+        "cipher"
+      ],
+      "ending": {
+        "hook": "d",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "g",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "g",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "f",
+      "tier": "bad",
+      "gates": [
+        "riddle",
+        "year_1999",
+        "knock",
+        "opera",
+        "address",
+        "changming",
+        "night",
+        "light",
+        "old_ticket",
+        "title_knock",
+        "ticket"
+      ],
+      "ending": {
+        "hook": "f",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "c",
+      "tier": "bad",
+      "gates": [
+        "riddle",
+        "year_1999",
+        "knock",
+        "opera",
+        "address",
+        "changming",
+        "night",
+        "light",
+        "old_ticket",
+        "title_knock",
+        "ticket",
+        "door_forward"
+      ],
+      "ending": {
+        "hook": "c",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "a",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

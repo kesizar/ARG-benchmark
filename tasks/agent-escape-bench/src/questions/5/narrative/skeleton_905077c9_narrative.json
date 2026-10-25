@@ -1,0 +1,295 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_12",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_12",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_12",
+        "calc_modexp",
+        "calc_inv_mod"
+      ],
+      "by_node": {
+        "item_12": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_12",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String",
+              "description": "The hex code"
+            }
+          }
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_12": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "4a7b2c9d1e8f3a6b0c5d2e9f1a8b3c4d"
+        }
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "847362519203847561928374561029",
+          "exp": "293847561029384756102938475612"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "564738291056473829105647382910",
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You step into the dimly lit, abandoned office of the legendary private eye, Arthur Pendelton. Dust motes dance in the pale moonlight filtering through the shattered blinds. Your target is a highly guarded dossier containing a dangerous secret he died protecting. To uncover the truth and escape before his ruthless pursuers arrive, you must decipher the bizarre, interconnected security measures he left behind in this room. The clock is ticking, and the shadows seem to close in.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "item_12",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_12",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String",
+          "description": "The hex code",
+          "value": "4a7b2c9d1e8f3a6b0c5d2e9f1a8b3c4d"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "4a7b2c9d1e8f3a6b0c5d2e9f1a8b3c4d"
+        }
+      },
+      "narrative": "A sealed secret dossier marked with classified stamps."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "25777"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "A heavy biometric safe built into the wall. It requires input from the primary mainframe to authenticate its lock."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An intricately carved silver pocket watch resting on the velvet armchair."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "847362519203847561928374561029"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "293847561029384756102938475612"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "77536"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "25777"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "847362519203847561928374561029",
+          "exp": "293847561029384756102938475612"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the primary mainframe. It requires input from the analytical engine to process its calculations."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "564738291056473829105647382910"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "77536"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "564738291056473829105647382910",
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "An antique analytical engine covered in intricate brass dials."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_3",
+      "target_id": "item_12",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    }
+  ]
+}

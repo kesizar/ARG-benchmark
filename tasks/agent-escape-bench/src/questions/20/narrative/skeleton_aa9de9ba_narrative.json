@@ -1,0 +1,1267 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 24,
+    "win_node_id": "hex_decode",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "hex_decode",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute Hex to Text Decoder and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_1",
+        "terminal_1_b26c",
+        "calc_bigmul",
+        "graph_shortest_path",
+        "terminal_1_393d",
+        "checksum_crc32",
+        "calc_gcd",
+        "graph_shortest_path_1884",
+        "graph_shortest_path_270b",
+        "hex_decode_fa7f",
+        "container_3",
+        "item_4"
+      ],
+      "by_node": {
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "terminal_1_b26c": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "terminal_1_393d": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path_1884": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "graph_shortest_path_270b": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "hex_decode_fa7f": {
+          "node_name": "Hex to Text Decoder",
+          "node_type": "Tool",
+          "template_id": "hex_decode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Initial data from terminal sequence A.",
+          "hex_output": "81a4f9b2d6e3c05f17b3a4c5e6d7f8a9",
+          "item_dispenser": "This dispenser gives you nothing useful at all."
+        }
+      },
+      "terminal_1_b26c": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Secondary terminal processing sequence initialized.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "b": "39485710293847561029384756"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"A\", \"B\", \"C\", \"D\", \"E\", \"F\"]",
+          "cost": "245900"
+        }
+      },
+      "terminal_1_393d": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Terminal 393D standard output stream active.",
+          "hex_output": "deadbeef1234567890abcdef12345678"
+        }
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "112233445566778899aabbccddeeff00"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "b": "8475619283746510293847561"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path_1884": {
+        "init_inputs": {
+          "file_id": "graph_1884.json",
+          "src": "Node_Start",
+          "dst": "Node_End"
+        },
+        "init_outputs": {
+          "path": "[\"Start\", \"Node_1\", \"Node_2\", \"Node_3\", \"End\"]",
+          "cost": "893125"
+        }
+      },
+      "graph_shortest_path_270b": {
+        "init_inputs": {
+          "file_id": "graph_270b.json",
+          "src": "Location_Alpha",
+          "dst": "Location_Omega"
+        },
+        "init_outputs": {
+          "path": "[\"Alpha\", \"Beta\", \"Gamma\", \"Delta\", \"Omega\"]",
+          "cost": "16"
+        }
+      },
+      "hex_decode_fa7f": {
+        "init_inputs": {
+          "hex": "68656c6c6f20776f726c642074657374"
+        },
+        "init_outputs": {}
+      },
+      "container_3": {
+        "init_inputs": {
+          "fingerprint_input": "47382910485726394857102938"
+        },
+        "init_outputs": {}
+      },
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "archive_payload.zip"
+        }
+      }
+    },
+    "intro_narrative": "Welcome to the study of the late cryptographer Elias Thorne. The room is dimly lit, filled with strange mechanical devices and thick layers of dust. The authorities believe Thorne hid the ultimate secret society roster in this very room before his disappearance. Your objective is to follow his trail of clues, activate the dormant machinery, and finally extract the roster from his antique typewriter. You have exactly one hour before the building is demolished. Look carefully—every device is connected, and the output of one often serves as the key to another. Will you uncover the truth?",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "789c4b4bcc294e05000616020c"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "xKK)N\u0005\u0000\u0006\u0016\u0002\f"
+        }
+      ],
+      "narrative": "This is the antique typewriter. It requires input from the pressure valve system to type out its final message."
+    },
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c4b4bcc294e05000616020c"
+        }
+      ],
+      "narrative": "This is the pressure valve system. It requires input from the identity scanner to adjust the pressure."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "Initial data from terminal sequence A."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is the identity scanner. It requires input from the main vault door before it can scan."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "False"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "9709536161257115257125711500400"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Initial data from terminal sequence A."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "81a4f9b2d6e3c05f17b3a4c5e6d7f8a9"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "This dispenser gives you nothing useful at all."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Initial data from terminal sequence A.",
+          "hex_output": "81a4f9b2d6e3c05f17b3a4c5e6d7f8a9",
+          "item_dispenser": "This dispenser gives you nothing useful at all."
+        }
+      },
+      "narrative": "This is the main vault door. It requires inputs from the banking terminal and the analytical engine to unlock."
+    },
+    {
+      "id": "iban_validate",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "\u001a+<M^oz\r\u001e/:K\\m"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "False"
+        }
+      ],
+      "narrative": "This is the banking terminal. It requires input from the hidden decryptor to verify the credentials."
+    },
+    {
+      "id": "hex_decode_2846",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "\u001a+<M^oz\r\u001e/:K\\m"
+        }
+      ],
+      "narrative": "This is the hidden decryptor. It requires input from the central relay desk to begin decryption."
+    },
+    {
+      "id": "terminal_1_b26c",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Terminal 393D standard output stream active."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "16"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Secondary terminal processing sequence initialized."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Secondary terminal processing sequence initialized.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "narrative": "This is the central relay desk. It requires inputs from the security checkpoint and the navigation compass."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "245900"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "39485710293847561029384756"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "9709536161257115257125711500400"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "39485710293847561029384756"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the analytical engine. It requires input from the cryptographic wheel to function properly."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "245900"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "16"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "245900"
+        }
+      ],
+      "narrative": "This is the cryptographic wheel. It requires inputs from the holographic map, the harmonic resonator, and the navigation compass."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A pristine golden keycard left behind by the architect. It seems to have been dropped in a hurry."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "archive_payload.zip"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Secondary terminal processing sequence initialized."
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Terminal 393D standard output stream active."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"A\", \"B\", \"C\", \"D\", \"E\", \"F\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "245900"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"A\", \"B\", \"C\", \"D\", \"E\", \"F\"]",
+          "cost": "245900"
+        }
+      },
+      "narrative": "This is the holographic map. It requires inputs from the central relay desk, the manuscript restorer, and the leather-bound journal."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Terminal 393D standard output stream active."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "Terminal 393D standard output stream active."
+        }
+      ],
+      "narrative": "This is the manuscript restorer. It requires input from the security checkpoint to restore the texts."
+    },
+    {
+      "id": "terminal_1_393d",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "hello world test"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": 2416908508
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal 393D standard output stream active."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "deadbeef1234567890abcdef12345678"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Terminal 393D standard output stream active.",
+          "hex_output": "deadbeef1234567890abcdef12345678"
+        }
+      },
+      "narrative": "This is the security checkpoint. It requires inputs from both the digital scale and the brass telegraph to activate."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "112233445566778899aabbccddeeff00"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "900f18dc"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2416908508
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "112233445566778899aabbccddeeff00"
+        },
+        "outputs": {}
+      },
+      "narrative": "A highly precise digital scale sitting quietly on the desk, waiting to weigh the truth."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "893125"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "8475619283746510293847561"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "8475619283746510293847561"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the harmonic resonator. It requires input from the star chart projector to align its frequencies."
+    },
+    {
+      "id": "graph_shortest_path_1884",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "graph_1884.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_Start"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Node_End"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Start\", \"Node_1\", \"Node_2\", \"Node_3\", \"End\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "893125"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "graph_1884.json",
+          "src": "Node_Start",
+          "dst": "Node_End"
+        },
+        "outputs": {
+          "path": "[\"Start\", \"Node_1\", \"Node_2\", \"Node_3\", \"End\"]",
+          "cost": "893125"
+        }
+      },
+      "narrative": "An old star chart projector covered in dust, waiting to cast constellations on the ceiling."
+    },
+    {
+      "id": "graph_shortest_path_270b",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "graph_270b.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Location_Alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Location_Omega"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Alpha\", \"Beta\", \"Gamma\", \"Delta\", \"Omega\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "16"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "graph_270b.json",
+          "src": "Location_Alpha",
+          "dst": "Location_Omega"
+        },
+        "outputs": {
+          "path": "[\"Alpha\", \"Beta\", \"Gamma\", \"Delta\", \"Omega\"]",
+          "cost": "16"
+        }
+      },
+      "narrative": "An old brass navigation compass with strange markings engraved along its golden edges."
+    },
+    {
+      "id": "hex_decode_fa7f",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "68656c6c6f20776f726c642074657374"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "hello world test"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "68656c6c6f20776f726c642074657374"
+        },
+        "outputs": {}
+      },
+      "narrative": "An intricate brass telegraph machine, its keys worn smooth by decades of rapid use."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "47382910485726394857102938"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "47382910485726394857102938"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy iron lockbox bolted to the floor. It looks virtually indestructible from the outside."
+    },
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "archive_payload.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "archive_payload.zip"
+        }
+      },
+      "narrative": "A dusty leather-bound journal filled with cryptic notes and encrypted coordinates."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "zlib_deflate",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "zlib_deflate",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "number"
+    },
+    {
+      "source_id": "iban_validate",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "hex_decode_2846",
+      "target_id": "iban_validate",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "iban"
+    },
+    {
+      "source_id": "terminal_1_b26c",
+      "target_id": "hex_decode_2846",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_bigmul",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "s"
+    },
+    {
+      "source_id": "terminal_1_b26c",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "src"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "terminal_1_393d",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "text"
+    },
+    {
+      "source_id": "terminal_1_393d",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_1_393d",
+      "target_id": "terminal_1_b26c",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_1_393d",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "graph_shortest_path_1884",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "terminal_1_b26c",
+      "target_id": "graph_shortest_path_1884",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "graph_shortest_path_270b",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "hex_decode_fa7f",
+      "target_id": "terminal_1_393d",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "graph_shortest_path_270b",
+      "target_id": "terminal_1_b26c",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_4",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "file_id"
+    }
+  ]
+}

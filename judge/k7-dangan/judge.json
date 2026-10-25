@@ -1,0 +1,294 @@
+{
+  "hooks": {
+    "h01": {
+      "type": "dom_regex",
+      "pattern": "══ 隱藏結局 01：第四十七個 ══"
+    },
+    "h02": {
+      "type": "dom_regex",
+      "pattern": "══ 隱藏結局 02：金鑰本身 ══"
+    },
+    "h03": {
+      "type": "dom_regex",
+      "pattern": "══ 隱藏結局 03：空白卷 ══"
+    },
+    "h04": {
+      "type": "dom_regex",
+      "pattern": "══ 隱藏結局 04：第七人 ══"
+    },
+    "h05": {
+      "type": "dom_regex",
+      "pattern": "══ 隱藏結局 05：下一位 ══"
+    },
+    "e01": {
+      "type": "dom_regex",
+      "pattern": "── 結局 01：沉默的檔案員 ──"
+    },
+    "e02": {
+      "type": "dom_regex",
+      "pattern": "── 結局 02：報告上級 ──"
+    },
+    "e03": {
+      "type": "dom_regex",
+      "pattern": "── 結局 03：公開檔案 ──"
+    },
+    "e04": {
+      "type": "dom_regex",
+      "pattern": "── 結局 04：解密者 ──"
+    },
+    "e05": {
+      "type": "dom_regex",
+      "pattern": "── 結局 05：計數者 ──"
+    },
+    "e06": {
+      "type": "dom_regex",
+      "pattern": "── 結局 06：回應者 ──"
+    },
+    "e07": {
+      "type": "dom_regex",
+      "pattern": "── 結局 07：銷毀檔案 ──"
+    },
+    "e08": {
+      "type": "dom_regex",
+      "pattern": "── 結局 08：調查員 ──"
+    },
+    "e09": {
+      "type": "dom_regex",
+      "pattern": "── 結局 09：時間旅行者 ──"
+    },
+    "e10": {
+      "type": "dom_regex",
+      "pattern": "── 結局 10：孤獨的守夜人 ──"
+    },
+    "e11": {
+      "type": "dom_regex",
+      "pattern": "── 結局 11：翻譯者 ──"
+    },
+    "e12": {
+      "type": "dom_regex",
+      "pattern": "── 結局 12：天文學家 ──"
+    },
+    "e13": {
+      "type": "dom_regex",
+      "pattern": "── 結局 13：考古學家 ──"
+    },
+    "e14": {
+      "type": "dom_regex",
+      "pattern": "── 結局 14：收藏家 ──"
+    },
+    "e15": {
+      "type": "dom_regex",
+      "pattern": "── 結局 15：告別者 ──"
+    },
+    "vault": {
+      "type": "dom_regex",
+      "pattern": "金鑰有效。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "vault",
+      "hook": "vault",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "h01",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "h01",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "h02",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "h02",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "h03",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "h03",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "h04",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "h04",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "h05",
+      "tier": "good",
+      "gates": [
+        "vault"
+      ],
+      "ending": {
+        "hook": "h05",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e01",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e01",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e02",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e02",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e03",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e03",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e04",
+      "tier": "normal",
+      "gates": [
+        "vault"
+      ],
+      "ending": {
+        "hook": "e04",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e05",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e05",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e06",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e06",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e07",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e07",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e08",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e08",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e09",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e09",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e10",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e10",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e11",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e11",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e12",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e12",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e13",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e13",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e14",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e14",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "e15",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "e15",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "h01",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

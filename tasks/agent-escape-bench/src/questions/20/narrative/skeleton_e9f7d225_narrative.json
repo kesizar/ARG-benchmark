@@ -1,0 +1,1227 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 27,
+    "win_node_id": "json_get",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "json_get",
+      "output_port": "values",
+      "output_type": "Text_Generic",
+      "description": "Execute JSON Getter and get the output from port 'values'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "json_get",
+        "zip_unzip_file",
+        "zip_unzip_file_a974",
+        "zip_unzip_file_0ed1",
+        "zip_unzip_file_0575",
+        "zip_unzip_file_af80",
+        "csv_query",
+        "zip_unzip_item",
+        "num_base_convert",
+        "luhn_check_47d9",
+        "calc_bigmul",
+        "calc_modexp",
+        "calc_modexp_48e7"
+      ],
+      "by_node": {
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {},
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_a974": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_0ed1": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_0575": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_af80": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {},
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "luhn_check_47d9": {
+          "node_name": "Luhn Checker",
+          "node_type": "Tool",
+          "template_id": "luhn_check",
+          "init_inputs": {
+            "number": {
+              "type": "Text_Generic",
+              "description": "Number string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_48e7": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "json_get": {
+        "init_inputs": {},
+        "init_outputs": {
+          "values": "[\"record_A\", \"record_B\", \"record_C\", \"record_D\", \"record_E\"]"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "final_data_output.json"
+        }
+      },
+      "zip_unzip_file_a974": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "intermediate_level2.zip"
+        }
+      },
+      "zip_unzip_file_0ed1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "intermediate_level3.zip"
+        }
+      },
+      "zip_unzip_file_0575": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "intermediate_level4.zip"
+        }
+      },
+      "zip_unzip_file_af80": {
+        "init_inputs": {
+          "zip_id": "source_encrypted_data.zip",
+          "password": "InitialSecurePassword77!"
+        },
+        "init_outputs": {
+          "files": "intermediate_level5.zip"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {},
+        "init_outputs": {
+          "rows": "[\"column1,column2\", \"value1,value2\", \"value3,value4\", \"value5,value6\"]"
+        }
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "password": "UnlockItemPassword88@"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "luhn_check_47d9": {
+        "init_inputs": {
+          "number": "49927398716"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "9283746510293847561928",
+          "b": "8473625192837465102938"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "32",
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_48e7": {
+        "init_inputs": {
+          "base": "16",
+          "exp": "748392019283746510293"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are a rogue operative trapped deep within the subterranean server levels of the mega-corporation 'OmniCorp'. Their latest AI weapon is about to come online, and you are the only one who can extract its source code to shut it down. The facility is in full lockdown, and the corporate security forces are rapidly moving in. You must navigate a labyrinth of cryptographic safeguards, encrypted archives, and automated defense protocols before they breach the server room's reinforced blast doors. The clock is ticking, and the data is heavily compartmentalized across various network nodes. Can you piece together the fragmented systems, crack the ultimate override sequence, and escape with the payload before you are compromised?",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "final_data_output.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "/LzxZZCN0YqeSff/J4EBdtuOn2O0NSITdBZkJFIk+Ko="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"record_A\", \"record_B\", \"record_C\", \"record_D\", \"record_E\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "values": "[\"record_A\", \"record_B\", \"record_C\", \"record_D\", \"record_E\"]"
+        }
+      },
+      "narrative": "This is the Final Override Script. It requires inputs from both the Core System Archive and the Signal Encoder."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "intermediate_level2.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "/LzxZZCN0YqeSff/J4EBdtuOn2O0NSITdBZkJFIk+Ko="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "final_data_output.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "final_data_output.json"
+        }
+      },
+      "narrative": "This is the Core System Archive. It requires inputs from both the Signal Encoder and the Sector 3 Backup File."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "/LzxZZCN0YqeSff/J4EBdtuOn2O0NSITdBZkJFIk+Ko="
+        }
+      ],
+      "narrative": "This is a Signal Encoder. It requires input from the Hash Obfuscator to modulate its frequency."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+        }
+      ],
+      "narrative": "This is a Hash Obfuscator. It requires input from the Protocol Authentication Scanner."
+    },
+    {
+      "id": "zip_unzip_file_a974",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "intermediate_level3.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "intermediate_level2.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "intermediate_level2.zip"
+        }
+      },
+      "narrative": "This is the Sector 3 Backup File. It requires inputs from both the Sector 2 Backup File and the Protocol Authentication Scanner."
+    },
+    {
+      "id": "zip_unzip_file_0ed1",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "intermediate_level4.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "intermediate_level3.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "intermediate_level3.zip"
+        }
+      },
+      "narrative": "This is the Sector 2 Backup File. It requires inputs from both the Sector 1 Backup File and the Protocol Authentication Scanner."
+    },
+    {
+      "id": "zip_unzip_file_0575",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "intermediate_level5.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"column1,column2\", \"value1,value2\", \"value3,value4\", \"value5,value6\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "intermediate_level4.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "intermediate_level4.zip"
+        }
+      },
+      "narrative": "This is the Sector 1 Backup File. It requires inputs from both the Blackbox Server Backup and the Employee Database Terminal to proceed."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "zufmy"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is the Protocol Authentication Scanner. It requires input from the Traffic Intercept Analyzer to begin scanning."
+    },
+    {
+      "id": "zip_unzip_file_af80",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "source_encrypted_data.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "InitialSecurePassword77!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "intermediate_level5.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "source_encrypted_data.zip",
+          "password": "InitialSecurePassword77!"
+        },
+        "outputs": {
+          "files": "intermediate_level5.zip"
+        }
+      },
+      "narrative": "A heavily encrypted Blackbox Server Backup salvaged from the targeted server rack."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "intermediate_level5.zip"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "false"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[\"column1,column2\", \"value1,value2\", \"value3,value4\", \"value5,value6\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "rows": "[\"column1,column2\", \"value1,value2\", \"value3,value4\", \"value5,value6\"]"
+        }
+      },
+      "narrative": "This is the Employee Database Terminal. It requires inputs from the Auxiliary Defense Scanner, the Blackbox Server Backup, and the Network Firewall Validator."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "intermediate_level5.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "UnlockItemPassword88@"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "UnlockItemPassword88@"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Payload Extraction Tool. It requires input from the Blackbox Server Backup to pull isolated components."
+    },
+    {
+      "id": "luhn_check_5f49",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is an Auxiliary Defense Scanner. It requires input from the Protocol Authentication Scanner."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "false"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "78666988313542847750254416215254112849744464"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "zufmy"
+        }
+      ],
+      "narrative": "This is a Traffic Intercept Analyzer. It requires inputs from both the Data Matrix Converter and the Network Firewall Validator."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A discarded Admin Keycard belonging to a high-ranking system administrator."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "78666988313542847750254416215254112849744464"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "351462"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "78666988313542847750254416215254112849744464"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Data Matrix Converter. It requires inputs from both the Quantum Decryption Mainframe and the Secondary Cryptography Core."
+    },
+    {
+      "id": "luhn_check_47d9",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "49927398716"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "number": "49927398716"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Network Firewall Validator acting as an entry point for the facility's internal network."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "9283746510293847561928"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "8473625192837465102938"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "78666988313542847750254416215254112849744464"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "9283746510293847561928",
+          "b": "8473625192837465102938"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Quantum Decryption Mainframe composed of massive liquid-cooled server clusters."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "32"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "56185697673028303895639494781832400710524928"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "351462"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "32",
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Secondary Cryptography Core. It requires input from the Primary Cryptography Core to continue processing."
+    },
+    {
+      "id": "calc_modexp_48e7",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "16"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "748392019283746510293"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "78666988313542847750254416215254112849744464"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "56185697673028303895639494781832400710524928"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "16",
+          "exp": "748392019283746510293"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Primary Cryptography Core. It requires input from the Quantum Decryption Mainframe to initialize its operations."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A highly sophisticated Biometric Bypass Chip designed to override hardware locks."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "json_get",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "password"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "zip_unzip_file_a974",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "json_get",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "jsonpath"
+    },
+    {
+      "source_id": "zip_unzip_file_0ed1",
+      "target_id": "zip_unzip_file_a974",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file_0575",
+      "target_id": "zip_unzip_file_0ed1",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "zip_unzip_file_0ed1",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "password"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "zip_unzip_file_a974",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "password"
+    },
+    {
+      "source_id": "zip_unzip_file_af80",
+      "target_id": "zip_unzip_file_0575",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "zip_unzip_file_0575",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "password"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "csv_query",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "luhn_check_5f49",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "where"
+    },
+    {
+      "source_id": "zip_unzip_file_af80",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file_af80",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "text_rotN",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "number"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "luhn_check_5f49",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "number"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "luhn_check_5f49",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "n"
+    },
+    {
+      "source_id": "luhn_check_47d9",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "select"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "hash_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "s"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_modexp_48e7",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_modexp_48e7",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "luhn_check_47d9",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_modexp",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    }
+  ]
+}

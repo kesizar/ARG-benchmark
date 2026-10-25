@@ -1,0 +1,322 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_2",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_2",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_2",
+        "graph_shortest_path",
+        "zip_unzip_file"
+      ],
+      "by_node": {
+        "item_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "The text"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "0x4C6F636B 0x446F776E"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Alpha_Node_Start",
+          "dst": "Omega_Node_End"
+        },
+        "init_outputs": {
+          "path": "[\"Alpha_Node_Start\", \"Relay_Station_01\", \"Data_Link_Aux\", \"Core_Router_5\", \"Security_Gate_B\", \"Omega_Node_End\"]",
+          "cost": "48291038475629103847"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "secure_logs_archive.zip",
+          "password": "CorrectHorseBatteryStaple"
+        },
+        "init_outputs": {
+          "files": "topology_data.json"
+        }
+      }
+    },
+    "intro_narrative": "The rain beats against the grimy windows of the abandoned warehouse—the suspected hideout of the infamous 'Phantom' burglar. You, the lead detective of the precinct's special investigations unit, have finally tracked them here. The suspect has fled, leaving behind a chaotic mess of digital records and strange physical artifacts. Your objective is to navigate this makeshift laboratory and uncover the final piece of evidence that reveals their true identity and next target. The precinct has left you a few advanced forensic tools to aid your investigation. You must carefully analyze the encrypted digital files, trace the suspect's movements across the city grid, and piece together the fragmented clues. Time is of the essence; the Phantom's trail goes cold in a matter of hours. Use your wits to operate the terminal systems and unlock the secrets hidden within this room. The final truth awaits in the shadows.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "item_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "The text",
+          "value": "0x4C6F636B 0x446F776E"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "0x4C6F636B 0x446F776E"
+        }
+      },
+      "narrative": "A heavy steel evidence safe secured with an electronic lock."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_aad3c7227f744daf"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A mysterious silver pocket watch found at the crime scene."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "[\"Alpha_Node_Start\", \"Relay_Station_01\", \"Data_Link_Aux\", \"Core_Router_5\", \"Security_Gate_B\", \"Omega_Node_End\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_aad3c7227f744daf"
+        }
+      ],
+      "narrative": "An advanced 3D evidence fabricator. It requires input from the city grid analyzer."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "topology_data.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Alpha_Node_Start"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Omega_Node_End"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Alpha_Node_Start\", \"Relay_Station_01\", \"Data_Link_Aux\", \"Core_Router_5\", \"Security_Gate_B\", \"Omega_Node_End\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "48291038475629103847"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Alpha_Node_Start",
+          "dst": "Omega_Node_End"
+        },
+        "outputs": {
+          "path": "[\"Alpha_Node_Start\", \"Relay_Station_01\", \"Data_Link_Aux\", \"Core_Router_5\", \"Security_Gate_B\", \"Omega_Node_End\"]",
+          "cost": "48291038475629103847"
+        }
+      },
+      "narrative": "A sophisticated city grid analyzer. It requires input from the forensic decryption terminal."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_logs_archive.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "CorrectHorseBatteryStaple"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "topology_data.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_logs_archive.zip",
+          "password": "CorrectHorseBatteryStaple"
+        },
+        "outputs": {
+          "files": "topology_data.json"
+        }
+      },
+      "narrative": "A specialized forensic decryption terminal used by the precinct."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    }
+  ]
+}

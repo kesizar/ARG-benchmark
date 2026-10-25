@@ -1,0 +1,93 @@
+{
+  "hooks": {
+    "meet": {
+      "type": "dom_regex",
+      "pattern": "结局 · 接站"
+    },
+    "mic": {
+      "type": "dom_regex",
+      "pattern": "结局 · 话筒已关"
+    },
+    "quit": {
+      "type": "dom_regex",
+      "pattern": "结局 · 辞呈"
+    },
+    "room13": {
+      "type": "dom_regex",
+      "pattern": "你终于上来了，第十三任。"
+    },
+    "archive_open": {
+      "type": "dom_regex",
+      "pattern": "我值了 11 个月夜班。第一次听到广播，它叫得出我的名字。"
+    },
+    "fire_map": {
+      "type": "dom_regex",
+      "pattern": "贴纸下是 13 层的轮廓，四块碎片已拼合。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "room13",
+      "hook": "room13",
+      "op": "truthy"
+    },
+    {
+      "id": "archive_open",
+      "hook": "archive_open",
+      "op": "truthy"
+    },
+    {
+      "id": "fire_map",
+      "hook": "fire_map",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "meet",
+      "tier": "good",
+      "gates": [
+        "room13"
+      ],
+      "ending": {
+        "hook": "meet",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "mic",
+      "tier": "normal",
+      "gates": [
+        "room13",
+        "archive_open",
+        "fire_map"
+      ],
+      "ending": {
+        "hook": "mic",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "quit",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "quit",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "meet",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

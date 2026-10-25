@@ -1,0 +1,754 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 15,
+    "win_node_id": "item_2",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_2",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_2",
+        "zip_unzip_file",
+        "zlib_deflate",
+        "zip_unzip_file_c761",
+        "container_2",
+        "json_get",
+        "item_9",
+        "luhn_check"
+      ],
+      "by_node": {
+        "item_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "The text"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zlib_deflate": {
+          "node_name": "Zlib Deflate",
+          "node_type": "Tool",
+          "template_id": "zlib_deflate",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to compress"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_c761": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "container_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_2",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {},
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "item_9": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_9",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "JSON file path"
+            }
+          }
+        },
+        "luhn_check": {
+          "node_name": "Luhn Checker",
+          "node_type": "Tool",
+          "template_id": "luhn_check",
+          "init_inputs": {
+            "number": {
+              "type": "Text_Generic",
+              "description": "Number string"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": ".... . .-.. .-.. --- / .-- --- .-. .-.. -.."
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_payload_data.txt"
+        }
+      },
+      "zlib_deflate": {
+        "init_inputs": {
+          "text": "Start compression sequence for the provided text block."
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_c761": {
+        "init_inputs": {
+          "zip_id": "archive_secure_backup.zip"
+        },
+        "init_outputs": {
+          "files": "internal_confidential_doc.pdf"
+        }
+      },
+      "container_2": {
+        "init_inputs": {
+          "fingerprint_input": "1a2b3c4d5e6f78901a2b3c4d5e6f7890"
+        },
+        "init_outputs": {}
+      },
+      "json_get": {
+        "init_inputs": {},
+        "init_outputs": {
+          "values": "retrieved_secret_key_value_12345"
+        }
+      },
+      "item_9": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "configuration_map.json"
+        }
+      },
+      "luhn_check": {
+        "init_inputs": {
+          "number": "4556737586899855"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The neon hum of Neo-Kyoto's undercity buzzes outside the reinforced glass. You are trapped in the server room of the Arasaka sub-grid, surrounded by cooling towers and blinking terminals. Your exit—the Mainframe Airlock—is sealed tight. To escape before the ICE countermeasures fry your neural link, you must navigate a web of encrypted data, physical keys, and legacy protocols. Scattered around the room are various hacking tools and locked containers. You'll need to chain these systems together, feeding the output of one into the next, to synthesize the final key.",
+    "narrative_style": "cyberpunk"
+  },
+  "nodes": [
+    {
+      "id": "item_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "The text",
+          "value": ".... . .-.. .-.. --- / .-- --- .-. .-.. -.."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": ".... . .-.. .-.. --- / .-- --- .-. .-.. -.."
+        }
+      },
+      "narrative": "The Mainframe Airlock. It is a heavy, blast-proof door with a single interface slot waiting for the final key."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "The Quantum Key. A shimmering, physical manifestation of the unlock code."
+    },
+    {
+      "id": "item_8_e502",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "The Raw Data Shard. A fragmented piece of code extracted from the matrix."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": ""
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Decrypted Matrix. A stable data construct ready for processing."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_payload_data.txt"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "eJwFwYENgCAMBMBVfgKXcQIsbyAqxfY1ju/dqhKC+TWDmd0HkvfDYcTuATVihr+9skL8hO10O5YfUtcU3Q=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip",
+          "value": ""
+        }
+      ],
+      "narrative": "The Master Decryptor terminal. It requires the file extracted from the Secondary Archive and the authorization code generated by the Protocol Converter."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "internal_confidential_doc.pdf"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_payload_data.txt"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_payload_data.txt"
+        }
+      },
+      "narrative": "The Secondary Archive. A heavily encrypted zip file. It requires the file ID from the Primary Archive and a valid password verified by the Bank Server."
+    },
+    {
+      "id": "iban_validate",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "eJwFwYENgCAMBMBVfgKXcQIsbyAqxfY1ju/dqhKC+TWDmd0HkvfDYcTuATVihr+9skL8hO10O5YfUtcU3Q=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "False"
+        }
+      ],
+      "narrative": "The Bank Server Interface. A terminal connected to the global financial grid. It requires the encoded string from the Protocol Converter to verify the transaction."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "789c05c1810d80200c04c0557e029771022c6f202ac5f6358eefddaa1282f9358399dd0792f7c361c4ee01356286bfbdb242fc84ed743b961f52d714dd"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "eJwFwYENgCAMBMBVfgKXcQIsbyAqxfY1ju/dqhKC+TWDmd0HkvfDYcTuATVihr+9skL8hO10O5YfUtcU3Q=="
+        }
+      ],
+      "narrative": "The Protocol Converter. An encoding rig used to translate data formats. It requires the hex output from the Compression Algorithm and the hardware token found inside the Biometric Safe."
+    },
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "Start compression sequence for the provided text block."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c05c1810d80200c04c0557e029771022c6f202ac5f6358eefddaa1282f9358399dd0792f7c361c4ee01356286bfbdb242fc84ed743b961f52d714dd"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Start compression sequence for the provided text block."
+        },
+        "outputs": {}
+      },
+      "narrative": "The Compression Algorithm. A standalone console running a zlib deflation script."
+    },
+    {
+      "id": "zip_unzip_file_c761",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_secure_backup.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "retrieved_secret_key_value_12345"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "internal_confidential_doc.pdf"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_secure_backup.zip"
+        },
+        "outputs": {
+          "files": "internal_confidential_doc.pdf"
+        }
+      },
+      "narrative": "The Primary Archive. A standard security partition. It requires the password value extracted by the Data Miner."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "1a2b3c4d5e6f78901a2b3c4d5e6f7890"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "1a2b3c4d5e6f78901a2b3c4d5e6f7890"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Biometric Safe. A steel box with a fingerprint scanner, waiting for a specific biometric input."
+    },
+    {
+      "id": "item_8_0d1f",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "The Biometric Finger. A synthetic digit with a unique print, likely lifted from a security guard."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "configuration_map.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "true"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "retrieved_secret_key_value_12345"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "values": "retrieved_secret_key_value_12345"
+        }
+      },
+      "narrative": "The Data Miner. A script designed to parse JSON structures. It requires the target file ID from the Datacore Canister and the search path derived from the Credit Chip Scanner."
+    },
+    {
+      "id": "item_9",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_9",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "JSON file path",
+          "value": "configuration_map.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "configuration_map.json"
+        }
+      },
+      "narrative": "The Datacore Canister. A portable storage unit labeled with file paths."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "4556737586899855"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "true"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "number": "4556737586899855"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Credit Chip Scanner. A handheld device used to validate credit card number checksums."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_e502",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_e502",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "iban_validate",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "password"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "iban_validate",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "iban"
+    },
+    {
+      "source_id": "zlib_deflate",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "zip_unzip_file_c761",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "base64_encode",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_8_0d1f",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "zip_unzip_file_c761",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_9",
+      "target_id": "json_get",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "json_get",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "jsonpath"
+    }
+  ]
+}

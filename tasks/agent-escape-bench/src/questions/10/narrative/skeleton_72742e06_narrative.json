@@ -1,0 +1,623 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 11,
+    "win_node_id": "calc_inv_mod",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "calc_inv_mod",
+      "output_port": "inv",
+      "output_type": "Big_Int",
+      "description": "Execute BigInt Modular Inverse and get the output from port 'inv'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "calc_bigmul",
+        "num_base_convert",
+        "checksum_crc32",
+        "calc_modexp",
+        "calc_gcd",
+        "calc_bigmul_edcd",
+        "container_4"
+      ],
+      "by_node": {
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_edcd": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Text_Generic",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "calc_bigmul": {
+        "init_inputs": {
+          "b": "284719205837461529304857261524"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "918273645019283746556473829101"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "a1b2c3d4e5f60718293a4b5c6d7e8f01"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "mod": "987643"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "556677889900112233445566778899"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_edcd": {
+        "init_inputs": {
+          "a": "123456789012345678901234567890",
+          "b": "098765432109876543210987654321"
+        },
+        "init_outputs": {}
+      },
+      "container_4": {
+        "init_inputs": {
+          "fingerprint_input": "sha256:d8e8fca2dc0f896fd7cb4cb0031ba249"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The midnight rain beats against the windows of your dimly lit detective agency. On your desk lies the 'Midnight Syndicate' case—a string of elaborate heists that has baffled the city police for months. They left behind a trail of cryptic devices, encrypted financial records, and locked safes. Your objective is clear: navigate through this web of digital forensics and physical evidence to unmask the mastermind behind the syndicate. Every piece of equipment in your office must be used in the right sequence to piece together the final truth.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "918273645019283746556473829101"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1014083367025515244014066259225602175312"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "499333302017547515432296159840786482341"
+        }
+      ],
+      "narrative": "This is the Master Case File. It requires inputs from both the Timeline Reconstructor and the Cipher Decoder to finally close the investigation."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": 3561696388
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "284719205837461529304857261524"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "1014083367025515244014066259225602175312"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "284719205837461529304857261524"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Timeline Reconstructor. It requires input from the Trace Analyzer to calculate the exact sequence of events."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "918273645019283746556473829101"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "1"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": 2661830363
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "918273645019283746556473829101"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "918273645019283746556473829101"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Cipher Decoder. It requires inputs from both the Evidence Scanner and the Alibi Corroborator to translate the encrypted messages."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f01"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "9ea84edb"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2661830363
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "a1b2c3d4e5f60718293a4b5c6d7e8f01"
+        },
+        "outputs": {}
+      },
+      "narrative": "An old but reliable Evidence Scanner used for forensic analysis."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "1"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "1014083367025515244014066259225602175312"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "987643"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "987643"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is an Alibi Corroborator. It requires inputs from both the Motive Evaluator and the Timeline Reconstructor to verify the suspect's whereabouts."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "556677889900112233445566778899"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "12193263113702179522618503273362292333223746380111126352690"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "556677889900112233445566778899"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Motive Evaluator. It requires input from the Financial Records Archive to establish a concrete reason for the crime."
+    },
+    {
+      "id": "checksum_crc32_ae8a",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "9ea84edb"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "d44b2c84"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3561696388
+        }
+      ],
+      "narrative": "This is a Trace Analyzer. It requires input from the Evidence Scanner to process the residual clues."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A small leather-bound Hidden Ledger containing cryptic notes."
+    },
+    {
+      "id": "calc_bigmul_edcd",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "123456789012345678901234567890"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "098765432109876543210987654321"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "12193263113702179522618503273362292333223746380111126352690"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "123456789012345678901234567890",
+          "b": "098765432109876543210987654321"
+        },
+        "outputs": {}
+      },
+      "narrative": "A secure Financial Records Archive containing offshore bank transactions."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "sha256:d8e8fca2dc0f896fd7cb4cb0031ba249"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "sha256:d8e8fca2dc0f896fd7cb4cb0031ba249"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy steel Suspect's Locker belonging to the prime suspect."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "base"
+    },
+    {
+      "source_id": "checksum_crc32_ae8a",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "checksum_crc32_ae8a",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_gcd",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_bigmul_edcd",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    }
+  ]
+}

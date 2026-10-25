@@ -1,0 +1,285 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "container_4",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "container_4",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "container_4",
+        "graph_shortest_path"
+      ],
+      "by_node": {
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "inner_space": {
+              "type": "Item",
+              "description": "Contents"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "container_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "inner_space": "You gaze into the container but find absolutely nothing."
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "backbone_topology_v7.json",
+          "src": "Gateway_Node_Alpha",
+          "dst": "Server_Cluster_Omega"
+        },
+        "init_outputs": {
+          "path": "[\"Gateway_Node_Alpha\", \"Router_Edge_01\", \"Switch_Core_04\", \"Firewall_Primary\", \"Load_Balancer_02\", \"Server_Cluster_Omega\"]",
+          "cost": "92837465102938475610"
+        }
+      }
+    },
+    "intro_narrative": "You awaken on Echo-7, a derelict orbital station drifting perilously close to a black hole's event horizon. The station's AI has locked down the sector, and the only way to override the catastrophic failure is to access the station's core memory. Time is running out as the hull groans under immense gravitational stress. You must explore the crumbling command center, restore corrupted navigation logs, and find a way to unlock the captain's secured storage to retrieve the ultimate override key. The survival of the station—and yourself—depends on your ability to decipher the remnants of Echo-7's systems.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "[\"Gateway_Node_Alpha\", \"Router_Edge_01\", \"Switch_Core_04\", \"Firewall_Primary\", \"Load_Balancer_02\", \"Server_Cluster_Omega\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents",
+          "value": "You gaze into the container but find absolutely nothing."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "inner_space": "You gaze into the container but find absolutely nothing."
+        }
+      },
+      "narrative": "A heavy Biometric Vault embedded in the bulkhead. It requires input from the Signal Purifier to bypass the genetic lock."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A rusted power cell resting quietly on the engineering workbench."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "[\"Gateway_Node_Alpha\", \"Router_Edge_01\", \"Switch_Core_04\", \"Firewall_Primary\", \"Load_Balancer_02\", \"Server_Cluster_Omega\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "[\"Gateway_Node_Alpha\", \"Router_Edge_01\", \"Switch_Core_04\", \"Firewall_Primary\", \"Load_Balancer_02\", \"Server_Cluster_Omega\"]"
+        }
+      ],
+      "narrative": "This is a Signal Purifier. It requires input from the Navigation Mainframe to filter out corrupted telemetry."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A deactivated comm-link dropped by a previous crew member."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "backbone_topology_v7.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Gateway_Node_Alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Server_Cluster_Omega"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Gateway_Node_Alpha\", \"Router_Edge_01\", \"Switch_Core_04\", \"Firewall_Primary\", \"Load_Balancer_02\", \"Server_Cluster_Omega\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "92837465102938475610"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "backbone_topology_v7.json",
+          "src": "Gateway_Node_Alpha",
+          "dst": "Server_Cluster_Omega"
+        },
+        "outputs": {
+          "path": "[\"Gateway_Node_Alpha\", \"Router_Edge_01\", \"Switch_Core_04\", \"Firewall_Primary\", \"Load_Balancer_02\", \"Server_Cluster_Omega\"]",
+          "cost": "92837465102938475610"
+        }
+      },
+      "narrative": "A dusty Navigation Mainframe terminal. It calculates optimal routing through the orbital grid."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "text"
+    }
+  ]
+}

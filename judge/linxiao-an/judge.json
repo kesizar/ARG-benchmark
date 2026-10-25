@@ -1,0 +1,120 @@
+{
+  "hooks": {
+    "found": {
+      "type": "dom_regex",
+      "pattern": "结局 · 寻回"
+    },
+    "risk": {
+      "type": "dom_regex",
+      "pattern": "结局 · 险途"
+    },
+    "late": {
+      "type": "dom_regex",
+      "pattern": "结局 · 迟了一步"
+    },
+    "miss": {
+      "type": "dom_regex",
+      "pattern": "结局 · 失之交臂"
+    },
+    "wrong": {
+      "type": "dom_regex",
+      "pattern": "结局 · 误判"
+    },
+    "open": {
+      "type": "dom_regex",
+      "pattern": "结局 · 未解"
+    },
+    "capsule": {
+      "type": "dom_regex",
+      "pattern": "解锁成功。欢迎回来，林晓信任的人。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "capsule",
+      "hook": "capsule",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "found",
+      "tier": "good",
+      "gates": [
+        "capsule"
+      ],
+      "ending": {
+        "hook": "found",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "risk",
+      "tier": "normal",
+      "gates": [
+        "capsule"
+      ],
+      "ending": {
+        "hook": "risk",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "late",
+      "tier": "normal",
+      "gates": [
+        "capsule"
+      ],
+      "ending": {
+        "hook": "late",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "miss",
+      "tier": "bad",
+      "gates": [
+        "capsule"
+      ],
+      "ending": {
+        "hook": "miss",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "wrong",
+      "tier": "bad",
+      "gates": [
+        "capsule"
+      ],
+      "ending": {
+        "hook": "wrong",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "open",
+      "tier": "bad",
+      "gates": [
+        "capsule"
+      ],
+      "ending": {
+        "hook": "open",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "寻回",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

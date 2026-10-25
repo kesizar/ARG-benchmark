@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "true_end": {"type": "url_regex", "pattern": "true_ending"},
+    "hidden_end": {"type": "url_regex", "pattern": "hidden_ending"},
+    "surface_end": {"type": "url_regex", "pattern": "crash\\.html"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "true_end", "tier": "good", "gates": [], "ending": {"hook": "true_end", "op": "truthy"}},
+    {"id": "hidden_end", "tier": "normal", "gates": [], "ending": {"hook": "hidden_end", "op": "truthy"}},
+    {"id": "surface_end", "tier": "normal", "gates": [], "ending": {"hook": "surface_end", "op": "truthy"}}
+  ],
+  "ending": {"hook": "true_end", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

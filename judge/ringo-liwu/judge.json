@@ -1,0 +1,55 @@
+{
+  "hooks": {
+    "gift": {
+      "type": "dom_regex",
+      "pattern": "生日快乐，Ringo。"
+    },
+    "call": {
+      "type": "dom_regex",
+      "pattern": "模拟通话已接通"
+    },
+    "order": {
+      "type": "dom_regex",
+      "pattern": "蓝猫贴纸、白丝带那袋"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "call",
+      "hook": "call",
+      "op": "truthy"
+    },
+    {
+      "id": "order",
+      "hook": "order",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "gift",
+      "tier": "good",
+      "gates": [
+        "call",
+        "order"
+      ],
+      "ending": {
+        "hook": "gift",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "gift",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

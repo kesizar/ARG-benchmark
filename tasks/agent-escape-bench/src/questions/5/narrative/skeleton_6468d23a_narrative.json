@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_3",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_3",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_3"
+      ],
+      "by_node": {
+        "item_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_3",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String",
+              "description": "The hex code"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_3": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "8f3a2b1c4d5e6f0a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a"
+        }
+      }
+    },
+    "intro_narrative": "The neon-lit streets of Sector 4 are crawling with Corporate Sec-Ops. You've managed to slip into the underground safehouse of a rogue netrunner known only as 'Cipher'. Cipher supposedly extracted the ultimate master access code before getting flatlined. Your objective is to navigate Cipher's interconnected hardware setup and extract the final hex code from the heavily encrypted mainframe before the Corpos breach the reinforced door. Time is ticking, and the system requires a precise sequence of operations to unlock.",
+    "narrative_style": "cyberpunk"
+  },
+  "nodes": [
+    {
+      "id": "item_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String",
+          "description": "The hex code",
+          "value": "8f3a2b1c4d5e6f0a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "8f3a2b1c4d5e6f0a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a"
+        }
+      },
+      "narrative": "This is the Mainframe Vault. It requires input from the Core Extraction Module to unlock and reveal the master hex code."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is the Core Extraction Module. It requires input from the Secondary Decoder to safely isolate the target file."
+    },
+    {
+      "id": "item_8_6943",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is the Secondary Decoder. It requires input from the Primary Decryptor to process the next layer of security."
+    },
+    {
+      "id": "item_8_3c19",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is the Primary Decryptor. It requires input from the Chrono-Sync Terminal to begin the decryption sequence."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A standalone Chrono-Sync Terminal displaying flickering chronological logs."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_6943",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_3c19",
+      "target_id": "item_8_6943",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_3c19",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    }
+  ]
+}

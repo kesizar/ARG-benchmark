@@ -1,0 +1,72 @@
+{
+  "hooks": {
+    "yuanman": {
+      "type": "dom_regex",
+      "pattern": "功德圆满"
+    },
+    "jishan": {
+      "type": "dom_regex",
+      "pattern": "积善之家"
+    },
+    "pingan": {
+      "type": "dom_regex",
+      "pattern": "平安度过"
+    },
+    "buning": {
+      "type": "dom_regex",
+      "pattern": "家宅不宁"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "yuanman",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "yuanman",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "jishan",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "jishan",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "pingan",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "pingan",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "buning",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "buning",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "yuanman",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

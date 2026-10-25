@@ -1,0 +1,108 @@
+{
+  "hooks": {
+    "perfect": {
+      "type": "dom_regex",
+      "pattern": "你带进直播间的不是一条新闻，是一个全宗号。"
+    },
+    "light": {
+      "type": "dom_regex",
+      "pattern": "信号出去了。这一次没有人截它。"
+    },
+    "normal": {
+      "type": "dom_regex",
+      "pattern": "实习期满两周，你提交了终止实习的申请。"
+    },
+    "dark": {
+      "type": "dom_regex",
+      "pattern": "他不是在威胁你。他是在交接。"
+    },
+    "erased": {
+      "type": "dom_regex",
+      "pattern": "你太接近了，而且太快了。"
+    },
+    "notebook": {
+      "type": "dom_regex",
+      "pattern": "锁扣弹开了。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "notebook",
+      "hook": "notebook",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "perfect",
+      "tier": "good",
+      "gates": [
+        "notebook"
+      ],
+      "ending": {
+        "hook": "perfect",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "light",
+      "tier": "good",
+      "gates": [
+        "notebook"
+      ],
+      "ending": {
+        "hook": "light",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "normal",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "normal",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "dark",
+      "tier": "bad",
+      "gates": [],
+      }
+    },
+    {
+      "id": "dark",
+      "tier": "bad",
+      "gates": [
+        "desk",
+        "finale"
+      ],
+      "ending": {
+        "hook": "dark",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "erased",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "erased",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "perfect",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

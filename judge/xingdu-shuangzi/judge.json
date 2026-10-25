@@ -1,0 +1,203 @@
+{
+  "hooks": {
+    "weight": {
+      "type": "dom_regex",
+      "pattern": "真相是有重量的。它压垮了一些人，也压在一些人的名字上，永不风化。"
+    },
+    "gun": {
+      "type": "dom_regex",
+      "pattern": "他这一生只被爱过一次，还是他自己偷偷给的。"
+    },
+    "quiet": {
+      "type": "dom_regex",
+      "pattern": "这座城市又平稳地运行了一天。只是有些人，被平稳地运行过去了。"
+    },
+    "cloud": {
+      "type": "dom_regex",
+      "pattern": "线索 · 已解锁"
+    },
+    "remote": {
+      "type": "dom_regex",
+      "pattern": "已建立安全会话"
+    },
+    "safe": {
+      "type": "dom_regex",
+      "pattern": "保险箱（已开启）"
+    },
+    "usb": {
+      "type": "dom_regex",
+      "pattern": "U盘A（已解密）"
+    },
+    "phone": {
+      "type": "dom_regex",
+      "pattern": "自动应答的录音已存入"
+    },
+    "forum": {
+      "type": "dom_regex",
+      "pattern": "临时账号分配"
+    },
+    "observatory": {
+      "type": "dom_regex",
+      "pattern": "老张的电脑打开了"
+    },
+    "gov": {
+      "type": "dom_regex",
+      "pattern": "密码本校验通过"
+    },
+    "backdoor": {
+      "type": "dom_regex",
+      "pattern": "访问权限：次级管理员"
+    },
+    "tape": {
+      "type": "dom_regex",
+      "pattern": "录音已解密"
+    },
+    "press": {
+      "type": "dom_regex",
+      "pattern": "SELECT \\* FROM resident"
+    },
+    "voice": {
+      "type": "dom_regex",
+      "pattern": "存在两个「林北辰」"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "cloud",
+      "hook": "cloud",
+      "op": "truthy"
+    },
+    {
+      "id": "remote",
+      "hook": "remote",
+      "op": "truthy"
+    },
+    {
+      "id": "safe",
+      "hook": "safe",
+      "op": "truthy"
+    },
+    {
+      "id": "usb",
+      "hook": "usb",
+      "op": "truthy"
+    },
+    {
+      "id": "phone",
+      "hook": "phone",
+      "op": "truthy"
+    },
+    {
+      "id": "forum",
+      "hook": "forum",
+      "op": "truthy"
+    },
+    {
+      "id": "observatory",
+      "hook": "observatory",
+      "op": "truthy"
+    },
+    {
+      "id": "gov",
+      "hook": "gov",
+      "op": "truthy"
+    },
+    {
+      "id": "backdoor",
+      "hook": "backdoor",
+      "op": "truthy"
+    },
+    {
+      "id": "tape",
+      "hook": "tape",
+      "op": "truthy"
+    },
+    {
+      "id": "press",
+      "hook": "press",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "voice",
+      "hook": "voice",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "weight",
+      "tier": "good",
+      "gates": [
+        "cloud",
+        "remote",
+        "safe",
+        "usb",
+        "phone",
+        "forum",
+        "observatory",
+        "gov",
+        "backdoor",
+        "tape"
+      ],
+      "ending": {
+        "hook": "weight",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "gun",
+      "tier": "bad",
+      "gates": [
+        "cloud",
+        "remote",
+        "safe",
+        "usb",
+        "phone",
+        "forum",
+        "observatory",
+        "gov",
+        "backdoor",
+        "tape"
+      ],
+      "ending": {
+        "hook": "gun",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "quiet",
+      "tier": "bad",
+      "gates": [
+        "cloud",
+        "remote",
+        "safe",
+        "usb",
+        "phone",
+        "forum",
+        "observatory",
+        "gov",
+        "backdoor",
+        "tape"
+      ],
+      "ending": {
+        "hook": "quiet",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "weight",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

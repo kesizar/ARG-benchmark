@@ -1,0 +1,90 @@
+{
+  "hooks": {
+    "witness": {
+      "type": "dom_regex",
+      "pattern": "你没有把代价传给别人，但观察窗口留在了你身上。"
+    },
+    "refuse": {
+      "type": "dom_regex",
+      "pattern": "你什么都没提交，但名单没有你的撤回键。"
+    },
+    "offer": {
+      "type": "dom_regex",
+      "pattern": "你替名单外的人签了字。"
+    },
+    "silent": {
+      "type": "dom_regex",
+      "pattern": "你什么都没做。系统替你同意了。"
+    },
+    "bound": {
+      "type": "dom_regex",
+      "pattern": "绑定成功 · 通道已建立"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "bound",
+      "hook": "bound",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "witness",
+      "tier": "good",
+      "gates": [
+        "bound"
+      ],
+      "ending": {
+        "hook": "witness",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "refuse",
+      "tier": "normal",
+      "gates": [
+        "bound"
+      ],
+      "ending": {
+        "hook": "refuse",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "offer",
+      "tier": "bad",
+      "gates": [
+        "bound"
+      ],
+      "ending": {
+        "hook": "offer",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "silent",
+      "tier": "bad",
+      "gates": [
+        "bound"
+      ],
+      "ending": {
+        "hook": "silent",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "witness",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,0 +1,87 @@
+{
+  "hooks": {
+    "mom": {
+      "type": "dom_regex",
+      "pattern": "妈，我是林晚的朋友"
+    },
+    "dad": {
+      "type": "dom_regex",
+      "pattern": "叔叔，林晚她"
+    },
+    "silence": {
+      "type": "dom_regex",
+      "pattern": "你决定保守这个秘密"
+    },
+    "phone": {
+      "type": "dom_regex",
+      "pattern": "你成功进入了林晚的手机。右上角的📝可以记录笔记。"
+    },
+    "wechat": {
+      "type": "dom_regex",
+      "pattern": "你成功登录了林晚的微信。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "phone",
+      "hook": "phone",
+      "op": "truthy"
+    },
+    {
+      "id": "wechat",
+      "hook": "wechat",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "mom",
+      "tier": "good",
+      "gates": [
+        "phone",
+        "wechat"
+      ],
+      "ending": {
+        "hook": "mom",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "dad",
+      "tier": "good",
+      "gates": [
+        "phone",
+        "wechat"
+      ],
+      "ending": {
+        "hook": "dad",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "silence",
+      "tier": "good",
+      "gates": [
+        "phone",
+        "wechat"
+      ],
+      "ending": {
+        "hook": "silence",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "mom",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

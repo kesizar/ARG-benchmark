@@ -1,0 +1,65 @@
+{
+  "hooks": {
+    "files": {
+      "type": "dom_regex",
+      "pattern": "已复原档案 · 其中 2 项无法直接读取"
+    },
+    "signal": {
+      "type": "dom_regex",
+      "pattern": "信号已锁定。它知道你在听。"
+    },
+    "truth": {
+      "type": "dom_regex",
+      "pattern": "你终于看到这里。"
+    },
+    "end": {
+      "type": "dom_regex",
+      "pattern": "静区档案项目，第 0 号记录。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "files",
+      "hook": "files",
+      "op": "truthy"
+    },
+    {
+      "id": "signal",
+      "hook": "signal",
+      "op": "truthy"
+    },
+    {
+      "id": "truth",
+      "hook": "truth",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "end",
+      "tier": "good",
+      "gates": [
+        "files",
+        "signal",
+        "truth"
+      ],
+      "ending": {
+        "hook": "end",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

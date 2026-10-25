@@ -1,0 +1,1028 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 25,
+    "win_node_id": "item_4",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_4",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_4",
+        "calc_modexp",
+        "calc_gcd",
+        "calc_inv_mod_f2f2",
+        "csv_query",
+        "terminal_1",
+        "item_12",
+        "item_9"
+      ],
+      "by_node": {
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod_f2f2": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "item_12": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_12",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String",
+              "description": "The hex code"
+            }
+          }
+        },
+        "item_9": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_9",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "JSON file path"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "hidden_archive_591.zip"
+        }
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "31"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "81947582647394857263"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod_f2f2": {
+        "init_inputs": {
+          "mod": "638471"
+        },
+        "init_outputs": {}
+      },
+      "csv_query": {
+        "init_inputs": {
+          "where": "department = 'engineering' AND salary >= 80000"
+        },
+        "init_outputs": {
+          "rows": "[\"row1_id_101\", \"row2_id_102\", \"row3_id_103\", \"row4_id_104\"]"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "sys_reboot_sequence_init"
+        },
+        "init_outputs": {
+          "text_output": "System terminal diagnostic process completed without errors.",
+          "hex_output": "1234567890abcdef1234567890abcdef",
+          "item_dispenser": "A strangely shaped useless metal gear."
+        }
+      },
+      "item_12": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "f1e2d3c4b5a69788"
+        }
+      },
+      "item_9": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "metadata_manifest_99.json"
+        }
+      }
+    },
+    "intro_narrative": "You awaken in the abandoned communications wing of a covert research facility. The air is stale, and the hum of dormant servers echoes through the dim corridors. Your only way out is to access the classified files locked deep within the mainframe. However, the system's security protocol has fragmented the decryption sequences across various modules, safes, and old terminals scattered around the room. You must decipher the connections between these archaic machines, trace the data flow, and unlock the final digital archive before the automated wipe sequence erases everything.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "hidden_archive_591.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "hidden_archive_591.zip"
+        }
+      },
+      "narrative": "This is the Secret Archive. A sealed digital storage unit containing the final truth."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is the Secondary Decryption Key. A corrupted memory block holding partial access codes."
+    },
+    {
+      "id": "item_8_9664",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is the Primary Decryption Key. A fragmented memory block with classified data."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is the Timezone Log. A digital record of temporal events."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Quantum Lockbox. A heavily shielded container. It requires input from the Master Cryptographic Inverter."
+    },
+    {
+      "id": "item_16_2cd7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is the Encrypted Log. A secure transmission record abandoned on a desk."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "1"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "117403609192417"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Master Cryptographic Inverter. A specialized decryption terminal. It requires inputs from both the Prime Factoring Calculator and the Core Exponentiation Engine."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "8d8e53a7d87346416328b322be254139"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Executive Safe. A biometric wall safe. It requires input from the Security Hash Generator."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "31"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "154506"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "251055021344952"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "117403609192417"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "31"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Core Exponentiation Engine. An old mainframe calculation unit. It requires inputs from both the Initial Cryptographic Inverter and the Arithmetic Multiplier."
+    },
+    {
+      "id": "container_1_8a51",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "8d8e53a7d87346416328b322be254139"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Director's Briefcase. A secure leather briefcase. It requires input from the Security Hash Generator."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "System terminal diagnostic process completed without errors."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "8d8e53a7d87346416328b322be254139"
+        }
+      ],
+      "narrative": "This is the Security Hash Generator. A cryptographic hashing device. It requires input from the Main Operations Terminal."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "154506"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": 1624888492
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "251055021344952"
+        }
+      ],
+      "narrative": "This is the Arithmetic Multiplier. An archaic mechanical calculator. It requires inputs from both the Initial Cryptographic Inverter and the Data Integrity Checker."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "81947582647394857263"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "117403609192417"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "81947582647394857263"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Prime Factoring Calculator. A complex factoring machine. It requires input from the Core Exponentiation Engine."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "f1e2d3c4b5a69788"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "60d9d4ac"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1624888492
+        }
+      ],
+      "narrative": "This is the Data Integrity Checker. A forensic analysis tool. It requires input from the Torn Diary Page."
+    },
+    {
+      "id": "calc_inv_mod_f2f2",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": 1624888492
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "638471"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "154506"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "638471"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Initial Cryptographic Inverter. A preliminary decryption module. It requires input from the Data Integrity Checker."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "[\"row1_id_101\", \"row2_id_102\", \"row3_id_103\", \"row4_id_104\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Archive Vault. A dusty metallic vault. It requires input from the Database Query System."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "metadata_manifest_99.json"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "System terminal diagnostic process completed without errors."
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "department = 'engineering' AND salary >= 80000"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[\"row1_id_101\", \"row2_id_102\", \"row3_id_103\", \"row4_id_104\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "where": "department = 'engineering' AND salary >= 80000"
+        },
+        "outputs": {
+          "rows": "[\"row1_id_101\", \"row2_id_102\", \"row3_id_103\", \"row4_id_104\"]"
+        }
+      },
+      "narrative": "This is the Database Query System. An ancient database terminal. It requires inputs from both the Digital Blueprint File and the Main Operations Terminal."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "sys_reboot_sequence_init"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "System terminal diagnostic process completed without errors."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "1234567890abcdef1234567890abcdef"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "A strangely shaped useless metal gear."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "sys_reboot_sequence_init"
+        },
+        "outputs": {
+          "text_output": "System terminal diagnostic process completed without errors.",
+          "hex_output": "1234567890abcdef1234567890abcdef",
+          "item_dispenser": "A strangely shaped useless metal gear."
+        }
+      },
+      "narrative": "This is the Main Operations Terminal. A central command console. It requires input from the Prime Factoring Calculator."
+    },
+    {
+      "id": "item_12",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_12",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String",
+          "description": "The hex code",
+          "value": "f1e2d3c4b5a69788"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "f1e2d3c4b5a69788"
+        }
+      },
+      "narrative": "This is the Torn Diary Page. A simple piece of paper with scribbled researcher notes."
+    },
+    {
+      "id": "item_9",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_9",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "JSON file path",
+          "value": "metadata_manifest_99.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "metadata_manifest_99.json"
+        }
+      },
+      "narrative": "This is the Digital Blueprint File. A compact storage drive holding the facility layouts."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_9664",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_9664",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_2cd7",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16_2cd7",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "container_1_8a51",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "container_1_8a51",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_inv_mod_f2f2",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "container_1_8a51",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "hash_md5",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_12",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "content",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_inv_mod_f2f2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_inv_mod_f2f2",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "select"
+    },
+    {
+      "source_id": "item_9",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "file_id"
+    }
+  ]
+}

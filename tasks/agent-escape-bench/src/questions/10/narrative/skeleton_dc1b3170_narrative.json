@@ -1,0 +1,524 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 10,
+    "win_node_id": "matter_synthesizer",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "matter_synthesizer",
+      "output_port": "output_slot",
+      "output_type": "Item",
+      "description": "Execute Matter Synthesizer and get the output from port 'output_slot'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "matter_synthesizer",
+        "crypto_rsa_decrypt_hex",
+        "item_7",
+        "calc_gcd_1a05",
+        "calc_bigmul"
+      ],
+      "by_node": {
+        "matter_synthesizer": {
+          "node_name": "Matter Synthesizer",
+          "node_type": "Tool",
+          "template_id": "matter_synthesizer",
+          "init_inputs": {},
+          "init_outputs": {
+            "output_slot": {
+              "type": "Item",
+              "description": "Synthesized Object"
+            }
+          }
+        },
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "n": {
+              "type": "Big_Int",
+              "description": "Modulus n"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "calc_gcd_1a05": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "matter_synthesizer": {
+        "init_inputs": {},
+        "init_outputs": {
+          "output_slot": "This artifact appears to be a rejected prototype with no function."
+        }
+      },
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "n": "847563920184756293048576129304857692"
+        },
+        "init_outputs": {}
+      },
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "print('Initialization_Sequence_Alpha_Complete')"
+        }
+      },
+      "calc_gcd_1a05": {
+        "init_inputs": {
+          "b": "293847561029384756192837465102938475"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "564738291056473829101234567890123456",
+          "b": "918273645091827364509876543210987654"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The infamous 'Cryptic Killer' has struck again, leaving behind nothing but a sealed laboratory filled with bizarre computational devices. As the lead detective on the case, you've tracked the suspect to this underground bunker, but the reinforced door has locked behind you. The killer loves to play twisted games, turning crucial physical evidence into mathematical riddles and complex digital ciphers. Somewhere hidden within this room's mainframe is the final piece of evidence needed to crack the case wide open. You must navigate through these heavy-duty calculators, decryption terminals, and scattered handwritten notes. Analyze the clues carefully, figure out how to chain the machinery together, and synthesize the ultimate proof before the trail goes cold forever.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "\u001c+n\bVӂ"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_c8648e3174a7d1a5"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "output_slot": "This artifact appears to be a rejected prototype with no function."
+        }
+      },
+      "narrative": "This is the Evidence Fabricator. It requires input from the RSA Decryption Terminal. Once processed, it will reconstruct the final piece of physical evidence."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "496e697469616c697a6174696f6e5f53657175656e63655f416c7068615f436f6d706c6574650a"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "847563920184756293048576129304857692"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u001c+n\bVӂ"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "n": "847563920184756293048576129304857692"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the RSA Decryption Terminal. It needs inputs from both the Hexadecimal Encoder and the Master GCD Calculator to unlock the cipher."
+    },
+    {
+      "id": "hex_encode",
+      "name": "Text to Hex Encoder",
+      "description": "Encode UTF-8 text to hex.",
+      "type": "Tool",
+      "template_id": "hex_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Initialization_Sequence_Alpha_Complete\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Encoded hex",
+          "value": "496e697469616c697a6174696f6e5f53657175656e63655f416c7068615f436f6d706c6574650a"
+        }
+      ],
+      "narrative": "This is the Hexadecimal Encoder. It processes data from the Python Execution Console to convert the text format."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "1"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "518584289051357552801425315180571985862231071821431345571333485751812224"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Master GCD Calculator. It requires inputs from both the Primary GCD Calculator and the Big Number Multiplier."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print('Initialization_Sequence_Alpha_Complete')"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "Initialization_Sequence_Alpha_Complete\n"
+        }
+      ],
+      "narrative": "This is the Python Execution Console. It requires input from the Python Script to run the code."
+    },
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "print('Initialization_Sequence_Alpha_Complete')"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "print('Initialization_Sequence_Alpha_Complete')"
+        }
+      },
+      "narrative": "A torn piece of paper containing what looks like a Python Script."
+    },
+    {
+      "id": "calc_gcd_1a05",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "518584289051357552801425315180571985862231071821431345571333485751812224"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "293847561029384756192837465102938475"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "293847561029384756192837465102938475"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Primary GCD Calculator. It requires input from the Big Number Multiplier to begin its calculations."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A classic pocket watch belonging to the missing detective. It might hold some clues."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "564738291056473829101234567890123456"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "918273645091827364509876543210987654"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "518584289051357552801425315180571985862231071821431345571333485751812224"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "564738291056473829101234567890123456",
+          "b": "918273645091827364509876543210987654"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy-duty Big Number Multiplier designed for crunching massive cryptographic integers."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A faded security keycard found tucked inside a drawer."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "hex_encode",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "d"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "hex_encode",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_7",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "calc_gcd_1a05",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_gcd_1a05",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "calc_gcd_1a05",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    }
+  ]
+}

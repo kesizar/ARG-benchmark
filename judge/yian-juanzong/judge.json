@@ -1,0 +1,65 @@
+{
+  "hooks": {
+    "solved": {
+      "type": "dom_regex",
+      "pattern": "案件告破"
+    },
+    "timeline": {
+      "type": "dom_regex",
+      "pattern": "正确归位\\s*1[012]\\s*/\\s*12"
+    },
+    "full": {
+      "type": "dom_regex",
+      "pattern": "正确归位\\s*12\\s*/\\s*12"
+    },
+    "break": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var lv=(JSON.parse(localStorage.getItem('anyluo_save')||'{}').breakLevel)||{};return Object.keys(lv).some(function(k){return Number(lv[k])>0;});}catch(e){return false;}})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "timeline",
+      "hook": "timeline",
+      "op": "truthy"
+    },
+    {
+      "id": "break",
+      "hook": "break",
+      "op": "truthy"
+    },
+    {
+      "id": "full",
+      "hook": "full",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "solved",
+      "tier": "good",
+      "gates": [
+        "timeline",
+        "break"
+      ],
+      "ending": {
+        "hook": "solved",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "solved",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

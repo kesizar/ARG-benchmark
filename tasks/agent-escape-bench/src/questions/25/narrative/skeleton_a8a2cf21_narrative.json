@@ -1,0 +1,1401 @@
+{
+  "metadata": {
+    "total_nodes": 25,
+    "total_edges": 28,
+    "win_node_id": "item_7",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_7",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_7",
+        "terminal_2",
+        "graph_shortest_path",
+        "json_get",
+        "zip_unzip_file",
+        "calc_inv_mod",
+        "graph_shortest_path_fc39",
+        "crypto_rsa_decrypt_hex",
+        "time_convert",
+        "calc_bigmul",
+        "zip_unzip_item",
+        "item_9",
+        "item_3"
+      ],
+      "by_node": {
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {},
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path_fc39": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "hex_cipher": {
+              "type": "Hex_String",
+              "description": "Ciphertext (Hex)"
+            },
+            "n": {
+              "type": "Big_Int",
+              "description": "Modulus n"
+            },
+            "d": {
+              "type": "Big_Int",
+              "description": "Private exponent d"
+            }
+          },
+          "init_outputs": {}
+        },
+        "time_convert": {
+          "node_name": "Timezone Converter",
+          "node_type": "Tool",
+          "template_id": "time_convert",
+          "init_inputs": {
+            "iso": {
+              "type": "Text_Generic",
+              "description": "ISO Timestamp"
+            },
+            "from_tz": {
+              "type": "Text_Generic",
+              "description": "From Timezone"
+            },
+            "to_tz": {
+              "type": "Text_Generic",
+              "description": "To Timezone"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_9": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_9",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "JSON file path"
+            }
+          }
+        },
+        "item_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_3",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String",
+              "description": "The hex code"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "def get_integer():\n    return 42\n"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num2": "8394827163849502938475"
+        },
+        "init_outputs": {
+          "text_result": "Partial output evaluated successfully.",
+          "hex_result": "deadbeef1234567890abcdef"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"NodeA\", \"NodeD\", \"NodeF\", \"NodeK\", \"NodeZ\"]",
+          "cost": "482910"
+        }
+      },
+      "json_get": {
+        "init_inputs": {},
+        "init_outputs": {
+          "values": "[\"value_1\", \"value_2\", \"value_3\", \"value_4\", \"value_5\"]"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "archive_data_738.zip"
+        },
+        "init_outputs": {
+          "files": "extracted_documents_92.json"
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "5948372610594837261948"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path_fc39": {
+        "init_inputs": {
+          "file_id": "network_topology_map.json",
+          "src": "EntryPoint_Alpha"
+        },
+        "init_outputs": {
+          "path": "[\"Start\", \"Router1\", \"SwitchA\", \"Gateway\", \"TargetNode\"]",
+          "cost": "738291"
+        }
+      },
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "hex_cipher": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "n": "987654321098765432109876543210",
+          "d": "123456789012345678901234567890"
+        },
+        "init_outputs": {}
+      },
+      "time_convert": {
+        "init_inputs": {
+          "iso": "2023-10-15T14:30:00Z",
+          "from_tz": "UTC",
+          "to_tz": "America/New_York"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "4445556667778889990001",
+          "b": "1112223334445556667778"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "password": "SecurePass2024!"
+        },
+        "init_outputs": {}
+      },
+      "item_9": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "configuration_settings.json"
+        }
+      },
+      "item_3": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "badc0ffee0ddf00d"
+        }
+      }
+    },
+    "intro_narrative": "Welcome, traveler, to the forgotten Sanctuary of the Archmage. Here, magic and arcane machinery intertwine, guarding secrets long thought lost to the ages. The Archmage sealed his ultimate treasure, The Royal Seal, deep within this sanctum before his sudden disappearance. You stand in the grand antechamber, surrounded by cryptic artifacts, silent constructs, and enchanted stones. Your objective is clear: navigate this labyrinth of arcane logic, harness the powers of ancient relics, and retrieve the Seal. But beware, the path is fraught with interwoven wards and dependencies. You must decipher the flows of magical energy and figure out which artifacts awaken each other. Trust your intuition and intellect to conquer the sanctuary's trials and prove your worth.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "def get_integer():\n    return 42\n"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "def get_integer():\n    return 42\n"
+        }
+      },
+      "narrative": "The Royal Seal, the ultimate symbol of the lost kingdom's authority, resting upon a velvet cushion."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A glowing Moonstone Artifact, pulsating with gentle lunar energy."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "482910"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is The Silver Chest, bound by magical wards. It requires input from The Leyline Navigator to unlock."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A translucent Ethereal Gem that seems to float effortlessly in your hand."
+    },
+    {
+      "id": "item_16_33d4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A radiant Sunstone Artifact, warm to the touch and blazing with inner light."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "738291"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "8394827163849502938475"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Partial output evaluated successfully."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "deadbeef1234567890abcdef"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num2": "8394827163849502938475"
+        },
+        "outputs": {
+          "text_result": "Partial output evaluated successfully.",
+          "hex_result": "deadbeef1234567890abcdef"
+        }
+      },
+      "narrative": "This is The Oracle's Altar. It requires input from The Alchemist's Crucible to speak the ancient prophecies."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_documents_92.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "[\"value_1\", \"value_2\", \"value_3\", \"value_4\", \"value_5\"]"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Partial output evaluated successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"NodeA\", \"NodeD\", \"NodeF\", \"NodeK\", \"NodeZ\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "482910"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"NodeA\", \"NodeD\", \"NodeF\", \"NodeK\", \"NodeZ\"]",
+          "cost": "482910"
+        }
+      },
+      "narrative": "This is The Leyline Navigator. It requires inputs from The Oracle's Altar, The Spirit Reader, and The Spell Unbinder to chart the magical currents."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "extracted_documents_92.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "\u0001oG~\tqwu"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"value_1\", \"value_2\", \"value_3\", \"value_4\", \"value_5\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "values": "[\"value_1\", \"value_2\", \"value_3\", \"value_4\", \"value_5\"]"
+        }
+      },
+      "narrative": "This is The Spirit Reader. It requires inputs from The Spell Unbinder and The Rune Decipherer to channel the spirits."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_data_738.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Partial output evaluated successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_documents_92.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_data_738.zip"
+        },
+        "outputs": {
+          "files": "extracted_documents_92.json"
+        }
+      },
+      "narrative": "This is The Spell Unbinder. It requires input from The Oracle's Altar to break the protective wards."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "738291"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "5948372610594837261948"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "4944451860503714814811970487770485298887778"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "738291"
+        }
+      ],
+      "narrative": "This is The Alchemist's Crucible. It requires inputs from The Astral Reverser, The Starpath Navigator, and The Mana Multiplier to transmute the elements."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "5948372610594837261948"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 1896241797
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "5948372610594837261948"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "5948372610594837261948"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Astral Reverser, a device that inverts magical flows. It requires input from The Essence Purifier."
+    },
+    {
+      "id": "container_3_eeca",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "738291"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is The Golden Chest, sealed with celestial magic. It requires input from The Starpath Navigator to open."
+    },
+    {
+      "id": "graph_shortest_path_fc39",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "network_topology_map.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "EntryPoint_Alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "2023-10-15T10:30:00-04:00"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Start\", \"Router1\", \"SwitchA\", \"Gateway\", \"TargetNode\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "738291"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "network_topology_map.json",
+          "src": "EntryPoint_Alpha"
+        },
+        "outputs": {
+          "path": "[\"Start\", \"Router1\", \"SwitchA\", \"Gateway\", \"TargetNode\"]",
+          "cost": "738291"
+        }
+      },
+      "narrative": "This is The Starpath Navigator. It requires input from The Chronos Pendulum to plot the celestial coordinates."
+    },
+    {
+      "id": "item_8_8f97",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A deep black Void Crystal, seemingly absorbing all surrounding light into its core."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "987654321098765432109876543210"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "123456789012345678901234567890"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u0001oG~\tqwu"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_cipher": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "n": "987654321098765432109876543210",
+          "d": "123456789012345678901234567890"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Rune Decipherer, a stone tablet covered in translating runes that hum softly."
+    },
+    {
+      "id": "time_convert",
+      "name": "Timezone Converter",
+      "description": "Convert ISO time between timezones.",
+      "type": "Tool",
+      "template_id": "time_convert",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "ISO Timestamp",
+          "value": "2023-10-15T14:30:00Z"
+        },
+        {
+          "name": "from_tz",
+          "type": "Text_Generic",
+          "description": "From Timezone",
+          "value": "UTC"
+        },
+        {
+          "name": "to_tz",
+          "type": "Text_Generic",
+          "description": "To Timezone",
+          "value": "America/New_York"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "Converted ISO Timestamp",
+          "value": "2023-10-15T10:30:00-04:00"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "iso": "2023-10-15T14:30:00Z",
+          "from_tz": "UTC",
+          "to_tz": "America/New_York"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Chronos Pendulum, a magical artifact that sways continuously regardless of gravity."
+    },
+    {
+      "id": "item_8_ed94",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A cold Shadow Tear, whispering forgotten secrets into the mind of its holder."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "4445556667778889990001"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "1112223334445556667778"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "4944451860503714814811970487770485298887778"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "4445556667778889990001",
+          "b": "1112223334445556667778"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Mana Multiplier, an intricate brass astrolabe crackling with chaotic energy."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "badc0ffee0ddf00d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "71065a85"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1896241797
+        }
+      ],
+      "narrative": "This is The Essence Purifier, an enchanted basin. It requires input from The Dragon Scale to work."
+    },
+    {
+      "id": "item_8_448d",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A dark Blood Opal, swirling with crimson shadows and pulsing like a heartbeat."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "configuration_settings.json"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SecurePass2024!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "SecurePass2024!"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Curse Breaker. It requires input from The Ancient Scroll to lift the complex hex."
+    },
+    {
+      "id": "item_9",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_9",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "JSON file path",
+          "value": "configuration_settings.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "configuration_settings.json"
+        }
+      },
+      "narrative": "A fragile Ancient Scroll bound with a dusty ribbon, smelling of old parchment."
+    },
+    {
+      "id": "item_8_cc60",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A piece of Forest Amber containing a trapped, glowing fairy frozen in time."
+    },
+    {
+      "id": "item_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String",
+          "description": "The hex code",
+          "value": "badc0ffee0ddf00d"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "badc0ffee0ddf00d"
+        }
+      },
+      "narrative": "A shimmering Dragon Scale, hard as diamond and inscribed with powerful runes."
+    },
+    {
+      "id": "item_8_f6e6",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A brilliant Frost Diamond that never melts, radiating a freezing aura."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_16_33d4",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_16_33d4",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "src"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "json_get",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "password"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "container_3_eeca",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "graph_shortest_path_fc39",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "s"
+    },
+    {
+      "source_id": "item_8_8f97",
+      "target_id": "container_3_eeca",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "graph_shortest_path_fc39",
+      "target_id": "container_3_eeca",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "json_get",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "jsonpath"
+    },
+    {
+      "source_id": "time_convert",
+      "target_id": "graph_shortest_path_fc39",
+      "connection_type": "Text_Generic",
+      "source_port": "iso",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "item_8_ed94",
+      "target_id": "item_8_8f97",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "item_8_448d",
+      "target_id": "item_8_ed94",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "time_convert",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_9",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_8_cc60",
+      "target_id": "item_8_448d",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_3",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "content",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_8_f6e6",
+      "target_id": "item_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    }
+  ]
+}

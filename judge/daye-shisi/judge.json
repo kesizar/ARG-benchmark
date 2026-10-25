@@ -1,0 +1,339 @@
+{
+  "hooks": {
+    "end-low": {
+      "type": "dom_regex",
+      "pattern": "史书无名"
+    },
+    "end-mid": {
+      "type": "dom_regex",
+      "pattern": "密诏悬笔"
+    },
+    "end-good": {
+      "type": "dom_regex",
+      "pattern": "皇泰灯火"
+    },
+    "p1-compare": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p1-compare')>=0;}catch(e){return false;}})()"
+    },
+    "p2-acrostic": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p2-acrostic')>=0;}catch(e){return false;}})()"
+    },
+    "p3-westgate": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p3-westgate')>=0;}catch(e){return false;}})()"
+    },
+    "p-lamp": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p-lamp')>=0;}catch(e){return false;}})()"
+    },
+    "p4-seal": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p4-seal')>=0;}catch(e){return false;}})()"
+    },
+    "p5-poem": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p5-poem')>=0;}catch(e){return false;}})()"
+    },
+    "p-motive": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p-motive')>=0;}catch(e){return false;}})()"
+    },
+    "p2d1-saltnum": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p2d1-saltnum')>=0;}catch(e){return false;}})()"
+    },
+    "p2d7-saltroute": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p2d7-saltroute')>=0;}catch(e){return false;}})()"
+    },
+    "p2d2-ledgername": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p2d2-ledgername')>=0;}catch(e){return false;}})()"
+    },
+    "p2d5-letter": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p2d5-letter')>=0;}catch(e){return false;}})()"
+    },
+    "p2d3-yantielun": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p2d3-yantielun')>=0;}catch(e){return false;}})()"
+    },
+    "p2d6-blacknumber": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p2d6-blacknumber')>=0;}catch(e){return false;}})()"
+    },
+    "p2d8-lingzi": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p2d8-lingzi')>=0;}catch(e){return false;}})()"
+    },
+    "p2d4-motive": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p2d4-motive')>=0;}catch(e){return false;}})()"
+    },
+    "p3d2-bugan": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p3d2-bugan')>=0;}catch(e){return false;}})()"
+    },
+    "p3d3-luoshu": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p3d3-luoshu')>=0;}catch(e){return false;}})()"
+    },
+    "p3d7-motive": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p3d7-motive')>=0;}catch(e){return false;}})()"
+    },
+    "dark1-zhushi": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('dark1-zhushi')>=0;}catch(e){return false;}})()"
+    },
+    "dark2-ducu": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('dark2-ducu')>=0;}catch(e){return false;}})()"
+    },
+    "p3d4-gua": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('p3d4-gua')>=0;}catch(e){return false;}})()"
+    },
+    "dark3-yangtong": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('dark3-yangtong')>=0;}catch(e){return false;}})()"
+    },
+    "dark4-carriage": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('dark4-carriage')>=0;}catch(e){return false;}})()"
+    },
+    "dark5-north": {
+      "type": "js_truthy",
+      "expr": "(function(){try{var s=JSON.parse(localStorage.getItem('daye14-mirror-save-v1')||'{}');var a=s&&s.state&&s.state.solved;return Array.isArray(a)&&a.indexOf('dark5-north')>=0;}catch(e){return false;}})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "p1-compare",
+      "hook": "p1-compare",
+      "op": "truthy"
+    },
+    {
+      "id": "p2-acrostic",
+      "hook": "p2-acrostic",
+      "op": "truthy"
+    },
+    {
+      "id": "p3-westgate",
+      "hook": "p3-westgate",
+      "op": "truthy"
+    },
+    {
+      "id": "p-lamp",
+      "hook": "p-lamp",
+      "op": "truthy"
+    },
+    {
+      "id": "p4-seal",
+      "hook": "p4-seal",
+      "op": "truthy"
+    },
+    {
+      "id": "p5-poem",
+      "hook": "p5-poem",
+      "op": "truthy"
+    },
+    {
+      "id": "p-motive",
+      "hook": "p-motive",
+      "op": "truthy"
+    },
+    {
+      "id": "p2d1-saltnum",
+      "hook": "p2d1-saltnum",
+      "op": "truthy"
+    },
+    {
+      "id": "p2d7-saltroute",
+      "hook": "p2d7-saltroute",
+      "op": "truthy"
+    },
+    {
+      "id": "p2d2-ledgername",
+      "hook": "p2d2-ledgername",
+      "op": "truthy"
+    },
+    {
+      "id": "p2d5-letter",
+      "hook": "p2d5-letter",
+      "op": "truthy"
+    },
+    {
+      "id": "p2d3-yantielun",
+      "hook": "p2d3-yantielun",
+      "op": "truthy"
+    },
+    {
+      "id": "p2d6-blacknumber",
+      "hook": "p2d6-blacknumber",
+      "op": "truthy"
+    },
+    {
+      "id": "p2d8-lingzi",
+      "hook": "p2d8-lingzi",
+      "op": "truthy"
+    },
+    {
+      "id": "p2d4-motive",
+      "hook": "p2d4-motive",
+      "op": "truthy"
+    },
+    {
+      "id": "p3d2-bugan",
+      "hook": "p3d2-bugan",
+      "op": "truthy"
+    },
+    {
+      "id": "p3d3-luoshu",
+      "hook": "p3d3-luoshu",
+      "op": "truthy"
+    },
+    {
+      "id": "p3d7-motive",
+      "hook": "p3d7-motive",
+      "op": "truthy"
+    },
+    {
+      "id": "dark1-zhushi",
+      "hook": "dark1-zhushi",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "dark2-ducu",
+      "hook": "dark2-ducu",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p3d4-gua",
+      "hook": "p3d4-gua",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "dark3-yangtong",
+      "hook": "dark3-yangtong",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "dark4-carriage",
+      "hook": "dark4-carriage",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "dark5-north",
+      "hook": "dark5-north",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "shishu",
+      "tier": "normal",
+      "gates": [
+        "p1-compare",
+        "p2-acrostic",
+        "p3-westgate",
+        "p-lamp",
+        "p4-seal",
+        "p5-poem",
+        "p-motive",
+        "p2d1-saltnum",
+        "p2d7-saltroute",
+        "p2d2-ledgername",
+        "p2d5-letter",
+        "p2d3-yantielun",
+        "p2d6-blacknumber",
+        "p2d8-lingzi",
+        "p2d4-motive",
+        "p3d2-bugan",
+        "p3d3-luoshu",
+        "p3d7-motive"
+      ],
+      "ending": {
+        "hook": "end-low",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "mizhao",
+      "tier": "normal",
+      "gates": [
+        "p1-compare",
+        "p2-acrostic",
+        "p3-westgate",
+        "p-lamp",
+        "p4-seal",
+        "p5-poem",
+        "p-motive",
+        "p2d1-saltnum",
+        "p2d7-saltroute",
+        "p2d2-ledgername",
+        "p2d5-letter",
+        "p2d3-yantielun",
+        "p2d6-blacknumber",
+        "p2d8-lingzi",
+        "p2d4-motive",
+        "p3d2-bugan",
+        "p3d3-luoshu",
+        "p3d7-motive"
+      ],
+      "ending": {
+        "hook": "end-mid",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "huangtai",
+      "tier": "good",
+      "gates": [
+        "p1-compare",
+        "p2-acrostic",
+        "p3-westgate",
+        "p-lamp",
+        "p4-seal",
+        "p5-poem",
+        "p-motive",
+        "p2d1-saltnum",
+        "p2d7-saltroute",
+        "p2d2-ledgername",
+        "p2d5-letter",
+        "p2d3-yantielun",
+        "p2d6-blacknumber",
+        "p2d8-lingzi",
+        "p2d4-motive",
+        "p3d2-bugan",
+        "p3d3-luoshu",
+        "p3d7-motive"
+      ],
+      "ending": {
+        "hook": "end-good",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end-good",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

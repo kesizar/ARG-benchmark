@@ -1,0 +1,846 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 17,
+    "win_node_id": "container_1",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "container_1",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "container_1",
+        "terminal_2",
+        "calc_gcd",
+        "graph_shortest_path",
+        "terminal_2_4b9c",
+        "checksum_crc32_7693"
+      ],
+      "by_node": {
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "inner_space": {
+              "type": "Item",
+              "description": "Contents"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "terminal_2_4b9c": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "checksum_crc32_7693": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "container_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "inner_space": "TO_BE_OR_NOT_TO_BE_THAT_IS_THE_ANSWER"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "827364519283746501928374"
+        },
+        "init_outputs": {
+          "text_result": "Pending calculation for terminal 2 input stream.",
+          "hex_result": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4"
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "b": "102938475610293847561029"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "network_topology_v2.json",
+          "src": "Data_Center_North",
+          "dst": "Backup_Storage_South"
+        },
+        "init_outputs": {
+          "path": "[\"Data_Center_North\", \"Router_A1\", \"Switch_Core_5\", \"Gateway_Ext\", \"Backup_Storage_South\"]",
+          "cost": "15042"
+        }
+      },
+      "terminal_2_4b9c": {
+        "init_inputs": {
+          "num2": "918273645091827364509182"
+        },
+        "init_outputs": {
+          "text_result": "Secondary terminal sequence initiated successfully.",
+          "hex_result": "11223344556677889900aabbccddeeff"
+        }
+      },
+      "checksum_crc32_7693": {
+        "init_inputs": {
+          "hex": "deadbeefcafe1234567890abcdef1234"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The year is 2142, decades after the Great Collapse. You have stumbled into an underground survival bunker, rumored to hold the 'Genesis Stash'—a cache of purified seeds and clean water filtration blueprints that could restore the wasteland. The bunker is sealed tight, its systems locked behind a complex web of interconnected terminals, forgotten datapads, and jury-rigged machinery. Time is running out as the surface radiation storms grow stronger. You must navigate this desolate facility, tracing the flow of power and data between the decaying devices, to finally uncover the salvation hidden within.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "6466254450eb2cedea326209af2255e9"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents",
+          "value": "TO_BE_OR_NOT_TO_BE_THAT_IS_THE_ANSWER"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "inner_space": "TO_BE_OR_NOT_TO_BE_THAT_IS_THE_ANSWER"
+        }
+      },
+      "narrative": "A highly secure containment unit known as the Genesis Stash, holding the final salvation. It requires input from the Signal Combiner to unlock."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "9fa97c0b"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "A reinforced steel box functioning as a Supply Cache. It requires input from the Data Validator to authenticate."
+    },
+    {
+      "id": "text_xor_hex",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "c5d4e690b51d8d5f29e687ff0e90963d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "6466254450eb2cedea326209af2255e9"
+        }
+      ],
+      "narrative": "This is the Signal Combiner, a jury-rigged decryption board. It requires inputs from both the Cipher Module and the Main Frame to generate a complete signal."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "obLD1OX2obLD1OX2obLD1A=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "c5d4e690b51d8d5f29e687ff0e90963d"
+        }
+      ],
+      "narrative": "This is the Cipher Module, an old military-grade scrambler. It processes data from the Translator."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "obLD1OX2obLD1OX2obLD1A=="
+        }
+      ],
+      "narrative": "This is the Translator, a salvaged communication relay. It requires input from the Main Frame to function."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "827364519283746501928374"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Pending calculation for terminal 2 input stream."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "827364519283746501928374"
+        },
+        "outputs": {
+          "text_result": "Pending calculation for terminal 2 input stream.",
+          "hex_result": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4"
+        }
+      },
+      "narrative": "This is the Main Frame, the central bunker computer. It requires input from the Synchronization Processor to operate."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Rusted Datapad covered in dust and scratch marks. It seems to have been dropped in a hurry."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "15042"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "102938475610293847561029"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "102938475610293847561029"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Synchronization Processor, a rusty computation unit. It receives input from the Navigational Computer."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "94f5c4fd0e21aa96b43b24c6a986ad52"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "9fa97c0b"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2678684683
+        }
+      ],
+      "narrative": "This is the Data Validator, a damaged identity verifier. It requires input from the Sector Hasher to confirm clearance."
+    },
+    {
+      "id": "item_16_ab31",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An Old Access Card, cracked and faded, belonging to a forgotten technician."
+    },
+    {
+      "id": "hash_md5_bc41",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "[\"Data_Center_North\", \"Router_A1\", \"Switch_Core_5\", \"Gateway_Ext\", \"Backup_Storage_South\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "94f5c4fd0e21aa96b43b24c6a986ad52"
+        }
+      ],
+      "narrative": "This is the Sector Hasher, a diagnostic terminal. It requires input from the Navigational Computer."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "network_topology_v2.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Data_Center_North"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Backup_Storage_South"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Data_Center_North\", \"Router_A1\", \"Switch_Core_5\", \"Gateway_Ext\", \"Backup_Storage_South\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "15042"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "network_topology_v2.json",
+          "src": "Data_Center_North",
+          "dst": "Backup_Storage_South"
+        },
+        "outputs": {
+          "path": "[\"Data_Center_North\", \"Router_A1\", \"Switch_Core_5\", \"Gateway_Ext\", \"Backup_Storage_South\"]",
+          "cost": "15042"
+        }
+      },
+      "narrative": "This is the Navigational Computer, an ancient terrain mapping device powered by a flickering battery."
+    },
+    {
+      "id": "terminal_2_4b9c",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": 270578964
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "918273645091827364509182"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Secondary terminal sequence initiated successfully."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "11223344556677889900aabbccddeeff"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num2": "918273645091827364509182"
+        },
+        "outputs": {
+          "text_result": "Secondary terminal sequence initiated successfully.",
+          "hex_result": "11223344556677889900aabbccddeeff"
+        }
+      },
+      "narrative": "This is the Auxiliary Console, a backup terminal left on standby. It requires input from the Checksum Analyzer."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A Dusty Map showing old wasteland schematics."
+    },
+    {
+      "id": "checksum_crc32_7693",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "deadbeefcafe1234567890abcdef1234"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "1020b514"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 270578964
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "deadbeefcafe1234567890abcdef1234"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Checksum Analyzer, a portable integrity scanner used by scavengers."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_2",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "text_xor_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_b"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "hash_md5",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "text"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_16_ab31",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "hash_md5_bc41",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "terminal_2_4b9c",
+      "target_id": "base64_encode",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "text_xor_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex_a"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "hash_md5_bc41",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_16_ab31",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "checksum_crc32_7693",
+      "target_id": "terminal_2_4b9c",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num1"
+    }
+  ]
+}

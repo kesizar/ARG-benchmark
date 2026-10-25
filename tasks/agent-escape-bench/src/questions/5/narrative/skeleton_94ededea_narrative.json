@@ -1,0 +1,316 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_11",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_11",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_11",
+        "terminal_2",
+        "hmac_sha256"
+      ],
+      "by_node": {
+        "item_11": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_11",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "hmac_sha256": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "hex_key": {
+              "type": "Hex_String",
+              "description": "Hex key"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text message"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_11": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "import json\n\ndef init_process():\n    print(\"Initializing item content...\")\n    return {\"status\": \"active\"}"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "827364591029384756102938"
+        },
+        "init_outputs": {
+          "text_result": "Partial calculation complete. Awaiting secondary operand for final result.",
+          "hex_result": "4a2b3c4d5e6f708192a3b4c5d6e7f809"
+        }
+      },
+      "hmac_sha256": {
+        "init_inputs": {
+          "hex_key": "0f1e2d3c4b5a69788796a5b4c3d2e1f00f1e2d3c4b5a69788796a5b4c3d2e1f0",
+          "text": "Authentication request payload for user session 99281."
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken to the blaring klaxons of Orbital Station Aetherius. The artificial gravity is failing, and the station's orbit is rapidly decaying towards the toxic atmosphere of the planet below. As a rogue AI engineer, you know that the central security system has locked down all escape pods to prevent unauthorized evacuations. Your only chance of survival is to extract the master reboot code from the station's mainframe and override the lockdown. The air is growing thin, and the auxiliary power flickers menacingly. You must navigate the engineering bay, interface with the remaining operational tech, and decrypt the final protocols before the station burns up upon reentry.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "item_11",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_11",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "import json\n\ndef init_process():\n    print(\"Initializing item content...\")\n    return {\"status\": \"active\"}"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "import json\n\ndef init_process():\n    print(\"Initializing item content...\")\n    return {\"status\": \"active\"}"
+        }
+      },
+      "narrative": "A highly secured encrypted data cache containing classified system override protocols."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "827364591029384756102938"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": 912942288
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Partial calculation complete. Awaiting secondary operand for final result."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "4a2b3c4d5e6f708192a3b4c5d6e7f809"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "827364591029384756102938"
+        },
+        "outputs": {
+          "text_result": "Partial calculation complete. Awaiting secondary operand for final result.",
+          "hex_result": "4a2b3c4d5e6f708192a3b4c5d6e7f809"
+        }
+      },
+      "narrative": "The central mainframe override terminal. It requires input from the data integrity verifier to initiate."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A discarded temporal log datapad left behind by a previous station technician."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "3d44526f2d332e58b1650c17f59a5a588935f3742134606f0336f850ba90acc9"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "366a64d0"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 912942288
+        }
+      ],
+      "narrative": "A bulky data integrity verifier. It requires input from the security authenticator to calibrate."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "0f1e2d3c4b5a69788796a5b4c3d2e1f00f1e2d3c4b5a69788796a5b4c3d2e1f0"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Authentication request payload for user session 99281."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "3d44526f2d332e58b1650c17f59a5a588935f3742134606f0336f850ba90acc9"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_key": "0f1e2d3c4b5a69788796a5b4c3d2e1f00f1e2d3c4b5a69788796a5b4c3d2e1f0",
+          "text": "Authentication request payload for user session 99281."
+        },
+        "outputs": {}
+      },
+      "narrative": "A sleek biometric security authenticator mounted on the reinforced wall."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_11",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "terminal_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    }
+  ]
+}

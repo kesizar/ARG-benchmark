@@ -1,0 +1,1433 @@
+{
+  "metadata": {
+    "total_nodes": 25,
+    "total_edges": 26,
+    "win_node_id": "hex_decode",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "hex_decode",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute Hex to Text Decoder and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_2",
+        "graph_shortest_path",
+        "calc_bigmul",
+        "zip_unzip_file",
+        "csv_query",
+        "zip_unzip_file_be1f",
+        "regex_search",
+        "container_4_4dab",
+        "luhn_check",
+        "num_base_convert",
+        "hash_sha256",
+        "calc_inv_mod",
+        "checksum_crc32_3498"
+      ],
+      "by_node": {
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "zip_unzip_file_be1f": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "container_4_4dab": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Text_Generic",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "luhn_check": {
+          "node_name": "Luhn Checker",
+          "node_type": "Tool",
+          "template_id": "luhn_check",
+          "init_inputs": {
+            "number": {
+              "type": "Text_Generic",
+              "description": "Number string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hash_sha256": {
+          "node_name": "SHA-256 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_sha256",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32_3498": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Execution of terminal module generated partial text result successfully.",
+          "hex_result": "2b4f6a8c0e1d3b5f7a9c2e4f6a8c0e1d"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Node_A10"
+        },
+        "init_outputs": {
+          "path": "[\"Node_A10\", \"Node_B2\", \"Node_C5\", \"Node_D4\", \"Node_E9\", \"Node_F1\"]",
+          "cost": "784920"
+        }
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "839475829104857261938",
+          "b": "104857293847562819384"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "archive_main_73.zip",
+          "password": "Str0ngP@ssw0rd!"
+        },
+        "init_outputs": {
+          "files": "extracted_data_73.csv"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {
+          "select": "id, name, age, email, status"
+        },
+        "init_outputs": {
+          "rows": "[{\"id\": 1, \"name\": \"Alice\"}, {\"id\": 2, \"name\": \"Bob\"}, {\"id\": 3, \"name\": \"Charlie\"}, {\"id\": 4, \"name\": \"David\"}]"
+        }
+      },
+      "zip_unzip_file_be1f": {
+        "init_inputs": {
+          "zip_id": "backup_logs_2023.zip",
+          "password": "B@ckup2023#secure"
+        },
+        "init_outputs": {
+          "files": "logs_2023_parsed.json"
+        }
+      },
+      "regex_search": {
+        "init_inputs": {
+          "file_id": "document_text_99.txt",
+          "text": "The quick brown fox jumps over the lazy dog 123456."
+        },
+        "init_outputs": {
+          "matches": "[\"match_one\", \"match_two\", \"match_three\", \"match_four\"]"
+        }
+      },
+      "container_4_4dab": {
+        "init_inputs": {
+          "fingerprint_input": "hash_fingerprint_8f2b"
+        },
+        "init_outputs": {}
+      },
+      "luhn_check": {
+        "init_inputs": {
+          "number": "79927398713"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "hash_sha256": {
+        "init_inputs": {
+          "text": "String to be hashed using SHA-256 algorithm."
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "58291048573928174829",
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32_3498": {
+        "init_inputs": {
+          "hex": "112233445566778899aabbccddeeff00"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in the dimly lit basement of what appears to be an abandoned intelligence agency outpost. Dust dances in the single beam of moonlight cutting through a high window. Scattered across the desks and workbenches are various obsolete yet highly modified mechanical and digital devices. A heavy steel door blocks your only exit, secured by a complex lock that requires a specific deciphered text. You must interact with the strange assortment of tools, scanners, and terminals to trace the final secret. Be careful—these machines are ingeniously interconnected, and determining the correct sequence of operations is your only chance to escape.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "0062a113"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "\u0000b\u0013"
+        }
+      ],
+      "narrative": "This is the Final Deciphering Terminal. It requires input from the Mainframe Validation Module. Use the validation result here to reveal the ultimate secret."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "bb39b750"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "0062a113"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 6463763
+        }
+      ],
+      "narrative": "This is the Mainframe Validation Module. It requires input from the Network Checksum Verifier. Once you have the verifier's result, enter it here."
+    },
+    {
+      "id": "checksum_crc32_0015",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "789c0dc9d10d80200c04d0556e02b770108287212960da6b82dbebfb7de7664df535b11a441f7d16c358571a7173d28b78e129aefe87b80567a40991b532a2a5d97b7ceddf1bbf"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "bb39b750"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3141121872
+        }
+      ],
+      "narrative": "This is the Network Checksum Verifier. It requires input from the Data Compression Unit. Bring the compressed data here for verification."
+    },
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "Execution of terminal module generated partial text result successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c0dc9d10d80200c04d0556e02b770108287212960da6b82dbebfb7de7664df535b11a441f7d16c358571a7173d28b78e129aefe87b80567a40991b532a2a5d97b7ceddf1bbf"
+        }
+      ],
+      "narrative": "This is the Data Compression Unit. It requires input from the Main Computer Terminal to shrink the raw data."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "88025163690374446159044399731057871806192"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "784920"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Execution of terminal module generated partial text result successfully."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "2b4f6a8c0e1d3b5f7a9c2e4f6a8c0e1d"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Execution of terminal module generated partial text result successfully.",
+          "hex_result": "2b4f6a8c0e1d3b5f7a9c2e4f6a8c0e1d"
+        }
+      },
+      "narrative": "This is the Main Computer Terminal. It requires inputs from both the Routing Analyzer and the Old Adding Machine to boot up its core systems."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": 2292003582
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a High-Security Evidence Locker. It requires input from the Data Hash Verifier to unlock its electronic seal."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_data_73.csv"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_A10"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "[{\"wr\": 1, \"boas\": \"Ozwqs\"}, {\"wr\": 2, \"boas\": \"Pcp\"}, {\"wr\": 3, \"boas\": \"Qvofzws\"}, {\"wr\": 4, \"boas\": \"Rojwr\"}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_A10\", \"Node_B2\", \"Node_C5\", \"Node_D4\", \"Node_E9\", \"Node_F1\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "784920"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Node_A10"
+        },
+        "outputs": {
+          "path": "[\"Node_A10\", \"Node_B2\", \"Node_C5\", \"Node_D4\", \"Node_E9\", \"Node_F1\"]",
+          "cost": "784920"
+        }
+      },
+      "narrative": "This is the Routing Analyzer. It requires inputs from both the Cipher Wheel and the Digital Forensic Tool to map out the correct pathways."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "[{\"id\": 1, \"name\": \"Alice\"}, {\"id\": 2, \"name\": \"Bob\"}, {\"id\": 3, \"name\": \"Charlie\"}, {\"id\": 4, \"name\": \"David\"}]"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "2416908508"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "[{\"wr\": 1, \"boas\": \"Ozwqs\"}, {\"wr\": 2, \"boas\": \"Pcp\"}, {\"wr\": 3, \"boas\": \"Qvofzws\"}, {\"wr\": 4, \"boas\": \"Rojwr\"}]"
+        }
+      ],
+      "narrative": "This is a Cipher Wheel. It requires inputs from both the Database Inquiry Console and the Base Conversion Mechanism to align its cryptographic gears."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a Biometric Safe. It requires input from the ID Card Scanner to verify authorization."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Dusty Keybox resting on a forgotten shelf. It seems to have been left untouched for years."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "839475829104857261938"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "104857293847562819384"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "88025163690374446159044399731057871806192"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "839475829104857261938",
+          "b": "104857293847562819384"
+        },
+        "outputs": {}
+      },
+      "narrative": "An Old Adding Machine with heavy mechanical keys. It still seems functional despite its age."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_main_73.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Str0ngP@ssw0rd!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_data_73.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_main_73.zip",
+          "password": "Str0ngP@ssw0rd!"
+        },
+        "outputs": {
+          "files": "extracted_data_73.csv"
+        }
+      },
+      "narrative": "A Digital Forensic Tool used for analyzing complex digital archives."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "An Abandoned Briefcase left carelessly under a desk."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "logs_2023_parsed.json"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "id, name, age, email, status"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "[\"match_one\", \"match_two\", \"match_three\", \"match_four\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"id\": 1, \"name\": \"Alice\"}, {\"id\": 2, \"name\": \"Bob\"}, {\"id\": 3, \"name\": \"Charlie\"}, {\"id\": 4, \"name\": \"David\"}]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "select": "id, name, age, email, status"
+        },
+        "outputs": {
+          "rows": "[{\"id\": 1, \"name\": \"Alice\"}, {\"id\": 2, \"name\": \"Bob\"}, {\"id\": 3, \"name\": \"Charlie\"}, {\"id\": 4, \"name\": \"David\"}]"
+        }
+      },
+      "narrative": "This is the Database Inquiry Console. It requires inputs from both the Encrypted Archive Extractor and the Pattern Scanner to run a successful query."
+    },
+    {
+      "id": "zip_unzip_file_be1f",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "backup_logs_2023.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "B@ckup2023#secure"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "logs_2023_parsed.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "backup_logs_2023.zip",
+          "password": "B@ckup2023#secure"
+        },
+        "outputs": {
+          "files": "logs_2023_parsed.json"
+        }
+      },
+      "narrative": "An Encrypted Archive Extractor designed to bypass file restrictions."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "false"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "document_text_99.txt"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "The quick brown fox jumps over the lazy dog 123456."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"match_one\", \"match_two\", \"match_three\", \"match_four\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "document_text_99.txt",
+          "text": "The quick brown fox jumps over the lazy dog 123456."
+        },
+        "outputs": {
+          "matches": "[\"match_one\", \"match_two\", \"match_three\", \"match_four\"]"
+        }
+      },
+      "narrative": "This is the Pattern Scanner. It requires input from the Secondary Credential Scanner to filter through the noise."
+    },
+    {
+      "id": "item_16_0c5b",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Concealed Pocketwatch hidden away from prying eyes."
+    },
+    {
+      "id": "container_4_4dab",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "hash_fingerprint_8f2b"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "hash_fingerprint_8f2b"
+        },
+        "outputs": {}
+      },
+      "narrative": "An Initial Lockbox bolted to the heavy oak desk."
+    },
+    {
+      "id": "checksum_crc32_609c",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "7708352a6e1dcb790460322cb7e410ddd06a0d58112982f48f131f307f2b2395"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "889d32fe"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2292003582
+        }
+      ],
+      "narrative": "This is the Data Hash Verifier. It requires input from the Cryptographic Hashing Terminal to function properly."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "79927398713"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "number": "79927398713"
+        },
+        "outputs": {}
+      },
+      "narrative": "An ID Card Scanner mounted near the main entrance."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": 2416908508
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "619044"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "2416908508"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Base Conversion Mechanism. It requires inputs from both the Mathematical Computation Module and the Localized Integrity Checker to align the numeric formats."
+    },
+    {
+      "id": "luhn_check_d1a4",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is a Secondary Credential Scanner. It requires input from the ID Card Scanner to proceed with the next level of clearance."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "String to be hashed using SHA-256 algorithm."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "7708352a6e1dcb790460322cb7e410ddd06a0d58112982f48f131f307f2b2395"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "String to be hashed using SHA-256 algorithm."
+        },
+        "outputs": {}
+      },
+      "narrative": "A Cryptographic Hashing Terminal with a blinking green cursor."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "58291048573928174829"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "619044"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "58291048573928174829",
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Mathematical Computation Module, perfect for solving complex numerical equations."
+    },
+    {
+      "id": "checksum_crc32_3498",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "112233445566778899aabbccddeeff00"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "900f18dc"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2416908508
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "112233445566778899aabbccddeeff00"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Localized Integrity Checker, meant for verifying small fragments of data."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "checksum_crc32_0015",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "zlib_deflate",
+      "target_id": "checksum_crc32_0015",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "zlib_deflate",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "text"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "terminal_2",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "checksum_crc32",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "text_rotN",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "text"
+    },
+    {
+      "source_id": "zip_unzip_file_be1f",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "where"
+    },
+    {
+      "source_id": "item_16_0c5b",
+      "target_id": "text_rotN",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "container_4_4dab",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "checksum_crc32_609c",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "n"
+    },
+    {
+      "source_id": "luhn_check_d1a4",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "pattern"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "luhn_check_d1a4",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "number"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "checksum_crc32_609c",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "checksum_crc32_3498",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "s"
+    }
+  ]
+}

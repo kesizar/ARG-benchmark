@@ -1,0 +1,97 @@
+{
+  "hooks": {
+    "protocol": {
+      "type": "dom_regex",
+      "pattern": "结局D：潮汐协议"
+    },
+    "keep": {
+      "type": "dom_regex",
+      "pattern": "结局A：潮声不止"
+    },
+    "echo": {
+      "type": "dom_regex",
+      "pattern": "结局C：回声"
+    },
+    "silent": {
+      "type": "dom_regex",
+      "pattern": "结局B：沉默的灯塔"
+    },
+    "case": {
+      "type": "dom_regex",
+      "pattern": "结局E：标本柜的最后一格"
+    },
+    "decoded": {
+      "type": "dom_regex",
+      "pattern": "信号解码成功！"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "decoded",
+      "hook": "decoded",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "protocol",
+      "tier": "good",
+      "gates": [
+        "decoded"
+      ],
+      "ending": {
+        "hook": "protocol",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "keep",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "keep",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "echo",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "echo",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "silent",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "silent",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "case",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "case",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "protocol",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

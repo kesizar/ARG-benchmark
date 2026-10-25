@@ -1,0 +1,1079 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 20,
+    "win_node_id": "container_4",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "container_4",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "container_4",
+        "item_7",
+        "terminal_2",
+        "calc_inv_mod",
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "container_1",
+        "code_py_exec_6060",
+        "item_9",
+        "item_1",
+        "container_2_0878"
+      ],
+      "by_node": {
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "inner_space": {
+              "type": "Item",
+              "description": "Contents"
+            }
+          }
+        },
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "code_py_exec_6060": {
+          "node_name": "Python Executor",
+          "node_type": "Tool",
+          "template_id": "code_py_exec",
+          "init_inputs": {
+            "code": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_9": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_9",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "JSON file path"
+            }
+          }
+        },
+        "item_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        },
+        "container_2_0878": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_2",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "container_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "inner_space": "2_3_5_7_11_13_17_19_23_29_31"
+        }
+      },
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "result = 10 * 42\nprint(result)"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num2": "93847582910485739284"
+        },
+        "init_outputs": {
+          "text_result": "System initialized and waiting for additional parameter input.",
+          "hex_result": "a1b2c3d4e5f67890a1b2c3d4e5f67890"
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "82374950381726485930",
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Node_Alpha",
+          "dst": "Node_Omega"
+        },
+        "init_outputs": {
+          "path": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Omega\"]",
+          "cost": "45210"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_data_archive_v3.csv"
+        }
+      },
+      "container_1": {
+        "init_inputs": {
+          "fingerprint_input": "1f2e3d4c5b6a7980"
+        },
+        "init_outputs": {}
+      },
+      "code_py_exec_6060": {
+        "init_inputs": {
+          "code": "def generate_pwd():\n    return 'secret_password_123'\nprint(generate_pwd())"
+        },
+        "init_outputs": {}
+      },
+      "item_9": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "config_graph_v2.json"
+        }
+      },
+      "item_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "1234567890123456789012"
+        }
+      },
+      "container_2_0878": {
+        "init_inputs": {
+          "fingerprint_input": "ffeeddccbbaa9988"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in a dimly lit, abandoned detective agency. Rain beats against the cracked windows, and the faint smell of old paper and ozone lingers in the air. You've been locked in by an unknown assailant who left behind a trail of cryptic devices, old documents, and locked containers. Your only way out is to navigate this web of interconnected clues, deciphering the secrets hidden within each object to eventually disarm the heavily fortified exit. The clock is ticking, and the shadows seem to grow longer with each passing minute. Explore your surroundings carefully and logically piece together the fragments of this mystery to secure your freedom.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "420\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents",
+          "value": "2_3_5_7_11_13_17_19_23_29_31"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "inner_space": "2_3_5_7_11_13_17_19_23_29_31"
+        }
+      },
+      "narrative": "This is The Final Safe. It requires input from The Analysis Console to disarm its locking mechanism."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "result = 10 * 42\nprint(result)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "420\n"
+        }
+      ],
+      "narrative": "This is The Analysis Console. It requires input from The Cipher Manuscript to execute the required code sequences."
+    },
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "result = 10 * 42\nprint(result)"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "result = 10 * 42\nprint(result)"
+        }
+      },
+      "narrative": "This is The Cipher Manuscript. A fragile document covered in dense symbols."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is The Rusty Keycard. It shows heavy signs of wear."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "101214"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "93847582910485739284"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "System initialized and waiting for additional parameter input."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "a1b2c3d4e5f67890a1b2c3d4e5f67890"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num2": "93847582910485739284"
+        },
+        "outputs": {
+          "text_result": "System initialized and waiting for additional parameter input.",
+          "hex_result": "a1b2c3d4e5f67890a1b2c3d4e5f67890"
+        }
+      },
+      "narrative": "This is The Mainframe Terminal. It requires input from The Cryptographic Processor to initiate."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "a1b2c3d4e5f67890a1b2c3d4e5f67890"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is The Biometric Lockbox. It requires input from The Mainframe Terminal to authenticate the biometric fingerprint."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is A Small Wooden Box. It has intricate carvings on the lid."
+    },
+    {
+      "id": "item_8_8efd",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is A Silver Case. It is slightly dented but securely latched."
+    },
+    {
+      "id": "item_8_4780",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is A Dusty Envelope. It looks like it was left behind on a messy desk."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "1234567890123456789012"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "45210"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "109611"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "101214"
+        }
+      ],
+      "narrative": "This is The Cryptographic Processor. It requires inputs from The Inversion Calculator, The Network Mapper, and A Torn Blueprint to function properly."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "82374950381726485930"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "109611"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "82374950381726485930",
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Inversion Calculator. An antique mathematical device with mechanical spinning dials."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_data_archive_v3.csv"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_Alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Node_Omega"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Omega\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "45210"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Node_Alpha",
+          "dst": "Node_Omega"
+        },
+        "outputs": {
+          "path": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Omega\"]",
+          "cost": "45210"
+        }
+      },
+      "narrative": "This is The Network Mapper. It requires input from The Archive Extractor to plot the correct routes on the system grid."
+    },
+    {
+      "id": "item_16_31bd",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is The Old Badge. It bears the insignia of a forgotten security firm."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "config_graph_v2.json"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "secret_password_123\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_data_archive_v3.csv"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_data_archive_v3.csv"
+        }
+      },
+      "narrative": "This is The Archive Extractor. It requires inputs from The Diagnostic Computer and The Encrypted Hard Drive to retrieve the compressed files."
+    },
+    {
+      "id": "item_8_3d08",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is A Leather Pouch. It feels oddly heavy."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "1f2e3d4c5b6a7980"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "1f2e3d4c5b6a7980"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Guard's Locker. A tall metal cabinet that seems to have been hastily abandoned."
+    },
+    {
+      "id": "code_py_exec_6060",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "def generate_pwd():\n    return 'secret_password_123'\nprint(generate_pwd())"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "secret_password_123\n"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "code": "def generate_pwd():\n    return 'secret_password_123'\nprint(generate_pwd())"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Diagnostic Computer. It blinks with a green cursor on a black screen."
+    },
+    {
+      "id": "item_9",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_9",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "JSON file path",
+          "value": "config_graph_v2.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "config_graph_v2.json"
+        }
+      },
+      "narrative": "This is The Encrypted Hard Drive. It is encased in a heavy-duty protective shell."
+    },
+    {
+      "id": "item_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "1234567890123456789012"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "1234567890123456789012"
+        }
+      },
+      "narrative": "This is A Torn Blueprint. It contains a series of faded markings."
+    },
+    {
+      "id": "container_2_0878",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "ffeeddccbbaa9988"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "ffeeddccbbaa9988"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Detective's Briefcase. A sturdy container reinforced with steel corners."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "code_py_exec",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_7",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "code_py_exec",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_8efd",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_4780",
+      "target_id": "item_8_8efd",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "item_16_31bd",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "item_8_3d08",
+      "target_id": "item_8_4780",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16_31bd",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "code_py_exec_6060",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_9",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_1",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "content",
+      "target_port": "base"
+    },
+    {
+      "source_id": "container_2_0878",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    }
+  ]
+}

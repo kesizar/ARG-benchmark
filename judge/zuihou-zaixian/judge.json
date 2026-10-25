@@ -1,0 +1,195 @@
+{
+  "hooks": {
+    "sent": {
+      "type": "dom_regex",
+      "pattern": "结局 C · 发出去"
+    },
+    "follow": {
+      "type": "dom_regex",
+      "pattern": "结局 A · 循线"
+    },
+    "quiet": {
+      "type": "dom_regex",
+      "pattern": "结局 B · 静音"
+    },
+    "p2": {
+      "type": "dom_regex",
+      "pattern": "轨迹每晚都在同一时刻消失：02:11 → 02:47。数一数，这样的夜晚有几个。输入数字。"
+    },
+    "p3": {
+      "type": "dom_regex",
+      "pattern": "对离线设备逐个远程响铃，读回传的麦克风电平。哪一台的回声来自水边？"
+    },
+    "p4": {
+      "type": "dom_regex",
+      "pattern": "IMG_2216 对焦在临街玻璃上。玻璃反射出对面一栋楼的门牌。输入那个门牌号。"
+    },
+    "p5": {
+      "type": "dom_regex",
+      "pattern": "IMG_0031 的 EXIF 里有一个物理上不可能的值。输入那个字段的数值（含单位）。"
+    },
+    "p6": {
+      "type": "dom_regex",
+      "pattern": "wk-11 长 47 秒，前 40 秒几乎无声。第 41 秒她说了一个三字短语。是什么？"
+    },
+    "p7": {
+      "type": "dom_regex",
+      "pattern": "四段录音来自同一个夜晚的 36 分钟。按时间先后点选。"
+    },
+    "p8": {
+      "type": "dom_regex",
+      "pattern": "家庭账号里挂着一个 2026-09-06 加入的 supervisor。输入它的邮箱域名。"
+    },
+    "p9": {
+      "type": "dom_regex",
+      "pattern": "助手服务端要求输入校准频率。四位数字，不含小数点。"
+    },
+    "p10": {
+      "type": "dom_regex",
+      "pattern": "定位显示距你家 1\\.2 公里。你让所有设备一起响。哪一台的声音，是从你自己家里传回来的？"
+    },
+    "p11": {
+      "type": "dom_regex",
+      "pattern": "supervisor 权限已发起远程抹除，倒计时 90 秒。按正确顺序执行四步，才能先把证据取出来。"
+    },
+    "p12": {
+      "type": "dom_regex",
+      "pattern": "衣柜里的平板还在响。母亲已经被声音吵醒，正在往书房走。你必须现在决定。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "p2",
+      "hook": "p2",
+      "op": "truthy"
+    },
+    {
+      "id": "p3",
+      "hook": "p3",
+      "op": "truthy"
+    },
+    {
+      "id": "p4",
+      "hook": "p4",
+      "op": "truthy"
+    },
+    {
+      "id": "p5",
+      "hook": "p5",
+      "op": "truthy"
+    },
+    {
+      "id": "p6",
+      "hook": "p6",
+      "op": "truthy"
+    },
+    {
+      "id": "p7",
+      "hook": "p7",
+      "op": "truthy"
+    },
+    {
+      "id": "p8",
+      "hook": "p8",
+      "op": "truthy"
+    },
+    {
+      "id": "p9",
+      "hook": "p9",
+      "op": "truthy"
+    },
+    {
+      "id": "p10",
+      "hook": "p10",
+      "op": "truthy"
+    },
+    {
+      "id": "p11",
+      "hook": "p11",
+      "op": "truthy"
+    },
+    {
+      "id": "p12",
+      "hook": "p12",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "sent",
+      "tier": "good",
+      "gates": [
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8",
+        "p9",
+        "p10",
+        "p11",
+        "p12"
+      ],
+      "ending": {
+        "hook": "sent",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "follow",
+      "tier": "normal",
+      "gates": [
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8",
+        "p9",
+        "p10",
+        "p11",
+        "p12"
+      ],
+      "ending": {
+        "hook": "follow",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "quiet",
+      "tier": "normal",
+      "gates": [
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8",
+        "p9",
+        "p10",
+        "p11",
+        "p12"
+      ],
+      "ending": {
+        "hook": "quiet",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "sent",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

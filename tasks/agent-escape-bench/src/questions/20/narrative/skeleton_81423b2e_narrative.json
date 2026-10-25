@@ -1,0 +1,1149 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 20,
+    "win_node_id": "item_8",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_8",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_8",
+        "container_4",
+        "zip_unzip_file",
+        "code_py_exec",
+        "zip_unzip_file_12a6",
+        "zip_unzip_file_98ef",
+        "csv_query",
+        "terminal_2",
+        "zip_unzip_file_1fe1",
+        "zip_unzip_file_c45f",
+        "text_rotN",
+        "luhn_check"
+      ],
+      "by_node": {
+        "item_8": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_8",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hidden_Item",
+              "description": "The integer"
+            }
+          }
+        },
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Text_Generic",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "code_py_exec": {
+          "node_name": "Python Executor",
+          "node_type": "Tool",
+          "template_id": "code_py_exec",
+          "init_inputs": {
+            "code": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_12a6": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_98ef": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "zip_unzip_file_1fe1": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_c45f": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "text_rotN": {
+          "node_name": "ROT-N Cipher",
+          "node_type": "Tool",
+          "template_id": "text_rotN",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            },
+            "n": {
+              "type": "Big_Int",
+              "description": "Shift N"
+            }
+          },
+          "init_outputs": {}
+        },
+        "luhn_check": {
+          "node_name": "Luhn Checker",
+          "node_type": "Tool",
+          "template_id": "luhn_check",
+          "init_inputs": {
+            "number": {
+              "type": "Text_Generic",
+              "description": "Number string"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_8": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": ".tfel eht si yek eht ,thgir eht si yek eht"
+        }
+      },
+      "container_4": {
+        "init_inputs": {
+          "fingerprint_input": "0xABCDEF1234567890HASH"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "dataset_main_extract.csv"
+        }
+      },
+      "code_py_exec": {
+        "init_inputs": {
+          "code": "import math\nprint('Computed value:', math.pi)"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_12a6": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "config_override_12a6.json"
+        }
+      },
+      "zip_unzip_file_98ef": {
+        "init_inputs": {
+          "zip_id": "archive_bundle_98ef.zip"
+        },
+        "init_outputs": {
+          "files": "temp_results_98ef.txt"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {
+          "select": "first_name, last_name, email"
+        },
+        "init_outputs": {
+          "rows": "[\"Alice, Smith, a@s.com\", \"Bob, Jones, b@j.com\", \"Carol, White, c@w.com\", \"Dave, Brown, d@b.com\"]"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "38475910283746591023",
+          "num2": "57384910293847561029"
+        },
+        "init_outputs": {
+          "text_result": "Initial partial computation is successfully evaluated.",
+          "hex_result": "112233445566778899aabbccddeeff00"
+        }
+      },
+      "zip_unzip_file_1fe1": {
+        "init_inputs": {
+          "password": "super_secret_password_1fe1"
+        },
+        "init_outputs": {
+          "files": "financial_report_1fe1.xlsx"
+        }
+      },
+      "zip_unzip_file_c45f": {
+        "init_inputs": {
+          "zip_id": "secure_backup_c45f.zip",
+          "password": "complex_secure_pwd_c45f"
+        },
+        "init_outputs": {
+          "files": "source_code_c45f.tar.gz"
+        }
+      },
+      "text_rotN": {
+        "init_inputs": {
+          "text": "Secret message requiring ROT shift",
+          "n": "19283746501928374650"
+        },
+        "init_outputs": {}
+      },
+      "luhn_check": {
+        "init_inputs": {
+          "number": "79927398713"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The dimly lit private office of the late CEO is a chaotic mess of scattered files, broken electronics, and hidden compartments. You are Detective Miller, tasked with unraveling a web of corporate fraud that ultimately led to cold-blooded murder. The definitive proof you need is hidden within the master ledger, but uncovering it requires piecing together a complex trail of heavily encrypted data. You'll need to utilize an array of forensic tools, old cryptographic devices, and raw deductive reasoning to connect the digital breadcrumbs. The clock is ticking before the company's cleanup crew arrives to scrub the room. Examine the scattered devices, figure out how they connect, and expose the truth.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer",
+          "value": ".tfel eht si yek eht ,thgir eht si yek eht"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": ".tfel eht si yek eht ,thgir eht si yek eht"
+        }
+      },
+      "narrative": "The Master Ledger. A critical piece of evidence detailing the final, illicit transactions that led to the murder."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "Suspect's Wristwatch. An expensive, gold-plated watch belonging to the prime suspect in the investigation."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "0xABCDEF1234567890HASH"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "0xABCDEF1234567890HASH"
+        },
+        "outputs": {}
+      },
+      "narrative": "Biometric Safe. A heavy steel safe secured by a high-tech fingerprint scanner."
+    },
+    {
+      "id": "item_16_ae78",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "Victim's Pocket Watch. A shattered silver pocket watch found right next to the body."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "dataset_main_extract.csv"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "narrative": "This is the Final Evidence Extractor. It requires inputs from both the Classified Archive Tool and the Credit Card Verifier."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "config_override_12a6.json"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Computed value: 3.141592653589793\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "dataset_main_extract.csv"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "dataset_main_extract.csv"
+        }
+      },
+      "narrative": "This is a Classified Archive Tool. It requires inputs from both the Hacker's Laptop and the Encrypted Log Decoder."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "import math\nprint('Computed value:', math.pi)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "Computed value: 3.141592653589793\n"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "code": "import math\nprint('Computed value:', math.pi)"
+        },
+        "outputs": {}
+      },
+      "narrative": "Hacker's Laptop. A ruggedized computer equipped with advanced scripting software and bypass tools."
+    },
+    {
+      "id": "item_8_7041",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Dusty Folder. A forgotten manila folder containing several blurry surveillance photographs."
+    },
+    {
+      "id": "zip_unzip_file_12a6",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "temp_results_98ef.txt"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"Alice, Smith, a@s.com\", \"Bob, Jones, b@j.com\", \"Carol, White, c@w.com\", \"Dave, Brown, d@b.com\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "config_override_12a6.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "config_override_12a6.json"
+        }
+      },
+      "narrative": "This is an Encrypted Log Decoder. It requires inputs from both the Financial Archive Extractor and the Database Search Terminal."
+    },
+    {
+      "id": "zip_unzip_file_98ef",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_bundle_98ef.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"Alice, Smith, a@s.com\", \"Bob, Jones, b@j.com\", \"Carol, White, c@w.com\", \"Dave, Brown, d@b.com\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "temp_results_98ef.txt"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_bundle_98ef.zip"
+        },
+        "outputs": {
+          "files": "temp_results_98ef.txt"
+        }
+      },
+      "narrative": "This is a Financial Archive Extractor. It requires input from the Database Search Terminal."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "financial_report_1fe1.xlsx"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "first_name, last_name, email"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "Ugetgv oguucig tgswktkpi TQV ujkhv"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[\"Alice, Smith, a@s.com\", \"Bob, Jones, b@j.com\", \"Carol, White, c@w.com\", \"Dave, Brown, d@b.com\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "select": "first_name, last_name, email"
+        },
+        "outputs": {
+          "rows": "[\"Alice, Smith, a@s.com\", \"Bob, Jones, b@j.com\", \"Carol, White, c@w.com\", \"Dave, Brown, d@b.com\"]"
+        }
+      },
+      "narrative": "This is a Database Search Terminal. It requires inputs from both the Email Backup Extractor and the Vintage Decoder Ring."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "38475910283746591023"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "57384910293847561029"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Initial partial computation is successfully evaluated."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "112233445566778899aabbccddeeff00"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "38475910283746591023",
+          "num2": "57384910293847561029"
+        },
+        "outputs": {
+          "text_result": "Initial partial computation is successfully evaluated.",
+          "hex_result": "112233445566778899aabbccddeeff00"
+        }
+      },
+      "narrative": "Math Co-processor. An old arithmetic unit used to crunch heavy numerical calculations."
+    },
+    {
+      "id": "item_8_70fb",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Torn Receipt. A crumpled piece of paper showing a partial transaction from the night of the crime."
+    },
+    {
+      "id": "item_8_cc4b",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Polaroid Photo. An instant photograph showing a secret alleyway meeting between two unknown figures."
+    },
+    {
+      "id": "zip_unzip_file_1fe1",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "source_code_c45f.tar.gz"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "super_secret_password_1fe1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "financial_report_1fe1.xlsx"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "super_secret_password_1fe1"
+        },
+        "outputs": {
+          "files": "financial_report_1fe1.xlsx"
+        }
+      },
+      "narrative": "This is an Email Backup Extractor. It requires input from the Phone Dump Analyzer."
+    },
+    {
+      "id": "zip_unzip_file_c45f",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_backup_c45f.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "complex_secure_pwd_c45f"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "source_code_c45f.tar.gz"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_backup_c45f.zip",
+          "password": "complex_secure_pwd_c45f"
+        },
+        "outputs": {
+          "files": "source_code_c45f.tar.gz"
+        }
+      },
+      "narrative": "Phone Dump Analyzer. A specialized forensic workstation used to rip data from mobile devices."
+    },
+    {
+      "id": "item_8_5c20",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Scrap of Paper. A small note covered in hasty, panicked handwriting."
+    },
+    {
+      "id": "item_8_6409",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "Burner Phone. A cheap prepaid mobile phone with no caller ID and a cracked screen."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Secret message requiring ROT shift"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "19283746501928374650"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "Ugetgv oguucig tgswktkpi TQV ujkhv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Secret message requiring ROT shift",
+          "n": "19283746501928374650"
+        },
+        "outputs": {}
+      },
+      "narrative": "Vintage Decoder Ring. A classic cryptographic toy that shifts letters to obscure secret messages."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "79927398713"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "number": "79927398713"
+        },
+        "outputs": {}
+      },
+      "narrative": "Credit Card Verifier. A specialized terminal used strictly to validate financial account numbers."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_ae78",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16_ae78",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_8_7041",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "zip_unzip_file_12a6",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file_98ef",
+      "target_id": "zip_unzip_file_12a6",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "zip_unzip_file_98ef",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "password"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "zip_unzip_file_98ef",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "zip_unzip_file_12a6",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_8_70fb",
+      "target_id": "csv_query",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_8_cc4b",
+      "target_id": "item_8_7041",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_file_1fe1",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file_c45f",
+      "target_id": "zip_unzip_file_1fe1",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_8_5c20",
+      "target_id": "item_8_cc4b",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_6409",
+      "target_id": "zip_unzip_file_c45f",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "text_rotN",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "where"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "password"
+    }
+  ]
+}

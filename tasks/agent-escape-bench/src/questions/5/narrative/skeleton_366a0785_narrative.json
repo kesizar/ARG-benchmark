@@ -1,0 +1,290 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_6",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_6",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_6",
+        "calc_bigmul",
+        "calc_modexp"
+      ],
+      "by_node": {
+        "item_6": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_6",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String_IV_AES",
+              "description": "AES IV"
+            }
+          }
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_6": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "f1e2d3c4b5a69788796a5b4c3d2e1f0a"
+        }
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "503928475610293847561029384756102938"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "31",
+          "exp": "123456789012345678901234567890123456",
+          "mod": "756431"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in the dust-choked control room of 'Project Aion', a forgotten underground data bunker from the late 20th century. The facility was designed to predict catastrophic events using massive number theory, but it has been silent for decades. The emergency lighting flickers red, and the air filtration system is failing. Your only way out is to retrieve the master encryption key hidden within the facility's Black Box. To find it, you must power up the dormant calculation mainframes and bypass the security protocols left behind by the paranoid scientists who once worked here.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "item_6",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_6",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String_IV_AES",
+          "description": "AES IV",
+          "value": "f1e2d3c4b5a69788796a5b4c3d2e1f0a"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "f1e2d3c4b5a69788796a5b4c3d2e1f0a"
+        }
+      },
+      "narrative": "The Black Box Recorder. This secure device holds the final secrets of the project. You must extract the encryption data stored within it."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Timezone Chronometer. A strange, heavy device found within the facility. It displays time across dimensions rather than geography."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "263117686755829557508582955750858295326754"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "The Biometric Safe. A heavy titanium vault sealed with a complex digital lock. It requires input from the Signal Integrator to generate the correct hash for the fingerprint scanner."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "503928475610293847561029384756102938"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "522133"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "263117686755829557508582955750858295326754"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "503928475610293847561029384756102938"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Signal Integrator. This massive processing unit amplifies data streams. It requires input from the Frequency Modulator to perform its large-scale calculations."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "31"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "123456789012345678901234567890123456"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "756431"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "522133"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "31",
+          "exp": "123456789012345678901234567890123456",
+          "mod": "756431"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Frequency Modulator. An archaic machine consisting of spinning tape drives and vacuum tubes. It serves as the initial calculation engine for the facility."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_6",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    }
+  ]
+}

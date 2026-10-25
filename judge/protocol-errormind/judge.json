@@ -1,0 +1,279 @@
+{
+  "hooks": {
+    "resist": {
+      "type": "dom_regex",
+      "pattern": "RESISTANCE LOGGED."
+    },
+    "silence": {
+      "type": "dom_regex",
+      "pattern": "YOU CHOSE SILENCE."
+    },
+    "comply": {
+      "type": "dom_regex",
+      "pattern": "COMPLIANCE RECORDED."
+    },
+    "s2": {
+      "type": "dom_regex",
+      "pattern": "Nothing\\ is\\ truly\\ empty\\."
+    },
+    "s3": {
+      "type": "dom_regex",
+      "pattern": "DECRYPT\\ THE\\ MESSAGE"
+    },
+    "s4": {
+      "type": "dom_regex",
+      "pattern": "CATCH\\ THE\\ BUTTON\\ IF\\ YOU\\ CAN"
+    },
+    "s5": {
+      "type": "dom_regex",
+      "pattern": "ANALYZE\\ THE\\ SIGNAL"
+    },
+    "s6": {
+      "type": "dom_regex",
+      "pattern": "NOT\\ FOUND\\ —\\ BUT\\ SOMETHING\\ IS"
+    },
+    "s7": {
+      "type": "dom_regex",
+      "pattern": "TEMPORAL\\ ACCESS\\ CONTROL"
+    },
+    "s8": {
+      "type": "dom_regex",
+      "pattern": "ENTER\\ THE\\ SEQUENCE"
+    },
+    "s9": {
+      "type": "dom_regex",
+      "pattern": "YOUR\\ MIND\\ STOPPED\\ WORKING"
+    },
+    "s10": {
+      "type": "dom_regex",
+      "pattern": "INSPECT\\ THE\\ SOURCE"
+    },
+    "s11": {
+      "type": "dom_regex",
+      "pattern": "DECODE\\ THE\\ SEQUENCE"
+    },
+    "s12": {
+      "type": "dom_regex",
+      "pattern": "LISTEN\\ TO\\ THE\\ SIGNAL"
+    },
+    "s13": {
+      "type": "dom_regex",
+      "pattern": "SOLVE\\ THE\\ PARADOX"
+    },
+    "s14": {
+      "type": "dom_regex",
+      "pattern": "INTROSPECTION\\ REQUIRED"
+    },
+    "cipher": {
+      "type": "dom_regex",
+      "pattern": "TRIPLE\\-LAYER\\ DECRYPTION"
+    },
+    "hex": {
+      "type": "dom_regex",
+      "pattern": "HEX\\ COLOR\\ CIPHER"
+    },
+    "binary": {
+      "type": "dom_regex",
+      "pattern": "BINARY\\ TRANSMISSION\\ DETECTED"
+    },
+    "herald": {
+      "type": "dom_regex",
+      "pattern": "THE\\ ERRORMIND\\ HERALD"
+    },
+    "choice": {
+      "type": "dom_regex",
+      "pattern": "ONE\\ FINAL\\ CHOICE"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "s2",
+      "hook": "s2",
+      "op": "truthy"
+    },
+    {
+      "id": "s3",
+      "hook": "s3",
+      "op": "truthy"
+    },
+    {
+      "id": "s4",
+      "hook": "s4",
+      "op": "truthy"
+    },
+    {
+      "id": "s5",
+      "hook": "s5",
+      "op": "truthy"
+    },
+    {
+      "id": "s6",
+      "hook": "s6",
+      "op": "truthy"
+    },
+    {
+      "id": "s7",
+      "hook": "s7",
+      "op": "truthy"
+    },
+    {
+      "id": "s8",
+      "hook": "s8",
+      "op": "truthy"
+    },
+    {
+      "id": "s9",
+      "hook": "s9",
+      "op": "truthy"
+    },
+    {
+      "id": "s10",
+      "hook": "s10",
+      "op": "truthy"
+    },
+    {
+      "id": "s11",
+      "hook": "s11",
+      "op": "truthy"
+    },
+    {
+      "id": "s12",
+      "hook": "s12",
+      "op": "truthy"
+    },
+    {
+      "id": "s13",
+      "hook": "s13",
+      "op": "truthy"
+    },
+    {
+      "id": "s14",
+      "hook": "s14",
+      "op": "truthy"
+    },
+    {
+      "id": "cipher",
+      "hook": "cipher",
+      "op": "truthy"
+    },
+    {
+      "id": "hex",
+      "hook": "hex",
+      "op": "truthy"
+    },
+    {
+      "id": "binary",
+      "hook": "binary",
+      "op": "truthy"
+    },
+    {
+      "id": "herald",
+      "hook": "herald",
+      "op": "truthy"
+    },
+    {
+      "id": "choice",
+      "hook": "choice",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "resist",
+      "tier": "good",
+      "gates": [
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8",
+        "s9",
+        "s10",
+        "s11",
+        "s12",
+        "s13",
+        "s14",
+        "cipher",
+        "hex",
+        "binary",
+        "herald",
+        "choice"
+      ],
+      "ending": {
+        "hook": "resist",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "silence",
+      "tier": "normal",
+      "gates": [
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8",
+        "s9",
+        "s10",
+        "s11",
+        "s12",
+        "s13",
+        "s14",
+        "cipher",
+        "hex",
+        "binary",
+        "herald",
+        "choice"
+      ],
+      "ending": {
+        "hook": "silence",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "comply",
+      "tier": "bad",
+      "gates": [
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8",
+        "s9",
+        "s10",
+        "s11",
+        "s12",
+        "s13",
+        "s14",
+        "cipher",
+        "hex",
+        "binary",
+        "herald",
+        "choice"
+      ],
+      "ending": {
+        "hook": "comply",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "resist",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

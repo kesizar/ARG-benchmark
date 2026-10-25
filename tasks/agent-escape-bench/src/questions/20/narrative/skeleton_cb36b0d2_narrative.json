@@ -1,0 +1,1019 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 19,
+    "win_node_id": "item_4",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_4",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_4",
+        "json_get",
+        "checksum_crc32",
+        "crypto_rsa_decrypt_hex",
+        "checksum_crc32_b3e5",
+        "regex_search",
+        "zip_unzip_file",
+        "item_2",
+        "regex_search_8a79"
+      ],
+      "by_node": {
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "JSON file ID"
+            }
+          },
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "d": {
+              "type": "Big_Int",
+              "description": "Private exponent d"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32_b3e5": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "pattern": {
+              "type": "Text_Generic",
+              "description": "Regex pattern"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "item_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "The text"
+            }
+          }
+        },
+        "regex_search_8a79": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "pattern": {
+              "type": "Text_Generic",
+              "description": "Regex pattern"
+            },
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "data_archive_8f7b.zip"
+        }
+      },
+      "json_get": {
+        "init_inputs": {
+          "file_id": "config_data_33a1.json"
+        },
+        "init_outputs": {
+          "values": "[\"config_val_1\", \"config_val_2\", \"config_val_3\", \"config_val_4\", \"config_val_5\"]"
+        }
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "deadbeef1234567890abcdef12345678"
+        },
+        "init_outputs": {}
+      },
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "d": "938475829304857219384756201928374"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32_b3e5": {
+        "init_inputs": {
+          "hex": "0987654321fedcba0987654321fedcba"
+        },
+        "init_outputs": {}
+      },
+      "regex_search": {
+        "init_inputs": {
+          "pattern": "[a-zA-Z0-9_]{8,16}"
+        },
+        "init_outputs": {
+          "matches": "[\"match_one\", \"match_two\", \"match_three\", \"match_four\"]"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "protected_payload_42.zip"
+        },
+        "init_outputs": {
+          "files": "extracted_document_77.pdf"
+        }
+      },
+      "item_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "This is the secure password for extraction."
+        }
+      },
+      "regex_search_8a79": {
+        "init_inputs": {
+          "pattern": "\\d{4}-\\d{2}-\\d{2}",
+          "file_id": "source_log_data_99.txt",
+          "text": "The event occurred on 2023-10-15 and was logged."
+        },
+        "init_outputs": {
+          "matches": "[\"2023-10-15\", \"2023-10-16\", \"2023-10-17\", \"2023-10-18\"]"
+        }
+      }
+    },
+    "intro_narrative": "You have just awakened in the forgotten sanctum of the Archmage, a sprawling, dust-covered laboratory filled with arcane artifacts, bubbling cauldrons, and dangerous latent magic. The grand runic doors have sealed shut behind you with a deafening thud, and the protective magical wards that keep the building from collapsing into the ethereal void are slowly failing. Your only hope of survival and escape lies in finding the mythical Crystal Vial, an extraordinary artifact said to hold the power to shatter any magical barrier or binding spell. However, the Archmage was notoriously paranoid, leaving behind a complex web of interconnected magical devices and hidden reliquaries. To reach your ultimate goal, you must carefully explore the sanctum, unravel the ancient enchantments, and discover how to properly channel power between these legendary relics. Time is of the essence; you must restore the flow of arcane energy and decipher the riddles before the sanctuary completely crumbles into the endless void forever.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "data_archive_8f7b.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "data_archive_8f7b.zip"
+        }
+      },
+      "narrative": "This is The Crystal Vial. A glowing crystal vial radiating immense magical energy."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is The Ethereal Mist. A bottle filled with swirling ethereal mist."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is The Chronos Dial. A miniature golden dial that manipulates time."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "[\"config_val_1\", \"config_val_2\", \"config_val_3\", \"config_val_4\", \"config_val_5\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is The Silver Reliquary. It requires input from The Oracle's Eye to unseal its hidden contents."
+    },
+    {
+      "id": "item_16_3fbb",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is The Astral Compass. A compass that points toward different constellations."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": 2306118487
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is The Bronze Reliquary. It requires input from The Runic Altar to break its magical locks."
+    },
+    {
+      "id": "item_8_74bc",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is The Shadow Essence. A dark, shifting substance trapped in glass."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "config_data_33a1.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "N"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"config_val_1\", \"config_val_2\", \"config_val_3\", \"config_val_4\", \"config_val_5\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "config_data_33a1.json"
+        },
+        "outputs": {
+          "values": "[\"config_val_1\", \"config_val_2\", \"config_val_3\", \"config_val_4\", \"config_val_5\"]"
+        }
+      },
+      "narrative": "This is The Oracle's Eye. It requires input from The Purifying Flame to reveal the hidden magical truths."
+    },
+    {
+      "id": "item_8_100a",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is The Whispering Stone. A smooth grey stone that mutters forgotten secrets."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "deadbeef1234567890abcdef12345678"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "89749357"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2306118487
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "deadbeef1234567890abcdef12345678"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Runic Altar. An ancient stone altar carved with elemental runes."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "N"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "N"
+        }
+      ],
+      "narrative": "This is The Purifying Flame. It requires input from The Spellweaver's Loom to cleanse the anomalies."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "cb042d412b98109e139501dbc50471af"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": 2554359061
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "938475829304857219384756201928374"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "N"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "d": "938475829304857219384756201928374"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Spellweaver's Loom. It requires inputs from both The Star Map Altar and The Soul Forge to unravel the enchantments."
+    },
+    {
+      "id": "checksum_crc32_b3e5",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "0987654321fedcba0987654321fedcba"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "98406d15"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2554359061
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "0987654321fedcba0987654321fedcba"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Star Map Altar. An altar displaying a glowing chart of the night sky."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "[\"match_one\", \"match_two\", \"match_three\", \"match_four\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "cb042d412b98109e139501dbc50471af"
+        }
+      ],
+      "narrative": "This is The Soul Forge. It requires input from The Seer's Crystal to bind the magical energies."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "[a-zA-Z0-9_]{8,16}"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "extracted_document_77.pdf"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "[\"2023-10-15\", \"2023-10-16\", \"2023-10-17\", \"2023-10-18\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"match_one\", \"match_two\", \"match_three\", \"match_four\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "pattern": "[a-zA-Z0-9_]{8,16}"
+        },
+        "outputs": {
+          "matches": "[\"match_one\", \"match_two\", \"match_three\", \"match_four\"]"
+        }
+      },
+      "narrative": "This is The Seer's Crystal. It requires inputs from both The Pandora's Box and The Divination Board to focus its scrying vision."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "protected_payload_42.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "This is the secure password for extraction."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_document_77.pdf"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "protected_payload_42.zip"
+        },
+        "outputs": {
+          "files": "extracted_document_77.pdf"
+        }
+      },
+      "narrative": "This is The Pandora's Box. It requires input from The Ancient Scroll to unlock its mysterious latches."
+    },
+    {
+      "id": "item_8_e9ab",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is The Void Tear. A fractured piece of the void that absorbs all light."
+    },
+    {
+      "id": "item_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "The text",
+          "value": "This is the secure password for extraction."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "This is the secure password for extraction."
+        }
+      },
+      "narrative": "This is The Ancient Scroll. A weathered parchment containing a lost incantation."
+    },
+    {
+      "id": "item_8_b470",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is The Dragon's Scale. An iridescent scale shed by a legendary dragon."
+    },
+    {
+      "id": "regex_search_8a79",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "\\d{4}-\\d{2}-\\d{2}"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "source_log_data_99.txt"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "The event occurred on 2023-10-15 and was logged."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"2023-10-15\", \"2023-10-16\", \"2023-10-17\", \"2023-10-18\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "pattern": "\\d{4}-\\d{2}-\\d{2}",
+          "file_id": "source_log_data_99.txt",
+          "text": "The event occurred on 2023-10-15 and was logged."
+        },
+        "outputs": {
+          "matches": "[\"2023-10-15\", \"2023-10-16\", \"2023-10-17\", \"2023-10-18\"]"
+        }
+      },
+      "narrative": "This is The Divination Board. A wooden board etched with symbols for spirit communication."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_3fbb",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16_3fbb",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_74bc",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_8_100a",
+      "target_id": "item_8_74bc",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "json_get",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "jsonpath"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "checksum_crc32_b3e5",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "n"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "hash_md5",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "text"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "regex_search",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "item_8_e9ab",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_2",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "content",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_8_b470",
+      "target_id": "item_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "regex_search_8a79",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "text"
+    }
+  ]
+}

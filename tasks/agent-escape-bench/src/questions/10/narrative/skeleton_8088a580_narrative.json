@@ -1,0 +1,510 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 9,
+    "win_node_id": "item_3",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_3",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_3",
+        "csv_query",
+        "item_11",
+        "zip_unzip_file",
+        "text_bidi_sanitize"
+      ],
+      "by_node": {
+        "item_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_3",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String",
+              "description": "The hex code"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {},
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "item_11": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_11",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "text_bidi_sanitize": {
+          "node_name": "Bidi Sanitizer",
+          "node_type": "Tool",
+          "template_id": "text_bidi_sanitize",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_3": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "8f3e2a1b9c4d5e6f7a8b9c0d1e2f3a4b"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {},
+        "init_outputs": {
+          "rows": "[{\"id\": 4501, \"material\": \"Composite A\", \"density\": 2.5}, {\"id\": 4502, \"material\": \"Alloy B\", \"density\": 7.8}, {\"id\": 4503, \"material\": \"Polymer C\", \"density\": 1.2}]"
+        }
+      },
+      "item_11": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "def process_data(data):\n    return [x for x in data if x > 0]\nprint(\"Processing initiated\")"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "project_blueprints_v4.zip",
+          "password": "S3cure#Password!2024"
+        },
+        "init_outputs": {
+          "files": "inventory_data.csv"
+        }
+      },
+      "text_bidi_sanitize": {
+        "init_inputs": {
+          "text": "id, material, density"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are Detective Vance, tasked with infiltrating the abandoned hideout of 'The Silhouette,' a notorious cyber-criminal who recently vanished. The room before you is a chaotic mix of old-school physical clues and high-tech digital forensic equipment. Your objective is clear: navigate this maze of encrypted archives, fragmented scripts, and physical evidence to secure the master access code left behind in the final evidence locker. Time is of the essence, as the local network is set to self-destruct in one hour. You must gather the scattered files, decode the syndicate's traces, and piece together the digital breadcrumbs to crack the case.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "item_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String",
+          "description": "The hex code",
+          "value": "8f3e2a1b9c4d5e6f7a8b9c0d1e2f3a4b"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "8f3e2a1b9c4d5e6f7a8b9c0d1e2f3a4b"
+        }
+      },
+      "narrative": "The Final Evidence Locker. A heavily reinforced steel lockbox bolted to the floor. It looks like it holds the final piece of the puzzle."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_f2f42c8a6a2f9865"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Time-Stamped Ledger. A black leather ledger with peculiar timezone markings scattered across its pages."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "[{\"id\": 4501, \"material\": \"Composite A\", \"density\": 2.5}, {\"id\": 4502, \"material\": \"Alloy B\", \"density\": 7.8}, {\"id\": 4503, \"material\": \"Polymer C\", \"density\": 1.2}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_f2f42c8a6a2f9865"
+        }
+      ],
+      "narrative": "The Evidence Fabricator. A high-tech 3D printing device used by the syndicate. It requires input from The Suspect Database to function."
+    },
+    {
+      "id": "item_16_b950",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Suspicious Watch. A broken pocket watch stopped at a very specific time."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "inventory_data.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "id, material, density"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "Processing initiated\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"id\": 4501, \"material\": \"Composite A\", \"density\": 2.5}, {\"id\": 4502, \"material\": \"Alloy B\", \"density\": 7.8}, {\"id\": 4503, \"material\": \"Polymer C\", \"density\": 1.2}]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "rows": "[{\"id\": 4501, \"material\": \"Composite A\", \"density\": 2.5}, {\"id\": 4502, \"material\": \"Alloy B\", \"density\": 7.8}, {\"id\": 4503, \"material\": \"Polymer C\", \"density\": 1.2}]"
+        }
+      },
+      "narrative": "The Suspect Database. A central terminal for cross-referencing criminal records. It requires inputs from The Forensic Script Terminal, The Archive Decrypter, and The Corrupted Text Restorer."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "def process_data(data):\n    return [x for x in data if x > 0]\nprint(\"Processing initiated\")"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "Processing initiated\n"
+        }
+      ],
+      "narrative": "The Forensic Script Terminal. A command-line computer used to run custom analysis tools. It requires input from A Smuggled Floppy Disk to execute the routines."
+    },
+    {
+      "id": "item_11",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_11",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "def process_data(data):\n    return [x for x in data if x > 0]\nprint(\"Processing initiated\")"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "def process_data(data):\n    return [x for x in data if x > 0]\nprint(\"Processing initiated\")"
+        }
+      },
+      "narrative": "A Smuggled Floppy Disk. An old, unlabeled magnetic storage disk found hidden under the floorboards."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "project_blueprints_v4.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "S3cure#Password!2024"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "inventory_data.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "project_blueprints_v4.zip",
+          "password": "S3cure#Password!2024"
+        },
+        "outputs": {
+          "files": "inventory_data.csv"
+        }
+      },
+      "narrative": "The Archive Decrypter. A specialized software tool designed to brute-force and extract locked digital archives."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "id, material, density"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "id, material, density"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "id, material, density"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Corrupted Text Restorer. A digital filtering tool that cleans up scrambled and malicious text files."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A Hidden Keycard. A magnetic access card with a faded corporate logo."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_b950",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "where"
+    },
+    {
+      "source_id": "item_11",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "select"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    }
+  ]
+}

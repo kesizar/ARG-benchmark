@@ -1,0 +1,321 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "hex_decode",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "hex_decode",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute Hex to Text Decoder and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "text_xor_hex",
+        "text_xor_hex_6e2c",
+        "terminal_2"
+      ],
+      "by_node": {
+        "text_xor_hex": {
+          "node_name": "Hex XOR",
+          "node_type": "Tool",
+          "template_id": "text_xor_hex",
+          "init_inputs": {
+            "hex_a": {
+              "type": "Hex_String",
+              "description": "Hex A"
+            }
+          },
+          "init_outputs": {}
+        },
+        "text_xor_hex_6e2c": {
+          "node_name": "Hex XOR",
+          "node_type": "Tool",
+          "template_id": "text_xor_hex",
+          "init_inputs": {
+            "hex_a": {
+              "type": "Hex_String",
+              "description": "Hex A"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "text_xor_hex": {
+        "init_inputs": {
+          "hex_a": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        "init_outputs": {}
+      },
+      "text_xor_hex_6e2c": {
+        "init_inputs": {
+          "hex_a": "aa11bb22cc33dd44ee55ff6600778899"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "3847562910384756291028374",
+          "num2": "9182736450918273645019283"
+        },
+        "init_outputs": {
+          "text_result": "Operation completed successfully.",
+          "hex_result": "1234567890abcdef1234567890abcdef",
+          "math_token": "Standard calculation token"
+        }
+      }
+    },
+    "intro_narrative": "You are a rogue netrunner trapped in Sector 4 of the Chronos Mega-Corp facility after a botched data heist. The lockdown sirens wail, and the air smells heavily of ozone and cheap synth-caf. Neon lights flicker ominously overhead, casting long shadows across the server racks. Corporate enforcers are already sweeping the lower levels, giving you only minutes to act. Your only way out is to breach the sector's central system and extract the plain-text override files. To survive, you must scavenge the room, reactivate the dormant hardware, and daisy-chain their outputs to crack the lockdown.",
+    "narrative_style": "cyberpunk"
+  },
+  "nodes": [
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "a20ed11702f76a20606cb731aa97191b"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "\u000e\u0017\u0002j `l1\u0019\u001b"
+        }
+      ],
+      "narrative": "The central mainframe access port. It requires input from the makeshift cipher relay to finally extract the plain-text override files."
+    },
+    {
+      "id": "text_xor_hex",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "b825ed5a5c9810abfc61a91e90dc4576"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "a20ed11702f76a20606cb731aa97191b"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_a": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        "outputs": {}
+      },
+      "narrative": "A makeshift cipher relay mounted on a rusted server rack. It processes data from the concealed signal decryptor."
+    },
+    {
+      "id": "text_xor_hex_6e2c",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "aa11bb22cc33dd44ee55ff6600778899"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "1234567890abcdef1234567890abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "b825ed5a5c9810abfc61a91e90dc4576"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_a": "aa11bb22cc33dd44ee55ff6600778899"
+        },
+        "outputs": {}
+      },
+      "narrative": "A concealed signal decryptor wired under the floorboards. It requires input from the biometric security terminal to function."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A discarded smart-watch lying under a floor grate. Its cracked screen glitches faintly."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "3847562910384756291028374"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "9182736450918273645019283"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Operation completed successfully."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1234567890abcdef1234567890abcdef"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Standard calculation token"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "3847562910384756291028374",
+          "num2": "9182736450918273645019283"
+        },
+        "outputs": {
+          "text_result": "Operation completed successfully.",
+          "hex_result": "1234567890abcdef1234567890abcdef",
+          "math_token": "Standard calculation token"
+        }
+      },
+      "narrative": "A bulky biometric security terminal embedded in the neon-lit wall. It hums with latent processing power."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "text_xor_hex_6e2c",
+      "target_id": "text_xor_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_b"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "text_xor_hex_6e2c",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "text_xor_hex_6e2c",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex_b"
+    }
+  ]
+}

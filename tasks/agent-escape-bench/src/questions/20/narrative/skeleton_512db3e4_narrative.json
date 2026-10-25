@@ -1,0 +1,1124 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 22,
+    "win_node_id": "item_5",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_5",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_5",
+        "hash_md5",
+        "container_1",
+        "terminal_1",
+        "calc_inv_mod",
+        "calc_gcd_90ac",
+        "regex_search",
+        "item_4",
+        "calc_inv_mod_e1a5",
+        "terminal_2"
+      ],
+      "by_node": {
+        "item_5": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_5",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String_Key_AES",
+              "description": "AES Key"
+            }
+          }
+        },
+        "hash_md5": {
+          "node_name": "MD5 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_md5",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd_90ac": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "pattern": {
+              "type": "Text_Generic",
+              "description": "Regex pattern"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        },
+        "calc_inv_mod_e1a5": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_5": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "7c2f8b9e1a3d4f5c6e7a8b9c0d1e2f3a"
+        }
+      },
+      "hash_md5": {
+        "init_inputs": {
+          "text": "User session data for md5 processing"
+        },
+        "init_outputs": {}
+      },
+      "container_1": {
+        "init_inputs": {
+          "fingerprint_input": "918273645a4b3c2d1e0f"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Terminal output executed successfully.",
+          "hex_output": "a1b2c3d4e5f60718",
+          "item_dispenser": "Dispensed a shiny but useless coin"
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "1234567890123456789012",
+          "mod": "997331"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd_90ac": {
+        "init_inputs": {
+          "a": "9876543210987654321098",
+          "b": "1122334455667788990011"
+        },
+        "init_outputs": {}
+      },
+      "regex_search": {
+        "init_inputs": {
+          "pattern": "\\d{16}"
+        },
+        "init_outputs": {
+          "matches": "[\"1234567890123456\", \"9876543210987654\", \"1111222233334444\"]"
+        }
+      },
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "archive_data_x99.zip"
+        }
+      },
+      "calc_inv_mod_e1a5": {
+        "init_inputs": {
+          "a": "8888777766665555444433",
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "5555666677778888999900",
+          "num2": "2323232323232323232323"
+        },
+        "init_outputs": {
+          "text_result": "Computed partial terminal result safely.",
+          "hex_result": "deadbeefcafe1234",
+          "math_token": "A rusted cogwheel of no real value"
+        }
+      }
+    },
+    "intro_narrative": "The world you once knew is buried under radioactive dust and twisted metal. As a scavenger exploring the ruins of Sector 7, you've stumbled upon an abandoned underground military bunker. The air is thick with the smell of ozone and decay. Emergency lights flicker weakly, illuminating ancient terminals and rusted lockboxes scattered throughout the facility. Your objective is clear: navigate through this forgotten labyrinth, bypass the degraded security systems, and extract the legendary final data drive. Survival outside depends on the secrets hidden deep within this bunker. Be careful, as every terminal and safe is interconnected through a complex web of obsolete technology.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "item_5",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_5",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String_Key_AES",
+          "description": "AES Key",
+          "value": "7c2f8b9e1a3d4f5c6e7a8b9c0d1e2f3a"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "7c2f8b9e1a3d4f5c6e7a8b9c0d1e2f3a"
+        }
+      },
+      "narrative": "The final data drive."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A rusted pocket watch."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "3403afbb19cbaa687a75597ccbee8ebf"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the deep storage vault. It requires input from the checksum terminal."
+    },
+    {
+      "id": "item_16_58ee",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A tarnished pocket watch."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool",
+          "value": "synthesized_item_fcbcf165908dd18a"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "User session data for md5 processing"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "3403afbb19cbaa687a75597ccbee8ebf"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "User session data for md5 processing"
+        },
+        "outputs": {}
+      },
+      "narrative": "The checksum terminal."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "918273645a4b3c2d1e0f"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "918273645a4b3c2d1e0f"
+        },
+        "outputs": {}
+      },
+      "narrative": "The scavenger's lockbox."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "Terminal output executed successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the biometric safe. It requires input from the main bunker mainframe."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_fcbcf165908dd18a"
+        }
+      ],
+      "narrative": "This is the scrap assembler. It requires input from the validation console."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "Terminal output executed successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is the validation console. It requires input from the main bunker mainframe."
+    },
+    {
+      "id": "container_1_dc1d",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "a1b2c3d4e5f60718"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the fallout shelter lockbox. It requires input from the main bunker mainframe."
+    },
+    {
+      "id": "item_16_556c",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A broken pocket watch."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "[\"1234567890123456\", \"9876543210987654\", \"1111222233334444\"]"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "11"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal output executed successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "a1b2c3d4e5f60718"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "Dispensed a shiny but useless coin"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Terminal output executed successfully.",
+          "hex_output": "a1b2c3d4e5f60718",
+          "item_dispenser": "Dispensed a shiny but useless coin"
+        }
+      },
+      "narrative": "This is the main bunker mainframe. It requires inputs from the quantum decryption core and the data miner."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "11"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "1"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "365402"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "11"
+        }
+      ],
+      "narrative": "This is the quantum decryption core. It requires inputs from the phase inverter, the frequency aligner, and the resonance calibrator."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "1234567890123456789012"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "997331"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "365402"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "1234567890123456789012",
+          "mod": "997331"
+        },
+        "outputs": {}
+      },
+      "narrative": "The phase inverter."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "11"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "73262"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the frequency aligner. It requires inputs from the resonance calibrator and the secondary phase inverter."
+    },
+    {
+      "id": "calc_gcd_90ac",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "9876543210987654321098"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "1122334455667788990011"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "11"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "9876543210987654321098",
+          "b": "1122334455667788990011"
+        },
+        "outputs": {}
+      },
+      "narrative": "The resonance calibrator."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "\\d{16}"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "archive_data_x99.zip"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "Computed partial terminal result safely."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"1234567890123456\", \"9876543210987654\", \"1111222233334444\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "pattern": "\\d{16}"
+        },
+        "outputs": {
+          "matches": "[\"1234567890123456\", \"9876543210987654\", \"1111222233334444\"]"
+        }
+      },
+      "narrative": "This is the data miner. It requires inputs from an intact memory card and the outpost computer."
+    },
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "archive_data_x99.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "archive_data_x99.zip"
+        }
+      },
+      "narrative": "An intact memory card."
+    },
+    {
+      "id": "calc_inv_mod_e1a5",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "8888777766665555444433"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "73262"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "8888777766665555444433",
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "The secondary phase inverter."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "5555666677778888999900"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "2323232323232323232323"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Computed partial terminal result safely."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "deadbeefcafe1234"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "A rusted cogwheel of no real value"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "5555666677778888999900",
+          "num2": "2323232323232323232323"
+        },
+        "outputs": {
+          "text_result": "Computed partial terminal result safely.",
+          "hex_result": "deadbeefcafe1234",
+          "math_token": "A rusted cogwheel of no real value"
+        }
+      },
+      "narrative": "The outpost computer."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_5",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_58ee",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16_58ee",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "hash_md5",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "container_1_dc1d",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_16_556c",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "number"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_gcd_90ac",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "base"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "calc_gcd_90ac",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "container_1_dc1d",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_4",
+      "target_id": "regex_search",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "calc_inv_mod_e1a5",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "b"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "text"
+    }
+  ]
+}

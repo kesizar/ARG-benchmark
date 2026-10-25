@@ -1,0 +1,645 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 13,
+    "win_node_id": "crypto_rsa_decrypt_hex",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "crypto_rsa_decrypt_hex",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute RSA Decrypt and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_2",
+        "calc_inv_mod",
+        "graph_shortest_path",
+        "text_xor_hex",
+        "container_4"
+      ],
+      "by_node": {
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "text_xor_hex": {
+          "node_name": "Hex XOR",
+          "node_type": "Tool",
+          "template_id": "text_xor_hex",
+          "init_inputs": {
+            "hex_a": {
+              "type": "Hex_String",
+              "description": "Hex A"
+            },
+            "hex_b": {
+              "type": "Hex_String",
+              "description": "Hex B"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Text_Generic",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Calculation logic initialized successfully.",
+          "hex_result": "492a8d3b1e7c5f0a492a8d3b1e7c5f0a492a8d3b1e7c5f0a492a8d3b1e7c5f0a",
+          "math_token": "MATH_TOKEN_SEQ_9921"
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "network_graph_v4.json",
+          "src": "Data_Center_North",
+          "dst": "Edge_Node_South"
+        },
+        "init_outputs": {
+          "path": "[\"Data_Center_North\", \"Switch_Core_01\", \"Router_Edge_A\", \"Edge_Node_South\"]",
+          "cost": "16"
+        }
+      },
+      "text_xor_hex": {
+        "init_inputs": {
+          "hex_a": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "hex_b": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+        },
+        "init_outputs": {}
+      },
+      "container_4": {
+        "init_inputs": {
+          "fingerprint_input": "device_fp_hash_x92834"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You have successfully infiltrated the underground data bunker of a notorious dark web syndicate. The server room is bathed in harsh blue LED lights, humming with the sheer processing power of stolen classified data. Your objective is to extract a highly sensitive government dossier before the automated counter-intrusion software wipes the drives completely. The system is layered with complex digital locks, encrypted firewalls, and fragmented security protocols. You must navigate the interconnected server nodes, route the correct data streams, and fully bypass the security matrix to retrieve the file and escape before you are discovered.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "492a8d3b1e7c5f0a492a8d3b1e7c5f0a492a8d3b1e7c5f0a492a8d3b1e7c5f0a"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "16"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": 2866354172
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u0000"
+        }
+      ],
+      "narrative": "This is the Main Decryption Console. It requires inputs from the Security Terminal, the Secondary Validator, and the Network Router to finally breach the encrypted file."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "96580"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": 293885266
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Calculation logic initialized successfully."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "492a8d3b1e7c5f0a492a8d3b1e7c5f0a492a8d3b1e7c5f0a492a8d3b1e7c5f0a"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "MATH_TOKEN_SEQ_9921"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Calculation logic initialized successfully.",
+          "hex_result": "492a8d3b1e7c5f0a492a8d3b1e7c5f0a492a8d3b1e7c5f0a492a8d3b1e7c5f0a",
+          "math_token": "MATH_TOKEN_SEQ_9921"
+        }
+      },
+      "narrative": "This is the Security Terminal. It requires inputs from both the Primary Validator and the Signal Converter before it can grant access."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "492a8d3b1e7c5f0a492a8d3b1e7c5f0a492a8d3b1e7c5f0a492a8d3b1e7c5f0a"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "aad917fc"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2866354172
+        }
+      ],
+      "narrative": "This is the Secondary Validator. It requires input from the Security Terminal to continue the sequential verification process."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A dusty Timezone Log left behind by a careless administrator."
+    },
+    {
+      "id": "checksum_crc32_c153",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "bb99ff99bb99dd3355ddffdd99ff99bb"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "11845552"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 293885266
+        }
+      ],
+      "narrative": "This is the Primary Validator. It requires input from the Data Combiner to run its structural integrity checks."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "96580"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "16"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": 293885266
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "96580"
+        }
+      ],
+      "narrative": "This is the Signal Converter. It requires inputs from the Quantum Inverter, the Primary Validator, and the Network Router to function properly."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": 293885266
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "96580"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Quantum Inverter. It requires input from the Primary Validator to successfully reverse the digital frequency."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "network_graph_v4.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Data_Center_North"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Edge_Node_South"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Data_Center_North\", \"Switch_Core_01\", \"Router_Edge_A\", \"Edge_Node_South\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "16"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "network_graph_v4.json",
+          "src": "Data_Center_North",
+          "dst": "Edge_Node_South"
+        },
+        "outputs": {
+          "path": "[\"Data_Center_North\", \"Switch_Core_01\", \"Router_Edge_A\", \"Edge_Node_South\"]",
+          "cost": "16"
+        }
+      },
+      "narrative": "A Network Router displaying an intricate web of active server connections."
+    },
+    {
+      "id": "text_xor_hex",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "bb99ff99bb99dd3355ddffdd99ff99bb"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_a": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "hex_b": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Data Combiner module used to seamlessly merge raw digital fragments."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "device_fp_hash_x92834"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "device_fp_hash_x92834"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy Biometric Vault securely embedded into the main server rack."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "terminal_2",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "d"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "checksum_crc32_c153",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "s"
+    },
+    {
+      "source_id": "checksum_crc32_c153",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "checksum_crc32_c153",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "n"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "checksum_crc32_c153",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "num_base_convert",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "hooks": {
+    "audit": {
+      "type": "dom_regex",
+      "pattern": "终局审计通过 · 恒大工业城市完成 60 日闭环"
+    },
+    "vacate": {
+      "type": "dom_regex",
+      "pattern": "接管法人席位"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "audit",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "audit",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "vacate",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "vacate",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "audit",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,0 +1,617 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 12,
+    "win_node_id": "terminal_1",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "terminal_1",
+      "output_port": "text_output",
+      "output_type": "Text_Generic",
+      "description": "Execute  and get the output from port 'text_output'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_1",
+        "json_get",
+        "zip_unzip_file",
+        "csv_query",
+        "zip_unzip_file_efc0"
+      ],
+      "by_node": {
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {
+            "jsonpath": {
+              "type": "Text_Generic",
+              "description": "JSONPath expression"
+            }
+          },
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            },
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            },
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "zip_unzip_file_efc0": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "qwertyuiopasdfghjklzxcvbnm1234567890",
+          "hex_output": "48656c6c6f20576f726c6421205468697320697320486578",
+          "item_dispenser": "|0⟩_|1⟩_|+⟩_|-⟩_|ψ⟩_⟨φ|"
+        }
+      },
+      "json_get": {
+        "init_inputs": {
+          "jsonpath": "$.items[*].name"
+        },
+        "init_outputs": {
+          "values": "[\"Potion\", \"Ether\", \"Phoenix Down\", \"Antidote\"]"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "config_data.json"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {
+          "file_id": "user_credentials.csv",
+          "select": "passcode",
+          "where": "user_id = 'admin'"
+        },
+        "init_outputs": {
+          "rows": "CorrectBatteryStaple2024"
+        }
+      },
+      "zip_unzip_file_efc0": {
+        "init_inputs": {
+          "zip_id": "archive_level_1.zip"
+        },
+        "init_outputs": {
+          "files": "archive_level_2.zip"
+        }
+      }
+    },
+    "intro_narrative": "You awaken in a dim, abandoned underground laboratory, the air thick with dust and the faint hum of ancient machinery. The reinforced steel doors are sealed shut, and the only light comes from the flickering glow of long-forgotten monitors. Your objective is to reactivate the facility's main mainframe to unlock the exit and escape this subterranean trap. Surrounding you are scattered clues, locked archives, and dormant terminals left behind by the mysterious researchers who once worked here. Every workstation seems to be part of a larger, convoluted security system designed to protect their most crucial findings. You'll need to piece together their secrets, trace the digital labyrinth they left behind, and figure out exactly how these strange mechanisms interact with one another. Time is ticking, and the ambient temperature is slowly dropping. You must navigate through the fragmented data and mechanical locks before the backup power completely fails.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "[\"Potion\", \"Ether\", \"Phoenix Down\", \"Antidote\"]"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": 2076069670
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "qwertyuiopasdfghjklzxcvbnm1234567890"
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "48656c6c6f20576f726c6421205468697320697320486578"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "|0⟩_|1⟩_|+⟩_|-⟩_|ψ⟩_⟨φ|"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "qwertyuiopasdfghjklzxcvbnm1234567890",
+          "hex_output": "48656c6c6f20576f726c6421205468697320697320486578",
+          "item_dispenser": "|0⟩_|1⟩_|+⟩_|-⟩_|ψ⟩_⟨φ|"
+        }
+      },
+      "narrative": "This is the main mainframe, the central hub of the laboratory. It requires inputs from both the manifest extractor and the data verifier to unlock the final sequence."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "config_data.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "$.items[*].name"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"Potion\", \"Ether\", \"Phoenix Down\", \"Antidote\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "jsonpath": "$.items[*].name"
+        },
+        "outputs": {
+          "values": "[\"Potion\", \"Ether\", \"Phoenix Down\", \"Antidote\"]"
+        }
+      },
+      "narrative": "This is the manifest extractor, a specialized parsing script running on an old monitor. It requires input from the second encrypted archive to filter out the noise and find the right entries."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "d94f7011cd140a83972911998536e8bb"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "7bbe4f26"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2076069670
+        }
+      ],
+      "narrative": "This is the data verifier, a robust error-checking tool. It requires input from the digital hasher to ensure nothing has been corrupted."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_level_2.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "CorrectBatteryStaple2024"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "config_data.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "config_data.json"
+        }
+      },
+      "narrative": "This is the second encrypted archive, heavily protected by layered security protocols. It requires inputs from both the first encrypted archive and the personnel database to open."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "d94f7011cd140a83972911998536e8bb"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the bio-locked safe, built flush into the cold concrete wall. It requires input from the digital hasher to authenticate."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "CorrectBatteryStaple2024"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "d94f7011cd140a83972911998536e8bb"
+        }
+      ],
+      "narrative": "This is the digital hasher, a specialized encryption mechanism. It requires input from the personnel database to scramble the text correctly."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "user_credentials.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "passcode"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "user_id = 'admin'"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "CorrectBatteryStaple2024"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "user_credentials.csv",
+          "select": "passcode",
+          "where": "user_id = 'admin'"
+        },
+        "outputs": {
+          "rows": "CorrectBatteryStaple2024"
+        }
+      },
+      "narrative": "This is the personnel database. A dusty but functioning terminal containing vast amounts of staff records."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A dusty folder tucked away in a desk drawer. It seems to hold forgotten physical documents."
+    },
+    {
+      "id": "zip_unzip_file_efc0",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_level_1.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "CorrectBatteryStaple2024"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "archive_level_2.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_level_1.zip"
+        },
+        "outputs": {
+          "files": "archive_level_2.zip"
+        }
+      },
+      "narrative": "This is the first encrypted archive, serving as an initial layer of security. It requires input from the personnel database to proceed."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A timezone log. A heavily annotated little notebook tracking the global shifts of the research team."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "json_get",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "json_get",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "checksum_crc32",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "hash_md5",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "zip_unzip_file_efc0",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "password"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "zip_unzip_file_efc0",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "hash_md5",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    }
+  ]
+}

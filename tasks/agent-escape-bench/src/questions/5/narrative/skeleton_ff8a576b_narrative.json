@@ -1,0 +1,233 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_14",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_14",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_14",
+        "base64_decode"
+      ],
+      "by_node": {
+        "item_14": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_14",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String_IV_AES",
+              "description": "AES IV"
+            }
+          }
+        },
+        "base64_decode": {
+          "node_name": "Base64 Decoder",
+          "node_type": "Tool",
+          "template_id": "base64_decode",
+          "init_inputs": {
+            "data": {
+              "type": "Text_Generic",
+              "description": "Base64 string"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_14": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "8f3a2b1c4d5e6f7a8b9c0d1e2f3a4b5c"
+        }
+      },
+      "base64_decode": {
+        "init_inputs": {
+          "data": "U3VwZXJTZWNyZXREYXRhUGF5bG9hZEZvckluaXQ="
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You stand amidst the hissing pipes and rhythmic ticking of Professor Cogsworth's abandoned workshop. The air is thick with the scent of ozone and machine oil. Somewhere in this labyrinth of brass and mahogany lies the Professor's greatest invention: the Aetheric Resonance Crystal, a power source of infinite potential. However, the workshop is a puzzle box itself, guarded by mechanical locks and cryptographic defenses. You must manipulate the strange machinery left behind to uncover the crystal before the building's steam pressure reaches critical levels.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "item_14",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_14",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String_IV_AES",
+          "description": "AES IV",
+          "value": "8f3a2b1c4d5e6f7a8b9c0d1e2f3a4b5c"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "8f3a2b1c4d5e6f7a8b9c0d1e2f3a4b5c"
+        }
+      },
+      "narrative": "A faceted gem suspended in a magnetic field, humming with limitless potential. This is the Aetheric Resonance Crystal, the key to the city's future power grid."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "5375706572536563726574446174615061796c6f6164466f72496e6974"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "A heavy iron vault reinforced with copper piping and pressure gauges. Its locking mechanism is a hybrid of mechanics and mathematics. It requires the decoded data sequence from the Difference Engine Terminal to align the internal tumblers."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A heavy, intricate cube of brass gears, springs, and analytical wafers. It appears to be a processing unit designed to govern a larger security mechanism."
+    },
+    {
+      "id": "base64_decode",
+      "name": "Base64 Decoder",
+      "description": "Decode base64 to hex bytes.",
+      "type": "Tool",
+      "template_id": "base64_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "U3VwZXJTZWNyZXREYXRhUGF5bG9hZEZvckluaXQ="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "bytes_hex",
+          "type": "Hex_String",
+          "description": "Decoded bytes as Hex",
+          "value": "5375706572536563726574446174615061796c6f6164466f72496e6974"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "data": "U3VwZXJTZWNyZXREYXRhUGF5bG9hZEZvckluaXQ="
+        },
+        "outputs": {}
+      },
+      "narrative": "A massive console of mahogany and brass, filled with rows of numbered keys and a ticker-tape output. It is the Difference Engine Terminal, built to translate encoded text strings into usable hexadecimal data."
+    },
+    {
+      "id": "item_8_8068",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A portable storage canister with a complex combination lock on the lid. It rattles slightly when moved, suggesting something dense and mechanical is stored inside."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_2",
+      "target_id": "item_14",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "base64_decode",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "bytes_hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_8_8068",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    }
+  ]
+}

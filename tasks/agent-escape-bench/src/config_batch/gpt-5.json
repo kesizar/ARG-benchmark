@@ -1,0 +1,19 @@
+{
+  "model": "gpt-5",
+  "agent_type": "chat_completions",
+  "api_key": "",
+  "base_url": "",
+  "uid": "",
+  "temperature": 0.7,
+  "max_tokens": 8192,
+  "max_history": 500,
+  "max_retries": 3,
+  "use_function_calling": true,
+  "store": false,
+  "server_url": "http://localhost:8000",
+  "max_steps": 50,
+  "timeout": 4000,
+  "verbose": true,
+  "output_dir": "",
+  "case_file": "# Will be set automatically by batch_evaluate.py"
+}

@@ -1,0 +1,105 @@
+{
+  "hooks": {
+    "end": {
+      "type": "dom_regex",
+      "pattern": "我必须查清楚，趁一切还来得及。"
+    },
+    "diary": {
+      "type": "dom_regex",
+      "pattern": "我们要天天一块儿上学！"
+    },
+    "pharma": {
+      "type": "dom_regex",
+      "pattern": "白色硬质胶囊，内容物为浅褐色草本粉末，气微香，味微甘"
+    },
+    "sample": {
+      "type": "dom_regex",
+      "pattern": "约\\ 11\\ 个月本源寿元"
+    },
+    "dream-1": {
+      "type": "dom_regex",
+      "pattern": "再睁眼时，我站在河边的芦苇荡里。"
+    },
+    "dream-2": {
+      "type": "dom_regex",
+      "pattern": "原来我早就靠自己，走过一次这样难走的路了。"
+    },
+    "dream-3": {
+      "type": "dom_regex",
+      "pattern": "其实考不考得上最好的大学好像也没那么重要了。"
+    },
+    "wish": {
+      "type": "dialog_regex",
+      "pattern": "已终止生息抽取"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "diary",
+      "hook": "diary",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "pharma",
+      "hook": "pharma",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "sample",
+      "hook": "sample",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "dream-1",
+      "hook": "dream-1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "dream-2",
+      "hook": "dream-2",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "dream-3",
+      "hook": "dream-3",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "wish",
+      "hook": "wish",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "end",
+      "tier": "good",
+      "gates": [
+        "wish"
+      ],
+      "ending": {
+        "hook": "end",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

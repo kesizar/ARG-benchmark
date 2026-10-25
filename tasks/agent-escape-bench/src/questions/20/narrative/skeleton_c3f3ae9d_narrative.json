@@ -1,0 +1,983 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 21,
+    "win_node_id": "item_16",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_16",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_16",
+        "terminal_1",
+        "calc_gcd",
+        "checksum_crc32_eae9",
+        "terminal_1_a857",
+        "calc_bigmul"
+      ],
+      "by_node": {
+        "item_16": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_16",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hidden_Item",
+              "description": "Timezone text"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32_eae9": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1_a857": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_16": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "DE:AD:BE:EF:CA:FE"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "Terminal slot input ready"
+        },
+        "init_outputs": {
+          "text_output": "The terminal processed your request successfully.",
+          "hex_output": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "84729183749281749201"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32_eae9": {
+        "init_inputs": {
+          "hex": "f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1_a857": {
+        "init_inputs": {
+          "slot_a": "Secondary terminal initial text"
+        },
+        "init_outputs": {
+          "text_output": "Terminal secondary processed the text properly.",
+          "hex_output": "99887766554433221100aabbccddeeff",
+          "item_dispenser": "A completely useless empty carton box"
+        }
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "19283746501928374650",
+          "b": "98765432109876543210"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken from cryosleep to the blaring sound of emergency sirens. You are aboard the Helios-7, a derelict orbital research station drifting dangerously close to a dying star. The air is growing thin, and the red emergency lights cast long, ominous shadows along the metallic corridors. Life support systems are rapidly failing, and the station’s structural integrity is compromised by the immense gravitational pull. Your only chance of survival is to initiate the emergency escape pod sequence, but the master launch codes have been locked away inside a highly secure vault by the previous crew. To escape, you must navigate a complex web of interconnected terminals, malfunctioning consoles, and forgotten data logs scattered throughout the facility. You will need to carefully decipher cryptic modules, reroute power systems, and piece together the final sequence through sheer logic. Every device is interconnected, and finding the right order to activate them is paramount. Time is running out as the station groans under the stress of impending gravitational collapse. Will you uncover the correct data flow and unlock the escape pod, or will you become a permanent resident of this cosmic graveyard?",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text",
+          "value": "DE:AD:BE:EF:CA:FE"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "DE:AD:BE:EF:CA:FE"
+        }
+      },
+      "narrative": "A heavily encrypted core data drive. It looks like it holds the final override codes we need to escape."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "c1ac9191a77a9d0f116f5413c95912c3841882350e94dbca19e4670a2e0e5593"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the main containment pod. It requires input from the security authenticator to bypass its electronic lock."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "99887766554433221100aabbccddeeff"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "c1ac9191a77a9d0f116f5413c95912c3841882350e94dbca19e4670a2e0e5593"
+        }
+      ],
+      "narrative": "This is the security authenticator. It requires inputs from both the format filter and the administrative terminal to operate."
+    },
+    {
+      "id": "item_16_f1ad",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A backup storage log scattered on the floor, seemingly left behind by the former crew."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "False"
+        }
+      ],
+      "narrative": "This is the format filter. It requires input from the secondary credential verifier to cleanse corrupted strings."
+    },
+    {
+      "id": "iban_validate",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "False"
+        }
+      ],
+      "narrative": "This is the secondary credential verifier. It requires input from the sequence auditor to confirm authorization."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is the sequence auditor. It requires input from the primary credential verifier to validate structural integrity."
+    },
+    {
+      "id": "item_16_5bd8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An abandoned phase shift log containing scattered telemetry records from the station's final days."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "31ceffcc"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the auxiliary lockbox. It requires input from the hash processor to disengage its locking mechanism."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "984f63fa"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "31ceffcc"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 835649484
+        }
+      ],
+      "narrative": "This is the hash processor. It requires input from the signal digitizer to compress the cryptographic stream."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Terminal slot input ready"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "The terminal processed your request successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Terminal slot input ready"
+        },
+        "outputs": {
+          "text_output": "The terminal processed your request successfully.",
+          "hex_output": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+        }
+      },
+      "narrative": "This is the central command console. It requires input from the quantum logic circuit to restore basic network functionality."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A loose integer chip glowing with a faint blue aura, lying forgotten on a workbench."
+    },
+    {
+      "id": "checksum_crc32_2454",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "984f63fa"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2555339770
+        }
+      ],
+      "narrative": "This is the signal digitizer. It requires input from the central command console to encode the transmission."
+    },
+    {
+      "id": "item_16_42d8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A shattered temporal record detailing the exact moment the facility's main power grid went dark."
+    },
+    {
+      "id": "iban_validate_8ee5",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "The terminal processed your request successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "False"
+        }
+      ],
+      "narrative": "This is the primary credential verifier. It requires input from the central command console to authenticate."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "84729183749281749201"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": 1552276722
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "84729183749281749201"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the quantum logic circuit. It requires input from the initial data scanner to find resonance frequencies."
+    },
+    {
+      "id": "item_16_f7dc",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A dusty datapad displaying old spatial coordinates that might still be useful."
+    },
+    {
+      "id": "checksum_crc32_eae9",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "5c85dcf2"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1552276722
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6"
+        },
+        "outputs": {}
+      },
+      "narrative": "An initial data scanner mounted on the wall. It continuously emits a low hum."
+    },
+    {
+      "id": "terminal_1_a857",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Secondary terminal initial text"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "1904567555960276161134918205555793626500"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal secondary processed the text properly."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "99887766554433221100aabbccddeeff"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "A completely useless empty carton box"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Secondary terminal initial text"
+        },
+        "outputs": {
+          "text_output": "Terminal secondary processed the text properly.",
+          "hex_output": "99887766554433221100aabbccddeeff",
+          "item_dispenser": "A completely useless empty carton box"
+        }
+      },
+      "narrative": "This is the administrative terminal. It requires input from the probability multiplier to grant executive access."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "19283746501928374650"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "98765432109876543210"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "1904567555960276161134918205555793626500"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "19283746501928374650",
+          "b": "98765432109876543210"
+        },
+        "outputs": {}
+      },
+      "narrative": "A massive probability multiplier array humming with power in the center of the server room."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_16_f1ad",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "hmac_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "iban_validate",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "iban_validate",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "iban"
+    },
+    {
+      "source_id": "item_16_5bd8",
+      "target_id": "luhn_check",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16_5bd8",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "checksum_crc32_2454",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_16_42d8",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "iban_validate_8ee5",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "number"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "checksum_crc32_2454",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "iban_validate_8ee5",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "iban"
+    },
+    {
+      "source_id": "item_16_f7dc",
+      "target_id": "calc_gcd",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "checksum_crc32_eae9",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "terminal_1_a857",
+      "target_id": "hmac_sha256",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "hex_key"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "terminal_1_a857",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "slot_b"
+    }
+  ]
+}

@@ -1,0 +1,681 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 12,
+    "win_node_id": "calc_modexp",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "calc_modexp",
+      "output_port": "value",
+      "output_type": "Big_Int",
+      "description": "Execute BigInt Modular Exponentiation and get the output from port 'value'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "graph_shortest_path",
+        "calc_gcd",
+        "num_base_convert",
+        "zip_unzip_file",
+        "base64_encode",
+        "checksum_crc32",
+        "zip_unzip_file_ec86",
+        "item_4"
+      ],
+      "by_node": {
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "base64_encode": {
+          "node_name": "Base64 Encoder",
+          "node_type": "Tool",
+          "template_id": "base64_encode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex bytes"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_ec86": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Node_Start_Alpha"
+        },
+        "init_outputs": {
+          "path": "[\"Node_Start_Alpha\", \"Node_X1\", \"Node_X2\", \"Node_X3\", \"Node_End_Omega\"]",
+          "cost": "3849201847562910384722"
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "5928374610293847561099"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "1029384756293847561088"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "password": "SecureGraphPassword123"
+        },
+        "init_outputs": {
+          "files": "graph_topology_data.json"
+        }
+      },
+      "base64_encode": {
+        "init_inputs": {
+          "hex": "4a5b6c7d8e9f0a1b2c3d4e5f67890123"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "11223344556677889900aabbccddeeff"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_ec86": {
+        "init_inputs": {
+          "password": "InitialAccessKey!@#"
+        },
+        "init_outputs": {
+          "files": "intermediate_level.zip"
+        }
+      },
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "encrypted_source_blob.zip"
+        }
+      }
+    },
+    "intro_narrative": "You awaken to the shrill hiss of escaping steam and the violent shudder of the 'Iron Leviathan', a colossal clockwork airship rapidly losing altitude. The chief engineer has vanished, leaving behind only scattered blueprints and locked brass contraptions. The main boiler is dead, and the jagged peaks of the Rust Mountains are fast approaching through the porthole. Your only hope of survival is to navigate the labyrinth of pressure valves, cogwheels, and pneumatic tubes to manually reignite the ship's Aetheric Engine Core. Time is ticking, and the gears are waiting.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "1"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "1"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "3849201847562910384722"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Aetheric Engine Core. The massive, pulsing heart of the airship. To achieve full ignition and escape, it requires inputs from the Navigational Astrolabe, the Secondary Gear Synchronizer, and the Primary Gear Synchronizer."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "graph_topology_data.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_Start_Alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "SltsfY6fChssPU5fZ4kBIw=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Start_Alpha\", \"Node_X1\", \"Node_X2\", \"Node_X3\", \"Node_End_Omega\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "3849201847562910384722"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Node_Start_Alpha"
+        },
+        "outputs": {
+          "path": "[\"Node_Start_Alpha\", \"Node_X1\", \"Node_X2\", \"Node_X3\", \"Node_End_Omega\"]",
+          "cost": "3849201847562910384722"
+        }
+      },
+      "narrative": "This is the Navigational Astrolabe. A complex mechanical map projector. It requires inputs from both the Secondary Steam-Decrypter and the Cogwheel Encoder to plot a safe course."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "5928374610293847561099"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "1029384756293847561088"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "5928374610293847561099"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Secondary Gear Synchronizer. A smaller, delicate clockwork alignment tool. It requires input from the Differential Transformer to stabilize its rhythm."
+    },
+    {
+      "id": "calc_gcd_3b48",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "3849201847562910384722"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": 1090510515
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Primary Gear Synchronizer. A large clockwork mechanism designed to align engine frequencies. It requires inputs from both the Pressure Gauge Verifier and the Navigational Astrolabe."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "1029384756293847561088"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "1"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": 1090510515
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "1029384756293847561088"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "1029384756293847561088"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Differential Transformer. A loud, clanking machine that converts mechanical torque. It requires inputs from both the Primary Gear Synchronizer and the Pressure Gauge Verifier."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "intermediate_level.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SecureGraphPassword123"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "graph_topology_data.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "SecureGraphPassword123"
+        },
+        "outputs": {
+          "files": "graph_topology_data.json"
+        }
+      },
+      "narrative": "This is the Secondary Steam-Decrypter. An advanced decryption centrifuge. It requires input from the Primary Steam-Decrypter to further unseal the data."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "4a5b6c7d8e9f0a1b2c3d4e5f67890123"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "SltsfY6fChssPU5fZ4kBIw=="
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "4a5b6c7d8e9f0a1b2c3d4e5f67890123"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Cogwheel Encoder. A mechanical typewriter-like device with interlocking cogwheels used for translating signals."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "11223344556677889900aabbccddeeff"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "40ffdeb3"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1090510515
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "11223344556677889900aabbccddeeff"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Pressure Gauge Verifier. A hissing pneumatic machine with multiple dials that checks the integrity of the steam pipes."
+    },
+    {
+      "id": "zip_unzip_file_ec86",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "encrypted_source_blob.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "InitialAccessKey!@#"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "intermediate_level.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "InitialAccessKey!@#"
+        },
+        "outputs": {
+          "files": "intermediate_level.zip"
+        }
+      },
+      "narrative": "This is the Primary Steam-Decrypter. A whistling steam-powered decryption engine. It requires input from the Brass Strongbox to begin processing."
+    },
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "encrypted_source_blob.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "encrypted_source_blob.zip"
+        }
+      },
+      "narrative": "A heavy brass strongbox reinforced with copper rivets. It seems to hold something important inside."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_gcd_3b48",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_gcd_3b48",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_gcd_3b48",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_gcd_3b48",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "zip_unzip_file_ec86",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_4",
+      "target_id": "zip_unzip_file_ec86",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "zip_id"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "hooks": {
+    "end-good": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 断 连"
+    },
+    "end-ease": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 享 乐 一 世"
+    },
+    "end-back": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 反 噬"
+    },
+    "end-part": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 咒 不 完 整"
+    },
+    "end-army": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 举 兵 失 败"
+    },
+    "opened": {
+      "type": "dom_regex",
+      "pattern": "搜 索 已 激 活"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "opened",
+      "hook": "opened",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "sever",
+      "tier": "good",
+      "gates": [
+        "opened"
+      ],
+      "ending": {
+        "hook": "end-good",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "ease",
+      "tier": "bad",
+      "gates": [
+        "opened"
+      ],
+      "ending": {
+        "hook": "end-ease",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "backlash",
+      "tier": "bad",
+      "gates": [
+        "opened"
+      ],
+      "ending": {
+        "hook": "end-back",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "partial",
+      "tier": "bad",
+      "gates": [
+        "opened"
+      ],
+      "ending": {
+        "hook": "end-part",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "army",
+      "tier": "bad",
+      "gates": [
+        "opened"
+      ],
+      "ending": {
+        "hook": "end-army",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end-good",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,0 +1,46 @@
+{
+  "hooks": {
+    "tree": {
+      "type": "dom_regex",
+      "pattern": "谱齐了。抄家的单子也对上了。"
+    },
+    "garden": {
+      "type": "dom_regex",
+      "pattern": "八处都核了。匣中纸页都在这边。"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "garden",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "garden",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "tree",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "tree",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "tree",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

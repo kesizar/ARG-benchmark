@@ -1,0 +1,1521 @@
+{
+  "metadata": {
+    "total_nodes": 25,
+    "total_edges": 34,
+    "win_node_id": "item_11",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_11",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_11",
+        "terminal_1",
+        "calc_inv_mod",
+        "graph_shortest_path",
+        "graph_shortest_path_595a",
+        "graph_shortest_path_3f3f",
+        "zip_unzip_file",
+        "zip_unzip_file_7432",
+        "base64_encode",
+        "container_3",
+        "luhn_check",
+        "terminal_2",
+        "json_get",
+        "calc_bigmul"
+      ],
+      "by_node": {
+        "item_11": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_11",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "graph_shortest_path_595a": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "graph_shortest_path_3f3f": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_7432": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "base64_encode": {
+          "node_name": "Base64 Encoder",
+          "node_type": "Tool",
+          "template_id": "base64_encode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex bytes"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "luhn_check": {
+          "node_name": "Luhn Checker",
+          "node_type": "Tool",
+          "template_id": "luhn_check",
+          "init_inputs": {
+            "number": {
+              "type": "Text_Generic",
+              "description": "Number string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "JSON file ID"
+            },
+            "jsonpath": {
+              "type": "Text_Generic",
+              "description": "JSONPath expression"
+            }
+          },
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_11": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "def execute_task():\n    return 'execution_complete'\n"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Terminal sequence Alpha processed successfully.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "982734918273648172635482910"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "graph_data_main.json",
+          "src": "Node_A",
+          "dst": "Node_Z"
+        },
+        "init_outputs": {
+          "path": "[\"Node_A\", \"Node_C\", \"Node_F\", \"Node_K\", \"Node_M\", \"Node_Z\"]",
+          "cost": "482319"
+        }
+      },
+      "graph_shortest_path_595a": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"Node_X\", \"Node_Y\", \"Node_P\", \"Node_Q\", \"Node_R\", \"Node_S\"]",
+          "cost": "572810"
+        }
+      },
+      "graph_shortest_path_3f3f": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"Start\", \"N1\", \"N2\", \"N3\", \"N4\", \"End\"]",
+          "cost": "184752"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_folder_01.zip"
+        }
+      },
+      "zip_unzip_file_7432": {
+        "init_inputs": {
+          "zip_id": "archive_secret_99.zip"
+        },
+        "init_outputs": {
+          "files": "data_dump_7432.json"
+        }
+      },
+      "base64_encode": {
+        "init_inputs": {
+          "hex": "deadbeef1234567890abcdefdeadbeef"
+        },
+        "init_outputs": {}
+      },
+      "container_3": {
+        "init_inputs": {
+          "fingerprint_input": "8374928374651928374659102938"
+        },
+        "init_outputs": {}
+      },
+      "luhn_check": {
+        "init_inputs": {
+          "number": "79927398713"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "System initialization partial processing done.",
+          "hex_result": "abcdef0123456789abcdef0123456789"
+        }
+      },
+      "json_get": {
+        "init_inputs": {
+          "file_id": "config_data_33.json",
+          "jsonpath": "$.store.book[*].author"
+        },
+        "init_outputs": {
+          "values": "[\"Nigel Rees\", \"Evelyn Waugh\", \"Herman Melville\", \"J. R. R. Tolkien\"]"
+        }
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "583920193847561029384756102",
+          "b": "192837465019283746501928374"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The alarms of Station Tartarus blare in a relentless rhythm, casting the central command nexus in a harsh, pulsing red light. The facility has been locked down due to an imminent core meltdown, and all evacuation shuttles have long since departed. You are the last technician remaining on board, trapped in the heart of the station's tangled mainframe. Your only chance of escape is to override the lockdown protocols, but the master override codes are tightly sealed within the Final Datacore. The station's systems have fragmented, turning the command center into a complex web of encrypted terminals, biometric locks, and dead-end data flows. You must navigate this maze of futuristic technology, reactivating dormant modules and tracing the scattered data to piece together the command sequence. Time is running dangerously low. Reactivate the systems, follow the data trails, and extract the codes before the station is reduced to stardust.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "item_11",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_11",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "def execute_task():\n    return 'execution_complete'\n"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "def execute_task():\n    return 'execution_complete'\n"
+        }
+      },
+      "narrative": "A glowing, crystalline memory module. It pulses with unresolved data, waiting to be properly interfaced."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "\u0004\u001dH"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "982734918273648172635482910"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal sequence Alpha processed successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Terminal sequence Alpha processed successfully.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "narrative": "This is the Mainframe Interface. It requires inputs from both the Decryption Matrix and the Quantum Inverter to activate fully."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "982734918273648172635482910"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "9"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "982734918273648172635482910"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "982734918273648172635482910"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Quantum Inverter. It requires input from the Harmonic Synthesizer to reverse the data flow."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "abcdef0123456789abcdef0123456789"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "482319"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": 152563954
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u0004\u001dH"
+        }
+      ],
+      "narrative": "This is the Decryption Matrix. It requires inputs from the Signal Translator, the Integrity Verifier, and the Processing Console."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "482319"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "572810"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "184752"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "482319"
+        }
+      ],
+      "narrative": "This is the Signal Translator. It requires inputs from the Primary Nav-Planner, the Secondary Routing Module, and the Pathway Analyzer."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "439d858fb8d22d8927a6ae9c2ec87789adb321fc19dac305a4ffe79e18e15870"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "0917f0f2"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 152563954
+        }
+      ],
+      "narrative": "This is the Integrity Verifier. It processes data from the Hashing Engine. You must feed it the engine's result to proceed."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "[\"Node_A\", \"Node_C\", \"Node_F\", \"Node_K\", \"Node_M\", \"Node_Z\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "439d858fb8d22d8927a6ae9c2ec87789adb321fc19dac305a4ffe79e18e15870"
+        }
+      ],
+      "narrative": "This is the Hashing Engine. It requires input from the Primary Nav-Planner to scramble the coordinates."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "graph_data_main.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_A"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Node_Z"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_A\", \"Node_C\", \"Node_F\", \"Node_K\", \"Node_M\", \"Node_Z\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "482319"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "graph_data_main.json",
+          "src": "Node_A",
+          "dst": "Node_Z"
+        },
+        "outputs": {
+          "path": "[\"Node_A\", \"Node_C\", \"Node_F\", \"Node_K\", \"Node_M\", \"Node_Z\"]",
+          "cost": "482319"
+        }
+      },
+      "narrative": "An advanced holographic map projector used for plotting deep space coordinates."
+    },
+    {
+      "id": "graph_shortest_path_595a",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_folder_01.zip"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "[\"Start\", \"N1\", \"N2\", \"N3\", \"N4\", \"End\"]"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "[\"Node_A\", \"Node_C\", \"Node_F\", \"Node_K\", \"Node_M\", \"Node_Z\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_X\", \"Node_Y\", \"Node_P\", \"Node_Q\", \"Node_R\", \"Node_S\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "572810"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"Node_X\", \"Node_Y\", \"Node_P\", \"Node_Q\", \"Node_R\", \"Node_S\"]",
+          "cost": "572810"
+        }
+      },
+      "narrative": "This is the Secondary Routing Module. It requires inputs from the Archive Extractor, the Pathway Analyzer, and the Primary Nav-Planner."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "184752"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "482319"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "9"
+        }
+      ],
+      "narrative": "This is the Harmonic Synthesizer. It requires inputs from the Pathway Analyzer and the Primary Nav-Planner to align the frequencies."
+    },
+    {
+      "id": "graph_shortest_path_3f3f",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_folder_01.zip"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "false"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "[\"Nigel Rees\", \"Evelyn Waugh\", \"Herman Melville\", \"J. R. R. Tolkien\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Start\", \"N1\", \"N2\", \"N3\", \"N4\", \"End\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "184752"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"Start\", \"N1\", \"N2\", \"N3\", \"N4\", \"End\"]",
+          "cost": "184752"
+        }
+      },
+      "narrative": "This is the Pathway Analyzer. It requires inputs from the Archive Extractor, the Credential Scanner, and the Database Query Terminal."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "data_dump_7432.json"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "3q2+7xI0VniQq83v3q2+7w=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_folder_01.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_folder_01.zip"
+        }
+      },
+      "narrative": "This is the Archive Extractor. It needs inputs from the File Decompressor and the Data Encoder to unlock sealed files."
+    },
+    {
+      "id": "zip_unzip_file_7432",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_secret_99.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "data_dump_7432.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_secret_99.zip"
+        },
+        "outputs": {
+          "files": "data_dump_7432.json"
+        }
+      },
+      "narrative": "This is the File Decompressor. It requires input from the Credential Scanner to bypass the initial security layer."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A small, reinforced card bearing the crest of the station's chief engineer."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "0917f0f2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a Biometric Lockbox. It requires input from the Integrity Verifier to release its locking mechanism."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "deadbeef1234567890abcdefdeadbeef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "3q2+7xI0VniQq83v3q2+7w=="
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "deadbeef1234567890abcdefdeadbeef"
+        },
+        "outputs": {}
+      },
+      "narrative": "A specialized console designed to reformat raw binary feeds into readable alphanumeric strings."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "8374928374651928374659102938"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "8374928374651928374659102938"
+        },
+        "outputs": {}
+      },
+      "narrative": "A cylindrical durasteel container with a heavy-duty mechanical locking system."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "79927398713"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "number": "79927398713"
+        },
+        "outputs": {}
+      },
+      "narrative": "A wall-mounted terminal used to validate personnel ID numbers and security clearances."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "112601689955132434334860119406786714287774942663438148"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "184752"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "System initialization partial processing done."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "abcdef0123456789abcdef0123456789"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "System initialization partial processing done.",
+          "hex_result": "abcdef0123456789abcdef0123456789"
+        }
+      },
+      "narrative": "This is the Processing Console. It requires inputs from the Computational Reactor and the Pathway Analyzer."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "config_data_33.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "$.store.book[*].author"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"Nigel Rees\", \"Evelyn Waugh\", \"Herman Melville\", \"J. R. R. Tolkien\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "config_data_33.json",
+          "jsonpath": "$.store.book[*].author"
+        },
+        "outputs": {
+          "values": "[\"Nigel Rees\", \"Evelyn Waugh\", \"Herman Melville\", \"J. R. R. Tolkien\"]"
+        }
+      },
+      "narrative": "An old-school monitor flashing with code arrays, designed to pull specific records from the station's archive."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A tiny microchip coated in conductive gel, used to synchronize erratic mainframe cycles."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "583920193847561029384756102"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "192837465019283746501928374"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "112601689955132434334860119406786714287774942663438148"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "583920193847561029384756102",
+          "b": "192837465019283746501928374"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy-duty processing unit capable of handling immense calculations without overheating."
+    },
+    {
+      "id": "item_8_ff43",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "An experimental power source, humming slightly within its magnetic containment field."
+    },
+    {
+      "id": "item_8_095e",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A solid-state drive meant for emergency data recovery in case of catastrophic failure."
+    },
+    {
+      "id": "item_8_4d5f",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A shattered tablet. Some of its internal memory might still be salvageable despite the physical damage."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "terminal_1",
+      "target_id": "item_11",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "n"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "d"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "s"
+    },
+    {
+      "source_id": "graph_shortest_path_595a",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "graph_shortest_path_595a",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "b"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "hash_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "text"
+    },
+    {
+      "source_id": "graph_shortest_path_3f3f",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path_3f3f",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path_595a",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file_7432",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "graph_shortest_path_3f3f",
+      "target_id": "graph_shortest_path_595a",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "src"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "password"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "graph_shortest_path_595a",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "zip_unzip_file_7432",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "password"
+    },
+    {
+      "source_id": "graph_shortest_path_3f3f",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "graph_shortest_path_3f3f",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "src"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "graph_shortest_path_3f3f",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "item_8_ff43",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "graph_shortest_path_3f3f",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "item_8_095e",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_4d5f",
+      "target_id": "item_8_ff43",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    }
+  ]
+}

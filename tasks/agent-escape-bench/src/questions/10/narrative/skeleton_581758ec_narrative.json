@@ -1,0 +1,791 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 11,
+    "win_node_id": "regex_search",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "regex_search",
+      "output_port": "matches",
+      "output_type": "Text_Generic",
+      "description": "Execute Regex Search and get the output from port 'matches'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "regex_search",
+        "csv_query",
+        "terminal_2",
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "checksum_crc32",
+        "terminal_1",
+        "csv_query_486c",
+        "item_9"
+      ],
+      "by_node": {
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            },
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            },
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "csv_query_486c": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            },
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            },
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "item_9": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_9",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "JSON file path"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "regex_search": {
+        "init_inputs": {
+          "file_id": "global_search_corpus_v12.txt"
+        },
+        "init_outputs": {
+          "matches": "[\"search_hit_alpha_092\", \"search_hit_beta_114\", \"search_hit_delta_552\", \"search_hit_omega_881\"]"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {
+          "file_id": "financial_records_2023_q4.csv",
+          "select": "transaction_id, timestamp, amount_usd, status",
+          "where": "status = 'pending' AND amount_usd > 5000"
+        },
+        "init_outputs": {
+          "rows": "[{\"transaction_id\": \"TXN-99283\", \"amount\": \"5200.50\"}, {\"transaction_id\": \"TXN-10022\", \"amount\": \"8900.00\"}, {\"transaction_id\": \"TXN-44910\", \"amount\": \"12450.75\"}]"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Terminal secondary port initialized. Handshake protocol completed for mathematics module.",
+          "hex_result": "e9a2b8c7d6e5f4a3b2c1d0e9f8a7b6c5"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "node_central_hub_01"
+        },
+        "init_outputs": {
+          "path": "[\"node_central_hub_01\", \"gateway_alpha\", \"bridge_sector_7\", \"router_east\", \"endpoint_node_99\"]",
+          "cost": "582930417263548596071827"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "password": "Archive_Key_#9928!_v2"
+        },
+        "init_outputs": {
+          "files": "uncompressed_system_manifest_v2.json"
+        }
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "92837465f0e1d2c3b4a5968778695041322314"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "[a-zA-Z0-9]{8,16}_[0-9]{4}",
+          "hex_output": "1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f",
+          "item_dispenser": "A flickering holographic shard representing a discarded calculation step."
+        }
+      },
+      "csv_query_486c": {
+        "init_inputs": {
+          "file_id": "sensor_network_metadata.csv",
+          "select": "sensor_id, location_coords, deployment_date",
+          "where": "deployment_date >= '2022-01-01' AND location_coords IS NOT NULL"
+        },
+        "init_outputs": {
+          "rows": "[{\"sensor_id\": \"SN-501\", \"coords\": \"34.05,-118.24\"}, {\"sensor_id\": \"SN-772\", \"coords\": \"40.71,-74.00\"}, {\"sensor_id\": \"SN-881\", \"coords\": \"51.50,-0.12\"}]"
+        }
+      },
+      "item_9": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "encrypted_security_blob_771.zip"
+        }
+      }
+    },
+    "intro_narrative": "You awaken on the drifting orbital station Helios-7. The emergency lights flicker, painting the metallic corridors in a bloody red hue. The central AI core is ominously silent, and the life support gauge is dropping fast. To survive, you must navigate the station's fragmented systems and reboot the mainframe. You will need to access various databases, fragmented terminals, and encrypted archives scattered throughout the abandoned decks to piece together the system override sequence. Time is running out, and every console you find brings you one step closer to salvation or suffocation.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "[a-zA-Z0-9]{8,16}_[0-9]{4}"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "global_search_corpus_v12.txt"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "[{\"transaction_id\": \"TXN-99283\", \"amount\": \"5200.50\"}, {\"transaction_id\": \"TXN-10022\", \"amount\": \"8900.00\"}, {\"transaction_id\": \"TXN-44910\", \"amount\": \"12450.75\"}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"search_hit_alpha_092\", \"search_hit_beta_114\", \"search_hit_delta_552\", \"search_hit_omega_881\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "global_search_corpus_v12.txt"
+        },
+        "outputs": {
+          "matches": "[\"search_hit_alpha_092\", \"search_hit_beta_114\", \"search_hit_delta_552\", \"search_hit_omega_881\"]"
+        }
+      },
+      "narrative": "This is the Main System Override. It requires inputs from both the Personnel Database and the Security Terminal to initiate the final sequence."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "financial_records_2023_q4.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "transaction_id, timestamp, amount_usd, status"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "status = 'pending' AND amount_usd > 5000"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"transaction_id\": \"TXN-99283\", \"amount\": \"5200.50\"}, {\"transaction_id\": \"TXN-10022\", \"amount\": \"8900.00\"}, {\"transaction_id\": \"TXN-44910\", \"amount\": \"12450.75\"}]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "financial_records_2023_q4.csv",
+          "select": "transaction_id, timestamp, amount_usd, status",
+          "where": "status = 'pending' AND amount_usd > 5000"
+        },
+        "outputs": {
+          "rows": "[{\"transaction_id\": \"TXN-99283\", \"amount\": \"5200.50\"}, {\"transaction_id\": \"TXN-10022\", \"amount\": \"8900.00\"}, {\"transaction_id\": \"TXN-44910\", \"amount\": \"12450.75\"}]"
+        }
+      },
+      "narrative": "A terminal accessing the Personnel Database. It contains heavily encrypted crew records and access logs."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A standard Security Keycard issued to the station's engineering staff."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": 726888737
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "582930417263548596071827"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal secondary port initialized. Handshake protocol completed for mathematics module."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "e9a2b8c7d6e5f4a3b2c1d0e9f8a7b6c5"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Terminal secondary port initialized. Handshake protocol completed for mathematics module.",
+          "hex_result": "e9a2b8c7d6e5f4a3b2c1d0e9f8a7b6c5"
+        }
+      },
+      "narrative": "This is the Engineering Console. It requires inputs from both the Navigation Matrix and the Data Validator to initialize."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "uncompressed_system_manifest_v2.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "node_central_hub_01"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "[{\"sensor_id\": \"SN-501\", \"coords\": \"34.05,-118.24\"}, {\"sensor_id\": \"SN-772\", \"coords\": \"40.71,-74.00\"}, {\"sensor_id\": \"SN-881\", \"coords\": \"51.50,-0.12\"}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"node_central_hub_01\", \"gateway_alpha\", \"bridge_sector_7\", \"router_east\", \"endpoint_node_99\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "582930417263548596071827"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "node_central_hub_01"
+        },
+        "outputs": {
+          "path": "[\"node_central_hub_01\", \"gateway_alpha\", \"bridge_sector_7\", \"router_east\", \"endpoint_node_99\"]",
+          "cost": "582930417263548596071827"
+        }
+      },
+      "narrative": "This is the Navigation Matrix. It requires inputs from both the Archive Extractor and the Logistics Database to calculate valid transit routes."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "encrypted_security_blob_771.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Archive_Key_#9928!_v2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "uncompressed_system_manifest_v2.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "Archive_Key_#9928!_v2"
+        },
+        "outputs": {
+          "files": "uncompressed_system_manifest_v2.json"
+        }
+      },
+      "narrative": "This is the Archive Extractor. It requires input from the Storage Drive to decompress the legacy files."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "92837465f0e1d2c3b4a5968778695041322314"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "2b537121"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 726888737
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "92837465f0e1d2c3b4a5968778695041322314"
+        },
+        "outputs": {}
+      },
+      "narrative": "A standalone Data Validator used to verify file integrity across the station's damaged sub-systems."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "[\"node_central_hub_01\", \"gateway_alpha\", \"bridge_sector_7\", \"router_east\", \"endpoint_node_99\"]"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": 726888737
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "[a-zA-Z0-9]{8,16}_[0-9]{4}"
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "A flickering holographic shard representing a discarded calculation step."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "[a-zA-Z0-9]{8,16}_[0-9]{4}",
+          "hex_output": "1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f",
+          "item_dispenser": "A flickering holographic shard representing a discarded calculation step."
+        }
+      },
+      "narrative": "This is the Security Terminal. It requires inputs from both the Data Validator and the Navigation Matrix to bypass the sector lockdown."
+    },
+    {
+      "id": "csv_query_486c",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "sensor_network_metadata.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "sensor_id, location_coords, deployment_date"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "deployment_date >= '2022-01-01' AND location_coords IS NOT NULL"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"sensor_id\": \"SN-501\", \"coords\": \"34.05,-118.24\"}, {\"sensor_id\": \"SN-772\", \"coords\": \"40.71,-74.00\"}, {\"sensor_id\": \"SN-881\", \"coords\": \"51.50,-0.12\"}]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "sensor_network_metadata.csv",
+          "select": "sensor_id, location_coords, deployment_date",
+          "where": "deployment_date >= '2022-01-01' AND location_coords IS NOT NULL"
+        },
+        "outputs": {
+          "rows": "[{\"sensor_id\": \"SN-501\", \"coords\": \"34.05,-118.24\"}, {\"sensor_id\": \"SN-772\", \"coords\": \"40.71,-74.00\"}, {\"sensor_id\": \"SN-881\", \"coords\": \"51.50,-0.12\"}]"
+        }
+      },
+      "narrative": "A terminal accessing the Logistics Database. It tracks cargo movements and sector manifests."
+    },
+    {
+      "id": "item_9",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_9",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "JSON file path",
+          "value": "encrypted_security_blob_771.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "encrypted_security_blob_771.zip"
+        }
+      },
+      "narrative": "A portable Storage Drive covered in cosmic dust and scorch marks."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "csv_query",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "csv_query",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "pattern"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "csv_query_486c",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "item_9",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "zip_id"
+    }
+  ]
+}

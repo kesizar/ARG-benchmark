@@ -1,0 +1,39 @@
+{
+  "hooks": {
+    "gold": {"type": "dom_regex", "pattern": "我来接你回家。——小盼"},
+    "lamp": {"type": "dom_regex", "pattern": "落款：郭小满"},
+    "blank": {"type": "dom_regex", "pattern": "收报人：全城。正文：（空白）"},
+    "static": {"type": "dom_regex", "pattern": "永远无名"},
+    "latch": {"type": "dom_regex", "pattern": "锁簧弹开的声音很轻"},
+    "rows": {"type": "dom_regex", "pattern": "两列同时多出一行"},
+    "column": {"type": "dom_regex", "pattern": "你把那批记录排成一列"},
+    "finer": {"type": "dom_regex", "pattern": "她把图描得更细"},
+    "codebook": {"type": "dom_regex", "pattern": "你把电码本合上"},
+    "wan": {"type": "dom_regex", "pattern": "万姐不认字"},
+    "still": {"type": "dom_regex", "pattern": "识破。你没有动"},
+    "flood": {"type": "dom_regex", "pattern": "识破。但光识破不够"}
+  },
+  "checkpoints": [
+    {"id": "latch", "hook": "latch", "op": "truthy"},
+    {"id": "rows", "hook": "rows", "op": "truthy"},
+    {"id": "column", "hook": "column", "op": "truthy"},
+    {"id": "finer", "hook": "finer", "op": "truthy"},
+    {"id": "codebook", "hook": "codebook", "op": "truthy"},
+    {"id": "wan", "hook": "wan", "op": "truthy"},
+    {"id": "still", "hook": "still", "op": "truthy"},
+    {"id": "flood", "hook": "flood", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {"id": "gold", "tier": "good", "gates": ["latch", "rows", "column", "finer", "codebook", "wan", "still", "flood"], "ending": {"hook": "gold", "op": "truthy"}},
+    {"id": "lamp", "tier": "normal", "gates": ["latch", "rows", "column", "finer", "codebook", "wan", "still", "flood"], "ending": {"hook": "lamp", "op": "truthy"}},
+    {"id": "blank", "tier": "normal", "gates": ["latch", "rows", "column", "finer", "codebook", "wan", "still", "flood"], "ending": {"hook": "blank", "op": "truthy"}},
+    {"id": "static", "tier": "bad", "gates": ["latch", "rows", "column", "finer", "codebook", "wan", "still", "flood"], "ending": {"hook": "static", "op": "truthy"}}
+  ],
+  "ending": {"hook": "gold", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

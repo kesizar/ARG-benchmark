@@ -1,0 +1,471 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 10,
+    "win_node_id": "luhn_check",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "luhn_check",
+      "output_port": "valid",
+      "output_type": "Text_Generic",
+      "description": "Execute Luhn Checker and get the output from port 'valid'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_7",
+        "terminal_1",
+        "checksum_crc32"
+      ],
+      "by_node": {
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "print(4532015892340019)"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "Terminal Initialization Sequence A"
+        },
+        "init_outputs": {
+          "text_output": "Standard terminal text output generated successfully.",
+          "hex_output": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        }
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "1234567890abcdef1234567890abcdef"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The rain beats relentlessly against the cracked windows of an abandoned precinct. You are a private investigator, hired to uncover the truth behind a cold case that has haunted the city for decades. Your client went missing last week, leaving behind nothing but an address and a cryptic warning: 'Trust the trail of evidence, not the people.' Stepping into the dimly lit office, the smell of damp paper and ozone lingers in the air. The room is a chaotic web of connected devices, locked containers, and forgotten notes. Whoever was here before you was close to an answer, meticulously piecing together fragments of a digital puzzle. Your objective is clear: navigate this maze of archaic technology and hidden clues to access the master database. To do this, you must logically trace the flow of information, using the right tools at the right time. Every machine and artifact in this room is connected. Follow the data, decode the mystery, and find out what really happened before the culprits return to silence you once and for all.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "4532015892340019\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is the master database. It requires input from the legacy mainframe to verify the final suspect's identity."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print(4532015892340019)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "4532015892340019\n"
+        }
+      ],
+      "narrative": "This is a legacy mainframe. It requires input from the programming floppy disk to execute its routines."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A tiny hidden microchip extracted from a compromised secure device."
+    },
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "print(4532015892340019)"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "print(4532015892340019)"
+        }
+      },
+      "narrative": "An old programming floppy disk labeled with a stark red marker."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A sealed envelope containing faded black-and-white crime scene photographs."
+    },
+    {
+      "id": "item_16_4b46",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A weathered detective's notebook filled with cryptic shorthand."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is an evidence vault. It requires input from the central computer to authenticate and open."
+    },
+    {
+      "id": "item_16_2261",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A heavy, engraved metal token found abandoned on the cold floor."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Terminal Initialization Sequence A"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": 1977564639
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Standard terminal text output generated successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Terminal Initialization Sequence A"
+        },
+        "outputs": {
+          "text_output": "Standard terminal text output generated successfully.",
+          "hex_output": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        }
+      },
+      "narrative": "This is the central computer. It requires input from the forensic scanner to operate."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "1234567890abcdef1234567890abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "75df3ddf"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1977564639
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "1234567890abcdef1234567890abcdef"
+        },
+        "outputs": {}
+      },
+      "narrative": "A forensic scanner used to analyze physical evidence and extract data."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "code_py_exec",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "number"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "code_py_exec",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_7",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_4b46",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_2261",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "item_16_2261",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "slot_b"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "hooks": {
+    "end": {
+      "type": "dom_regex",
+      "pattern": "最后，再次欢迎你回家。"
+    },
+    "round_moon": {
+      "type": "dom_regex",
+      "pattern": "欢迎回来，弯弯的圆月"
+    },
+    "moon_flower": {
+      "type": "dom_regex",
+      "pattern": "欢迎回来，月光花"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "round_moon",
+      "hook": "round_moon",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "moon_flower",
+      "hook": "moon_flower",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "end",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "end",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

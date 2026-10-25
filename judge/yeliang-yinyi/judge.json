@@ -1,0 +1,59 @@
+{
+  "hooks": {
+    "yigui": {
+      "type": "dom_regex",
+      "pattern": "结局一 · 衣归其主"
+    },
+    "shouyin": {
+      "type": "dom_regex",
+      "pattern": "结局二 · 湿手印"
+    },
+    "tiyi": {
+      "type": "dom_regex",
+      "pattern": "结局三 · 替衣人"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "yigui",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "yigui",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "shouyin",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "shouyin",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "tiyi",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "tiyi",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "yigui",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

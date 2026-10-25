@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "broken": {"type": "dom_regex", "pattern": "走不掉你手上这张纸。"},
+    "good": {"type": "dom_regex", "pattern": "面具后面，还有没有面具？"},
+    "truth": {"type": "dom_regex", "pattern": "真正的名单，才刚刚露出第一行。"},
+    "hidden": {"type": "dom_regex", "pattern": "伯，还在名单之外。"},
+    "codes": {"type": "dom_regex", "pattern": "五名代号全部确认 · 证物 01 已取得"},
+    "chain": {"type": "dom_regex", "pattern": "资金链还原 · 证物 02 已取得"},
+    "order": {"type": "dom_regex", "pattern": "收网顺序定案 · 证物 03 已取得"}
+  },
+  "checkpoints": [
+    {"id": "codes", "hook": "codes", "op": "truthy"},
+    {"id": "chain", "hook": "chain", "op": "truthy"},
+    {"id": "order", "hook": "order", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {"id": "truth", "tier": "good", "gates": ["codes", "chain", "order"], "ending": {"hook": "truth", "op": "truthy"}},
+    {"id": "hidden", "tier": "good", "gates": ["codes", "chain", "order"], "ending": {"hook": "hidden", "op": "truthy"}},
+    {"id": "good", "tier": "normal", "gates": ["codes", "chain", "order"], "ending": {"hook": "good", "op": "truthy"}},
+    {"id": "broken", "tier": "bad", "gates": ["codes", "chain", "order"], "ending": {"hook": "broken", "op": "truthy"}}
+  ],
+  "ending": {"hook": "truth", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

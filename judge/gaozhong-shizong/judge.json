@@ -1,0 +1,105 @@
+{
+  "hooks": {
+    "end-good": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 引 弟 归"
+    },
+    "end-lost": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 山 中 迷 失"
+    },
+    "end-press": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 清 议"
+    },
+    "end-talk": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 一 席 话"
+    },
+    "end-drop": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 不 了 了 之"
+    },
+    "member": {
+      "type": "dom_regex",
+      "pattern": "【已获得搜索权限】"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "member",
+      "hook": "member",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "return",
+      "tier": "good",
+      "gates": [
+        "member"
+      ],
+      "ending": {
+        "hook": "end-good",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "lost",
+      "tier": "bad",
+      "gates": [
+        "member"
+      ],
+      "ending": {
+        "hook": "end-lost",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "press",
+      "tier": "normal",
+      "gates": [
+        "member"
+      ],
+      "ending": {
+        "hook": "end-press",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "talk",
+      "tier": "normal",
+      "gates": [
+        "member"
+      ],
+      "ending": {
+        "hook": "end-talk",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "drop",
+      "tier": "bad",
+      "gates": [
+        "member"
+      ],
+      "ending": {
+        "hook": "end-drop",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end-good",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

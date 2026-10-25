@@ -1,0 +1,968 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 18,
+    "win_node_id": "num_base_convert",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "num_base_convert",
+      "output_port": "str",
+      "output_type": "Big_Int",
+      "description": "Execute Base Converter and get the output from port 'str'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "graph_shortest_path",
+        "text_rotN",
+        "calc_inv_mod_ab71",
+        "terminal_2",
+        "container_3",
+        "checksum_crc32",
+        "zip_unzip_file",
+        "graph_shortest_path_c997",
+        "luhn_check",
+        "container_2"
+      ],
+      "by_node": {
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "text_rotN": {
+          "node_name": "ROT-N Cipher",
+          "node_type": "Tool",
+          "template_id": "text_rotN",
+          "init_inputs": {
+            "n": {
+              "type": "Big_Int",
+              "description": "Shift N"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod_ab71": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "container_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "graph_shortest_path_c997": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "luhn_check": {
+          "node_name": "Luhn Checker",
+          "node_type": "Tool",
+          "template_id": "luhn_check",
+          "init_inputs": {
+            "number": {
+              "type": "Text_Generic",
+              "description": "Number string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_2",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Epsilon\", \"Node_Zeta\"]",
+          "cost": "15420"
+        }
+      },
+      "text_rotN": {
+        "init_inputs": {
+          "n": "928374651029384756102"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod_ab71": {
+        "init_inputs": {
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num2": "384756102938475610293"
+        },
+        "init_outputs": {
+          "text_result": "Terminal output sequence initiated.",
+          "hex_result": "cafebabe12345678"
+        }
+      },
+      "container_3": {
+        "init_inputs": {
+          "fingerprint_input": "475610293847561029384"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "1a2b3c4d5e6f7890"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "backup_2023.zip",
+          "password": "correcthorsebatterystaple"
+        },
+        "init_outputs": {
+          "files": "restored_database.sql"
+        }
+      },
+      "graph_shortest_path_c997": {
+        "init_inputs": {
+          "file_id": "city_map_data.json",
+          "src": "Central_Station"
+        },
+        "init_outputs": {
+          "path": "[\"Central_Station\", \"Market_Square\", \"Library\", \"University\", \"Tech_Park\"]",
+          "cost": "3450"
+        }
+      },
+      "luhn_check": {
+        "init_inputs": {
+          "number": "4929485739102847"
+        },
+        "init_outputs": {}
+      },
+      "container_2": {
+        "init_inputs": {
+          "fingerprint_input": "09f911029d74e35bd84156c5635688c0"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken to the shrill alarm of the ESS Aethelgard. The research station is drifting dangerously close to a black hole's event horizon. The primary AI has gone offline, locking down the navigation systems. You are in the engineering bay, surrounded by blinking server racks and manual override terminals. To escape the gravity well, you must manually recalibrate the Hyperdrive Controller. The systems are fragmented and encrypted; you'll need to route power and data through the backup subsystems to synthesize the correct launch coordinates. Time is short.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "15420"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "15420"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "31996"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "15420"
+        }
+      ],
+      "narrative": "This is the Hyperdrive Controller, the final step to engaging the engines. It requires synchronized data inputs from the Navigational Array, the Resonance Frequency Calculator, and the Phase Inverter to calculate the jump vector."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "restored_database.sql"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "[\"Yajpnwh_Opwpekj\", \"Iwngap_Omqwna\", \"Hexnwnu\", \"Qjeranoepu\", \"Payd_Lwng\"]"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "[\"Central_Station\", \"Market_Square\", \"Library\", \"University\", \"Tech_Park\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Epsilon\", \"Node_Zeta\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "15420"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Epsilon\", \"Node_Zeta\"]",
+          "cost": "15420"
+        }
+      },
+      "narrative": "The Navigational Array determines the safest route through the debris field. It requires input from the Signal Encryption Module, the Log Decryption Console, and the Sub-System Router to triangulate the path."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "[\"Central_Station\", \"Market_Square\", \"Library\", \"University\", \"Tech_Park\"]"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "928374651029384756102"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "[\"Yajpnwh_Opwpekj\", \"Iwngap_Omqwna\", \"Hexnwnu\", \"Qjeranoepu\", \"Payd_Lwng\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "n": "928374651029384756102"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Signal Encryption Module decodes scrambled transmission headers. It requires input from the Sub-System Router to align the encryption cypher."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "15420"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "3450"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "15420"
+        }
+      ],
+      "narrative": "The Resonance Frequency Calculator stabilizes the engine harmonics. It requires input from both the Sub-System Router and the Navigational Array to determine the base harmonic."
+    },
+    {
+      "id": "calc_inv_mod_ab71",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "15420"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "31996"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Phase Inverter adjusts the warp bubble polarity. It requires input from the Resonance Frequency Calculator to synchronize the inversion wave."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": 3918024948
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "384756102938475610293"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal output sequence initiated."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "cafebabe12345678"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num2": "384756102938475610293"
+        },
+        "outputs": {
+          "text_result": "Terminal output sequence initiated.",
+          "hex_result": "cafebabe12345678"
+        }
+      },
+      "narrative": "The Engineering Terminal controls the station's core functions. It requires input from the Integrity Verification System to authorize the override commands."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Shift Protocol Card found on a maintenance desk. It appears to contain rotation algorithms."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "475610293847561029384"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "475610293847561029384"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Reinforced Titanium Vault. It seems to have a secondary locking mechanism requiring a physical key."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "1a2b3c4d5e6f7890"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "e98850f4"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3918024948
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "1a2b3c4d5e6f7890"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Integrity Verification System checks data packets for corruption. It scans raw hex data to ensure system stability."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "backup_2023.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "correcthorsebatterystaple"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "restored_database.sql"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "backup_2023.zip",
+          "password": "correcthorsebatterystaple"
+        },
+        "outputs": {
+          "files": "restored_database.sql"
+        }
+      },
+      "narrative": "The Log Decryption Console is designed to unpack compressed captain's logs and system files. It is currently locked."
+    },
+    {
+      "id": "graph_shortest_path_c997",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "city_map_data.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Central_Station"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Central_Station\", \"Market_Square\", \"Library\", \"University\", \"Tech_Park\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "3450"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "city_map_data.json",
+          "src": "Central_Station"
+        },
+        "outputs": {
+          "path": "[\"Central_Station\", \"Market_Square\", \"Library\", \"University\", \"Tech_Park\"]",
+          "cost": "3450"
+        }
+      },
+      "narrative": "The Sub-System Router manages local data traffic between engineering nodes. It requires input from the Identity Verification Unit to open the routing table."
+    },
+    {
+      "id": "item_16_1a74",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Master Key found inside the Captain's Biometric Locker. It looks like it fits the Reinforced Titanium Vault."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "4929485739102847"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "number": "4929485739102847"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Identity Verification Unit validates crew identification numbers. It's waiting for a numeric sequence input."
+    },
+    {
+      "id": "item_16_9d0f",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Security Protocol Chip lying near the terminal. It contains access codes."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "09f911029d74e35bd84156c5635688c0"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "09f911029d74e35bd84156c5635688c0"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Captain's Biometric Locker. It uses a fingerprint scanner to secure its contents."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "s"
+    },
+    {
+      "source_id": "text_rotN",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "src"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_inv_mod_ab71",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "text_rotN",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "calc_inv_mod_ab71",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "graph_shortest_path_c997",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "text"
+    },
+    {
+      "source_id": "graph_shortest_path_c997",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "item_16_1a74",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "graph_shortest_path_c997",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_inv_mod_ab71",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_16_9d0f",
+      "target_id": "terminal_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "graph_shortest_path_c997",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "item_16_1a74",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    }
+  ]
+}

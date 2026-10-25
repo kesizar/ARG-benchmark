@@ -1,0 +1,577 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 9,
+    "win_node_id": "container_1",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "container_1",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "container_1",
+        "terminal_1",
+        "zlib_deflate",
+        "hmac_sha256",
+        "text_bidi_sanitize",
+        "hmac_sha256_5b00"
+      ],
+      "by_node": {
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "inner_space": {
+              "type": "Item",
+              "description": "Contents"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "zlib_deflate": {
+          "node_name": "Zlib Deflate",
+          "node_type": "Tool",
+          "template_id": "zlib_deflate",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to compress"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hmac_sha256": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "hex_key": {
+              "type": "Hex_String",
+              "description": "Hex key"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text message"
+            }
+          },
+          "init_outputs": {}
+        },
+        "text_bidi_sanitize": {
+          "node_name": "Bidi Sanitizer",
+          "node_type": "Tool",
+          "template_id": "text_bidi_sanitize",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hmac_sha256_5b00": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "hex_key": {
+              "type": "Hex_String",
+              "description": "Hex key"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text message"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "container_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "inner_space": "flAg@da9udahnxiandjnanjinjxinbnuxbamlopqe"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "System diagnostic: Primary command processor is currently online.",
+          "hex_output": "a4d8f2b1c0e39576482d1b9c5f8e0a3b"
+        }
+      },
+      "zlib_deflate": {
+        "init_inputs": {
+          "text": "Compressing local telemetry logs for archival verification purposes."
+        },
+        "init_outputs": {}
+      },
+      "hmac_sha256": {
+        "init_inputs": {
+          "hex_key": "4c2d8a1b6e9f03d57c2a4b8e1f9d6c3a",
+          "text": "Authentication request for secure shell session ID 8842."
+        },
+        "init_outputs": {}
+      },
+      "text_bidi_sanitize": {
+        "init_inputs": {
+          "text": "Incoming data stream includes nested directional formatting controls."
+        },
+        "init_outputs": {}
+      },
+      "hmac_sha256_5b00": {
+        "init_inputs": {
+          "hex_key": "9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b",
+          "text": "Integrity checksum for the secondary filesystem mount point."
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You have breached the server room of Project Chimera, a clandestine black-ops data center. The air is freezing, kept supercooled for the racks of humming mainframes that surround you. Red emergency lights pulse rhythmically, casting long, shifting shadows. Your objective is locked inside the Primary Vault, a heavy bio-metric container in the center of the room. The facility's security protocols have been scrambled, leaving a trail of disconnected tools and locked containers. You must navigate the fragmented system, utilizing various encryption modules and terminals to bypass the safeguards. Time is running out before the automated security countermeasures purge the room of oxygen. You need to link the correct data streams to override the locks.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "789c0dc9d109c0300805c0559ca04b74129197543031a80d74fbe6f3b8dbc70a64eaec642e6c54300c547cc73da97910873cbacf6d8436152ef549eb8de589bc7e8a281a49"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents",
+          "value": "flAg@da9udahnxiandjnanjinjxinbnuxbamlopqe"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "inner_space": "flAg@da9udahnxiandjnanjinjxinbnuxbamlopqe"
+        }
+      },
+      "narrative": "This is the Primary Vault, reinforced with titanium alloy. It requires a compressed data stream from the Data Compressor to verify the unlock sequence."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Incoming data stream includes nested directional formatting controls."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": 3330164036
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "System diagnostic: Primary command processor is currently online."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "a4d8f2b1c0e39576482d1b9c5f8e0a3b"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "System diagnostic: Primary command processor is currently online.",
+          "hex_output": "a4d8f2b1c0e39576482d1b9c5f8e0a3b"
+        }
+      },
+      "narrative": "This is the Fabricator Console, used to manufacture physical keys. It requires synchronized inputs from both the Integrity Checker and the Command Parser to initiate the fabrication process."
+    },
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "Compressing local telemetry logs for archival verification purposes."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c0dc9d109c0300805c0559ca04b74129197543031a80d74fbe6f3b8dbc70a64eaec642e6c54300c547cc73da97910873cbacf6d8436152ef549eb8de589bc7e8a281a49"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Compressing local telemetry logs for archival verification purposes."
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Data Compressor. It condenses raw text strings into high-density packet streams."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "54f8576ad81d1e9bb5bf72918dd8a3720a65be608f28a27444049f8c234de5c1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "c67e4544"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3330164036
+        }
+      ],
+      "narrative": "This is the Integrity Checker. It requires the cryptographic signature from Authentication Module Beta to validate the system status."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "4c2d8a1b6e9f03d57c2a4b8e1f9d6c3a"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Authentication request for secure shell session ID 8842."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "54f8576ad81d1e9bb5bf72918dd8a3720a65be608f28a27444049f8c234de5c1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_key": "4c2d8a1b6e9f03d57c2a4b8e1f9d6c3a",
+          "text": "Authentication request for secure shell session ID 8842."
+        },
+        "outputs": {}
+      },
+      "narrative": "This is Authentication Module Beta. It generates high-level security hashes."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "12c5c8c3cc403769f1abfd69777c4abe569177cb066ea1877c2ca6b8f4588887"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Secure Cache, a small lockbox bolted to the floor. It requires a specific hash code from Authentication Module Alpha to release its latch."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Incoming data stream includes nested directional formatting controls."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "Incoming data stream includes nested directional formatting controls."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Incoming data stream includes nested directional formatting controls."
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Command Parser. It strips dangerous formatting characters from text inputs."
+    },
+    {
+      "id": "hmac_sha256_5b00",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Integrity checksum for the secondary filesystem mount point."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "12c5c8c3cc403769f1abfd69777c4abe569177cb066ea1877c2ca6b8f4588887"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_key": "9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b",
+          "text": "Integrity checksum for the secondary filesystem mount point."
+        },
+        "outputs": {}
+      },
+      "narrative": "This is Authentication Module Alpha. It processes keys to generate authorization codes."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "An Administrator's ID Badge found on a desk."
+    },
+    {
+      "id": "item_8_890e",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A Maintenance Keycard dropped near the rack."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "terminal_1",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zlib_deflate",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "hmac_sha256",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "hmac_sha256_5b00",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_890e",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    }
+  ]
+}

@@ -1,0 +1,1220 @@
+{
+  "metadata": {
+    "total_nodes": 25,
+    "total_edges": 30,
+    "win_node_id": "luhn_check",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "luhn_check",
+      "output_port": "valid",
+      "output_type": "Text_Generic",
+      "description": "Execute Luhn Checker and get the output from port 'valid'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_1",
+        "checksum_crc32_7e39",
+        "calc_bigmul",
+        "checksum_crc32_90c5",
+        "graph_shortest_path",
+        "regex_search"
+      ],
+      "by_node": {
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "checksum_crc32_7e39": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32_90c5": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "pattern": {
+              "type": "Text_Generic",
+              "description": "Regex pattern"
+            },
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Terminal authentication processed successfully without errors.",
+          "hex_output": "8f7a6b5c4d3e2f1a8f7a6b5c4d3e2f1a",
+          "item_dispenser": "A completely useless broken terminal switch."
+        }
+      },
+      "checksum_crc32_7e39": {
+        "init_inputs": {
+          "hex": "0123456789abcdef0123456789abcdef"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "b": "837492817495827394857"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32_90c5": {
+        "init_inputs": {
+          "hex": "fedcba9876543210fedcba9876543210"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "nodes_graph.json",
+          "src": "Node_Start_12",
+          "dst": "Node_End_98"
+        },
+        "init_outputs": {
+          "path": "[\"Node_Start_12\", \"Node_Mid_1\", \"Node_Mid_2\", \"Node_Mid_3\", \"Node_End_98\"]",
+          "cost": "39485"
+        }
+      },
+      "regex_search": {
+        "init_inputs": {
+          "pattern": "[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}",
+          "file_id": "search_target.log",
+          "text": "Please check the following numbers: 1234-5678-9012-3456 and 9876-5432-1098-7654."
+        },
+        "init_outputs": {
+          "matches": "[\"1234-5678-9012-3456\", \"9876-5432-1098-7654\", \"1111-2222-3333-4444\"]"
+        }
+      }
+    },
+    "intro_narrative": "Welcome to Sector 7. The rain hasn't stopped for weeks, washing away the neon reflections in the gutter. You are a rogue Netrunner tasked with breaching the Omni-Corp Mainframe. They hold the digital consciousness of your mentor hostage. The system is heavily guarded by layers of cryptographic firewalls and physical synth-locks. To get past the ultimate Nexus Validator and secure his release, you must dive deep into the corporation's subnet, decrypting their core algorithms and piecing together the broken data fragments left behind by previous runners. Time is ticking. The corporate sweepers are already tracking your trace.",
+    "narrative_style": "cyberpunk"
+  },
+  "nodes": [
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "Vgtokpcn cwvjgpvkecvkqp rtqeguugf uweeguuhwnna ykvjqwv gttqtu."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is the Nexus Validator. It requires input from the Cybernetic Shift Cipher to process the final authorization."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Terminal authentication processed successfully without errors."
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "10870"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "Vgtokpcn cwvjgpvkecvkqp rtqeguugf uweeguuhwnna ykvjqwv gttqtu."
+        }
+      ],
+      "narrative": "This is the Cybernetic Shift Cipher. It requires inputs from both the Omni-Corp Mainframe and the Overclocked Exponentiator."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "f2cXYcWxZcN1ChdQZgCqcw=="
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "0"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal authentication processed successfully without errors."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "8f7a6b5c4d3e2f1a8f7a6b5c4d3e2f1a"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "A completely useless broken terminal switch."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Terminal authentication processed successfully without errors.",
+          "hex_output": "8f7a6b5c4d3e2f1a8f7a6b5c4d3e2f1a",
+          "item_dispenser": "A completely useless broken terminal switch."
+        }
+      },
+      "narrative": "This is the Omni-Corp Mainframe. It requires inputs from both the Data Translator and the Quantum Modulator to unlock its architecture."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "7f671761c5b165c3750a17506600aa73"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "f2cXYcWxZcN1ChdQZgCqcw=="
+        }
+      ],
+      "narrative": "This is the Data Translator. It requires input from the Cryptographic Core Generator to process the data streams."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "[\"1234-5678-9012-3456\", \"9876-5432-1098-7654\", \"1111-2222-3333-4444\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "7f671761c5b165c3750a17506600aa73"
+        }
+      ],
+      "narrative": "This is the Cryptographic Core Generator. It requires input from the Deep-Web Scraping Tool to process raw text into secure formats."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "1"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "0"
+        }
+      ],
+      "narrative": "This is the Quantum Modulator. It requires inputs from both the Alpha Decryptor and the Beta Decryptor to stabilize."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_6f3da262a19a650e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A small, illegal Biometric Time-Sync Drive containing bypass protocols."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A sleek obsidian datastick embedded with a highly illegal Bypass Daemon Drive."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "f2cXYcWxZcN1ChdQZgCqcw=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_6f3da262a19a650e"
+        }
+      ],
+      "narrative": "This is the Neon Forge Synthesizer. It requires input from the Data Translator to start the physical matter synthesis process."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "1"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "837492817495827394857"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Alpha Decryptor. It requires inputs from both the Beta Decryptor and the Syndicate Multiplier."
+    },
+    {
+      "id": "calc_gcd_2950",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "1"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": 643233125
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Beta Decryptor. It requires inputs from both the Primary Data Scanner and the Gamma Decryptor."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "67e86628"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "2656f565"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 643233125
+        }
+      ],
+      "narrative": "This is the Primary Data Scanner. It requires input from the Genesis Data Scanner to function properly."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": 643233125
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": 3034639207
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "39485"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "10870"
+        }
+      ],
+      "narrative": "This is the Overclocked Exponentiator. It requires inputs from the Primary Data Scanner, the Tertiary Data Scanner, and the Netrunner Node Mapper."
+    },
+    {
+      "id": "checksum_crc32_7e39",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "0123456789abcdef0123456789abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "67e86628"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1743283752
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "0123456789abcdef0123456789abcdef"
+        },
+        "outputs": {}
+      },
+      "narrative": "An old but reliable Genesis Data Scanner terminal, left powered on by an unknown user."
+    },
+    {
+      "id": "calc_gcd_e894",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": 2554330579
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "10870"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Gamma Decryptor. It requires inputs from both the Secondary Data Scanner and the Overclocked Exponentiator."
+    },
+    {
+      "id": "checksum_crc32_21ae",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "2656f565"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "983ffdd3"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2554330579
+        }
+      ],
+      "narrative": "This is the Secondary Data Scanner. It requires input from the Primary Data Scanner to verify cascaded checks."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "1"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "837492817495827394857"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "837492817495827394857"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "837492817495827394857"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Syndicate Multiplier. It requires input from the Gamma Decryptor to execute its large-scale operations."
+    },
+    {
+      "id": "item_8_2283",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A shattered Encrypted Sector Fragment holding sensitive corporate data."
+    },
+    {
+      "id": "checksum_crc32_90c5",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "fedcba9876543210fedcba9876543210"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "b4e0eb67"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3034639207
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "fedcba9876543210fedcba9876543210"
+        },
+        "outputs": {}
+      },
+      "narrative": "A sleek, standalone Tertiary Data Scanner pod used to verify subsystem integrity."
+    },
+    {
+      "id": "item_8_c8dc",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A severely glitched Corrupted Memory Fragment salvaged from a destroyed cyber-deck."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "nodes_graph.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_Start_12"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Node_End_98"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Start_12\", \"Node_Mid_1\", \"Node_Mid_2\", \"Node_Mid_3\", \"Node_End_98\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "39485"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "nodes_graph.json",
+          "src": "Node_Start_12",
+          "dst": "Node_End_98"
+        },
+        "outputs": {
+          "path": "[\"Node_Start_12\", \"Node_Mid_1\", \"Node_Mid_2\", \"Node_Mid_3\", \"Node_End_98\"]",
+          "cost": "39485"
+        }
+      },
+      "narrative": "A Netrunner Node Mapper displaying a vast, tangled web of corporate network points."
+    },
+    {
+      "id": "item_8_c2da",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A disguised Obfuscated Data Fragment masquerading as junk mail in a burned-out terminal."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "search_target.log"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "Please check the following numbers: 1234-5678-9012-3456 and 9876-5432-1098-7654."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"1234-5678-9012-3456\", \"9876-5432-1098-7654\", \"1111-2222-3333-4444\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "pattern": "[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}",
+          "file_id": "search_target.log",
+          "text": "Please check the following numbers: 1234-5678-9012-3456 and 9876-5432-1098-7654."
+        },
+        "outputs": {
+          "matches": "[\"1234-5678-9012-3456\", \"9876-5432-1098-7654\", \"1111-2222-3333-4444\"]"
+        }
+      },
+      "narrative": "A dedicated Deep-Web Scraping Tool used by netrunners to pull specific patterns from raw data dumps."
+    },
+    {
+      "id": "item_16_56a4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A prototype Unstable Time-Sync Drive that hums unsteadily, prone to localized chronal skips."
+    },
+    {
+      "id": "item_8_b6d0",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A basic, unformatted Raw Data Fragment containing trace amounts of raw network logs."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "text_rotN",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "number"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "text"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "hash_md5",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "terminal_1",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "base64_encode",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_gcd_2950",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_gcd_2950",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "n"
+    },
+    {
+      "source_id": "checksum_crc32_7e39",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_gcd_e894",
+      "target_id": "calc_gcd_2950",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32_21ae",
+      "target_id": "calc_gcd_e894",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_gcd_2950",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "checksum_crc32_21ae",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_8_2283",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_gcd_e894",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_gcd_e894",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32_90c5",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "item_8_c8dc",
+      "target_id": "item_8_2283",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "item_8_c2da",
+      "target_id": "calc_bigmul",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "hash_md5",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_16_56a4",
+      "target_id": "item_8_c2da",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_b6d0",
+      "target_id": "item_8_c8dc",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    }
+  ]
+}

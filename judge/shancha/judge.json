@@ -1,0 +1,46 @@
+{
+  "hooks": {
+    "zh": {
+      "type": "dom_regex",
+      "pattern": "感谢你的体验！"
+    },
+    "en": {
+      "type": "dom_regex",
+      "pattern": "Thanks for Playing"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "zh",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "zh",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "en",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "en",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "en",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -76,6 +76,7 @@ class BrowserHarness:
             options.pop("service_workers", None)
             self.context = await self.browser.new_context(**options)
         await self.context.add_init_script(_seed_script(int(self.cfg.get("seed") or 1)))
+        await self.context.add_init_script(INPUT_WATCH_JS)
         await self.context.route("**/*", self._route)
         self.context.on("page", self._on_page)
         self.page = await self.context.new_page()
@@ -141,6 +142,32 @@ class BrowserHarness:
         except (Error, TypeError, ValueError, KeyError) as exc:
             detail = str(exc).splitlines()[0].strip()
             return f"无法执行：{detail[:180]}"
+
+    async def input_hashes(self, selector: str | None = None) -> set[str]:
+        from harness.judge import answer_sha256
+
+        found: set[str] = set()
+        if not self.context:
+            return found
+        for page in self.context.pages:
+            for frame in page.frames:
+                await self._evaluate(frame, INPUT_WATCH_JS)
+                values = await self._evaluate(frame, INPUT_READ_JS, selector or "")
+                if not isinstance(values, list):
+                    continue
+                for value in values:
+                    if isinstance(value, str) and value.strip():
+                        found.add(answer_sha256(value))
+        return found
+
+    async def page_expr(self, expr: str) -> bool:
+        if not self.context or not expr:
+            return False
+        for page in self.context.pages:
+            for frame in page.frames:
+                if await self._evaluate(frame, PAGE_EXPR_JS, expr):
+                    return True
+        return False
 
     async def urls(self) -> list[str]:
         if not self.context:
@@ -402,6 +429,68 @@ def inaccessible_result(blocked: list[dict]) -> str:
     if not hosts:
         return "ok"
     return f"该页面不可访问：{'、'.join(hosts)}。已回到原页面。"
+
+
+INPUT_WATCH_JS = r"""
+(() => {
+  if (window.__argInputWatch) return;
+  window.__argInputWatch = true;
+  window.__argInputLatch = [];
+  const take = (el) => {
+    if (!el || el.nodeType !== 1) return;
+    const tag = el.tagName;
+    let value = "";
+    if (tag === "INPUT" || tag === "TEXTAREA") {
+      const type = (el.getAttribute("type") || "text").toLowerCase();
+      if (["button", "submit", "reset", "checkbox", "radio", "file", "image", "hidden"].includes(type)) return;
+      value = el.value || "";
+    } else if (el.isContentEditable) {
+      value = el.innerText || "";
+    } else {
+      return;
+    }
+    if (!value) return;
+    window.__argInputLatch.push({value, el});
+    if (window.__argInputLatch.length > 200) window.__argInputLatch.shift();
+  };
+  document.addEventListener("input", (event) => take(event.target), true);
+  document.addEventListener("change", (event) => take(event.target), true);
+})();
+"""
+
+INPUT_READ_JS = r"""
+(selector) => {
+  const out = [];
+  const ok = (el) => {
+    if (!selector) return true;
+    try { return !!el.matches(selector); } catch (e) { return false; }
+  };
+  const read = (el) => {
+    if (!el || el.nodeType !== 1 || !ok(el)) return;
+    const tag = el.tagName;
+    let value = "";
+    if (tag === "INPUT" || tag === "TEXTAREA") {
+      const type = (el.getAttribute("type") || "text").toLowerCase();
+      if (["button", "submit", "reset", "checkbox", "radio", "file", "image", "hidden"].includes(type)) return;
+      value = el.value || "";
+    } else if (el.isContentEditable) {
+      value = el.innerText || "";
+    }
+    if (value) out.push(value);
+  };
+  document.querySelectorAll("input, textarea, [contenteditable='true']").forEach(read);
+  (window.__argInputLatch || []).forEach((item) => {
+    if (item && item.value && item.el && ok(item.el)) out.push(item.value);
+  });
+  return out;
+}
+"""
+
+PAGE_EXPR_JS = r"""
+(expr) => {
+  try { return !!eval(expr); } catch (e) { return false; }
+}
+"""
 
 
 def _seed_script(seed: int) -> str:

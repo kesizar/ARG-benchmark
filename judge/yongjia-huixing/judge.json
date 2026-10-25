@@ -1,0 +1,111 @@
+{
+  "hooks": {
+    "end-good": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 断 连"
+    },
+    "end-rush": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 提 前 的 裂 痕"
+    },
+    "end-part": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 局 部 断 连"
+    },
+    "end-small": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 洛 阳 城 联 结"
+    },
+    "end-mid": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 中 原 联 结"
+    },
+    "end-big": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 九 州 联 结"
+    },
+    "end-back": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 反 噬"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "sever",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "end-good",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "rush",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "end-rush",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "partial",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "end-part",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "near",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "end-small",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "plain",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "end-mid",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "wide",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "end-big",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "backlash",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "end-back",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end-good",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

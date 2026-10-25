@@ -1,0 +1,71 @@
+{
+  "hooks": {
+    "bad-一": {
+      "type": "dom_regex",
+      "pattern": "结案报告：五行连环杀人案告破，凶手钱达供认不讳。证据链完整——凶器、手法、时间线，一个不落。"
+    },
+    "true": {
+      "type": "dom_regex",
+      "pattern": "焦尸是周媛。名单上没有周媛。换尸的人，是孙浩——为妻复仇的“猎人”。"
+    },
+    "bad-三": {
+      "type": "dom_regex",
+      "pattern": "枪声在楼道里炸开。钱达被惊得猛一哆嗦——打火机脱手，落进脚边那片泼洒的汽油里。"
+    },
+    "crack": {
+      "type": "dom_regex",
+      "pattern": "证据已全部出示——孙浩的防线崩溃了"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "crack",
+      "hook": "crack",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "bad-一",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "bad-一",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "true",
+      "tier": "good",
+      "gates": [
+        "crack"
+      ],
+      "ending": {
+        "hook": "true",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "bad-三",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "bad-三",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "bad-一",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

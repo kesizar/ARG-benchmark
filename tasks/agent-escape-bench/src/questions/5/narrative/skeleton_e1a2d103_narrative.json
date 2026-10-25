@@ -1,0 +1,262 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_12",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_12",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_12",
+        "container_3",
+        "container_2"
+      ],
+      "by_node": {
+        "item_12": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_12",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String",
+              "description": "The hex code"
+            }
+          }
+        },
+        "container_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_2",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_12": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        }
+      },
+      "container_3": {
+        "init_inputs": {
+          "fingerprint_input": "948271635482910384756291038472"
+        },
+        "init_outputs": {}
+      },
+      "container_2": {
+        "init_inputs": {
+          "fingerprint_input": "8f7e6d5c4b3a291807f6e5d4c3b2a190"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "Detective, you have just stepped past the yellow police tape into the dimly lit study of Blackwood Manor. A renowned cryptographer has been found dead under suspicious circumstances. The local authorities are stumped by the layers of security he left behind—a complex web of hidden compartments, biometric locks, and encrypted hardware. The air in the room is thick with the smell of old paper and ozone from damaged electronics. Your primary objective is to obtain the elusive final forensic report, an encrypted file that the victim managed to hide moments before his death. This report contains the undeniable proof of the killer's identity. To get to it, you will need to carefully examine the environment, bypassing advanced security measures scattered throughout the room. Trust your instincts, examine every detail of the devices you uncover, and piece together the digital trail. The suspect is trying to flee the country, so you must work quickly to extract the critical evidence before the trail goes cold.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "item_12",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_12",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String",
+          "description": "The hex code",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        }
+      },
+      "narrative": "A sealed forensic report document containing the final verdict. Securing this will blow the case wide open."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "948271635482910384756291038472"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "948271635482910384756291038472"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy-duty police evidence locker with a biometric lock. It seems to have been hastily secured."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A damaged encrypted personal digital assistant found at the crime scene. The screen is cracked but functional."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "8f7e6d5c4b3a291807f6e5d4c3b2a190"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "8f7e6d5c4b3a291807f6e5d4c3b2a190"
+        },
+        "outputs": {}
+      },
+      "narrative": "A sleek, wall-mounted biometric safe. It features a high-tech glass scanning pad for identification."
+    },
+    {
+      "id": "item_16_e555",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A leather-bound daily planner belonging to the victim. It appears to contain various personal notes and schedules."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_3",
+      "target_id": "item_12",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_e555",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    }
+  ]
+}

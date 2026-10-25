@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "tell": {"type": "dom_regex", "pattern": "【结局A：如实告知】"},
+    "quiet": {"type": "dom_regex", "pattern": "【结局B：守口如瓶】"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "tell", "tier": "good", "gates": [], "ending": {"hook": "tell", "op": "truthy"}},
+    {"id": "quiet", "tier": "good", "gates": [], "ending": {"hook": "quiet", "op": "truthy"}}
+  ],
+  "ending": {"hook": "tell", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

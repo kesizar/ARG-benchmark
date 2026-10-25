@@ -1,0 +1,786 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 16,
+    "win_node_id": "code_py_exec",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "code_py_exec",
+      "output_port": "stdout",
+      "output_type": "Text_Generic",
+      "description": "Execute Python Executor and get the output from port 'stdout'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_7",
+        "zip_unzip_file",
+        "checksum_crc32_266b",
+        "calc_bigmul",
+        "terminal_1",
+        "calc_gcd_5a8d"
+      ],
+      "by_node": {
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "checksum_crc32_266b": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "calc_gcd_5a8d": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "print('System initialization sequence complete. Ready for next phase.')"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "archive_data_secure.zip"
+        },
+        "init_outputs": {
+          "files": "extracted_payload_config.json"
+        }
+      },
+      "checksum_crc32_266b": {
+        "init_inputs": {
+          "hex": "4a6f686e20446f652064617461207061636b657420686561646572"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "b": "827364519283746510293847561029384756"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_b": "102938475610293847561029384756102938"
+        },
+        "init_outputs": {
+          "text_output": "Terminal access granted. Waiting for further instructions.",
+          "hex_output": "deadbeefcafebabe1234567890abcdef",
+          "item_dispenser": "Standard Access Token Item"
+        }
+      },
+      "calc_gcd_5a8d": {
+        "init_inputs": {
+          "a": "9876543210987654321098765432109876543210",
+          "b": "1234567890123456789012345678901234567890"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in the sealed sanctum of the mad Archmage, a sprawling chamber filled with ancient artifacts, glowing runes, and arcane machinery. The air crackles with latent magic. The sanctum doors are bound by an impenetrable spell, and the only way to escape is to complete the Archmage's final ritual. Scattered across the room are peculiar devices and magical relics. You must decipher the connections between these mystical tools, channeling their energies correctly to weave the ultimate spell of unbinding and secure your freedom before the sanctum collapses into the ethereal plane.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print('System initialization sequence complete. Ready for next phase.')"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "System initialization sequence complete. Ready for next phase.\n"
+        }
+      ],
+      "narrative": "This is The Archmage's Spell Foci. It requires input from The Final Scroll to channel its ultimate magic."
+    },
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "print('System initialization sequence complete. Ready for next phase.')"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "print('System initialization sequence complete. Ready for next phase.')"
+        }
+      },
+      "narrative": "The Final Scroll. An ancient parchment glowing with magical runes."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "The Sealed Cylinder. A heavy brass container inscribed with warning glyphs."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": ""
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Cursed Gem. A dark jewel radiating a sinister aura."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_payload_config.json"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Whuplqdo dffhvv judqwhg. Zdlwlqj iru ixuwkhu lqvwuxfwlrqv."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip",
+          "value": ""
+        }
+      ],
+      "narrative": "This is The Enchanted Chest. It requires inputs from both The Arcane Lockbox and The Shift Dial to release its final binding."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_data_secure.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "gQm9AA=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_payload_config.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_data_secure.zip"
+        },
+        "outputs": {
+          "files": "extracted_payload_config.json"
+        }
+      },
+      "narrative": "This is The Arcane Lockbox. It requires input from The Crystal Prism to unlock its secrets."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Terminal access granted. Waiting for further instructions."
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "Whuplqdo dffhvv judqwhg. Zdlwlqj iru ixuwkhu lqvwuxfwlrqv."
+        }
+      ],
+      "narrative": "This is The Shift Dial. It requires inputs from both The Harmony Scales and The Oracle's Pedestal to align its constellations."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "8109bd00"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "gQm9AA=="
+        }
+      ],
+      "narrative": "This is The Crystal Prism. It requires input from The Runic Verifier to refract the magical light properly."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "87af1b2f"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "8109bd00"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2164899072
+        }
+      ],
+      "narrative": "This is The Runic Verifier. It requires input from The Altar of Echoes to decipher the true meaning."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": 2276399919
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "74462806742983466600744627152719090755264462794852892560892644628040"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3"
+        }
+      ],
+      "narrative": "This is The Harmony Scales. It requires inputs from both The Altar of Echoes and The Multiplying Chalice to find the perfect equilibrium."
+    },
+    {
+      "id": "checksum_crc32_266b",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "4a6f686e20446f652064617461207061636b657420686561646572"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "87af1b2f"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2276399919
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "4a6f686e20446f652064617461207061636b657420686561646572"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Altar of Echoes. A low stone table that hums with arcane energy when touched."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "90000000009000000000900000000090"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "827364519283746510293847561029384756"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "74462806742983466600744627152719090755264462794852892560892644628040"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "827364519283746510293847561029384756"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Multiplying Chalice. It requires input from The Balance Weights to brew its endless potion."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "gQm9AA=="
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "102938475610293847561029384756102938"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal access granted. Waiting for further instructions."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "deadbeefcafebabe1234567890abcdef"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "Standard Access Token Item"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_b": "102938475610293847561029384756102938"
+        },
+        "outputs": {
+          "text_output": "Terminal access granted. Waiting for further instructions.",
+          "hex_output": "deadbeefcafebabe1234567890abcdef",
+          "item_dispenser": "Standard Access Token Item"
+        }
+      },
+      "narrative": "This is The Oracle's Pedestal. It requires input from The Crystal Prism to awaken its visions."
+    },
+    {
+      "id": "item_16_d5c6",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Temporal Relic. An hourglass filled with silver sand that flows upwards."
+    },
+    {
+      "id": "calc_gcd_5a8d",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "9876543210987654321098765432109876543210"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "1234567890123456789012345678901234567890"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "90000000009000000000900000000090"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "9876543210987654321098765432109876543210",
+          "b": "1234567890123456789012345678901234567890"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Balance Weights. A collection of perfectly carved obsidian stones."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_7",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "text_rotN",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "password"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "n"
+    },
+    {
+      "source_id": "checksum_crc32_266b",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32_266b",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "text"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "item_16_d5c6",
+      "target_id": "text_rotN",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_gcd_5a8d",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    }
+  ]
+}

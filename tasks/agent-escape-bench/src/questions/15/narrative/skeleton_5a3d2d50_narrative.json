@@ -1,0 +1,820 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 17,
+    "win_node_id": "item_14",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_14",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_14",
+        "terminal_2",
+        "text_xor_hex",
+        "zip_unzip_item",
+        "terminal_1",
+        "calc_gcd",
+        "checksum_crc32_007f"
+      ],
+      "by_node": {
+        "item_14": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_14",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String_IV_AES",
+              "description": "AES IV"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "text_xor_hex": {
+          "node_name": "Hex XOR",
+          "node_type": "Tool",
+          "template_id": "text_xor_hex",
+          "init_inputs": {
+            "hex_b": {
+              "type": "Hex_String",
+              "description": "Hex B"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32_007f": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_14": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "a1b2c3d4e5f67890123456789abcdef0"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Calculation pending verification of input parameters.",
+          "hex_result": "112233445566778899aabbccddeeff00"
+        }
+      },
+      "text_xor_hex": {
+        "init_inputs": {
+          "hex_b": "baddecafbaddecafbaddecafbaddecaf"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "zip_id": "secure_payload_data.zip"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "System ready. Please input slot data for processing.",
+          "hex_output": "cafebabecafebabecafebabecafebabe",
+          "item_dispenser": "Standard Issue Utility Item"
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "482910384756291038475629384710",
+          "b": "102938475610293847561029384756"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32_007f": {
+        "init_inputs": {
+          "hex": "0102030405060708090a0b0c0d0e0f10"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "Welcome to Sector 4, a forgotten subterranean server farm deep beneath the Neon City. As a rogue netrunner, your mission is to infiltrate this abandoned corporate blacksite and extract a highly classified prototype hidden within the network. The air is thick with the hum of old cooling fans and the flicker of failing holographic displays. Around you lies a complex web of cryptographic terminals, hash processors, and data synthesizers left behind by the megacorp's hasty retreat. To succeed, you must navigate this interconnected maze of hardware, tracing the data flow from one terminal to the next. You'll need to decrypt raw machine code, compress data streams, and manipulate logic gates to bypass the facility's layered security protocols. Your ultimate goal is to obtain the content of the secure drive, but brute force won't work here. You must rely on your intellect to follow the digital breadcrumbs, activate the dormant systems in the correct sequence, and synthesize the keys you need. The megacorp's ICE (Intrusion Countermeasures Electronics) is still active in the shadows. Move fast, think clearly, and don't let the neon blind you.",
+    "narrative_style": "cyberpunk"
+  },
+  "nodes": [
+    {
+      "id": "item_14",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_14",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_fcbcf165908dd18a"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String_IV_AES",
+          "description": "AES IV",
+          "value": "a1b2c3d4e5f67890123456789abcdef0"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "a1b2c3d4e5f67890123456789abcdef0"
+        }
+      },
+      "narrative": "An encrypted drive left behind in the corporate ruins. It holds the final piece of the puzzle."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_fcbcf165908dd18a"
+        }
+      ],
+      "narrative": "A matter synthesizer. It requires input from the validation checker to construct the blueprint."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A logic chip pulsing with a faint, neon-blue energy."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "Calculation pending verification of input parameters."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "A validation checker. It requires input from the central mainframe to verify the sequence."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": 1068033658
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": 3868456827
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Calculation pending verification of input parameters."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "112233445566778899aabbccddeeff00"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Calculation pending verification of input parameters.",
+          "hex_result": "112233445566778899aabbccddeeff00"
+        }
+      },
+      "narrative": "A central mainframe. It requires inputs from both the hash processor and the secondary hash processor."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "3fa8e67a"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "e693f77b"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3868456827
+        }
+      ],
+      "narrative": "A hash processor. It requires input from the secondary hash processor to finalize calculations."
+    },
+    {
+      "id": "checksum_crc32_a32c",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "c241e70196f3a562eff5a6e2f67438fc08c8494d2c4e55c8cc2b282d5128cec92f5148492c495448cb2f522828ca4f4e2d2ececc4bd70300fcb11341"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "3fa8e67a"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1068033658
+        }
+      ],
+      "narrative": "A secondary hash processor. It requires input from the logic gate to process the data stream."
+    },
+    {
+      "id": "text_xor_hex",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "789c0bae2c2e49cd55284a4d4ca9d45308c8494d2c4e55c8cc2b282d5128cec92f5148492c495448cb2f522828ca4f4e2d2ececc4bd70300fcb11341"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "baddecafbaddecafbaddecafbaddecaf"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "c241e70196f3a562eff5a6e2f67438fc08c8494d2c4e55c8cc2b282d5128cec92f5148492c495448cb2f522828ca4f4e2d2ececc4bd70300fcb11341"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_b": "baddecafbaddecafbaddecafbaddecaf"
+        },
+        "outputs": {}
+      },
+      "narrative": "A logic gate. It requires input from the compression unit to mix the encrypted signals."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A fragmented data log containing corrupted sector information."
+    },
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "System ready. Please input slot data for processing."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c0bae2c2e49cd55284a4d4ca9d45308c8494d2c4e55c8cc2b282d5128cec92f5148492c495448cb2f522828ca4f4e2d2ececc4bd70300fcb11341"
+        }
+      ],
+      "narrative": "A compression unit. It requires input from the nexus console to reduce the data footprint."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_payload_data.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "System ready. Please input slot data for processing."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_payload_data.zip"
+        },
+        "outputs": {}
+      },
+      "narrative": "An archive extractor. It requires input from the nexus console to unlock protected files."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "\tL"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "26"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "System ready. Please input slot data for processing."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "cafebabecafebabecafebabecafebabe"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "Standard Issue Utility Item"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "System ready. Please input slot data for processing.",
+          "hex_output": "cafebabecafebabecafebabecafebabe",
+          "item_dispenser": "Standard Issue Utility Item"
+        }
+      },
+      "narrative": "A nexus console. It requires inputs from both the data decoder and the math coprocessor."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "094c80f1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "\tL"
+        }
+      ],
+      "narrative": "A data decoder. It requires input from the primary hash processor to translate the machine code."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "482910384756291038475629384710"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "102938475610293847561029384756"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "26"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "482910384756291038475629384710",
+          "b": "102938475610293847561029384756"
+        },
+        "outputs": {}
+      },
+      "narrative": "A math coprocessor designed to handle heavy cryptographic calculations."
+    },
+    {
+      "id": "checksum_crc32_007f",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "0102030405060708090a0b0c0d0e0f10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "094c80f1"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 156008689
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "0102030405060708090a0b0c0d0e0f10"
+        },
+        "outputs": {}
+      },
+      "narrative": "A primary hash processor used for initial data integrity verification."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_14",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "number"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "luhn_check",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "checksum_crc32_a32c",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "checksum_crc32_a32c",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "checksum_crc32_a32c",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zlib_deflate",
+      "target_id": "text_xor_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_a"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "password"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "zlib_deflate",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "text"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "checksum_crc32_007f",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    }
+  ]
+}

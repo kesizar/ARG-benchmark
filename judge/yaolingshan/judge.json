@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "closed": {"type": "dom_regex", "pattern": "游戏至此结束。"},
+    "unlock": {"type": "dom_regex", "pattern": "✓ 密码正确 · 正在解锁\\.\\.\\."}
+  },
+  "checkpoints": [
+    {"id": "unlock", "hook": "unlock", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {"id": "closed", "tier": "good", "gates": ["unlock"], "ending": {"hook": "closed", "op": "truthy"}}
+  ],
+  "ending": {"hook": "closed", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

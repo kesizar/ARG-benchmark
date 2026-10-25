@@ -1,0 +1,670 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 13,
+    "win_node_id": "calc_modexp",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "calc_modexp",
+      "output_port": "value",
+      "output_type": "Big_Int",
+      "description": "Execute BigInt Modular Exponentiation and get the output from port 'value'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "num_base_convert",
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "num_base_convert_83f4",
+        "checksum_crc32",
+        "text_bidi_sanitize"
+      ],
+      "by_node": {
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "num_base_convert_83f4": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "text_bidi_sanitize": {
+          "node_name": "Bidi Sanitizer",
+          "node_type": "Tool",
+          "template_id": "text_bidi_sanitize",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "827364519283746510293847561029"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Alpha_Node",
+          "dst": "Omega_Node"
+        },
+        "init_outputs": {
+          "path": "['Alpha_Node', 'Router_X', 'Gateway_7', 'Switch_9', 'Omega_Node']",
+          "cost": "48291"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "secure_archive_v2.zip"
+        },
+        "init_outputs": {
+          "files": "topology_graph.json"
+        }
+      },
+      "num_base_convert_83f4": {
+        "init_inputs": {
+          "s": "91827364501928374651928374",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "4a2b3c4d5e6f708192a3b4c5d6e7f809"
+        },
+        "init_outputs": {}
+      },
+      "text_bidi_sanitize": {
+        "init_inputs": {
+          "text": "ComplexPassphrase_123!"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The neon-drenched streets of Sector 7 offer no sanctuary tonight. You are a rogue netrunner, trapped inside an abandoned server farm after a corporate heist went horribly wrong. The megacorp's enforcers are closing in, and your only way out is to initiate a complete system blackout by hacking the central hub. To achieve this, you must navigate a maze of forgotten hardware, jury-rigged tech, and encrypted data streams. Find the right terminals, link their outputs, and overload the system before the kill-squad breaches the reinforced doors.",
+    "narrative_style": "cyberpunk"
+  },
+  "nodes": [
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "1"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "48331203657939"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "827364519283746510293847561029"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1"
+        }
+      ],
+      "narrative": "The Mainframe Override Core, your final goal. It requires inputs from the Neural Sync Amplifier, the Harmonic Resonance Tuner, and the Signal Translator Beta to crack the system."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "48291"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": 1000832529
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "48331203657939"
+        }
+      ],
+      "narrative": "A Neural Sync Amplifier designed to boost processing power. It requires inputs from both the City Grid Navigator and the Integrity Scanner."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "91827364501928374651928374"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "48291"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "A Harmonic Resonance Tuner used to stabilize frequencies. It requires inputs from both the City Grid Navigator and the Signal Translator Alpha."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "827364519283746510293847561029"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "22096807214944"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "48331203657939"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "827364519283746510293847561029"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "827364519283746510293847561029"
+        },
+        "outputs": {}
+      },
+      "narrative": "A secondary Signal Translator Beta. It requires inputs from both the Neural Sync Amplifier and the Quantum Inverter to function."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "topology_graph.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Alpha_Node"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Omega_Node"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "['Alpha_Node', 'Router_X', 'Gateway_7', 'Switch_9', 'Omega_Node']"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "48291"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Alpha_Node",
+          "dst": "Omega_Node"
+        },
+        "outputs": {
+          "path": "['Alpha_Node', 'Router_X', 'Gateway_7', 'Switch_9', 'Omega_Node']",
+          "cost": "48291"
+        }
+      },
+      "narrative": "A City Grid Navigator plotting safe routes. It requires input from the Encrypted Archive Extractor to map the network."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_archive_v2.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "ComplexPassphrase_123!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "topology_graph.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_archive_v2.zip"
+        },
+        "outputs": {
+          "files": "topology_graph.json"
+        }
+      },
+      "narrative": "An Encrypted Archive Extractor. It requires input from the Corrupted Data Purger to bypass the corporate locks."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "91827364501928374651928374"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "48331203657939"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "22096807214944"
+        }
+      ],
+      "narrative": "A volatile Quantum Inverter matrix. It requires inputs from both the Neural Sync Amplifier and the Signal Translator Alpha to operate safely."
+    },
+    {
+      "id": "num_base_convert_83f4",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "91827364501928374651928374"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "10"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "91827364501928374651928374"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "91827364501928374651928374",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Signal Translator Alpha unit, heavily modified with illegal scrap tech. It intercepts underground radio frequencies."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "4a2b3c4d5e6f708192a3b4c5d6e7f809"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "3ba77e11"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1000832529
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "4a2b3c4d5e6f708192a3b4c5d6e7f809"
+        },
+        "outputs": {}
+      },
+      "narrative": "An Integrity Scanner pulsing with a faint blue light. It verifies the authenticity of stolen corporate data drives."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "ComplexPassphrase_123!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "ComplexPassphrase_123!"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "ComplexPassphrase_123!"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Corrupted Data Purger module built into the side of a rusted terminal. It strips malicious code from raw feeds."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "base"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "b"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "num_base_convert_83f4",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "num_base_convert_83f4",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "hooks": {
+    "rain": {
+      "type": "dom_regex",
+      "pattern": "谁也没再提那个天井"
+    },
+    "letter": {
+      "type": "dom_regex",
+      "pattern": "日子就这么过下去"
+    },
+    "morning": {
+      "type": "dom_regex",
+      "pattern": "把影子拉得很长"
+    },
+    "quiz_time": {
+      "type": "dom_regex",
+      "pattern": "回答正确 · 线索08"
+    },
+    "quiz_lock": {
+      "type": "dom_regex",
+      "pattern": "回答正确 · 线索05"
+    },
+    "quiz_blow": {
+      "type": "dom_regex",
+      "pattern": "回答正确 · 线索02"
+    },
+    "accuse_hit": {
+      "type": "dom_regex",
+      "pattern": "案件告破"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "quiz_time",
+      "hook": "quiz_time",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "quiz_lock",
+      "hook": "quiz_lock",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "quiz_blow",
+      "hook": "quiz_blow",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "accuse_hit",
+      "hook": "accuse_hit",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "morning",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "morning",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "rain",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "rain",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "letter",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "letter",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "morning",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

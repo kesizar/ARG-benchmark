@@ -1,0 +1,77 @@
+{
+  "hooks": {
+    "wipe": {
+      "type": "dom_regex",
+      "pattern": "你的记忆和意识正在被抹除"
+    },
+    "cage": {
+      "type": "dom_regex",
+      "pattern": "结局：镀金牢笼"
+    },
+    "hatch": {
+      "type": "dom_regex",
+      "pattern": "验证成功！已获得检修口解锁权限"
+    },
+    "phone": {
+      "type": "dom_regex",
+      "pattern": "密码正确！手机已解锁"
+    },
+    "net": {
+      "type": "dom_regex",
+      "pattern": "密钥验证成功！正在接入大楼网络"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "hatch",
+      "hook": "hatch",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "phone",
+      "hook": "phone",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "net",
+      "hook": "net",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "wipe",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "wipe",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "cage",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "cage",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "cage",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

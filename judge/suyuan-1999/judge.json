@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "cleared": {
+      "type": "dom_regex",
+      "pattern": "案件已侦破|逻辑已闭环"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "cleared",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "cleared",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "cleared",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

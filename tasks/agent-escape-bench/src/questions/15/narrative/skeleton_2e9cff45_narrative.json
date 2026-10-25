@@ -1,0 +1,582 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 14,
+    "win_node_id": "checksum_crc32",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "checksum_crc32",
+      "output_port": "hex",
+      "output_type": "Hex_String",
+      "description": "Execute CRC32 Checksum and get the output from port 'hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_7",
+        "checksum_crc32_e106"
+      ],
+      "by_node": {
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "checksum_crc32_e106": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "print(49283716405928374651)"
+        }
+      },
+      "checksum_crc32_e106": {
+        "init_inputs": {
+          "hex": "8a3b2c1d4e5f6a7b8c9d0e1f2a3b4c5d"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in a dimly lit, subterranean facility with no memory of how you arrived. The air is stale, and the faint hum of ancient electronics echoes through the cold stone corridors. This place appears to be an abandoned cryptographic research bunker, filled with strange devices, locked containers, and forgotten secrets. A heavily armored door stands between you and freedom, its electronic lock demanding a highly specific cryptographic sequence. To escape, you must explore the bunker, interact with the peculiar machinery left behind, and carefully trace the flow of data through a series of complex tools. Every device is connected in a logical chain, and finding the right inputs for each terminal is your only way out. Time is ticking, and the shadows seem to grow longer by the minute.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "68934a3e9455fa72420237eb05902327"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "07593049"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 123285577
+        }
+      ],
+      "narrative": "This is a final output terminal that controls the main exit door. It requires input from the text scrambler to grant access."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "68934a3e9455fa72420237eb05902327"
+        }
+      ],
+      "narrative": "This is a text scrambler used for complex cryptography. It requires input from the digital validity checker to process the information."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A cryptic letter with a strange wax seal. The handwriting on it is elegant but entirely unreadable."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "49283716405928374651\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is a digital validity checker equipped with a small screen. It requires input from the data purifier to verify the sequence."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "49283716405928374651\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "49283716405928374651\n"
+        }
+      ],
+      "narrative": "This is a data purifier with a blinking green light. It requires input from the central computer to filter the chaotic signals."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print(49283716405928374651)"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "49283716405928374651\n"
+        }
+      ],
+      "narrative": "This is a central computer still humming with power. It requires input from the python script fragment to execute its routines."
+    },
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "print(49283716405928374651)"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "print(49283716405928374651)"
+        }
+      },
+      "narrative": "A python script fragment scribbled on a piece of notepad paper. The ink is slightly faded but legible."
+    },
+    {
+      "id": "item_8_193b",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A hidden compartment cleverly disguised within the wall panelling. It looks entirely inconspicuous."
+    },
+    {
+      "id": "item_8_392f",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A locked wooden box resting on a dusty table. The craftsmanship suggests it holds something valuable."
+    },
+    {
+      "id": "item_8_4847",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A loose floorboard that creaks slightly when you step on it. It seems something might be underneath."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An elegant silver pocket watch with intricate engravings. Its hands are frozen at a specific time."
+    },
+    {
+      "id": "item_8_3257",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A torn envelope discarded in the corner of the room. It appears someone opened it in a hurry."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": 950877807
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a heavy steel safe built into the floor. It requires input from the biometric analyzer to unlock its reinforced doors."
+    },
+    {
+      "id": "item_8_96fb",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "An antique clock covered in a thick layer of dust. It seems to have stopped a long time ago."
+    },
+    {
+      "id": "checksum_crc32_e106",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "8a3b2c1d4e5f6a7b8c9d0e1f2a3b4c5d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "38ad3e6f"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 950877807
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "8a3b2c1d4e5f6a7b8c9d0e1f2a3b4c5d"
+        },
+        "outputs": {}
+      },
+      "narrative": "A high-tech biometric analyzer securely mounted on the stone wall. The scanner faintly glows red."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "hash_md5",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "hash_md5",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "hash_md5",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "number"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_7",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "item_8_193b",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_392f",
+      "target_id": "item_8_193b",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_4847",
+      "target_id": "item_8_392f",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "code_py_exec",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_8_3257",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "luhn_check",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_8_96fb",
+      "target_id": "item_8_4847",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "checksum_crc32_e106",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "fingerprint_input"
+    }
+  ]
+}

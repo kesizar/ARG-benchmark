@@ -1,0 +1,57 @@
+{
+  "hooks": {
+    "keep": {
+      "type": "dom_regex",
+      "pattern": "很多歉意，只能讲给空气听"
+    },
+    "deliver": {
+      "type": "dom_regex",
+      "pattern": "你什么都改变不了"
+    },
+    "side_door": {
+      "type": "dom_regex",
+      "pattern": "门开了。原来这里还有一扇门。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "side_door",
+      "hook": "side_door",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "keep",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "keep",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "deliver",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "deliver",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "keep",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

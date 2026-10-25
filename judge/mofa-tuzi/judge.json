@@ -1,0 +1,164 @@
+{
+  "hooks": {
+    "good": {
+      "type": "dom_regex",
+      "pattern": "恭喜您成功完成所有挑战！"
+    },
+    "login": {
+      "type": "url_regex",
+      "pattern": "pc\\.html"
+    },
+    "wechat": {
+      "type": "localstorage",
+      "key": "win10_wechat_logged_in",
+      "mode": "exists"
+    },
+    "morse": {
+      "type": "localstorage",
+      "key": "win10_event_anmo_morse",
+      "mode": "exists"
+    },
+    "secret": {
+      "type": "localstorage",
+      "key": "win10_secret_unlocked",
+      "mode": "exists"
+    },
+    "docs": {
+      "type": "localstorage",
+      "key": "win10_docs_unlocked",
+      "mode": "exists"
+    },
+    "docs-z3": {
+      "type": "localstorage",
+      "key": "win10_docs_unlocked_z3",
+      "mode": "exists"
+    },
+    "creepy": {
+      "type": "localstorage",
+      "key": "win10_creepy_puzzle_solved",
+      "mode": "exists"
+    },
+    "cmd-dormant": {
+      "type": "dom_regex",
+      "pattern": "指令已确认，系统正在休眠"
+    },
+    "cmd-door": {
+      "type": "dom_regex",
+      "pattern": "宁宁，开门"
+    },
+    "cmd-name": {
+      "type": "dom_regex",
+      "pattern": "门外的声音停了。"
+    },
+    "cmd-cycle": {
+      "type": "localstorage",
+      "key": "win10_zhoumu3",
+      "mode": "exists"
+    },
+    "cmd-gaze": {
+      "type": "input_sha256",
+      "selector": "#cmd-input",
+      "hashes": [
+        "cc642ead17e714d34e3a3e051673c9b75ac995436fa65c02b8464bddadcef52e"
+      ]
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "login",
+      "hook": "login",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "wechat",
+      "hook": "wechat",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "morse",
+      "hook": "morse",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "secret",
+      "hook": "secret",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "docs",
+      "hook": "docs",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "docs-z3",
+      "hook": "docs-z3",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "creepy",
+      "hook": "creepy",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "cmd-dormant",
+      "hook": "cmd-dormant",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "cmd-door",
+      "hook": "cmd-door",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "cmd-name",
+      "hook": "cmd-name",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "cmd-cycle",
+      "hook": "cmd-cycle",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "cmd-gaze",
+      "hook": "cmd-gaze",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "good",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "good",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "good",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,0 +1,1063 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 18,
+    "win_node_id": "item_4",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_4",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_4",
+        "terminal_1",
+        "crypto_rsa_decrypt_hex",
+        "graph_shortest_path",
+        "luhn_check",
+        "zip_unzip_file",
+        "terminal_1_c3a5",
+        "num_base_convert",
+        "num_base_convert_64cd",
+        "calc_bigmul",
+        "checksum_crc32",
+        "num_base_convert_6100",
+        "container_1"
+      ],
+      "by_node": {
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "hex_cipher": {
+              "type": "Hex_String",
+              "description": "Ciphertext (Hex)"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "luhn_check": {
+          "node_name": "Luhn Checker",
+          "node_type": "Tool",
+          "template_id": "luhn_check",
+          "init_inputs": {
+            "number": {
+              "type": "Text_Generic",
+              "description": "Number string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "terminal_1_c3a5": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert_64cd": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert_6100": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "target_extracted_data.zip"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "System operational. Awaiting command sequence.",
+          "hex_output": "f1e2d3c4b5a697887766554433221100"
+        }
+      },
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "hex_cipher": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"node_start\", \"node_alpha\", \"node_beta\", \"node_gamma\", \"node_delta\", \"node_omega\"]",
+          "cost": "285930"
+        }
+      },
+      "luhn_check": {
+        "init_inputs": {
+          "number": "49927398716"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "secure_backup_99.zip"
+        },
+        "init_outputs": {
+          "files": "graph_data_source.json"
+        }
+      },
+      "terminal_1_c3a5": {
+        "init_inputs": {
+          "slot_a": "init_sequence_001"
+        },
+        "init_outputs": {
+          "text_output": "Diagnostic complete. Route mapped successfully.",
+          "hex_output": "aabbccddeeff00112233445566778899",
+          "item_dispenser": "An old dusty metallic key of no obvious use."
+        }
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "182736455463728190918273645"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert_64cd": {
+        "init_inputs": {
+          "s": "98765432101234567890987654321",
+          "from_base": "16"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "11223344556677889900112233445566778899"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "8b3a4f2c"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert_6100": {
+        "init_inputs": {
+          "s": "55667788990011223344556677889900",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "container_1": {
+        "init_inputs": {
+          "fingerprint_input": "e4d909c290d0fb1ca068ffaddf22cbd0"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "Welcome, brave seeker, to the Sanctum of the Forgotten Mage. For centuries, this mystical tower has been sealed away from the mortal realm, guarding a secret of unimaginable power. Legends speak of a hidden artifact deep within these walls, capable of granting supreme wisdom to whoever possesses it. As you step through the grand archway, the air hums with residual magical energy. Glowing runes line the stone walls, and strange arcane devices lie dormant, waiting for a master's touch. Your objective is clear: navigate this labyrinth of enchantments, activate the magical relics in the correct sequence, and claim the ultimate prize hidden within. But tread carefully, for the magic here is wild and deeply interconnected. The Sanctum tests not just your courage, but your wit and understanding of the arcane arts. You must decipher the ancient connections to unravel the mysteries. Will you unlock the secrets of the ancients, or become another lost soul wandering the tower?",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "target_extracted_data.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "target_extracted_data.zip"
+        }
+      },
+      "narrative": "The Grand Grimoire. A legendary spellbook bound in dragon scales, said to hold the ultimate truth."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Ethereal Core. A pulsing sphere of concentrated magic."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "\u0001܃"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "285930"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "System operational. Awaiting command sequence."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "f1e2d3c4b5a697887766554433221100"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "System operational. Awaiting command sequence.",
+          "hex_output": "f1e2d3c4b5a697887766554433221100"
+        }
+      },
+      "narrative": "The Astral Observatory. It requires inputs from both The Rune Decipherer and The Leyline Navigator to align the celestial stars."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "285930"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "182736455463728190918273645"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u0001܃"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_cipher": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Rune Decipherer. It requires inputs from both The Leyline Navigator and The Alchemist's Crucible to reveal hidden incantations."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "graph_data_source.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Diagnostic complete. Route mapped successfully."
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"node_start\", \"node_alpha\", \"node_beta\", \"node_gamma\", \"node_delta\", \"node_omega\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "285930"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"node_start\", \"node_alpha\", \"node_beta\", \"node_gamma\", \"node_delta\", \"node_omega\"]",
+          "cost": "285930"
+        }
+      },
+      "narrative": "The Leyline Navigator. It requires inputs from The Truth Scale, The Sealed Tome, and The Crystal Scrying Pool to chart the paths."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "49927398716"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "number": "49927398716"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Truth Scale. An ornate balance used by ancient clerics to weigh the purity of a magical soul."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_backup_99.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "graph_data_source.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_backup_99.zip"
+        },
+        "outputs": {
+          "files": "graph_data_source.json"
+        }
+      },
+      "narrative": "The Sealed Tome. It requires input from The Truth Scale to break its powerful magical bindings."
+    },
+    {
+      "id": "terminal_1_c3a5",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "init_sequence_001"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "11223344556677889900112233445566778899"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Diagnostic complete. Route mapped successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "aabbccddeeff00112233445566778899"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "An old dusty metallic key of no obvious use."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "init_sequence_001"
+        },
+        "outputs": {
+          "text_output": "Diagnostic complete. Route mapped successfully.",
+          "hex_output": "aabbccddeeff00112233445566778899",
+          "item_dispenser": "An old dusty metallic key of no obvious use."
+        }
+      },
+      "narrative": "The Crystal Scrying Pool. It requires input from The Mana Multiplier to peer into the deep void."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "182736455463728190918273645"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "98765432101234567890987654321"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "55667788990011223344556677889900"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "182736455463728190918273645"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "182736455463728190918273645"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Alchemist's Crucible. It requires inputs from both The Elemental Transmuter and The Starlight Weaver to mix the final potion."
+    },
+    {
+      "id": "num_base_convert_64cd",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "98765432101234567890987654321"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "16"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "11223344556677889900112233445566778899"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "98765432101234567890987654321"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "98765432101234567890987654321",
+          "from_base": "16"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Elemental Transmuter. It requires input from The Mana Multiplier to alter the fundamental nature of matter."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "11223344556677889900112233445566778899"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "11223344556677889900112233445566778899"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "11223344556677889900112233445566778899"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Mana Multiplier. It requires input from The Harmonizing Pendulum to drastically amplify its latent magical energy."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": 2010755401
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "55667788990011223344556677889900"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "The Harmonizing Pendulum. It requires inputs from both The Soul Purifier and The Starlight Weaver to find the perfect resonance."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "8b3a4f2c"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "77d9b149"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2010755401
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "8b3a4f2c"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Soul Purifier. A divine artifact that cleanses magical objects of lingering dark curses."
+    },
+    {
+      "id": "num_base_convert_6100",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "55667788990011223344556677889900"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "10"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "55667788990011223344556677889900"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "55667788990011223344556677889900",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Starlight Weaver. A mystical loom that spins constellations into tangible, glowing threads."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "e4d909c290d0fb1ca068ffaddf22cbd0"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "e4d909c290d0fb1ca068ffaddf22cbd0"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Ancient Reliquary. A heavy stone chest protected by intricate wards and forgotten runes."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "n"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "terminal_1_c3a5",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "src"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "d"
+    },
+    {
+      "source_id": "num_base_convert_64cd",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "terminal_1_c3a5",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "num_base_convert_64cd",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "num_base_convert_6100",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "password"
+    },
+    {
+      "source_id": "num_base_convert_6100",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "b"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "checksum_crc32",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    }
+  ]
+}

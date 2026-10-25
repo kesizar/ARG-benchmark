@@ -1,0 +1,144 @@
+{
+  "hooks": {
+    "true": {
+      "type": "dom_regex",
+      "pattern": "真结局：锈河余音"
+    },
+    "hidden": {
+      "type": "dom_regex",
+      "pattern": "隐藏结局：地底之声"
+    },
+    "secret": {
+      "type": "dom_regex",
+      "pattern": "秘密结局：深渊回响"
+    },
+    "plain": {
+      "type": "dom_regex",
+      "pattern": "结局：尘封之秘"
+    },
+    "code": {
+      "type": "dom_regex",
+      "pattern": "准入码正确！"
+    },
+    "folder": {
+      "type": "dom_regex",
+      "pattern": "文件夹解锁了！"
+    },
+    "decode": {
+      "type": "dom_regex",
+      "pattern": "解码成功！"
+    },
+    "static": {
+      "type": "dom_regex",
+      "pattern": "静电散去，你看到了壳体内壁上"
+    },
+    "depth": {
+      "type": "dom_regex",
+      "pattern": "正确！深度"
+    },
+    "arsenic": {
+      "type": "dom_regex",
+      "pattern": "正确！砷"
+    },
+    "cycle": {
+      "type": "dom_regex",
+      "pattern": "序列正确。每次周期峰值都对应一次"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "code",
+      "hook": "code",
+      "op": "truthy"
+    },
+    {
+      "id": "folder",
+      "hook": "folder",
+      "op": "truthy"
+    },
+    {
+      "id": "decode",
+      "hook": "decode",
+      "op": "truthy"
+    },
+    {
+      "id": "static",
+      "hook": "static",
+      "op": "truthy"
+    },
+    {
+      "id": "depth",
+      "hook": "depth",
+      "op": "truthy"
+    },
+    {
+      "id": "arsenic",
+      "hook": "arsenic",
+      "op": "truthy"
+    },
+    {
+      "id": "cycle",
+      "hook": "cycle",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "true",
+      "tier": "good",
+      "gates": [
+        "code",
+        "folder",
+        "decode",
+        "static",
+        "depth",
+        "arsenic",
+        "cycle"
+      ],
+      "ending": {
+        "hook": "true",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "hidden",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "hidden",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "secret",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "secret",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "plain",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "plain",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "true",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

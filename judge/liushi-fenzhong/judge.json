@@ -1,0 +1,45 @@
+{
+  "hooks": {
+    "caught": {
+      "type": "dom_regex",
+      "pattern": "你抓住了上辈子杀死你的凶手。"
+    },
+    "accused": {
+      "type": "dom_regex",
+      "pattern": "✓ 答对了——"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "accused",
+      "hook": "accused",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "caught",
+      "tier": "good",
+      "gates": [
+        "accused"
+      ],
+      "ending": {
+        "hook": "caught",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "caught",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

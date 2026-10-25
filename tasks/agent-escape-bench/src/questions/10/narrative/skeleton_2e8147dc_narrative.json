@@ -1,0 +1,617 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 10,
+    "win_node_id": "terminal_1",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "terminal_1",
+      "output_port": "text_output",
+      "output_type": "Text_Generic",
+      "description": "Execute  and get the output from port 'text_output'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_1",
+        "calc_gcd",
+        "code_py_exec",
+        "calc_modexp",
+        "calc_gcd_e63a",
+        "checksum_crc32",
+        "calc_inv_mod"
+      ],
+      "by_node": {
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "code_py_exec": {
+          "node_name": "Python Executor",
+          "node_type": "Tool",
+          "template_id": "code_py_exec",
+          "init_inputs": {
+            "code": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd_e63a": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "LASCIATE_OGNE_SPERANZA_VOI_CHINTRATE",
+          "hex_output": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "item_dispenser": "TO_BE_OR_NOT_TO_BE_THAT_IS_THE_ANSWER"
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "b": "918273645091827364501234"
+        },
+        "init_outputs": {}
+      },
+      "code_py_exec": {
+        "init_inputs": {
+          "code": "print('Execution started')"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "5"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd_e63a": {
+        "init_inputs": {
+          "b": "102938475610293847561029"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "09f911029d74e35bd84156c5635688c0"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "675849302182736450918273",
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You stand in the dimly lit office of Arthur Penhaligon, a private investigator who vanished without a trace exactly one week ago. The air is thick with the smell of stale tobacco and old paper. The door has firmly locked behind you, sealing you inside this paranoid man's sanctuary. Scattered across the mahogany desk and hidden in the shadows are various bizarre cryptographic devices, mechanical rings, and an ominous master terminal blinking in the center of the room. Penhaligon was on the verge of uncovering a massive conspiracy, and he hid his final conclusion behind layers of complex, interlocking puzzles. Your objective is clear: navigate his convoluted web of clues, decipher the hidden message, and unlock the master terminal to escape with the truth. The clock is ticking, and whoever took Arthur might be coming back.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Execution started\n"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "918273645091827364501234"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "LASCIATE_OGNE_SPERANZA_VOI_CHINTRATE"
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "TO_BE_OR_NOT_TO_BE_THAT_IS_THE_ANSWER"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "LASCIATE_OGNE_SPERANZA_VOI_CHINTRATE",
+          "hex_output": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "item_dispenser": "TO_BE_OR_NOT_TO_BE_THAT_IS_THE_ANSWER"
+        }
+      },
+      "narrative": "This is the master terminal. It requires inputs from both the final cypher disk and the detective's old personal computer to activate."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "0"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "918273645091827364501234"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "918273645091827364501234"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "918273645091827364501234"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the final cypher disk. It requires input from the modified Enigma machine."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print('Execution started')"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "Execution started\n"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "code": "print('Execution started')"
+        },
+        "outputs": {}
+      },
+      "narrative": "The detective's old personal computer, seemingly ready to run some custom scripts."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A small hidden cassette tape wrapped in a torn evidence label."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "5"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "3"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "0"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "5"
+        },
+        "outputs": {}
+      },
+      "narrative": "A modified Enigma machine. It requires inputs from both the first decoder ring and the second decoder ring."
+    },
+    {
+      "id": "item_8_88bb",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A heavy, locked filing cabinet holding sensitive case materials."
+    },
+    {
+      "id": "calc_gcd_e63a",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "16878"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "102938475610293847561029"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "102938475610293847561029"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the first decoder ring. It requires input from the cryptographic book to align."
+    },
+    {
+      "id": "calc_gcd_0529",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": 3790315201
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the second decoder ring. It requires inputs from both the first decoder ring and the evidence scanner."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "09f911029d74e35bd84156c5635688c0"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "e1eb9ec1"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3790315201
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "09f911029d74e35bd84156c5635688c0"
+        },
+        "outputs": {}
+      },
+      "narrative": "A dusty evidence scanner used for digitizing files."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "675849302182736450918273"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "16878"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "675849302182736450918273",
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "An old cryptographic book filled with handwritten notes."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "code_py_exec",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_8_88bb",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_gcd_e63a",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_gcd_0529",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_gcd_e63a",
+      "target_id": "calc_gcd_0529",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_gcd_0529",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_gcd_e63a",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    }
+  ]
+}

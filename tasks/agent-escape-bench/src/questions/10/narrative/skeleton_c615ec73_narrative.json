@@ -1,0 +1,625 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 12,
+    "win_node_id": "calc_gcd",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "calc_gcd",
+      "output_port": "gcd",
+      "output_type": "Big_Int",
+      "description": "Execute BigInt GCD Calculator and get the output from port 'gcd'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "calc_gcd_55c6",
+        "calc_bigmul_9237",
+        "checksum_crc32",
+        "calc_modexp_51d4",
+        "calc_bigmul_2377",
+        "iban_validate"
+      ],
+      "by_node": {
+        "calc_gcd_55c6": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_9237": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_51d4": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_2377": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "iban_validate": {
+          "node_name": "IBAN Validator",
+          "node_type": "Tool",
+          "template_id": "iban_validate",
+          "init_inputs": {
+            "iban": {
+              "type": "Text_Generic",
+              "description": "IBAN string"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "calc_gcd_55c6": {
+        "init_inputs": {
+          "a": "8472615394058271635492817"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_9237": {
+        "init_inputs": {
+          "b": "57483920184756392018475"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "48656c6c6f20576f726c6421"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_51d4": {
+        "init_inputs": {
+          "base": "16",
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_2377": {
+        "init_inputs": {
+          "a": "3948572615029384756102938",
+          "b": "5827163549281736450293847"
+        },
+        "init_outputs": {}
+      },
+      "iban_validate": {
+        "init_inputs": {
+          "iban": "GB82WEST12345698765432"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are a rogue cyber-operative who just infiltrated the Blacksite Zero, a clandestine data bunker operated by a shadow corporation known as the Aegis Syndicate. They are holding irrefutable evidence of a global conspiracy, locked away behind a formidable network of interconnected servers, cryptographic engines, and physical fabricators. The facility's automated defense protocols have just initiated a purge sequence; you have less than an hour before the room floods with neurotoxin. To expose the truth and escape with your life, you must trace the complex data pathways and manually override the systems to breach the mainframe core. Pay close attention to how the terminals communicate—every piece of data must flow in the right direction to crack the final lock.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "333955538"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "63"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "7"
+        }
+      ],
+      "narrative": "This is the mainframe core. It requires inputs from both the sector firewall and the neural decryptor to achieve complete system override."
+    },
+    {
+      "id": "calc_gcd_55c6",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "8472615394058271635492817"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "1479847320309833158465092620442317625"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "63"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "8472615394058271635492817"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the sector firewall. It requires input from the quantum processor to bypass the security layers."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool",
+          "value": "synthesized_item_60a33e6cf5151f2d"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "63"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "1479847320309833158465092620442317625"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 472456355
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "333955538"
+        }
+      ],
+      "narrative": "This is the neural decryptor. It requires inputs from the quantum processor, the sector firewall, and the integrity scanner to initiate the sequence."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "54489"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "27158643401600931535999791158625"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "1479847320309833158465092620442317625"
+        }
+      ],
+      "narrative": "This is the quantum processor. It requires inputs from both the data multiplier and the algorithm engine."
+    },
+    {
+      "id": "calc_bigmul_9237",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": 472456355
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "57483920184756392018475"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "27158643401600931535999791158625"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "57483920184756392018475"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the data multiplier. It requires input from the integrity scanner to function."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "48656c6c6f20576f726c6421"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "1c291ca3"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 472456355
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "48656c6c6f20576f726c6421"
+        },
+        "outputs": {}
+      },
+      "narrative": "A robust integrity scanner embedded in the wall."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_60a33e6cf5151f2d"
+        }
+      ],
+      "narrative": "This is the nano-fabricator. It requires input from the financial tracker to authorize construction."
+    },
+    {
+      "id": "calc_modexp_51d4",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "16"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "23008978413991297246945167329484059209116680022486"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "54489"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "16",
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the algorithm engine. It requires input from the deep-state server to process its complex equations."
+    },
+    {
+      "id": "calc_bigmul_2377",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "3948572615029384756102938"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "5827163549281736450293847"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "23008978413991297246945167329484059209116680022486"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "3948572615029384756102938",
+          "b": "5827163549281736450293847"
+        },
+        "outputs": {}
+      },
+      "narrative": "A massive deep-state server humming with dark energy."
+    },
+    {
+      "id": "iban_validate",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "GB82WEST12345698765432"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "False"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "iban": "GB82WEST12345698765432"
+        },
+        "outputs": {}
+      },
+      "narrative": "An offshore financial tracker terminal."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_gcd_55c6",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_bigmul_9237",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_gcd_55c6",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "base"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_bigmul_9237",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "calc_modexp",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_gcd_55c6",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_modexp_51d4",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul_2377",
+      "target_id": "calc_modexp_51d4",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "iban_validate",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "blueprint"
+    }
+  ]
+}

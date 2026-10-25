@@ -1,0 +1,74 @@
+{
+  "hooks": {
+    "rescued": {
+      "type": "dom_regex",
+      "pattern": "李凌破防了！"
+    },
+    "q1": {
+      "type": "input_sha256",
+      "selector": "input[placeholder=\"请输入生日 (格式：YYYYMMDD)\"]",
+      "hashes": [
+        "c44c1b8ffe64e8b03549dac947c577e7f3bf92ee41098fe51fc8ec0f346c139b"
+      ]
+    },
+    "q2": {
+      "type": "input_sha256",
+      "selector": "input[placeholder=\"请输入家乡\"]",
+      "hashes": [
+        "4906a49adc5c472b34483976104ec1d76992745367cc22d5fbc2a4db8e8e1ed7"
+      ]
+    },
+    "q3": {
+      "type": "input_sha256",
+      "selector": "input[placeholder=\"请输入最喜欢的食物\"]",
+      "hashes": [
+        "63072981b1a0caeb2b4837f043b19ca85aca81b0f84b3698c2ccbaed66040f7e"
+      ]
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "q1",
+      "hook": "q1",
+      "op": "truthy"
+    },
+    {
+      "id": "q2",
+      "hook": "q2",
+      "op": "truthy"
+    },
+    {
+      "id": "q3",
+      "hook": "q3",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "rescued",
+      "tier": "good",
+      "gates": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "ending": {
+        "hook": "rescued",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "rescued",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

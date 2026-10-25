@@ -1,0 +1,1136 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 22,
+    "win_node_id": "container_4",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "container_4",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "container_4",
+        "terminal_2",
+        "graph_shortest_path",
+        "terminal_2_fb74",
+        "zip_unzip_file",
+        "csv_query",
+        "calc_gcd_7ac0",
+        "zip_unzip_file_aef1",
+        "zip_unzip_file_722e",
+        "regex_search",
+        "calc_inv_mod",
+        "calc_gcd_1e49",
+        "terminal_1"
+      ],
+      "by_node": {
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "inner_space": {
+              "type": "Item",
+              "description": "Contents"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "terminal_2_fb74": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {},
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "calc_gcd_7ac0": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_aef1": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_722e": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "pattern": {
+              "type": "Text_Generic",
+              "description": "Regex pattern"
+            },
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd_1e49": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            },
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "container_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "inner_space": "|0⟩_|1⟩_|+⟩_|-⟩_|ψ⟩_⟨φ|"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Partial computation processed successfully for terminal 2",
+          "hex_result": "deadbeef1234567890abcdef12345678"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"Node_A\", \"Node_C\", \"Node_F\", \"Node_H\", \"Node_Z\"]",
+          "cost": "482390"
+        }
+      },
+      "terminal_2_fb74": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Second terminal partial output data generated",
+          "hex_result": "1234567890abcdef1234567890abcdef",
+          "math_token": "A mysterious math token floating in the void"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_data_archive_1.zip"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {},
+        "init_outputs": {
+          "rows": "[\"row1_data_a,row1_data_b\", \"row2_data_c,row2_data_d\", \"row3_data_e,row3_data_f\", \"row4_data_g,row4_data_h\"]"
+        }
+      },
+      "calc_gcd_7ac0": {
+        "init_inputs": {
+          "a": "98765432109876543210123",
+          "b": "12345678901234567890987"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_aef1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "confidential_archive_layer2.zip"
+        }
+      },
+      "zip_unzip_file_722e": {
+        "init_inputs": {
+          "zip_id": "encrypted_source_package.zip"
+        },
+        "init_outputs": {
+          "files": "intermediate_files_extracted.csv"
+        }
+      },
+      "regex_search": {
+        "init_inputs": {
+          "pattern": "\\d{4}-\\d{2}-\\d{2}",
+          "file_id": "logs_for_regex_search.txt",
+          "text": "The event occurred on 2023-10-25 and was logged."
+        },
+        "init_outputs": {
+          "matches": "[\"2023-10-25\", \"2023-10-26\", \"2023-10-27\", \"2023-10-28\"]"
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd_1e49": {
+        "init_inputs": {
+          "a": "54321678905432167890543",
+          "b": "67890123456789012345678"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "Initialization sequence alpha for terminal one",
+          "slot_b": "112233445566778899001122"
+        },
+        "init_outputs": {
+          "text_output": "Text output for slot A execution completed",
+          "hex_output": "aabbccddeeff00112233445566778899"
+        }
+      }
+    },
+    "intro_narrative": "Welcome, apprentices, to the Sanctum of Archmage Orion. The master has been missing for moons, and his protective wards are rapidly deteriorating. The arcane threads holding this tower together are unraveling, threatening to cast the entire structure into the astral void. Your only hope of survival and preserving the master's legacy lies in unlocking The Grand Reliquary, a vault said to hold his ultimate creation. However, Orion was famously paranoid. He scattered his knowledge across enchanted astrolabes, magical lodestones, and cryptic spell-unbinders. You must decipher the arcane data flows, channeling magical energy from simple resonance crystals all the way up to complex navigational arrays. Pay close attention to how the magical devices interact; many require specific streams of arcane data from other tools to awaken. Time is short, and the magic is fading. Harness the leylines and unlock the Reliquary before the Sanctum is lost forever.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "Second terminal partial output data generated"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents",
+          "value": "|0⟩_|1⟩_|+⟩_|-⟩_|ψ⟩_⟨φ|"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "inner_space": "|0⟩_|1⟩_|+⟩_|-⟩_|ψ⟩_⟨φ|"
+        }
+      },
+      "narrative": "The Grand Reliquary. A massive, ornate chest protected by ancient magic. It requires input from The Celestial Astrolabe to unlock its final seal."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Chrono-Scroll. An ancient parchment inscribed with shifting celestial coordinates."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "333328"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "482390"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Partial computation processed successfully for terminal 2"
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "deadbeef1234567890abcdef12345678"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Partial computation processed successfully for terminal 2",
+          "hex_result": "deadbeef1234567890abcdef12345678"
+        }
+      },
+      "narrative": "The Astral Astrolabe. A complex brass instrument for plotting star courses. It requires inputs from both The Leyline Navigator and The Aetherial Inverter to calculate the final trajectory."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_data_archive_1.zip"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "[\"row1_data_a,row1_data_b\", \"row2_data_c,row2_data_d\", \"row3_data_e,row3_data_f\", \"row4_data_g,row4_data_h\"]"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Second terminal partial output data generated"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_A\", \"Node_C\", \"Node_F\", \"Node_H\", \"Node_Z\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "482390"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"Node_A\", \"Node_C\", \"Node_F\", \"Node_H\", \"Node_Z\"]",
+          "cost": "482390"
+        }
+      },
+      "narrative": "The Leyline Navigator. An enchanted map table tracing magical currents. It requires inputs from The Celestial Astrolabe, The Master Spell-Unbinder, and The Akashic Index to reveal the hidden path."
+    },
+    {
+      "id": "terminal_2_fb74",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "333328"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Second terminal partial output data generated"
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1234567890abcdef1234567890abcdef"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "A mysterious math token floating in the void"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Second terminal partial output data generated",
+          "hex_result": "1234567890abcdef1234567890abcdef",
+          "math_token": "A mysterious math token floating in the void"
+        }
+      },
+      "narrative": "The Celestial Astrolabe. A delicate silver mechanism for divining cosmic alignments. It requires inputs from both The Harmonic Synthesizer and The Aetherial Inverter to operate."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "confidential_archive_layer2.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"2023-10-25\", \"2023-10-26\", \"2023-10-27\", \"2023-10-28\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_data_archive_1.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_data_archive_1.zip"
+        }
+      },
+      "narrative": "The Master Spell-Unbinder. The highest order of dispelling focus. It requires inputs from both The Greater Spell-Unbinder and The Rune Seeker to shatter the final magical barrier."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "intermediate_files_extracted.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "[\"2023-10-25\", \"2023-10-26\", \"2023-10-27\", \"2023-10-28\"]"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "Second terminal partial output data generated"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[\"row1_data_a,row1_data_b\", \"row2_data_c,row2_data_d\", \"row3_data_e,row3_data_f\", \"row4_data_g,row4_data_h\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "rows": "[\"row1_data_a,row1_data_b\", \"row2_data_c,row2_data_d\", \"row3_data_e,row3_data_f\", \"row4_data_g,row4_data_h\"]"
+        }
+      },
+      "narrative": "The Akashic Index. A floating spectral ledger containing forgotten lore. It requires inputs from The Lesser Spell-Unbinder, The Celestial Astrolabe, and The Rune Seeker to retrieve specific records."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "3"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "333328"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "The Harmonic Synthesizer. A crystalline matrix that balances magical frequencies. It requires inputs from both The Silver Resonance Crystal and The Aetherial Inverter."
+    },
+    {
+      "id": "calc_gcd_7ac0",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "98765432109876543210123"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "12345678901234567890987"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "98765432109876543210123",
+          "b": "12345678901234567890987"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Silver Resonance Crystal. A pure, humming gemstone that emanates a steady baseline of magical energy."
+    },
+    {
+      "id": "zip_unzip_file_aef1",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "intermediate_files_extracted.csv"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"row1_data_a,row1_data_b\", \"row2_data_c,row2_data_d\", \"row3_data_e,row3_data_f\", \"row4_data_g,row4_data_h\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "confidential_archive_layer2.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "confidential_archive_layer2.zip"
+        }
+      },
+      "narrative": "The Greater Spell-Unbinder. A potent artifact designed to break complex wards. It requires inputs from both The Lesser Spell-Unbinder and The Akashic Index."
+    },
+    {
+      "id": "zip_unzip_file_722e",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "encrypted_source_package.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"2023-10-25\", \"2023-10-26\", \"2023-10-27\", \"2023-10-28\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "intermediate_files_extracted.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "encrypted_source_package.zip"
+        },
+        "outputs": {
+          "files": "intermediate_files_extracted.csv"
+        }
+      },
+      "narrative": "The Lesser Spell-Unbinder. A basic dispelling tool used by apprentices. It requires input from The Rune Seeker to bypass simple magical locks."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "\\d{4}-\\d{2}-\\d{2}"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "logs_for_regex_search.txt"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "The event occurred on 2023-10-25 and was logged."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"2023-10-25\", \"2023-10-26\", \"2023-10-27\", \"2023-10-28\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "pattern": "\\d{4}-\\d{2}-\\d{2}",
+          "file_id": "logs_for_regex_search.txt",
+          "text": "The event occurred on 2023-10-25 and was logged."
+        },
+        "outputs": {
+          "matches": "[\"2023-10-25\", \"2023-10-26\", \"2023-10-27\", \"2023-10-28\"]"
+        }
+      },
+      "narrative": "The Rune Seeker. A magical magnifying glass that can reveal hidden arcane patterns within ordinary texts."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "3"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "333328"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Aetherial Inverter. A strange device that reverses the flow of mana. It requires input from The Golden Resonance Crystal to function safely."
+    },
+    {
+      "id": "calc_gcd_1e49",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "54321678905432167890543"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "67890123456789012345678"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "54321678905432167890543",
+          "b": "67890123456789012345678"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Golden Resonance Crystal. A brilliantly glowing stone, vibrating with ancient primordial power."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Initialization sequence alpha for terminal one"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "112233445566778899001122"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Text output for slot A execution completed"
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "aabbccddeeff00112233445566778899"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Initialization sequence alpha for terminal one",
+          "slot_b": "112233445566778899001122"
+        },
+        "outputs": {
+          "text_output": "Text output for slot A execution completed",
+          "hex_output": "aabbccddeeff00112233445566778899"
+        }
+      },
+      "narrative": "The Elemental Forge. A smoldering anvil surrounded by floating embers, used to craft basic magical implements."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "terminal_2_fb74",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_2_fb74",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "src"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_2_fb74",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "calc_gcd_7ac0",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "zip_unzip_file_aef1",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file_722e",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "zip_unzip_file_722e",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "password"
+    },
+    {
+      "source_id": "zip_unzip_file_722e",
+      "target_id": "zip_unzip_file_aef1",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "b"
+    },
+    {
+      "source_id": "terminal_2_fb74",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "where"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "password"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "select"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "terminal_2_fb74",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "calc_gcd_1e49",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "zip_unzip_file_aef1",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "password"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "trigger_item"
+    }
+  ]
+}

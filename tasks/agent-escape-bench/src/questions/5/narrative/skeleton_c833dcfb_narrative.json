@@ -1,0 +1,263 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "container_2",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "container_2",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "container_2",
+        "luhn_check",
+        "matter_synthesizer"
+      ],
+      "by_node": {
+        "container_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "inner_space": {
+              "type": "Item",
+              "description": "Contents"
+            }
+          }
+        },
+        "luhn_check": {
+          "node_name": "Luhn Checker",
+          "node_type": "Tool",
+          "template_id": "luhn_check",
+          "init_inputs": {
+            "number": {
+              "type": "Text_Generic",
+              "description": "Number string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "matter_synthesizer": {
+          "node_name": "Matter Synthesizer",
+          "node_type": "Tool",
+          "template_id": "matter_synthesizer",
+          "init_inputs": {
+            "blueprint": {
+              "type": "Text_Generic",
+              "description": "Object Blueprint"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "container_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "inner_space": "dhalshflahfoainxoodhafabfkanfnuynxzl0990"
+        }
+      },
+      "luhn_check": {
+        "init_inputs": {
+          "number": "4921857361928475"
+        },
+        "init_outputs": {}
+      },
+      "matter_synthesizer": {
+        "init_inputs": {
+          "blueprint": "Schematic: Quantum Resonance Oscillator v4.2 [Classified]"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The rain beats relentlessly against the frosted windows of Silas Vance's abandoned office. You, a seasoned detective, have finally tracked the infamous corporate embezzler down to this hidden, makeshift laboratory. The air smells faintly of ozone and stale coffee. Vance was deeply paranoid, leaving his most damning secrets scattered across various devices and encrypted systems. Your primary objective is clear: retrieve the final piece of evidence locked away in his heavily secured container. But Vance didn't make it easy. You'll need to piece together scattered blueprints, verify suspicious financial trails, and manipulate his own experimental technology against him. The clock is ticking before his associates arrive to scrub the place clean. Search the room, utilize the abandoned investigative tools, and uncover the truth.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "789c4b4bcc294e05000616020c"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents",
+          "value": "dhalshflahfoainxoodhafabfkanfnuynxzl0990"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "inner_space": "dhalshflahfoainxoodhafabfkanfnuynxzl0990"
+        }
+      },
+      "narrative": "This is an Evidence Locker. It requires input from the Data Compressor to bypass its biometric security protocol."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_91d5eb095dba3fa0"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A shattered Victim's Watch recovered during the investigation."
+    },
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c4b4bcc294e05000616020c"
+        }
+      ],
+      "narrative": "This is a Data Compressor. It requires input from the Bank Card Validator to process the verification logs."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "4921857361928475"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "number": "4921857361928475"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Bank Card Validator used to quickly verify the authenticity of financial account numbers."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "Schematic: Quantum Resonance Oscillator v4.2 [Classified]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_91d5eb095dba3fa0"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "blueprint": "Schematic: Quantum Resonance Oscillator v4.2 [Classified]"
+        },
+        "outputs": {}
+      },
+      "narrative": "A high-tech Evidence Replicator capable of recreating physical objects from digital blueprints."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "zlib_deflate",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "zlib_deflate",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    }
+  ]
+}

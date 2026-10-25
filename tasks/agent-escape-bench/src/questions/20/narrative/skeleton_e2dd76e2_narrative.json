@@ -1,0 +1,1239 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 31,
+    "win_node_id": "calc_modexp",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "calc_modexp",
+      "output_port": "value",
+      "output_type": "Big_Int",
+      "description": "Execute BigInt Modular Exponentiation and get the output from port 'value'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "calc_bigmul",
+        "graph_shortest_path",
+        "calc_bigmul_39ab",
+        "num_base_convert",
+        "terminal_2",
+        "calc_gcd_20a5",
+        "calc_gcd_cfdf",
+        "calc_inv_mod_cda2",
+        "calc_inv_mod_5767",
+        "calc_bigmul_2e69",
+        "item_10"
+      ],
+      "by_node": {
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "calc_bigmul_39ab": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "calc_gcd_20a5": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd_cfdf": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod_cda2": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod_5767": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_2e69": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_10": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_10",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "193847562910384756392"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "network_graph_data.json",
+          "dst": "Node_X94"
+        },
+        "init_outputs": {
+          "path": "[\"Node_A12\", \"Node_B34\", \"Node_C56\", \"Node_D78\", \"Node_E90\", \"Node_X94\"]",
+          "cost": "148209"
+        }
+      },
+      "calc_bigmul_39ab": {
+        "init_inputs": {
+          "a": "574839201837465920183"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "from_base": "16"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "partial processing complete for the provided input segment.",
+          "hex_result": "4f7a2b9e1c3d5f6a8b2c4e1d3f5a7b9c",
+          "math_token": "A seemingly useless math token"
+        }
+      },
+      "calc_gcd_20a5": {
+        "init_inputs": {
+          "b": "827364950182736459201"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd_cfdf": {
+        "init_inputs": {
+          "b": "475839201827364583920"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod_cda2": {
+        "init_inputs": {
+          "a": "384756291048573629104"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod_5767": {
+        "init_inputs": {
+          "mod": "997303"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_2e69": {
+        "init_inputs": {
+          "b": "293847561029384756102"
+        },
+        "init_outputs": {}
+      },
+      "item_10": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "617283940581726354019"
+        }
+      }
+    },
+    "intro_narrative": "You are a clockwork engineer trapped inside the abandoned subterranean workshop of the legendary inventor Archimedes Vance. Surrounding you are towering brass machines, hissing steam pipes, and the relentless ticking of thousands of interlocking gears. The massive steel door behind you has sealed shut, and the facility's pressure gauges are dropping rapidly. If the pressure fails completely, the entire workshop will collapse into the toxic aether below. Your only hope is to restart the facility's main power source: the master chrono-engine. To achieve this, you must analyze ancient punch cards, restore power to localized machines, and synchronize the pressure systems across the workshop. Follow the intricate web of mechanical dependencies and operate the arcane devices in the correct sequence. There is no time to waste—the gears of your destiny are already turning.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "1"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "1"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "0"
+        }
+      ],
+      "narrative": "The towering master chrono-engine that powers the facility. It requires inputs from the gear-train optimizer, the kinetic modular tuner, and the thermodynamic expounder."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "1"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "A precision gear-train optimizer. It requires inputs from both the boiler core exponentiator and the kinetic modular tuner."
+    },
+    {
+      "id": "calc_modexp_926b",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "1"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "384756291048573629104"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "193847562910384756392"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1"
+        }
+      ],
+      "narrative": "A superheated boiler core exponentiator. It requires inputs from the piston-driven multiplier, the kinetic modular tuner, and the mechanical base shifter."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "1"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "148209"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "1"
+        }
+      ],
+      "narrative": "A vibrating kinetic modular tuner. It requires inputs from both the navigation astrolabe and the thermodynamic expounder."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "193847562910384756392"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "193847562910384756392"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "193847562910384756392"
+        },
+        "outputs": {}
+      },
+      "narrative": "A large piston-driven multiplier. It requires input from the kinetic modular tuner to fire its pistons."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "network_graph_data.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "partial processing complete for the provided input segment."
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Node_X94"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_A12\", \"Node_B34\", \"Node_C56\", \"Node_D78\", \"Node_E90\", \"Node_X94\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "148209"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "network_graph_data.json",
+          "dst": "Node_X94"
+        },
+        "outputs": {
+          "path": "[\"Node_A12\", \"Node_B34\", \"Node_C56\", \"Node_D78\", \"Node_E90\", \"Node_X94\"]",
+          "cost": "148209"
+        }
+      },
+      "narrative": "An intricate navigation astrolabe. It requires input from the central telegraph terminal to chart its course."
+    },
+    {
+      "id": "calc_modexp_fce4",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "1"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "384756291048573629104"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "221172999248305798473005586151209109806032"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1"
+        }
+      ],
+      "narrative": "A massive thermodynamic expounder. It requires inputs from the aetherial multiplier, the pressure synchronizer, and the mechanical base shifter."
+    },
+    {
+      "id": "calc_bigmul_39ab",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "574839201837465920183"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "384756291048573629104"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "221172999248305798473005586151209109806032"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "574839201837465920183"
+        },
+        "outputs": {}
+      },
+      "narrative": "A glowing aetherial multiplier. It requires input from the mechanical base shifter to amplify its signals."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "partial processing complete for the provided input segment."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "A heavy iron strongbox. It requires input from the central telegraph terminal to disengage its locks."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A delicate brass key module designed to interface with mechanical locks."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "4f7a2b9e1c3d5f6a8b2c4e1d3f5a7b9c"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "A rusted pneumatic safe bolted to the floor. It requires input from the central telegraph terminal to unlock."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "384756291048573629104"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "16"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "181387380402547948337581186569954022473938"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "384756291048573629104"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "from_base": "16"
+        },
+        "outputs": {}
+      },
+      "narrative": "A complex mechanical base shifter. It requires inputs from both the clockwork calibrator and the steam-powered tuner."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "16"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "partial processing complete for the provided input segment."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "4f7a2b9e1c3d5f6a8b2c4e1d3f5a7b9c"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "A seemingly useless math token"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "partial processing complete for the provided input segment.",
+          "hex_result": "4f7a2b9e1c3d5f6a8b2c4e1d3f5a7b9c",
+          "math_token": "A seemingly useless math token"
+        }
+      },
+      "narrative": "A central telegraph terminal. It requires inputs from both the cogwheel divisor and the pressure synchronizer."
+    },
+    {
+      "id": "calc_gcd_20a5",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "384756291048573629104"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "827364950182736459201"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "827364950182736459201"
+        },
+        "outputs": {}
+      },
+      "narrative": "An industrial pressure synchronizer. It requires input from the clockwork calibrator to operate."
+    },
+    {
+      "id": "calc_gcd_cfdf",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "221172999248305798473005586151209109806032"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "475839201827364583920"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "16"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "475839201827364583920"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy iron cogwheel divisor. It requires input from the aetherial multiplier to align its teeth."
+    },
+    {
+      "id": "calc_inv_mod_cda2",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "384756291048573629104"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "181387380402547948337581186569954022473938"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "384756291048573629104"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "384756291048573629104"
+        },
+        "outputs": {}
+      },
+      "narrative": "A ticking clockwork calibrator. It requires input from the brass difference engine to process its sequences."
+    },
+    {
+      "id": "calc_inv_mod_5767",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "181387380402547948337581186569954022473938"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "997303"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "181387380402547948337581186569954022473938"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "997303"
+        },
+        "outputs": {}
+      },
+      "narrative": "A hissing steam-powered tuner. It requires input from the brass difference engine to adjust its internal pressure valves."
+    },
+    {
+      "id": "item_16_fdcc",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A faded parchment covered in intricate mechanical schematics."
+    },
+    {
+      "id": "calc_bigmul_2e69",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "617283940581726354019"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "293847561029384756102"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "181387380402547948337581186569954022473938"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "293847561029384756102"
+        },
+        "outputs": {}
+      },
+      "narrative": "A brass difference engine with multiple spinning dials. It requires input from the copper punch card to begin its calculations."
+    },
+    {
+      "id": "item_10",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_10",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "617283940581726354019"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "617283940581726354019"
+        }
+      },
+      "narrative": "A small copper punch card abandoned on the wooden workbench."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_modexp_926b",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_modexp_926b",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_modexp_926b",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "base"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_modexp_fce4",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_bigmul_39ab",
+      "target_id": "calc_modexp_fce4",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "calc_modexp_fce4",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_bigmul_39ab",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "b"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "src"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_gcd_20a5",
+      "target_id": "calc_modexp_fce4",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_modexp_fce4",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_gcd_cfdf",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_modexp_926b",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_inv_mod_cda2",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "s"
+    },
+    {
+      "source_id": "calc_bigmul_39ab",
+      "target_id": "calc_gcd_cfdf",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_inv_mod_cda2",
+      "target_id": "calc_gcd_20a5",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_inv_mod_5767",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "item_16_fdcc",
+      "target_id": "calc_gcd_20a5",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_bigmul_2e69",
+      "target_id": "calc_inv_mod_5767",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul_2e69",
+      "target_id": "calc_inv_mod_cda2",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_gcd_20a5",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_modexp_fce4",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "item_10",
+      "target_id": "calc_bigmul_2e69",
+      "connection_type": "Big_Int",
+      "source_port": "content",
+      "target_port": "a"
+    }
+  ]
+}

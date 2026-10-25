@@ -1,0 +1,906 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 17,
+    "win_node_id": "checksum_crc32",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "checksum_crc32",
+      "output_port": "hex",
+      "output_type": "Hex_String",
+      "description": "Execute CRC32 Checksum and get the output from port 'hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_1",
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "zip_unzip_item",
+        "terminal_2",
+        "zip_unzip_file_9552",
+        "checksum_crc32_91b5",
+        "text_rotN"
+      ],
+      "by_node": {
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "zip_unzip_file_9552": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "checksum_crc32_91b5": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "text_rotN": {
+          "node_name": "ROT-N Cipher",
+          "node_type": "Tool",
+          "template_id": "text_rotN",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            },
+            "n": {
+              "type": "Big_Int",
+              "description": "Shift N"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Initialization sequence complete. Terminal active.",
+          "hex_output": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+          "item_dispenser": "Standard access token item"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"start_node\", \"alpha_junction\", \"beta_waypoint\", \"gamma_hub\", \"target_dest\"]",
+          "cost": "48291038475629384756"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "mission_logs_archive.zip"
+        },
+        "init_outputs": {
+          "files": "network_graph_data.json"
+        }
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "password": "CorrectHorseBatteryStaple"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num2": "91827364509182736450"
+        },
+        "init_outputs": {
+          "text_result": "U2VjcmV0UGF5bG9hZEZvckRlY29kaW5n",
+          "hex_result": "1234567890abcdef1234567890abcdef",
+          "math_token": "Calculated value token"
+        }
+      },
+      "zip_unzip_file_9552": {
+        "init_inputs": {
+          "password": "HiddenLayerPass_99"
+        },
+        "init_outputs": {
+          "files": "internal_package.zip"
+        }
+      },
+      "checksum_crc32_91b5": {
+        "init_inputs": {
+          "hex": "deadbeefcafebabe1122334455667788"
+        },
+        "init_outputs": {}
+      },
+      "text_rotN": {
+        "init_inputs": {
+          "text": "The quick brown fox jumps over the lazy dog",
+          "n": "10000000000000000013"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are an apprentice mechanist trapped in the legendary subterranean workshop of the eccentric inventor, Dr. Thaddeus Gearwright. The main boiler is rapidly overheating, and the blast doors have sealed shut. The air is thick with hissing steam, the smell of ozone, and the relentless clacking of brass gears. To prevent a catastrophic explosion and escape the facility, you must navigate a complex series of interconnected pneumatic devices and steam-powered analytical engines. Use logical deduction to restore the workshop's balance before the pressure gauge reaches the critical redline.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "02a888a2ce9ad52e74e2bef8375b71c1d71b3bf7609fb3eb8a59ced67c05ca22"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "9441be83"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2487336579
+        }
+      ],
+      "narrative": "This is the Brass Chronometer. It requires input from the Steam-Powered Compressor. Activate this to finally stabilize the workshop and escape."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Initialization sequence complete. Terminal active."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "02a888a2ce9ad52e74e2bef8375b71c1d71b3bf7609fb3eb8a59ced67c05ca22"
+        }
+      ],
+      "narrative": "This is the Steam-Powered Compressor. It requires input from the Main Cogwheel Terminal to compress the aether."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "48291038475629384756"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Initialization sequence complete. Terminal active."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "Standard access token item"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Initialization sequence complete. Terminal active.",
+          "hex_output": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+          "item_dispenser": "Standard access token item"
+        }
+      },
+      "narrative": "This is the Main Cogwheel Terminal. It requires inputs from both the Navigational Astrolabe and the Brass Cipher Wheel to activate."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "network_graph_data.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "U2VjcmV0UGF5bG9hZEZvckRlY29kaW5n"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "odaq1Q=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"start_node\", \"alpha_junction\", \"beta_waypoint\", \"gamma_hub\", \"target_dest\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "48291038475629384756"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"start_node\", \"alpha_junction\", \"beta_waypoint\", \"gamma_hub\", \"target_dest\"]",
+          "cost": "48291038475629384756"
+        }
+      },
+      "narrative": "This is the Navigational Astrolabe. It requires inputs from the Copper Pressure Cylinder, the Gearwork Translator, and the Auxiliary Valve Station."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "mission_logs_archive.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "odaq1Q=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "network_graph_data.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "mission_logs_archive.zip"
+        },
+        "outputs": {
+          "files": "network_graph_data.json"
+        }
+      },
+      "narrative": "This is a Copper Pressure Cylinder. It requires input from the Gearwork Translator to release its mechanical seal."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "a1d6aad5"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "odaq1Q=="
+        }
+      ],
+      "narrative": "This is a Gearwork Translator. It requires input from the Aether Resonance Chamber to begin processing."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A small, intricately carved Hidden Compartment Key."
+    },
+    {
+      "id": "checksum_crc32_97eb",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "5365637265745061796c6f6164466f724465636f64696e67"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "a1d6aad5"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2715200213
+        }
+      ],
+      "narrative": "This is the Aether Resonance Chamber. It requires input from the Phonograph Decoder to stabilize its energy."
+    },
+    {
+      "id": "base64_decode",
+      "name": "Base64 Decoder",
+      "description": "Decode base64 to hex bytes.",
+      "type": "Tool",
+      "template_id": "base64_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "data",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "U2VjcmV0UGF5bG9hZEZvckRlY29kaW5n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "bytes_hex",
+          "type": "Hex_String",
+          "description": "Decoded bytes as Hex",
+          "value": "5365637265745061796c6f6164466f724465636f64696e67"
+        }
+      ],
+      "narrative": "This is a Phonograph Decoder. It requires input from the Auxiliary Valve Station to translate the audio signals."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "internal_package.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "CorrectHorseBatteryStaple"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "CorrectHorseBatteryStaple"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is an Iron Lockbox. It requires input from the Secondary Steam Vault to reveal what is hidden inside."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": 2221453986
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "91827364509182736450"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "U2VjcmV0UGF5bG9hZEZvckRlY29kaW5n"
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1234567890abcdef1234567890abcdef"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Calculated value token"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num2": "91827364509182736450"
+        },
+        "outputs": {
+          "text_result": "U2VjcmV0UGF5bG9hZEZvckRlY29kaW5n",
+          "hex_result": "1234567890abcdef1234567890abcdef",
+          "math_token": "Calculated value token"
+        }
+      },
+      "narrative": "This is the Auxiliary Valve Station. It requires input from the Pneumatic Calibrator to function properly."
+    },
+    {
+      "id": "zip_unzip_file_9552",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "network_graph_data.json"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "HiddenLayerPass_99"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "internal_package.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "HiddenLayerPass_99"
+        },
+        "outputs": {
+          "files": "internal_package.zip"
+        }
+      },
+      "narrative": "This is a Secondary Steam Vault. It requires input from the Copper Pressure Cylinder to unlock its heavy doors."
+    },
+    {
+      "id": "checksum_crc32_91b5",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "deadbeefcafebabe1122334455667788"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "8468b2a2"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2221453986
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "deadbeefcafebabe1122334455667788"
+        },
+        "outputs": {}
+      },
+      "narrative": "A delicate Pneumatic Calibrator used to measure anomalous steam pressure within the pipes."
+    },
+    {
+      "id": "item_16_907f",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An old ticking Rusty Pocket Watch covered in soot and grease."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "The quick brown fox jumps over the lazy dog"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "10000000000000000013"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "Qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "The quick brown fox jumps over the lazy dog",
+          "n": "10000000000000000013"
+        },
+        "outputs": {}
+      },
+      "narrative": "A complex rotating Brass Cipher Wheel covered in faded letters and Roman numerals."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "hash_sha256",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "hash_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "text"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "terminal_1",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "checksum_crc32_97eb",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "base64_decode",
+      "target_id": "checksum_crc32_97eb",
+      "connection_type": "Hex_String",
+      "source_port": "bytes_hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "src"
+    },
+    {
+      "source_id": "zip_unzip_file_9552",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "zip_unzip_file_9552",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "base64_decode",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "data"
+    },
+    {
+      "source_id": "checksum_crc32_91b5",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "item_16_907f",
+      "target_id": "checksum_crc32_91b5",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "text_rotN",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "slot_a"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "hooks": {
+    "good_end": {
+      "type": "dom_regex",
+      "pattern": "这一次，她没有走进那道裂缝"
+    },
+    "page_basement": {
+      "type": "dom_regex",
+      "pattern": "走廊里很暗，只有你手里的手电筒发出微弱的光"
+    },
+    "page_mirror": {
+      "type": "dom_regex",
+      "pattern": "哪一年搬的，没人记得"
+    },
+    "page_cycle_trace": {
+      "type": "dom_regex",
+      "pattern": "莎曼琳娜尝试让塞贝尔不要去碰"
+    },
+    "page_castle": {
+      "type": "dom_regex",
+      "pattern": "现实世界与死后世界的裂缝里"
+    },
+    "page_runes": {
+      "type": "dom_regex",
+      "pattern": "中世纪北欧和日耳曼民族使用的古老文字"
+    },
+    "page_reaper": {
+      "type": "dom_regex",
+      "pattern": "我叫暮。不是名字。是代号"
+    },
+    "page_father": {
+      "type": "dom_regex",
+      "pattern": "今天父亲又说了那句话"
+    },
+    "page_journal": {
+      "type": "dom_regex",
+      "pattern": "她不敢写。她怕写了，就会想起自己在等谁"
+    },
+    "page_chronicle": {
+      "type": "dom_regex",
+      "pattern": "是几百年前一位旧贵族写的"
+    },
+    "page_cause": {
+      "type": "dom_regex",
+      "pattern": "暮的能力从未失效过"
+    },
+    "page_observer": {
+      "type": "dom_regex",
+      "pattern": "你就是那位主控"
+    },
+    "page_archive": {
+      "type": "dom_regex",
+      "pattern": "你找到我了。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "page_basement",
+      "hook": "page_basement",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "page_mirror",
+      "hook": "page_mirror",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "page_cycle_trace",
+      "hook": "page_cycle_trace",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "page_castle",
+      "hook": "page_castle",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "page_runes",
+      "hook": "page_runes",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "page_reaper",
+      "hook": "page_reaper",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "page_father",
+      "hook": "page_father",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "page_journal",
+      "hook": "page_journal",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "page_chronicle",
+      "hook": "page_chronicle",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "page_cause",
+      "hook": "page_cause",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "page_observer",
+      "hook": "page_observer",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "page_archive",
+      "hook": "page_archive",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "good_end",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "good_end",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "good_end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

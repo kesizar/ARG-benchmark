@@ -1,0 +1,490 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 10,
+    "win_node_id": "item_11",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_11",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_11",
+        "csv_query",
+        "unicode_norm",
+        "luhn_check"
+      ],
+      "by_node": {
+        "item_11": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_11",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "unicode_norm": {
+          "node_name": "Unicode Normalizer",
+          "node_type": "Tool",
+          "template_id": "unicode_norm",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            },
+            "form": {
+              "type": "Text_Generic",
+              "description": "Form"
+            }
+          },
+          "init_outputs": {}
+        },
+        "luhn_check": {
+          "node_name": "Luhn Checker",
+          "node_type": "Tool",
+          "template_id": "luhn_check",
+          "init_inputs": {
+            "number": {
+              "type": "Text_Generic",
+              "description": "Number string"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_11": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "import json\n\ndef process_data(data):\n    return json.dumps(data)\n\nprint('Script initialized successfully')"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {
+          "file_id": "financial_records_2023.csv"
+        },
+        "init_outputs": {
+          "rows": "[{\"id\": 101, \"item\": \"Widget A\", \"cost\": 50}, {\"id\": 102, \"item\": \"Widget B\", \"cost\": 75}, {\"id\": 103, \"item\": \"Widget C\", \"cost\": 120}, {\"id\": 104, \"item\": \"Widget D\", \"cost\": 90}, {\"id\": 105, \"item\": \"Widget E\", \"cost\": 200}]"
+        }
+      },
+      "unicode_norm": {
+        "init_inputs": {
+          "text": "Zoë façade û ñ",
+          "form": "NFC"
+        },
+        "init_outputs": {}
+      },
+      "luhn_check": {
+        "init_inputs": {
+          "number": "4532015890123456"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The agency's safehouse has been compromised. You have breached the server room, but the failsafe protocols have engaged. The extraction data has been fragmented and locked behind a series of cryptographic and biometric safeguards. To retrieve the final payload, you must manipulate the legacy hardware and security scripts left behind by the previous sysadmin. The cleaners are en route—you have fifteen minutes to decode the system and secure the asset.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "item_11",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_11",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "import json\n\ndef process_data(data):\n    return json.dumps(data)\n\nprint('Script initialized successfully')"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "import json\n\ndef process_data(data):\n    return json.dumps(data)\n\nprint('Script initialized successfully')"
+        }
+      },
+      "narrative": "This is the Omega Payload, the final executable containing the extraction coordinates. It is currently locked within the system's core architecture."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "789c8bae56ca4c51b252303430d45150ca2c49cd057294c23353d2534b141c958062c9f9c525403153835a1d05b862234cc54e488acd4d91151b632a7646526c688462b409a66a1724d596288a4d3115bb2229363230a88d0500e50e3c7e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Primary Biometric Vault, a heavy reinforced container. It requires a specific hash signal from the Compression Engine to disengage its magnetic locks."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A dedicated Timezone Synchronization Module. A piece of hardware used to regulate server timestamps."
+    },
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "[{\"id\": 101, \"item\": \"Widget A\", \"cost\": 50}, {\"id\": 102, \"item\": \"Widget B\", \"cost\": 75}, {\"id\": 103, \"item\": \"Widget C\", \"cost\": 120}, {\"id\": 104, \"item\": \"Widget D\", \"cost\": 90}, {\"id\": 105, \"item\": \"Widget E\", \"cost\": 200}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c8bae56ca4c51b252303430d45150ca2c49cd057294c23353d2534b141c958062c9f9c525403153835a1d05b862234cc54e488acd4d91151b632a7646526c688462b409a66a1724d596288a4d3115bb2229363230a88d0500e50e3c7e"
+        }
+      ],
+      "narrative": "This is the Compression Engine. It compresses raw database entries into security hashes. It requires input from the Log Query Terminal to generate the correct fingerprint."
+    },
+    {
+      "id": "container_2_0c39",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "789c8bae56ca4c51b252303430d45150ca2c49cd057294c23353d2534b141c958062c9f9c525403153835a1d05b862234cc54e488acd4d91151b632a7646526c688462b409a66a1724d596288a4d3115bb2229363230a88d0500e50e3c7e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Secondary Lockbox, marked with hazard stripes. It requires a specific hash signal from the Compression Engine to verify identity and open."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A decrypted Integer Key. It appears to be a variable extracted from a legacy storage device."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "financial_records_2023.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "Zoë façade û ñ"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"id\": 101, \"item\": \"Widget A\", \"cost\": 50}, {\"id\": 102, \"item\": \"Widget B\", \"cost\": 75}, {\"id\": 103, \"item\": \"Widget C\", \"cost\": 120}, {\"id\": 104, \"item\": \"Widget D\", \"cost\": 90}, {\"id\": 105, \"item\": \"Widget E\", \"cost\": 200}]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "financial_records_2023.csv"
+        },
+        "outputs": {
+          "rows": "[{\"id\": 101, \"item\": \"Widget A\", \"cost\": 50}, {\"id\": 102, \"item\": \"Widget B\", \"cost\": 75}, {\"id\": 103, \"item\": \"Widget C\", \"cost\": 120}, {\"id\": 104, \"item\": \"Widget D\", \"cost\": 90}, {\"id\": 105, \"item\": \"Widget E\", \"cost\": 200}]"
+        }
+      },
+      "narrative": "This is the Log Query Terminal, designed to filter through massive data files. It requires inputs from both the Text Normalizer and the ID Validator to execute a precise search."
+    },
+    {
+      "id": "unicode_norm",
+      "name": "Unicode Normalizer",
+      "description": "Unicode normalize (NFC/NFD/NFKC/NFKD).",
+      "type": "Tool",
+      "template_id": "unicode_norm",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Zoë façade û ñ"
+        },
+        {
+          "name": "form",
+          "type": "Text_Generic",
+          "description": "Form",
+          "value": "NFC"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Normalized text",
+          "value": "Zoë façade û ñ"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Zoë façade û ñ",
+          "form": "NFC"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Text Normalizer. A utility script used to strip formatting and standardize character sets from raw text inputs."
+    },
+    {
+      "id": "item_8_a749",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A Legacy Hard Drive labeled 'Sector 7 Data'. It contains raw, unformatted integer data."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "4532015890123456"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "number": "4532015890123456"
+        },
+        "outputs": {}
+      },
+      "narrative": "The ID Validator. A security tool that verifies the structural validity of identification numbers using checksum algorithms."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_2",
+      "target_id": "item_11",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "zlib_deflate",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "container_2_0c39",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "container_2_0c39",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "zlib_deflate",
+      "target_id": "container_2_0c39",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "zlib_deflate",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "text"
+    },
+    {
+      "source_id": "unicode_norm",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "select"
+    },
+    {
+      "source_id": "item_8_a749",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "where"
+    }
+  ]
+}

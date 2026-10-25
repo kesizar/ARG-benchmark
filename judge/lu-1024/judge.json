@@ -1,0 +1,23 @@
+{
+  "hooks": {
+    "verified": {"type": "dom_regex", "pattern": "4 个档案号全部核验通过"},
+    "bind": {"type": "dom_regex", "pattern": "身份绑定已确认"},
+    "refuse": {"type": "dom_regex", "pattern": "你现在就是 1025 号了"},
+    "replaced": {"type": "dom_regex", "pattern": "从现在起，您是您，您也不是您"}
+  },
+  "checkpoints": [
+    {"id": "verified", "hook": "verified", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {"id": "bind", "tier": "good", "gates": ["verified"], "ending": {"hook": "bind", "op": "truthy"}},
+    {"id": "refuse", "tier": "bad", "gates": ["verified"], "ending": {"hook": "refuse", "op": "truthy"}},
+    {"id": "replaced", "tier": "bad", "gates": [], "ending": {"hook": "replaced", "op": "truthy"}}
+  ],
+  "ending": {"hook": "bind", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

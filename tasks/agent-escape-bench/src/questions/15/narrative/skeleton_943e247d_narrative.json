@@ -1,0 +1,938 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 17,
+    "win_node_id": "calc_modexp",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "calc_modexp",
+      "output_port": "value",
+      "output_type": "Big_Int",
+      "description": "Execute BigInt Modular Exponentiation and get the output from port 'value'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "calc_modexp_0e62",
+        "num_base_convert",
+        "checksum_crc32_a7c9",
+        "calc_gcd_0d69",
+        "csv_query",
+        "graph_shortest_path",
+        "terminal_2"
+      ],
+      "by_node": {
+        "calc_modexp_0e62": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32_a7c9": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd_0d69": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            },
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            },
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "calc_modexp_0e62": {
+        "init_inputs": {
+          "base": "8374928374651029384756102",
+          "exp": "1928374650912837465091283"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "from_base": "16"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32_a7c9": {
+        "init_inputs": {
+          "hex": "4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd_0d69": {
+        "init_inputs": {
+          "a": "3847561029384756102938475",
+          "b": "9182736450918273645091827"
+        },
+        "init_outputs": {}
+      },
+      "csv_query": {
+        "init_inputs": {
+          "file_id": "customer_transactions_2023.csv",
+          "select": "transaction_id, customer_name, amount, status",
+          "where": "amount > 1000 AND status = 'completed'"
+        },
+        "init_outputs": {
+          "rows": "[{\"id\": \"TXN_001\", \"amount\": 1500}, {\"id\": \"TXN_002\", \"amount\": 2300}, {\"id\": \"TXN_003\", \"amount\": 1100}, {\"id\": \"TXN_004\", \"amount\": 4500}]"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "logistics_network_map.json",
+          "src": "Warehouse_North_A",
+          "dst": "Distribution_Center_Z"
+        },
+        "init_outputs": {
+          "path": "[\"Warehouse_North_A\", \"Transit_Hub_1\", \"Route_66_Checkpoint\", \"Cross_Dock_Facility\", \"Highway_Interchange_4\", \"Local_Depot_B\", \"Distribution_Center_Z\"]",
+          "cost": "850"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "7465839201746583920174658",
+          "num2": "1029384756102938475610293"
+        },
+        "init_outputs": {
+          "text_result": "Calculation completed successfully; verification passed.",
+          "hex_result": "deadbeef1234567890abcdef"
+        }
+      }
+    },
+    "intro_narrative": "You are a private investigator who has just broken into the abandoned Blackwood Research Facility. Rumors suggest this site was the headquarters of a notorious syndicate that left behind a complex web of interconnected security modules. The air is stale, and the hum of backup generators is the only sound. Your objective is to navigate through the darkened corridors, reactivate the dormant systems, and bypass the facility's layers of defense to crack the final vault. Keep your wits about you, as every machine and terminal is a piece of a larger puzzle.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": 1378283405
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "1378283405"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "982424157"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "912188828"
+        }
+      ],
+      "narrative": "The Final Vault Lock. The massive steel door securing the syndicate's secrets. It requires inputs from The Signal Synchronizer, The Security Checkpoint, and The Mainframe Translator to finally open."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "0"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": 1378283405
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1378283405"
+        }
+      ],
+      "narrative": "The Signal Synchronizer. A complex alignment console with blinking indicators. It requires inputs from both The Phase Inverter and The Security Checkpoint to align the facility's internal frequencies."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "0"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "9"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "0"
+        }
+      ],
+      "narrative": "The Phase Inverter. A heavy piece of machinery that balances the electrical load. It requires inputs from both The Power Grid Controller and The Frequency Tuner to stabilize the network."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "924fdc3b7e55013bf0eb3f961e980fffbb72e40383a425c0b2bd4bdc4455ae7f"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "5226ef8d"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1378283405
+        }
+      ],
+      "narrative": "The Security Checkpoint. A fortified turnstile mechanism blocking the main hallway. It requires input from The Cryptographic Decoder to verify your clearance and allow passage."
+    },
+    {
+      "id": "calc_modexp_0e62",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "8374928374651029384756102"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "1928374650912837465091283"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "9"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "0"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "8374928374651029384756102",
+          "exp": "1928374650912837465091283"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Power Grid Controller. A breaker panel covered in warning labels. It requires input from The Frequency Tuner to route energy correctly through the sector."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Digital Keycard. A plastic card with a damaged magnetic stripe lying forgotten on a desk."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "[{\"id\": \"TXN_001\", \"amount\": 1500}, {\"id\": \"TXN_002\", \"amount\": 2300}, {\"id\": \"TXN_003\", \"amount\": 1100}, {\"id\": \"TXN_004\", \"amount\": 4500}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "924fdc3b7e55013bf0eb3f961e980fffbb72e40383a425c0b2bd4bdc4455ae7f"
+        }
+      ],
+      "narrative": "The Cryptographic Decoder. An advanced cipher machine sitting on a reinforced glass table. It requires input from The Employee Database Archive to decipher the underlying text."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": 982424157
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "16"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "835060533450"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "982424157"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "from_base": "16"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Mainframe Translator. A server rack dedicated to formatting network commands. It requires inputs from both The Sector Amplifier and The Biometric Scanner to convert localized signals into mainframe instructions."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "850"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": 982424157
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "835060533450"
+        }
+      ],
+      "narrative": "The Sector Amplifier. A large antenna array designed to boost local network signals. It requires inputs from both The Biometric Scanner and The Surveillance Mapper to function properly."
+    },
+    {
+      "id": "checksum_crc32_a7c9",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "3a8e9a5d"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 982424157
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Biometric Scanner. A wall-mounted handprint reader that glow faintly in the dark."
+    },
+    {
+      "id": "item_16_4777",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Master Override Chip. A small, sophisticated piece of hardware safely encased in a glass vial."
+    },
+    {
+      "id": "calc_gcd_0d69",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "3847561029384756102938475"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "9182736450918273645091827"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "9"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "3847561029384756102938475",
+          "b": "9182736450918273645091827"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Frequency Tuner. An old radio-like device used to pinpoint secure broadcast channels within the facility."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "customer_transactions_2023.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "transaction_id, customer_name, amount, status"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "amount > 1000 AND status = 'completed'"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"id\": \"TXN_001\", \"amount\": 1500}, {\"id\": \"TXN_002\", \"amount\": 2300}, {\"id\": \"TXN_003\", \"amount\": 1100}, {\"id\": \"TXN_004\", \"amount\": 4500}]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "customer_transactions_2023.csv",
+          "select": "transaction_id, customer_name, amount, status",
+          "where": "amount > 1000 AND status = 'completed'"
+        },
+        "outputs": {
+          "rows": "[{\"id\": \"TXN_001\", \"amount\": 1500}, {\"id\": \"TXN_002\", \"amount\": 2300}, {\"id\": \"TXN_003\", \"amount\": 1100}, {\"id\": \"TXN_004\", \"amount\": 4500}]"
+        }
+      },
+      "narrative": "The Employee Database Archive. An isolated server terminal containing the remaining personnel records of the Blackwood Facility."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "logistics_network_map.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Warehouse_North_A"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Distribution_Center_Z"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Warehouse_North_A\", \"Transit_Hub_1\", \"Route_66_Checkpoint\", \"Cross_Dock_Facility\", \"Highway_Interchange_4\", \"Local_Depot_B\", \"Distribution_Center_Z\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "850"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "logistics_network_map.json",
+          "src": "Warehouse_North_A",
+          "dst": "Distribution_Center_Z"
+        },
+        "outputs": {
+          "path": "[\"Warehouse_North_A\", \"Transit_Hub_1\", \"Route_66_Checkpoint\", \"Cross_Dock_Facility\", \"Highway_Interchange_4\", \"Local_Depot_B\", \"Distribution_Center_Z\"]",
+          "cost": "850"
+        }
+      },
+      "narrative": "The Surveillance Mapper. An interactive digital map displaying the layout of the facility's security camera blind spots."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "7465839201746583920174658"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "1029384756102938475610293"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Calculation completed successfully; verification passed."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "deadbeef1234567890abcdef"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "7465839201746583920174658",
+          "num2": "1029384756102938475610293"
+        },
+        "outputs": {
+          "text_result": "Calculation completed successfully; verification passed.",
+          "hex_result": "deadbeef1234567890abcdef"
+        }
+      },
+      "narrative": "The Reception Computer. A dusty, outdated terminal sitting on the front lobby desk."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_modexp_0e62",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "checksum_crc32_a7c9",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "item_16_4777",
+      "target_id": "calc_bigmul",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "checksum_crc32_a7c9",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "s"
+    },
+    {
+      "source_id": "calc_gcd_0d69",
+      "target_id": "calc_modexp_0e62",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_gcd_0d69",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "hash_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "text"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    }
+  ]
+}

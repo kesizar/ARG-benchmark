@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "letter": {"type": "dom_regex", "pattern": "铁盒启封。信，是六十四年前写的"},
+    "finale": {"type": "dom_regex", "pattern": "三周目 · 结局（终章）"}
+  },
+  "checkpoints": [
+    {"id": "letter", "hook": "letter", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "relay",
+      "tier": "good",
+      "gates": ["letter"],
+      "ending": {"hook": "finale", "op": "truthy"}
+    }
+  ],
+  "ending": {"hook": "finale", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

@@ -1,0 +1,31 @@
+{
+  "hooks": {
+    "ice": {"type": "dom_regex", "pattern": "谢谢你让他不是白白地死。"},
+    "quiet": {"type": "dom_regex", "pattern": "谢谢你，替他保护了她们。"},
+    "sea": {"type": "dom_regex", "pattern": "真相属于死去的人。"},
+    "letter": {"type": "dom_regex", "pattern": "故事在此收束。"},
+    "member": {"type": "dom_regex", "pattern": "✔ 身份验证通过。会员：方雨晴 / 陆振国。"},
+    "coord": {"type": "dom_regex", "pattern": "✔ 坐标匹配。双重锁解除。"},
+    "morse": {"type": "dom_regex", "pattern": "译电正确。电文对应南港市 N-7 夜班专线站点首字母。"},
+    "perfect": {"type": "dom_regex", "pattern": "推理全对。结局 A · 冰山浮出。"}
+  },
+  "checkpoints": [
+    {"id": "member", "hook": "member", "op": "truthy"},
+    {"id": "coord", "hook": "coord", "op": "truthy"},
+    {"id": "morse", "hook": "morse", "op": "truthy"},
+    {"id": "perfect", "hook": "perfect", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {"id": "ice", "tier": "good", "gates": ["member", "coord", "morse", "perfect"], "ending": {"hook": "ice", "op": "truthy"}},
+    {"id": "quiet", "tier": "normal", "gates": ["member", "coord", "morse"], "ending": {"hook": "quiet", "op": "truthy"}},
+    {"id": "sea", "tier": "bad", "gates": ["member", "coord", "morse"], "ending": {"hook": "sea", "op": "truthy"}},
+    {"id": "letter", "tier": "bad", "gates": ["member", "coord", "morse"], "ending": {"hook": "letter", "op": "truthy"}}
+  ],
+  "ending": {"hook": "ice", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

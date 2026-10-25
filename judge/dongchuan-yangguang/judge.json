@@ -1,0 +1,101 @@
+{
+  "hooks": {
+    "roster": {
+      "type": "dom_regex",
+      "pattern": "他没有被抹掉。"
+    },
+    "archive": {
+      "type": "dom_regex",
+      "pattern": "你没有查清一个系统的沉默。"
+    },
+    "hold": {
+      "type": "dom_regex",
+      "pattern": "悬置，是档案最安稳的状态。"
+    },
+    "silent": {
+      "type": "dom_regex",
+      "pattern": "纸不会替谁说话。"
+    },
+    "sealed": {
+      "type": "dom_regex",
+      "pattern": "有些事，看见了就是全部。"
+    },
+    "opened": {
+      "type": "dom_regex",
+      "pattern": "入口打开了。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "opened",
+      "hook": "opened",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "roster",
+      "tier": "good",
+      "gates": [
+        "opened"
+      ],
+      "ending": {
+        "hook": "roster",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "archive",
+      "tier": "normal",
+      "gates": [
+        "opened"
+      ],
+      "ending": {
+        "hook": "archive",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "hold",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "hold",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "silent",
+      "tier": "bad",
+      "gates": [
+        "opened"
+      ],
+      "ending": {
+        "hook": "silent",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "sealed",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "sealed",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "roster",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

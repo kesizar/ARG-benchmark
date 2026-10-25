@@ -1,0 +1,262 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "luhn_check",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "luhn_check",
+      "output_port": "valid",
+      "output_type": "Text_Generic",
+      "description": "Execute Luhn Checker and get the output from port 'valid'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "calc_inv_mod",
+        "luhn_check_bcb4"
+      ],
+      "by_node": {
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "luhn_check_bcb4": {
+          "node_name": "Luhn Checker",
+          "node_type": "Tool",
+          "template_id": "luhn_check",
+          "init_inputs": {
+            "number": {
+              "type": "Text_Generic",
+              "description": "Number string"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "2938475610293847561928374",
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      },
+      "luhn_check_bcb4": {
+        "init_inputs": {
+          "number": "4539128037465192"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in the ruins of a floating sanctuary, a remnant of the Age of Myths where powerful enchanters once resided. The air hums with latent magic, and the path to freedom is sealed by ancient enchantments. Legend speaks of an absolute barrier that can only be broken by harmonizing the scattered remnants of spellcraft left behind by the sanctuary's masters. You must explore the crumbling halls, interact with the mystical artifacts, and weave their powers together to uncover the sequence that will break the seal and grant your escape.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "kfqxj"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is the Final Ward. It requires input from the Star-Wheeled Cipher to dispel the ultimate barrier."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "false"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "19557"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "kfqxj"
+        }
+      ],
+      "narrative": "This is the Star-Wheeled Cipher. It requires inputs from both the Arcanist's Balance and the Golem's Mouth to shift its constellations into the correct alignment."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "2938475610293847561928374"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "19557"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "2938475610293847561928374",
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "An ancient magical scale known as the Arcanist's Balance, used to weigh the inverse forces of the cosmos."
+    },
+    {
+      "id": "luhn_check_bcb4",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "4539128037465192"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "number": "4539128037465192"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Golem's Mouth, a stone visage embedded in the wall that seems to process magical incantations."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Spirit Orb, a translucent sphere trapped within a spectral cage, humming with ethereal energy."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "text_rotN",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "number"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "n"
+    },
+    {
+      "source_id": "luhn_check_bcb4",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "luhn_check_bcb4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    }
+  ]
+}

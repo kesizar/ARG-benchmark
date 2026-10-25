@@ -1,0 +1,263 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_7",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_7",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_7",
+        "csv_query"
+      ],
+      "by_node": {
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            },
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            },
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "def generate_magic_number():\n    return 42 * 1024\n\nprint(generate_magic_number())"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {
+          "file_id": "quarterly_sales_data_2024.csv",
+          "select": "transaction_id, customer_region, total_amount",
+          "where": "total_amount > 1000 AND status = 'completed'"
+        },
+        "init_outputs": {
+          "rows": "[{\"transaction_id\": \"TXN-88420\", \"customer_region\": \"NA-West\", \"total_amount\": 1250.00}, {\"transaction_id\": \"TXN-88421\", \"customer_region\": \"EU-Central\", \"total_amount\": 3400.50}, {\"transaction_id\": \"TXN-88425\", \"customer_region\": \"APAC-SG\", \"total_amount\": 1050.75}]"
+        }
+      }
+    },
+    "intro_narrative": "You are a seeker of ancient truths, trapped within the crumbling sanctum of the Grand Artificer. To escape before the realm collapses into the void, you must unlock the ultimate secret of the sanctum: the power held within the Master Runestone. Hidden within this chamber are remnants of the Artificer's tools—magical arrays and crystallic archives holding forgotten blueprints. Your objective is to weave together the threads of magic and raw data to manifest the keys to your salvation. Gather the artifacts, uncover the hidden sequences, and synthesize your way to freedom before time runs out.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "def generate_magic_number():\n    return 42 * 1024\n\nprint(generate_magic_number())"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "def generate_magic_number():\n    return 42 * 1024\n\nprint(generate_magic_number())"
+        }
+      },
+      "narrative": "The Master Runestone. The final, most powerful rune of the Artificer, etched with shifting esoteric symbols."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "The Temporal Seal. A heavy enchanted emblem radiating a faint, pulsating light."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_3ff6f154e085305e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Chrono-Compass. A delicate, star-metal compass that hums with the energy of distant realms."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "[{\"transaction_id\": \"TXN-88420\", \"customer_region\": \"NA-West\", \"total_amount\": 1250.00}, {\"transaction_id\": \"TXN-88421\", \"customer_region\": \"EU-Central\", \"total_amount\": 3400.50}, {\"transaction_id\": \"TXN-88425\", \"customer_region\": \"APAC-SG\", \"total_amount\": 1050.75}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_3ff6f154e085305e"
+        }
+      ],
+      "narrative": "The Aether Forge. A mystical anvil capable of manifesting physical items from pure information. It requires input from the Akashic Archive Crystal."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "quarterly_sales_data_2024.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "transaction_id, customer_region, total_amount"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "total_amount > 1000 AND status = 'completed'"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"transaction_id\": \"TXN-88420\", \"customer_region\": \"NA-West\", \"total_amount\": 1250.00}, {\"transaction_id\": \"TXN-88421\", \"customer_region\": \"EU-Central\", \"total_amount\": 3400.50}, {\"transaction_id\": \"TXN-88425\", \"customer_region\": \"APAC-SG\", \"total_amount\": 1050.75}]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "quarterly_sales_data_2024.csv",
+          "select": "transaction_id, customer_region, total_amount",
+          "where": "total_amount > 1000 AND status = 'completed'"
+        },
+        "outputs": {
+          "rows": "[{\"transaction_id\": \"TXN-88420\", \"customer_region\": \"NA-West\", \"total_amount\": 1250.00}, {\"transaction_id\": \"TXN-88421\", \"customer_region\": \"EU-Central\", \"total_amount\": 3400.50}, {\"transaction_id\": \"TXN-88425\", \"customer_region\": \"APAC-SG\", \"total_amount\": 1050.75}]"
+        }
+      },
+      "narrative": "The Akashic Archive Crystal. A glowing scrying crystal containing vast tabular records of ancient knowledge."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "blueprint"
+    }
+  ]
+}

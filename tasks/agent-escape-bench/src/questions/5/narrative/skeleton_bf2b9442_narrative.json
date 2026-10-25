@@ -1,0 +1,345 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_15",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_15",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_15",
+        "zip_unzip_item",
+        "zip_unzip_file",
+        "hex_decode",
+        "zip_unzip_file_71c2"
+      ],
+      "by_node": {
+        "item_15": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_15",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "Timezone text"
+            }
+          }
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "hex_decode": {
+          "node_name": "Hex to Text Decoder",
+          "node_type": "Tool",
+          "template_id": "hex_decode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_71c2": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_15": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "Elysium/Lethe"
+        }
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "password": "BlueSky$8821"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "payload_v2.zip"
+        }
+      },
+      "hex_decode": {
+        "init_inputs": {
+          "hex": "70617373776f7264313233"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_71c2": {
+        "init_inputs": {
+          "zip_id": "backup_2023.zip",
+          "password": "Admin@12345"
+        },
+        "init_outputs": {
+          "files": "encrypted_data_shard.zip"
+        }
+      }
+    },
+    "intro_narrative": "The ash storms have battered Sector 4 for weeks, and the outpost's life support systems are on the verge of total failure. As a scavenger who just breached an abandoned subterranean military command center, your only hope is to discover the launch window coordinates for the last remaining automated shuttle. The facility has been locked down and left to decay since the Great Collapse, with its mainframes heavily encrypted to prevent unauthorized access. The air grows stale, and the faint hum of failing generators reminds you that time is running out. To survive, you must sift through the remnants of the command center, interact with the surviving data terminals, and restore the extraction protocols before the radiation shields give out completely. Your ultimate goal is to find the exact timezone logs required to board the shuttle and escape this dying wasteland.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "item_15",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_15",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "Timezone text",
+          "value": "Elysium/Lethe"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "Elysium/Lethe"
+        }
+      },
+      "narrative": "A weathered datapad containing the critical timezone logs needed to sync with the evacuation shuttle."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "payload_v2.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "BlueSky$8821"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "BlueSky$8821"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the physical matter reassembler. It requires input from the secondary decryption mainframe to reconstruct the salvaged components."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "encrypted_data_shard.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "password123"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "payload_v2.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "payload_v2.zip"
+        }
+      },
+      "narrative": "This is the secondary decryption mainframe. It requires inputs from both the signal transcriber and the primary archive extractor to process the corrupted data."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "70617373776f7264313233"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "password123"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "70617373776f7264313233"
+        },
+        "outputs": {}
+      },
+      "narrative": "An old military signal transcriber covered in dust."
+    },
+    {
+      "id": "zip_unzip_file_71c2",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "backup_2023.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Admin@12345"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "encrypted_data_shard.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "backup_2023.zip",
+          "password": "Admin@12345"
+        },
+        "outputs": {
+          "files": "encrypted_data_shard.zip"
+        }
+      },
+      "narrative": "A heavy-duty primary archive extractor salvaged from a forgotten bunker."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_15",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "zip_unzip_file_71c2",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    }
+  ]
+}

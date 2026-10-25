@@ -1,0 +1,119 @@
+{
+  "hooks": {
+    "guide": {
+      "type": "dom_regex",
+      "pattern": "真正的归家，是回到自己。"
+    },
+    "peace": {
+      "type": "dom_regex",
+      "pattern": "结局 A · 安宁"
+    },
+    "curious": {
+      "type": "dom_regex",
+      "pattern": "结局 B · 好奇"
+    },
+    "duty": {
+      "type": "dom_regex",
+      "pattern": "结局 C · 职责"
+    },
+    "watch": {
+      "type": "dom_regex",
+      "pattern": "结局 D · 旁观者"
+    },
+    "chill": {
+      "type": "dom_regex",
+      "pattern": "陈默的后背一阵发凉。"
+    },
+    "memo": {
+      "type": "dom_regex",
+      "pattern": "备忘录解锁了。里面的内容让陈默头皮发麻。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "chill",
+      "hook": "chill",
+      "op": "truthy"
+    },
+    {
+      "id": "memo",
+      "hook": "memo",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "guide",
+      "tier": "good",
+      "gates": [
+        "chill",
+        "memo"
+      ],
+      "ending": {
+        "hook": "guide",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "peace",
+      "tier": "normal",
+      "gates": [
+        "chill",
+        "memo"
+      ],
+      "ending": {
+        "hook": "peace",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "curious",
+      "tier": "normal",
+      "gates": [
+        "chill",
+        "memo"
+      ],
+      "ending": {
+        "hook": "curious",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "duty",
+      "tier": "normal",
+      "gates": [
+        "chill",
+        "memo"
+      ],
+      "ending": {
+        "hook": "duty",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "watch",
+      "tier": "normal",
+      "gates": [
+        "chill",
+        "memo"
+      ],
+      "ending": {
+        "hook": "watch",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "guide",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

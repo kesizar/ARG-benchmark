@@ -1,0 +1,344 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "crypto_rsa_decrypt_hex",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "crypto_rsa_decrypt_hex",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute RSA Decrypt and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "crypto_rsa_decrypt_hex",
+        "terminal_2",
+        "hmac_sha256"
+      ],
+      "by_node": {
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "n": {
+              "type": "Big_Int",
+              "description": "Modulus n"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "hmac_sha256": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "hex_key": {
+              "type": "Hex_String",
+              "description": "Hex key"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text message"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "n": "948572631029384756192837465019283746510293847561029384756192"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "4857392018475629384710293847561029384756",
+          "num2": "5968403129586730495821304958672130495867"
+        },
+        "init_outputs": {
+          "text_result": "Partial calculation result awaiting further inputs.",
+          "hex_result": "e4d3c2b1a09f8e7d6c5b4a39281706f5",
+          "math_token": "Decorative token with no computational value."
+        }
+      },
+      "hmac_sha256": {
+        "init_inputs": {
+          "hex_key": "11223344556677889900aabbccddeeff11223344556677889900aabbccddeeff",
+          "text": "Initiate secure sequence protocol alpha."
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are a scholar of the arcane, trapped within the lost Observatory of Eldoria. The heavy stone doors have been sealed by powerful runic magic meant to protect the realm's greatest secrets. To escape this celestial prison, you must decipher the final incantation hidden within the Grand Cipher Monolith at the center of the room. The observatory is filled with strange magical apparatuses left behind by the ancient archmages. By understanding how these mystical artifacts connect and share their arcane energies, you can unravel the mystery and find your way back to the living world.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "d1745ce6c51490637ca155672f1720f1de181ab4ae9dcc04a8793d022ea63422"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "948572631029384756192837465019283746510293847561029384756192"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": 1565200541
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "dc`KX=JWcQ:\u0000"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "n": "948572631029384756192837465019283746510293847561029384756192"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Grand Cipher Monolith. It requires inputs from both the glyph resonation chamber and the shadow-forged crucible to break the final seal."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "e4d3c2b1a09f8e7d6c5b4a39281706f5"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "5d4b109d"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1565200541
+        }
+      ],
+      "narrative": "This is a glyph resonation chamber. It requires input from the astral calculation orb to function."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An ancient sundial carved with faded celestial maps."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "4857392018475629384710293847561029384756"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "5968403129586730495821304958672130495867"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Partial calculation result awaiting further inputs."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "e4d3c2b1a09f8e7d6c5b4a39281706f5"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Decorative token with no computational value."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "4857392018475629384710293847561029384756",
+          "num2": "5968403129586730495821304958672130495867"
+        },
+        "outputs": {
+          "text_result": "Partial calculation result awaiting further inputs.",
+          "hex_result": "e4d3c2b1a09f8e7d6c5b4a39281706f5",
+          "math_token": "Decorative token with no computational value."
+        }
+      },
+      "narrative": "A glowing astral calculation orb hovering above a solid brass pedestal."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "11223344556677889900aabbccddeeff11223344556677889900aabbccddeeff"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Initiate secure sequence protocol alpha."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "d1745ce6c51490637ca155672f1720f1de181ab4ae9dcc04a8793d022ea63422"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_key": "11223344556677889900aabbccddeeff11223344556677889900aabbccddeeff",
+          "text": "Initiate secure sequence protocol alpha."
+        },
+        "outputs": {}
+      },
+      "narrative": "A shadow-forged crucible radiating with dormant magical energy."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "d"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_cipher"
+    }
+  ]
+}

@@ -1,0 +1,806 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 16,
+    "win_node_id": "luhn_check",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "luhn_check",
+      "output_port": "valid",
+      "output_type": "Text_Generic",
+      "description": "Execute Luhn Checker and get the output from port 'valid'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "hex_encode_3e1b",
+        "terminal_2",
+        "hmac_sha256",
+        "terminal_1",
+        "calc_gcd",
+        "calc_inv_mod"
+      ],
+      "by_node": {
+        "hex_encode_3e1b": {
+          "node_name": "Text to Hex Encoder",
+          "node_type": "Tool",
+          "template_id": "hex_encode",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "hmac_sha256": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "hex_key": {
+              "type": "Hex_String",
+              "description": "Hex key"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text message"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "hex_encode_3e1b": {
+        "init_inputs": {
+          "text": "Initiating secure data transmission sequence."
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "837465920182736450918273645109"
+        },
+        "init_outputs": {
+          "text_result": "Calculation deferred; pending secondary numeric operand.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "hmac_sha256": {
+        "init_inputs": {
+          "hex_key": "cafebabecafebabecafebabecafebabe",
+          "text": "Verify the integrity of this critical payload."
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Terminal initialized. Waiting for external calculation inputs.",
+          "hex_output": "8899aabbccddeeff0011223344556677",
+          "item_dispenser": "Standard issued token of negligible value."
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "592837465102938475610293847561",
+          "b": "102938475610293847561029384756"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "475869102384756102938475612345",
+          "mod": "524287"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The world ended decades ago, leaving behind a scarred wasteland of rusted metal and forgotten technology. You are a scavenger who just discovered a sealed military bunker half-buried in the irradiated dunes. Rumors say this bunker holds a functional atmospheric purifier, a treasure that could save your struggling settlement. However, the outpost is protected by a complex network of ancient computer terminals, biometric lockboxes, and fragmented communication relays. Your objective is to reactivate the automated systems, bypass the military-grade security, and trick the final lockdown validator into granting you access. You'll need to power up the surviving processors, piece together scraps of data, and follow the digital breadcrumbs left by the bunker's final operators before the radioactive sandstorm hits and buries this place forever.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "Initiating secure data transmission sequence."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is the Final Validator. It requires input from the Cipher Decoder to verify the ultimate override command and open the bunker doors."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "496e6974696174696e67207365637572652064617461207472616e736d697373696f6e2073657175656e63652e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "Initiating secure data transmission sequence."
+        }
+      ],
+      "narrative": "This is the Cipher Decoder. It requires input from the Signal Encoder to process the complex data stream."
+    },
+    {
+      "id": "hex_encode",
+      "name": "Text to Hex Encoder",
+      "description": "Encode UTF-8 text to hex.",
+      "type": "Tool",
+      "template_id": "hex_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Initiating secure data transmission sequence."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Encoded hex",
+          "value": "496e6974696174696e67207365637572652064617461207472616e736d697373696f6e2073657175656e63652e"
+        }
+      ],
+      "narrative": "This is the Signal Encoder. It requires input from the Field Decoder to package the outgoing transmission."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A sharp, rusted scrap of metal torn from a ruined military transport vehicle."
+    },
+    {
+      "id": "hex_decode_e885",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "496e6974696174696e67207365637572652064617461207472616e736d697373696f6e2073657175656e63652e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "Initiating secure data transmission sequence."
+        }
+      ],
+      "narrative": "This is the Field Decoder. It requires input from the Backup Encoder to translate the incoming transmission."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "496e6974696174696e67207365637572652064617461207472616e736d697373696f6e2073657175656e63652e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Wasteland Crate. It requires input from the Backup Encoder to bypass its electronic latch."
+    },
+    {
+      "id": "hex_encode_3e1b",
+      "name": "Text to Hex Encoder",
+      "description": "Encode UTF-8 text to hex.",
+      "type": "Tool",
+      "template_id": "hex_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Initiating secure data transmission sequence."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Encoded hex",
+          "value": "496e6974696174696e67207365637572652064617461207472616e736d697373696f6e2073657175656e63652e"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Initiating secure data transmission sequence."
+        },
+        "outputs": {}
+      },
+      "narrative": "A Backup Encoder running on a depleted battery, its screen flickering faintly."
+    },
+    {
+      "id": "item_16_a260",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A dust-covered scrap of old world metal with faded warning markings."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "93d70dc28105276e30c1f11225d60d53cf11c83530960e4587ac20ec6df5c7a2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Secure Lockbox. It requires input from the Security Authenticator to release its biometric seals."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "837465920182736450918273645109"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Calculation deferred; pending secondary numeric operand."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "837465920182736450918273645109"
+        },
+        "outputs": {
+          "text_result": "Calculation deferred; pending secondary numeric operand.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "narrative": "This is the Secondary Console. It requires input from the Navigation Processor to calculate its coordinates."
+    },
+    {
+      "id": "container_1_589c",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "8899aabbccddeeff0011223344556677"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Primary Lockbox. It requires input from the Main Console to disengage its heavy blast locks."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "cafebabecafebabecafebabecafebabe"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Verify the integrity of this critical payload."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "93d70dc28105276e30c1f11225d60d53cf11c83530960e4587ac20ec6df5c7a2"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_key": "cafebabecafebabecafebabecafebabe",
+          "text": "Verify the integrity of this critical payload."
+        },
+        "outputs": {}
+      },
+      "narrative": "A high-tech Security Authenticator salvaged from a military ruin."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Calculation deferred; pending secondary numeric operand."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "7461"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal initialized. Waiting for external calculation inputs."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "8899aabbccddeeff0011223344556677"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "Standard issued token of negligible value."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Terminal initialized. Waiting for external calculation inputs.",
+          "hex_output": "8899aabbccddeeff0011223344556677",
+          "item_dispenser": "Standard issued token of negligible value."
+        }
+      },
+      "narrative": "This is the Main Console. It requires inputs from both the Secondary Console and the Grid Calibrator to boot up its primary interface."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "592837465102938475610293847561"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "102938475610293847561029384756"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "592837465102938475610293847561",
+          "b": "102938475610293847561029384756"
+        },
+        "outputs": {}
+      },
+      "narrative": "A bulky Navigation Processor used by scavengers, running on barely enough solar power."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "475869102384756102938475612345"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "524287"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "7461"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "475869102384756102938475612345",
+          "mod": "524287"
+        },
+        "outputs": {}
+      },
+      "narrative": "A rugged Grid Calibrator found half-buried in the rubble."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "hex_decode",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "number"
+    },
+    {
+      "source_id": "hex_encode",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "hex_encode",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "hex_decode_e885",
+      "target_id": "hex_encode",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "hex_decode_e885",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "hex_encode_3e1b",
+      "target_id": "hex_decode_e885",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "hex_encode_3e1b",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_16_a260",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16_a260",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_1_589c",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "container_1_589c",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "slot_b"
+    }
+  ]
+}

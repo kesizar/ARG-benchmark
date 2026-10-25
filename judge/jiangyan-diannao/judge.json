@@ -1,0 +1,50 @@
+{
+  "hooks": {
+    "opened": {
+      "type": "dom_regex",
+      "pattern": "你终于打开了那个加密文件"
+    },
+    "password": {
+      "type": "input_sha256",
+      "selector": "#passwordInput",
+      "hashes": [
+        "5870a3c4ae138b679f29a8e90693123bf956b830c8c153ad902e112eef74f509",
+        "8d1ede4f889e0ed6f0823d8c1821905b9de37a0f851dc270df0dbf72b3c93641",
+        "7d51fec9c96fc18f4709d3821c16e96ddde9493269be59183f1d797b7f4abd98"
+      ]
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "password",
+      "hook": "password",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "opened",
+      "tier": "good",
+      "gates": [
+        "password"
+      ],
+      "ending": {
+        "hook": "opened",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "opened",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

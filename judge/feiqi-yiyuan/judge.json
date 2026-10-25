@@ -1,0 +1,70 @@
+{
+  "hooks": {
+    "truth": {
+      "type": "dom_regex",
+      "pattern": "真结局 · 全真相"
+    },
+    "follow": {
+      "type": "dom_regex",
+      "pattern": "帖子后续 · 已更新"
+    },
+    "space": {
+      "type": "dom_regex",
+      "pattern": "口令正确。空间已解锁。"
+    },
+    "phone": {
+      "type": "dom_regex",
+      "pattern": "手机已解锁。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "space",
+      "hook": "space",
+      "op": "truthy"
+    },
+    {
+      "id": "phone",
+      "hook": "phone",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "truth",
+      "tier": "good",
+      "gates": [
+        "space",
+        "phone"
+      ],
+      "ending": {
+        "hook": "truth",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "follow",
+      "tier": "normal",
+      "gates": [
+        "space"
+      ],
+      "ending": {
+        "hook": "follow",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "truth",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

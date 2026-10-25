@@ -1,0 +1,64 @@
+{
+  "hooks": {
+    "keep": {
+      "type": "localstorage",
+      "key": "lh3",
+      "mode": "json_path",
+      "path": "end"
+    },
+    "destroyed": {
+      "type": "localstorage",
+      "key": "lh3",
+      "mode": "json_path",
+      "path": "end"
+    },
+    "album": {
+      "type": "dom_regex",
+      "pattern": "【系统解密成功】"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "album",
+      "hook": "album",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "keep",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "keep",
+        "op": "eq",
+        "value": "keep"
+      }
+    },
+    {
+      "id": "destroyed",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "destroyed",
+        "op": "eq",
+        "value": "destroyed"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "keep",
+    "op": "eq",
+    "value": "keep"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

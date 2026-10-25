@@ -1,0 +1,315 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_16",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_16",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_16",
+        "calc_bigmul",
+        "terminal_1"
+      ],
+      "by_node": {
+        "item_16": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_16",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hidden_Item",
+              "description": "Timezone text"
+            }
+          }
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            },
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_16": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "FLaG_{d8d92nusnd92ndxjn29n484hrja00dsjdagzk}"
+        }
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "4857203948572019384756291",
+          "b": "1928374650918273645019283"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "System check initiated via terminal input.",
+          "slot_b": "5647382910293847561029384"
+        },
+        "init_outputs": {
+          "text_output": "Terminal operation completed successfully.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      }
+    },
+    "intro_narrative": "You awaken in the abandoned Chronos Research Facility. The air is stale, and emergency lights flicker, casting long shadows across the cold metallic walls. Once a hub for cutting-edge temporal experiments, this laboratory now stands silent, completely sealed off from the outside world. Your mission is of absolute importance: you must recover the highly classified timezone text, a critical piece of data that could stabilize the current temporal anomaly threatening your reality. The text is secured somewhere within this room, protected by layers of advanced security and scrambled equipment. As you look around, you notice various dormant devices, terminals, and strange data drives scattered across the desks and floor. The automated systems are barely functional, requiring precise manual operations and logical deduction to restore the correct data flow. You will need to carefully investigate every piece of surviving equipment, figure out how they connect, and bypass the rigorous biometric defenses. With the facility's life support systems slowly failing and the ambient temperature dropping, time is of the essence. Stay sharp, trust your instincts, and navigate the fragmented technology to secure the archive before this laboratory becomes your permanent tomb.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text",
+          "value": "FLaG_{d8d92nusnd92ndxjn29n484hrja00dsjdagzk}"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "FLaG_{d8d92nusnd92ndxjn29n484hrja00dsjdagzk}"
+        }
+      },
+      "narrative": "The core archive drive that holds the final classified timezone text."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "9366508968766428255329910241614281023046950559353"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a biometric vault. It requires input from the calculation matrix to authenticate and unlock."
+    },
+    {
+      "id": "item_16_e904",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A portable data log device containing encrypted temporal records."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "4857203948572019384756291"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "1928374650918273645019283"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "9366508968766428255329910241614281023046950559353"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "4857203948572019384756291",
+          "b": "1928374650918273645019283"
+        },
+        "outputs": {}
+      },
+      "narrative": "A high-performance calculation matrix used for processing massive numbers."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "System check initiated via terminal input."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "5647382910293847561029384"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal operation completed successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "System check initiated via terminal input.",
+          "slot_b": "5647382910293847561029384"
+        },
+        "outputs": {
+          "text_output": "Terminal operation completed successfully.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "narrative": "A main terminal used for interacting with the facility's central system."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_3",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_e904",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "item_16_e904",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    }
+  ]
+}

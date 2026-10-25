@@ -1,0 +1,1360 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 28,
+    "win_node_id": "item_8",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_8",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_8",
+        "terminal_1",
+        "regex_search",
+        "csv_query",
+        "text_bidi_sanitize",
+        "regex_search_1a6a",
+        "zip_unzip_file",
+        "zip_unzip_file_797f",
+        "zip_unzip_file_a2a6",
+        "zip_unzip_file_6915",
+        "time_convert",
+        "base64_decode",
+        "num_base_convert",
+        "zip_unzip_file_bb71",
+        "calc_gcd",
+        "num_base_convert_641e"
+      ],
+      "by_node": {
+        "item_8": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_8",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hidden_Item",
+              "description": "The integer"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {},
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {},
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "text_bidi_sanitize": {
+          "node_name": "Bidi Sanitizer",
+          "node_type": "Tool",
+          "template_id": "text_bidi_sanitize",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            }
+          },
+          "init_outputs": {}
+        },
+        "regex_search_1a6a": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {},
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_797f": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_a2a6": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_6915": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "time_convert": {
+          "node_name": "Timezone Converter",
+          "node_type": "Tool",
+          "template_id": "time_convert",
+          "init_inputs": {
+            "iso": {
+              "type": "Text_Generic",
+              "description": "ISO Timestamp"
+            },
+            "from_tz": {
+              "type": "Text_Generic",
+              "description": "From Timezone"
+            },
+            "to_tz": {
+              "type": "Text_Generic",
+              "description": "To Timezone"
+            }
+          },
+          "init_outputs": {}
+        },
+        "base64_decode": {
+          "node_name": "Base64 Decoder",
+          "node_type": "Tool",
+          "template_id": "base64_decode",
+          "init_inputs": {
+            "data": {
+              "type": "Text_Generic",
+              "description": "Base64 string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_bb71": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert_641e": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_8": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "ACTIVATE_OBLIVION_ENGAGE_QUANTUM_DECOUPLER"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Process completed successfully in the terminal.",
+          "hex_output": "deadbeef1234567890abcdef"
+        }
+      },
+      "regex_search": {
+        "init_inputs": {},
+        "init_outputs": {
+          "matches": "[\"match1\", \"match2\", \"match3\", \"match4\"]"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {},
+        "init_outputs": {
+          "rows": "[\"row1_data\", \"row2_data\", \"row3_data\", \"row4_data\"]"
+        }
+      },
+      "text_bidi_sanitize": {
+        "init_inputs": {
+          "text": "‮Text requiring sanitization for bidi controls‬"
+        },
+        "init_outputs": {}
+      },
+      "regex_search_1a6a": {
+        "init_inputs": {},
+        "init_outputs": {
+          "matches": "[\"192.168.1.1\", \"10.0.0.1\", \"172.16.0.1\", \"127.0.0.1\"]"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "dataset_extract.zip"
+        }
+      },
+      "zip_unzip_file_797f": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "archive_backup_2.zip"
+        }
+      },
+      "zip_unzip_file_a2a6": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "archive_backup_3.zip"
+        }
+      },
+      "zip_unzip_file_6915": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "archive_backup_4.zip"
+        }
+      },
+      "time_convert": {
+        "init_inputs": {
+          "iso": "2023-10-01T10:00:00Z",
+          "from_tz": "UTC",
+          "to_tz": "Asia/Shanghai"
+        },
+        "init_outputs": {}
+      },
+      "base64_decode": {
+        "init_inputs": {
+          "data": "U2VjcmV0IG1lc3NhZ2UgZm9yIGRlY29kaW5n"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "987654321098765432109876",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_bb71": {
+        "init_inputs": {
+          "zip_id": "encrypted_source.zip",
+          "password": "Password123!"
+        },
+        "init_outputs": {
+          "files": "decrypted_files.zip"
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "12345678901234567890123",
+          "b": "32109876543210987654321"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert_641e": {
+        "init_inputs": {
+          "s": "45678901234567890123456",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "Welcome to the Lost Sanctum of Aethelgard, a forgotten magical observatory suspended between the realms of time and space. Centuries ago, the Archmage Kaelen sealed away his greatest creation, the Philosopher's Core, to protect it from creeping shadows. You find yourself trapped within the glowing halls of this ancient sanctuary, surrounded by floating runeboxes, scrying pools, and arcane machinery. The doors have vanished, and the only way to escape is to reawaken the Sanctum's dormant magical network. You must decipher the enchanted artifacts, unravel the spells woven into the observatory, and channel cosmic energies through various magical tools. Piece together the scattered wisdom of the Archmage to restore the grand enchantments. Only by mastering the flow of magic between these mystical relics can you unveil the hidden core and secure your passage back to the mortal world. Beware, for the magic here relies on an unbroken chain of resonance. Follow the flow of energy, and let the stars guide your path.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer",
+          "value": "ACTIVATE_OBLIVION_ENGAGE_QUANTUM_DECOUPLER"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "ACTIVATE_OBLIVION_ENGAGE_QUANTUM_DECOUPLER"
+        }
+      },
+      "narrative": "A glowing magical essence pulsing with untold power, known as the Philosopher's Core."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is the Astral Catalyst, a rare crystallized shard used to channel cosmic energies."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "[\"match1\", \"match2\", \"match3\", \"match4\"]"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "941456953"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Process completed successfully in the terminal."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "deadbeef1234567890abcdef"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Process completed successfully in the terminal.",
+          "hex_output": "deadbeef1234567890abcdef"
+        }
+      },
+      "narrative": "This is the Grand Altar. It requires inputs from both the Seer's Orb and the Celestial Scales to awaken its final blessing."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "[\"row1_data\", \"row2_data\", \"row3_data\", \"row4_data\"]"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "dataset_extract.zip"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "Text requiring sanitization for bidi controls"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"match1\", \"match2\", \"match3\", \"match4\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "matches": "[\"match1\", \"match2\", \"match3\", \"match4\"]"
+        }
+      },
+      "narrative": "This is the Seer's Orb. It requires inputs from the Book of Lineages, the Runebox of Wind, and the Purifying Crystal to reveal its visions."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "archive_backup_3.zip"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "Text requiring sanitization for bidi controls"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "[\"192.168.1.1\", \"10.0.0.1\", \"172.16.0.1\", \"127.0.0.1\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[\"row1_data\", \"row2_data\", \"row3_data\", \"row4_data\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "rows": "[\"row1_data\", \"row2_data\", \"row3_data\", \"row4_data\"]"
+        }
+      },
+      "narrative": "This is the Book of Lineages. It requires inputs from the Purifying Crystal, the Scrying Pool, and the Runebox of Water to turn its magical pages."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "‮Text requiring sanitization for bidi controls‬"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "Text requiring sanitization for bidi controls"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "‮Text requiring sanitization for bidi controls‬"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Purifying Crystal, an enchanted gemstone that hums with a cleansing aura."
+    },
+    {
+      "id": "regex_search_1a6a",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "2023-10-01T18:00:00+08:00"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "dataset_extract.zip"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "Text requiring sanitization for bidi controls"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"192.168.1.1\", \"10.0.0.1\", \"172.16.0.1\", \"127.0.0.1\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "matches": "[\"192.168.1.1\", \"10.0.0.1\", \"172.16.0.1\", \"127.0.0.1\"]"
+        }
+      },
+      "narrative": "This is the Scrying Pool. It requires inputs from the Runebox of Wind, the Purifying Crystal, and the Chronos Dial to show its reflections."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_backup_2.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Text requiring sanitization for bidi controls"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "dataset_extract.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "dataset_extract.zip"
+        }
+      },
+      "narrative": "This is the Runebox of Wind. It requires inputs from the Runebox of Fire and the Purifying Crystal to unlock its breezy seals."
+    },
+    {
+      "id": "zip_unzip_file_797f",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_backup_3.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "2023-10-01T18:00:00+08:00"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "archive_backup_2.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "archive_backup_2.zip"
+        }
+      },
+      "narrative": "This is the Runebox of Fire. It requires inputs from the Runebox of Water and the Chronos Dial to melt its fiery locks."
+    },
+    {
+      "id": "zip_unzip_file_a2a6",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_backup_4.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Text requiring sanitization for bidi controls"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "archive_backup_3.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "archive_backup_3.zip"
+        }
+      },
+      "narrative": "This is the Runebox of Water. It requires inputs from the Runebox of Earth and the Purifying Crystal to open its aquatic vault."
+    },
+    {
+      "id": "zip_unzip_file_6915",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "decrypted_files.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Text requiring sanitization for bidi controls"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "archive_backup_4.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "archive_backup_4.zip"
+        }
+      },
+      "narrative": "This is the Runebox of Earth. It requires inputs from the Purifying Crystal and the Sealed Iron Chest to unbind its rocky exterior."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "2962962963296296296329628"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "987654321098765432109876"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 3037237493
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "941456953"
+        }
+      ],
+      "narrative": "This is the Celestial Scales. It requires inputs from the Soul Weigher, the Arcane Transmuter, and the Loom of Fates to balance the cosmic equation."
+    },
+    {
+      "id": "time_convert",
+      "name": "Timezone Converter",
+      "description": "Convert ISO time between timezones.",
+      "type": "Tool",
+      "template_id": "time_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "ISO Timestamp",
+          "value": "2023-10-01T10:00:00Z"
+        },
+        {
+          "name": "from_tz",
+          "type": "Text_Generic",
+          "description": "From Timezone",
+          "value": "UTC"
+        },
+        {
+          "name": "to_tz",
+          "type": "Text_Generic",
+          "description": "To Timezone",
+          "value": "Asia/Shanghai"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "Converted ISO Timestamp",
+          "value": "2023-10-01T18:00:00+08:00"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "iso": "2023-10-01T10:00:00Z",
+          "from_tz": "UTC",
+          "to_tz": "Asia/Shanghai"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Chronos Dial, an ancient golden dial that shifts its hands according to the alignment of the stars."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "536563726574206d65737361676520666f72206465636f64696e67"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "b50890f5"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3037237493
+        }
+      ],
+      "narrative": "This is the Soul Weigher. It requires input from the Moonlit Prism to measure the spiritual weight of your mystical offering."
+    },
+    {
+      "id": "base64_decode",
+      "name": "Base64 Decoder",
+      "description": "Decode base64 to hex bytes.",
+      "type": "Tool",
+      "template_id": "base64_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "U2VjcmV0IG1lc3NhZ2UgZm9yIGRlY29kaW5n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "bytes_hex",
+          "type": "Hex_String",
+          "description": "Decoded bytes as Hex",
+          "value": "536563726574206d65737361676520666f72206465636f64696e67"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "data": "U2VjcmV0IG1lc3NhZ2UgZm9yIGRlY29kaW5n"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Moonlit Prism, a silver-framed glass prism that scatters moonlight into hidden symbols."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "987654321098765432109876"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "45678901234567890123456"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "987654321098765432109876"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "987654321098765432109876",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Arcane Transmuter. It requires input from the Starlight Scepter to convert magical energies into new forms."
+    },
+    {
+      "id": "zip_unzip_file_bb71",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "encrypted_source.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Password123!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "decrypted_files.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "encrypted_source.zip",
+          "password": "Password123!"
+        },
+        "outputs": {
+          "files": "decrypted_files.zip"
+        }
+      },
+      "narrative": "This is the Sealed Iron Chest, a heavy, rusted container bound in thick enchanted chains."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "987654321098765432109876"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "2962962963296296296329628"
+        }
+      ],
+      "narrative": "This is the Loom of Fates. It requires inputs from the Arcane Transmuter and the Harmonic Pendulum to weave the threads of destiny."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "12345678901234567890123"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "32109876543210987654321"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "12345678901234567890123",
+          "b": "32109876543210987654321"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Harmonic Pendulum, a crystal pendulum suspended over a brass map, swinging in perfect rhythm."
+    },
+    {
+      "id": "num_base_convert_641e",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "45678901234567890123456"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "10"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "45678901234567890123456"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "45678901234567890123456",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Starlight Scepter, a slender wand carved from a fallen meteor, glowing faintly in the dark."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "pattern"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "select"
+    },
+    {
+      "source_id": "regex_search_1a6a",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "where"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "regex_search_1a6a",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file_797f",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file_a2a6",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "zip_unzip_file_a2a6",
+      "target_id": "zip_unzip_file_797f",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "regex_search",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file_6915",
+      "target_id": "zip_unzip_file_a2a6",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "zip_unzip_file_6915",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "regex_search_1a6a",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "zip_unzip_file_a2a6",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "time_convert",
+      "target_id": "zip_unzip_file_797f",
+      "connection_type": "Text_Generic",
+      "source_port": "iso",
+      "target_port": "password"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "time_convert",
+      "target_id": "regex_search_1a6a",
+      "connection_type": "Text_Generic",
+      "source_port": "iso",
+      "target_port": "pattern"
+    },
+    {
+      "source_id": "base64_decode",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "bytes_hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "zip_unzip_file_bb71",
+      "target_id": "zip_unzip_file_6915",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "base"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "b"
+    },
+    {
+      "source_id": "num_base_convert_641e",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "from_base"
+    }
+  ]
+}

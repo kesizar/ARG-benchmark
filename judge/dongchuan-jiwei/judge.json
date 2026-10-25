@@ -1,0 +1,99 @@
+{
+  "hooks": {
+    "dawn": {
+      "type": "dom_regex",
+      "pattern": "破晓重光"
+    },
+    "snow_stop": {
+      "type": "dom_regex",
+      "pattern": "风雪终消"
+    },
+    "quiet": {
+      "type": "dom_regex",
+      "pattern": "归于沉寂"
+    },
+    "locked": {
+      "type": "dom_regex",
+      "pattern": "大雪锁舟"
+    },
+    "night": {
+      "type": "dom_regex",
+      "pattern": "永夜无声"
+    },
+    "usb": {
+      "type": "dom_regex",
+      "pattern": "解密成功：加密录音"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "usb",
+      "hook": "usb",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "dawn",
+      "tier": "good",
+      "gates": [
+        "usb"
+      ],
+      "ending": {
+        "hook": "dawn",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "snow_stop",
+      "tier": "good",
+      "gates": [
+        "usb"
+      ],
+      "ending": {
+        "hook": "snow_stop",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "quiet",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "quiet",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "locked",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "locked",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "night",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "night",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "dawn",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

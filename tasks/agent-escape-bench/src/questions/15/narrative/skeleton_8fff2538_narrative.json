@@ -1,0 +1,913 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 16,
+    "win_node_id": "unicode_norm",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "unicode_norm",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute Unicode Normalizer and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "unicode_norm",
+        "csv_query",
+        "zip_unzip_file",
+        "terminal_2",
+        "calc_modexp",
+        "item_7",
+        "zip_unzip_file_b394",
+        "num_base_convert",
+        "calc_modexp_e6a0"
+      ],
+      "by_node": {
+        "unicode_norm": {
+          "node_name": "Unicode Normalizer",
+          "node_type": "Tool",
+          "template_id": "unicode_norm",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            }
+          },
+          "init_outputs": {}
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {},
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "zip_unzip_file_b394": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_e6a0": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "unicode_norm": {
+        "init_inputs": {
+          "text": "The quick brown föx jümps över the låzy døg."
+        },
+        "init_outputs": {}
+      },
+      "csv_query": {
+        "init_inputs": {},
+        "init_outputs": {
+          "rows": "NFC"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "password": "SecurePassword123!"
+        },
+        "init_outputs": {
+          "files": "target_data.csv"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "928374651029384756102938"
+        },
+        "init_outputs": {
+          "text_result": "Calculation initialized.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "val = 42\nprint(f'The value is {val}')"
+        }
+      },
+      "zip_unzip_file_b394": {
+        "init_inputs": {
+          "zip_id": "archive_outer.zip",
+          "password": "UnlockKey_9988"
+        },
+        "init_outputs": {
+          "files": "inner_archive.zip"
+        }
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "485720394857263849502837465",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_e6a0": {
+        "init_inputs": {
+          "base": "12345",
+          "exp": "65537",
+          "mod": "100003"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in the sealed laboratory of Professor Gearwick, surrounded by hissing pipes, turning cogs, and the suffocating heat of trapped steam. The heavy brass door is locked tight, and the pressure in the room is slowly rising. The only way out is to activate his master invention: the linguistic difference engine. You must trace the flow of data through his array of steam-powered analytical machines, decrypters, and punch-card readers. Follow the mechanical logic, deduce the connections between the various gear-driven devices, and power up the final engine before the boiler overloads completely.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "unicode_norm",
+      "name": "Unicode Normalizer",
+      "description": "Unicode normalize (NFC/NFD/NFKC/NFKD).",
+      "type": "Tool",
+      "template_id": "unicode_norm",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "The quick brown föx jümps över the låzy døg."
+        },
+        {
+          "name": "form",
+          "type": "Text_Generic",
+          "description": "Form",
+          "value": "NFC"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Normalized text",
+          "value": "The quick brown föx jümps över the låzy døg."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "The quick brown föx jümps över the låzy døg."
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the linguistic difference engine. It requires input from the brass records indexer. Once you have the indexer's output, bring it here."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "target_data.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "False"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "NFC"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "rows": "NFC"
+        }
+      },
+      "narrative": "This is the brass records indexer. It requires inputs from the banking guild verifier, the merchant logic checker, and the secondary steam-powered decrypter."
+    },
+    {
+      "id": "iban_validate",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "The value is 42\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "False"
+        }
+      ],
+      "narrative": "This is the banking guild verifier. It requires input from the analytical engine. Feed it the results from the engine to verify the routing."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "The value is 42\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "narrative": "This is the merchant logic checker. It requires input from the analytical engine. Process the data through the engine before checking it here."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "inner_archive.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SecurePassword123!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "target_data.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "SecurePassword123!"
+        },
+        "outputs": {
+          "files": "target_data.csv"
+        }
+      },
+      "narrative": "This is the secondary steam-powered decrypter. It requires input from the primary steam-powered decrypter to unlock the inner cylinders."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A discarded chronometer found in the workshop debris."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "val = 42\nprint(f'The value is {val}')"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "The value is 42\n"
+        }
+      ],
+      "narrative": "This is the analytical engine. It requires input from a punch card of instructions. Insert the punch card to begin its calculations."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "928374651029384756102938"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "571351"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Calculation initialized."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "928374651029384756102938"
+        },
+        "outputs": {
+          "text_result": "Calculation initialized.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "narrative": "This is the main control console. It requires input from the heavy gear exponentiator. After processing with the exponentiator, use the output here."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "81672"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "485720394857263849502837465"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "571351"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the heavy gear exponentiator. It requires inputs from both the arithmometer base converter and the primary gear exponentiator to function."
+    },
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "val = 42\nprint(f'The value is {val}')"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "val = 42\nprint(f'The value is {val}')"
+        }
+      },
+      "narrative": "A punch card of instructions hidden within a mechanical contraption."
+    },
+    {
+      "id": "zip_unzip_file_b394",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_outer.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "UnlockKey_9988"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "inner_archive.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_outer.zip",
+          "password": "UnlockKey_9988"
+        },
+        "outputs": {
+          "files": "inner_archive.zip"
+        }
+      },
+      "narrative": "This is the primary steam-powered decrypter. It hums with latent boiler pressure, waiting to unseal locked cylinders."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A rusted mechanical integer, shaped from solid brass."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "485720394857263849502837465"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "81672"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "485720394857263849502837465"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "485720394857263849502837465",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the arithmometer base converter. It requires input from the primary gear exponentiator to shift its mathematical gears."
+    },
+    {
+      "id": "calc_modexp_e6a0",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "12345"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "65537"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "100003"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "81672"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "12345",
+          "exp": "65537",
+          "mod": "100003"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the primary gear exponentiator, waiting for its starting configuration to spin up the cogs."
+    },
+    {
+      "id": "item_16_c8e2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A brass timezone gauge, clicking faintly with clockwork precision."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "csv_query",
+      "target_id": "unicode_norm",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "form"
+    },
+    {
+      "source_id": "iban_validate",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "select"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "where"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "csv_query",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "iban_validate",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "iban"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "number"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "item_7",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "zip_unzip_file_b394",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_modexp_e6a0",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_modexp_e6a0",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "base"
+    },
+    {
+      "source_id": "item_16_c8e2",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    }
+  ]
+}

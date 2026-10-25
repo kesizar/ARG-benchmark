@@ -1,0 +1,809 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 18,
+    "win_node_id": "container_4",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "container_4",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "container_4",
+        "zip_unzip_file",
+        "zip_unzip_file_20d2",
+        "zip_unzip_file_f151",
+        "iban_validate_eba0",
+        "item_9",
+        "csv_query"
+      ],
+      "by_node": {
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "inner_space": {
+              "type": "Item",
+              "description": "Contents"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_20d2": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_f151": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "iban_validate_eba0": {
+          "node_name": "IBAN Validator",
+          "node_type": "Tool",
+          "template_id": "iban_validate",
+          "init_inputs": {
+            "iban": {
+              "type": "Text_Generic",
+              "description": "IBAN string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_9": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_9",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "JSON file path"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            },
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            },
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "container_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "inner_space": "{7c9e8b3a-1f4d-4a2e-9c6b-8e5f7d3a2c1b}"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_manifest_data.xml"
+        }
+      },
+      "zip_unzip_file_20d2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "server_access_logs.log"
+        }
+      },
+      "zip_unzip_file_f151": {
+        "init_inputs": {
+          "password": "CorrectHorseBatteryStaple123!"
+        },
+        "init_outputs": {
+          "files": "blueprint_schematics_v2.pdf"
+        }
+      },
+      "iban_validate_eba0": {
+        "init_inputs": {
+          "iban": "FR7630006000011234567890189"
+        },
+        "init_outputs": {}
+      },
+      "item_9": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "user_config_profile.json"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {
+          "file_id": "inventory_Q4_2023.csv",
+          "select": "Item_ID, Quantity, Warehouse_Location",
+          "where": "Quantity < 50"
+        },
+        "init_outputs": {
+          "rows": "[{\"Item_ID\": \"ITM-9001\", \"Quantity\": \"12\", \"Warehouse_Location\": \"Zone-A\"}, {\"Item_ID\": \"ITM-4520\", \"Quantity\": \"0\", \"Warehouse_Location\": \"Zone-B\"}, {\"Item_ID\": \"ITM-3310\", \"Quantity\": \"45\", \"Warehouse_Location\": \"Zone-C\"}]"
+        }
+      }
+    },
+    "intro_narrative": "You've infiltrated the abandoned office of a notorious corporate whistleblower, known only as 'The Architect'. Your mission is to uncover the final piece of evidence locked away inside their most secure vault. The room is filled with strange terminals, decryption rigs, and old files, forming a complex web of security measures. You must navigate this maze of digital and physical locks before the authorities arrive. Piece together the scattered clues and trace the data flow to succeed.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "Qlwdp"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents",
+          "value": "{7c9e8b3a-1f4d-4a2e-9c6b-8e5f7d3a2c1b}"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "inner_space": "{7c9e8b3a-1f4d-4a2e-9c6b-8e5f7d3a2c1b}"
+        }
+      },
+      "narrative": "This is The Main Vault. A heavily armored safe embedded in the wall. It requires input from The Shift Decoder to disengage its biometric lock."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": ""
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is The Timezone Document. A mysterious torn paper revealing a critical timezone reference."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_manifest_data.xml"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip",
+          "value": ""
+        }
+      ],
+      "narrative": "This is The Final Extractor. A powerful decryption rig humming with energy. It requires inputs from both The Third Archive Extractor and The Text Cleaner to operate."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "False"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": 107475483
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "Qlwdp"
+        }
+      ],
+      "narrative": "This is The Shift Decoder. An old-school cipher machine with rotating gears. It requires inputs from both The Text Cleaner and The Integrity Checker to decipher the message."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool",
+          "value": "synthesized_item_60a33e6cf5151f2d"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "0667f21b"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 107475483
+        }
+      ],
+      "narrative": "This is The Integrity Checker. A dusty validation computer. It requires input from The Hash Generator to validate the data integrity."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "60a33e6cf5151f2d52eddae9685cfa270426aa89d8dbc7dfb854606f1d1a40fe"
+        }
+      ],
+      "narrative": "This is The Hash Generator. A dedicated cryptoprocessor with blinking red lights. It requires input from The Text Cleaner to compute the digital footprint."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_60a33e6cf5151f2d"
+        }
+      ],
+      "narrative": "This is The 3D Printer. A state-of-the-art rapid prototyping machine. It requires input from The Text Cleaner to synthesize the physical blueprint."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "False"
+        }
+      ],
+      "narrative": "This is The Text Cleaner. A script sanitization tool running on a dirty monitor. It requires input from The Account Verifier to scrub the hidden formatting."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "server_access_logs.log"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[{\"Item_ID\": \"ITM-9001\", \"Quantity\": \"12\", \"Warehouse_Location\": \"Zone-A\"}, {\"Item_ID\": \"ITM-4520\", \"Quantity\": \"0\", \"Warehouse_Location\": \"Zone-B\"}, {\"Item_ID\": \"ITM-3310\", \"Quantity\": \"45\", \"Warehouse_Location\": \"Zone-C\"}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_manifest_data.xml"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_manifest_data.xml"
+        }
+      },
+      "narrative": "This is The Third Archive Extractor. A sophisticated application for cracking nested archives. It requires inputs from both The Second Archive Extractor and The Database Terminal to unlock the inner files."
+    },
+    {
+      "id": "zip_unzip_file_20d2",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "blueprint_schematics_v2.pdf"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "server_access_logs.log"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "server_access_logs.log"
+        }
+      },
+      "narrative": "This is The Second Archive Extractor. A midrange archive extraction utility. It requires inputs from both The First Archive Extractor and The Text Cleaner to process the next layer."
+    },
+    {
+      "id": "zip_unzip_file_f151",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "user_config_profile.json"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "CorrectHorseBatteryStaple123!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "blueprint_schematics_v2.pdf"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "CorrectHorseBatteryStaple123!"
+        },
+        "outputs": {
+          "files": "blueprint_schematics_v2.pdf"
+        }
+      },
+      "narrative": "This is The First Archive Extractor. A basic unzipping program on an old laptop. It requires input from The Encrypted USB Drive to begin the extraction."
+    },
+    {
+      "id": "iban_validate",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "True"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "False"
+        }
+      ],
+      "narrative": "This is The Account Verifier. A terminal used for checking financial structures. It requires input from The Initial Bank Terminal to confirm the routing."
+    },
+    {
+      "id": "iban_validate_eba0",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "FR7630006000011234567890189"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "True"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "iban": "FR7630006000011234567890189"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Initial Bank Terminal. A standalone kiosk previously used for entering basic bank details."
+    },
+    {
+      "id": "item_9",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_9",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "JSON file path",
+          "value": "user_config_profile.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "user_config_profile.json"
+        }
+      },
+      "narrative": "This is The Encrypted USB Drive. A small black flash drive with a faded corporate logo."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "inventory_Q4_2023.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "Item_ID, Quantity, Warehouse_Location"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "Quantity < 50"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"Item_ID\": \"ITM-9001\", \"Quantity\": \"12\", \"Warehouse_Location\": \"Zone-A\"}, {\"Item_ID\": \"ITM-4520\", \"Quantity\": \"0\", \"Warehouse_Location\": \"Zone-B\"}, {\"Item_ID\": \"ITM-3310\", \"Quantity\": \"45\", \"Warehouse_Location\": \"Zone-C\"}]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "inventory_Q4_2023.csv",
+          "select": "Item_ID, Quantity, Warehouse_Location",
+          "where": "Quantity < 50"
+        },
+        "outputs": {
+          "rows": "[{\"Item_ID\": \"ITM-9001\", \"Quantity\": \"12\", \"Warehouse_Location\": \"Zone-A\"}, {\"Item_ID\": \"ITM-4520\", \"Quantity\": \"0\", \"Warehouse_Location\": \"Zone-B\"}, {\"Item_ID\": \"ITM-3310\", \"Quantity\": \"45\", \"Warehouse_Location\": \"Zone-C\"}]"
+        }
+      },
+      "narrative": "This is The Database Terminal. A server rack interface displaying endless rows of financial records."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "text_rotN",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "n"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "checksum_crc32",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "hash_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file_20d2",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file_f151",
+      "target_id": "zip_unzip_file_20d2",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "iban_validate",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "iban_validate_eba0",
+      "target_id": "iban_validate",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "iban"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "zip_unzip_file_20d2",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_9",
+      "target_id": "zip_unzip_file_f151",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "password"
+    }
+  ]
+}

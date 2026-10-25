@@ -1,0 +1,1235 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 22,
+    "win_node_id": "zip_unzip_item",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "zip_unzip_item",
+      "output_port": "item",
+      "output_type": "Item",
+      "description": "Execute Zip Unzipper and get the output from port 'item'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "zip_unzip_item",
+        "zip_unzip_file",
+        "zip_unzip_file_06fd",
+        "crypto_rsa_decrypt_hex",
+        "terminal_1",
+        "zip_unzip_file_d084",
+        "calc_inv_mod",
+        "calc_gcd",
+        "terminal_2",
+        "calc_bigmul_819b",
+        "hmac_sha256",
+        "crypto_rsa_decrypt_hex_00d0",
+        "code_py_exec"
+      ],
+      "by_node": {
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {},
+          "init_outputs": {
+            "item": {
+              "type": "Item",
+              "description": "item in the zip"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_06fd": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "d": {
+              "type": "Big_Int",
+              "description": "Private exponent d"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "zip_unzip_file_d084": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "calc_bigmul_819b": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hmac_sha256": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "hex_key": {
+              "type": "Hex_String",
+              "description": "Hex key"
+            }
+          },
+          "init_outputs": {}
+        },
+        "crypto_rsa_decrypt_hex_00d0": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "hex_cipher": {
+              "type": "Hex_String",
+              "description": "Ciphertext (Hex)"
+            },
+            "n": {
+              "type": "Big_Int",
+              "description": "Modulus n"
+            },
+            "d": {
+              "type": "Big_Int",
+              "description": "Private exponent d"
+            }
+          },
+          "init_outputs": {}
+        },
+        "code_py_exec": {
+          "node_name": "Python Executor",
+          "node_type": "Tool",
+          "template_id": "code_py_exec",
+          "init_inputs": {
+            "code": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "zip_unzip_item": {
+        "init_inputs": {},
+        "init_outputs": {
+          "item": "XIV_XXVI_MMXXIV_SUM_MMLXIV"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_archive_data.zip"
+        }
+      },
+      "zip_unzip_file_06fd": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "confidential_document.pdf"
+        }
+      },
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "d": "49201948572910394857201938475638"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "System initialization completed successfully.",
+          "hex_output": "deadbeef1234567890abcdef",
+          "item_dispenser": "this item has no functional value here"
+        }
+      },
+      "zip_unzip_file_d084": {
+        "init_inputs": {
+          "zip_id": "source_package_v2.zip"
+        },
+        "init_outputs": {
+          "files": "payload_content.bin"
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "mod": "100003"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "982746102938475619283746",
+          "b": "102938475618293847561920"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "503928471628394051627384"
+        },
+        "init_outputs": {
+          "text_result": "Partial input recognized. Awaiting further data.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d",
+          "math_token": "just a meaningless token for testing"
+        }
+      },
+      "calc_bigmul_819b": {
+        "init_inputs": {
+          "a": "738495029384756192837465",
+          "b": "859403928172635485960192"
+        },
+        "init_outputs": {}
+      },
+      "hmac_sha256": {
+        "init_inputs": {
+          "hex_key": "3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e"
+        },
+        "init_outputs": {}
+      },
+      "crypto_rsa_decrypt_hex_00d0": {
+        "init_inputs": {
+          "hex_cipher": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "n": "12345678901234567890123456789012",
+          "d": "98765432109876543210987654321098"
+        },
+        "init_outputs": {}
+      },
+      "code_py_exec": {
+        "init_inputs": {
+          "code": "def test():\n    return 42\nprint(test())"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The world ended seventy years ago, leaving only scorched earth and rusted metal behind. You are a scavenger deep inside what remains of a pre-war corporate bunker. The air is stale, thick with dust, and the silence is deafening. Rumor has it that this bunker holds a sealed vault containing clean water purifiers and untouched medical supplies—a treasure worth more than gold. To unlock the final extraction unit, you will need to power up broken systems, crack old-world encryption, and piece together the fractured machinery left by those who perished here. Time is running out before the radiation storm outside seals you in forever.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_archive_data.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "False"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip",
+          "value": "XIV_XXVI_MMXXIV_SUM_MMLXIV"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "item": "XIV_XXVI_MMXXIV_SUM_MMLXIV"
+        }
+      },
+      "narrative": "This is the vault extraction unit. It requires inputs from both the global banking scanner and the inner secure container to release the final supplies."
+    },
+    {
+      "id": "iban_validate",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "Partial input recognized. Awaiting further data."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "False"
+        }
+      ],
+      "narrative": "This is the global banking scanner. It requires input from the bunker sublevel console to process the old world credentials."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "confidential_document.pdf"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "{0IyK"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_archive_data.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_archive_data.zip"
+        }
+      },
+      "narrative": "This is the inner secure container. It requires inputs from both the middle secure container and the backup decryption relay to unseal."
+    },
+    {
+      "id": "zip_unzip_file_06fd",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "payload_content.bin"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "v\u001f1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "confidential_document.pdf"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "confidential_document.pdf"
+        }
+      },
+      "narrative": "This is the middle secure container. It requires inputs from both the main decryption relay and the outer secure container to access the next layer."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "deadbeef1234567890abcdef"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": 2162732236
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "49201948572910394857201938475638"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "v\u001f1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "d": "49201948572910394857201938475638"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the main decryption relay. It requires inputs from both the overseer terminal and the data integrity verifier to decipher the codes."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "42\n"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "31734545790519645636880774871824405292155326696386560"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "System initialization completed successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "deadbeef1234567890abcdef"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "this item has no functional value here"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "System initialization completed successfully.",
+          "hex_output": "deadbeef1234567890abcdef",
+          "item_dispenser": "this item has no functional value here"
+        }
+      },
+      "narrative": "This is the overseer terminal. It requires inputs from both the heavy computation rig and the salvaged mainframe to grant access."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "50002"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "634665529189225343723866542774777114758516193280"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "31734545790519645636880774871824405292155326696386560"
+        }
+      ],
+      "narrative": "This is the heavy computation rig. It requires inputs from both the quantum reverser and the scrap-built multiplier to process the massive numbers."
+    },
+    {
+      "id": "zip_unzip_file_d084",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "source_package_v2.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Partial input recognized. Awaiting further data."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "payload_content.bin"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "source_package_v2.zip"
+        },
+        "outputs": {
+          "files": "payload_content.bin"
+        }
+      },
+      "narrative": "This is the outer secure container. It requires input from the bunker sublevel console to initiate the first stage of unsealing."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A rusted keycard found in the ashes. It looks like it still holds some magnetic charge."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "2"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "100003"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "50002"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "100003"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the quantum reverser. It requires input from the harmonic analyzer to invert the signal."
+    },
+    {
+      "id": "item_8_482f",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A scavenged battery wrapped in duct tape. Might still provide a spark."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "69c4e7606ab20d9d690ef59f608c7cc50b2e6ec27a0505a6c96498c22eaf4d8d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "80e8accc"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2162732236
+        }
+      ],
+      "narrative": "This is the data integrity verifier. It requires input from the cryptographic stamper to validate the corrupted files."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "982746102938475619283746"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "102938475618293847561920"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "2"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "982746102938475619283746",
+          "b": "102938475618293847561920"
+        },
+        "outputs": {}
+      },
+      "narrative": "An old piece of military tech modified into a harmonic analyzer."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "503928471628394051627384"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "634665529189225343723866542774777114758516193280"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Partial input recognized. Awaiting further data."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "just a meaningless token for testing"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "503928471628394051627384"
+        },
+        "outputs": {
+          "text_result": "Partial input recognized. Awaiting further data.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d",
+          "math_token": "just a meaningless token for testing"
+        }
+      },
+      "narrative": "This is the bunker sublevel console. It requires input from the scrap-built multiplier to boot up properly."
+    },
+    {
+      "id": "calc_bigmul_819b",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "738495029384756192837465"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "859403928172635485960192"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "634665529189225343723866542774777114758516193280"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "738495029384756192837465",
+          "b": "859403928172635485960192"
+        },
+        "outputs": {}
+      },
+      "narrative": "A scrap-built multiplier cobbled together from old server parts."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Partial input recognized. Awaiting further data."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "69c4e7606ab20d9d690ef59f608c7cc50b2e6ec27a0505a6c96498c22eaf4d8d"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_key": "3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the cryptographic stamper. It requires input from the bunker sublevel console to generate a valid signature."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A dirt-caked lockbox buried under the rubble. The hinges are rusted shut."
+    },
+    {
+      "id": "item_8_96a8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A depleted energy cell lying in the dust. It might be rechargeable."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex_00d0",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "12345678901234567890123456789012"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "98765432109876543210987654321098"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "{0IyK"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_cipher": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "n": "12345678901234567890123456789012",
+          "d": "98765432109876543210987654321098"
+        },
+        "outputs": {}
+      },
+      "narrative": "A backup decryption relay hidden behind some loose panels."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "def test():\n    return 42\nprint(test())"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "42\n"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "code": "def test():\n    return 42\nprint(test())"
+        },
+        "outputs": {}
+      },
+      "narrative": "A salvaged mainframe with a cracked monitor, waiting for instructions."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "iban_validate",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "password"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file_06fd",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "zip_unzip_file_06fd",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "zip_unzip_file_d084",
+      "target_id": "zip_unzip_file_06fd",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "zip_unzip_file_d084",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_8_482f",
+      "target_id": "calc_bigmul",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "n"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "zip_unzip_file_d084",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "password"
+    },
+    {
+      "source_id": "calc_bigmul_819b",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_bigmul_819b",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "iban_validate",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "iban"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "hmac_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_482f",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_96a8",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex_00d0",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "slot_a"
+    }
+  ]
+}

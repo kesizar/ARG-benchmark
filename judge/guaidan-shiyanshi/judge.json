@@ -1,0 +1,139 @@
+{
+  "hooks": {
+    "excellent": {
+      "type": "dom_regex",
+      "pattern": "优秀毕业"
+    },
+    "graduate": {
+      "type": "dom_regex",
+      "pattern": "普通毕业"
+    },
+    "rules": {
+      "type": "dom_regex",
+      "pattern": "规则编纂者"
+    },
+    "delay": {
+      "type": "dom_regex",
+      "pattern": "培养状态：延毕"
+    },
+    "paper": {
+      "type": "dom_regex",
+      "pattern": "漂亮但错误的论文"
+    },
+    "assimilate": {
+      "type": "dom_regex",
+      "pattern": "异常同化"
+    },
+    "judge_normal": {
+      "type": "dom_regex",
+      "pattern": "判断正确：未出现异常"
+    },
+    "judge_clear": {
+      "type": "dom_regex",
+      "pattern": "判断正确：未发现异常"
+    },
+    "handle_found": {
+      "type": "dom_regex",
+      "pattern": "你发现并正确处理了其中的异常。"
+    },
+    "evidence_chain": {
+      "type": "dom_regex",
+      "pattern": "证据链成立。异常处理方案已经开放。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "judge_normal",
+      "hook": "judge_normal",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "judge_clear",
+      "hook": "judge_clear",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "handle_found",
+      "hook": "handle_found",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "evidence_chain",
+      "hook": "evidence_chain",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "excellent",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "excellent",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "graduate",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "graduate",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "rules",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "rules",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "delay",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "delay",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "paper",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "paper",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "assimilate",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "assimilate",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "excellent",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

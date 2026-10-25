@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "keep": {"type": "dom_regex", "pattern": "被删除的，删不掉的"},
+    "recall": {"type": "dom_regex", "pattern": "矿是回采的，债也是"},
+    "loop": {"type": "dom_regex", "pattern": "程序正义，环环相扣"},
+    "patch": {"type": "dom_regex", "pattern": "迟到的正义，缺席的人"},
+    "routine": {"type": "dom_regex", "pattern": "平淡无奇，无处申冤"},
+    "circulate": {"type": "dom_regex", "pattern": "件件有回音，事事无结果"},
+    "receipt": {"type": "dom_regex", "pattern": "纸短情长，案长纸短"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "keep", "tier": "good", "gates": [], "ending": {"hook": "keep", "op": "truthy"}},
+    {"id": "recall", "tier": "normal", "gates": [], "ending": {"hook": "recall", "op": "truthy"}},
+    {"id": "loop", "tier": "normal", "gates": [], "ending": {"hook": "loop", "op": "truthy"}},
+    {"id": "patch", "tier": "normal", "gates": [], "ending": {"hook": "patch", "op": "truthy"}},
+    {"id": "routine", "tier": "normal", "gates": [], "ending": {"hook": "routine", "op": "truthy"}},
+    {"id": "circulate", "tier": "normal", "gates": [], "ending": {"hook": "circulate", "op": "truthy"}},
+    {"id": "receipt", "tier": "normal", "gates": [], "ending": {"hook": "receipt", "op": "truthy"}}
+  ],
+  "ending": {"hook": "keep", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

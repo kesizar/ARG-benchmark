@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "home": {
+      "type": "dom_regex",
+      "pattern": "我回家了，你们也快点回来好吗"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "home",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "home",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "home",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

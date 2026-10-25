@@ -1,0 +1,605 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 10,
+    "win_node_id": "item_7",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_7",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_7",
+        "checksum_crc32",
+        "terminal_1",
+        "calc_gcd",
+        "terminal_1_a097",
+        "container_2"
+      ],
+      "by_node": {
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1_a097": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            },
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "container_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_2",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "def get_secret_value():\n    return 1337"
+        }
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Terminal initialized successfully. Awaiting command.",
+          "hex_output": "aabbccddeeff00112233445566778899",
+          "item_dispenser": "A useless dusty token found in the slot."
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "b": "8475029384756102938475629384756102"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1_a097": {
+        "init_inputs": {
+          "slot_a": "Override sequence alpha-97",
+          "slot_b": "1029384756293847561029384756293847"
+        },
+        "init_outputs": {
+          "text_output": "System Alert: Unauthorized access attempt logged.",
+          "hex_output": "deadbeefcafebabedeadbeefcafebabe",
+          "item_dispenser": "A rusted key that fits no lock."
+        }
+      },
+      "container_2": {
+        "init_inputs": {
+          "fingerprint_input": "0102030405060708090a0b0c0d0e0f10"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The year is 2142, decades after the Great Collapse decimated human civilization. The surface above is an inhospitable wasteland of ash, radioactive storms, and rusting monuments to a forgotten era. You are a lone scavenger, driven by legends of a sanctuary untouched by the fallout. Your journey has brought you deep underground to Sub-Station Echo, a heavily fortified and long-abandoned military bunker. The air inside is stale and tastes of copper, while the failing emergency lights cast long, flickering shadows against the cold steel walls. Rumors suggest this very bunker holds the final coordinates of a functional haven, locked away behind layers of archaic technology and intricate security systems. To uncover the truth and secure your future, you must thoroughly explore the facility, reactivate dormant terminals, and piece together the scattered fragments of data left behind by the last personnel. Your ultimate objective is to extract the definitive records hidden within. With time running out and your air supply steadily dwindling, your survival depends entirely on your ability to decipher the complex network of devices in this remnant of a fallen world.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "def get_secret_value():\n    return 1337"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "def get_secret_value():\n    return 1337"
+        }
+      },
+      "narrative": "A small, weathered survivor's diary, securely bound and holding crucial information."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A scratched and dusted encrypted drive, containing hidden fragments of data."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A cracked old datapad used by the former inhabitants for logging access codes."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "aabbccddeeff00112233445566778899"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the reinforced vault. It requires input from the mainframe terminal to authenticate its heavy locks."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": 429976841
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the rusty lockbox. It requires input from the data scanner to release its mechanism."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "19a0ed09"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 429976841
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        },
+        "outputs": {}
+      },
+      "narrative": "A portable data scanner designed to process raw codes and retrieve system checksums."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "System Alert: Unauthorized access attempt logged."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal initialized successfully. Awaiting command."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "aabbccddeeff00112233445566778899"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "A useless dusty token found in the slot."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Terminal initialized successfully. Awaiting command.",
+          "hex_output": "aabbccddeeff00112233445566778899",
+          "item_dispenser": "A useless dusty token found in the slot."
+        }
+      },
+      "narrative": "This is the mainframe terminal. It requires inputs from both the signal processor and the auxiliary console before it can boot up."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": 429976841
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "8475029384756102938475629384756102"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "8475029384756102938475629384756102"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the signal processor. It requires input from the data scanner to calibrate its frequencies."
+    },
+    {
+      "id": "terminal_1_a097",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Override sequence alpha-97"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "1029384756293847561029384756293847"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "System Alert: Unauthorized access attempt logged."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "deadbeefcafebabedeadbeefcafebabe"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "A rusted key that fits no lock."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Override sequence alpha-97",
+          "slot_b": "1029384756293847561029384756293847"
+        },
+        "outputs": {
+          "text_output": "System Alert: Unauthorized access attempt logged.",
+          "hex_output": "deadbeefcafebabedeadbeefcafebabe",
+          "item_dispenser": "A rusted key that fits no lock."
+        }
+      },
+      "narrative": "A scavenged auxiliary console, heavily modified with wires and exposed circuits."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "0102030405060708090a0b0c0d0e0f10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "0102030405060708090a0b0c0d0e0f10"
+        },
+        "outputs": {}
+      },
+      "narrative": "A specialized bio-storage unit, designed to keep fragile samples securely isolated."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "terminal_1_a097",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "terminal_1_a097",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    }
+  ]
+}

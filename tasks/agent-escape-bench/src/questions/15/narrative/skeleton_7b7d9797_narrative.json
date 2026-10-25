@@ -1,0 +1,1007 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 20,
+    "win_node_id": "item_10",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_10",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_10",
+        "terminal_1",
+        "item_11",
+        "terminal_2",
+        "num_base_convert",
+        "calc_gcd",
+        "container_1",
+        "num_base_convert_b54a",
+        "num_base_convert_7e97",
+        "matter_synthesizer",
+        "calc_inv_mod",
+        "container_1_b16f"
+      ],
+      "by_node": {
+        "item_10": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_10",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "item_11": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_11",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert_b54a": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert_7e97": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "matter_synthesizer": {
+          "node_name": "Matter Synthesizer",
+          "node_type": "Tool",
+          "template_id": "matter_synthesizer",
+          "init_inputs": {
+            "blueprint": {
+              "type": "Text_Generic",
+              "description": "Object Blueprint"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_1_b16f": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_10": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "485720394857230495827349857234"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Terminal initialized awaiting input stream A.",
+          "hex_output": "deadbeefcafebabe1234567890abcdef"
+        }
+      },
+      "item_11": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "def execute_task():\n    return 'Task Completed'"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Calculation pending inputs.",
+          "hex_result": "00112233445566778899aabbccddeeff",
+          "math_token": "MathToken_Alpha"
+        }
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "394857239485723948572394857239"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "b": "582734958273495827349582734958"
+        },
+        "init_outputs": {}
+      },
+      "container_1": {
+        "init_inputs": {
+          "fingerprint_input": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert_b54a": {
+        "init_inputs": {
+          "s": "102938475610293847561029384756"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert_7e97": {
+        "init_inputs": {
+          "s": "112233445566778899001122334455",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "matter_synthesizer": {
+        "init_inputs": {
+          "blueprint": "Specification: Hyper-Dense Alloy Block v4"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "675849302167584930216758493021",
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "container_1_b16f": {
+        "init_inputs": {
+          "fingerprint_input": "f0e1d2c3b4a5968778695a4b3c2d1e0f"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The rain lashes against the reinforced glass of Precinct 42. You are Lead Detective Vance, and you've just walked into the evidence room after a grueling 48-hour shift. The infamous 'Cipher Killer' has left behind a trail of highly encrypted digital footprints and locked physical evidence. The precinct's systems have been scrambled, and standard protocols are useless. Your objective is clear: navigate the web of corrupted data, crack the intricate mathematical cyphers, and access the final piece of evidence that will blow this case wide open. Time is running out before the killer's automated scripts wipe the precinct's servers clean. You must rely on your wits, the precinct's specialized forensic tools, and the scattered clues left behind to unmask the culprit. Examine everything carefully; in this line of work, every hash, code, and locked container tells a story.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "item_10",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_10",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "485720394857230495827349857234"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "485720394857230495827349857234"
+        }
+      },
+      "narrative": "This is the Final Evidence Folder. A sealed Manila folder containing the ultimate truth of the case."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "(no output)"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "102938475610293847561029384756"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal initialized awaiting input stream A."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "deadbeefcafebabe1234567890abcdef"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Terminal initialized awaiting input stream A.",
+          "hex_output": "deadbeefcafebabe1234567890abcdef"
+        }
+      },
+      "narrative": "This is the Main Police Mainframe. A heavy-duty precinct computer. It requires inputs from both the Forensic Code Analyzer and the Cipher Translator Beta."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "def execute_task():\n    return 'Task Completed'"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "(no output)"
+        }
+      ],
+      "narrative": "This is the Forensic Code Analyzer. A specialized environment for running recovered scripts. It requires input from the Encrypted Drive Data."
+    },
+    {
+      "id": "item_11",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_11",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "def execute_task():\n    return 'Task Completed'"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "def execute_task():\n    return 'Task Completed'"
+        }
+      },
+      "narrative": "This is the Encrypted Drive Data. A heavily corrupted flash drive containing suspicious digital scripts."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "Calculation pending inputs."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Evidence Locker 4. A heavy steel locker in the precinct. It requires input from the Suspect Verification Terminal to authorize unlocking."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "394857239485723948572394857239"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "112233445566778899001122334455"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Calculation pending inputs."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "00112233445566778899aabbccddeeff"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "MathToken_Alpha"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Calculation pending inputs.",
+          "hex_result": "00112233445566778899aabbccddeeff",
+          "math_token": "MathToken_Alpha"
+        }
+      },
+      "narrative": "This is the Suspect Verification Terminal. A station used to cross-reference suspect IDs. It requires inputs from both the Cipher Translator Alpha and the Cipher Translator Gamma."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "394857239485723948572394857239"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "19266253299434619560942501832"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "112233445566778899001122334455"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "394857239485723948572394857239"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "394857239485723948572394857239"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Cipher Translator Alpha. A digital signal conversion tool. It requires inputs from both the Cryptographic Decryptor and the Cipher Translator Gamma."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "12966"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "112233445566778899001122334455"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "102938475610293847561029384756"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "19266253299434619560942501832"
+        }
+      ],
+      "narrative": "This is the Cryptographic Decryptor. A high-powered decryption rig. It requires inputs from the Frequency Analysis Scanner, the Cipher Translator Beta, and the Cipher Translator Gamma."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "102938475610293847561029384756"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "582734958273495827349582734958"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "12966"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "582734958273495827349582734958"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Frequency Analysis Scanner. A device that finds common patterns in numeric data. It requires input from the Cipher Translator Beta."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_96e866ecd2956ec4"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Secure Briefcase. A sleek, black leather briefcase with a sophisticated biometric lock."
+    },
+    {
+      "id": "num_base_convert_b54a",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "102938475610293847561029384756"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "112233445566778899001122334455"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "691235"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "102938475610293847561029384756"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "102938475610293847561029384756"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Cipher Translator Beta. A secondary digital signal conversion tool. It requires inputs from both the Cipher Translator Gamma and the Reverse Hash Calculator."
+    },
+    {
+      "id": "num_base_convert_7e97",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "112233445566778899001122334455"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "691235"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "112233445566778899001122334455"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "112233445566778899001122334455",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Cipher Translator Gamma. An advanced digital signal conversion tool. It requires input from the Reverse Hash Calculator."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "Specification: Hyper-Dense Alloy Block v4"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_96e866ecd2956ec4"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "blueprint": "Specification: Hyper-Dense Alloy Block v4"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the 3D Evidence Reconstructor. A cutting-edge fabrication unit that can print physical copies of digital evidence."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "675849302167584930216758493021"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "691235"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "675849302167584930216758493021",
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Reverse Hash Calculator. An old but reliable calculator used to reverse modular arithmetic."
+    },
+    {
+      "id": "container_1_b16f",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "f0e1d2c3b4a5968778695a4b3c2d1e0f"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "f0e1d2c3b4a5968778695a4b3c2d1e0f"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Detective's Lockbox. A small personal lockbox belonging to the lead investigator."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "terminal_1",
+      "target_id": "item_10",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "item_11",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "item_11",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "base"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "calc_modexp",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "num_base_convert_b54a",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "num_base_convert_b54a",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "num_base_convert_7e97",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "num_base_convert_7e97",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "num_base_convert_b54a",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "num_base_convert_7e97",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "num_base_convert_7e97",
+      "target_id": "num_base_convert_b54a",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "num_base_convert_7e97",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "num_base_convert_b54a",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "container_1_b16f",
+      "target_id": "num_base_convert_7e97",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "hooks": {
+    "true": {
+      "type": "dom_regex",
+      "pattern": "真结局：潮汐协议"
+    },
+    "hidden": {
+      "type": "dom_regex",
+      "pattern": "隐藏结局：潮汐之间"
+    },
+    "secret": {
+      "type": "dom_regex",
+      "pattern": "秘密结局：第 13 位房客"
+    },
+    "plain": {
+      "type": "dom_regex",
+      "pattern": "普通结局：真相大白"
+    },
+    "usb": {
+      "type": "dom_regex",
+      "pattern": "U盘解锁成功！"
+    },
+    "years": {
+      "type": "dom_regex",
+      "pattern": "密码正确！年份序列揭示了失踪的规律"
+    },
+    "freq": {
+      "type": "dom_regex",
+      "pattern": "频率正确！"
+    },
+    "login": {
+      "type": "dom_regex",
+      "pattern": "系统登录成功！"
+    },
+    "timeline": {
+      "type": "dom_regex",
+      "pattern": "时间线正确！"
+    },
+    "darkweb": {
+      "type": "dom_regex",
+      "pattern": "暗网访问成功！"
+    },
+    "server": {
+      "type": "dom_regex",
+      "pattern": "服务器密码正确！"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "usb",
+      "hook": "usb",
+      "op": "truthy"
+    },
+    {
+      "id": "years",
+      "hook": "years",
+      "op": "truthy"
+    },
+    {
+      "id": "freq",
+      "hook": "freq",
+      "op": "truthy"
+    },
+    {
+      "id": "login",
+      "hook": "login",
+      "op": "truthy"
+    },
+    {
+      "id": "timeline",
+      "hook": "timeline",
+      "op": "truthy"
+    },
+    {
+      "id": "darkweb",
+      "hook": "darkweb",
+      "op": "truthy"
+    },
+    {
+      "id": "server",
+      "hook": "server",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "true",
+      "tier": "good",
+      "gates": [
+        "usb",
+        "years",
+        "freq",
+        "login",
+        "timeline",
+        "darkweb",
+        "server"
+      ],
+      "ending": {
+        "hook": "true",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "hidden",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "hidden",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "secret",
+      "tier": "normal",
+      "gates": [
+        "darkweb",
+        "server"
+      ],
+      "ending": {
+        "hook": "secret",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "plain",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "plain",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "true",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

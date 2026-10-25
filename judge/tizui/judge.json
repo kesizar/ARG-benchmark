@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "truth": {"type": "dom_regex", "pattern": "我不后悔"},
+    "free": {"type": "dom_regex", "pattern": "编织一场美梦吧"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "truth", "tier": "good", "gates": [], "ending": {"hook": "truth", "op": "truthy"}},
+    {"id": "free", "tier": "normal", "gates": [], "ending": {"hook": "free", "op": "truthy"}}
+  ],
+  "ending": {"hook": "truth", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

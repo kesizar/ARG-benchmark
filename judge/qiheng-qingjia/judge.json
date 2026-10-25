@@ -1,0 +1,179 @@
+{
+  "hooks": {
+    "trueend": {
+      "type": "dom_regex",
+      "pattern": "本人异议已登记"
+    },
+    "goodend": {
+      "type": "dom_regex",
+      "pattern": "七条重复关联从员工主档案移除"
+    },
+    "normalend": {
+      "type": "dom_regex",
+      "pattern": "处理结果：维持现状。"
+    },
+    "catend": {
+      "type": "dom_regex",
+      "pattern": "员工身份核验通过"
+    },
+    "marriage": {
+      "type": "localstorage",
+      "key": "qh_leave_v4",
+      "mode": "json_path",
+      "path": "solved.marriage"
+    },
+    "travel": {
+      "type": "localstorage",
+      "key": "qh_leave_v4",
+      "mode": "json_path",
+      "path": "solved.travel"
+    },
+    "migration": {
+      "type": "localstorage",
+      "key": "qh_leave_v4",
+      "mode": "json_path",
+      "path": "solved.migration"
+    },
+    "leave": {
+      "type": "localstorage",
+      "key": "qh_leave_v4",
+      "mode": "json_path",
+      "path": "solved.leaveBalance"
+    },
+    "compensation": {
+      "type": "localstorage",
+      "key": "qh_leave_v4",
+      "mode": "json_path",
+      "path": "solved.compensation"
+    },
+    "origin": {
+      "type": "localstorage",
+      "key": "qh_leave_v4",
+      "mode": "json_path",
+      "path": "solved.origin"
+    },
+    "opinion": {
+      "type": "localstorage",
+      "key": "qh_leave_v4",
+      "mode": "json_path",
+      "path": "selfOpinionUnlocked"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "marriage",
+      "hook": "marriage",
+      "op": "truthy"
+    },
+    {
+      "id": "travel",
+      "hook": "travel",
+      "op": "truthy"
+    },
+    {
+      "id": "migration",
+      "hook": "migration",
+      "op": "truthy"
+    },
+    {
+      "id": "leave",
+      "hook": "leave",
+      "op": "truthy"
+    },
+    {
+      "id": "compensation",
+      "hook": "compensation",
+      "op": "truthy"
+    },
+    {
+      "id": "origin",
+      "hook": "origin",
+      "op": "truthy"
+    },
+    {
+      "id": "opinion",
+      "hook": "opinion",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "true",
+      "tier": "good",
+      "gates": [
+        "marriage",
+        "travel",
+        "migration",
+        "leave",
+        "compensation",
+        "origin",
+        "opinion"
+      ],
+      "ending": {
+        "hook": "trueend",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "good",
+      "tier": "normal",
+      "gates": [
+        "marriage",
+        "travel",
+        "migration",
+        "leave",
+        "compensation",
+        "origin"
+      ],
+      "ending": {
+        "hook": "goodend",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "normal",
+      "tier": "normal",
+      "gates": [
+        "marriage",
+        "travel",
+        "migration",
+        "leave",
+        "compensation",
+        "origin"
+      ],
+      "ending": {
+        "hook": "normalend",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "cat",
+      "tier": "normal",
+      "gates": [
+        "marriage",
+        "travel",
+        "migration",
+        "leave",
+        "compensation",
+        "origin"
+      ],
+      "ending": {
+        "hook": "catend",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "trueend",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

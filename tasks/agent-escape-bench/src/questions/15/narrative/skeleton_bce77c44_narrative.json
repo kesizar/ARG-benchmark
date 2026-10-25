@@ -1,0 +1,997 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 19,
+    "win_node_id": "text_rotN",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "text_rotN",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute ROT-N Cipher and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "graph_shortest_path",
+        "graph_shortest_path_e3d6",
+        "zip_unzip_file",
+        "hex_decode",
+        "zip_unzip_file_728d",
+        "zip_unzip_file_3efd",
+        "zip_unzip_file_7bb0",
+        "base64_decode",
+        "terminal_1",
+        "terminal_1_ff4b"
+      ],
+      "by_node": {
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "graph_shortest_path_e3d6": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "hex_decode": {
+          "node_name": "Hex to Text Decoder",
+          "node_type": "Tool",
+          "template_id": "hex_decode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_728d": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_3efd": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_7bb0": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "base64_decode": {
+          "node_name": "Base64 Decoder",
+          "node_type": "Tool",
+          "template_id": "base64_decode",
+          "init_inputs": {
+            "data": {
+              "type": "Text_Generic",
+              "description": "Base64 string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "terminal_1_ff4b": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            },
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Epsilon\", \"Node_Zeta\"]",
+          "cost": "82736451928374651029"
+        }
+      },
+      "graph_shortest_path_e3d6": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"Gateway\", \"Router_1\", \"Switch_Core\", \"Firewall_Ext\", \"Load_Balancer\", \"Server_Main\"]",
+          "cost": "19283746556473829102"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "payload_config.json"
+        }
+      },
+      "hex_decode": {
+        "init_inputs": {
+          "hex": "48656c6c6f20576f726c64212054686973206973206120746573742e"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_728d": {
+        "init_inputs": {
+          "password": "SecurePassword!2024"
+        },
+        "init_outputs": {
+          "files": "hidden_manifest.xml"
+        }
+      },
+      "zip_unzip_file_3efd": {
+        "init_inputs": {
+          "zip_id": "project_alpha_archive.zip"
+        },
+        "init_outputs": {
+          "files": "source_code_v2.py"
+        }
+      },
+      "zip_unzip_file_7bb0": {
+        "init_inputs": {
+          "zip_id": "financial_report_2023.zip"
+        },
+        "init_outputs": {
+          "files": "q3_earnings_data.csv"
+        }
+      },
+      "base64_decode": {
+        "init_inputs": {
+          "data": "VGhpcyBpcyBhIHNhbXBsZSBCYXNlNjQgZW5jb2RlZCBzdHJpbmcgZm9yIHRlc3Rpbmcu"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_b": "3847562910384756291038"
+        },
+        "init_outputs": {
+          "text_output": "Terminal initialized successfully. Status: Operational.",
+          "hex_output": "aabbccddeeff00112233445566778899"
+        }
+      },
+      "terminal_1_ff4b": {
+        "init_inputs": {
+          "slot_a": "Initiate system override sequence immediately.",
+          "slot_b": "9102938475610293847561"
+        },
+        "init_outputs": {
+          "text_output": "Override command accepted. Processing request...",
+          "hex_output": "1234567890abcdef1234567890abcdef",
+          "item_dispenser": "You found a small dispensed ticket with number 42."
+        }
+      }
+    },
+    "intro_narrative": "You awaken in the belly of the Airborne Leviathan, a colossal steam-powered airship rapidly losing altitude. The master chronometer has locked the main engine controls, and the air is thick with the smell of burning coal, hot oil, and the sharp hiss of escaping steam. Around you lies a complex network of brass contraptions, locked steel vaults, and pressure terminals interconnected by intricate copper piping. Your objective is to trace the flow of information through these mechanical marvels and restore the power sequence before the airship crashes. You must carefully navigate the gear-driven machines, using the correct outputs from one device to fuel the next, ultimately overriding the system.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Epsilon\", \"Node_Zeta\"]"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "19283746556473829102"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "[\"Xyno_Kvzrk\", \"Xyno_Lodk\", \"Xyno_Qkwwk\", \"Xyno_Novdk\", \"Xyno_Ozcsvyx\", \"Xyno_Jodk\"]"
+        }
+      ],
+      "narrative": "This is The Master Chronometer, the heart of the ship's control. It requires inputs from both The Grand Orrery and The Navigator's Astrolabe to finally override the lockdown."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "hidden_manifest.xml"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "[\"Gateway\", \"Router_1\", \"Switch_Core\", \"Firewall_Ext\", \"Load_Balancer\", \"Server_Main\"]"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "VGhpcyBpcyBhIHNhbXBsZSBCYXNlNjQgZW5jb2RlZCBzdHJpbmcgZm9yIHRlc3Rpbmcu"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Epsilon\", \"Node_Zeta\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "82736451928374651029"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Epsilon\", \"Node_Zeta\"]",
+          "cost": "82736451928374651029"
+        }
+      },
+      "narrative": "This is The Grand Orrery. It requires inputs from The Navigator's Astrolabe, The Steam Encoder, and The Aether Vault to align its mechanical planets."
+    },
+    {
+      "id": "graph_shortest_path_e3d6",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "payload_config.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Hello World! This is a test."
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "VGhpcyBpcyBhIHNhbXBsZSBCYXNlNjQgZW5jb2RlZCBzdHJpbmcgZm9yIHRlc3Rpbmcu"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Gateway\", \"Router_1\", \"Switch_Core\", \"Firewall_Ext\", \"Load_Balancer\", \"Server_Main\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "19283746556473829102"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"Gateway\", \"Router_1\", \"Switch_Core\", \"Firewall_Ext\", \"Load_Balancer\", \"Server_Main\"]",
+          "cost": "19283746556473829102"
+        }
+      },
+      "narrative": "This is The Navigator's Astrolabe. It requires inputs from The Bronze Cylinder, The Steam Encoder, and The Brass Decryptor to chart its course."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "source_code_v2.py"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Hello World! This is a test."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "payload_config.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "payload_config.json"
+        }
+      },
+      "narrative": "This is The Bronze Cylinder. It requires inputs from both The Iron Lockbox and The Brass Decryptor to open."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "48656c6c6f20576f726c64212054686973206973206120746573742e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "Hello World! This is a test."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "48656c6c6f20576f726c64212054686973206973206120746573742e"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Brass Decryptor. An old, gear-driven decryption device covered in intricate dials."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "5468697320697320612073616d706c652042617365363420656e636f64656420737472696e6720666f722074657374696e672e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "VGhpcyBpcyBhIHNhbXBsZSBCYXNlNjQgZW5jb2RlZCBzdHJpbmcgZm9yIHRlc3Rpbmcu"
+        }
+      ],
+      "narrative": "This is The Steam Encoder. It processes data from The Copper Translator. Feed it the result from the translator to activate its gears."
+    },
+    {
+      "id": "zip_unzip_file_728d",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "q3_earnings_data.csv"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SecurePassword!2024"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "hidden_manifest.xml"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "SecurePassword!2024"
+        },
+        "outputs": {
+          "files": "hidden_manifest.xml"
+        }
+      },
+      "narrative": "This is The Aether Vault. It requires input from The Steel Safe to unlock its pressurized mechanisms."
+    },
+    {
+      "id": "zip_unzip_file_3efd",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "project_alpha_archive.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Hello World! This is a test."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "source_code_v2.py"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "project_alpha_archive.zip"
+        },
+        "outputs": {
+          "files": "source_code_v2.py"
+        }
+      },
+      "narrative": "This is The Iron Lockbox. It requires input from The Brass Decryptor to spring its heavy latches."
+    },
+    {
+      "id": "zip_unzip_file_7bb0",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "financial_report_2023.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"Gateway\", \"Router_1\", \"Switch_Core\", \"Firewall_Ext\", \"Load_Balancer\", \"Server_Main\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "q3_earnings_data.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "financial_report_2023.zip"
+        },
+        "outputs": {
+          "files": "q3_earnings_data.csv"
+        }
+      },
+      "narrative": "This is The Steel Safe. It requires input from The Navigator's Astrolabe to bypass its intricate tumbler security."
+    },
+    {
+      "id": "base64_decode",
+      "name": "Base64 Decoder",
+      "description": "Decode base64 to hex bytes.",
+      "type": "Tool",
+      "template_id": "base64_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "data",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "VGhpcyBpcyBhIHNhbXBsZSBCYXNlNjQgZW5jb2RlZCBzdHJpbmcgZm9yIHRlc3Rpbmcu"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "bytes_hex",
+          "type": "Hex_String",
+          "description": "Decoded bytes as Hex",
+          "value": "5468697320697320612073616d706c652042617365363420656e636f64656420737472696e6720666f722074657374696e672e"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "data": "VGhpcyBpcyBhIHNhbXBsZSBCYXNlNjQgZW5jb2RlZCBzdHJpbmcgZm9yIHRlc3Rpbmcu"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Copper Translator. A strange contraption emitting a faint hiss of steam."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A mechanical valve. A solid brass piece used for regulating high-pressure steam."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A polished gear. Its teeth are perfectly aligned for delicate machinery."
+    },
+    {
+      "id": "item_8_1df5",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A rusted cogwheel. It seems discarded but might be part of a larger mechanism."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Override command accepted. Processing request..."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "3847562910384756291038"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal initialized successfully. Status: Operational."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "aabbccddeeff00112233445566778899"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_b": "3847562910384756291038"
+        },
+        "outputs": {
+          "text_output": "Terminal initialized successfully. Status: Operational.",
+          "hex_output": "aabbccddeeff00112233445566778899"
+        }
+      },
+      "narrative": "This is The Secondary Pressure Terminal. It requires input from The Primary Boiler Console to function properly."
+    },
+    {
+      "id": "terminal_1_ff4b",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Initiate system override sequence immediately."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "9102938475610293847561"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Override command accepted. Processing request..."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "1234567890abcdef1234567890abcdef"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "You found a small dispensed ticket with number 42."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Initiate system override sequence immediately.",
+          "slot_b": "9102938475610293847561"
+        },
+        "outputs": {
+          "text_output": "Override command accepted. Processing request...",
+          "hex_output": "1234567890abcdef1234567890abcdef",
+          "item_dispenser": "You found a small dispensed ticket with number 42."
+        }
+      },
+      "narrative": "This is The Primary Boiler Console. A sturdy interface with glowing vacuum tubes and heavy iron levers."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "text"
+    },
+    {
+      "source_id": "graph_shortest_path_e3d6",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "src"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path_e3d6",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "graph_shortest_path_e3d6",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "graph_shortest_path_e3d6",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "src"
+    },
+    {
+      "source_id": "zip_unzip_file_728d",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "graph_shortest_path_e3d6",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "n"
+    },
+    {
+      "source_id": "zip_unzip_file_3efd",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file_7bb0",
+      "target_id": "zip_unzip_file_728d",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "base64_decode",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "bytes_hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "zip_unzip_file_3efd",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "zip_unzip_file_3efd",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "zip_unzip_file_728d",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "graph_shortest_path_e3d6",
+      "target_id": "zip_unzip_file_7bb0",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_8_1df5",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_1_ff4b",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "slot_a"
+    }
+  ]
+}

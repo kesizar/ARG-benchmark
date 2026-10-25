@@ -1,0 +1,30 @@
+{
+  "hooks": {
+    "home": {"type": "dom_regex", "pattern": "—— 终 · 带回宁宁 ——"},
+    "seal": {"type": "dom_regex", "pattern": "—— 终 · 封湖 ——"},
+    "debt": {"type": "dom_regex", "pattern": "—— 终 · 替弟还债 ——"},
+    "stay": {"type": "dom_regex", "pattern": "—— 终 · 一起留下 ——"},
+    "nameless": {"type": "dom_regex", "pattern": "—— 终 · 无名 ——"},
+    "police": {"type": "dom_regex", "pattern": "—— 终 · 报警 ——"},
+    "refuse": {"type": "dom_regex", "pattern": "—— 终 · 拒绝 ——"},
+    "mirror": {"type": "dom_regex", "pattern": "—— 终 · 镜中人 ——"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "home", "tier": "good", "gates": [], "ending": {"hook": "home", "op": "truthy"}},
+    {"id": "seal", "tier": "normal", "gates": [], "ending": {"hook": "seal", "op": "truthy"}},
+    {"id": "debt", "tier": "normal", "gates": [], "ending": {"hook": "debt", "op": "truthy"}},
+    {"id": "stay", "tier": "normal", "gates": [], "ending": {"hook": "stay", "op": "truthy"}},
+    {"id": "nameless", "tier": "bad", "gates": [], "ending": {"hook": "nameless", "op": "truthy"}},
+    {"id": "police", "tier": "bad", "gates": [], "ending": {"hook": "police", "op": "truthy"}},
+    {"id": "refuse", "tier": "bad", "gates": [], "ending": {"hook": "refuse", "op": "truthy"}},
+    {"id": "mirror", "tier": "bad", "gates": [], "ending": {"hook": "mirror", "op": "truthy"}}
+  ],
+  "ending": {"hook": "home", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

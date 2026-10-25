@@ -1,0 +1,90 @@
+{
+  "hooks": {
+    "known": {
+      "type": "dom_regex",
+      "pattern": "你已经知道得太多了。"
+    },
+    "leave": {
+      "type": "dom_regex",
+      "pattern": "有些真相，不知道比较好。"
+    },
+    "police": {
+      "type": "dom_regex",
+      "pattern": "你做了对的事。"
+    },
+    "cellar": {
+      "type": "dom_regex",
+      "pattern": "其实是她在等你。"
+    },
+    "system": {
+      "type": "dom_regex",
+      "pattern": "本档案已归档。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "known",
+      "hook": "known",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "leave",
+      "tier": "good",
+      "gates": [
+        "known"
+      ],
+      "ending": {
+        "hook": "leave",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "police",
+      "tier": "normal",
+      "gates": [
+        "known"
+      ],
+      "ending": {
+        "hook": "police",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "system",
+      "tier": "normal",
+      "gates": [
+        "known"
+      ],
+      "ending": {
+        "hook": "system",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "cellar",
+      "tier": "bad",
+      "gates": [
+        "known"
+      ],
+      "ending": {
+        "hook": "cellar",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "leave",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

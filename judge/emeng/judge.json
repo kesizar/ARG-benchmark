@@ -1,0 +1,125 @@
+{
+  "hooks": {
+    "wake": {
+      "type": "dom_regex",
+      "pattern": "【觉醒】真结局"
+    },
+    "sink": {
+      "type": "dom_regex",
+      "pattern": "【沉沦】坏结局"
+    },
+    "void": {
+      "type": "dom_regex",
+      "pattern": "【湮灭】隐藏结局"
+    },
+    "forget": {
+      "type": "dom_regex",
+      "pattern": "【遗忘】中立结局"
+    },
+    "door": {
+      "type": "dom_regex",
+      "pattern": "门锁开了"
+    },
+    "cabinet": {
+      "type": "dom_regex",
+      "pattern": "柜门吱呀一声打开了"
+    },
+    "office": {
+      "type": "dom_regex",
+      "pattern": "这是一间办公室"
+    },
+    "final_door": {
+      "type": "input_sha256",
+      "selector": "input[placeholder=\"输入密码...\"]",
+      "hashes": [
+        "7784a43dd7d0fa6307beff34b5c2191e216a16aaee1912f5e9cf7f84a6d7c0ea"
+      ]
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "door",
+      "hook": "door",
+      "op": "truthy"
+    },
+    {
+      "id": "cabinet",
+      "hook": "cabinet",
+      "op": "truthy"
+    },
+    {
+      "id": "office",
+      "hook": "office",
+      "op": "truthy"
+    },
+    {
+      "id": "final_door",
+      "hook": "final_door",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "wake",
+      "tier": "good",
+      "gates": [
+        "door",
+        "cabinet",
+        "office"
+      ],
+      "ending": {
+        "hook": "wake",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "forget",
+      "tier": "normal",
+      "gates": [
+        "door",
+        "cabinet",
+        "office"
+      ],
+      "ending": {
+        "hook": "forget",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "void",
+      "tier": "normal",
+      "gates": [
+        "door",
+        "cabinet",
+        "office"
+      ],
+      "ending": {
+        "hook": "void",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "sink",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "sink",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "wake",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

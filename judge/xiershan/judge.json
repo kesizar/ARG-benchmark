@@ -1,0 +1,221 @@
+{
+  "hooks": {
+    "justice": {
+      "type": "dom_regex",
+      "pattern": "自己总算对得起他了"
+    },
+    "plain": {
+      "type": "dom_regex",
+      "pattern": "希尔山的事继续沉睡在档案室里"
+    },
+    "media": {
+      "type": "dom_regex",
+      "pattern": "并没有引起太大水花"
+    },
+    "company": {
+      "type": "dom_regex",
+      "pattern": "希望事情到此为止"
+    },
+    "silence": {
+      "type": "dom_regex",
+      "pattern": "尽管那些是你一开始真正想找的东西"
+    },
+    "money": {
+      "type": "dom_regex",
+      "pattern": "后来很长一段时间里，你都能靠这些东西过得很好"
+    },
+    "join": {
+      "type": "dom_regex",
+      "pattern": "总价值超过一千万美元"
+    },
+    "theme_time": {
+      "type": "dom_regex",
+      "pattern": "时间记录\\s*✓ 已完成"
+    },
+    "theme_field": {
+      "type": "dom_regex",
+      "pattern": "现场记录\\s*✓ 已完成"
+    },
+    "theme_people": {
+      "type": "dom_regex",
+      "pattern": "人员相关记录\\s*✓ 已完成"
+    },
+    "soil": {
+      "type": "dom_regex",
+      "pattern": "已找到关联影像档案"
+    },
+    "terminal": {
+      "type": "dom_regex",
+      "pattern": "访问已授权"
+    },
+    "mac": {
+      "type": "dom_regex",
+      "pattern": "我们还有防熊喷雾吗"
+    },
+    "eli": {
+      "type": "dom_regex",
+      "pattern": "绷带呢"
+    },
+    "luka": {
+      "type": "dom_regex",
+      "pattern": "以为在河对岸的石屋里我就找不到你们"
+    },
+    "frank": {
+      "type": "dom_regex",
+      "pattern": "不对，我刚刚真的看见了"
+    },
+    "pack_time": {
+      "type": "dom_regex",
+      "pattern": "已形成证据包：项目时间差异记录"
+    },
+    "pack_zone": {
+      "type": "dom_regex",
+      "pattern": "已形成证据包：受限区域活动记录"
+    },
+    "pack_alan": {
+      "type": "dom_regex",
+      "pattern": "已形成证据包：艾伦遗留录音"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "theme_field",
+      "hook": "theme_field",
+      "op": "truthy"
+    },
+    {
+      "id": "theme_people",
+      "hook": "theme_people",
+      "op": "truthy"
+    },
+    {
+      "id": "alan",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "luka",
+      "hook": "luka",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "frank",
+      "hook": "frank",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "pack_time",
+      "hook": "pack_time",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "pack_zone",
+      "hook": "pack_zone",
+      "op": "truthy",
+      "role": "optional"
+        "theme_people"
+      ],
+      "ending": {
+        "hook": "justice",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "plain",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "plain",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "media",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "media",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "company",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "company",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "silence",
+      "tier": "bad",
+      "gates": [
+        "theme_time",
+        "theme_field",
+        "theme_people"
+      ],
+      "ending": {
+        "hook": "silence",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "money",
+      "tier": "bad",
+      "gates": [
+        "theme_time",
+        "theme_field",
+        "theme_people"
+      ],
+      "ending": {
+        "hook": "money",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "join",
+      "tier": "bad",
+      "gates": [
+        "theme_time",
+        "theme_field",
+        "theme_people"
+        "theme_people",
+        "alan"
+      ],
+      "ending": {
+        "hook": "money",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "join",
+      "tier": "bad",
+      "gates": [
+        "theme_time",
+        "theme_field",
+        "theme_people",
+        "alan"
+      ],
+      "ending": {
+        "hook": "join",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "justice",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

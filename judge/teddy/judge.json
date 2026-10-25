@@ -1,0 +1,84 @@
+{
+  "hooks": {
+    "free": {
+      "type": "localstorage",
+      "key": "teddy_ch3_free",
+      "mode": "exists"
+    },
+    "seal": {
+      "type": "localstorage",
+      "key": "teddy_ch3_seal",
+      "mode": "exists"
+    },
+    "belly": {
+      "type": "dom_regex",
+      "pattern": "肚皮裂开了。里面没有棉花"
+    },
+    "gear": {
+      "type": "dom_regex",
+      "pattern": "铜钥匙卡进齿轮，机芯的颤动慢了半拍。"
+    },
+    "spring": {
+      "type": "dom_regex",
+      "pattern": "银钥匙插进发条鼓。它转不动了，只剩红绳还绷着。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "belly",
+      "hook": "belly",
+      "op": "truthy"
+    },
+    {
+      "id": "gear",
+      "hook": "gear",
+      "op": "truthy"
+    },
+    {
+      "id": "spring",
+      "hook": "spring",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "free",
+      "tier": "good",
+      "gates": [
+        "belly",
+        "gear",
+        "spring"
+      ],
+      "ending": {
+        "hook": "free",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "seal",
+      "tier": "good",
+      "gates": [
+        "belly",
+        "gear",
+        "spring"
+      ],
+      "ending": {
+        "hook": "seal",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "free",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

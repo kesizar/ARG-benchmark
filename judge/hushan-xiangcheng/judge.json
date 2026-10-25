@@ -1,0 +1,107 @@
+{
+  "hooks": {
+    "triple": {
+      "type": "dom_regex",
+      "pattern": "你合出了传说中的三叠字——仓颉看了都要说一句「キラキラドキドキ」。"
+    },
+    "practice": {
+      "type": "dom_regex",
+      "pattern": "三叠字还没诞生。"
+    },
+    "iol_order": {
+      "type": "dom_regex",
+      "pattern": "✔ 正确！ 主语在最前"
+    },
+    "iol_mirror": {
+      "type": "dom_regex",
+      "pattern": "✔ 正确！.{0,40}镜像"
+    },
+    "iol_star": {
+      "type": "dom_regex",
+      "pattern": "✔ 正确！.{0,60}恭喜，你已经掌握了星语"
+    },
+    "iol_noun": {
+      "type": "dom_regex",
+      "pattern": "✔ 正确！ 名词重叠"
+    },
+    "iol_verb": {
+      "type": "dom_regex",
+      "pattern": "✔ 正确！ 动词重叠"
+    },
+    "iol_year": {
+      "type": "dom_regex",
+      "pattern": "✔ 正确！.{0,80}恭喜你入门了"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "iol_order",
+      "hook": "iol_order",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "iol_mirror",
+      "hook": "iol_mirror",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "iol_star",
+      "hook": "iol_star",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "iol_noun",
+      "hook": "iol_noun",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "iol_verb",
+      "hook": "iol_verb",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "iol_year",
+      "hook": "iol_year",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "triple",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "triple",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "practice",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "practice",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "triple",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

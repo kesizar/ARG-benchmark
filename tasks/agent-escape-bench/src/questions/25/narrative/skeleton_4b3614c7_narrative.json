@@ -1,0 +1,1592 @@
+{
+  "metadata": {
+    "total_nodes": 25,
+    "total_edges": 35,
+    "win_node_id": "item_2",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_2",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_2",
+        "terminal_1",
+        "calc_modexp_be8b",
+        "terminal_1_bd51",
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "time_convert",
+        "calc_gcd_13c6",
+        "terminal_1_3e9d",
+        "base64_encode",
+        "zip_unzip_file_6880",
+        "container_1",
+        "hash_sha256",
+        "calc_modexp_7f52",
+        "calc_bigmul_362a"
+      ],
+      "by_node": {
+        "item_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "The text"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "calc_modexp_be8b": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1_bd51": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "time_convert": {
+          "node_name": "Timezone Converter",
+          "node_type": "Tool",
+          "template_id": "time_convert",
+          "init_inputs": {
+            "iso": {
+              "type": "Text_Generic",
+              "description": "ISO Timestamp"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd_13c6": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1_3e9d": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "base64_encode": {
+          "node_name": "Base64 Encoder",
+          "node_type": "Tool",
+          "template_id": "base64_encode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex bytes"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_6880": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hash_sha256": {
+          "node_name": "SHA-256 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_sha256",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_7f52": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_362a": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "Mega Millions: 07, 14, 23, 38, 49 MB 11"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Terminal 1 system initialized successfully.",
+          "hex_output": "1a2b3c4d5e6f7a8b",
+          "item_dispenser": "Dispensed matter synthesizer blueprint"
+        }
+      },
+      "calc_modexp_be8b": {
+        "init_inputs": {
+          "exp": "384759283746501928374"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1_bd51": {
+        "init_inputs": {
+          "slot_a": "Input text sequence for terminal bd51."
+        },
+        "init_outputs": {
+          "text_output": "America/New_York",
+          "hex_output": "aabbccddeeff0011"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"America/New_York\", \"node_beta\", \"node_gamma\", \"node_delta\", \"Europe/Paris\"]",
+          "cost": "450210"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_data_from_zip.zip"
+        }
+      },
+      "time_convert": {
+        "init_inputs": {
+          "iso": "2023-11-20T08:30:00Z"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd_13c6": {
+        "init_inputs": {
+          "a": "73849501827364519283"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1_3e9d": {
+        "init_inputs": {
+          "slot_a": "Terminal 3e9d configuration input data."
+        },
+        "init_outputs": {
+          "text_output": "Europe/Paris",
+          "hex_output": "2233445566778899",
+          "item_dispenser": "Timezone configuration module item"
+        }
+      },
+      "base64_encode": {
+        "init_inputs": {
+          "hex": "48656c6c6f576f726c64"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_6880": {
+        "init_inputs": {
+          "zip_id": "secure_archive_6880.zip",
+          "password": "SuperStrongPassword2023!"
+        },
+        "init_outputs": {
+          "files": "decrypted_files_6880_out.zip"
+        }
+      },
+      "container_1": {
+        "init_inputs": {
+          "fingerprint_input": "deadbeef1234567890abcdef"
+        },
+        "init_outputs": {}
+      },
+      "hash_sha256": {
+        "init_inputs": {
+          "text": "Text payload to be hashed by SHA-256."
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_7f52": {
+        "init_inputs": {
+          "base": "32",
+          "exp": "56473829104758693021",
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_362a": {
+        "init_inputs": {
+          "a": "12938475610293847561",
+          "b": "98761234509876123450"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The world ended not with a bang, but with a sudden, silent digital collapse. You are a Scavenger exploring the ruins of Outpost 31, a legendary pre-collapse bunker rumored to hold the 'Genesis Code'—humanity's last chance to restore the biosphere. The bunker is a tangled mess of interconnected mainframes, biometric locks, and archaic processors. The air is thick with dust, and the only light comes from the faint amber glow of surviving command terminals. Your objective is clear: navigate this labyrinth of forgotten technology, restore the power flow between the core systems, and ultimately unlock the final cache containing the Genesis Code. The systems here are heavily interdependent. You'll need to trace the physical and digital paths, bringing offline systems back to life one by one. Time is running out as the bunker's backup generators begin to fail. Connect the right modules, synthesize the necessary tools, and unravel the post-apocalyptic web to secure the future.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "item_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "The text",
+          "value": "Mega Millions: 07, 14, 23, 38, 49 MB 11"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "Mega Millions: 07, 14, 23, 38, 49 MB 11"
+        }
+      },
+      "narrative": "The final cache, a secure container meant to hold humanity's last hope."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_0adc51cecfb6d99d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A sealed time capsule, surprisingly intact despite the devastation."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "Terminal 1 system initialized successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_0adc51cecfb6d99d"
+        }
+      ],
+      "narrative": "This is the automated fabricator. It requires input from the main command terminal to start printing."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "2023-11-20T09:30:00+01:00"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "0"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal 1 system initialized successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "1a2b3c4d5e6f7a8b"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "Dispensed matter synthesizer blueprint"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Terminal 1 system initialized successfully.",
+          "hex_output": "1a2b3c4d5e6f7a8b",
+          "item_dispenser": "Dispensed matter synthesizer blueprint"
+        }
+      },
+      "narrative": "This is the main command terminal. It requires inputs from both the primary core processor and the temporal synchronizer to grant access."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "0"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": 699284493
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "0"
+        }
+      ],
+      "narrative": "This is the primary core processor. It requires inputs from the secondary core processor, the auxiliary core processor, and the primary data validator to fully initialize."
+    },
+    {
+      "id": "calc_modexp_be8b",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": 584731264
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "384759283746501928374"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "exp": "384759283746501928374"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the secondary core processor. It requires inputs from both the signal multiplier and the secondary data validator."
+    },
+    {
+      "id": "terminal_1_bd51",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Input text sequence for terminal bd51."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "America/New_York"
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "aabbccddeeff0011"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Input text sequence for terminal bd51."
+        },
+        "outputs": {
+          "text_output": "America/New_York",
+          "hex_output": "aabbccddeeff0011"
+        }
+      },
+      "narrative": "This is the navigation terminal. It requires input from the frequency harmonizer to lock onto safe coordinates."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "3"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "3"
+        }
+      ],
+      "narrative": "This is the signal multiplier. It requires inputs from both the secondary frequency harmonizer and the frequency harmonizer to boost the transmission."
+    },
+    {
+      "id": "calc_modexp_c5c9",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "450210"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": 699284493
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "0"
+        }
+      ],
+      "narrative": "This is the auxiliary core processor. It requires inputs from the route mapping system, the frequency harmonizer, and the primary data validator."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_data_from_zip.zip"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "America/New_York"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "2023-11-20T09:30:00+01:00"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"America/New_York\", \"node_beta\", \"node_gamma\", \"node_delta\", \"Europe/Paris\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "450210"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"America/New_York\", \"node_beta\", \"node_gamma\", \"node_delta\", \"Europe/Paris\"]",
+          "cost": "450210"
+        }
+      },
+      "narrative": "This is the route mapping system. It requires inputs from the navigation terminal, the archive extractor, and the temporal synchronizer to chart a safe path."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": 699284493
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "287040"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3"
+        }
+      ],
+      "narrative": "This is the frequency harmonizer. It requires inputs from both the primary data validator and the environmental processor to calibrate the signals."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "bdb572feafdc3dc740bc8675ec4e351b1ec0225b70941912a1119270346ba06b"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "29ae3c0d"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 699284493
+        }
+      ],
+      "narrative": "This is the primary data validator. It requires input from the cryptographic hasher to ensure data integrity."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "decrypted_files_6880_out.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SGVsbG9Xb3JsZA=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_data_from_zip.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_data_from_zip.zip"
+        }
+      },
+      "narrative": "This is the archive extractor. It requires inputs from both the format converter and the initial archive extractor to decompress the data."
+    },
+    {
+      "id": "time_convert",
+      "name": "Timezone Converter",
+      "description": "Convert ISO time between timezones.",
+      "type": "Tool",
+      "template_id": "time_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "ISO Timestamp",
+          "value": "2023-11-20T08:30:00Z"
+        },
+        {
+          "name": "from_tz",
+          "type": "Text_Generic",
+          "description": "From Timezone",
+          "value": "America/New_York"
+        },
+        {
+          "name": "to_tz",
+          "type": "Text_Generic",
+          "description": "To Timezone",
+          "value": "Europe/Paris"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "Converted ISO Timestamp",
+          "value": "2023-11-20T09:30:00+01:00"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "iso": "2023-11-20T08:30:00Z"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the temporal synchronizer. It requires inputs from both the backup terminal and the navigation terminal to align system clocks."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_data_from_zip.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SGVsbG9Xb3JsZA=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "narrative": "This is the payload extractor. It requires inputs from both the archive extractor and the format converter to retrieve digital stasis objects."
+    },
+    {
+      "id": "calc_gcd_13c6",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "73849501827364519283"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": 699284493
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "73849501827364519283"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the secondary frequency harmonizer. It requires input from the primary data validator to stabilize its resonance."
+    },
+    {
+      "id": "checksum_crc32_a581",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "29ae3c0d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "22da4a80"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 584731264
+        }
+      ],
+      "narrative": "This is the secondary data validator. It requires input from the primary data validator to double-check the diagnostics."
+    },
+    {
+      "id": "terminal_1_3e9d",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Terminal 3e9d configuration input data."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "1277819823948543275261250183787917405450"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Europe/Paris"
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "2233445566778899"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "Timezone configuration module item"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Terminal 3e9d configuration input data."
+        },
+        "outputs": {
+          "text_output": "Europe/Paris",
+          "hex_output": "2233445566778899",
+          "item_dispenser": "Timezone configuration module item"
+        }
+      },
+      "narrative": "This is the backup terminal. It requires input from the power multiplier to boot up its systems."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "48656c6c6f576f726c64"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "SGVsbG9Xb3JsZA=="
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "48656c6c6f576f726c64"
+        },
+        "outputs": {}
+      },
+      "narrative": "A robust format converter designed to translate corrupted civilian data."
+    },
+    {
+      "id": "item_16_c6b7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An encrypted drive found buried in the rubble."
+    },
+    {
+      "id": "zip_unzip_file_6880",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_archive_6880.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SuperStrongPassword2023!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "decrypted_files_6880_out.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_archive_6880.zip",
+          "password": "SuperStrongPassword2023!"
+        },
+        "outputs": {
+          "files": "decrypted_files_6880_out.zip"
+        }
+      },
+      "narrative": "An initial archive extractor, used for parsing old compressed records."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "deadbeef1234567890abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "deadbeef1234567890abcdef"
+        },
+        "outputs": {}
+      },
+      "narrative": "A biometric lockbox with a faded military insignia."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Text payload to be hashed by SHA-256."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "bdb572feafdc3dc740bc8675ec4e351b1ec0225b70941912a1119270346ba06b"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Text payload to be hashed by SHA-256."
+        },
+        "outputs": {}
+      },
+      "narrative": "A rusty cryptographic hasher salvaged from the old world."
+    },
+    {
+      "id": "calc_modexp_7f52",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "32"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "56473829104758693021"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "287040"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "32",
+          "exp": "56473829104758693021",
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "An offline environmental processor covered in dust."
+    },
+    {
+      "id": "calc_bigmul_362a",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "12938475610293847561"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "98761234509876123450"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "1277819823948543275261250183787917405450"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "12938475610293847561",
+          "b": "98761234509876123450"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy-duty power multiplier once used to run city grids."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "calc_modexp_be8b",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "terminal_1_bd51",
+      "target_id": "calc_modexp",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_modexp_be8b",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_modexp_c5c9",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "base"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_modexp_c5c9",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "base"
+    },
+    {
+      "source_id": "terminal_1_bd51",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "src"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_modexp_c5c9",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp_c5c9",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_1_bd51",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "time_convert",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "iso",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "calc_gcd",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "time_convert",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "iso",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "calc_gcd_13c6",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32_a581",
+      "target_id": "calc_modexp_be8b",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "base"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "checksum_crc32_a581",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "terminal_1_3e9d",
+      "target_id": "time_convert",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "to_tz"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_16_c6b7",
+      "target_id": "base64_encode",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "zip_unzip_file_6880",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "zip_unzip_file_6880",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "terminal_1_bd51",
+      "target_id": "time_convert",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "from_tz"
+    },
+    {
+      "source_id": "calc_modexp_7f52",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "password"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_gcd_13c6",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_bigmul_362a",
+      "target_id": "terminal_1_3e9d",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "slot_b"
+    }
+  ]
+}

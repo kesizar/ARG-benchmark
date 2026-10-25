@@ -1,0 +1,704 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 14,
+    "win_node_id": "item_8",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_8",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_8",
+        "calc_bigmul",
+        "calc_bigmul_d1db",
+        "calc_bigmul_ee9b",
+        "calc_inv_mod",
+        "num_base_convert"
+      ],
+      "by_node": {
+        "item_8": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_8",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hidden_Item",
+              "description": "The integer"
+            }
+          }
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_d1db": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_ee9b": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_8": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "IN_PRINCIPIO_CREAVIT_DEUS_CAELUM_ET_TERRAM"
+        }
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "8475629103847562910384756291"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_d1db": {
+        "init_inputs": {
+          "b": "2910384756291038475629103847"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_ee9b": {
+        "init_inputs": {
+          "b": "5629103847562910384756291038"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "7562910384756291038475629103"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "9103847562910384756291038475",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "Welcome to the grand workshop of the late Inventor-General Archimedes. The air is thick with the smell of engine oil and escaping steam, accompanied by the rhythmic hissing of interconnected brass pipes. The city's mechanical power grid is failing, and the only way to save it is to retrieve Archimedes' masterwork: the final engine blueprint. However, the eccentric inventor locked it away behind a complex series of steam-powered calculators and mechanized vaults. You must decipher his mechanical logic, operate the grand brass machinery in the correct sequence, and uncover the hidden schematics before the entire city grinds to a permanent halt.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer",
+          "value": "IN_PRINCIPIO_CREAVIT_DEUS_CAELUM_ET_TERRAM"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "IN_PRINCIPIO_CREAVIT_DEUS_CAELUM_ET_TERRAM"
+        }
+      },
+      "narrative": "A secure, heavy brass canister holding the final engine blueprint."
+    },
+    {
+      "id": "item_8_ac4a",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "An intricate brass combination casing adorned with interlocking gears."
+    },
+    {
+      "id": "item_8_b3e4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A heavy mechanical dial with glowing gauge meters."
+    },
+    {
+      "id": "item_8_1bd7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A metallic cypher disk covered in strange, stamped symbols."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A rolled-up parchment containing early clockwork schematics."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "584677325563172081677410017795981179944448186872022977752265368682184854975883339305368195825046973232558727942"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is the Chronos Biometric Vault. It requires input from the Master Cog Multiplier to authenticate and open the heavy brass doors."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "8475629103847562910384756291"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "68983354320890975061475953973312316627899349976497061160830848935744792018123736962"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "584677325563172081677410017795981179944448186872022977752265368682184854975883339305368195825046973232558727942"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "8475629103847562910384756291"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Master Cog Multiplier. It requires input from the Secondary Cog Multiplier to finalize the grand mechanical calculations."
+    },
+    {
+      "id": "calc_bigmul_d1db",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "23702486130666305492903996120472772575478643280127680046"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "2910384756291038475629103847"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "68983354320890975061475953973312316627899349976497061160830848935744792018123736962"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "2910384756291038475629103847"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Secondary Cog Multiplier. It requires input from the Primary Cog Multiplier to align and operate its gear shafts."
+    },
+    {
+      "id": "item_8_a9fe",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A hidden copper core radiating a faint warmth."
+    },
+    {
+      "id": "calc_bigmul_ee9b",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "4210703297102640373413129817"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "5629103847562910384756291038"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "23702486130666305492903996120472772575478643280127680046"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "5629103847562910384756291038"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Primary Cog Multiplier. It requires input from the Aetheric Inverter to process its initial mechanical equations."
+    },
+    {
+      "id": "item_8_366f",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A small, delicate winding gear made of polished steel."
+    },
+    {
+      "id": "item_16_4205",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An intricate pocket watch ticking away rhythmically."
+    },
+    {
+      "id": "item_8_606e",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A strange copper coin with specialized gear teeth along its edge."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "7562910384756291038475629103"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "9103847562910384756291038475"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "4210703297102640373413129817"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "7562910384756291038475629103"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is an Aetheric Inverter. It requires input from the Differential Base Converter to function properly and invert the steam pressure."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "9103847562910384756291038475"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "10"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "9103847562910384756291038475"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "9103847562910384756291038475",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Differential Base Converter. A bulky steam-powered machine with multiple dials and brass levers."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8_ac4a",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_b3e4",
+      "target_id": "item_8_ac4a",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_1bd7",
+      "target_id": "item_8_b3e4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_1bd7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "calc_bigmul_d1db",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "item_8_a9fe",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "calc_bigmul_ee9b",
+      "target_id": "calc_bigmul_d1db",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_8_366f",
+      "target_id": "calc_bigmul_ee9b",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_16_4205",
+      "target_id": "item_8_366f",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8_606e",
+      "target_id": "item_8_a9fe",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_bigmul_ee9b",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "mod"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "hooks": {
+    "lived": {
+      "type": "dom_regex",
+      "pattern": "这个结局里，妹妹活下来了"
+    },
+    "gone": {
+      "type": "dom_regex",
+      "pattern": "这个结局里，妹妹没有回来"
+    },
+    "entered": {
+      "type": "dom_regex",
+      "pattern": "已进入桌面"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "entered",
+      "hook": "entered",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "lived",
+      "tier": "good",
+      "gates": [
+        "entered"
+      ],
+      "ending": {
+        "hook": "lived",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "gone",
+      "tier": "bad",
+      "gates": [
+        "entered"
+      ],
+      "ending": {
+        "hook": "gone",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "lived",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

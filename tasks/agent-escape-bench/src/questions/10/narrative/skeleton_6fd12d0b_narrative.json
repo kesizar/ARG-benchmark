@@ -1,0 +1,792 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 12,
+    "win_node_id": "item_15",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_15",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_15",
+        "terminal_2",
+        "calc_modexp",
+        "calc_modexp_48e0",
+        "graph_shortest_path",
+        "terminal_1",
+        "graph_shortest_path_f35f",
+        "container_2",
+        "json_get"
+      ],
+      "by_node": {
+        "item_15": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_15",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "Timezone text"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_48e0": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "graph_shortest_path_f35f": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "container_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_2",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "JSON file ID"
+            },
+            "jsonpath": {
+              "type": "Text_Generic",
+              "description": "JSONPath expression"
+            }
+          },
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_15": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "Europe/London"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Awaiting final calculation inputs...",
+          "hex_result": "1a2b3c4d5e6f708192a3b4c5d6e7f809"
+        }
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "16",
+          "exp": "837465910293847561029384"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_48e0": {
+        "init_inputs": {
+          "mod": "982451"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "topology_data.json",
+          "dst": "Node_X99"
+        },
+        "init_outputs": {
+          "path": "[\"Node_Alpha\", \"Node_Beta\", \"Router_7\", \"Node_X99\"]",
+          "cost": "10452"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "System initialization sequence ready.",
+          "hex_output": "deadbeefcafebabe"
+        }
+      },
+      "graph_shortest_path_f35f": {
+        "init_inputs": {
+          "file_id": "city_grid.json",
+          "src": "Station_Central",
+          "dst": "District_12"
+        },
+        "init_outputs": {
+          "path": "[\"Station_Central\", \"North_Ave\", \"Bridge_Link\", \"Highway_4\", \"District_12\"]",
+          "cost": "4520"
+        }
+      },
+      "container_2": {
+        "init_inputs": {
+          "fingerprint_input": "e5c4b3a29182736450f1e2d3c4b5a697"
+        },
+        "init_outputs": {}
+      },
+      "json_get": {
+        "init_inputs": {
+          "file_id": "inventory_log.json",
+          "jsonpath": "$.items[*].sku"
+        },
+        "init_outputs": {
+          "values": "[\"SKU_1001\", \"SKU_1002\", \"SKU_1003\", \"SKU_1004\", \"SKU_1005\"]"
+        }
+      }
+    },
+    "intro_narrative": "You are trapped aboard the drifting airship Aethelgard, once the pride of the brass skies. The captain's cabin is locked down, and the main boiler is losing pressure rapidly. Your only hope of survival is to restore the ship's intricate mechanical navigation systems and access the central helm before the ship plummets into the smog-filled abyss below. You must interact with the ship's clockwork mechanisms, steam-powered analytical engines, and pneumatic tubes to uncover the escape route. Find the captain's hidden records and secure your salvation.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "item_15",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_15",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "Timezone text",
+          "value": "Europe/London"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "Europe/London"
+        }
+      },
+      "narrative": "This is the Navigator's Logbook, a leather-bound journal containing the final secrets of the airship."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "4520"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "581920"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Awaiting final calculation inputs..."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1a2b3c4d5e6f708192a3b4c5d6e7f809"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Awaiting final calculation inputs...",
+          "hex_result": "1a2b3c4d5e6f708192a3b4c5d6e7f809"
+        }
+      },
+      "narrative": "This is the Captain's Final Console, the grand helm control station gleaming with gold and mahogany. It requires inputs from both the Primary Navigation Engine and the Master Output Modulator to initiate."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "16"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "837465910293847561029384"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "820952"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "581920"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "16",
+          "exp": "837465910293847561029384"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Master Output Modulator, a delicate series of glass tubes and copper wiring used to balance aether flow. It needs the result from the Pressure Calibration Engine to stabilize its core."
+    },
+    {
+      "id": "calc_modexp_48e0",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "4520"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "10452"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "982451"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "820952"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "982451"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Pressure Calibration Engine, a towering boiler-like calculation machine. It requires inputs from both the Primary Navigation Engine and the Secondary Navigation Engine to calculate safe atmospheric pressure limits."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "topology_data.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "System initialization sequence ready."
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Node_X99"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Alpha\", \"Node_Beta\", \"Router_7\", \"Node_X99\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "10452"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "topology_data.json",
+          "dst": "Node_X99"
+        },
+        "outputs": {
+          "path": "[\"Node_Alpha\", \"Node_Beta\", \"Router_7\", \"Node_X99\"]",
+          "cost": "10452"
+        }
+      },
+      "narrative": "This is the Secondary Navigation Engine, a refined astrolabe projector used for localized mapping. It requires input from the Steam-powered Terminal to plot out specific aether routes."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "[\"SKU_1001\", \"SKU_1002\", \"SKU_1003\", \"SKU_1004\", \"SKU_1005\"]"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "4520"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "System initialization sequence ready."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "deadbeefcafebabe"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "System initialization sequence ready.",
+          "hex_output": "deadbeefcafebabe"
+        }
+      },
+      "narrative": "This is the Steam-powered Terminal, a hissing analytical engine with heavy punch-card slots. It requires inputs from both the Primary Navigation Engine and the Brass Records Decoder to function."
+    },
+    {
+      "id": "graph_shortest_path_f35f",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "city_grid.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Station_Central"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "District_12"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Station_Central\", \"North_Ave\", \"Bridge_Link\", \"Highway_4\", \"District_12\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "4520"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "city_grid.json",
+          "src": "Station_Central",
+          "dst": "District_12"
+        },
+        "outputs": {
+          "path": "[\"Station_Central\", \"North_Ave\", \"Bridge_Link\", \"Highway_4\", \"District_12\"]",
+          "cost": "4520"
+        }
+      },
+      "narrative": "This is the Primary Navigation Engine, a massive mechanical plotting table covered in brass dials and compasses."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "e5c4b3a29182736450f1e2d3c4b5a697"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "e5c4b3a29182736450f1e2d3c4b5a697"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Geared Lockbox, a sturdy steel lockbox sealed with a complex clockwork mechanism and a biometric glass plate."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "inventory_log.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "$.items[*].sku"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"SKU_1001\", \"SKU_1002\", \"SKU_1003\", \"SKU_1004\", \"SKU_1005\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "inventory_log.json",
+          "jsonpath": "$.items[*].sku"
+        },
+        "outputs": {
+          "values": "[\"SKU_1001\", \"SKU_1002\", \"SKU_1003\", \"SKU_1004\", \"SKU_1005\"]"
+        }
+      },
+      "narrative": "This is the Brass Records Decoder, a heavy brass decoding machine designed to parse intricate punched cards."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is the Dust-covered Chronometer, an old pocket watch ticking faintly, surrounded by scattered cogs."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_15",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "calc_modexp_48e0",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_modexp_48e0",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "calc_modexp_48e0",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "src"
+    },
+    {
+      "source_id": "graph_shortest_path_f35f",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "graph_shortest_path_f35f",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "graph_shortest_path_f35f",
+      "target_id": "calc_modexp_48e0",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "base"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "graph_shortest_path_f35f",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    }
+  ]
+}

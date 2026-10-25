@@ -1,0 +1,675 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 11,
+    "win_node_id": "item_16",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_16",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_16",
+        "terminal_2",
+        "graph_shortest_path",
+        "graph_shortest_path_a01a",
+        "zip_unzip_file",
+        "base64_encode",
+        "container_4"
+      ],
+      "by_node": {
+        "item_16": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_16",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hidden_Item",
+              "description": "Timezone text"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "graph_shortest_path_a01a": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "base64_encode": {
+          "node_name": "Base64 Encoder",
+          "node_type": "Tool",
+          "template_id": "base64_encode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex bytes"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Text_Generic",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_16": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "THE_END_IS_THE_BEGINNING_AND_THE_BEGINNING_IS_THE_END"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Terminal operation completed successfully.",
+          "hex_result": "0a1b2c3d4e5f60718293a4b5c6d7e8f9",
+          "math_token": "Math_Token_Identifier_X99"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "city_transport_map.json",
+          "dst": "Central_Station_Hub"
+        },
+        "init_outputs": {
+          "path": "[\"Start_Node\", \"Junction_A\", \"Junction_B\", \"Central_Station_Hub\"]",
+          "cost": "83746510293847561029384756"
+        }
+      },
+      "graph_shortest_path_a01a": {
+        "init_inputs": {
+          "src": "Remote_Outpost_Alpha"
+        },
+        "init_outputs": {
+          "path": "[\"Remote_Outpost_Alpha\", \"Relay_Node_1\", \"Relay_Node_2\", \"Destination_Beta\"]",
+          "cost": "19283746509182736450192837"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "confidential_data_archive.zip",
+          "password": "SecureAccessKey_2024!"
+        },
+        "init_outputs": {
+          "files": "extracted_payload_data.csv"
+        }
+      },
+      "base64_encode": {
+        "init_inputs": {
+          "hex": "deadbeefcafebabe1234567890abcdef"
+        },
+        "init_outputs": {}
+      },
+      "container_4": {
+        "init_inputs": {
+          "fingerprint_input": "Fingerprint_Hash_Identity_V1"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are an elite cyber-intelligence operative who has infiltrated a rogue defense contractor's hidden subterranean server room. The facility is set to purge all its criminal records in exactly one hour. Your objective is to uncover their illicit network and secure the final operation report before the automated wipe erases everything. The room hums with the sound of blinking server racks, scattered drives, and heavy biometric security. Time is ticking, and you must piece together the digital breadcrumbs to crack their impenetrable systems.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text",
+          "value": "THE_END_IS_THE_BEGINNING_AND_THE_BEGINNING_IS_THE_END"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "THE_END_IS_THE_BEGINNING_AND_THE_BEGINNING_IS_THE_END"
+        }
+      },
+      "narrative": "The heavily redacted Final Report detailing the illegal operation. Securing it is your ultimate goal."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "0a1b2c3d4e5f60718293a4b5c6d7e8f9"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a high-tech Biometric Safe. It requires input from the Mainframe Terminal to successfully authenticate access."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "19283746509182736450192837"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a Secure Briefcase. It requires input from the Primary Network Tracker to bypass its complex digital lock."
+    },
+    {
+      "id": "item_16_6b16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A classified Evidence Folder left carelessly on the supervisor's desk."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "83746510293847561029384756"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "19283746509182736450192837"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal operation completed successfully."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "0a1b2c3d4e5f60718293a4b5c6d7e8f9"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Math_Token_Identifier_X99"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Terminal operation completed successfully.",
+          "hex_result": "0a1b2c3d4e5f60718293a4b5c6d7e8f9",
+          "math_token": "Math_Token_Identifier_X99"
+        }
+      },
+      "narrative": "This is the Mainframe Terminal. It requires inputs from both the Primary Network Tracker and the Secondary Network Tracker to calculate the override code."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "city_transport_map.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "[\"Remote_Outpost_Alpha\", \"Relay_Node_1\", \"Relay_Node_2\", \"Destination_Beta\"]"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Central_Station_Hub"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Start_Node\", \"Junction_A\", \"Junction_B\", \"Central_Station_Hub\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "83746510293847561029384756"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "city_transport_map.json",
+          "dst": "Central_Station_Hub"
+        },
+        "outputs": {
+          "path": "[\"Start_Node\", \"Junction_A\", \"Junction_B\", \"Central_Station_Hub\"]",
+          "cost": "83746510293847561029384756"
+        }
+      },
+      "narrative": "This is the Secondary Network Tracker. It requires input from the Primary Network Tracker to isolate the final routing node."
+    },
+    {
+      "id": "graph_shortest_path_a01a",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_payload_data.csv"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Remote_Outpost_Alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "3q2+78r+ur4SNFZ4kKvN7w=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Remote_Outpost_Alpha\", \"Relay_Node_1\", \"Relay_Node_2\", \"Destination_Beta\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "19283746509182736450192837"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Remote_Outpost_Alpha"
+        },
+        "outputs": {
+          "path": "[\"Remote_Outpost_Alpha\", \"Relay_Node_1\", \"Relay_Node_2\", \"Destination_Beta\"]",
+          "cost": "19283746509182736450192837"
+        }
+      },
+      "narrative": "This is the Primary Network Tracker. It requires inputs from both the Data Decryptor and the Signal Translator to trace the target's digital footprint."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "confidential_data_archive.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SecureAccessKey_2024!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_payload_data.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "confidential_data_archive.zip",
+          "password": "SecureAccessKey_2024!"
+        },
+        "outputs": {
+          "files": "extracted_payload_data.csv"
+        }
+      },
+      "narrative": "A heavy-duty Data Decryptor used to extract secured compressed archives."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "deadbeefcafebabe1234567890abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "3q2+78r+ur4SNFZ4kKvN7w=="
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "deadbeefcafebabe1234567890abcdef"
+        },
+        "outputs": {}
+      },
+      "narrative": "An old but reliable Signal Translator for converting raw byte streams."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "Fingerprint_Hash_Identity_V1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "Fingerprint_Hash_Identity_V1"
+        },
+        "outputs": {}
+      },
+      "narrative": "A standard issue Storage Locker located in the corner of the security room."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_1",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_6b16",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "graph_shortest_path_a01a",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "graph_shortest_path_a01a",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "src"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path_a01a",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "graph_shortest_path_a01a",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "graph_shortest_path_a01a",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "terminal_2",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    }
+  ]
+}

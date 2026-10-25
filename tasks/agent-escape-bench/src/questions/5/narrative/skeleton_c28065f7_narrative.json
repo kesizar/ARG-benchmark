@@ -1,0 +1,325 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "hex_decode",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "hex_decode",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute Hex to Text Decoder and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "hash_md5",
+        "terminal_1",
+        "time_convert"
+      ],
+      "by_node": {
+        "hash_md5": {
+          "node_name": "MD5 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_md5",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "time_convert": {
+          "node_name": "Timezone Converter",
+          "node_type": "Tool",
+          "template_id": "time_convert",
+          "init_inputs": {
+            "iso": {
+              "type": "Text_Generic",
+              "description": "ISO Timestamp"
+            },
+            "from_tz": {
+              "type": "Text_Generic",
+              "description": "From Timezone"
+            },
+            "to_tz": {
+              "type": "Text_Generic",
+              "description": "To Timezone"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "hash_md5": {
+        "init_inputs": {
+          "text": "Target string for MD5 calculation 58293"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_b": "9283746501928374650192837"
+        },
+        "init_outputs": {
+          "text_output": "Terminal operation completed successfully. Result available.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "time_convert": {
+        "init_inputs": {
+          "iso": "2024-06-15T12:00:00",
+          "from_tz": "Europe/London",
+          "to_tz": "Asia/Tokyo"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You step into the dimly lit office of Arthur Pendelton, a renowned private investigator who vanished without a trace exactly three weeks ago. The air is thick with stale tobacco smoke and the sharp scent of ozone. A faint, rhythmic hum emanates from an array of strange, interconnected retro-futuristic machines covering his massive oak desk. Suddenly, the heavy steel door slams shut behind you, engaging a magnetic deadlock. A digital timer flickers to life above the exit, ticking down ominously. Arthur was known for his intense paranoia, leaving behind a trail of cryptic devices and physical puzzles to protect his final, earth-shattering discovery. You must navigate his bizarre contraptions, uncover the hidden sequence of events, and piece together the fragmented clues he left behind. Your only way out is to operate his master machinery and reveal the final truth Arthur died to hide. The clock is ticking, and the shadows of the office seem to close in around you.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "df64fbca73d8bfd847e2a470dd7fb26f"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "dsؿGpo"
+        }
+      ],
+      "narrative": "This is the Final Decryption Screen. It requires input from the Digital Scrambler to translate the obscured code into a readable message."
+    },
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Target string for MD5 calculation 58293"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "df64fbca73d8bfd847e2a470dd7fb26f"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Target string for MD5 calculation 58293"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy-duty Digital Scrambler. It is designed to aggressively scramble sensitive information into an unreadable format."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Sealed Envelope with a heavy wax seal. It feels like there is something rigid and important hidden inside."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "2024-06-15T21:00:00+09:00"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "9283746501928374650192837"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal operation completed successfully. Result available."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_b": "9283746501928374650192837"
+        },
+        "outputs": {
+          "text_output": "Terminal operation completed successfully. Result available.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      },
+      "narrative": "This is the Mainframe Console. It requires input from the Chronograph Dial to synchronize its systems and process the data."
+    },
+    {
+      "id": "time_convert",
+      "name": "Timezone Converter",
+      "description": "Convert ISO time between timezones.",
+      "type": "Tool",
+      "template_id": "time_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "ISO Timestamp",
+          "value": "2024-06-15T12:00:00"
+        },
+        {
+          "name": "from_tz",
+          "type": "Text_Generic",
+          "description": "From Timezone",
+          "value": "Europe/London"
+        },
+        {
+          "name": "to_tz",
+          "type": "Text_Generic",
+          "description": "To Timezone",
+          "value": "Asia/Tokyo"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "Converted ISO Timestamp",
+          "value": "2024-06-15T21:00:00+09:00"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "iso": "2024-06-15T12:00:00",
+          "from_tz": "Europe/London",
+          "to_tz": "Asia/Tokyo"
+        },
+        "outputs": {}
+      },
+      "narrative": "An ornate brass Chronograph Dial. It features multiple rotating rings used for shifting temporal coordinates."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "hash_md5",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "hash_md5",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "time_convert",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "iso",
+      "target_port": "slot_a"
+    }
+  ]
+}

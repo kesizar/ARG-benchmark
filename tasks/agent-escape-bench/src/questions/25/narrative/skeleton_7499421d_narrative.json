@@ -1,0 +1,1453 @@
+{
+  "metadata": {
+    "total_nodes": 25,
+    "total_edges": 30,
+    "win_node_id": "zlib_deflate",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "zlib_deflate",
+      "output_port": "hex",
+      "output_type": "Hex_String",
+      "description": "Execute Zlib Deflate and get the output from port 'hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "crypto_rsa_decrypt_hex",
+        "terminal_2",
+        "zip_unzip_file",
+        "zip_unzip_file_61fa",
+        "num_base_convert",
+        "zip_unzip_file_5af7",
+        "calc_gcd",
+        "num_base_convert_53cc",
+        "regex_search",
+        "csv_query",
+        "luhn_check",
+        "zip_unzip_file_1f72",
+        "checksum_crc32_18c4",
+        "code_py_exec"
+      ],
+      "by_node": {
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "hex_cipher": {
+              "type": "Hex_String",
+              "description": "Ciphertext (Hex)"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_61fa": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_5af7": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert_53cc": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {},
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "luhn_check": {
+          "node_name": "Luhn Checker",
+          "node_type": "Tool",
+          "template_id": "luhn_check",
+          "init_inputs": {
+            "number": {
+              "type": "Text_Generic",
+              "description": "Number string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_1f72": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "checksum_crc32_18c4": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "code_py_exec": {
+          "node_name": "Python Executor",
+          "node_type": "Tool",
+          "template_id": "code_py_exec",
+          "init_inputs": {
+            "code": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "hex_cipher": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "8472948175928374928157"
+        },
+        "init_outputs": {
+          "text_result": "Terminal output partial result ready.",
+          "hex_result": "ab12cd34ef569078",
+          "math_token": "Just an empty useless mathematical token here."
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "password": "securePass123"
+        },
+        "init_outputs": {
+          "files": "extracted_data_1.csv"
+        }
+      },
+      "zip_unzip_file_61fa": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_data_2.txt"
+        }
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "48291048293847192837482"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_5af7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_data_3.json"
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "b": "29481759283748192837582"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert_53cc": {
+        "init_inputs": {
+          "from_base": "16",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "regex_search": {
+        "init_inputs": {
+          "file_id": "search_target.log"
+        },
+        "init_outputs": {
+          "matches": "[\"user_1\", \"user_2\", \"user_3\", \"user_4\", \"user_5\"]"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {},
+        "init_outputs": {
+          "rows": "[{\"col1\":\"val1\"}, {\"col1\":\"val2\"}, {\"col1\":\"val3\"}, {\"col1\":\"val4\"}]"
+        }
+      },
+      "luhn_check": {
+        "init_inputs": {
+          "number": "4561261212345464"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_1f72": {
+        "init_inputs": {
+          "zip_id": "archive_main.zip",
+          "password": "archivePass456"
+        },
+        "init_outputs": {
+          "files": "extracted_data_4.xml"
+        }
+      },
+      "checksum_crc32_18c4": {
+        "init_inputs": {
+          "hex": "112233445566778899aabbccddeeff00"
+        },
+        "init_outputs": {}
+      },
+      "code_py_exec": {
+        "init_inputs": {
+          "code": "print('Hello World')\nresult = 42"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The year is 2142. The world you once knew has been reduced to ash and twisted metal, ravaged by the Great Collapse. You are a Scavenger, wandering the irradiated wasteland of Sector 7. Your Geiger counter clicks rapidly as you stumble upon an underground bunker, its heavy blast doors slightly ajar. Inside lies a complex network of ancient terminals, cryptographic devices, and forgotten storage drives left behind by the architects of the old world. Your objective is clear: navigate this labyrinth of decayed technology, restore the power relays, and extract the encrypted emergency coordinates before the bunker's collapsing power grid seals you inside forever. Every device is interconnected, demanding logic and careful exploration to piece together the final transmission. Time is running out, and the wasteland forgives no mistakes.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "Al9LDmUX"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c73ccb1f471c90d8d00000b2f0291"
+        }
+      ],
+      "narrative": "This is the Final Compression Protocol. It requires input from the Transmission Relay to finalize the emergency broadcast."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "025f4b0e6517"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "Al9LDmUX"
+        }
+      ],
+      "narrative": "This is a Transmission Relay. It requires input from the Data Compiler to establish an uplink."
+    },
+    {
+      "id": "hex_encode",
+      "name": "Text to Hex Encoder",
+      "description": "Encode UTF-8 text to hex.",
+      "type": "Tool",
+      "template_id": "hex_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "\u0002_K\u000ee\u0017"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Encoded hex",
+          "value": "025f4b0e6517"
+        }
+      ],
+      "narrative": "This is a Data Compiler. It requires input from the Decryption Matrix to structure the recovered files."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_data_1.csv"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Terminal output partial result ready."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "narrative": "This is a Secure Vault. It requires inputs from the Main Command Terminal and the Encrypted Storage Drive Delta."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "48291048293847192837482"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": 3549980404
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "\u0002_K\u000ee\u0017"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_cipher": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Decryption Matrix. It requires inputs from the Secondary Radiation Scanner and the Quantum Decoupler."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "8472948175928374928157"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "154997392648"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal output partial result ready."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "ab12cd34ef569078"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Just an empty useless mathematical token here."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "8472948175928374928157"
+        },
+        "outputs": {
+          "text_result": "Terminal output partial result ready.",
+          "hex_result": "ab12cd34ef569078",
+          "math_token": "Just an empty useless mathematical token here."
+        }
+      },
+      "narrative": "This is the Main Command Terminal. It requires input from the Power Conversion Relay to boot up its interface."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_data_2.txt"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "securePass123"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_data_1.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "securePass123"
+        },
+        "outputs": {
+          "files": "extracted_data_1.csv"
+        }
+      },
+      "narrative": "This is Encrypted Storage Drive Delta. It requires input from the Encrypted Storage Drive Gamma to initiate extraction."
+    },
+    {
+      "id": "zip_unzip_file_61fa",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_data_3.json"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Terminal output partial result ready."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_data_2.txt"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_data_2.txt"
+        }
+      },
+      "narrative": "This is Encrypted Storage Drive Gamma. It requires inputs from the Main Command Terminal and the Encrypted Storage Drive Beta."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "5b22757365725f31222c2022757365725f32222c2022757365725f33222c2022757365725f34222c2022757365725f35225d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "d39866f4"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3549980404
+        }
+      ],
+      "narrative": "This is a Secondary Radiation Scanner. It requires input from the Signal Modulator to verify integrity."
+    },
+    {
+      "id": "hex_encode_f266",
+      "name": "Text to Hex Encoder",
+      "description": "Encode UTF-8 text to hex.",
+      "type": "Tool",
+      "template_id": "hex_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "[\"user_1\", \"user_2\", \"user_3\", \"user_4\", \"user_5\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Encoded hex",
+          "value": "5b22757365725f31222c2022757365725f32222c2022757365725f33222c2022757365725f34222c2022757365725f35225d"
+        }
+      ],
+      "narrative": "This is a Signal Modulator. It requires input from the Pattern Analyzer to encode the outgoing frequencies."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "48291048293847192837482"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "2"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "154997392648"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "48291048293847192837482"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "48291048293847192837482"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Quantum Decoupler. It requires inputs from both the Harmonic Resonance Calibrator and the Power Conversion Relay."
+    },
+    {
+      "id": "zip_unzip_file_5af7",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_data_4.xml"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "false"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_data_3.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_data_3.json"
+        }
+      },
+      "narrative": "This is Encrypted Storage Drive Beta. It requires inputs from the Encrypted Storage Drive Alpha and the Biometric Authenticator."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "154997392648"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "29481759283748192837582"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "2"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "29481759283748192837582"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Harmonic Resonance Calibrator. It requires input from the Power Conversion Relay to synchronize."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "An Access Token. A small metallic chip bearing the insignia of the old world."
+    },
+    {
+      "id": "item_8_8e8e",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A Rusty Keycard. A dilapidated piece of plastic with a faded magnetic strip."
+    },
+    {
+      "id": "num_base_convert_53cc",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": 2416908508
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "16"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "154997392648"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "from_base": "16",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Power Conversion Relay. It requires input from the Primary Radiation Scanner to calibrate its output."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "Terminal output partial result ready."
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "search_target.log"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "[{\"col1\":\"val1\"}, {\"col1\":\"val2\"}, {\"col1\":\"val3\"}, {\"col1\":\"val4\"}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"user_1\", \"user_2\", \"user_3\", \"user_4\", \"user_5\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "search_target.log"
+        },
+        "outputs": {
+          "matches": "[\"user_1\", \"user_2\", \"user_3\", \"user_4\", \"user_5\"]"
+        }
+      },
+      "narrative": "This is a Pattern Analyzer. It requires inputs from the Main Command Terminal and the Database Server to run diagnostics."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "extracted_data_2.txt"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "false"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "Hello World\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"col1\":\"val1\"}, {\"col1\":\"val2\"}, {\"col1\":\"val3\"}, {\"col1\":\"val4\"}]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "rows": "[{\"col1\":\"val1\"}, {\"col1\":\"val2\"}, {\"col1\":\"val3\"}, {\"col1\":\"val4\"}]"
+        }
+      },
+      "narrative": "This is a Database Server. It requires inputs from the Biometric Authenticator, the Encrypted Storage Drive Gamma, and the Automated Maintenance Drone."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "4561261212345464"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "number": "4561261212345464"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Biometric Authenticator. A grimy handprint scanner mounted on the reinforced wall."
+    },
+    {
+      "id": "zip_unzip_file_1f72",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_main.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "archivePass456"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_data_4.xml"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_main.zip",
+          "password": "archivePass456"
+        },
+        "outputs": {
+          "files": "extracted_data_4.xml"
+        }
+      },
+      "narrative": "Encrypted Storage Drive Alpha. A heavily encrypted data drive found in the debris."
+    },
+    {
+      "id": "item_8_bcb4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A Control Module. A dust-covered circuit board missing its casing."
+    },
+    {
+      "id": "item_8_df11",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "An Override Chip. A specialized bypass circuit found among the ruins."
+    },
+    {
+      "id": "checksum_crc32_18c4",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "112233445566778899aabbccddeeff00"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "900f18dc"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2416908508
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "112233445566778899aabbccddeeff00"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Primary Radiation Scanner. An old handheld device used to measure residual radiation levels in the sector."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print('Hello World')\nresult = 42"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "Hello World\n"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "code": "print('Hello World')\nresult = 42"
+        },
+        "outputs": {}
+      },
+      "narrative": "An Automated Maintenance Drone. A barely functioning robotic unit wandering the facility."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Chronometer. A shattered digital watch that still weakly flashes."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "base64_encode",
+      "target_id": "zlib_deflate",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "text"
+    },
+    {
+      "source_id": "hex_encode",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "hex_encode",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "hex_encode",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "password"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file_61fa",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "d"
+    },
+    {
+      "source_id": "hex_encode_f266",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "zip_unzip_file_61fa",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "password"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "n"
+    },
+    {
+      "source_id": "zip_unzip_file_5af7",
+      "target_id": "zip_unzip_file_61fa",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "calc_gcd",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_8_8e8e",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "num_base_convert_53cc",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "num_base_convert_53cc",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "hex_encode_f266",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "text"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "pattern"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "text"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "select"
+    },
+    {
+      "source_id": "num_base_convert_53cc",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "zip_unzip_file_1f72",
+      "target_id": "zip_unzip_file_5af7",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_8_bcb4",
+      "target_id": "terminal_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_8_df11",
+      "target_id": "num_base_convert",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "checksum_crc32_18c4",
+      "target_id": "num_base_convert_53cc",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "s"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "zip_unzip_file_5af7",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "password"
+    },
+    {
+      "source_id": "zip_unzip_file_61fa",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "where"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_bcb4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    }
+  ]
+}

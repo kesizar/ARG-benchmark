@@ -1,0 +1,45 @@
+{
+  "hooks": {
+    "worker": {
+      "type": "dom_regex",
+      "pattern": "我只是一个打工人"
+    },
+    "report": {
+      "type": "dom_regex",
+      "pattern": "老板，皮诺丘那边有进展了，先跟您汇报一下："
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "report",
+      "hook": "report",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "worker",
+      "tier": "good",
+      "gates": [
+        "report"
+      ],
+      "ending": {
+        "hook": "worker",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "worker",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

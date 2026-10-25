@@ -1,0 +1,1470 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 28,
+    "win_node_id": "container_4",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "container_4",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "container_4",
+        "terminal_1",
+        "terminal_2",
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "graph_shortest_path_9725",
+        "calc_modexp",
+        "calc_modexp_a535",
+        "calc_modexp_174b",
+        "calc_bigmul",
+        "calc_bigmul_f811",
+        "calc_modexp_cf12",
+        "calc_bigmul_2942",
+        "zip_unzip_file_6307",
+        "calc_bigmul_6a40",
+        "graph_shortest_path_58d8"
+      ],
+      "by_node": {
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "inner_space": {
+              "type": "Item",
+              "description": "Contents"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "graph_shortest_path_9725": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_a535": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_174b": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_f811": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_cf12": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul_2942": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_6307": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "calc_bigmul_6a40": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path_58d8": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "container_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "inner_space": "A♠_K♥_Q♣_J♦_10♠"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Terminal initialized and ready to process inputs.",
+          "hex_output": "4f9b2d8e1a7c5603b41d",
+          "item_dispenser": "A completely redundant token item"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Terminal two processing complete with partial input.",
+          "hex_result": "7a6b5c4d3e2f10984a",
+          "math_token": "Another pointless math symbol coin"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Node_Alpha"
+        },
+        "init_outputs": {
+          "path": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Epsilon\"]",
+          "cost": "245890"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_data_1.zip"
+        }
+      },
+      "graph_shortest_path_9725": {
+        "init_inputs": {
+          "file_id": "graph_structure_A.json",
+          "src": "Node_Start_1"
+        },
+        "init_outputs": {
+          "path": "[\"Node_Start_1\", \"Node_A1\", \"Node_A2\", \"Node_A3\", \"Node_End_1\"]",
+          "cost": "389215"
+        }
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "exp": "84930219485729103847"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_a535": {
+        "init_inputs": {
+          "mod": "948271"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_174b": {
+        "init_inputs": {
+          "mod": "837493"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "b": "39485720192837465928"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_f811": {
+        "init_inputs": {
+          "a": "10928374650192837465"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_cf12": {
+        "init_inputs": {
+          "exp": "48572910485729103847"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul_2942": {
+        "init_inputs": {
+          "a": "58294018374659203847"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_6307": {
+        "init_inputs": {
+          "zip_id": "encrypted_archive.zip",
+          "password": "secure_password_123"
+        },
+        "init_outputs": {
+          "files": "decrypted_folder.zip"
+        }
+      },
+      "calc_bigmul_6a40": {
+        "init_inputs": {
+          "a": "84759201837465920183",
+          "b": "47582910293847561029"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path_58d8": {
+        "init_inputs": {
+          "file_id": "graph_map_region3.json",
+          "src": "Node_City_X",
+          "dst": "Node_City_Y"
+        },
+        "init_outputs": {
+          "path": "[\"Node_City_X\", \"Node_Village_A\", \"Node_Town_B\", \"Node_Checkpoint\", \"Node_City_Y\"]",
+          "cost": "192834"
+        }
+      }
+    },
+    "intro_narrative": "Welcome to Sector 7, a decommissioned cyber-warfare facility buried deep underground. You are trapped inside the main control room, surrounded by humming server racks and flickering monitors. A rogue AI has initiated an absolute lockdown, sealing you in with a heavily guarded safe that holds your only means of escape. To get out, you must restore the fragmented network, decipher corrupted data logs, and hack through layers of military-grade encryption before the facility's life support systems completely shut down. The countdown has started.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "Terminal initialized and ready to process inputs."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents",
+          "value": "A♠_K♥_Q♣_J♦_10♠"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "inner_space": "A♠_K♥_Q♣_J♦_10♠"
+        }
+      },
+      "narrative": "A heavy Biometric Safe built into the reinforced wall. It requires input from the Security Terminal to unlock."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_bf274924e4091f52"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A metallic Access Key with an embedded microchip."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Epsilon\"]"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "3152903960891242119678625"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal initialized and ready to process inputs."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "4f9b2d8e1a7c5603b41d"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "A completely redundant token item"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Terminal initialized and ready to process inputs.",
+          "hex_output": "4f9b2d8e1a7c5603b41d",
+          "item_dispenser": "A completely redundant token item"
+        }
+      },
+      "narrative": "This is the Security Terminal. It requires inputs from both the Network Mapper and the Data Translator to function."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "Terminal two processing complete with partial input."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_bf274924e4091f52"
+        }
+      ],
+      "narrative": "The Rapid Prototyper, an advanced 3D fabrication unit. It requires input from the Mainframe Console."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "470808"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "389215"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal two processing complete with partial input."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "7a6b5c4d3e2f10984a"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Another pointless math symbol coin"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Terminal two processing complete with partial input.",
+          "hex_result": "7a6b5c4d3e2f10984a",
+          "math_token": "Another pointless math symbol coin"
+        }
+      },
+      "narrative": "This is the Mainframe Console. It requires inputs from both the Subnet Analyzer and the Quantum Processor."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_data_1.zip"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_Alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "[\"Node_Start_1\", \"Node_A1\", \"Node_A2\", \"Node_A3\", \"Node_End_1\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Epsilon\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "245890"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Node_Alpha"
+        },
+        "outputs": {
+          "path": "[\"Node_Alpha\", \"Node_Beta\", \"Node_Gamma\", \"Node_Delta\", \"Node_Epsilon\"]",
+          "cost": "245890"
+        }
+      },
+      "narrative": "A Network Mapper interface. It requires inputs from the Decryption Module and the Syntax Filter."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "3152903960891242119678625"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "245890"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "688788"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "3152903960891242119678625"
+        }
+      ],
+      "narrative": "The Data Translator terminal. It requires inputs from the Network Mapper, the Crypto Engine, and the Logic Core."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "decrypted_folder.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Terminal two processing complete with partial input."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_data_1.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_data_1.zip"
+        }
+      },
+      "narrative": "The Decryption Module. It requires inputs from the Mainframe Console and the Archive Extractor."
+    },
+    {
+      "id": "graph_shortest_path_9725",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "graph_structure_A.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_Start_1"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "[\"Node_City_X\", \"Node_Village_A\", \"Node_Town_B\", \"Node_Checkpoint\", \"Node_City_Y\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Start_1\", \"Node_A1\", \"Node_A2\", \"Node_A3\", \"Node_End_1\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "389215"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "graph_structure_A.json",
+          "src": "Node_Start_1"
+        },
+        "outputs": {
+          "path": "[\"Node_Start_1\", \"Node_A1\", \"Node_A2\", \"Node_A3\", \"Node_End_1\"]",
+          "cost": "389215"
+        }
+      },
+      "narrative": "The Subnet Analyzer. It requires input from the Routing Matrix to map the connections."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "7257295373013359784579800353586412199291263543777573766005483000"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "84930219485729103847"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "627477"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "470808"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "exp": "84930219485729103847"
+        },
+        "outputs": {}
+      },
+      "narrative": "A high-end Quantum Processor. It requires inputs from the Cipher Node and the Algorithmic Multiplier."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "[\"Node_Start_1\", \"Node_A1\", \"Node_A2\", \"Node_A3\", \"Node_End_1\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "[\"Node_Start_1\", \"Node_A1\", \"Node_A2\", \"Node_A3\", \"Node_End_1\"]"
+        }
+      ],
+      "narrative": "The Syntax Filter module. It requires input from the Subnet Analyzer to clean the data."
+    },
+    {
+      "id": "calc_modexp_a535",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "3152903960891242119678625"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "4033089497610260242838968449681735348307"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "948271"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "688788"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "948271"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Crypto Engine. It requires inputs from the Logic Core and the Sector Multiplier."
+    },
+    {
+      "id": "calc_modexp_174b",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "389215"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "4253487339474805233939975"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "837493"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "627477"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "837493"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Cipher Node. It requires inputs from both the Subnet Analyzer and the Hash Scaler."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "183795441429729851960469517078956334003670375"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "39485720192837465928"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "7257295373013359784579800353586412199291263543777573766005483000"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "39485720192837465928"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Algorithmic Multiplier device. It requires input from the Variable Expander."
+    },
+    {
+      "id": "calc_bigmul_f811",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "10928374650192837465"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "389215"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "4253487339474805233939975"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "10928374650192837465"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Hash Scaler. It requires input from the Subnet Analyzer to adjust the hash rate."
+    },
+    {
+      "id": "calc_modexp_cf12",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "389215"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "48572910485729103847"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "4253487339474805233939975"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "3152903960891242119678625"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "exp": "48572910485729103847"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Logic Core. It requires inputs from the Hash Scaler and the Subnet Analyzer to process instructions."
+    },
+    {
+      "id": "calc_bigmul_2942",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "58294018374659203847"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "3152903960891242119678625"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "183795441429729851960469517078956334003670375"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "58294018374659203847"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Variable Expander. It requires input from the Logic Core."
+    },
+    {
+      "id": "zip_unzip_file_6307",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "encrypted_archive.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "secure_password_123"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "decrypted_folder.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "encrypted_archive.zip",
+          "password": "secure_password_123"
+        },
+        "outputs": {
+          "files": "decrypted_folder.zip"
+        }
+      },
+      "narrative": "An Archive Extractor software module loaded on a rugged tablet."
+    },
+    {
+      "id": "calc_bigmul_6a40",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "84759201837465920183"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "47582910293847561029"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "4033089497610260242838968449681735348307"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "84759201837465920183",
+          "b": "47582910293847561029"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Sector Multiplier calculation unit housed in a dusty server rack."
+    },
+    {
+      "id": "graph_shortest_path_58d8",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "graph_map_region3.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_City_X"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Node_City_Y"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_City_X\", \"Node_Village_A\", \"Node_Town_B\", \"Node_Checkpoint\", \"Node_City_Y\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "192834"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "graph_map_region3.json",
+          "src": "Node_City_X",
+          "dst": "Node_City_Y"
+        },
+        "outputs": {
+          "path": "[\"Node_City_X\", \"Node_Village_A\", \"Node_Town_B\", \"Node_Checkpoint\", \"Node_City_Y\"]",
+          "cost": "192834"
+        }
+      },
+      "narrative": "A Routing Matrix configuration interface blinking on a small display."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "password"
+    },
+    {
+      "source_id": "graph_shortest_path_9725",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "calc_modexp_a535",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "calc_modexp_174b",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "graph_shortest_path_9725",
+      "target_id": "calc_modexp_174b",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "base"
+    },
+    {
+      "source_id": "graph_shortest_path_9725",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "text"
+    },
+    {
+      "source_id": "calc_bigmul_f811",
+      "target_id": "calc_modexp_174b",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_modexp_cf12",
+      "target_id": "calc_modexp_a535",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "base"
+    },
+    {
+      "source_id": "calc_modexp_cf12",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "s"
+    },
+    {
+      "source_id": "calc_bigmul_2942",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_modexp_cf12",
+      "target_id": "calc_bigmul_2942",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_bigmul_f811",
+      "target_id": "calc_modexp_cf12",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "graph_shortest_path_9725",
+      "target_id": "calc_bigmul_f811",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "b"
+    },
+    {
+      "source_id": "graph_shortest_path_9725",
+      "target_id": "calc_modexp_cf12",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "base"
+    },
+    {
+      "source_id": "zip_unzip_file_6307",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "calc_bigmul_6a40",
+      "target_id": "calc_modexp_a535",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "graph_shortest_path_58d8",
+      "target_id": "graph_shortest_path_9725",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "dst"
+    }
+  ]
+}

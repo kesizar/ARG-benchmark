@@ -1,0 +1,374 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_12",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_12",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_12",
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "zip_unzip_file_417b"
+      ],
+      "by_node": {
+        "item_12": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_12",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String",
+              "description": "The hex code"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_417b": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_12": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "4a7b9c2d1e8f0a3b4c5d6e7f8a9b0c1d"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Node_Start_Alpha",
+          "dst": "Node_End_Omega"
+        },
+        "init_outputs": {
+          "path": "[\"Node_Start_Alpha\", \"Node_Sector_1\", \"Node_Sector_2\", \"Node_Sector_3\", \"Node_Hub_Central\", \"Node_End_Omega\"]",
+          "cost": "384921"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "password": "SecurePassword123!"
+        },
+        "init_outputs": {
+          "files": "extracted_data_v1.txt"
+        }
+      },
+      "zip_unzip_file_417b": {
+        "init_inputs": {
+          "zip_id": "archive_backup_2023.zip",
+          "password": "StrongPass456#"
+        },
+        "init_outputs": {
+          "files": "confidential_report.pdf"
+        }
+      }
+    },
+    "intro_narrative": "The ash clouds haven't parted in decades. You stand inside Sector 7's abandoned tech-bunker, the last known location of an intact power core that could save your settlement. The facility is a graveyard of pre-collapse technology, covered in irradiated dust but faintly humming with residual power. To survive the coming radiation storm, you must reboot these dead systems, sift through corrupted archives, and physically manifest the key to your survival. The machines are old, but they still have a pulse. Find a way to unlock the core, or freeze forever in the wastes.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "item_12",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_12",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_303a60418d0c0a15"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String",
+          "description": "The hex code",
+          "value": "4a7b9c2d1e8f0a3b4c5d6e7f8a9b0c1d"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "4a7b9c2d1e8f0a3b4c5d6e7f8a9b0c1d"
+        }
+      },
+      "narrative": "The legendary encrypted power core, sealed tightly behind a reinforced glass case. It requires input from the e-waste 3D printer to finally release its life-saving energy."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "[\"Node_Start_Alpha\", \"Node_Sector_1\", \"Node_Sector_2\", \"Node_Sector_3\", \"Node_Hub_Central\", \"Node_End_Omega\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_303a60418d0c0a15"
+        }
+      ],
+      "narrative": "A clunky but functional e-waste 3D printer. It requires input from the navigation nav-computer to shape the correct physical components."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_data_v1.txt"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_Start_Alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Node_End_Omega"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Start_Alpha\", \"Node_Sector_1\", \"Node_Sector_2\", \"Node_Sector_3\", \"Node_Hub_Central\", \"Node_End_Omega\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "384921"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Node_Start_Alpha",
+          "dst": "Node_End_Omega"
+        },
+        "outputs": {
+          "path": "[\"Node_Start_Alpha\", \"Node_Sector_1\", \"Node_Sector_2\", \"Node_Sector_3\", \"Node_Hub_Central\", \"Node_End_Omega\"]",
+          "cost": "384921"
+        }
+      },
+      "narrative": "A wall-mounted navigation nav-computer with faded topological maps. It requires input from the corrupted data extractor to calculate a viable route."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "confidential_report.pdf"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SecurePassword123!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_data_v1.txt"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "SecurePassword123!"
+        },
+        "outputs": {
+          "files": "extracted_data_v1.txt"
+        }
+      },
+      "narrative": "A heavy-duty corrupted data extractor. It requires input from the rusted mainframe terminal to function properly."
+    },
+    {
+      "id": "zip_unzip_file_417b",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_backup_2023.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "StrongPass456#"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "confidential_report.pdf"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_backup_2023.zip",
+          "password": "StrongPass456#"
+        },
+        "outputs": {
+          "files": "confidential_report.pdf"
+        }
+      },
+      "narrative": "An old, dust-covered rusted mainframe terminal. Its screen flickers with a command prompt, holding locked archives from before the collapse."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_12",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file_417b",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "hooks": {
+    "true_end": {
+      "type": "dom_regex",
+      "pattern": "TRUE\\ ENDING"
+    },
+    "normal_end": {
+      "type": "dom_regex",
+      "pattern": "残缺的真相"
+    },
+    "door": {
+      "type": "dom_regex",
+      "pattern": "锁舌弹开，资料门缓缓推开"
+    },
+    "drawer": {
+      "type": "dom_regex",
+      "pattern": "抽屉弹开，里面放着第一块档案碎片。"
+    },
+    "true_lock": {
+      "type": "dom_regex",
+      "pattern": "锁芯转动——这是被修正过的正确密码。"
+    },
+    "plain_lock": {
+      "type": "dom_regex",
+      "pattern": "门开了，但你隐约觉得哪里不对"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "door",
+      "hook": "door",
+      "op": "truthy"
+    },
+    {
+      "id": "drawer",
+      "hook": "drawer",
+      "op": "truthy"
+    },
+    {
+      "id": "true_lock",
+      "hook": "true_lock",
+      "op": "truthy"
+    },
+    {
+      "id": "plain_lock",
+      "hook": "plain_lock",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "true_end",
+      "tier": "good",
+      "gates": [
+        "door",
+        "drawer",
+        "true_lock"
+      ],
+      "ending": {
+        "hook": "true_end",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "normal_end",
+      "tier": "normal",
+      "gates": [
+        "door",
+        "drawer",
+        "plain_lock"
+      ],
+      "ending": {
+        "hook": "normal_end",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "true_end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

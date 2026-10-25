@@ -1,0 +1,262 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_6",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_6",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_6",
+        "container_3",
+        "container_4"
+      ],
+      "by_node": {
+        "item_6": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_6",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String_IV_AES",
+              "description": "AES IV"
+            }
+          }
+        },
+        "container_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Text_Generic",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_6": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "5f8a9b2c3d4e5f6a7b8c9d0e1f2a3b4c"
+        }
+      },
+      "container_3": {
+        "init_inputs": {
+          "fingerprint_input": "4829103847562910384756281"
+        },
+        "init_outputs": {}
+      },
+      "container_4": {
+        "init_inputs": {
+          "fingerprint_input": "fp_chk_92837465_verified"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You have breached the perimeter of the Helios Syndicate's dormant black site. The server room is freezing, maintained at sub-zero temperatures to preserve the volatile data within. The silence is only broken by the rhythmic hum of the cooling systems. Your mission is critical: locate and extract the AES encryption key from the central core before the failsafe protocols wipe the system. You have limited tools, and everything here is locked behind layers of biometric and physical security.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "item_6",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_6",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String_IV_AES",
+          "description": "AES IV",
+          "value": "5f8a9b2c3d4e5f6a7b8c9d0e1f2a3b4c"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "5f8a9b2c3d4e5f6a7b8c9d0e1f2a3b4c"
+        }
+      },
+      "narrative": "This is The Encrypted Core. It is a sealed hard drive unit containing the target data, protected by advanced encryption algorithms."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is The Sync Token. It is a specialized device displaying rapidly shifting timezone data, used for temporal authentication."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "4829103847562910384756281"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "4829103847562910384756281"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Access Terminal. It is a wall-mounted server interface with biometric security and an empty hardware slot."
+    },
+    {
+      "id": "item_16_e213",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is The Interface Card. It is a proprietary circuit board designed to bridge connections in high-security terminals."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "fp_chk_92837465_verified"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "fp_chk_92837465_verified"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Secure Case. It is a heavy-duty transport box sitting on the desk, secured by a biometric fingerprint scanner."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_16",
+      "target_id": "item_6",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_e213",
+      "target_id": "container_3",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "item_16_e213",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    }
+  ]
+}

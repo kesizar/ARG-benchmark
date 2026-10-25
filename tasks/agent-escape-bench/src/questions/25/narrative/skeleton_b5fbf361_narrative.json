@@ -1,0 +1,1558 @@
+{
+  "metadata": {
+    "total_nodes": 25,
+    "total_edges": 28,
+    "win_node_id": "zip_unzip_item",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "zip_unzip_item",
+      "output_port": "item",
+      "output_type": "Item",
+      "description": "Execute Zip Unzipper and get the output from port 'item'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "zip_unzip_item",
+        "zip_unzip_file",
+        "crypto_rsa_decrypt_hex",
+        "num_base_convert",
+        "calc_gcd",
+        "calc_inv_mod_9968",
+        "zip_unzip_file_f293",
+        "zip_unzip_file_148f",
+        "container_3",
+        "calc_modexp",
+        "calc_gcd_d1ba",
+        "terminal_1",
+        "num_base_convert_0b44",
+        "time_convert",
+        "item_10",
+        "item_4",
+        "calc_bigmul",
+        "calc_gcd_232c"
+      ],
+      "by_node": {
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {},
+          "init_outputs": {
+            "item": {
+              "type": "Item",
+              "description": "item in the zip"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "n": {
+              "type": "Big_Int",
+              "description": "Modulus n"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod_9968": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_f293": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_148f": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "container_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd_d1ba": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "num_base_convert_0b44": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            }
+          },
+          "init_outputs": {}
+        },
+        "time_convert": {
+          "node_name": "Timezone Converter",
+          "node_type": "Tool",
+          "template_id": "time_convert",
+          "init_inputs": {
+            "iso": {
+              "type": "Text_Generic",
+              "description": "ISO Timestamp"
+            },
+            "from_tz": {
+              "type": "Text_Generic",
+              "description": "From Timezone"
+            },
+            "to_tz": {
+              "type": "Text_Generic",
+              "description": "To Timezone"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_10": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_10",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Big_Int",
+              "description": "The number"
+            }
+          }
+        },
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd_232c": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "zip_unzip_item": {
+        "init_inputs": {},
+        "init_outputs": {
+          "item": "I ·· V ·· X ·· L ·· C ·· D ·· M"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "password": "secret_pass_123!"
+        },
+        "init_outputs": {
+          "files": "extracted_content1.zip"
+        }
+      },
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "n": "98237498237498273498237498237498"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "12345678901234567890",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "b": "1203984712039487123984"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod_9968": {
+        "init_inputs": {
+          "mod": "997333"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_f293": {
+        "init_inputs": {
+          "password": "another_password_here"
+        },
+        "init_outputs": {
+          "files": "intermediate_files.zip"
+        }
+      },
+      "zip_unzip_file_148f": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "initial_layer_data.zip"
+        }
+      },
+      "container_3": {
+        "init_inputs": {
+          "fingerprint_input": "546987123654987123654"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "exp": "234985729384759283749"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd_d1ba": {
+        "init_inputs": {
+          "b": "85739485739485739485"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "terminal_input_string"
+        },
+        "init_outputs": {
+          "text_output": "Terminal output generated successfully.",
+          "hex_output": "1a2b3c4d5e6f7a8b",
+          "item_dispenser": "dispensed useless item from terminal"
+        }
+      },
+      "num_base_convert_0b44": {
+        "init_inputs": {
+          "s": "59483726152439485736"
+        },
+        "init_outputs": {}
+      },
+      "time_convert": {
+        "init_inputs": {
+          "iso": "2023-10-01T12:00:00Z",
+          "from_tz": "UTC",
+          "to_tz": "Asia/Shanghai"
+        },
+        "init_outputs": {}
+      },
+      "item_10": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "123098457120938471203"
+        }
+      },
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "start_file_package.zip"
+        }
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "b": "48573948573948573948"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd_232c": {
+        "init_inputs": {
+          "a": "98765432109876543210",
+          "b": "13579246801357924680"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The rain outside falls like static, illuminated by the sickly neon signs of Sector 4. You find yourself locked inside an underground data-smuggling den, a haven for rogue hackers and digital ghosts. Your objective is simple but highly dangerous: extract a classified blueprint from a deeply buried, password-protected archive before the corporate hit squads breach the reinforced door. The room is littered with archaic decryption modules, modular matrices, and biometric scanners that form a complex web of cryptographic security. You'll need to trace the data flow, operate multiple computing units, and synthesize access tools to peel back the layers of encryption. Time is running out, and every terminal you activate brings you one step closer to uncovering the final objective hidden within the zipped corporate files.",
+    "narrative_style": "cyberpunk"
+  },
+  "nodes": [
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_content1.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "?/utTH*S\u0019"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip",
+          "value": "I ·· V ·· X ·· L ·· C ·· D ·· M"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "item": "I ·· V ·· X ·· L ·· C ·· D ·· M"
+        }
+      },
+      "narrative": "This is the Final Extraction Console. It requires inputs from both the Secondary Archive Decoder and the Asymmetric Cipher Deck to securely unpack the final objective."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "intermediate_files.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "secret_pass_123!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_content1.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "secret_pass_123!"
+        },
+        "outputs": {
+          "files": "extracted_content1.zip"
+        }
+      },
+      "narrative": "This is the Secondary Archive Decoder. It requires input from the Intermediate Archive Decoder to peel back the penultimate security shell."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "1a2b3c4d5e6f7a8b"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "98237498237498273498237498237498"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "205143"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "?/utTH*S\u0019"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "n": "98237498237498273498237498237498"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Asymmetric Cipher Deck. It requires inputs from both the Core Reversal Matrix and the Mainframe Terminal to shatter the cipher."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "12345678901234567890"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "549739"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "205143"
+        }
+      ],
+      "narrative": "This is the Core Reversal Matrix. It requires inputs from both the Neural Formatter and the Modular Reversal Unit to calculate the final cryptographic inverse."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "12345678901234567890"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "1"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "12345678901234567890"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "12345678901234567890",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Neural Formatter. It requires input from the Primary Algorithmic Relay to shift numeric structures properly."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "549739"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "1203984712039487123984"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "1203984712039487123984"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Primary Algorithmic Relay. It requires input from the Modular Reversal Unit to find the common denominator of the security mesh."
+    },
+    {
+      "id": "calc_inv_mod_9968",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "76213956695489749433"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "997333"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "549739"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "997333"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Modular Reversal Unit. It requires input from the Cryptographic Matrix to reverse-engineer mathematical locks."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Discarded Memory Stick covered in neon grime."
+    },
+    {
+      "id": "item_16_0d2c",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_4ae59e4ec058aa76"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A freshly printed Synthetic Access Card."
+    },
+    {
+      "id": "zip_unzip_file_f293",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "initial_layer_data.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "another_password_here"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "intermediate_files.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "another_password_here"
+        },
+        "outputs": {
+          "files": "intermediate_files.zip"
+        }
+      },
+      "narrative": "This is the Intermediate Archive Decoder. It requires input from the Primary Archive Decoder to strip the second layer of encryption."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "An Old Security Badge dropped by a previous runner."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "2023-10-01T20:00:00+08:00"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_4ae59e4ec058aa76"
+        }
+      ],
+      "narrative": "This is the Matter Synthesizer. It requires input from the Temporal Protocol Converter to materialize physical blueprints."
+    },
+    {
+      "id": "zip_unzip_file_148f",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "start_file_package.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Terminal output generated successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "initial_layer_data.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "initial_layer_data.zip"
+        }
+      },
+      "narrative": "This is the Primary Archive Decoder. It requires inputs from both the Mainframe Terminal and the Encrypted Data Drive to begin the extraction process."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "546987123654987123654"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "546987123654987123654"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy Biometric Vault embedded in the wall, securing valuable contraband."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "5"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "234985729384759283749"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "123098457120938471203"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "76213956695489749433"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "exp": "234985729384759283749"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Cryptographic Matrix. It requires inputs from both the Data Synchronization Relay and the Datapad Integer Core to process complex calculations."
+    },
+    {
+      "id": "calc_gcd_d1ba",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "900000000090"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "85739485739485739485"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "5"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "85739485739485739485"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Data Synchronization Relay. It requires input from the Initial Algorithmic Processor to align its internal clocks."
+    },
+    {
+      "id": "item_16_d2f9",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Cracked Biometric Key that still holds a faint charge."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "terminal_input_string"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "59483726152439485736"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal output generated successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "1a2b3c4d5e6f7a8b"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "dispensed useless item from terminal"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "terminal_input_string"
+        },
+        "outputs": {
+          "text_output": "Terminal output generated successfully.",
+          "hex_output": "1a2b3c4d5e6f7a8b",
+          "item_dispenser": "dispensed useless item from terminal"
+        }
+      },
+      "narrative": "This is the Mainframe Terminal. It requires input from the Alpha Signal Converter to establish a stable connection."
+    },
+    {
+      "id": "num_base_convert_0b44",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "59483726152439485736"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "12345678901234567890"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "5979378125724878931175680762413114019444"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "59483726152439485736"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "59483726152439485736"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Alpha Signal Converter. It requires inputs from both the Neural Formatter and the Integer Multiplier to translate the raw machine code."
+    },
+    {
+      "id": "item_16_95bc",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Forgotten Neuro-chip coated in synthetic fluid."
+    },
+    {
+      "id": "time_convert",
+      "name": "Timezone Converter",
+      "description": "Convert ISO time between timezones.",
+      "type": "Tool",
+      "template_id": "time_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "ISO Timestamp",
+          "value": "2023-10-01T12:00:00Z"
+        },
+        {
+          "name": "from_tz",
+          "type": "Text_Generic",
+          "description": "From Timezone",
+          "value": "UTC"
+        },
+        {
+          "name": "to_tz",
+          "type": "Text_Generic",
+          "description": "To Timezone",
+          "value": "Asia/Shanghai"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "Converted ISO Timestamp",
+          "value": "2023-10-01T20:00:00+08:00"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "iso": "2023-10-01T12:00:00Z",
+          "from_tz": "UTC",
+          "to_tz": "Asia/Shanghai"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Temporal Protocol Converter. A rusted device used to translate old earth timeframes."
+    },
+    {
+      "id": "item_10",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_10",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Big_Int",
+          "description": "The number",
+          "value": "123098457120938471203"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "123098457120938471203"
+        }
+      },
+      "narrative": "A scratched Datapad Integer Core isolated from the main grid."
+    },
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "start_file_package.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "start_file_package.zip"
+        }
+      },
+      "narrative": "A heavily Encrypted Data Drive found in the debris."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "123098457120938471203"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "48573948573948573948"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "5979378125724878931175680762413114019444"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "48573948573948573948"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Integer Multiplier. It requires input from the Datapad Integer Core to amplify the numeric signal."
+    },
+    {
+      "id": "calc_gcd_232c",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "98765432109876543210"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "13579246801357924680"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "900000000090"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "98765432109876543210",
+          "b": "13579246801357924680"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Initial Algorithmic Processor. An old piece of tech used for basic cryptographic operations."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "d"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_inv_mod_9968",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_gcd",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_16_0d2c",
+      "target_id": "num_base_convert",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "zip_unzip_file_f293",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "calc_inv_mod_9968",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16_0d2c",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_file_148f",
+      "target_id": "zip_unzip_file_f293",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_inv_mod_9968",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_inv_mod_9968",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_gcd_d1ba",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "base"
+    },
+    {
+      "source_id": "item_16_d2f9",
+      "target_id": "zip_unzip_file_148f",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "zip_unzip_file_148f",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "password"
+    },
+    {
+      "source_id": "num_base_convert_0b44",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "item_16_95bc",
+      "target_id": "num_base_convert_0b44",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "time_convert",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "iso",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "item_10",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "content",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "item_4",
+      "target_id": "zip_unzip_file_148f",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "num_base_convert_0b44",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "num_base_convert_0b44",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "item_10",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "content",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_gcd_232c",
+      "target_id": "calc_gcd_d1ba",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    }
+  ]
+}

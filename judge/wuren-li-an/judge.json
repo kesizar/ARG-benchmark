@@ -1,0 +1,13 @@
+{
+  "hooks": {
+    "finished": {"type": "localstorage", "key": "wlb_finished", "mode": "exists"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "ending": {"hook": "finished", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

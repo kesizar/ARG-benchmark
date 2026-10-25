@@ -1,0 +1,280 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_7",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_7",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_7",
+        "zip_unzip_item",
+        "zip_unzip_file"
+      ],
+      "by_node": {
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "x = 42\nprint(f'The secret integer is {x}')"
+        }
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "password": "Secur3_P@ssw0rd_Level2"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "master_archive_v1.zip",
+          "password": "Init_Password_9988"
+        },
+        "init_outputs": {
+          "files": "intermediate_container.zip"
+        }
+      }
+    },
+    "intro_narrative": "You stand amidst the hissing pipes and ticking gears of the Grand Artificer's workshop. The Master has vanished, leaving behind a legacy of mechanical wonders and cryptic puzzles. The room smells of ozone and heated brass. In the center lies his greatest secret, locked within a complex vault mechanism. To open it, you must interact with his inventions, retrieve archived schematics, and decipher the hidden logic of his machines. Time is short; the steam pressure is rising.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "x = 42\nprint(f'The secret integer is {x}')"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "x = 42\nprint(f'The secret integer is {x}')"
+        }
+      },
+      "narrative": "The Master Cylinder. The final locking mechanism of the vault. It awaits a specific numerical sequence to disengage the gears and reveal the Artificer's secret."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "The Diagnostic Gauge. A small, precision instrument found hidden behind the chronometer's back plate. Its needle points to a specific integer value crucial for calibration."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Traveler's Chronometer. An exquisite pocket watch recovered from the canister. It doesn't just tell time; it displays zones from across the empire on its complex face."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "intermediate_container.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Secur3_P@ssw0rd_Level2"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "Secur3_P@ssw0rd_Level2"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Cipher Machine. A steam-driven device with rotating tumblers, built to crack sealed containers. It requires input from the Pneumatic Dispatch. Once you retrieve a canister, place it here to unlock its contents."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "master_archive_v1.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Init_Password_9988"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "intermediate_container.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "master_archive_v1.zip",
+          "password": "Init_Password_9988"
+        },
+        "outputs": {
+          "files": "intermediate_container.zip"
+        }
+      },
+      "narrative": "The Pneumatic Dispatch. A large brass terminal connected to the city's tube network. It is designed to retrieve sealed document canisters from the external archives."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    }
+  ]
+}

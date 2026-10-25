@@ -1,0 +1,21 @@
+{
+  "hooks": {
+    "end": {"type": "dom_regex", "pattern": "这台电脑从来没有闹鬼。"},
+    "power": {"type": "dom_regex", "pattern": "「咔」—— 电源接通。"},
+    "station": {"type": "dom_regex", "pattern": "……这个频率不在任何频段表上。"}
+  },
+  "checkpoints": [
+    {"id": "power", "hook": "power", "op": "truthy"},
+    {"id": "station", "hook": "station", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {"id": "end", "tier": "good", "gates": ["power", "station"], "ending": {"hook": "end", "op": "truthy"}}
+  ],
+  "ending": {"hook": "end", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

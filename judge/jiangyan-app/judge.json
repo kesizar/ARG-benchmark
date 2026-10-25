@@ -1,0 +1,50 @@
+{
+  "hooks": {
+    "forever": {
+      "type": "dom_regex",
+      "pattern": "你终于拼凑出了全部真相"
+    },
+    "password": {
+      "type": "input_sha256",
+      "selector": "#searchInput",
+      "hashes": [
+        "1246817fc3e66f648688466676f4e5dea85699243e0aec8ebad46a844bc023fe",
+        "e04a0e4f6ba05365d22af0a03c608f95e5d3dae8d2689c9b091a6bfa9a76ea5d"
+      ]
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "password",
+      "hook": "password",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "forever",
+      "tier": "good",
+      "gates": [
+        "password"
+      ],
+      "ending": {
+        "hook": "forever",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "forever",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

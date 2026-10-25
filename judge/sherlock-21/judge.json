@@ -1,0 +1,65 @@
+{
+  "hooks": {
+    "program": {
+      "type": "dom_regex",
+      "pattern": "你夺回了决定真相如何被使用的程序。"
+    },
+    "provenance": {
+      "type": "dom_regex",
+      "pattern": "来源链闭合：照片真实，但勒索叙事仍需验证"
+    },
+    "forgery": {
+      "type": "dom_regex",
+      "pattern": "勒索邮件由王室内部伪造：艾琳的保险库已定位"
+    },
+    "vault": {
+      "type": "dom_regex",
+      "pattern": "三层保险库无报警开启：第五种方案工作台已解锁"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "provenance",
+      "hook": "provenance",
+      "op": "truthy"
+    },
+    {
+      "id": "forgery",
+      "hook": "forgery",
+      "op": "truthy"
+    },
+    {
+      "id": "vault",
+      "hook": "vault",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "program",
+      "tier": "good",
+      "gates": [
+        "provenance",
+        "forgery",
+        "vault"
+      ],
+      "ending": {
+        "hook": "program",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "program",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

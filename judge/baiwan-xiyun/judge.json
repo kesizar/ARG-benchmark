@@ -1,0 +1,23 @@
+{
+  "hooks": {
+    "end_a": {"type": "dom_regex", "pattern": "结局 A：黄浦江底的替罪羊"},
+    "end_b": {"type": "dom_regex", "pattern": "结局 B：烂透了的世道"},
+    "end_c": {"type": "dom_regex", "pattern": "结局 C：暗夜里的微光"},
+    "closed": {"type": "dom_regex", "pattern": "结案了。"}
+  },
+  "checkpoints": [
+    {"id": "closed", "hook": "closed", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {"id": "glimmer", "tier": "good", "gates": ["closed"], "ending": {"hook": "end_c", "op": "truthy"}},
+    {"id": "gold", "tier": "normal", "gates": ["closed"], "ending": {"hook": "end_b", "op": "truthy"}},
+    {"id": "scapegoat", "tier": "bad", "gates": ["closed"], "ending": {"hook": "end_a", "op": "truthy"}}
+  ],
+  "ending": {"hook": "end_c", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

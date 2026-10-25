@@ -1,0 +1,966 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 18,
+    "win_node_id": "calc_gcd",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "calc_gcd",
+      "output_port": "gcd",
+      "output_type": "Big_Int",
+      "description": "Execute BigInt GCD Calculator and get the output from port 'gcd'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "num_base_convert",
+        "terminal_2",
+        "calc_inv_mod",
+        "zip_unzip_item",
+        "calc_inv_mod_ed3d",
+        "calc_bigmul",
+        "time_convert",
+        "json_get",
+        "zip_unzip_file",
+        "checksum_crc32_07b9"
+      ],
+      "by_node": {
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod_ed3d": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "time_convert": {
+          "node_name": "Timezone Converter",
+          "node_type": "Tool",
+          "template_id": "time_convert",
+          "init_inputs": {
+            "from_tz": {
+              "type": "Text_Generic",
+              "description": "From Timezone"
+            }
+          },
+          "init_outputs": {}
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {
+            "jsonpath": {
+              "type": "Text_Generic",
+              "description": "JSONPath expression"
+            }
+          },
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "checksum_crc32_07b9": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "num_base_convert": {
+        "init_inputs": {
+          "from_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "2025-06-15T08:30:00Z",
+          "hex_result": "4a7f9b2c8d1e0f5a3b6c9d2e1f4a7b0c"
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "8923746510293847561029384"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "zip_id": "archive_data_2024.zip",
+          "password": "CorrectHorseBatteryStaple"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod_ed3d": {
+        "init_inputs": {
+          "a": "5647382910293847561928374",
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "3847561029384756102938475",
+          "b": "9182736450192837465019283"
+        },
+        "init_outputs": {}
+      },
+      "time_convert": {
+        "init_inputs": {
+          "from_tz": "America/Los_Angeles"
+        },
+        "init_outputs": {}
+      },
+      "json_get": {
+        "init_inputs": {
+          "jsonpath": "$.configuration.preferences.timezone"
+        },
+        "init_outputs": {
+          "values": "Asia/Tokyo"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "system_backup_v2.zip",
+          "password": "secure_access_code_99"
+        },
+        "init_outputs": {
+          "files": "configuration.json"
+        }
+      },
+      "checksum_crc32_07b9": {
+        "init_inputs": {
+          "hex": "1234567890abcdef1234567890abcdef"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You wake up in the dimly lit study of the infamous cryptographer, Elias Thorne. The heavy oak door behind you is sealed shut with an incredibly complex mechanical lock. Thorne was known for his eccentric paranoia, hiding his greatest secrets behind layers of obscure mathematical puzzles and interconnected devices. As you look around the room, you see strange, antique calculating machines, digital archives, and brass-rimmed terminals. Your objective is clear: you must deduce the correct sequence of operations, decipher the hidden connections between these arcane devices, and feed the correct final sequence into the lock to escape before time runs out. Every machine in this room is a piece of a larger puzzle, with information flowing from one contraption to another. Pay close attention to the mechanisms.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": 4056184602
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "1367169359"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "The Master Cryptex. The ultimate puzzle lock securing the exit door. It requires inputs from both the Cipher Translator and the Final Verifier to finally open."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "1367169359"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "10"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "73116"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "1367169359"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "from_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Cipher Translator. A rotating translation cylinder. It requires inputs from both the First Reversal Engine and the Second Reversal Engine to decode the signal."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "91bbd330eef9a782ddda992421447afbbdd9f6485aeff5aad559b9c8d1b5f3da"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "f1c4771a"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 4056184602
+        }
+      ],
+      "narrative": "The Final Verifier. A pristine validation scanner. It requires input from the Secondary Authenticator to produce its output."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "1911f553c17797386ea394b30c87aff441258156c28b0ad52f61d80f6ee9ba80"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Asia/Tokyo"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "91bbd330eef9a782ddda992421447afbbdd9f6485aeff5aad559b9c8d1b5f3da"
+        }
+      ],
+      "narrative": "The Secondary Authenticator. A reinforced digital padlock. It requires inputs from both the Primary Authenticator and the Data Extractor to proceed."
+    },
+    {
+      "id": "hmac_sha256_0eba",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "4a7f9b2c8d1e0f5a3b6c9d2e1f4a7b0c"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "2025-06-15T17:30:00+09:00"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "1911f553c17797386ea394b30c87aff441258156c28b0ad52f61d80f6ee9ba80"
+        }
+      ],
+      "narrative": "The Primary Authenticator. A complex locking mechanism. It requires inputs from both the Main Terminal and the Chronograph to generate its key."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "35331138908872874856226625885777310821898837613425"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "73116"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "2025-06-15T08:30:00Z"
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "4a7f9b2c8d1e0f5a3b6c9d2e1f4a7b0c"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "2025-06-15T08:30:00Z",
+          "hex_result": "4a7f9b2c8d1e0f5a3b6c9d2e1f4a7b0c"
+        }
+      },
+      "narrative": "The Main Terminal. An imposing central computer. It requires inputs from both the Amplification Device and the Second Reversal Engine to function."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "8923746510293847561029384"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 1977564639
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "1367169359"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "8923746510293847561029384"
+        },
+        "outputs": {}
+      },
+      "narrative": "The First Reversal Engine. A peculiar gear-driven contraption. It requires input from the Initial Verifier to align its internal mechanisms."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_data_2024.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "CorrectHorseBatteryStaple"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_data_2024.zip",
+          "password": "CorrectHorseBatteryStaple"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Item Lockbox. A locked metal box that securely holds something inside. It seems entirely self-contained."
+    },
+    {
+      "id": "calc_inv_mod_ed3d",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "5647382910293847561928374"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "73116"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "5647382910293847561928374",
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Second Reversal Engine. An antique calculating machine with interlocking gears. It functions independently."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "3847561029384756102938475"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "9182736450192837465019283"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "35331138908872874856226625885777310821898837613425"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "3847561029384756102938475",
+          "b": "9182736450192837465019283"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Amplification Device. A heavy mechanical multiplier covered in cobwebs. It requires no external connections to start."
+    },
+    {
+      "id": "time_convert",
+      "name": "Timezone Converter",
+      "description": "Convert ISO time between timezones.",
+      "type": "Tool",
+      "template_id": "time_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "ISO Timestamp",
+          "value": "2025-06-15T08:30:00Z"
+        },
+        {
+          "name": "from_tz",
+          "type": "Text_Generic",
+          "description": "From Timezone",
+          "value": "America/Los_Angeles"
+        },
+        {
+          "name": "to_tz",
+          "type": "Text_Generic",
+          "description": "To Timezone",
+          "value": "Asia/Tokyo"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "iso",
+          "type": "Text_Generic",
+          "description": "Converted ISO Timestamp",
+          "value": "2025-06-15T17:30:00+09:00"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "from_tz": "America/Los_Angeles"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Chronograph. An intricate brass clock. It requires inputs from both the Data Extractor and the Main Terminal to synchronize."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "configuration.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "$.configuration.preferences.timezone"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "Asia/Tokyo"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "jsonpath": "$.configuration.preferences.timezone"
+        },
+        "outputs": {
+          "values": "Asia/Tokyo"
+        }
+      },
+      "narrative": "The Data Extractor. A punch-card reader. It requires input from the Digital Archive to extract specific records."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "system_backup_v2.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "secure_access_code_99"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "configuration.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "system_backup_v2.zip",
+          "password": "secure_access_code_99"
+        },
+        "outputs": {
+          "files": "configuration.json"
+        }
+      },
+      "narrative": "The Digital Archive. An old computer drive storing heavily encrypted files. It acts as a primary source of data."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Hidden Compartment. A small concealed drawer built into the mahogany desk. It hides its secrets quietly."
+    },
+    {
+      "id": "checksum_crc32_07b9",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "1234567890abcdef1234567890abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "75df3ddf"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1977564639
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "1234567890abcdef1234567890abcdef"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Initial Verifier. A dusty verification module with a brass plate. It seems to stand alone, waiting for raw data to be entered."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "hmac_sha256_0eba",
+      "target_id": "hmac_sha256",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_key"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "hmac_sha256_0eba",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex_key"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "s"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "terminal_2",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "calc_inv_mod_ed3d",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "time_convert",
+      "target_id": "hmac_sha256_0eba",
+      "connection_type": "Text_Generic",
+      "source_port": "iso",
+      "target_port": "text"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "time_convert",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "to_tz"
+    },
+    {
+      "source_id": "calc_inv_mod_ed3d",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "hmac_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "text"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "json_get",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "hmac_sha256_0eba",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "time_convert",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "iso"
+    },
+    {
+      "source_id": "checksum_crc32_07b9",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    }
+  ]
+}

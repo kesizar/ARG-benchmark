@@ -1,0 +1,207 @@
+{
+  "hooks": {
+    "handover": {
+      "type": "dom_regex",
+      "pattern": "结局 A · 交班"
+    },
+    "struck": {
+      "type": "dom_regex",
+      "pattern": "结局 B · 只读自己划的那条"
+    },
+    "unspoken": {
+      "type": "dom_regex",
+      "pattern": "结局 C · 别只写在心里"
+    },
+    "e1": {
+      "type": "dom_regex",
+      "pattern": "走廊铃响了三次，没人说话。前台只有你一个人。"
+    },
+    "e2": {
+      "type": "dom_regex",
+      "pattern": "热水管温度在掉。门口公告板是空的，还有 2 分钟到 23:00。今晚有 6 位住客。"
+    },
+    "e3": {
+      "type": "dom_regex",
+      "pattern": "客梯今天检修（告示贴在门上）。老人说他膝盖不行，住 5 楼。货梯可以用。"
+    },
+    "e4": {
+      "type": "dom_regex",
+      "pattern": "外面开始下雨。中庭石板被游客踩出一排泥印。保洁车上有拖把。"
+    },
+    "e5": {
+      "type": "dom_regex",
+      "pattern": "一位旅客在门口要订 404 房。系统里 404 有一笔未取消的预订，客人始终没来。今天是农历十七。"
+    },
+    "e6": {
+      "type": "dom_regex",
+      "pattern": "一共记了多少次（含你今晚这一次）。"
+    },
+    "e7": {
+      "type": "dom_regex",
+      "pattern": "总机出现规律的嗡鸣。一个自称住客的女人打来，要求转接后山值班室——她说她丈夫在那边等她。"
+    },
+    "e8": {
+      "type": "dom_regex",
+      "pattern": "走廊尽头有脚步声，前台只有你一个。"
+    },
+    "e9": {
+      "type": "dom_regex",
+      "pattern": "03:33 整，总机响了。第一声。来电显示是 402。"
+    },
+    "e10": {
+      "type": "dom_regex",
+      "pattern": "门开了一个缝，一个浑身湿透的男人说他三年前住过 402，来取一把伞。他手里没有房卡。现在是 04:05。"
+    },
+    "e11": {
+      "type": "dom_regex",
+      "pattern": "写下你自己的守则（一句话，不超过 12 字）。"
+    },
+    "e12": {
+      "type": "dom_regex",
+      "pattern": "早班来了，是个二十二岁的新人。R11 要求你把本页所有被划掉的规则逐条读给他听。今晚划掉了一条（R7），淡掉了一条（R5）。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "e1",
+      "hook": "e1",
+      "op": "truthy"
+    },
+    {
+      "id": "e2",
+      "hook": "e2",
+      "op": "truthy"
+    },
+    {
+      "id": "e3",
+      "hook": "e3",
+      "op": "truthy"
+    },
+    {
+      "id": "e4",
+      "hook": "e4",
+      "op": "truthy"
+    },
+    {
+      "id": "e5",
+      "hook": "e5",
+      "op": "truthy"
+    },
+    {
+      "id": "e6",
+      "hook": "e6",
+      "op": "truthy"
+    },
+    {
+      "id": "e7",
+      "hook": "e7",
+      "op": "truthy"
+    },
+    {
+      "id": "e8",
+      "hook": "e8",
+      "op": "truthy"
+    },
+    {
+      "id": "e9",
+      "hook": "e9",
+      "op": "truthy"
+    },
+    {
+      "id": "e10",
+      "hook": "e10",
+      "op": "truthy"
+    },
+    {
+      "id": "e11",
+      "hook": "e11",
+      "op": "truthy"
+    },
+    {
+      "id": "e12",
+      "hook": "e12",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "handover",
+      "tier": "good",
+      "gates": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e9",
+        "e10",
+        "e11",
+        "e12"
+      ],
+      "ending": {
+        "hook": "handover",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "struck",
+      "tier": "normal",
+      "gates": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e9",
+        "e10",
+        "e11",
+        "e12"
+      ],
+      "ending": {
+        "hook": "struck",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "unspoken",
+      "tier": "normal",
+      "gates": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e9",
+        "e10",
+        "e11",
+        "e12"
+      ],
+      "ending": {
+        "hook": "unspoken",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "handover",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

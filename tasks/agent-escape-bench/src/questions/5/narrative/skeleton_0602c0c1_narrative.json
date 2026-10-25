@@ -1,0 +1,343 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 5,
+    "win_node_id": "base64_encode",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "base64_encode",
+      "output_port": "b64",
+      "output_type": "Text_Generic",
+      "description": "Execute Base64 Encoder and get the output from port 'b64'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_2",
+        "calc_inv_mod",
+        "num_base_convert"
+      ],
+      "by_node": {
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_2": {
+        "init_inputs": {
+          "num2": "847562910384756291038475"
+        },
+        "init_outputs": {
+          "text_result": "Terminal operation completed successfully.",
+          "hex_result": "4a5b6c7d8e9f0a1b2c3d4e5f60718293",
+          "math_token": "This token is merely a decorative placeholder."
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "592837465102938475610293",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The neon hum of Blacksite Alpha vibrates through your boots. As an elite cyber-operative, you've spent months tracking down this covert server farm hidden deep beneath an abandoned subway line. Your mission: intercept a highly classified encrypted payload detailing a rogue syndicate's global operations. The facility's automated defense protocols have already triggered a localized data purge, and the countdown to a complete system wipe is ticking rapidly. You are locked in the central server room, surrounded by bleeding-edge hardware and tangled fiber-optic cables. To extract the file and escape, you must navigate a chain of offline decryption modules, authenticate your credentials, and manually power up the transmission array. Every second counts as the digital walls close in.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "4641f907af7030c78b9c7d460ac97461a38b457aadb9508508edd1060d4e134f"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "RkH5B69wMMeLnH1GCsl0YaOLRXqtuVCFCO3RBg1OE08="
+        }
+      ],
+      "narrative": "The final Data Transmission Array. It requires input from the Authentication Server to broadcast the payload to HQ."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "4a5b6c7d8e9f0a1b2c3d4e5f60718293"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Terminal operation completed successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "4641f907af7030c78b9c7d460ac97461a38b457aadb9508508edd1060d4e134f"
+        }
+      ],
+      "narrative": "A secure Authentication Server. It requires input from the Security Terminal to process the validation keys."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "20235"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "847562910384756291038475"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal operation completed successfully."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "4a5b6c7d8e9f0a1b2c3d4e5f60718293"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "This token is merely a decorative placeholder."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num2": "847562910384756291038475"
+        },
+        "outputs": {
+          "text_result": "Terminal operation completed successfully.",
+          "hex_result": "4a5b6c7d8e9f0a1b2c3d4e5f60718293",
+          "math_token": "This token is merely a decorative placeholder."
+        }
+      },
+      "narrative": "An advanced Security Terminal. It requires input from the Mainframe Uplink to unlock its administrator functions."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "592837465102938475610293"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "20235"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy-duty Mainframe Uplink. It requires input from the Quantum Decryptor to bypass the system firewalls."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "592837465102938475610293"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "10"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "592837465102938475610293"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "592837465102938475610293",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "A sleek Quantum Decryptor interface glowing faintly on the dark desk."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "hmac_sha256",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex_key"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "hmac_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "text"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    }
+  ]
+}

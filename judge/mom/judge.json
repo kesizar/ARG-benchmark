@@ -1,0 +1,98 @@
+{
+  "hooks": {
+    "button": {
+      "type": "dom_regex",
+      "pattern": "妈，我认得路了。"
+    },
+    "signature": {
+      "type": "dom_regex",
+      "pattern": "这一回，没有谁再让她先体谅一下。"
+    },
+    "coat": {
+      "type": "dom_regex",
+      "pattern": "她那时候只问了一句，冷不冷。"
+    },
+    "street": {
+      "type": "dom_regex",
+      "pattern": "只是那个女孩不再只有一个位置。"
+    },
+    "seasons": {
+      "type": "dom_regex",
+      "pattern": "椅子已经修好了，坐下时还是响了一声。"
+    },
+    "rice": {
+      "type": "dom_regex",
+      "pattern": "我把电话放在碗边，先吃了一口。"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "button",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "button",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "signature",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "signature",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "coat",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "coat",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "street",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "street",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "seasons",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "seasons",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "rice",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "rice",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "button",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

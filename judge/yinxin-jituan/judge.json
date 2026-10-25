@@ -1,0 +1,123 @@
+{
+  "hooks": {
+    "keep": {
+      "type": "dom_regex",
+      "pattern": "本案已结案：《留存》"
+    },
+    "recall": {
+      "type": "dom_regex",
+      "pattern": "本案已结案：《回采》"
+    },
+    "loop": {
+      "type": "dom_regex",
+      "pattern": "本案已结案：《闭环》"
+    },
+    "patch": {
+      "type": "dom_regex",
+      "pattern": "本案已结案：《补录》"
+    },
+    "routine": {
+      "type": "dom_regex",
+      "pattern": "本案已结案：《例行公事》"
+    },
+    "circulate": {
+      "type": "dom_regex",
+      "pattern": "本案已结案：《传阅》"
+    },
+    "receipt": {
+      "type": "dom_regex",
+      "pattern": "本案已结案：《回执》"
+    },
+    "valley": {
+      "type": "dom_regex",
+      "pattern": "终局《留存》的条件已就绪：在档案袋提交验收。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "valley",
+      "hook": "valley",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "keep",
+      "tier": "good",
+      "gates": [
+        "valley"
+      ],
+      "ending": {
+        "hook": "keep",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "recall",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "recall",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "loop",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "loop",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "patch",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "patch",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "routine",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "routine",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "circulate",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "circulate",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "receipt",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "receipt",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "keep",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

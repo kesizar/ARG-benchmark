@@ -1,0 +1,65 @@
+{
+  "hooks": {
+    "clear": {
+      "type": "dom_regex",
+      "pattern": "恭喜你完成了《失落的信号》"
+    },
+    "key": {
+      "type": "dom_regex",
+      "pattern": "\\[系统\\] ✓ 访问密钥正确。"
+    },
+    "binary": {
+      "type": "dom_regex",
+      "pattern": "\\[系统\\] ✓ 二进制解码正确"
+    },
+    "coord": {
+      "type": "dom_regex",
+      "pattern": "\\[系统\\] ✓ 坐标验证通过。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "key",
+      "hook": "key",
+      "op": "truthy"
+    },
+    {
+      "id": "binary",
+      "hook": "binary",
+      "op": "truthy"
+    },
+    {
+      "id": "coord",
+      "hook": "coord",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "clear",
+      "tier": "good",
+      "gates": [
+        "key",
+        "binary",
+        "coord"
+      ],
+      "ending": {
+        "hook": "clear",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "clear",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

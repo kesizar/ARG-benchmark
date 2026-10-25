@@ -1,0 +1,108 @@
+{
+  "hooks": {
+    "peace": {
+      "type": "dom_regex",
+      "pattern": "死神走了，带着那份充满遗憾的档案。"
+    },
+    "crime": {
+      "type": "dom_regex",
+      "pattern": "死神走了，带着那份充满罪恶的档案。"
+    },
+    "room101": {
+      "type": "dom_regex",
+      "pattern": "验证成功！房间 101 已解锁"
+    },
+    "room102": {
+      "type": "dom_regex",
+      "pattern": "验证成功！房间 102 已解锁"
+    },
+    "room103": {
+      "type": "dom_regex",
+      "pattern": "验证成功！房间 103 已解锁"
+    },
+    "room201": {
+      "type": "dom_regex",
+      "pattern": "验证成功！房间 201 已解锁"
+    },
+    "room202": {
+      "type": "dom_regex",
+      "pattern": "验证成功！房间 202 已解锁"
+    },
+    "cabinet": {
+      "type": "localstorage",
+      "key": "room101CabinetUnlocked",
+      "mode": "exists"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "room101",
+      "hook": "room101",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "room102",
+      "hook": "room102",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "room103",
+      "hook": "room103",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "room201",
+      "hook": "room201",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "room202",
+      "hook": "room202",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "cabinet",
+      "hook": "cabinet",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "peace",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "peace",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "crime",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "crime",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "peace",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

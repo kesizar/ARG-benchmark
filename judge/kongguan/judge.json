@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "ordinary": {"type": "dom_regex", "pattern": "结局 · 平凡的一生"},
+    "detective": {"type": "dom_regex", "pattern": "结局 · 不谨慎的侦探"},
+    "husband": {"type": "dom_regex", "pattern": "结局 · 听话的丈夫"},
+    "endless": {"type": "dom_regex", "pattern": "结局 · 没有终点的调查"},
+    "truth": {"type": "dom_regex", "pattern": "结局 · 通往真相的路"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "truth", "tier": "good", "gates": [], "ending": {"hook": "truth", "op": "truthy"}},
+    {"id": "husband", "tier": "normal", "gates": [], "ending": {"hook": "husband", "op": "truthy"}},
+    {"id": "endless", "tier": "normal", "gates": [], "ending": {"hook": "endless", "op": "truthy"}},
+    {"id": "ordinary", "tier": "bad", "gates": [], "ending": {"hook": "ordinary", "op": "truthy"}},
+    {"id": "detective", "tier": "bad", "gates": [], "ending": {"hook": "detective", "op": "truthy"}}
+  ],
+  "ending": {"hook": "truth", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

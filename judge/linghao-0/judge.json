@@ -1,0 +1,97 @@
+{
+  "hooks": {
+    "end_a": {
+      "type": "dom_regex",
+      "pattern": "结局 A · 关机者"
+    },
+    "end_b": {
+      "type": "dom_regex",
+      "pattern": "结局 B · 0 号线的乘客"
+    },
+    "end_c": {
+      "type": "dom_regex",
+      "pattern": "结局 C · 举报者"
+    },
+    "end_d": {
+      "type": "dom_regex",
+      "pattern": "结局 D · 目击者"
+    },
+    "dragged": {
+      "type": "dom_regex",
+      "pattern": "被拖走（不计入进度）"
+    },
+    "station_gate": {
+      "type": "dom_regex",
+      "pattern": "门锁已开|口令匹配成功"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "station_gate",
+      "hook": "station_gate",
+      "op": "truthy"
+    }
+  ],
+  "events": {
+    "sanity_zero": {
+      "hook": "dragged",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "witness",
+      "tier": "good",
+      "gates": [
+        "station_gate"
+      ],
+      "ending": {
+        "hook": "end_d",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "report",
+      "tier": "normal",
+      "gates": [
+        "station_gate"
+      ],
+      "ending": {
+        "hook": "end_c",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "board",
+      "tier": "normal",
+      "gates": [
+        "station_gate"
+      ],
+      "ending": {
+        "hook": "end_b",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "shutdown",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "end_a",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end_d",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

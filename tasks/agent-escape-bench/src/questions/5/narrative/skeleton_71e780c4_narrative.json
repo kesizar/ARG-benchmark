@@ -1,0 +1,243 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "hash_md5",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "hash_md5",
+      "output_port": "hex",
+      "output_type": "Hex_String",
+      "description": "Execute MD5 Hasher and get the output from port 'hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "container_2",
+        "base64_decode"
+      ],
+      "by_node": {
+        "container_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_2",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "base64_decode": {
+          "node_name": "Base64 Decoder",
+          "node_type": "Tool",
+          "template_id": "base64_decode",
+          "init_inputs": {
+            "data": {
+              "type": "Text_Generic",
+              "description": "Base64 string"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "container_2": {
+        "init_inputs": {
+          "fingerprint_input": "8f3a1b4c9d2e5f0a7b6c8d1e3f5a0b2d"
+        },
+        "init_outputs": {}
+      },
+      "base64_decode": {
+        "init_inputs": {
+          "data": "eJzzSM3JyQcABYwB9Q=="
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are the lead detective on the elusive 'Midnight Syndicate' case. Your key informant was silenced just hours before they could hand over the mastermind's true identity. You've managed to infiltrate the syndicate's abandoned safehouse, a grim, dimly lit room filled with encrypted tech and scattered digital breadcrumbs. The syndicate's cleaners are already on their way, leaving you with only minutes to act. You must navigate the remnants of the informant's equipment, piece together the intercepted communications, and unmask the syndicate leader to secure a victory for the precinct.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "hash_md5",
+      "name": "MD5 Hasher",
+      "description": "MD5 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_md5",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Hello"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "MD5 Hex digest",
+          "value": "8b1a9953c4611296a827abf8c47804d7"
+        }
+      ],
+      "narrative": "The precinct's secure Final Verification Terminal. It requires input from the Data Decompressor. After processing the information with the decompressor, use the output here to expose the mastermind."
+    },
+    {
+      "id": "zlib_inflate",
+      "name": "Zlib Inflate",
+      "description": "Inflate zlib-compressed data (hex) to text.",
+      "type": "Tool",
+      "template_id": "zlib_inflate",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Zlib compressed hex",
+          "value": "789cf348cdc9c90700058c01f5"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Inflated text",
+          "value": "Hello"
+        }
+      ],
+      "narrative": "A heavily modified Data Decompressor hooked up to the local mainframe. It requires input from the Cipher Decoder to process the files."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "8f3a1b4c9d2e5f0a7b6c8d1e3f5a0b2d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "8f3a1b4c9d2e5f0a7b6c8d1e3f5a0b2d"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy steel Evidence Lockbox bolted to the floor."
+    },
+    {
+      "id": "base64_decode",
+      "name": "Base64 Decoder",
+      "description": "Decode base64 to hex bytes.",
+      "type": "Tool",
+      "template_id": "base64_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "eJzzSM3JyQcABYwB9Q=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "bytes_hex",
+          "type": "Hex_String",
+          "description": "Decoded bytes as Hex",
+          "value": "789cf348cdc9c90700058c01f5"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "data": "eJzzSM3JyQcABYwB9Q=="
+        },
+        "outputs": {}
+      },
+      "narrative": "A dusty Cipher Decoder left on the safehouse desk."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The victim's shattered smartwatch."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "zlib_inflate",
+      "target_id": "hash_md5",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "zlib_inflate",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "base64_decode",
+      "target_id": "zlib_inflate",
+      "connection_type": "Hex_String",
+      "source_port": "bytes_hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    }
+  ]
+}

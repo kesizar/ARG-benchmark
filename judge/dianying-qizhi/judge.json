@@ -1,0 +1,52 @@
+{
+  "hooks": {
+    "hero": {
+      "type": "dom_regex",
+      "pattern": "恭喜！你成功分离了与莱纳德融为一体的记忆"
+    },
+    "fail": {
+      "type": "dom_regex",
+      "pattern": "无_法显示"
+    },
+    "burned": {
+      "type": "dom_regex",
+      "pattern": "这里没有题目，快去做下一道吧"
+    }
+  },
+  "checkpoints": [
+    {"id": "burned", "hook": "burned", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "hero",
+      "tier": "good",
+      "gates": ["burned"],
+      "ending": {
+        "hook": "hero",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "fail",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "fail",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "hero",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

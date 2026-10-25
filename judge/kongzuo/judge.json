@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "deep": {"type": "dom_regex", "pattern": "你好像看见她坐在靠窗的最后一排"},
+    "truth": {"type": "dom_regex", "pattern": "你先写下：她叫苏念"},
+    "normal": {"type": "dom_regex", "pattern": "你没有再往下看"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "deep", "tier": "good", "gates": [], "ending": {"hook": "deep", "op": "truthy"}},
+    {"id": "truth", "tier": "good", "gates": [], "ending": {"hook": "truth", "op": "truthy"}},
+    {"id": "normal", "tier": "normal", "gates": [], "ending": {"hook": "normal", "op": "truthy"}}
+  ],
+  "ending": {"hook": "deep", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

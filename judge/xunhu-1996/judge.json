@@ -1,0 +1,275 @@
+{
+  "hooks": {
+    "saved": {
+      "type": "dom_regex",
+      "pattern": "你让这一次的呼救抵达了终点。"
+    },
+    "heard": {
+      "type": "dom_regex",
+      "pattern": "你听见的不是失踪，而是一个人正在逃离。"
+    },
+    "stopped": {
+      "type": "dom_regex",
+      "pattern": "你没有在终点等，而是在北堤之前拦住了车。"
+    },
+    "seconds": {
+      "type": "dom_regex",
+      "pattern": "你把缺失的十七秒变成了可以作证的地址。"
+    },
+    "door": {
+      "type": "dom_regex",
+      "pattern": "你先证明她存在，才来得及打开那扇门。"
+    },
+    "told": {
+      "type": "dom_regex",
+      "pattern": "你把最难说出口的结局，完整交给了过去。"
+    },
+    "boat": {
+      "type": "dom_regex",
+      "pattern": "你保住了母女，却没能让她们赶上当夜的船。"
+    },
+    "fire": {
+      "type": "dom_regex",
+      "pattern": "人回来了，车和能定罪的证物留在了火里。"
+    },
+    "tape": {
+      "type": "dom_regex",
+      "pattern": "刘芸活了下来，母带上的剪口却没有消失。"
+    },
+    "late-name": {
+      "type": "dom_regex",
+      "pattern": "人从蓝门后出来了，名字却晚了三年。"
+    },
+    "believe": {
+      "type": "dom_regex",
+      "pattern": "你先让周为民相信了来自未来的声音。"
+    },
+    "careful": {
+      "type": "dom_regex",
+      "pattern": "你把每一句来自未来的话，都说得格外小心。"
+    },
+    "unfinished": {
+      "type": "dom_regex",
+      "pattern": "这份档案还没有等到它该有的结局。"
+    },
+    "returned": {
+      "type": "dom_regex",
+      "pattern": "留言被听见了，人却仍被交回原处。"
+    },
+    "siren": {
+      "type": "dom_regex",
+      "pattern": "警灯先到了，末班车没有回来。"
+    },
+    "elevator": {
+      "type": "dom_regex",
+      "pattern": "你找到了剪口，却没能赶在电梯之前。"
+    },
+    "sealed": {
+      "type": "dom_regex",
+      "pattern": "名册仍少一行，蓝门已经封死。"
+    },
+    "cracked": {
+      "type": "dom_regex",
+      "pattern": "破译成功。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "cracked",
+      "hook": "cracked",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "saved",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "saved",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "heard",
+      "tier": "good",
+      "gates": [
+        "cracked"
+      ],
+      "ending": {
+        "hook": "heard",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "stopped",
+      "tier": "good",
+      "gates": [
+        "cracked"
+      ],
+      "ending": {
+        "hook": "stopped",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "seconds",
+      "tier": "good",
+      "gates": [
+        "cracked"
+      ],
+      "ending": {
+        "hook": "seconds",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "door",
+      "tier": "good",
+      "gates": [
+        "cracked"
+      ],
+      "ending": {
+        "hook": "door",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "told",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "told",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "boat",
+      "tier": "normal",
+      "gates": [
+        "cracked"
+      ],
+      "ending": {
+        "hook": "boat",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "fire",
+      "tier": "normal",
+      "gates": [
+        "cracked"
+      ],
+      "ending": {
+        "hook": "fire",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "tape",
+      "tier": "normal",
+      "gates": [
+        "cracked"
+      ],
+      "ending": {
+        "hook": "tape",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "late-name",
+      "tier": "normal",
+      "gates": [
+        "cracked"
+      ],
+      "ending": {
+        "hook": "late-name",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "believe",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "believe",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "careful",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "careful",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "unfinished",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "unfinished",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "returned",
+      "tier": "bad",
+      "gates": [
+        "cracked"
+      ],
+      "ending": {
+        "hook": "returned",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "siren",
+      "tier": "bad",
+      "gates": [
+        "cracked"
+      ],
+      "ending": {
+        "hook": "siren",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "elevator",
+      "tier": "bad",
+      "gates": [
+        "cracked"
+      ],
+      "ending": {
+        "hook": "elevator",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "sealed",
+      "tier": "bad",
+      "gates": [
+        "cracked"
+      ],
+      "ending": {
+        "hook": "sealed",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "saved",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

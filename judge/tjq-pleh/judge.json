@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "archive": {"type": "dom_regex", "pattern": "该页面不属于公开问卷"},
+    "normal_end": {"type": "dom_regex", "pattern": "问卷体验完成"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "archive", "tier": "good", "gates": [], "ending": {"hook": "archive", "op": "truthy"}},
+    {"id": "normal_end", "tier": "bad", "gates": [], "ending": {"hook": "normal_end", "op": "truthy"}}
+  ],
+  "ending": {"hook": "archive", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

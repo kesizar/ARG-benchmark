@@ -1,0 +1,943 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 17,
+    "win_node_id": "item_11",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_11",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_11",
+        "hmac_sha256",
+        "regex_search",
+        "terminal_1",
+        "zip_unzip_file",
+        "zip_unzip_file_c235",
+        "calc_bigmul",
+        "checksum_crc32",
+        "terminal_2",
+        "container_2"
+      ],
+      "by_node": {
+        "item_11": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_11",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          }
+        },
+        "hmac_sha256": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text message"
+            }
+          },
+          "init_outputs": {}
+        },
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {},
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_c235": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "container_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_2",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_11": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "def calculate_sum(a, b):\n    return a + b\nprint(calculate_sum(10, 20))"
+        }
+      },
+      "hmac_sha256": {
+        "init_inputs": {
+          "text": "Initiating secure handshake protocol sequence."
+        },
+        "init_outputs": {}
+      },
+      "regex_search": {
+        "init_inputs": {},
+        "init_outputs": {
+          "matches": "[\"pattern_match_001\", \"pattern_match_002\", \"pattern_match_003\", \"pattern_match_004\", \"pattern_match_005\"]"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "Terminal entry point A authorization code."
+        },
+        "init_outputs": {
+          "text_output": "Terminal operation completed successfully.",
+          "hex_output": "a1b2c3d4e5f678901234567890abcdef"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "password": "SuperSecretPassword123!"
+        },
+        "init_outputs": {
+          "files": "confidential_report.pdf"
+        }
+      },
+      "zip_unzip_file_c235": {
+        "init_inputs": {
+          "zip_id": "legacy_archive_data.zip"
+        },
+        "init_outputs": {
+          "files": "extracted_blueprint.xml"
+        }
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "b": "882736451928374651029384756"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "deadbeefcafebabef00d1234567890ab"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "192837465564738291011121314",
+          "num2": "998877665544332211009988776"
+        },
+        "init_outputs": {
+          "text_result": "Complex calculation parameters accepted.",
+          "hex_result": "11223344556677889900aabbccddeeff",
+          "math_token": "Token of mathematical verification granted."
+        }
+      },
+      "container_2": {
+        "init_inputs": {
+          "fingerprint_input": "0f1e2d3c4b5a69788796a5b4c3d2e1f0"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You stand in the center of the abandoned Cyber-Forensics Bureau, the air thick with dust and the low hum of dormant servers. You are here to uncover the identity of the 'Digital Ghost', a hacker who vanished leaving behind only a trail of encrypted breadcrumbs. The room is filled with disconnected terminals, locked safes, and strange processing units. Detective Reynolds speaks through your earpiece: 'The Ghost hid his confession in a fragmented data stream. You need to reactivate the system, link the correct processors, and decrypt the final file. Watch the data flow carefully, detective.'",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "item_11",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_11",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": ""
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "def calculate_sum(a, b):\n    return a + b\nprint(calculate_sum(10, 20))"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "def calculate_sum(a, b):\n    return a + b\nprint(calculate_sum(10, 20))"
+        }
+      },
+      "narrative": "The final piece of the puzzle: The Digital Ghost's decrypted confession file."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "confidential_report.pdf"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "EQ9YH9u/25U/sLwF1lRYsHuyrKTRdTiOoyv0MrafzkM="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip",
+          "value": ""
+        }
+      ],
+      "narrative": "This is the Master Evidence Locker. It requires the encoded password from the Encoder Module and the target file identifier from the Secondary Archive."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "110f581fdbbfdb953fb0bc05d65458b07bb2aca4d175388ea32bf432b69fce43"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "EQ9YH9u/25U/sLwF1lRYsHuyrKTRdTiOoyv0MrafzkM="
+        }
+      ],
+      "narrative": "This is the Encoder Module. It transforms raw bytes into readable strings. It requires the cryptographic hash generated by the Hash Generator."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "789c8b562a482c29492dca8bcf4d2c49ce8837303054d251c01034c226688c4dd0049ba0a9522c005af72309"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Initiating secure handshake protocol sequence."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "110f581fdbbfdb953fb0bc05d65458b07bb2aca4d175388ea32bf432b69fce43"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Initiating secure handshake protocol sequence."
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Hash Generator. It secures communications by creating a keyed hash. It requires the compressed data key from the Data Compressor."
+    },
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "[\"pattern_match_001\", \"pattern_match_002\", \"pattern_match_003\", \"pattern_match_004\", \"pattern_match_005\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c8b562a482c29492dca8bcf4d2c49ce8837303054d251c01034c226688c4dd0049ba0a9522c005af72309"
+        }
+      ],
+      "narrative": "This is the Data Compressor. It minimizes data footprint for processing. It requires the specific text matches found by the Pattern Recognition Scanner."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "Complex calculation parameters accepted."
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "extracted_blueprint.xml"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "Terminal operation completed successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"pattern_match_001\", \"pattern_match_002\", \"pattern_match_003\", \"pattern_match_004\", \"pattern_match_005\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "matches": "[\"pattern_match_001\", \"pattern_match_002\", \"pattern_match_003\", \"pattern_match_004\", \"pattern_match_005\"]"
+        }
+      },
+      "narrative": "This is the Pattern Recognition Scanner. It searches for hidden strings. It requires text output from the Mainframe Terminal, a file ID from the Encrypted Archive, and a regex pattern from the Evidence Logic Analyzer."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Terminal entry point A authorization code."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "1667084985332610434391663536891463572"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal operation completed successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "a1b2c3d4e5f678901234567890abcdef"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Terminal entry point A authorization code."
+        },
+        "outputs": {
+          "text_output": "Terminal operation completed successfully.",
+          "hex_output": "a1b2c3d4e5f678901234567890abcdef"
+        }
+      },
+      "narrative": "The Mainframe Terminal. It controls the central data flow of the room. It requires a specific large integer result from the Large Number Processor to unlock its primary output."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "extracted_blueprint.xml"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SuperSecretPassword123!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "confidential_report.pdf"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "SuperSecretPassword123!"
+        },
+        "outputs": {
+          "files": "confidential_report.pdf"
+        }
+      },
+      "narrative": "This is the Secondary Archive. It contains older case files. It requires the file reference ID extracted from the Encrypted Archive."
+    },
+    {
+      "id": "zip_unzip_file_c235",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "legacy_archive_data.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Terminal operation completed successfully."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_blueprint.xml"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "legacy_archive_data.zip"
+        },
+        "outputs": {
+          "files": "extracted_blueprint.xml"
+        }
+      },
+      "narrative": "This is the Encrypted Archive. It holds the Ghost's private logs. It requires the textual password displayed on the Mainframe Terminal."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": 1888542137
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "882736451928374651029384756"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "1667084985332610434391663536891463572"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "882736451928374651029384756"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Large Number Processor, a supercomputer for massive calculations. It requires the checksum integer verified by the Integrity Checker."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "The raw integer data extracted from the Black Box."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "deadbeefcafebabef00d1234567890ab"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "7090ddb9"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1888542137
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "deadbeefcafebabef00d1234567890ab"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Integrity Checker. A device used to verify that data has not been corrupted."
+    },
+    {
+      "id": "item_8_d678",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "The Black Box. A heavy, sealed unit found at the crime scene containing unknown data."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "192837465564738291011121314"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "998877665544332211009988776"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Complex calculation parameters accepted."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "11223344556677889900aabbccddeeff"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Token of mathematical verification granted."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "192837465564738291011121314",
+          "num2": "998877665544332211009988776"
+        },
+        "outputs": {
+          "text_result": "Complex calculation parameters accepted.",
+          "hex_result": "11223344556677889900aabbccddeeff",
+          "math_token": "Token of mathematical verification granted."
+        }
+      },
+      "narrative": "The Evidence Logic Analyzer. A standalone console used to compute mathematical relationships between evidence."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "0f1e2d3c4b5a69788796a5b4c3d2e1f0"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "0f1e2d3c4b5a69788796a5b4c3d2e1f0"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Biometric Safe. It scans fingerprint hashes to reveal its contents."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_11",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "password"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "zlib_deflate",
+      "target_id": "hmac_sha256",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex_key"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "zlib_deflate",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "text"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "text"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file_c235",
+      "target_id": "regex_search",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "base64_encode",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "a"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "zip_unzip_file_c235",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_8_d678",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "pattern"
+    },
+    {
+      "source_id": "zip_unzip_file_c235",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "calc_bigmul",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    }
+  ]
+}

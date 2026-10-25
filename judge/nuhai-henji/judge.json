@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "curtain": {
+      "type": "dom_regex",
+      "pattern": "—— 全剧终 ——"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "curtain",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "curtain",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "curtain",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

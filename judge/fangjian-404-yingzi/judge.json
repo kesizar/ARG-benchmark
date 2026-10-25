@@ -1,0 +1,38 @@
+{
+  "hooks": {
+    "cleared": {"type": "localstorage", "key": "zy_cleared", "mode": "exists"},
+    "bad_text": {"type": "dom_regex", "pattern": "坏结局：留下"},
+    "hidden_text": {"type": "dom_regex", "pattern": "隐藏结局：守护者"},
+    "fake_text": {"type": "dom_regex", "pattern": "假结局：循环继续"}
+  },
+  "checkpoints": [],
+  "events": {
+    "fake_loop": {"hook": "fake_text", "op": "truthy"}
+  },
+  "routes": [
+    {
+      "id": "true_end",
+      "tier": "good",
+      "gates": [],
+      "ending": {"hook": "cleared", "op": "truthy"}
+    },
+    {
+      "id": "hidden_end",
+      "tier": "normal",
+      "gates": [],
+      "ending": {"hook": "hidden_text", "op": "truthy"}
+    },
+    {
+      "id": "bad_end",
+      "tier": "bad",
+      "gates": [],
+      "ending": {"hook": "bad_text", "op": "truthy"}
+    }
+  ],
+  "ending": {"hook": "cleared", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

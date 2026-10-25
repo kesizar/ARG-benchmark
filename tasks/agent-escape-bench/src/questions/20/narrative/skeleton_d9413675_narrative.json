@@ -1,0 +1,1233 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 22,
+    "win_node_id": "calc_bigmul",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "calc_bigmul",
+      "output_port": "product",
+      "output_type": "Big_Int",
+      "description": "Execute Big Number Multiplier and get the output from port 'product'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "calc_gcd",
+        "calc_modexp",
+        "graph_shortest_path",
+        "calc_bigmul_ff6c",
+        "csv_query",
+        "zip_unzip_file",
+        "calc_inv_mod",
+        "matter_synthesizer",
+        "hash_sha256",
+        "csv_query_59b6",
+        "zip_unzip_file_4217",
+        "csv_query_b7be",
+        "code_py_exec",
+        "base64_decode"
+      ],
+      "by_node": {
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "calc_bigmul_ff6c": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {},
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "matter_synthesizer": {
+          "node_name": "Matter Synthesizer",
+          "node_type": "Tool",
+          "template_id": "matter_synthesizer",
+          "init_inputs": {
+            "blueprint": {
+              "type": "Text_Generic",
+              "description": "Object Blueprint"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hash_sha256": {
+          "node_name": "SHA-256 Hasher",
+          "node_type": "Tool",
+          "template_id": "hash_sha256",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text to hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "csv_query_59b6": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            },
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "zip_unzip_file_4217": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "csv_query_b7be": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            },
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            },
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "code_py_exec": {
+          "node_name": "Python Executor",
+          "node_type": "Tool",
+          "template_id": "code_py_exec",
+          "init_inputs": {
+            "code": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          },
+          "init_outputs": {}
+        },
+        "base64_decode": {
+          "node_name": "Base64 Decoder",
+          "node_type": "Tool",
+          "template_id": "base64_decode",
+          "init_inputs": {
+            "data": {
+              "type": "Text_Generic",
+              "description": "Base64 string"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "calc_gcd": {
+        "init_inputs": {
+          "b": "82348710349817234908123"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "mod": "873491"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"NodeA\", \"NodeB\", \"NodeC\", \"NodeD\", \"NodeE\"]",
+          "cost": "23450"
+        }
+      },
+      "calc_bigmul_ff6c": {
+        "init_inputs": {
+          "b": "98437520938475029384752"
+        },
+        "init_outputs": {}
+      },
+      "csv_query": {
+        "init_inputs": {},
+        "init_outputs": {
+          "rows": "[{\"col1\":\"A\"}, {\"col1\":\"B\"}, {\"col1\":\"C\"}, {\"col1\":\"D\"}]"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "final_output_file.csv"
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "192384750192837401928",
+          "mod": "997331"
+        },
+        "init_outputs": {}
+      },
+      "matter_synthesizer": {
+        "init_inputs": {
+          "blueprint": "Blueprint for quantum stabilization matrix."
+        },
+        "init_outputs": {}
+      },
+      "hash_sha256": {
+        "init_inputs": {
+          "text": "Sample string to test hashing mechanism."
+        },
+        "init_outputs": {}
+      },
+      "csv_query_59b6": {
+        "init_inputs": {
+          "file_id": "source_data_59b6.csv",
+          "select": "id, name, description"
+        },
+        "init_outputs": {
+          "rows": "[{\"id\":1,\"name\":\"Alice\"}, {\"id\":2,\"name\":\"Bob\"}, {\"id\":3,\"name\":\"Charlie\"}]"
+        }
+      },
+      "zip_unzip_file_4217": {
+        "init_inputs": {
+          "zip_id": "secret_package_4217.zip",
+          "password": "SuperSecretP4ssw0rd!"
+        },
+        "init_outputs": {
+          "files": "intermediate_data.csv"
+        }
+      },
+      "csv_query_b7be": {
+        "init_inputs": {
+          "file_id": "credentials_b7be.csv",
+          "select": "username, password",
+          "where": "status='active'"
+        },
+        "init_outputs": {
+          "rows": "[{\"username\":\"admin\",\"password\":\"pass123\"}, {\"username\":\"user\",\"password\":\"word456\"}, {\"username\":\"guest\",\"password\":\"guest789\"}]"
+        }
+      },
+      "code_py_exec": {
+        "init_inputs": {
+          "code": "print('Hello, secure environment execution')"
+        },
+        "init_outputs": {}
+      },
+      "base64_decode": {
+        "init_inputs": {
+          "data": "SGVsbG8sIGJhc2U2NCBkZWNvZGluZyB0ZXN0IQ=="
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The surface of the Earth has been reduced to toxic ash, but deep underground, Bunker 42 holds the last hope for planetary restoration. You have breached the rusted airlock, discovering a labyrinth of dormant pre-war systems covered in centuries of dust. Your ultimate objective is to restart the Bunker Mainframe Core to reengage the atmospheric terraforming array. However, the ancient systems are heavily compartmentalized and completely offline. You must scavenge the facility, reboot peripheral nodes, and carefully trace the archaic data flows to bring the bunker back to life before your hazard suit's life support runs dry.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "7"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "392049"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "2744343"
+        }
+      ],
+      "narrative": "The towering Bunker Mainframe Core. It is the heart of the facility. It requires inputs from both the Harmonic Calibrator and the Energy Routing Console to achieve full activation."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "392049"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "82348710349817234908123"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "7"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "82348710349817234908123"
+        },
+        "outputs": {}
+      },
+      "narrative": "A delicate Harmonic Calibrator used to align frequencies. It requires input from the Energy Routing Console to synchronize the power flow."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "23450"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "2833524040214003720840086320"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "873491"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "392049"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "873491"
+        },
+        "outputs": {}
+      },
+      "narrative": "An intricate Energy Routing Console. It requires inputs from the Navigational Processor and the Primary Fusion Relay to channel power effectively."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "final_output_file.csv"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "4P7,_\r0\u0017N!r%Қ]@?\t{sS"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "[{\"col1\":\"A\"}, {\"col1\":\"B\"}, {\"col1\":\"C\"}, {\"col1\":\"D\"}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"NodeA\", \"NodeB\", \"NodeC\", \"NodeD\", \"NodeE\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "23450"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"NodeA\", \"NodeB\", \"NodeC\", \"NodeD\", \"NodeE\"]",
+          "cost": "23450"
+        }
+      },
+      "narrative": "A complex Navigational Processor with holographic displays. It requires inputs from the Text Decoder, the Main Network Router, and the Core Archive Unpacker."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "3450d9372c5fb98e0df3a23017bc4e8e21a8a17225d29a5d403fca097b847353"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "4P7,_\r0\u0017N!r%Қ]@?\t{sS"
+        }
+      ],
+      "narrative": "A digital Text Decoder wired into a makeshift desk. It requires input from the Hash Protocol Unit to translate the incoming ciphers."
+    },
+    {
+      "id": "calc_bigmul_ff6c",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "28785"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "98437520938475029384752"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "2833524040214003720840086320"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "98437520938475029384752"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Primary Fusion Relay controls the initial ignition sequence. It requires input from the Power Modulator to stabilize the reaction."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_26cc154a3a741ea6"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A worn, plastic access keycard from the old world, bearing a faded corporate logo."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "intermediate_data.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "NFDZNyxfuY4N86IwF7xOjiGooXIl0ppdQD/KCXuEc1M="
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "[{\"id\":1,\"name\":\"Alice\"}, {\"id\":2,\"name\":\"Bob\"}, {\"id\":3,\"name\":\"Charlie\"}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"col1\":\"A\"}, {\"col1\":\"B\"}, {\"col1\":\"C\"}, {\"col1\":\"D\"}]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "rows": "[{\"col1\":\"A\"}, {\"col1\":\"B\"}, {\"col1\":\"C\"}, {\"col1\":\"D\"}]"
+        }
+      },
+      "narrative": "The Main Network Router is a massive switchboard of dead fiber optics. It requires inputs from the Signal Broadcaster, the Sector Database, and the Encrypted Archives."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "intermediate_data.csv"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[{\"username\":\"admin\",\"password\":\"pass123\"}, {\"username\":\"user\",\"password\":\"word456\"}, {\"username\":\"guest\",\"password\":\"guest789\"}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "final_output_file.csv"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "final_output_file.csv"
+        }
+      },
+      "narrative": "A Core Archive Unpacker module. It requires inputs from both the Encrypted Archives and the Security Roster to bypass the lockdown."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "3450d9372c5fb98e0df3a23017bc4e8e21a8a17225d29a5d403fca097b847353"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "NFDZNyxfuY4N86IwF7xOjiGooXIl0ppdQD/KCXuEc1M="
+        }
+      ],
+      "narrative": "A rusted Signal Broadcaster with a large antenna array. It requires input from the Hash Protocol Unit to transmit a secure ping."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "192384750192837401928"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "997331"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "28785"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "192384750192837401928",
+          "mod": "997331"
+        },
+        "outputs": {}
+      },
+      "narrative": "A rusted pre-war Power Modulator. Its heavy dials and brass fittings suggest it controls raw electrical currents."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "Blueprint for quantum stabilization matrix."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_26cc154a3a741ea6"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "blueprint": "Blueprint for quantum stabilization matrix."
+        },
+        "outputs": {}
+      },
+      "narrative": "A dusty Nanite Fabricator, once capable of printing complex physical parts from raw materials."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "Sample string to test hashing mechanism."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "3450d9372c5fb98e0df3a23017bc4e8e21a8a17225d29a5d403fca097b847353"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Sample string to test hashing mechanism."
+        },
+        "outputs": {}
+      },
+      "narrative": "A military-grade Hash Protocol Unit used for generating secure keys. Its heavy metal casing is scarred but intact."
+    },
+    {
+      "id": "csv_query_59b6",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "source_data_59b6.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "id, name, description"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "Hello, secure environment execution\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"id\":1,\"name\":\"Alice\"}, {\"id\":2,\"name\":\"Bob\"}, {\"id\":3,\"name\":\"Charlie\"}]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "source_data_59b6.csv",
+          "select": "id, name, description"
+        },
+        "outputs": {
+          "rows": "[{\"id\":1,\"name\":\"Alice\"}, {\"id\":2,\"name\":\"Bob\"}, {\"id\":3,\"name\":\"Charlie\"}]"
+        }
+      },
+      "narrative": "An offline Sector Database containing old schematics. It requires input from the Diagnostic Terminal to retrieve the buried records."
+    },
+    {
+      "id": "zip_unzip_file_4217",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secret_package_4217.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SuperSecretP4ssw0rd!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "intermediate_data.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secret_package_4217.zip",
+          "password": "SuperSecretP4ssw0rd!"
+        },
+        "outputs": {
+          "files": "intermediate_data.csv"
+        }
+      },
+      "narrative": "A heavily secured data drive labeled Encrypted Archives. It hums faintly with standby power."
+    },
+    {
+      "id": "csv_query_b7be",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "credentials_b7be.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "username, password"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "status='active'"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"username\":\"admin\",\"password\":\"pass123\"}, {\"username\":\"user\",\"password\":\"word456\"}, {\"username\":\"guest\",\"password\":\"guest789\"}]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "credentials_b7be.csv",
+          "select": "username, password",
+          "where": "status='active'"
+        },
+        "outputs": {
+          "rows": "[{\"username\":\"admin\",\"password\":\"pass123\"}, {\"username\":\"user\",\"password\":\"word456\"}, {\"username\":\"guest\",\"password\":\"guest789\"}]"
+        }
+      },
+      "narrative": "A battered datapad displaying a partial Security Roster from the bunker's final days."
+    },
+    {
+      "id": "item_16_2396",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A small, fragile override chip coated in thick bunker dust, vital for hardware bypasses."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "48656c6c6f2c20626173653634206465636f64696e67207465737421"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "A reinforced Stasis Locker built into the wall. It requires input from the Biometric Scanner to authenticate and unlock its heavy doors."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print('Hello, secure environment execution')"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "Hello, secure environment execution\n"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "code": "print('Hello, secure environment execution')"
+        },
+        "outputs": {}
+      },
+      "narrative": "An old Diagnostic Terminal with a cracked monitor and a blinking green cursor, waiting for commands."
+    },
+    {
+      "id": "base64_decode",
+      "name": "Base64 Decoder",
+      "description": "Decode base64 to hex bytes.",
+      "type": "Tool",
+      "template_id": "base64_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "SGVsbG8sIGJhc2U2NCBkZWNvZGluZyB0ZXN0IQ=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "bytes_hex",
+          "type": "Hex_String",
+          "description": "Decoded bytes as Hex",
+          "value": "48656c6c6f2c20626173653634206465636f64696e67207465737421"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "data": "SGVsbG8sIGJhc2U2NCBkZWNvZGluZyB0ZXN0IQ=="
+        },
+        "outputs": {}
+      },
+      "narrative": "A handheld Biometric Scanner. Its glass lens is scratched, but the underlying sensors appear functional."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "base"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "src"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul_ff6c",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_gcd",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "select"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_bigmul_ff6c",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "csv_query_59b6",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "where"
+    },
+    {
+      "source_id": "zip_unzip_file_4217",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file_4217",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "csv_query_b7be",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_16_2396",
+      "target_id": "hash_sha256",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "item_16_2396",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "csv_query_59b6",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "where"
+    },
+    {
+      "source_id": "base64_decode",
+      "target_id": "container_2",
+      "connection_type": "Hex_String",
+      "source_port": "bytes_hex",
+      "target_port": "fingerprint_input"
+    }
+  ]
+}

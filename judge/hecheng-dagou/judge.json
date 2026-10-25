@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "end": {
+      "type": "dom_regex",
+      "pattern": "可惜可惜，下次再努力哦！"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "end",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "end",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

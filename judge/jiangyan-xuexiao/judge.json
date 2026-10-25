@@ -1,0 +1,80 @@
+{
+  "hooks": {
+    "ending": {
+      "type": "dom_regex",
+      "pattern": "你知道了真相"
+    },
+    "url": {
+      "type": "input_sha256",
+      "selector": "#urlInput",
+      "hashes": [
+        "7ef92fbc9e27971e0aa2dc1a43d9308cd23364c2a0ca1539386ffc4a30cee6f2",
+        "daa0f44f6e67571c557caca2f778cbd25a370471973af796144f69ffe6619da5",
+        "85c1962e764c977200d5b68caa0539684d725abacbc26dcceef8309f4facd816"
+      ]
+    },
+    "guestbook": {
+      "type": "dom_regex",
+      "pattern": "这条回复是模板"
+    },
+    "log": {
+      "type": "dom_regex",
+      "pattern": "20141110-001"
+    },
+    "page0": {
+      "type": "dom_regex",
+      "pattern": "不存在的第0页"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "url",
+      "hook": "url",
+      "op": "truthy"
+    },
+    {
+      "id": "guestbook",
+      "hook": "guestbook",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "log",
+      "hook": "log",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "page0",
+      "hook": "page0",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "hidden",
+      "tier": "good",
+      "gates": [
+        "url"
+      ],
+      "ending": {
+        "hook": "ending",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "ending",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

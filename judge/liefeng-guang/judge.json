@@ -1,0 +1,39 @@
+{
+  "hooks": {
+    "fell": {
+      "type": "dom_regex",
+      "pattern": "陆怡从自家阳台坠落"
+    },
+    "desk": {
+      "type": "dom_regex",
+      "pattern": "万度"
+    }
+  },
+  "checkpoints": [
+    {"id": "desk", "hook": "desk", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "fell",
+      "tier": "good",
+      "gates": ["desk"],
+      "ending": {
+        "hook": "fell",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "fell",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

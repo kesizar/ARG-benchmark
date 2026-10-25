@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "end_a": {"type": "dom_regex", "pattern": "ENDING A / 留下"},
+    "end_b": {"type": "dom_regex", "pattern": "ENDING B / 删除"},
+    "end_c": {"type": "dom_regex", "pattern": "ENDING C / 镜像"},
+    "end_d": {"type": "dom_regex", "pattern": "ENDING D / 名单"},
+    "end_e": {"type": "dom_regex", "pattern": "ENDING E / 归还"},
+    "end_f": {"type": "dom_regex", "pattern": "ENDING F / 顶班"},
+    "end_g": {"type": "dom_regex", "pattern": "ENDING G / 拆墙"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "ending_e", "tier": "good", "gates": [], "ending": {"hook": "end_e", "op": "truthy"}},
+    {"id": "ending_a", "tier": "normal", "gates": [], "ending": {"hook": "end_a", "op": "truthy"}},
+    {"id": "ending_b", "tier": "normal", "gates": [], "ending": {"hook": "end_b", "op": "truthy"}},
+    {"id": "ending_c", "tier": "normal", "gates": [], "ending": {"hook": "end_c", "op": "truthy"}},
+    {"id": "ending_d", "tier": "normal", "gates": [], "ending": {"hook": "end_d", "op": "truthy"}},
+    {"id": "ending_f", "tier": "normal", "gates": [], "ending": {"hook": "end_f", "op": "truthy"}},
+    {"id": "ending_g", "tier": "normal", "gates": [], "ending": {"hook": "end_g", "op": "truthy"}}
+  ],
+  "ending": {"hook": "end_e", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

@@ -1,0 +1,75 @@
+{
+  "hooks": {
+    "end-good": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 引 弟 归 续 · 反 噬"
+    },
+    "end-mid": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 同 归 于 尽"
+    },
+    "end-bad": {
+      "type": "dom_regex",
+      "pattern": "结 局 · 阻 止 失 败"
+    },
+    "member": {
+      "type": "dom_regex",
+      "pattern": "口令正确！搜索权限已激活"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "member",
+      "hook": "member",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "return",
+      "tier": "good",
+      "gates": [
+        "member"
+      ],
+      "ending": {
+        "hook": "end-good",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "together",
+      "tier": "normal",
+      "gates": [
+        "member"
+      ],
+      "ending": {
+        "hook": "end-mid",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "miss",
+      "tier": "bad",
+      "gates": [
+        "member"
+      ],
+      "ending": {
+        "hook": "end-bad",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end-good",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

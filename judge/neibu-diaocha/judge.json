@@ -1,0 +1,175 @@
+{
+  "hooks": {
+    "case2": {
+      "type": "dom_regex",
+      "pattern": "案件告破。"
+    },
+    "case1": {
+      "type": "dom_regex",
+      "pattern": "真相大白。"
+    },
+    "snake": {
+      "type": "localstorage",
+      "key": "meridian-ms0519-v1",
+      "mode": "json_path",
+      "path": "unlocked.snake"
+    },
+    "diag": {
+      "type": "localstorage",
+      "key": "meridian-ms0519-v1",
+      "mode": "json_path",
+      "path": "unlocked.diag"
+    },
+    "gmail": {
+      "type": "localstorage",
+      "key": "meridian-ms0519-v1",
+      "mode": "json_path",
+      "path": "clues"
+    },
+    "tax": {
+      "type": "localstorage",
+      "key": "meridian-ms0519-v1",
+      "mode": "json_path",
+      "path": "clues"
+    },
+    "hospital": {
+      "type": "localstorage",
+      "key": "meridian-ms0519-v1",
+      "mode": "json_path",
+      "path": "clues"
+    },
+    "lisa": {
+      "type": "localstorage",
+      "key": "meridian-ms0519-v1",
+      "mode": "json_path",
+      "path": "clues"
+    },
+    "vanta": {
+      "type": "localstorage",
+      "key": "meridian-e2-v1",
+      "mode": "json_path",
+      "path": "clues"
+    },
+    "whitfield": {
+      "type": "localstorage",
+      "key": "meridian-e2-v1",
+      "mode": "json_path",
+      "path": "clues"
+    },
+    "q1_report": {
+      "type": "localstorage",
+      "key": "meridian-e2-v1",
+      "mode": "json_path",
+      "path": "unlocked.e2q1report"
+    },
+    "visa": {
+      "type": "localstorage",
+      "key": "meridian-e2-v1",
+      "mode": "json_path",
+      "path": "unlocked.e2visa"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "snake",
+      "hook": "snake",
+      "op": "truthy"
+    },
+    {
+      "id": "diag",
+      "hook": "diag",
+      "op": "truthy"
+    },
+    {
+      "id": "gmail",
+      "hook": "gmail",
+      "op": "includes",
+      "value": "gmailAdded"
+    },
+    {
+      "id": "tax",
+      "hook": "tax",
+      "op": "includes",
+      "value": "taxSearch"
+    },
+    {
+      "id": "hospital",
+      "hook": "hospital",
+      "op": "includes",
+      "value": "hospitalSearch",
+      "role": "optional"
+    },
+    {
+      "id": "lisa",
+      "hook": "lisa",
+      "op": "includes",
+      "value": "lisaGone",
+      "role": "optional"
+    },
+    {
+      "id": "vanta",
+      "hook": "vanta",
+      "op": "includes",
+      "value": "clue_vanta_web"
+    },
+    {
+      "id": "whitfield",
+      "hook": "whitfield",
+      "op": "includes",
+      "value": "clue_whitfield"
+    },
+    {
+      "id": "q1_report",
+      "hook": "q1_report",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "visa",
+      "hook": "visa",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "case2",
+      "tier": "good",
+      "gates": [
+        "vanta",
+        "whitfield"
+      ],
+      "ending": {
+        "hook": "case2",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "case1",
+      "tier": "normal",
+      "gates": [
+        "snake",
+        "diag",
+        "gmail",
+        "tax"
+      ],
+      "ending": {
+        "hook": "case1",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "case2",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

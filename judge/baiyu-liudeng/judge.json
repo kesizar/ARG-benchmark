@@ -1,0 +1,32 @@
+{
+  "hooks": {
+    "expanded": {"type": "dom_regex", "pattern": "名单之外，灯仍亮着"},
+    "route_only": {"type": "dom_regex", "pattern": "到了哪里，仍要往下查"},
+    "scope_only": {"type": "dom_regex", "pattern": "清单上多了一行"},
+    "complete": {"type": "dom_regex", "pattern": "本批范围内移交"},
+    "public": {"type": "dom_regex", "pattern": "灯下的人"},
+    "record": {"type": "dom_regex", "pattern": "交到明天"},
+    "partial": {"type": "dom_regex", "pattern": "半页回函"},
+    "silent": {"type": "dom_regex", "pattern": "未登记的交接"},
+    "unresolved": {"type": "dom_regex", "pattern": "仍在检索"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "expanded", "tier": "good", "gates": [], "ending": {"hook": "expanded", "op": "truthy"}},
+    {"id": "route_only", "tier": "normal", "gates": [], "ending": {"hook": "route_only", "op": "truthy"}},
+    {"id": "scope_only", "tier": "normal", "gates": [], "ending": {"hook": "scope_only", "op": "truthy"}},
+    {"id": "complete", "tier": "normal", "gates": [], "ending": {"hook": "complete", "op": "truthy"}},
+    {"id": "public", "tier": "normal", "gates": [], "ending": {"hook": "public", "op": "truthy"}},
+    {"id": "record", "tier": "normal", "gates": [], "ending": {"hook": "record", "op": "truthy"}},
+    {"id": "partial", "tier": "normal", "gates": [], "ending": {"hook": "partial", "op": "truthy"}},
+    {"id": "silent", "tier": "normal", "gates": [], "ending": {"hook": "silent", "op": "truthy"}},
+    {"id": "unresolved", "tier": "normal", "gates": [], "ending": {"hook": "unresolved", "op": "truthy"}}
+  ],
+  "ending": {"hook": "expanded", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

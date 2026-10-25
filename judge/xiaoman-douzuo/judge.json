@@ -1,0 +1,126 @@
+{
+  "hooks": {
+    "export": {
+      "type": "dom_regex",
+      "pattern": "云端副本将在服务关闭前保留"
+    },
+    "ship": {
+      "type": "dom_regex",
+      "pattern": "寄送申请已提交"
+    },
+    "public": {
+      "type": "dom_regex",
+      "pattern": "展示副本已保留"
+    },
+    "delete": {
+      "type": "dom_regex",
+      "pattern": "删除申请已提交"
+    },
+    "bead": {
+      "type": "dom_regex",
+      "pattern": "最后一个空位已经补上。"
+    },
+    "umbrella": {
+      "type": "localstorage",
+      "key": "xiaoman_state_v2",
+      "mode": "json_path",
+      "path": "completed.umbrella"
+    },
+    "station": {
+      "type": "localstorage",
+      "key": "xiaoman_state_v2",
+      "mode": "json_path",
+      "path": "completed.station"
+    },
+    "store": {
+      "type": "localstorage",
+      "key": "xiaoman_state_v2",
+      "mode": "json_path",
+      "path": "completed.store"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "bead",
+      "hook": "bead",
+      "op": "truthy"
+    },
+    {
+      "id": "umbrella",
+      "hook": "umbrella",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "station",
+      "hook": "station",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "store",
+      "hook": "store",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "export",
+      "tier": "good",
+      "gates": [
+        "bead"
+      ],
+      "ending": {
+        "hook": "export",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "ship",
+      "tier": "good",
+      "gates": [
+        "bead"
+      ],
+      "ending": {
+        "hook": "ship",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "public",
+      "tier": "good",
+      "gates": [
+        "bead"
+      ],
+      "ending": {
+        "hook": "public",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "delete",
+      "tier": "good",
+      "gates": [
+        "bead"
+      ],
+      "ending": {
+        "hook": "delete",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "export",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

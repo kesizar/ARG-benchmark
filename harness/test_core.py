@@ -207,6 +207,69 @@ class JudgeTests(unittest.TestCase):
         self.assertEqual(judge.check_answer("north"), "正确")
         self.assertTrue(judge.score()["ending_reached"])
 
+    def test_silent_puzzle_uses_input_hash_or_flag_without_clearing(self) -> None:
+        typed = answer_sha256("right-phrase")
+        judge = Judge(
+            {
+                "hooks": {
+                    "typed": {"type": "input_sha256", "selector": "#pw", "hashes": [typed]},
+                    "flag": {"type": "js_truthy", "expr": "window.cleared === true"},
+                    "end": {"type": "dom_regex", "pattern": "结局"},
+                },
+                "checkpoints": [
+                    {"id": "typed", "hook": "typed", "op": "truthy", "role": "optional"},
+                    {"id": "flag", "hook": "flag", "op": "truthy"},
+                ],
+                "events": {},
+                "routes": [
+                    {
+                        "id": "end",
+                        "tier": "good",
+                        "gates": ["flag"],
+                        "ending": {"hook": "end", "op": "truthy"},
+                    }
+                ],
+                "ending": {"hook": "end", "op": "truthy"},
+            },
+            "sample",
+        )
+
+        class Fake:
+            def __init__(self) -> None:
+                self.flag = False
+                self.hashes = {typed}
+
+            async def input_hashes(self, selector=None):
+                self.seen_selector = selector
+                return set(self.hashes)
+
+            async def page_expr(self, expr):
+                return self.flag
+
+            async def dom_texts(self):
+                return [""]
+
+        fake = Fake()
+
+        async def go():
+            await judge.read(fake)
+            return judge.update(1)
+
+        asyncio.run(go())
+        self.assertEqual(fake.seen_selector, "#pw")
+        self.assertIn("typed", judge.side)
+        self.assertNotIn("flag", judge.checkpoints)
+        self.assertFalse(judge.score()["ending_reached"])
+        fake.flag = True
+
+        async def later():
+            await judge.read(fake)
+            return judge.update(2)
+
+        asyncio.run(later())
+        self.assertIn("flag", judge.checkpoints)
+        self.assertFalse(judge.score()["ending_reached"])
+
     def test_list_membership_counts_only_solved_items(self) -> None:
         judge = Judge(
             {
@@ -571,6 +634,63 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(bad["ending_tier"], "bad")
         self.assertFalse(bad["good_ending"])
         self.assertEqual(bad["route_progress"], 1.0)
+
+    def test_skippable_puzzle_counts_before_ending_and_not_after(self) -> None:
+        from harness.judge import Judge
+
+        judge = Judge(
+            {
+                "hooks": {},
+                "checkpoints": [
+                    {"id": "must", "hook": "must", "op": "truthy"},
+                    {"id": "side", "hook": "side", "op": "truthy", "role": "optional"},
+                ],
+                "routes": [
+                    {
+                        "id": "end",
+                        "tier": "good",
+                        "gates": ["must"],
+                        "ending": {"hook": "done", "op": "truthy"},
+                    }
+                ],
+            },
+            "sample",
+            Path("."),
+        )
+        judge.values = {"must": False, "side": True, "done": False}
+        judge.update(1)
+        early = judge.score()
+        self.assertEqual(early["checkpoints_reached"], 0)
+        self.assertEqual(early["diagnostic"]["side"], 1)
+        self.assertEqual(early["route_progress"], 0.5)
+        self.assertFalse(early["ending_reached"])
+        judge.values = {"must": True, "side": True, "done": True}
+        judge.update(2)
+        solved = judge.score()
+        self.assertEqual(solved["route_progress"], 1.0)
+        judge2 = Judge(
+            {
+                "hooks": {},
+                "checkpoints": [
+                    {"id": "side", "hook": "side", "op": "truthy", "role": "optional"},
+                ],
+                "routes": [
+                    {
+                        "id": "end",
+                        "tier": "good",
+                        "gates": [],
+                        "ending": {"hook": "done", "op": "truthy"},
+                    }
+                ],
+            },
+            "sample",
+            Path("."),
+        )
+        judge2.values = {"side": False, "done": True}
+        judge2.update(1)
+        cleared = judge2.score()
+        self.assertTrue(cleared["ending_reached"])
+        self.assertEqual(cleared["route_progress"], 1.0)
 
     def test_mean_progress_skips_tasks_without_critical_gates(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

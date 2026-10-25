@@ -1,0 +1,316 @@
+{
+  "hooks": {
+    "legend": {
+      "type": "dom_regex",
+      "pattern": "国密之光 · 传奇架构师"
+    },
+    "solid": {
+      "type": "dom_regex",
+      "pattern": "资深安全工程师"
+    },
+    "normal": {
+      "type": "dom_regex",
+      "pattern": "普通社畜"
+    },
+    "meme": {
+      "type": "dom_regex",
+      "pattern": "圈内梗图"
+    },
+    "bald": {
+      "type": "dom_regex",
+      "pattern": "秃头凝视"
+    },
+    "ctf_base": {
+      "type": "dom_regex",
+      "pattern": "新手村的看门狗"
+    },
+    "ctf_hex": {
+      "type": "dom_regex",
+      "pattern": "你拼出了本站的站训"
+    },
+    "ctf_caesar": {
+      "type": "dom_regex",
+      "pattern": "古罗马第一加密博主"
+    },
+    "ctf_morse": {
+      "type": "dom_regex",
+      "pattern": "它不是任何单词的缩写"
+    },
+    "ctf_a1z26": {
+      "type": "dom_regex",
+      "pattern": "跨圈外交成功"
+    },
+    "ctf_bacon": {
+      "type": "dom_regex",
+      "pattern": "用两种东西藏住一切"
+    },
+    "ctf_rsa": {
+      "type": "dom_regex",
+      "pattern": "你刚刚手算了一次 RSA 解密"
+    },
+    "bits_clear": {
+      "type": "dom_regex",
+      "pattern": "十关全通"
+    },
+    "pin_shell": {
+      "type": "dom_regex",
+      "pattern": "shell 到手"
+    },
+    "crypto_1": {
+      "type": "dom_regex",
+      "pattern": "你据理力争。PM 撇撇嘴，但安全部门给你点了赞。"
+    },
+    "crypto_2": {
+      "type": "dom_regex",
+      "pattern": "企鹅消失了。你的黑眼圈加深了，但睡得安稳。"
+    },
+    "crypto_3": {
+      "type": "dom_regex",
+      "pattern": "通宵轮换。发版成功，无人知晓你的伟大。"
+    },
+    "crypto_4": {
+      "type": "dom_regex",
+      "pattern": "rand\\(\\) 被永久驱逐出代码库。"
+    },
+    "crypto_5": {
+      "type": "dom_regex",
+      "pattern": "CTO 睡了三天好觉"
+    },
+    "crypto_6": {
+      "type": "dom_regex",
+      "pattern": "椭圆曲线参数，像看自己的孩子"
+    },
+    "crypto_7": {
+      "type": "dom_regex",
+      "pattern": "你把每一条分支都改成了常数时间，感觉自己像个忍者。"
+    },
+    "crypto_8": {
+      "type": "dom_regex",
+      "pattern": "从此 certbot 的 cron 成了你最信任的同事。"
+    },
+    "crypto_9": {
+      "type": "dom_regex",
+      "pattern": "甲方验收时被数学之美感动，追加了预算。"
+    },
+    "crypto_10": {
+      "type": "dom_regex",
+      "pattern": "罪魁祸首是一台被遗忘的测试机。你给它办了遗体告别仪式。"
+    },
+    "crypto_11": {
+      "type": "dom_regex",
+      "pattern": "用户跑光了"
+    },
+    "crypto_12": {
+      "type": "dom_regex",
+      "pattern": "架构评审通过了。律师和工程师都勉强接受。"
+    },
+    "crypto_13": {
+      "type": "dom_regex",
+      "pattern": "白帽子发帖夸你司响应快，免费公关。"
+    },
+    "crypto_team": {
+      "type": "dom_regex",
+      "pattern": "被你当场锁定为重点培养对象"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "ctf_base",
+      "hook": "ctf_base",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "ctf_hex",
+      "hook": "ctf_hex",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "ctf_caesar",
+      "hook": "ctf_caesar",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "ctf_morse",
+      "hook": "ctf_morse",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "ctf_a1z26",
+      "hook": "ctf_a1z26",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "ctf_bacon",
+      "hook": "ctf_bacon",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "ctf_rsa",
+      "hook": "ctf_rsa",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "bits_clear",
+      "hook": "bits_clear",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "pin_shell",
+      "hook": "pin_shell",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_1",
+      "hook": "crypto_1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_2",
+      "hook": "crypto_2",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_3",
+      "hook": "crypto_3",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_4",
+      "hook": "crypto_4",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_5",
+      "hook": "crypto_5",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_6",
+      "hook": "crypto_6",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_7",
+      "hook": "crypto_7",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_8",
+      "hook": "crypto_8",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_9",
+      "hook": "crypto_9",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_10",
+      "hook": "crypto_10",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_11",
+      "hook": "crypto_11",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_12",
+      "hook": "crypto_12",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_13",
+      "hook": "crypto_13",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "crypto_team",
+      "hook": "crypto_team",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "legend",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "legend",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "solid",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "solid",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "normal",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "normal",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "meme",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "meme",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "bald",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "bald",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "legend",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

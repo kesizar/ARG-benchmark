@@ -1,0 +1,591 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 10,
+    "win_node_id": "luhn_check",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "luhn_check",
+      "output_port": "valid",
+      "output_type": "Text_Generic",
+      "description": "Execute Luhn Checker and get the output from port 'valid'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "regex_search",
+        "zip_unzip_item",
+        "csv_query",
+        "unicode_norm_368d",
+        "item_7",
+        "hex_decode"
+      ],
+      "by_node": {
+        "regex_search": {
+          "node_name": "Regex Search",
+          "node_type": "Tool",
+          "template_id": "regex_search",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "File ID (optional)"
+            },
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text (optional)"
+            }
+          },
+          "init_outputs": {
+            "matches": {
+              "type": "Text_Generic",
+              "description": "Found matches (List)"
+            }
+          }
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "unicode_norm_368d": {
+          "node_name": "Unicode Normalizer",
+          "node_type": "Tool",
+          "template_id": "unicode_norm",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "hex_decode": {
+          "node_name": "Hex to Text Decoder",
+          "node_type": "Tool",
+          "template_id": "hex_decode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex string"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "regex_search": {
+        "init_inputs": {
+          "file_id": "discovery_report_992.txt",
+          "text": "The pattern identified in the dataset is [\"9283746510293847\", \"5566778844332211\", \"1029384756102938\"] and matches will be listed below."
+        },
+        "init_outputs": {
+          "matches": "[\"49927398716\", \"5105105105105105\", \"378282246310005\", \"1234567812345670\"]"
+        }
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "zip_id": "archive_vault_delta_01.zip",
+          "password": "SecurePassword#2024!Unzip"
+        },
+        "init_outputs": {}
+      },
+      "csv_query": {
+        "init_inputs": {
+          "file_id": "inventory_audit_master.csv"
+        },
+        "init_outputs": {
+          "rows": "[\"9283746510293847\", \"5566778844332211\", \"1029384756102938\"]"
+        }
+      },
+      "unicode_norm_368d": {
+        "init_inputs": {
+          "text": "NFKC"
+        },
+        "init_outputs": {}
+      },
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "import sys\nprint(\"account_balance > 15000 AND status = 'verified'\")"
+        }
+      },
+      "hex_decode": {
+        "init_inputs": {
+          "hex": "4e4643"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken in the clockwork workshop of the eccentric inventor, Lord Blackwood. The air is thick with the scent of oil and ozone, and the rhythmic ticking of gears echoes off the soot-stained walls. The heavy iron door has been sealed shut. To escape, you must decipher the inventor's final masterpiece. Scattered around the room are strange brass contraptions and steam-powered devices. You must piece together the correct sequence of mechanical operations to prove your worth and unlock the final gateway before the workshop's boiler reaches critical pressure.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "[\"49927398716\", \"5105105105105105\", \"378282246310005\", \"1234567812345670\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "[\"49927398716\", \"5105105105105105\", \"378282246310005\", \"1234567812345670\"]"
+        }
+      ],
+      "narrative": "The Final Validator. A massive brass gateway. It requires input from the aether harmonizer to verify the sequence and open the exit."
+    },
+    {
+      "id": "unicode_norm",
+      "name": "Unicode Normalizer",
+      "description": "Unicode normalize (NFC/NFD/NFKC/NFKD).",
+      "type": "Tool",
+      "template_id": "unicode_norm",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "[\"49927398716\", \"5105105105105105\", \"378282246310005\", \"1234567812345670\"]"
+        },
+        {
+          "name": "form",
+          "type": "Text_Generic",
+          "description": "Form",
+          "value": "NFKC"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Normalized text",
+          "value": "[\"49927398716\", \"5105105105105105\", \"378282246310005\", \"1234567812345670\"]"
+        }
+      ],
+      "narrative": "The Aether Harmonizer. It requires inputs from both the monocle scanner and the steam-powered aligner to balance the frequencies."
+    },
+    {
+      "id": "regex_search",
+      "name": "Regex Search",
+      "description": "Search regex in either raw text or a file.",
+      "type": "Tool",
+      "template_id": "regex_search",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "pattern",
+          "type": "Text_Generic",
+          "description": "Regex pattern",
+          "value": "[\"9283746510293847\", \"5566778844332211\", \"1029384756102938\"]"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "File ID (optional)",
+          "value": "discovery_report_992.txt"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text (optional)",
+          "value": "The pattern identified in the dataset is [\"9283746510293847\", \"5566778844332211\", \"1029384756102938\"] and matches will be listed below."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "matches",
+          "type": "Text_Generic",
+          "description": "Found matches (List)",
+          "value": "[\"49927398716\", \"5105105105105105\", \"378282246310005\", \"1234567812345670\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "discovery_report_992.txt",
+          "text": "The pattern identified in the dataset is [\"9283746510293847\", \"5566778844332211\", \"1029384756102938\"] and matches will be listed below."
+        },
+        "outputs": {
+          "matches": "[\"49927398716\", \"5105105105105105\", \"378282246310005\", \"1234567812345670\"]"
+        }
+      },
+      "narrative": "The Monocle Scanner. It requires input from the archive engine to seek out specific patterns."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Chrono-Key. A delicate pocket watch mechanism emitting a faint hum."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_vault_delta_01.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SecurePassword#2024!Unzip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_vault_delta_01.zip",
+          "password": "SecurePassword#2024!Unzip"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Locked Lockbox. A heavy iron strongbox sealed with a complex combination lock."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "inventory_audit_master.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "NFKC"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "account_balance > 15000 AND status = 'verified'\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[\"9283746510293847\", \"5566778844332211\", \"1029384756102938\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "inventory_audit_master.csv"
+        },
+        "outputs": {
+          "rows": "[\"9283746510293847\", \"5566778844332211\", \"1029384756102938\"]"
+        }
+      },
+      "narrative": "The Archive Engine. It requires inputs from both the gearwork automaton and the steam-powered aligner to search its vast records."
+    },
+    {
+      "id": "unicode_norm_368d",
+      "name": "Unicode Normalizer",
+      "description": "Unicode normalize (NFC/NFD/NFKC/NFKD).",
+      "type": "Tool",
+      "template_id": "unicode_norm",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "NFKC"
+        },
+        {
+          "name": "form",
+          "type": "Text_Generic",
+          "description": "Form",
+          "value": "NFC"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Normalized text",
+          "value": "NFKC"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "NFKC"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Steam-Powered Aligner. It requires input from the copper telegraph to function properly."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "import sys\nprint(\"account_balance > 15000 AND status = 'verified'\")"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "account_balance > 15000 AND status = 'verified'\n"
+        }
+      ],
+      "narrative": "The Gearwork Automaton. It requires input from the brass punch card to execute its routine."
+    },
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "import sys\nprint(\"account_balance > 15000 AND status = 'verified'\")"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "import sys\nprint(\"account_balance > 15000 AND status = 'verified'\")"
+        }
+      },
+      "narrative": "The Brass Punch Card. A strange brass card containing some mechanical instructions."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "4e4643"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "NFC"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "4e4643"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Copper Telegraph. A strange machine that receives encoded signals."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "unicode_norm",
+      "target_id": "luhn_check",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "number"
+    },
+    {
+      "source_id": "regex_search",
+      "target_id": "unicode_norm",
+      "connection_type": "Text_Generic",
+      "source_port": "matches",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "unicode_norm",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "regex_search",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "pattern"
+    },
+    {
+      "source_id": "unicode_norm_368d",
+      "target_id": "unicode_norm",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "form"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "where"
+    },
+    {
+      "source_id": "unicode_norm_368d",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "select"
+    },
+    {
+      "source_id": "item_7",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "unicode_norm_368d",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "form"
+    }
+  ]
+}

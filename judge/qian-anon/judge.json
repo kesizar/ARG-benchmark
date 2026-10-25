@@ -1,0 +1,130 @@
+{
+  "hooks": {
+    "best": {
+      "type": "dom_regex",
+      "pattern": "结局 · 哈柒谜一号"
+    },
+    "mid": {
+      "type": "dom_regex",
+      "pattern": "结局 · 远征队队友"
+    },
+    "hell": {
+      "type": "dom_regex",
+      "pattern": "结局 · 速记地狱"
+    },
+    "day_1": {
+      "type": "dom_regex",
+      "pattern": "时柒眼睛一亮：「很好很好，是块解谜的料！」"
+    },
+    "day_2": {
+      "type": "dom_regex",
+      "pattern": "时柒认真记了下来：「内行！明天给你看个好东西。」"
+    },
+    "day_3": {
+      "type": "dom_regex",
+      "pattern": "「对对对，都是虚构的！」你们相视一笑，一切尽在不言中。"
+    },
+    "day_4": {
+      "type": "dom_regex",
+      "pattern": "时柒怔了一下，郑重地点头：「说得好。明年的牢，就拜托你们坐了。」"
+    },
+    "day_5": {
+      "type": "dom_regex",
+      "pattern": "她抬起头，眼睛亮晶晶的：「……谢谢。这句话我要写进赛后总结。」"
+    },
+    "day_6": {
+      "type": "dom_regex",
+      "pattern": "「呜……好！」那一夜的咖啡很好喝。题也都过了。"
+    },
+    "maze_clear": {
+      "type": "dom_regex",
+      "pattern": "四个汉字嵌入出口的门框"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "day_1",
+      "hook": "day_1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "day_2",
+      "hook": "day_2",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "day_3",
+      "hook": "day_3",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "day_4",
+      "hook": "day_4",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "day_5",
+      "hook": "day_5",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "day_6",
+      "hook": "day_6",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "maze_clear",
+      "hook": "maze_clear",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "best",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "best",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "mid",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "mid",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "hell",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "hell",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "best",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

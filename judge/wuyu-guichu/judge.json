@@ -1,0 +1,137 @@
+{
+  "hooks": {
+    "true_end": {
+      "type": "dom_regex",
+      "pattern": "真结局：破雾而生"
+    },
+    "bad_fog": {
+      "type": "dom_regex",
+      "pattern": "隐藏坏结局：同堕雾渊"
+    },
+    "web_key": {
+      "type": "dom_regex",
+      "pattern": "【归客手记解锁成功】"
+    },
+    "file_note": {
+      "type": "dom_regex",
+      "pattern": "解密成功，读取|已解锁：无数废弃手机"
+    },
+    "post_missing": {
+      "type": "dom_regex",
+      "pattern": "存在大量失踪案例"
+    },
+    "post_diary": {
+      "type": "dom_regex",
+      "pattern": "他正在被幻觉缠绕"
+    },
+    "post_creek": {
+      "type": "dom_regex",
+      "pattern": "一带频发人员失联"
+    },
+    "post_whisper": {
+      "type": "dom_regex",
+      "pattern": "亲历者口述，山谷中能听见"
+    },
+    "post_garbled": {
+      "type": "dom_regex",
+      "pattern": "大量被篡改的旧帖子残留"
+    },
+    "post_fog_guest": {
+      "type": "dom_regex",
+      "pattern": "【雾伪造】来到"
+    },
+    "post_fog_free": {
+      "type": "dom_regex",
+      "pattern": "【雾伪造】放下现实"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "web_key",
+      "hook": "web_key",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "file_note",
+      "hook": "file_note",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post_missing",
+      "hook": "post_missing",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post_diary",
+      "hook": "post_diary",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post_creek",
+      "hook": "post_creek",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post_whisper",
+      "hook": "post_whisper",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post_garbled",
+      "hook": "post_garbled",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post_fog_guest",
+      "hook": "post_fog_guest",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "post_fog_free",
+      "hook": "post_fog_free",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "true_end",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "true_end",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "bad_fog",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "bad_fog",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "true_end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

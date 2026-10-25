@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_8",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_8",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_8",
+        "base64_decode"
+      ],
+      "by_node": {
+        "item_8": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_8",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hidden_Item",
+              "description": "The integer"
+            }
+          }
+        },
+        "base64_decode": {
+          "node_name": "Base64 Decoder",
+          "node_type": "Tool",
+          "template_id": "base64_decode",
+          "init_inputs": {
+            "data": {
+              "type": "Text_Generic",
+              "description": "Base64 string"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_8": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "Heaven has made me talented"
+        }
+      },
+      "base64_decode": {
+        "init_inputs": {
+          "data": "U3VwZXIgU2VjcmV0IERhdGEgUGF5bG9hZCBmb3IgRGVjb2Rpbmc="
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You have successfully infiltrated the underground data facility of the rogue mercenary group known as 'Black Vanguard.' Your primary objective is to extract a highly sensitive intelligence file before their heavily armed patrols return from their rotation. The server room is suffocatingly silent, illuminated only by the sterile, rhythmic glow of server racks and standby monitors. The air smells of ozone and heated circuitry. According to your intel, the target data is heavily compartmentalized behind layers of digital and physical security. You only have a fragment of intercepted code to start with. Time is running out. You must navigate the encrypted systems, bypass the biometric locks, and secure the final objective before the facility goes into complete lockdown.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer",
+          "value": "Heaven has made me talented"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "Heaven has made me talented"
+        }
+      },
+      "narrative": "The primary Classified Dossier containing the critical intelligence you came for."
+    },
+    {
+      "id": "item_8_dd57",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A secure Digital Archive hidden within the isolated local network."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A sturdy Encrypted Drive containing vital network configuration settings."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "5375706572205365637265742044617461205061796c6f616420666f72204465636f64696e67"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a Biometric Safe. It requires input from the Data Decoder to bypass its sophisticated locking mechanism."
+    },
+    {
+      "id": "base64_decode",
+      "name": "Base64 Decoder",
+      "description": "Decode base64 to hex bytes.",
+      "type": "Tool",
+      "template_id": "base64_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "data",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "U3VwZXIgU2VjcmV0IERhdGEgUGF5bG9hZCBmb3IgRGVjb2Rpbmc="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "bytes_hex",
+          "type": "Hex_String",
+          "description": "Decoded bytes as Hex",
+          "value": "5375706572205365637265742044617461205061796c6f616420666f72204465636f64696e67"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "data": "U3VwZXIgU2VjcmV0IERhdGEgUGF5bG9hZCBmb3IgRGVjb2Rpbmc="
+        },
+        "outputs": {}
+      },
+      "narrative": "A high-end Data Decoder running on a dedicated terminal."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "item_8_dd57",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8_dd57",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "base64_decode",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "bytes_hex",
+      "target_port": "fingerprint_input"
+    }
+  ]
+}

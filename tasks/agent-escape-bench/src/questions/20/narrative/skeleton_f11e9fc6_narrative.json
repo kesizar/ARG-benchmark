@@ -1,0 +1,1341 @@
+{
+  "metadata": {
+    "total_nodes": 20,
+    "total_edges": 22,
+    "win_node_id": "unicode_norm",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "unicode_norm",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute Unicode Normalizer and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "graph_shortest_path",
+        "matter_synthesizer",
+        "terminal_1",
+        "json_get",
+        "csv_query",
+        "json_get_9c02",
+        "zip_unzip_file",
+        "terminal_1_9eb4",
+        "zip_unzip_file_ca66",
+        "code_py_exec",
+        "zip_unzip_item",
+        "crypto_rsa_decrypt_hex",
+        "calc_inv_mod",
+        "code_py_exec_c15e",
+        "container_1",
+        "item_4"
+      ],
+      "by_node": {
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "matter_synthesizer": {
+          "node_name": "Matter Synthesizer",
+          "node_type": "Tool",
+          "template_id": "matter_synthesizer",
+          "init_inputs": {
+            "blueprint": {
+              "type": "Text_Generic",
+              "description": "Object Blueprint"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "JSON file ID"
+            }
+          },
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {},
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "json_get_9c02": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {
+            "jsonpath": {
+              "type": "Text_Generic",
+              "description": "JSONPath expression"
+            }
+          },
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "terminal_1_9eb4": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "zip_unzip_file_ca66": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "code_py_exec": {
+          "node_name": "Python Executor",
+          "node_type": "Tool",
+          "template_id": "code_py_exec",
+          "init_inputs": {
+            "code": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        },
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "d": {
+              "type": "Big_Int",
+              "description": "Private exponent d"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "code_py_exec_c15e": {
+          "node_name": "Python Executor",
+          "node_type": "Tool",
+          "template_id": "code_py_exec",
+          "init_inputs": {
+            "code": {
+              "type": "Code_Python",
+              "description": "Python code"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_4",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "Zip file path"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "node_alpha"
+        },
+        "init_outputs": {
+          "path": "[\"node_alpha\", \"node_beta\", \"node_gamma\", \"node_delta\", \"node_epsilon\", \"node_zeta\"]",
+          "cost": "254398"
+        }
+      },
+      "matter_synthesizer": {
+        "init_inputs": {
+          "blueprint": "{\"item\": \"quantum_spanner\", \"density\": 4.5}"
+        },
+        "init_outputs": {}
+      },
+      "terminal_1": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_output": "Terminal operational. Awaiting further input commands.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "item_dispenser": "This empty cartridge is useless now."
+        }
+      },
+      "json_get": {
+        "init_inputs": {
+          "file_id": "config_data_77.json"
+        },
+        "init_outputs": {
+          "values": "[\"val1_x\", \"val2_y\", \"val3_z\", \"val4_w\"]"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {},
+        "init_outputs": {
+          "rows": "[\"row_id_101\", \"row_id_102\", \"row_id_103\", \"row_id_104\", \"row_id_105\"]"
+        }
+      },
+      "json_get_9c02": {
+        "init_inputs": {
+          "jsonpath": "$.settings.unicode.form"
+        },
+        "init_outputs": {
+          "values": "NFC"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "encrypted_archive_x1.zip",
+          "password": "P@ssw0rd_complex_991"
+        },
+        "init_outputs": {
+          "files": "extracted_payload_doc.pdf"
+        }
+      },
+      "terminal_1_9eb4": {
+        "init_inputs": {
+          "slot_b": "847592837495827364859102"
+        },
+        "init_outputs": {
+          "text_output": "Secondary terminal output generated successfully.",
+          "hex_output": "f1e2d3c4b5a697887766554433221100"
+        }
+      },
+      "zip_unzip_file_ca66": {
+        "init_inputs": {
+          "password": "Secure_Key_2023!!"
+        },
+        "init_outputs": {
+          "files": "graph_network_map.json"
+        }
+      },
+      "code_py_exec": {
+        "init_inputs": {
+          "code": "print('where id > 100 and status = active')"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "zip_id": "secret_item_stash.zip",
+          "password": "unlock_me_77"
+        },
+        "init_outputs": {}
+      },
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "d": "1092837465564738291029384756"
+        },
+        "init_outputs": {}
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "5647382910293847561234",
+          "mod": "104729"
+        },
+        "init_outputs": {}
+      },
+      "code_py_exec_c15e": {
+        "init_inputs": {
+          "code": "print('id, name, email, role, created_at')"
+        },
+        "init_outputs": {}
+      },
+      "container_1": {
+        "init_inputs": {
+          "fingerprint_input": "aa11bb22cc33dd44ee55ff6677889900"
+        },
+        "init_outputs": {}
+      },
+      "item_4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "level4_archive.zip"
+        }
+      }
+    },
+    "intro_narrative": "You awaken in the Grand Clockwork Observatory, a forgotten aether-powered laboratory suspended high above the smog-choked streets of New Albion. The air is thick with the scent of oil and ozone, while brass gears grind relentlessly overhead and pressurized steam hisses from corroded copper pipes lining the exposed brick walls. The eccentric inventor who once inhabited this place has long since vanished, leaving behind a complex web of interconnected analytical engines, differential calculators, and pneumatic routers. Your objective is to reactivate the Brass Typographer, the master printing mechanism that holds the final transmission necessary to shut down the unstable core. To achieve this, you must meticulously navigate through the inventor's eccentric puzzle, discovering hidden cylinder records, decoding punch-card data, and synthesizing parts using raw aether. Every machine here relies on the output of another, creating an intricate mechanical dance. You must uncover the correct sequence of operations to unravel the encrypted blueprints and stop the impending boiler explosion. Time is ticking, and the main pressure gauge is already reaching the critical red zone.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "unicode_norm",
+      "name": "Unicode Normalizer",
+      "description": "Unicode normalize (NFC/NFD/NFKC/NFKD).",
+      "type": "Tool",
+      "template_id": "unicode_norm",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "[\"node_alpha\", \"node_beta\", \"node_gamma\", \"node_delta\", \"node_epsilon\", \"node_zeta\"]"
+        },
+        {
+          "name": "form",
+          "type": "Text_Generic",
+          "description": "Form",
+          "value": "NFC"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Normalized text",
+          "value": "[\"node_alpha\", \"node_beta\", \"node_gamma\", \"node_delta\", \"node_epsilon\", \"node_zeta\"]"
+        }
+      ],
+      "narrative": "This is a Brass Typographer. It requires inputs from both the Navigational Difference Engine and the Aether-Tube Router."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "graph_network_map.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "node_alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Gis8TV5veoucDR4vOktcbQ=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"node_alpha\", \"node_beta\", \"node_gamma\", \"node_delta\", \"node_epsilon\", \"node_zeta\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "254398"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "node_alpha"
+        },
+        "outputs": {
+          "path": "[\"node_alpha\", \"node_beta\", \"node_gamma\", \"node_delta\", \"node_epsilon\", \"node_zeta\"]",
+          "cost": "254398"
+        }
+      },
+      "narrative": "This is a Navigational Difference Engine. It requires inputs from both the Steam-powered Cipher Machine and the Steam-pressure Unsealer."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "Gis8TV5veoucDR4vOktcbQ=="
+        }
+      ],
+      "narrative": "This is a Steam-powered Cipher Machine. It requires input from the Copper Relay Terminal."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_d6f5218ebd6b2006"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Cogwheel Pocket Watch."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "{\"item\": \"quantum_spanner\", \"density\": 4.5}"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_d6f5218ebd6b2006"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "blueprint": "{\"item\": \"quantum_spanner\", \"density\": 4.5}"
+        },
+        "outputs": {}
+      },
+      "narrative": "An Aetheric Constructor."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "[\"val1_x\", \"val2_y\", \"val3_z\", \"val4_w\"]"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "68557"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal operational. Awaiting further input commands."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "This empty cartridge is useless now."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_output": "Terminal operational. Awaiting further input commands.",
+          "hex_output": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "item_dispenser": "This empty cartridge is useless now."
+        }
+      },
+      "narrative": "This is a Copper Relay Terminal. It requires inputs from both the Pneumatic Tube Router and the Differential Gear Calculator."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "config_data_77.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "[\"row_id_101\", \"row_id_102\", \"row_id_103\", \"row_id_104\", \"row_id_105\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"val1_x\", \"val2_y\", \"val3_z\", \"val4_w\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "config_data_77.json"
+        },
+        "outputs": {
+          "values": "[\"val1_x\", \"val2_y\", \"val3_z\", \"val4_w\"]"
+        }
+      },
+      "narrative": "This is a Pneumatic Tube Router. It requires input from the Punched-Card Sorter."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "graph_network_map.json"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "id, name, email, role, created_at\n"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "where id > 100 and status = active\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[\"row_id_101\", \"row_id_102\", \"row_id_103\", \"row_id_104\", \"row_id_105\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "rows": "[\"row_id_101\", \"row_id_102\", \"row_id_103\", \"row_id_104\", \"row_id_105\"]"
+        }
+      },
+      "narrative": "This is a Punched-Card Sorter. It requires inputs from the Steam-pressure Unsealer, the Analytical Engine, and the Secondary Analytical Engine."
+    },
+    {
+      "id": "json_get_9c02",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "extracted_payload_doc.pdf"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "$.settings.unicode.form"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "NFC"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "jsonpath": "$.settings.unicode.form"
+        },
+        "outputs": {
+          "values": "NFC"
+        }
+      },
+      "narrative": "This is an Aether-Tube Router. It requires input from the Mechanical Pressure Unsealer."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "encrypted_archive_x1.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "P@ssw0rd_complex_991"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_payload_doc.pdf"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "encrypted_archive_x1.zip",
+          "password": "P@ssw0rd_complex_991"
+        },
+        "outputs": {
+          "files": "extracted_payload_doc.pdf"
+        }
+      },
+      "narrative": "A Mechanical Pressure Unsealer."
+    },
+    {
+      "id": "terminal_1_9eb4",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "cw"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "847592837495827364859102"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Secondary terminal output generated successfully."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "f1e2d3c4b5a697887766554433221100"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_b": "847592837495827364859102"
+        },
+        "outputs": {
+          "text_output": "Secondary terminal output generated successfully.",
+          "hex_output": "f1e2d3c4b5a697887766554433221100"
+        }
+      },
+      "narrative": "This is a Brass Relay Terminal. It requires input from the Clockwork Decryptor."
+    },
+    {
+      "id": "zip_unzip_file_ca66",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "level4_archive.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Secure_Key_2023!!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "graph_network_map.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "Secure_Key_2023!!"
+        },
+        "outputs": {
+          "files": "graph_network_map.json"
+        }
+      },
+      "narrative": "This is a Steam-pressure Unsealer. It requires input from the Cylinder Record."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print('where id > 100 and status = active')"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "where id > 100 and status = active\n"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "code": "print('where id > 100 and status = active')"
+        },
+        "outputs": {}
+      },
+      "narrative": "An Analytical Engine."
+    },
+    {
+      "id": "item_16_41a1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Clockwork Pocket Watch."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secret_item_stash.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "unlock_me_77"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secret_item_stash.zip",
+          "password": "unlock_me_77"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Gear-locked Valise."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "68557"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "1092837465564738291029384756"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "cw"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "d": "1092837465564738291029384756"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Clockwork Decryptor. It requires inputs from both the Differential Gear Calculator and the Copper Relay Terminal."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "5647382910293847561234"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "104729"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "68557"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "5647382910293847561234",
+          "mod": "104729"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Differential Gear Calculator."
+    },
+    {
+      "id": "code_py_exec_c15e",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "print('id, name, email, role, created_at')"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "id, name, email, role, created_at\n"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "code": "print('id, name, email, role, created_at')"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Secondary Analytical Engine."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "aa11bb22cc33dd44ee55ff6677889900"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "aa11bb22cc33dd44ee55ff6677889900"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Riveted Iron Safe."
+    },
+    {
+      "id": "item_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "Zip file path",
+          "value": "level4_archive.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "level4_archive.zip"
+        }
+      },
+      "narrative": "A Cylinder Record."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "unicode_norm",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "text"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "base64_encode",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "terminal_1",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "json_get",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "jsonpath"
+    },
+    {
+      "source_id": "json_get_9c02",
+      "target_id": "unicode_norm",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "form"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "json_get_9c02",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "terminal_1_9eb4",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "zip_unzip_file_ca66",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "code_py_exec",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "where"
+    },
+    {
+      "source_id": "item_16_41a1",
+      "target_id": "code_py_exec",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "terminal_1_9eb4",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "terminal_1_9eb4",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "slot_a"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "n"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Hex_String",
+      "source_port": "hex_output",
+      "target_port": "hex_cipher"
+    },
+    {
+      "source_id": "code_py_exec_c15e",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "select"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16_41a1",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "terminal_1",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "slot_b"
+    },
+    {
+      "source_id": "zip_unzip_file_ca66",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "item_4",
+      "target_id": "zip_unzip_file_ca66",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "zip_id"
+    }
+  ]
+}

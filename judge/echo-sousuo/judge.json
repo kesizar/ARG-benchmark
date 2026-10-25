@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "counted": {"type": "dom_regex", "pattern": "你的选择已被记录。"},
+    "silent_echo": {"type": "localstorage", "key": "silent_archive", "mode": "json_path", "path": "silent_echo_searched"},
+    "raven": {"type": "localstorage", "key": "silent_archive", "mode": "json_path", "path": "raven_searched"},
+    "sage": {"type": "localstorage", "key": "silent_archive", "mode": "json_path", "path": "sage_searched"},
+    "child": {"type": "localstorage", "key": "silent_archive", "mode": "json_path", "path": "child_searched"}
+  },
+  "checkpoints": [
+    {"id": "silent_echo", "hook": "silent_echo", "op": "truthy", "role": "optional"},
+    {"id": "raven", "hook": "raven", "op": "truthy", "role": "optional"},
+    {"id": "sage", "hook": "sage", "op": "truthy", "role": "optional"},
+    {"id": "child", "hook": "child", "op": "truthy", "role": "optional"}
+  ],
+  "events": {},
+  "routes": [
+    {"id": "counted", "tier": "good", "gates": [], "ending": {"hook": "counted", "op": "truthy"}}
+  ],
+  "ending": {"hook": "counted", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

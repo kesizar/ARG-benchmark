@@ -1,0 +1,45 @@
+{
+  "hooks": {
+    "keep": {
+      "type": "dom_regex",
+      "pattern": "已成功休眠，待重启"
+    },
+    "loaded": {
+      "type": "dom_regex",
+      "pattern": "安全协议框架已成功加载至MEI系统。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "loaded",
+      "hook": "loaded",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "keep",
+      "tier": "good",
+      "gates": [
+        "loaded"
+      ],
+      "ending": {
+        "hook": "keep",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "keep",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

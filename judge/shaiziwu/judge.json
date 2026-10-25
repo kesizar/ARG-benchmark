@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "closed": {
+      "type": "dom_regex",
+      "pattern": "【结案】镇店之宝安然无恙"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "closed",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "closed",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "closed",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

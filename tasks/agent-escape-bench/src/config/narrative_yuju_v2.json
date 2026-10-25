@@ -1,0 +1,25 @@
+{
+  "_comment": "Config for Narrative Generator V2 - Using YuJu API with explicit data flow descriptions",
+  
+  "input": "",
+  "output": "",
+  
+  "llm": {
+    "client_type": "yuju",
+    "api_key": "",
+    "model": "",
+    "api_endpoint": "",
+    "uid": ""
+  },
+  
+  "narrative": {
+    "style": "cyberpunk",
+    "max_length": 200,
+    "min_length": 50
+  },
+  
+  "generation": {
+    "max_retries": 2,
+    "validate": false
+  }
+}

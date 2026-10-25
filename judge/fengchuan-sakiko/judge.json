@@ -1,0 +1,246 @@
+{
+  "hooks": {
+    "god": {
+      "type": "dom_regex",
+      "pattern": "真结局 · wig 之神"
+    },
+    "loop": {
+      "type": "dom_regex",
+      "pattern": "轮回结局 · 多周目之神"
+    },
+    "award": {
+      "type": "dom_regex",
+      "pattern": "独立游戏大奖 · 评委会特别奖"
+    },
+    "fund": {
+      "type": "dom_regex",
+      "pattern": "众筹奇迹"
+    },
+    "collab": {
+      "type": "dom_regex",
+      "pattern": "银河电灯联动结局"
+    },
+    "plain": {
+      "type": "dom_regex",
+      "pattern": "平平无奇发售日"
+    },
+    "meta": {
+      "type": "dom_regex",
+      "pattern": "玩家觉醒 · META"
+    },
+    "demo": {
+      "type": "dom_regex",
+      "pattern": "叫好不叫座的 Demo"
+    },
+    "rush": {
+      "type": "dom_regex",
+      "pattern": "赶工粪作"
+    },
+    "lawyer": {
+      "type": "dom_regex",
+      "pattern": "律师函结局 · 绝对没有影射"
+    },
+    "run": {
+      "type": "dom_regex",
+      "pattern": "跑路结局 · 上山取材"
+    },
+    "fifth": {
+      "type": "dom_regex",
+      "pattern": "被第五层级收编"
+    },
+    "never": {
+      "type": "dom_regex",
+      "pattern": "永不完工"
+    },
+    "stove": {
+      "type": "dom_regex",
+      "pattern": "煤灶熄灭"
+    },
+    "week": {
+      "type": "dom_regex",
+      "pattern": "无疾而终的一周"
+    },
+    "fish_hunt": {
+      "type": "dom_regex",
+      "pattern": "邮电鱼轰然倒下"
+    },
+    "fish_play": {
+      "type": "dom_regex",
+      "pattern": "全图挑战者都被你寄了回去"
+    },
+    "fish_brawl": {
+      "type": "dom_regex",
+      "pattern": "你站到了最后"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "fish_hunt",
+      "hook": "fish_hunt",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "fish_play",
+      "hook": "fish_play",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "fish_brawl",
+      "hook": "fish_brawl",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "god",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "god",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "loop",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "loop",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "award",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "award",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "fund",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "fund",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "collab",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "collab",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "plain",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "plain",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "meta",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "meta",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "demo",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "demo",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "rush",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "rush",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "lawyer",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "lawyer",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "run",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "run",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "fifth",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "fifth",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "never",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "never",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "stove",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "stove",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "week",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "week",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "god",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

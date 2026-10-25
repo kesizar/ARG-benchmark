@@ -1,0 +1,346 @@
+{
+  "hooks": {
+    "perfect": {
+      "type": "dom_regex",
+      "pattern": "完美清算"
+    },
+    "clean": {
+      "type": "dom_regex",
+      "pattern": "因为她的牌，你全看见了。"
+    },
+    "bitter": {
+      "type": "dom_regex",
+      "pattern": "惨胜"
+    },
+    "both": {
+      "type": "dom_regex",
+      "pattern": "鱼死网破"
+    },
+    "killed": {
+      "type": "dom_regex",
+      "pattern": "被反杀"
+    },
+    "c0_o0": {
+      "type": "dom_regex",
+      "pattern": "你录完了全程，手机相册里多了一段名为「真相」的录音。"
+    },
+    "c1_o0": {
+      "type": "dom_regex",
+      "pattern": "你把手机轻轻放到桌上，微信界面上是她昨晚的原话：\"晚晚，方案我真的搞不来，全靠你了～\""
+    },
+    "c4_o0": {
+      "type": "dom_regex",
+      "pattern": "第二天一早，你的转岗申请出现在老板邮箱。"
+    },
+    "c5_o0": {
+      "type": "dom_regex",
+      "pattern": "投屏上，你的日志从第一天记到最后一天——"
+    },
+    "c5_o1": {
+      "type": "dom_regex",
+      "pattern": "你没提唐糖一个字，只说了一句："
+    },
+    "c6_o0": {
+      "type": "dom_regex",
+      "pattern": "你回复Rose，附上服务器原始数据、测试报告、第三方审计盖章。"
+    },
+    "c7_o0": {
+      "type": "dom_regex",
+      "pattern": "你把她朋友圈截图，连同原图的拍摄信息（时间、设备、位置）一起存进「真相」相册。"
+    },
+    "c7_o1": {
+      "type": "dom_regex",
+      "pattern": "你把截图私发老板，附一句：\"王总，照片里的工位是我的。\""
+    },
+    "c8_o1": {
+      "type": "dom_regex",
+      "pattern": "\"感谢所有帮助过我的人——包括那些，曾经想把我名字从名单上拿掉的人。\""
+    },
+    "c9_o0": {
+      "type": "dom_regex",
+      "pattern": "你举起手机，拍下他们上车的那一幕。"
+    },
+    "c10_o0": {
+      "type": "dom_regex",
+      "pattern": "照片里，他给唐糖开车门，笑得很温柔。"
+    },
+    "c10_o1": {
+      "type": "dom_regex",
+      "pattern": "你什么也没多说，起身离开。"
+    },
+    "c12_o0": {
+      "type": "dom_regex",
+      "pattern": "\"妈，彩礼我出不起，婚房我也给不了。"
+    },
+    "c13_o0": {
+      "type": "dom_regex",
+      "pattern": "你翻出唐糖和你妈的聊天记录："
+    },
+    "c15_o0": {
+      "type": "dom_regex",
+      "pattern": "\"没问题，正好我把项目拆成三个模块。"
+    },
+    "c18_o1": {
+      "type": "dom_regex",
+      "pattern": "\"感谢所有帮助过我的人——包括那些，教会我防人之心的。\""
+    },
+    "c20_o0": {
+      "type": "dom_regex",
+      "pattern": "你联系技术部老许还原了原始文件，连同举报信一并提交给人事Rose和老板。"
+    },
+    "c21_o1": {
+      "type": "dom_regex",
+      "pattern": "你没回，先找了小鹿。"
+    },
+    "c22_o0": {
+      "type": "dom_regex",
+      "pattern": "你站起身，把一个U盘放到Rose面前："
+    },
+    "c22_o1": {
+      "type": "dom_regex",
+      "pattern": "你只交了核心的三条证据。"
+    },
+    "c22_o2": {
+      "type": "dom_regex",
+      "pattern": "你站起身，打开手机："
+    },
+    "c23_o0": {
+      "type": "dom_regex",
+      "pattern": "\"下一个目标……就那个蠢货林晚吧。\""
+    },
+    "c24_o0": {
+      "type": "dom_regex",
+      "pattern": "第二天一早，你在公司大群里发了一条消息："
+    },
+    "c24_o1": {
+      "type": "dom_regex",
+      "pattern": "你走到唐糖工位前，敲了敲她的桌子："
+    },
+    "c25_o0": {
+      "type": "dom_regex",
+      "pattern": "唐糖冲进会议室，正要开口——"
+    },
+    "c25_o1": {
+      "type": "dom_regex",
+      "pattern": "你没有一次放完，而是一条一条来。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "c0_o0",
+      "hook": "c0_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c1_o0",
+      "hook": "c1_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c4_o0",
+      "hook": "c4_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c5_o0",
+      "hook": "c5_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c5_o1",
+      "hook": "c5_o1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c6_o0",
+      "hook": "c6_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c7_o0",
+      "hook": "c7_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c7_o1",
+      "hook": "c7_o1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c8_o1",
+      "hook": "c8_o1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c9_o0",
+      "hook": "c9_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c10_o0",
+      "hook": "c10_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c10_o1",
+      "hook": "c10_o1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c12_o0",
+      "hook": "c12_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c13_o0",
+      "hook": "c13_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c15_o0",
+      "hook": "c15_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c18_o1",
+      "hook": "c18_o1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c20_o0",
+      "hook": "c20_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c21_o1",
+      "hook": "c21_o1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c22_o0",
+      "hook": "c22_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c22_o1",
+      "hook": "c22_o1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c22_o2",
+      "hook": "c22_o2",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c23_o0",
+      "hook": "c23_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c24_o0",
+      "hook": "c24_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c24_o1",
+      "hook": "c24_o1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c25_o0",
+      "hook": "c25_o0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "c25_o1",
+      "hook": "c25_o1",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "perfect",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "perfect",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "clean",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "clean",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "bitter",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "bitter",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "both",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "both",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "killed",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "killed",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "perfect",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

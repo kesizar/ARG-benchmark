@@ -1,0 +1,59 @@
+{
+  "hooks": {
+    "a": {
+      "type": "dom_regex",
+      "pattern": "我只是变成了另一种东西。"
+    },
+    "b": {
+      "type": "dom_regex",
+      "pattern": "你亲手送它出门。"
+    },
+    "c": {
+      "type": "dom_regex",
+      "pattern": "就当是……还我七年。"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "c",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "c",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "a",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "a",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "b",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "b",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "c",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

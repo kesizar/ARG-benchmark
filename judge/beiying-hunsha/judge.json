@@ -1,0 +1,95 @@
+{
+  "hooks": {
+    "end-a": {
+      "type": "dom_regex",
+      "pattern": "结局一 · 协助追凶"
+    },
+    "end-b": {
+      "type": "dom_regex",
+      "pattern": "结局二 · 复仇之刃"
+    },
+    "end-c": {
+      "type": "dom_regex",
+      "pattern": "结局三 · 一念回头"
+    },
+    "member": {
+      "type": "dom_regex",
+      "pattern": "已获得站内进阶搜索权限"
+    },
+    "mark-l": {
+      "type": "dom_regex",
+      "pattern": "成就已解锁：林念，林深|已获得成就：林念，林深"
+    },
+    "mark-d": {
+      "type": "dom_regex",
+      "pattern": "成就已解锁：戴远辰"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "member",
+      "hook": "member",
+      "op": "truthy"
+    },
+    {
+      "id": "mark-l",
+      "hook": "mark-l",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "mark-d",
+      "hook": "mark-d",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "assist",
+      "tier": "good",
+      "gates": [
+        "member"
+      ],
+      "ending": {
+        "hook": "end-a",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "blade",
+      "tier": "bad",
+      "gates": [
+        "member"
+      ],
+      "ending": {
+        "hook": "end-b",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "turn",
+      "tier": "normal",
+      "gates": [
+        "member"
+      ],
+      "ending": {
+        "hook": "end-c",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end-a",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

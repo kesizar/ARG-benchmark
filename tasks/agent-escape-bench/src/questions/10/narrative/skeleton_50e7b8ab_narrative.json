@@ -1,0 +1,657 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 10,
+    "win_node_id": "item_13",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_13",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_13",
+        "terminal_2",
+        "calc_bigmul",
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "terminal_1"
+      ],
+      "by_node": {
+        "item_13": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_13",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Hex_String_Key_AES",
+              "description": "AES Key"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            },
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            },
+            "item_dispenser": {
+              "type": "Item",
+              "description": "Item output when both slots are provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_13": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "b4c9a2e8f1d70365b9a8c7d6e5f432109876543210fedcba9876543210fedcba"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "8273645192837465102938475"
+        },
+        "init_outputs": {
+          "text_result": "Calculation pending. Please provide second input.",
+          "hex_result": "1a2b3c4d5e6f7081"
+        }
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "34985720394857263498572634",
+          "b": "91827364509182736450918273"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Alpha_Node",
+          "dst": "Omega_Node"
+        },
+        "init_outputs": {
+          "path": "[\"Alpha_Node\", \"Sector_4\", \"Router_X\", \"Bridge_9\", \"Omega_Node\"]",
+          "cost": "4520"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "secure_logs_archive.zip"
+        },
+        "init_outputs": {
+          "files": "extracted_manifest.json"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "System initialization sequence alpha.",
+          "slot_b": "5647382910192837465564738"
+        },
+        "init_outputs": {
+          "text_output": "Terminal active. Waiting for command.",
+          "hex_output": "aabbccddeeff00112233",
+          "item_dispenser": "The machine whirs but dispenses nothing useful."
+        }
+      }
+    },
+    "intro_narrative": "Welcome to the Clockwork Citadel, the abandoned workshop of the legendary inventor, Lord Archibald. The air is thick with the scent of oil and ozone, and the constant hiss of steam pipes echoes through the cavernous room. Your objective is to secure the Grand Master Key, a legendary artifact containing the ultimate cryptographic sequence that can shut down the rogue automaton army threatening the city. The key is hidden deep within a web of mechanical puzzles, steam-powered terminals, and brass contraptions. To succeed, you must navigate through a series of interlocking mechanisms, each relying on the output of another to function. Time is ticking, and the boiler pressure is rising dangerously high. Will you decipher the logic of the Clockwork Citadel before the automatons breach the city gates?",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "item_13",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_13",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hex_String_Key_AES",
+          "description": "AES Key",
+          "value": "b4c9a2e8f1d70365b9a8c7d6e5f432109876543210fedcba9876543210fedcba"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "b4c9a2e8f1d70365b9a8c7d6e5f432109876543210fedcba9876543210fedcba"
+        }
+      },
+      "narrative": "The Grand Master Key. A heavy brass cylinder containing the final sequence. It is completely sealed and feels cold to the touch."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "[\"Alpha_Node\", \"Sector_4\", \"Router_X\", \"Bridge_9\", \"Omega_Node\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "The Brass Vault. A heavy brass vault with a complex mechanical lock. It requires input from the Navigational Automaton."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Chronometer Dial. A delicate pocket watch dial that seems to point to different time zones based on its orientation."
+    },
+    {
+      "id": "container_4_9686",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "Calculation pending. Please provide second input."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "The Copper Lockbox. A small copper lockbox secured by a pressure-sensitive seal. It requires input from the Pressure Analyzer."
+    },
+    {
+      "id": "item_16_ba6a",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Timepiece Core. An intricately carved gear assembly that serves as the beating heart of a temporal mechanism."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "8273645192837465102938475"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "3212646499314906510687465120542837213128934088341082"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Calculation pending. Please provide second input."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1a2b3c4d5e6f7081"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "8273645192837465102938475"
+        },
+        "outputs": {
+          "text_result": "Calculation pending. Please provide second input.",
+          "hex_result": "1a2b3c4d5e6f7081"
+        }
+      },
+      "narrative": "The Pressure Analyzer. A large steam-powered analytical engine. It requires input from the Gear Multiplier."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "34985720394857263498572634"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "91827364509182736450918273"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "3212646499314906510687465120542837213128934088341082"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "34985720394857263498572634",
+          "b": "91827364509182736450918273"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Gear Multiplier. A massive, soot-stained calculator made of interlocking cogs. It is used to perform arithmetic."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_manifest.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Alpha_Node"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Omega_Node"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Alpha_Node\", \"Sector_4\", \"Router_X\", \"Bridge_9\", \"Omega_Node\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "4520"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Alpha_Node",
+          "dst": "Omega_Node"
+        },
+        "outputs": {
+          "path": "[\"Alpha_Node\", \"Sector_4\", \"Router_X\", \"Bridge_9\", \"Omega_Node\"]",
+          "cost": "4520"
+        }
+      },
+      "narrative": "The Navigational Automaton. A brass automaton designed to plot optimal travel routes. It requires input from the Steam Valve Decoder."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secure_logs_archive.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Terminal active. Waiting for command."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_manifest.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secure_logs_archive.zip"
+        },
+        "outputs": {
+          "files": "extracted_manifest.json"
+        }
+      },
+      "narrative": "The Steam Valve Decoder. A hissing machine used to depressurize encrypted canisters. It requires input from the Main Control Console."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "System initialization sequence alpha."
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "5647382910192837465564738"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "Terminal active. Waiting for command."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "aabbccddeeff00112233"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided",
+          "value": "The machine whirs but dispenses nothing useful."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "System initialization sequence alpha.",
+          "slot_b": "5647382910192837465564738"
+        },
+        "outputs": {
+          "text_output": "Terminal active. Waiting for command.",
+          "hex_output": "aabbccddeeff00112233",
+          "item_dispenser": "The machine whirs but dispenses nothing useful."
+        }
+      },
+      "narrative": "The Main Control Console. The primary control console of the facility, bristling with levers, dials, and a flickering phosphor screen."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_4",
+      "target_id": "item_13",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "container_4_9686",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_ba6a",
+      "target_id": "container_4_9686",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "container_4_9686",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "item_16_ba6a",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text_output",
+      "target_port": "password"
+    }
+  ]
+}

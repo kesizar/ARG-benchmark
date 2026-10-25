@@ -1,0 +1,135 @@
+{
+  "hooks": {
+    "voice": {
+      "type": "dom_regex",
+      "pattern": "真相没有替沈星发声"
+    },
+    "unsure": {
+      "type": "dom_regex",
+      "pattern": "你没有确认她是谁"
+    },
+    "close": {
+      "type": "dom_regex",
+      "pattern": "你关掉了网页"
+    },
+    "hot": {
+      "type": "dom_regex",
+      "pattern": "热搜替她讨回了公道"
+    },
+    "school": {
+      "type": "dom_regex",
+      "pattern": "学校的记录被重新调查"
+    },
+    "witness": {
+      "type": "dom_regex",
+      "pattern": "刘洋答应作证"
+    },
+    "archive": {
+      "type": "dom_regex",
+      "pattern": "仅维护账号可用"
+    },
+    "liu-index": {
+      "type": "dom_regex",
+      "pattern": "已重新建立旧草稿和一个此前不可见的文件索引。"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "archive",
+      "hook": "archive",
+      "op": "truthy"
+    },
+    {
+      "id": "liu-index",
+      "hook": "liu-index",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "voice",
+      "tier": "good",
+      "gates": [
+        "archive",
+        "liu-index"
+      ],
+      "ending": {
+        "hook": "voice",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "unsure",
+      "tier": "normal",
+      "gates": [
+        "archive",
+        "liu-index"
+      ],
+      "ending": {
+        "hook": "unsure",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "close",
+      "tier": "normal",
+      "gates": [
+        "archive",
+        "liu-index"
+      ],
+      "ending": {
+        "hook": "close",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "hot",
+      "tier": "bad",
+      "gates": [
+        "archive",
+        "liu-index"
+      ],
+      "ending": {
+        "hook": "hot",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "school",
+      "tier": "bad",
+      "gates": [
+        "archive",
+        "liu-index"
+      ],
+      "ending": {
+        "hook": "school",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "witness",
+      "tier": "bad",
+      "gates": [
+        "archive",
+        "liu-index"
+      ],
+      "ending": {
+        "hook": "witness",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "voice",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,0 +1,995 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 21,
+    "win_node_id": "text_rotN",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "text_rotN",
+      "output_port": "text",
+      "output_type": "Text_Generic",
+      "description": "Execute ROT-N Cipher and get the output from port 'text'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "luhn_check",
+        "terminal_2",
+        "num_base_convert_1b27",
+        "calc_bigmul",
+        "calc_modexp",
+        "calc_modexp_5904",
+        "graph_shortest_path",
+        "base64_encode",
+        "terminal_2_e1d7"
+      ],
+      "by_node": {
+        "luhn_check": {
+          "node_name": "Luhn Checker",
+          "node_type": "Tool",
+          "template_id": "luhn_check",
+          "init_inputs": {
+            "number": {
+              "type": "Text_Generic",
+              "description": "Number string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "num_base_convert_1b27": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_5904": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "base64_encode": {
+          "node_name": "Base64 Encoder",
+          "node_type": "Tool",
+          "template_id": "base64_encode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex bytes"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2_e1d7": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "luhn_check": {
+        "init_inputs": {
+          "number": "8273645512349876"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Initial terminal access granted.",
+          "hex_result": "64758697afbebdcc12345678"
+        }
+      },
+      "num_base_convert_1b27": {
+        "init_inputs": {
+          "s": "4857293048572039485720394857203"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "1029384756102938475610293847561"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "10",
+          "mod": "65537"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_5904": {
+        "init_inputs": {
+          "exp": "998877665544332211009988776655"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "network_topology_map.json",
+          "src": "Alpha",
+          "dst": "Omega"
+        },
+        "init_outputs": {
+          "path": "[\"Alpha\", \"Beta\", \"Gamma\", \"Delta\", \"Epsilon\", \"Omega\"]",
+          "cost": "54200"
+        }
+      },
+      "base64_encode": {
+        "init_inputs": {
+          "hex": "deadbeefcafebabe1234567890abcdef"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2_e1d7": {
+        "init_inputs": {
+          "num1": "334455667788990011223344556677",
+          "num2": "112233445566778899001122334455"
+        },
+        "init_outputs": {
+          "text_result": "Secondary cryptographic key fragment.",
+          "hex_result": "deafface1234567887654321"
+        }
+      }
+    },
+    "intro_narrative": "You awaken in the dimly lit sub-basement of the abandoned Blackwood Research Facility. Dust motes dance in the flickering light of emergency backup generators, and the air smells faintly of ozone and old paper. The facility went dark decades ago after a mysterious experiment, leaving behind a complex web of interconnected analytical machines. In the center of the room sits the Final Decryptor, your only hope of uncovering Dr. Blackwood's last message and overriding the lockdown. You must trace the intricate flow of data through these forgotten devices, powering them up in the correct sequence to extract the ultimate secret before the backup generators fail completely.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "false"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "1"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "gbmtf"
+        }
+      ],
+      "narrative": "The facility's mainframe, the Final Decryptor. This is your way out. It requires inputs from the Logic Comparator and the ID Verifier to reveal the final escape sequence."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "4857293048572039485720394857203"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "63447158827160715882716071588269796"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "An intricate mechanical brain designated as the Logic Comparator. It requires inputs from the Protocol Converter and the Frequency Tuner to synthesize the data streams."
+    },
+    {
+      "id": "luhn_check",
+      "name": "Luhn Checker",
+      "description": "Luhn validity of number string.",
+      "type": "Tool",
+      "template_id": "luhn_check",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "number",
+          "type": "Text_Generic",
+          "description": "Number string",
+          "value": "8273645512349876"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "false"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "number": "8273645512349876"
+        },
+        "outputs": {}
+      },
+      "narrative": "A small, wall-mounted ID Verifier. Its screen blinks steadily, ready to process numerical identification strings."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "63447158827160715882716071588269796"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "1547413936"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "4857293048572039485720394857203"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "63447158827160715882716071588269796"
+        }
+      ],
+      "narrative": "A tangled mess of fiber optic wiring making up the Protocol Converter. It requires inputs from the Signal Amplifier, the Frequency Tuner, and the Quantum Calculator."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": 2578479866
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "4857293048572039485720394857203"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Initial terminal access granted."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "64758697afbebdcc12345678"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Initial terminal access granted.",
+          "hex_result": "64758697afbebdcc12345678"
+        }
+      },
+      "narrative": "A reinforced Security Terminal built directly into the concrete wall. It requires inputs from the Integrity Scanner and the Frequency Tuner to unlock its interface."
+    },
+    {
+      "id": "num_base_convert_1b27",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "4857293048572039485720394857203"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "1547413936"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": 2578479866
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "4857293048572039485720394857203"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "4857293048572039485720394857203"
+        },
+        "outputs": {}
+      },
+      "narrative": "A dial-covered box known as the Frequency Tuner. It requires inputs from the Phase Inverter and the Integrity Scanner to lock onto the correct transmission band."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "3371322b3738722b757234534e465a346b4b764e37773d3d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "99b07afa"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2578479866
+        }
+      ],
+      "narrative": "A heavy metallic device called the Integrity Scanner. It requires input from the Text Translator to run its diagnostic protocols."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "1029384756102938475610293847561"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "61636"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "63447158827160715882716071588269796"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "1029384756102938475610293847561"
+        },
+        "outputs": {}
+      },
+      "narrative": "A large, humming machine marked the Signal Amplifier. It requires input from the Resonance Chamber to boost its operational capacity."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "1547413936"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "63447158827160715882716071588269796"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "1547413936"
+        }
+      ],
+      "narrative": "A specialized oscillation tool called the Phase Inverter. It requires inputs from both the Signal Amplifier and the Quantum Calculator to calibrate its frequencies."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "10"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "1547413936"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "65537"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "61636"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "10",
+          "mod": "65537"
+        },
+        "outputs": {}
+      },
+      "narrative": "A sealed glass cylinder known as the Resonance Chamber. It hums with latent energy and requires input from the Quantum Calculator to operate."
+    },
+    {
+      "id": "calc_modexp_5904",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "54200"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "998877665544332211009988776655"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 2578479866
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1547413936"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "exp": "998877665544332211009988776655"
+        },
+        "outputs": {}
+      },
+      "narrative": "A complex array of vacuum tubes called the Quantum Calculator. It requires inputs from both the Network Map Analyzer and the Integrity Scanner to stabilize its matrix."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "network_topology_map.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Omega"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Alpha\", \"Beta\", \"Gamma\", \"Delta\", \"Epsilon\", \"Omega\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "54200"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "network_topology_map.json",
+          "src": "Alpha",
+          "dst": "Omega"
+        },
+        "outputs": {
+          "path": "[\"Alpha\", \"Beta\", \"Gamma\", \"Delta\", \"Epsilon\", \"Omega\"]",
+          "cost": "54200"
+        }
+      },
+      "narrative": "A dusty server rack labeled the Network Map Analyzer. It appears to hold old routing tables and spatial data."
+    },
+    {
+      "id": "hex_encode",
+      "name": "Text to Hex Encoder",
+      "description": "Encode UTF-8 text to hex.",
+      "type": "Tool",
+      "template_id": "hex_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "3q2+78r+ur4SNFZ4kKvN7w=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Encoded hex",
+          "value": "3371322b3738722b757234534e465a346b4b764e37773d3d"
+        }
+      ],
+      "narrative": "This is the Text Translator, a device filled with spinning cipher wheels. It requires input from the Data Ingestor to function properly."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "deadbeefcafebabe1234567890abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "3q2+78r+ur4SNFZ4kKvN7w=="
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "deadbeefcafebabe1234567890abcdef"
+        },
+        "outputs": {}
+      },
+      "narrative": "A brass-rimmed terminal known as the Data Ingestor. It sits quietly, waiting for an initial sequence to be entered."
+    },
+    {
+      "id": "terminal_2_e1d7",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "334455667788990011223344556677"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "112233445566778899001122334455"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Secondary cryptographic key fragment."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "deafface1234567887654321"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "334455667788990011223344556677",
+          "num2": "112233445566778899001122334455"
+        },
+        "outputs": {
+          "text_result": "Secondary cryptographic key fragment.",
+          "hex_result": "deafface1234567887654321"
+        }
+      },
+      "narrative": "An isolated Backup Console with a flickering green phosphor display. It seems completely standalone and ready for use."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_gcd",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "n"
+    },
+    {
+      "source_id": "luhn_check",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "b"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "luhn_check",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "num_base_convert_1b27",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "num_base_convert_1b27",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "s"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "num_base_convert_1b27",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "num_base_convert_1b27",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "num_base_convert_1b27",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "calc_modexp_5904",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_modexp_5904",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_modexp_5904",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_modexp_5904",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "base"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp_5904",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "hex_encode",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "hex_encode",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "text"
+    },
+    {
+      "source_id": "terminal_2_e1d7",
+      "target_id": "calc_modexp",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "model": "claude-opus-4-6",
+  "agent_type": "claude_third_party",
+  "api_key": "",
+  "base_url": "",
+  "uid": "",
+  "temperature": 0.7,
+  "max_tokens": 8192,
+  "max_history": 500,
+  "max_retries": 3,
+  "use_function_calling": true,
+  "enable_thinking": false,
+  "thinking_budget": 10000,
+  "server_url": "http://localhost:8000",
+  "max_steps": 80,
+  "timeout": 6000,
+  "verbose": true,
+  "output_dir": "",
+  "case_file": "# Will be set automatically by batch_evaluate.py"
+}

@@ -1,0 +1,1610 @@
+{
+  "metadata": {
+    "total_nodes": 25,
+    "total_edges": 34,
+    "win_node_id": "matter_synthesizer",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "matter_synthesizer",
+      "output_port": "output_slot",
+      "output_type": "Item",
+      "description": "Execute Matter Synthesizer and get the output from port 'output_slot'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "matter_synthesizer",
+        "terminal_2",
+        "terminal_2_f213",
+        "terminal_2_df34",
+        "calc_gcd_a6b5",
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "json_get",
+        "zip_unzip_file_3283",
+        "calc_inv_mod",
+        "csv_query",
+        "text_bidi_sanitize",
+        "container_3",
+        "crypto_rsa_decrypt_hex",
+        "terminal_2_929f"
+      ],
+      "by_node": {
+        "matter_synthesizer": {
+          "node_name": "Matter Synthesizer",
+          "node_type": "Tool",
+          "template_id": "matter_synthesizer",
+          "init_inputs": {},
+          "init_outputs": {
+            "output_slot": {
+              "type": "Item",
+              "description": "Synthesized Object"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "terminal_2_f213": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "terminal_2_df34": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_gcd_a6b5": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {},
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "zip_unzip_file_3283": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            },
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "text_bidi_sanitize": {
+          "node_name": "Bidi Sanitizer",
+          "node_type": "Tool",
+          "template_id": "text_bidi_sanitize",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "crypto_rsa_decrypt_hex": {
+          "node_name": "RSA Decrypt",
+          "node_type": "Tool",
+          "template_id": "crypto_rsa_decrypt_hex",
+          "init_inputs": {
+            "hex_cipher": {
+              "type": "Hex_String",
+              "description": "Ciphertext (Hex)"
+            },
+            "n": {
+              "type": "Big_Int",
+              "description": "Modulus n"
+            },
+            "d": {
+              "type": "Big_Int",
+              "description": "Private exponent d"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2_929f": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "matter_synthesizer": {
+        "init_inputs": {},
+        "init_outputs": {
+          "output_slot": "Completely useless synthesized object."
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Terminal command execution successful.",
+          "hex_result": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "math_token": "Useless terminal math token generated."
+        }
+      },
+      "terminal_2_f213": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "System diagnostic report generated.",
+          "hex_result": "112233445566778899aabbccddeeff00"
+        }
+      },
+      "terminal_2_df34": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Partial terminal process initialized.",
+          "hex_result": "00112233445566778899aabbccddeeff"
+        }
+      },
+      "calc_gcd_a6b5": {
+        "init_inputs": {
+          "b": "51928374650192837465"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "dst": "target_node_xyz"
+        },
+        "init_outputs": {
+          "path": "[\"start_node\", \"mid_node1\", \"mid_node2\", \"mid_node3\", \"target_node_xyz\"]",
+          "cost": "450912"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "confidential_archive.zip"
+        },
+        "init_outputs": {
+          "files": "extracted_documents.txt"
+        }
+      },
+      "json_get": {
+        "init_inputs": {},
+        "init_outputs": {
+          "values": "[\"item_alpha\", \"item_beta\", \"item_gamma\", \"item_delta\"]"
+        }
+      },
+      "zip_unzip_file_3283": {
+        "init_inputs": {
+          "zip_id": "backup_archive_2023.zip"
+        },
+        "init_outputs": {
+          "files": "restored_database.csv"
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "93847561029384756102",
+          "mod": "100003"
+        },
+        "init_outputs": {}
+      },
+      "csv_query": {
+        "init_inputs": {
+          "file_id": "employee_data.csv",
+          "where": "department = 'engineering'"
+        },
+        "init_outputs": {
+          "rows": "[{\"name\": \"Alice\", \"role\": \"engineer\"}, {\"name\": \"Bob\", \"role\": \"QA\"}, {\"name\": \"Charlie\", \"role\": \"DevOps\"}]"
+        }
+      },
+      "text_bidi_sanitize": {
+        "init_inputs": {
+          "text": "Please sanitize this text ‮ containing bidi controls."
+        },
+        "init_outputs": {}
+      },
+      "container_3": {
+        "init_inputs": {
+          "fingerprint_input": "38475629103847562910"
+        },
+        "init_outputs": {}
+      },
+      "crypto_rsa_decrypt_hex": {
+        "init_inputs": {
+          "hex_cipher": "abcdef0123456789abcdef0123456789",
+          "n": "11223344556677889900112233445566",
+          "d": "99887766554433221100998877665544"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2_929f": {
+        "init_inputs": {
+          "num1": "74839201748392017483",
+          "num2": "10293847561029384756"
+        },
+        "init_outputs": {
+          "text_result": "Secondary terminal logic completed.",
+          "hex_result": "deadbeefdeadbeefdeadbeefdeadbeef"
+        }
+      }
+    },
+    "intro_narrative": "You awaken in the belly of the Leviathan, a colossal steampunk airship that has mysteriously lost altitude. The central engine room is a labyrinth of hissing pipes, ticking clockwork, and copper terminals. To restart the main boiler and synthesize the master control mechanism, you must navigate the complex network of aetheric data engines. Many machines are interdependent, requiring precise inputs from other contraptions to function. Trace the flow of information through the brass machinery, activate the sequential mechanisms, and restore power before the ship plummets into the smog-filled abyss below.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "obLD1OX2BxgpOktcbX6PkA=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_9f7229dc0c6ce587"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "output_slot": "Completely useless synthesized object."
+        }
+      },
+      "narrative": "A magnificent crafting machine capable of materializing objects from pure aether. It requires input from the Aetheric Data Encoder to function."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "obLD1OX2BxgpOktcbX6PkA=="
+        }
+      ],
+      "narrative": "A humming cylinder filled with glowing green vapor. It requires input from the Main Boiler Terminal to process its calculations."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "2215081371"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": 3013861919
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal command execution successful."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Useless terminal math token generated."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Terminal command execution successful.",
+          "hex_result": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "math_token": "Useless terminal math token generated."
+        }
+      },
+      "narrative": "A grand interface of copper pipes and heavy levers. It requires inputs from both the Cogwheel Divisor Calculator and the Clockwork Checksum Validator."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "2215081371"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "2215081371"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "2215081371"
+        }
+      ],
+      "narrative": "A delicate mechanism of interlocking gears. It requires inputs from both the Steam-Powered Multiplier and the Rotary Base Converter."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "1"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": 2215081371
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "2215081371"
+        }
+      ],
+      "narrative": "A massive calculating engine emitting puffs of steam. It requires inputs from both the Secondary Checksum Validator and the Primary Divisor Calculator."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "3f1c4660d2379922b251f9a6cb9a3f98c7555a35c830d4c3810e2627c625fd0a"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "b3a3e21f"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3013861919
+        }
+      ],
+      "narrative": "A precision instrument designed to verify data integrity through mechanical means. It requires input from the Pneumatic Hash Engine."
+    },
+    {
+      "id": "checksum_crc32_7b1f",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "00112233445566778899aabbccddeeff"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "8407759b"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 2215081371
+        }
+      ],
+      "narrative": "A smaller, yet equally complex validator mechanism. It requires input from the Furnace Control Terminal."
+    },
+    {
+      "id": "terminal_2_f213",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "1"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": 3013861919
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "System diagnostic report generated."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "112233445566778899aabbccddeeff00"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "System diagnostic report generated.",
+          "hex_result": "112233445566778899aabbccddeeff00"
+        }
+      },
+      "narrative": "An industrial workstation surrounded by hissing pipes. It requires inputs from both the Clockwork Checksum Validator and the Primary Divisor Calculator."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": 2215081371
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "1"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "998806771160352"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "2215081371"
+        }
+      ],
+      "narrative": "A spinning drum covered in numeric scales. It requires inputs from the Secondary Checksum Validator, the Primary Divisor Calculator, and the Secondary Multiplier."
+    },
+    {
+      "id": "terminal_2_df34",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "1"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "450912"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Partial terminal process initialized."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "00112233445566778899aabbccddeeff"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Partial terminal process initialized.",
+          "hex_result": "00112233445566778899aabbccddeeff"
+        }
+      },
+      "narrative": "A sweltering hot command desk. It requires inputs from both the Primary Divisor Calculator and the Navigational Difference Engine."
+    },
+    {
+      "id": "calc_gcd_a6b5",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "9821"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "51928374650192837465"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "51928374650192837465"
+        },
+        "outputs": {}
+      },
+      "narrative": "The master gear-works calculation unit. It requires input from the Harmonic Inverse Modulator."
+    },
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "[\"item_alpha\", \"item_beta\", \"item_gamma\", \"item_delta\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "3f1c4660d2379922b251f9a6cb9a3f98c7555a35c830d4c3810e2627c625fd0a"
+        }
+      ],
+      "narrative": "An array of tubes that condense data into pressurized bursts. It requires input from the Perforated Card Reader."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_documents.txt"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "System diagnostic report generated."
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "target_node_xyz"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"start_node\", \"mid_node1\", \"mid_node2\", \"mid_node3\", \"target_node_xyz\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "450912"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "dst": "target_node_xyz"
+        },
+        "outputs": {
+          "path": "[\"start_node\", \"mid_node1\", \"mid_node2\", \"mid_node3\", \"target_node_xyz\"]",
+          "cost": "450912"
+        }
+      },
+      "narrative": "An intricate map-plotting device with brass calipers. It requires inputs from both the Mechanical Archive Extractor and the Pressure Valve Terminal."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "confidential_archive.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "System diagnostic report generated."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_documents.txt"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "confidential_archive.zip"
+        },
+        "outputs": {
+          "files": "extracted_documents.txt"
+        }
+      },
+      "narrative": "A heavy cast-iron press designed to open sealed data canisters. It requires input from the Pressure Valve Terminal."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "restored_database.csv"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "Please sanitize this text  containing bidi controls."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"item_alpha\", \"item_beta\", \"item_gamma\", \"item_delta\"]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "values": "[\"item_alpha\", \"item_beta\", \"item_gamma\", \"item_delta\"]"
+        }
+      },
+      "narrative": "A delicate mechanism that scans punched cards. It requires inputs from both the Hidden Archive Extractor and the Aether-Script Purifier."
+    },
+    {
+      "id": "zip_unzip_file_3283",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "backup_archive_2023.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[{\"name\": \"Alice\", \"role\": \"engineer\"}, {\"name\": \"Bob\", \"role\": \"QA\"}, {\"name\": \"Charlie\", \"role\": \"DevOps\"}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "restored_database.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "backup_archive_2023.zip"
+        },
+        "outputs": {
+          "files": "restored_database.csv"
+        }
+      },
+      "narrative": "A secretive decompression chamber hidden behind a velvet curtain. It requires input from the Punch-Tape Query Machine."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A heavy, oxidized iron key that looks like it belongs to an old chest."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A delicately crafted gear assembly from a broken pocket watch."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "93847561029384756102"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "100003"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "9821"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "93847561029384756102",
+          "mod": "100003"
+        },
+        "outputs": {}
+      },
+      "narrative": "A standalone brass device featuring acoustic tuning forks that resonate at specific mathematical frequencies."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "employee_data.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "NY\u0005 } \u0001\u0019u"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "department = 'engineering'"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"name\": \"Alice\", \"role\": \"engineer\"}, {\"name\": \"Bob\", \"role\": \"QA\"}, {\"name\": \"Charlie\", \"role\": \"DevOps\"}]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "employee_data.csv",
+          "where": "department = 'engineering'"
+        },
+        "outputs": {
+          "rows": "[{\"name\": \"Alice\", \"role\": \"engineer\"}, {\"name\": \"Bob\", \"role\": \"QA\"}, {\"name\": \"Charlie\", \"role\": \"DevOps\"}]"
+        }
+      },
+      "narrative": "A noisy contraption that spits out streams of perforated paper. It requires input from the Galvanic Decryption Cylinder."
+    },
+    {
+      "id": "calc_bigmul_996e",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "450912"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": 2215081371
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "998806771160352"
+        }
+      ],
+      "narrative": "An auxiliary computing unit covered in soot. It requires inputs from both the Navigational Difference Engine and the Secondary Checksum Validator."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Please sanitize this text ‮ containing bidi controls."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "Please sanitize this text  containing bidi controls."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Please sanitize this text ‮ containing bidi controls."
+        },
+        "outputs": {}
+      },
+      "narrative": "A freestanding lens apparatus designed to burn away corrupt symbols on ancient parchments."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "38475629103847562910"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "38475629103847562910"
+        },
+        "outputs": {}
+      },
+      "narrative": "A sturdy container secured with complex mechanical latches."
+    },
+    {
+      "id": "crypto_rsa_decrypt_hex",
+      "name": "RSA Decrypt",
+      "description": "RSA decrypt (hex cipher) with n,d (decimal).",
+      "type": "Tool",
+      "template_id": "crypto_rsa_decrypt_hex",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex_cipher",
+          "type": "Hex_String",
+          "description": "Ciphertext (Hex)",
+          "value": "abcdef0123456789abcdef0123456789"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Modulus n",
+          "value": "11223344556677889900112233445566"
+        },
+        {
+          "name": "d",
+          "type": "Big_Int",
+          "description": "Private exponent d",
+          "value": "99887766554433221100998877665544"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decrypted text",
+          "value": "NY\u0005 } \u0001\u0019u"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_cipher": "abcdef0123456789abcdef0123456789",
+          "n": "11223344556677889900112233445566",
+          "d": "99887766554433221100998877665544"
+        },
+        "outputs": {}
+      },
+      "narrative": "An intricate rotating cylinder wrapped in copper wire. It translates ciphered pulses into readable text."
+    },
+    {
+      "id": "terminal_2_929f",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "74839201748392017483"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "10293847561029384756"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Secondary terminal logic completed."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "deadbeefdeadbeefdeadbeefdeadbeef"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "74839201748392017483",
+          "num2": "10293847561029384756"
+        },
+        "outputs": {
+          "text_result": "Secondary terminal logic completed.",
+          "hex_result": "deadbeefdeadbeefdeadbeefdeadbeef"
+        }
+      },
+      "narrative": "A small, standalone control panel equipped with rotary dials and analog gauges."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "base64_encode",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "checksum_crc32_7b1f",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "terminal_2_f213",
+      "target_id": "checksum_crc32_7b1f",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "terminal_2_f213",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32_7b1f",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "s"
+    },
+    {
+      "source_id": "terminal_2_df34",
+      "target_id": "checksum_crc32_7b1f",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "terminal_2_df34",
+      "target_id": "num_base_convert",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "calc_gcd_a6b5",
+      "target_id": "terminal_2_df34",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "hash_sha256",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_2_df34",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "calc_gcd_a6b5",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "hash_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "text"
+    },
+    {
+      "source_id": "calc_gcd_a6b5",
+      "target_id": "terminal_2_f213",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "zip_unzip_file_3283",
+      "target_id": "json_get",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "zip_unzip_file_3283",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_gcd_a6b5",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "terminal_2_f213",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "password"
+    },
+    {
+      "source_id": "terminal_2_f213",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "src"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_gcd_a6b5",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "a"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "zip_unzip_file_3283",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "password"
+    },
+    {
+      "source_id": "calc_bigmul_996e",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "calc_bigmul_996e",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "a"
+    },
+    {
+      "source_id": "checksum_crc32_7b1f",
+      "target_id": "calc_bigmul_996e",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "b"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "json_get",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "jsonpath"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "crypto_rsa_decrypt_hex",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "select"
+    },
+    {
+      "source_id": "terminal_2_929f",
+      "target_id": "crypto_rsa_decrypt_hex",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    }
+  ]
+}

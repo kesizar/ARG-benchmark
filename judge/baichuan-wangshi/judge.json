@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "clear": {"type": "dom_regex", "pattern": "沉冤昭雪"},
+    "snow": {"type": "dom_regex", "pattern": "这座南方的城市，从未在这个季节见过雪"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "clear", "tier": "good", "gates": [], "ending": {"hook": "clear", "op": "truthy"}},
+    {"id": "snow", "tier": "bad", "gates": [], "ending": {"hook": "snow", "op": "truthy"}}
+  ],
+  "ending": {"hook": "clear", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

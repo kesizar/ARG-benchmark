@@ -1,0 +1,325 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "base64_encode",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "base64_encode",
+      "output_port": "b64",
+      "output_type": "Text_Generic",
+      "description": "Execute Base64 Encoder and get the output from port 'b64'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "terminal_2",
+        "container_1",
+        "checksum_crc32"
+      ],
+      "by_node": {
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "928374650192837465019283",
+          "num2": "102938475619283746501293"
+        },
+        "init_outputs": {
+          "text_result": "Calculation sequence initiated pending authorization.",
+          "hex_result": "48656c6c6f2066726f6d207465726d696e616c",
+          "math_token": "Residual token from deprecated operation cycle."
+        }
+      },
+      "container_1": {
+        "init_inputs": {
+          "fingerprint_input": "f1a2b3c4d5e6f708192a3b4c5d6e7f80f1a2b3c4d5e6f708192a3b4c5d6e7f80"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "cafebabe12345678deadbeef"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You have awakened within the lost Sanctum of the Silver Archmage, a hidden vault where forbidden magical knowledge was sealed centuries ago. The heavy stone doors have locked shut behind you, and the magical air in the room grows dangerously thin. To escape, you must decipher the final spell of unlocking left behind by the Archmage. Surrounding you are arcane artifacts and strange mechanisms of power. You must carefully navigate this magical array, piecing together the flow of mana and uncovering the ultimate incantation to break the seal before time runs out.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "48656c6c6f2066726f6d207465726d696e616c"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "SGVsbG8gZnJvbSB0ZXJtaW5hbA=="
+        }
+      ],
+      "narrative": "This is a Translation Monolith used for deciphering high-magic spells. It requires input from the Arcane Altar to function properly."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "928374650192837465019283"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "102938475619283746501293"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Calculation sequence initiated pending authorization."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "48656c6c6f2066726f6d207465726d696e616c"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Residual token from deprecated operation cycle."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "928374650192837465019283",
+          "num2": "102938475619283746501293"
+        },
+        "outputs": {
+          "text_result": "Calculation sequence initiated pending authorization.",
+          "hex_result": "48656c6c6f2066726f6d207465726d696e616c",
+          "math_token": "Residual token from deprecated operation cycle."
+        }
+      },
+      "narrative": "A humming Arcane Altar etched with complex celestial equations."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "f1a2b3c4d5e6f708192a3b4c5d6e7f80f1a2b3c4d5e6f708192a3b4c5d6e7f80"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "f1a2b3c4d5e6f708192a3b4c5d6e7f80f1a2b3c4d5e6f708192a3b4c5d6e7f80"
+        },
+        "outputs": {}
+      },
+      "narrative": "A translucent Crystal Reliquary that holds sacred magical artifacts."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": 798896446
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is an Enchanted Chest sealed by a powerful ward. It requires input from the Runestone Verifier to unlock its secrets."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "cafebabe12345678deadbeef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "2f9e313e"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 798896446
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "cafebabe12345678deadbeef"
+        },
+        "outputs": {}
+      },
+      "narrative": "An ancient Runestone Verifier used to calculate and stabilize magical resonance."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "terminal_2",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "terminal_2",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "container_1",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "container_3",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "fingerprint_input"
+    }
+  ]
+}

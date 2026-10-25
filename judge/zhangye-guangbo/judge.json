@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "truth": {"type": "dom_regex", "pattern": "真相永不彻底消失，只是被暂时掩埋"},
+    "shards": {"type": "dom_regex", "pattern": "碎片不灭，余息永存"},
+    "silence": {"type": "dom_regex", "pattern": "沉默是最彻底的抹杀"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "truth", "tier": "good", "gates": [], "ending": {"hook": "truth", "op": "truthy"}},
+    {"id": "shards", "tier": "normal", "gates": [], "ending": {"hook": "shards", "op": "truthy"}},
+    {"id": "silence", "tier": "bad", "gates": [], "ending": {"hook": "silence", "op": "truthy"}}
+  ],
+  "ending": {"hook": "truth", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

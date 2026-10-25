@@ -1,0 +1,1049 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 18,
+    "win_node_id": "hex_encode",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "hex_encode",
+      "output_port": "hex",
+      "output_type": "Hex_String",
+      "description": "Execute Text to Hex Encoder and get the output from port 'hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "zip_unzip_file_2736",
+        "zip_unzip_file_6df4",
+        "csv_query",
+        "zip_unzip_file_f4aa",
+        "zip_unzip_file_ecd9",
+        "container_3",
+        "unicode_norm",
+        "zip_unzip_item",
+        "zip_unzip_file_ac72",
+        "graph_shortest_path_874d"
+      ],
+      "by_node": {
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_2736": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_6df4": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "zip_unzip_file_f4aa": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_ecd9": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "container_3": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_3",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Big_Int",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "unicode_norm": {
+          "node_name": "Unicode Normalizer",
+          "node_type": "Tool",
+          "template_id": "unicode_norm",
+          "init_inputs": {
+            "text": {
+              "type": "Text_Generic",
+              "description": "Text"
+            },
+            "form": {
+              "type": "Text_Generic",
+              "description": "Form"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_ac72": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "graph_shortest_path_874d": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"Entrance_Gate\", \"Main_Hall\", \"Corridor_A\", \"Library_East\", \"Reading_Room_04\", \"Archive_Section\"]",
+          "cost": "38294710293847561029"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "password": "sec_Alpha_v3_2024"
+        },
+        "init_outputs": {
+          "files": "unpacked_v1_0.zip"
+        }
+      },
+      "zip_unzip_file_2736": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "topology_data_final.csv"
+        }
+      },
+      "zip_unzip_file_6df4": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "graph_edges_manifest.json"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {
+          "where": "category='node_link' AND weight < 100"
+        },
+        "init_outputs": {
+          "rows": "[\"link_id_992\", \"link_id_401\", \"link_id_023\", \"link_id_887\", \"link_id_102\"]"
+        }
+      },
+      "zip_unzip_file_f4aa": {
+        "init_inputs": {
+          "zip_id": "encrypted_source_04.zip"
+        },
+        "init_outputs": {
+          "files": "temp_buffer_99.txt"
+        }
+      },
+      "zip_unzip_file_ecd9": {
+        "init_inputs": {
+          "zip_id": "vault_storage_beta.zip",
+          "password": "Unlock_Key_99812_Gamma"
+        },
+        "init_outputs": {
+          "files": "extracted_database.csv"
+        }
+      },
+      "container_3": {
+        "init_inputs": {
+          "fingerprint_input": "918273645019283746556677889900"
+        },
+        "init_outputs": {}
+      },
+      "unicode_norm": {
+        "init_inputs": {
+          "text": "Unicode_Normalization_Standard_Reference_String",
+          "form": "NFC"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "password": "Item_Access_Pass_881"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_ac72": {
+        "init_inputs": {
+          "zip_id": "resource_package_x.zip"
+        },
+        "init_outputs": {
+          "files": "node_definition_config.json"
+        }
+      },
+      "graph_shortest_path_874d": {
+        "init_inputs": {
+          "file_id": "coordinate_map_v9.json",
+          "src": "Terminal_Alpha_0",
+          "dst": "Terminal_Omega_9"
+        },
+        "init_outputs": {
+          "path": "[\"Terminal_Alpha_0\", \"Relay_Station_1\", \"Hub_Central\", \"Relay_Station_8\", \"Terminal_Omega_9\"]",
+          "cost": "29384756102938475610"
+        }
+      }
+    },
+    "intro_narrative": "The sky above is a perpetual bruised purple, choked with radioactive dust. You are a wasteland scavenger who just stumbled upon a massive find: an intact pre-war military bunker. Rumor has it this facility houses the master override for the automated defense grid that's been terrorizing the remaining settlements. As the heavy steel doors seal behind you to block out the incoming mutant horde, the facility's emergency lights flicker to life. You must navigate the remnants of the bunker's fragmented mainframe and broadcast the final shutdown signal before the bunker's life support runs out.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "hex_encode",
+      "name": "Text to Hex Encoder",
+      "description": "Encode UTF-8 text to hex.",
+      "type": "Tool",
+      "template_id": "hex_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "[\"Entrance_Gate\", \"Main_Hall\", \"Corridor_A\", \"Library_East\", \"Reading_Room_04\", \"Archive_Section\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Encoded hex",
+          "value": "5b22456e7472616e63655f47617465222c20224d61696e5f48616c6c222c2022436f727269646f725f41222c20224c6962726172795f45617374222c202252656164696e675f526f6f6d5f3034222c2022417263686976655f53656374696f6e225d"
+        }
+      ],
+      "narrative": "This is the Final Signal Transmitter. It requires input from the Network Router Terminal to officially broadcast the defense grid shutdown sequence."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "unpacked_v1_0.zip"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Unicode_Normalization_Standard_Reference_String"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "[\"link_id_992\", \"link_id_401\", \"link_id_023\", \"link_id_887\", \"link_id_102\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Entrance_Gate\", \"Main_Hall\", \"Corridor_A\", \"Library_East\", \"Reading_Room_04\", \"Archive_Section\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "38294710293847561029"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"Entrance_Gate\", \"Main_Hall\", \"Corridor_A\", \"Library_East\", \"Reading_Room_04\", \"Archive_Section\"]",
+          "cost": "38294710293847561029"
+        }
+      },
+      "narrative": "This is the Network Router Terminal. It requires inputs from the Core Archive Extractor, the Wasteland Database, and the Signal Stabilizer to map the final system connection."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "topology_data_final.csv"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "sec_Alpha_v3_2024"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "unpacked_v1_0.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "sec_Alpha_v3_2024"
+        },
+        "outputs": {
+          "files": "unpacked_v1_0.zip"
+        }
+      },
+      "narrative": "This is the Core Archive Extractor. It requires input from the Secondary Archive Extractor to finally reveal the bunker's core logic routines."
+    },
+    {
+      "id": "zip_unzip_file_2736",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "graph_edges_manifest.json"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"link_id_992\", \"link_id_401\", \"link_id_023\", \"link_id_887\", \"link_id_102\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "topology_data_final.csv"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "topology_data_final.csv"
+        }
+      },
+      "narrative": "This is the Secondary Archive Extractor. It requires inputs from both the Tertiary Archive Extractor and the Wasteland Database to unlock its isolated files."
+    },
+    {
+      "id": "zip_unzip_file_6df4",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "temp_buffer_99.txt"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"link_id_992\", \"link_id_401\", \"link_id_023\", \"link_id_887\", \"link_id_102\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "graph_edges_manifest.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "graph_edges_manifest.json"
+        }
+      },
+      "narrative": "This is the Tertiary Archive Extractor. It requires inputs from both the Wasteland Database and the Quarantine Archive Extractor to process the next layer of encrypted archives."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "extracted_database.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "Unicode_Normalization_Standard_Reference_String"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "category='node_link' AND weight < 100"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[\"link_id_992\", \"link_id_401\", \"link_id_023\", \"link_id_887\", \"link_id_102\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "where": "category='node_link' AND weight < 100"
+        },
+        "outputs": {
+          "rows": "[\"link_id_992\", \"link_id_401\", \"link_id_023\", \"link_id_887\", \"link_id_102\"]"
+        }
+      },
+      "narrative": "This is the Wasteland Database. It requires inputs from both the Ruins Archive Extractor and the Signal Stabilizer to parse the surviving pre-war records."
+    },
+    {
+      "id": "zip_unzip_file_f4aa",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "encrypted_source_04.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"link_id_992\", \"link_id_401\", \"link_id_023\", \"link_id_887\", \"link_id_102\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "temp_buffer_99.txt"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "encrypted_source_04.zip"
+        },
+        "outputs": {
+          "files": "temp_buffer_99.txt"
+        }
+      },
+      "narrative": "This is the Quarantine Archive Extractor. It requires input from the Wasteland Database to bypass the military quarantine protocols."
+    },
+    {
+      "id": "zip_unzip_file_ecd9",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "vault_storage_beta.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Unlock_Key_99812_Gamma"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_database.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "vault_storage_beta.zip",
+          "password": "Unlock_Key_99812_Gamma"
+        },
+        "outputs": {
+          "files": "extracted_database.csv"
+        }
+      },
+      "narrative": "An offline Ruins Archive Extractor hooked up to a rusted fusion generator."
+    },
+    {
+      "id": "container_3",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_3",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Big_Int",
+          "description": "Fingerprint Hash",
+          "value": "918273645019283746556677889900"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "918273645019283746556677889900"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy Biometric Lockbox with a cracked glass scanner on its lid."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A degraded Rusted Memory Module salvaged from the chassis of a dead android."
+    },
+    {
+      "id": "unicode_norm",
+      "name": "Unicode Normalizer",
+      "description": "Unicode normalize (NFC/NFD/NFKC/NFKD).",
+      "type": "Tool",
+      "template_id": "unicode_norm",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "Unicode_Normalization_Standard_Reference_String"
+        },
+        {
+          "name": "form",
+          "type": "Text_Generic",
+          "description": "Form",
+          "value": "NFC"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Normalized text",
+          "value": "Unicode_Normalization_Standard_Reference_String"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "text": "Unicode_Normalization_Standard_Reference_String",
+          "form": "NFC"
+        },
+        "outputs": {}
+      },
+      "narrative": "A bulky Signal Stabilizer salvaged from a fallen communications tower."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "node_definition_config.json"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Item_Access_Pass_881"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "Item_Access_Pass_881"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Supply Cache Decoder. It requires input from the Outpost Archive Extractor to function properly."
+    },
+    {
+      "id": "zip_unzip_file_ac72",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "resource_package_x.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"Terminal_Alpha_0\", \"Relay_Station_1\", \"Hub_Central\", \"Relay_Station_8\", \"Terminal_Omega_9\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "node_definition_config.json"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "resource_package_x.zip"
+        },
+        "outputs": {
+          "files": "node_definition_config.json"
+        }
+      },
+      "narrative": "This is the Outpost Archive Extractor. It requires input from the Sector Mapping Terminal to initiate its extraction process."
+    },
+    {
+      "id": "graph_shortest_path_874d",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "coordinate_map_v9.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Terminal_Alpha_0"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Terminal_Omega_9"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Terminal_Alpha_0\", \"Relay_Station_1\", \"Hub_Central\", \"Relay_Station_8\", \"Terminal_Omega_9\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "29384756102938475610"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "coordinate_map_v9.json",
+          "src": "Terminal_Alpha_0",
+          "dst": "Terminal_Omega_9"
+        },
+        "outputs": {
+          "path": "[\"Terminal_Alpha_0\", \"Relay_Station_1\", \"Hub_Central\", \"Relay_Station_8\", \"Terminal_Omega_9\"]",
+          "cost": "29384756102938475610"
+        }
+      },
+      "narrative": "An old Sector Mapping Terminal covered in a thick layer of radioactive dust."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A delicate Temporal Synchronizer emitting a faint, pulsing blue glow."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "hex_encode",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "text"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file_2736",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file_6df4",
+      "target_id": "zip_unzip_file_2736",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "zip_unzip_file_6df4",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "password"
+    },
+    {
+      "source_id": "zip_unzip_file_f4aa",
+      "target_id": "zip_unzip_file_6df4",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "zip_unzip_file_f4aa",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "password"
+    },
+    {
+      "source_id": "zip_unzip_file_ecd9",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "container_3",
+      "target_id": "zip_unzip_file_ecd9",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "zip_unzip_file_2736",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "unicode_norm",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "src"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "unicode_norm",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "unicode_norm",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "select"
+    },
+    {
+      "source_id": "zip_unzip_file_ac72",
+      "target_id": "zip_unzip_item",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "graph_shortest_path_874d",
+      "target_id": "zip_unzip_file_ac72",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    }
+  ]
+}

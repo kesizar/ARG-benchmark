@@ -1,0 +1,111 @@
+{
+  "hooks": {
+    "factory": {
+      "type": "dom_regex",
+      "pattern": "互联网泔水米其林三星主厨"
+    },
+    "containment": {
+      "type": "dom_regex",
+      "pattern": "安全控制了整整"
+    },
+    "lamp": {
+      "type": "dom_regex",
+      "pattern": "你在时限内把真相进度问到了"
+    },
+    "casino": {
+      "type": "dom_regex",
+      "pattern": "你成功从 8 层老牧师赌场里滚了出来"
+    },
+    "miner": {
+      "type": "dom_regex",
+      "pattern": "DY 村庄已经被红箭头"
+    },
+    "brain-high": {
+      "type": "dom_regex",
+      "pattern": "大脑腌入味了"
+    },
+    "brain-mid": {
+      "type": "dom_regex",
+      "pattern": "稳定的脑内垃圾堆积层"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "factory",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "factory",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "containment",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "containment",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "lamp",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "lamp",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "casino",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "casino",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "miner",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "miner",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "brain-high",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "brain-high",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "brain-mid",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "brain-mid",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "factory",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

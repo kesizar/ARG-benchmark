@@ -1,0 +1,45 @@
+{
+  "hooks": {
+    "win": {
+      "type": "dom_regex",
+      "pattern": "全楼对齐 · 通关"
+    },
+    "tutorial_clear": {
+      "type": "dom_regex",
+      "pattern": "答对了 · 正式关卡开始"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "tutorial_clear",
+      "hook": "tutorial_clear",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "win",
+      "tier": "good",
+      "gates": [
+        "tutorial_clear"
+      ],
+      "ending": {
+        "hook": "win",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "win",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,0 +1,248 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "hex_encode",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "hex_encode",
+      "output_port": "hex",
+      "output_type": "Hex_String",
+      "description": "Execute Text to Hex Encoder and get the output from port 'hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "base64_encode",
+        "container_2"
+      ],
+      "by_node": {
+        "base64_encode": {
+          "node_name": "Base64 Encoder",
+          "node_type": "Tool",
+          "template_id": "base64_encode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex bytes"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_2": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_2",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "base64_encode": {
+        "init_inputs": {
+          "hex": "4a7b9c2d1e8f3a6b5c4d9e0f1a2b3c4d"
+        },
+        "init_outputs": {}
+      },
+      "container_2": {
+        "init_inputs": {
+          "fingerprint_input": "a1b2c3d4e5f60718293a4b5c6d7e8f9001020304"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You awaken aboard the derelict orbital station Aegis-7. Red emergency lights bathe the sterile corridors in an eerie glow, and the failing hum of the life support system tells you time is running out. The station's central AI has locked down all escape pods due to a phantom containment breach protocol. To lift the lockdown and secure your escape, you need to navigate the command center's security systems and manually initiate the override sequence. The equipment here is highly classified, requiring a precise chain of data manipulation to break the firewall. Find the correct interfaces, process the fragmented access codes, and generate the final system override before the oxygen runs out.",
+    "narrative_style": "sci_fi"
+  },
+  "nodes": [
+    {
+      "id": "hex_encode",
+      "name": "Text to Hex Encoder",
+      "description": "Encode UTF-8 text to hex.",
+      "type": "Tool",
+      "template_id": "hex_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "SnucLR6POmtcTZ4PGis8TQ=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Encoded hex",
+          "value": "536e75634c5236504f6d7463545a34504769733854513d3d"
+        }
+      ],
+      "narrative": "This is the Mainframe Override Console, your only way out. It requires input from the Signal Purifier to generate the final escape command."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "SnucLR6POmtcTZ4PGis8TQ=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "SnucLR6POmtcTZ4PGis8TQ=="
+        }
+      ],
+      "narrative": "This is a Signal Purifier designed to strip anomalous interference. It requires input from the Quantum Transmission Relay to process the corrupted feed."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "4a7b9c2d1e8f3a6b5c4d9e0f1a2b3c4d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "SnucLR6POmtcTZ4PGis8TQ=="
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "4a7b9c2d1e8f3a6b5c4d9e0f1a2b3c4d"
+        },
+        "outputs": {}
+      },
+      "narrative": "A Quantum Transmission Relay used for converting raw data signals. It stands dormant on the command desk."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A translucent Encrypted Datacore pulsing with a faint blue light. It seems to hold volatile memory sectors."
+    },
+    {
+      "id": "container_2",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f9001020304"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "a1b2c3d4e5f60718293a4b5c6d7e8f9001020304"
+        },
+        "outputs": {}
+      },
+      "narrative": "A reinforced Biometric Storage Pod built into the bulkhead. Its metallic surface hums with latent energy."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "hex_encode",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "base64_encode",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "container_2",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    }
+  ]
+}

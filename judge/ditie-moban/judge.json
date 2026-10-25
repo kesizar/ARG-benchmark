@@ -1,0 +1,171 @@
+{
+  "hooks": {
+    "together": {
+      "type": "dom_regex",
+      "pattern": "结局 8/10 · 集体逃脱"
+    },
+    "evidence": {
+      "type": "dom_regex",
+      "pattern": "结局 9/10 · 证据终局"
+    },
+    "message": {
+      "type": "dom_regex",
+      "pattern": "结局 5/10 · 信使"
+    },
+    "real": {
+      "type": "dom_regex",
+      "pattern": "结局 7/10 · 真实逃脱"
+    },
+    "detective": {
+      "type": "dom_regex",
+      "pattern": "结局 3/10 · 调查员觉醒"
+    },
+    "loop": {
+      "type": "dom_regex",
+      "pattern": "结局 4/10 · 循环者"
+    },
+    "mirror": {
+      "type": "dom_regex",
+      "pattern": "结局 1/10 · 镜像终点"
+    },
+    "relic": {
+      "type": "dom_regex",
+      "pattern": "结局 2/10 · 遗留物"
+    },
+    "merge": {
+      "type": "dom_regex",
+      "pattern": "结局 6/10 · 同化"
+    },
+    "usb": {
+      "type": "dom_regex",
+      "pattern": "结局 10/10 · U盘循环"
+    },
+    "combo_recorder": {
+      "type": "dom_regex",
+      "pattern": "组合：把录音传到手机"
+    },
+    "combo_evidence": {
+      "type": "dom_regex",
+      "pattern": "组合：照片\\+数据=完整证据"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "combo_recorder",
+      "hook": "combo_recorder",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "combo_evidence",
+      "hook": "combo_evidence",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "together",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "together",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "evidence",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "evidence",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "message",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "message",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "real",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "real",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "detective",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "detective",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "loop",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "loop",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "mirror",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "mirror",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "relic",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "relic",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "merge",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "merge",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "usb",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "usb",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "together",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

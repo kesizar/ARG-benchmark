@@ -1,0 +1,65 @@
+{
+  "hooks": {
+    "end_a": {
+      "type": "dom_regex",
+      "pattern": "结局 A · 花开如约"
+    },
+    "end_b": {
+      "type": "dom_regex",
+      "pattern": "结局 B · 路没白走"
+    },
+    "end_c": {
+      "type": "dom_regex",
+      "pattern": "结局 C · 花开别处"
+    },
+    "note": {
+      "type": "dom_regex",
+      "pattern": "乘客的备注安静地亮着"
+    }
+  },
+  "checkpoints": [
+    {"id": "note", "hook": "note", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "bloom",
+      "tier": "good",
+      "gates": ["note"],
+      "ending": {
+        "hook": "end_a",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "road",
+      "tier": "normal",
+      "gates": ["note"],
+      "ending": {
+        "hook": "end_b",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "elsewhere",
+      "tier": "normal",
+      "gates": ["note"],
+      "ending": {
+        "hook": "end_c",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end_a",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

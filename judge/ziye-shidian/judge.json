@@ -1,0 +1,98 @@
+{
+  "hooks": {
+    "dengta": {
+      "type": "dom_regex",
+      "pattern": "正义结局 · 灯塔"
+    },
+    "miwu": {
+      "type": "dom_regex",
+      "pattern": "掩盖结局 · 迷雾"
+    },
+    "guitu": {
+      "type": "dom_regex",
+      "pattern": "生还结局 · 归途"
+    },
+    "kongxiang": {
+      "type": "dom_regex",
+      "pattern": "遗憾结局 · 空巷"
+    },
+    "shouye": {
+      "type": "dom_regex",
+      "pattern": "沉沦结局 · 新守夜人"
+    },
+    "liefeng": {
+      "type": "dom_regex",
+      "pattern": "回头结局 · 裂缝之光"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "dengta",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "dengta",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "miwu",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "miwu",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "guitu",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "guitu",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "kongxiang",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "kongxiang",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "shouye",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "shouye",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "liefeng",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "liefeng",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "dengta",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

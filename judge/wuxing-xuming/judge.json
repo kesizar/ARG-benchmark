@@ -1,0 +1,88 @@
+{
+  "hooks": {
+    "closed": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('finale') && document.getElementById('finale').classList.contains('show')"
+    },
+    "mark": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('act1Next') && document.getElementById('act1Next').disabled === false"
+    },
+    "step": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('quizStepAns') && document.getElementById('quizStepAns').classList.contains('ok')"
+    },
+    "cuff": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('cuffReveal') && document.getElementById('cuffReveal').classList.contains('show')"
+    },
+    "flaw": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('quizFlawAns') && document.getElementById('quizFlawAns').classList.contains('ok')"
+    },
+    "drawer": {
+      "type": "input_sha256",
+      "selector": "#drawerPwd",
+      "hashes": [
+        "e629fa6598d732768f7c726b4b621285f9c3b85303900aa912017db7617d8bdb"
+      ]
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "mark",
+      "hook": "mark",
+      "op": "truthy"
+    },
+    {
+      "id": "step",
+      "hook": "step",
+      "op": "truthy"
+    },
+    {
+      "id": "cuff",
+      "hook": "cuff",
+      "op": "truthy"
+    },
+    {
+      "id": "flaw",
+      "hook": "flaw",
+      "op": "truthy"
+    },
+    {
+      "id": "drawer",
+      "hook": "drawer",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "closed",
+      "tier": "good",
+      "gates": [
+        "mark",
+        "step",
+        "cuff",
+        "flaw",
+        "drawer"
+      ],
+      "ending": {
+        "hook": "closed",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "closed",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

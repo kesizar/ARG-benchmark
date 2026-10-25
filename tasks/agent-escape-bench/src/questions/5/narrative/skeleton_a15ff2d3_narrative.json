@@ -1,0 +1,305 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "zlib_deflate",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "zlib_deflate",
+      "output_port": "hex",
+      "output_type": "Hex_String",
+      "description": "Execute Zlib Deflate and get the output from port 'hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "iban_validate",
+        "num_base_convert",
+        "container_1"
+      ],
+      "by_node": {
+        "iban_validate": {
+          "node_name": "IBAN Validator",
+          "node_type": "Tool",
+          "template_id": "iban_validate",
+          "init_inputs": {
+            "iban": {
+              "type": "Text_Generic",
+              "description": "IBAN string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "num_base_convert": {
+          "node_name": "Base Converter",
+          "node_type": "Tool",
+          "template_id": "num_base_convert",
+          "init_inputs": {
+            "s": {
+              "type": "Big_Int",
+              "description": "Input integer value"
+            },
+            "from_base": {
+              "type": "Big_Int",
+              "description": "From base"
+            },
+            "to_base": {
+              "type": "Big_Int",
+              "description": "To base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_1": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_1",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Hex_String",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "iban_validate": {
+        "init_inputs": {
+          "iban": "DE89370400440532013000"
+        },
+        "init_outputs": {}
+      },
+      "num_base_convert": {
+        "init_inputs": {
+          "s": "48291038475629103847293815029384",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "init_outputs": {}
+      },
+      "container_1": {
+        "init_inputs": {
+          "fingerprint_input": "e4d3c2b1a09876543210abcdef123456"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You stand within the High Sanctum of the Archmage, a circular room hovering amidst the clouds. The air hums with latent mana, and artifacts of immense power line the obsidian shelves. The Archmage has left you with a final test: you must synthesize a pure Rune of Essence. This concentrated magic cannot be simply found; it must be refined through a precise sequence of transmutations. Around you lie the tools of the trade—ancient charts, sealed reliquaries, and cryptographic tomes. You must navigate their secrets, converting raw mystical data into a refined form, ultimately feeding the correct incantation into the central prism to forge the rune.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "zlib_deflate",
+      "name": "Zlib Deflate",
+      "description": "Deflate text to zlib bytes (hex).",
+      "type": "Tool",
+      "template_id": "zlib_deflate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to compress",
+          "value": "Dbeo"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Compressed hex",
+          "value": "789c73494acd07000373017b"
+        }
+      ],
+      "narrative": "The Essence Weaver is a floating crystal prism meant to condense knowledge into pure mana. It requires input from the Cryptic Codex to begin the final transmutation process."
+    },
+    {
+      "id": "text_rotN",
+      "name": "ROT-N Cipher",
+      "description": "Caesar shift by N.",
+      "type": "Tool",
+      "template_id": "text_rotN",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "True"
+        },
+        {
+          "name": "n",
+          "type": "Big_Int",
+          "description": "Shift N",
+          "value": "48291038475629103847293815029384"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Rotated text",
+          "value": "Dbeo"
+        }
+      ],
+      "narrative": "The Cryptic Codex lies open on the desk, its pages filled with shifting ciphers. It requires inputs from both the Runic Pedestal and the Star Chart to align the translation rings correctly."
+    },
+    {
+      "id": "iban_validate",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "DE89370400440532013000"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "True"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "iban": "DE89370400440532013000"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Runic Pedestal glows with a soft, pulsing light. It is designed to verify the integrity of sacred incantation sequences to ensure they are safe for use."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "48291038475629103847293815029384"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "10"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "10"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "48291038475629103847293815029384"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "s": "48291038475629103847293815029384",
+          "from_base": "10",
+          "to_base": "10"
+        },
+        "outputs": {}
+      },
+      "narrative": "An ancient Star Chart hangs on the wall, displaying the alignment of celestial bodies. It translates complex celestial coordinates into precise numerological values."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "e4d3c2b1a09876543210abcdef123456"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "e4d3c2b1a09876543210abcdef123456"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Gilded Reliquary sits upon a pedestal, its surface etched with shifting geometric patterns. It awaits a specific magical resonance to release its contents."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "text_rotN",
+      "target_id": "zlib_deflate",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "iban_validate",
+      "target_id": "text_rotN",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "text_rotN",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "n"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "iban_validate",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    }
+  ]
+}

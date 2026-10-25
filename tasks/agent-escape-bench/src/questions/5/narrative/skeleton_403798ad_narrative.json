@@ -1,0 +1,305 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "calc_gcd",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "calc_gcd",
+      "output_port": "gcd",
+      "output_type": "Big_Int",
+      "description": "Execute BigInt GCD Calculator and get the output from port 'gcd'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "calc_inv_mod",
+        "calc_gcd_83be",
+        "calc_bigmul"
+      ],
+      "by_node": {
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd_83be": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "8374659102938475619203",
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd_83be": {
+        "init_inputs": {
+          "b": "2938475610928374650192"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "5647382910192837465012",
+          "b": "7483920192837465102938"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You are Lead Detective Vance of the Cyber Crimes Division. After months of dead ends, you've finally tracked down the elusive 'Architect'—a mastermind behind a string of untraceable corporate embezzlements. You stand inside his dimly lit, abandoned safehouse. The room is a chaotic web of scattered documents, burnt hard drives, and strange, archaic computing machinery. The Architect has locked his master digital ledger inside a heavily fortified central server. Getting your hands on that ledger is the only way to put him behind bars for good. However, the system is designed to self-destruct if tampered with. To bypass the final lock, you will need to operate his specialized investigative tools, piece together forensic trails, and crack layered encryption systems. The local authorities will be here in an hour to sweep the building; you must secure the evidence before they contaminate the crime scene. The clock is ticking, Detective.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "8"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "51901"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "1"
+        }
+      ],
+      "narrative": "This is the Main Vault Terminal. It requires inputs from both the Cryptographic Decoder and the Evidence Comparator to unlock the final ledger."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "8374659102938475619203"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "51901"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "8374659102938475619203",
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "An old Cryptographic Decoder hidden behind a bookshelf. It is used to reverse complex cipher algorithms."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A crumpled flight itinerary found in the trash bin. It seems to have been hastily discarded by the suspect."
+    },
+    {
+      "id": "calc_gcd_83be",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "42264562998277385028392346959370577553405256"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "2938475610928374650192"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "8"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "b": "2938475610928374650192"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Evidence Comparator. It requires input from the Forensic Analyzer. Once the analyzer processes the data, feed the result here."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "5647382910192837465012"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "7483920192837465102938"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "42264562998277385028392346959370577553405256"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "5647382910192837465012",
+          "b": "7483920192837465102938"
+        },
+        "outputs": {}
+      },
+      "narrative": "A dusty Forensic Analyzer sitting on the desk. It processes raw financial data left behind by the suspect."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "b"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_gcd_83be",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_gcd_83be",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "a"
+    }
+  ]
+}

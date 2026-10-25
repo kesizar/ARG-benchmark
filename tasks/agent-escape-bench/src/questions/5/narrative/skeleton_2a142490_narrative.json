@@ -1,0 +1,271 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_15",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_15",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_15",
+        "csv_query"
+      ],
+      "by_node": {
+        "item_15": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_15",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "Timezone text"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "CSV file ID"
+            },
+            "select": {
+              "type": "Text_Generic",
+              "description": "Columns to select"
+            },
+            "where": {
+              "type": "Text_Generic",
+              "description": "Where clause"
+            }
+          },
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_15": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "Asia/Tokyo"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {
+          "file_id": "inventory_data_2024.csv",
+          "select": "id, product_name, stock_count, category",
+          "where": "stock_count < 50 AND category = 'Electronics'"
+        },
+        "init_outputs": {
+          "rows": "[{\"id\": 1045, \"product_name\": \"Wireless Mouse\", \"stock_count\": 12, \"category\": \"Electronics\"}, {\"id\": 1088, \"product_name\": \"USB Hub\", \"stock_count\": 34, \"category\": \"Electronics\"}, {\"id\": 1120, \"product_name\": \"HDMI Cable\", \"stock_count\": 8, \"category\": \"Electronics\"}, {\"id\": 1155, \"product_name\": \"Webcam\", \"stock_count\": 22, \"category\": \"Electronics\"}]"
+        }
+      }
+    },
+    "intro_narrative": "You are Detective Hayes, standing in the dimly lit crime lab at Precinct 42. The rain is lashing against the windowpanes. A high-profile murder case just landed on your desk, and the chief wants answers before sunrise. The victim's belongings have been brought in from the crime scene, but the most crucial piece of evidence is locked away behind strict security measures. You need to comb through the recovered personal effects, access the precinct's digital records, and piece together the timeline of the murder. The clock is ticking, and the killer's trail is going cold. Your primary objective is to extract the critical timeline data from the evidence to solve the case.",
+    "narrative_style": "detective"
+  },
+  "nodes": [
+    {
+      "id": "item_15",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_15",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "Timezone text",
+          "value": "Asia/Tokyo"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "Asia/Tokyo"
+        }
+      },
+      "narrative": "A high-end Victim's Smartwatch recovered from the crime scene. Its screen is cracked, but the internal memory seems fully intact."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "[{\"id\": 1045, \"product_name\": \"Wireless Mouse\", \"stock_count\": 12, \"category\": \"Electronics\"}, {\"id\": 1088, \"product_name\": \"USB Hub\", \"stock_count\": 34, \"category\": \"Electronics\"}, {\"id\": 1120, \"product_name\": \"HDMI Cable\", \"stock_count\": 8, \"category\": \"Electronics\"}, {\"id\": 1155, \"product_name\": \"Webcam\", \"stock_count\": 22, \"category\": \"Electronics\"}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is a Biometric Evidence Safe used to store sensitive items. It requires input from the Police Database Terminal to bypass the fingerprint lock."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A small Hidden Compartment that looks like it was carefully designed to conceal important items from prying eyes."
+    },
+    {
+      "id": "item_8_6a97",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "The Victim's Wallet, made of worn leather. It was found near the alleyway, stained and slightly damaged from the struggle."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "inventory_data_2024.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "id, product_name, stock_count, category"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "stock_count < 50 AND category = 'Electronics'"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"id\": 1045, \"product_name\": \"Wireless Mouse\", \"stock_count\": 12, \"category\": \"Electronics\"}, {\"id\": 1088, \"product_name\": \"USB Hub\", \"stock_count\": 34, \"category\": \"Electronics\"}, {\"id\": 1120, \"product_name\": \"HDMI Cable\", \"stock_count\": 8, \"category\": \"Electronics\"}, {\"id\": 1155, \"product_name\": \"Webcam\", \"stock_count\": 22, \"category\": \"Electronics\"}]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "inventory_data_2024.csv",
+          "select": "id, product_name, stock_count, category",
+          "where": "stock_count < 50 AND category = 'Electronics'"
+        },
+        "outputs": {
+          "rows": "[{\"id\": 1045, \"product_name\": \"Wireless Mouse\", \"stock_count\": 12, \"category\": \"Electronics\"}, {\"id\": 1088, \"product_name\": \"USB Hub\", \"stock_count\": 34, \"category\": \"Electronics\"}, {\"id\": 1120, \"product_name\": \"HDMI Cable\", \"stock_count\": 8, \"category\": \"Electronics\"}, {\"id\": 1155, \"product_name\": \"Webcam\", \"stock_count\": 22, \"category\": \"Electronics\"}]"
+        }
+      },
+      "narrative": "The Police Database Terminal. It allows detectives to search through forensic files and cross-reference biometric records."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_4",
+      "target_id": "item_15",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "item_8_6a97",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "fingerprint_input"
+    }
+  ]
+}

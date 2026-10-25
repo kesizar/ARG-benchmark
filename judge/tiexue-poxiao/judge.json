@@ -1,0 +1,183 @@
+{
+  "hooks": {
+    "end-good": {
+      "type": "dom_regex",
+      "pattern": "铁血破晓 · 民国肇立"
+    },
+    "archive": {
+      "type": "dom_regex",
+      "pattern": "验押通过。档案卷宗已解锁"
+    },
+    "bomb": {
+      "type": "dom_regex",
+      "pattern": "邏 輯 炸 彈 · 投 下"
+    },
+    "seal": {
+      "type": "input_sha256",
+      "selector": "#jg-key",
+      "hashes": [
+        "e44583a7f63b5025b0b5e1527948f21bc9cc5f80106b59f2c5c54cfa506a8f05"
+      ]
+    },
+    "site1": {
+      "type": "input_sha256",
+      "selector": "#oci-junji",
+      "hashes": [
+        "1d2c9a3a6af7f5e36c17f24bb22baf25017973d367f019c2635f510b8ffec111",
+        "f5966079520f57ff01bcea9a4214a109c21621f5c2572b5f9ed8496ab82937dc",
+        "2971e2df62e07a4438d0cd4920775d42a1426169481c015f781c6daea46508d4"
+      ]
+    },
+    "site2": {
+      "type": "input_sha256",
+      "selector": "#oci-bingbu",
+      "hashes": [
+        "7fc1fa1b5bbaef8fe57ad716b0a1d4794de663bac88bcef73b53550cd0edad25",
+        "0a922cda2d481c1e51203045967edb0c7c297deba0a18e9d41fe0a248bb5620c"
+      ]
+    },
+    "site3": {
+      "type": "input_sha256",
+      "selector": "#oci-dianbao",
+      "hashes": [
+        "56229b6b3cf7d391dac9047dfa0701f28657719174294594852cf21b71ddb095",
+        "e4745e9d5106bae03816f6128b9c1633e975eb97da980b97ef660b2b85ecfaaa",
+        "faf54a4ca2317f3750e34224573e47b301c85ec0b7df1d71b15dac55bb71525d"
+      ]
+    },
+    "site4": {
+      "type": "input_sha256",
+      "selector": "#oci-zhizao",
+      "hashes": [
+        "8bba8a24aea2f3314fa3bade0741ed9faf5a092abfbef51f8e28975dccc0056f",
+        "bcb3af24298954c16166758fdd0f9c6de432a9a13f901ca88a5435dd5e173337"
+      ]
+    },
+    "site5": {
+      "type": "input_sha256",
+      "selector": "#oci-beiyang",
+      "hashes": [
+        "dd1265df4c8a55830f69b82d69b285628721e55ec974ce4604a8d7defbfe7956"
+      ]
+    },
+    "site6": {
+      "type": "input_sha256",
+      "selector": "#oci-jinwei",
+      "hashes": [
+        "80fe17086759d9ea4ca4cf8f80813fd5020c36a62ff067ae7aa59fd4dd82b5f5",
+        "cbaf155a58fc20e7557dac9f1a517271d4dc6262f9f32fa8a3b391ae36f504c6",
+        "ab263202f0ee1cfff4c15db1fd9a4968f48ca4a5ef2c5b52df96002141edf06f"
+      ]
+    },
+    "site7": {
+      "type": "input_sha256",
+      "selector": "#oci-maji",
+      "hashes": [
+        "3c136c0785ffeafc7fc6250b2ee87ec3eaf1ed7cc4db6a8f86a52f3b169cf911",
+        "641788f6d685342bd3f1d890761cab863c16c7a1d2f2e49bd4a9c252342f0edf"
+      ]
+    },
+    "site8": {
+      "type": "input_sha256",
+      "selector": "#oci-zongli",
+      "hashes": [
+        "5dec8d76d593e78c65b25bc02b5f734ef6df73766c91423155fbe5ac11f61f4f",
+        "b1f78e4cffa4584d076f1050a5a33a1d29e364552285122b3f223539bec08e1a",
+        "50aa380a1b74c8288c65c6b583141532560047086f9ed1f7e79dfca011b45368"
+      ]
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "archive",
+      "hook": "archive",
+      "op": "truthy"
+    },
+    {
+      "id": "bomb",
+      "hook": "bomb",
+      "op": "truthy"
+    },
+    {
+      "id": "site1",
+      "hook": "site1",
+      "op": "truthy"
+    },
+    {
+      "id": "site2",
+      "hook": "site2",
+      "op": "truthy"
+    },
+    {
+      "id": "site3",
+      "hook": "site3",
+      "op": "truthy"
+    },
+    {
+      "id": "site4",
+      "hook": "site4",
+      "op": "truthy"
+    },
+    {
+      "id": "site5",
+      "hook": "site5",
+      "op": "truthy"
+    },
+    {
+      "id": "site6",
+      "hook": "site6",
+      "op": "truthy"
+    },
+    {
+      "id": "site7",
+      "hook": "site7",
+      "op": "truthy"
+    },
+    {
+      "id": "site8",
+      "hook": "site8",
+      "op": "truthy"
+    },
+    {
+      "id": "seal",
+      "hook": "seal",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "found",
+      "tier": "good",
+      "gates": [
+        "archive",
+        "bomb",
+        "site1",
+        "site2",
+        "site3",
+        "site4",
+        "site5",
+        "site6",
+        "site7",
+        "site8",
+        "seal"
+      ],
+      "ending": {
+        "hook": "end-good",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end-good",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

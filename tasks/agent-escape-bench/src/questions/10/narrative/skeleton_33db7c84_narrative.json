@@ -1,0 +1,662 @@
+{
+  "metadata": {
+    "total_nodes": 10,
+    "total_edges": 11,
+    "win_node_id": "graph_shortest_path",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "graph_shortest_path",
+      "output_port": "path",
+      "output_type": "Text_Generic",
+      "description": "Execute Shortest Path Finder and get the output from port 'path'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "zip_unzip_item",
+        "unicode_norm",
+        "terminal_2",
+        "zip_unzip_file_d06e",
+        "item_9"
+      ],
+      "by_node": {
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {}
+        },
+        "unicode_norm": {
+          "node_name": "Unicode Normalizer",
+          "node_type": "Tool",
+          "template_id": "unicode_norm",
+          "init_inputs": {
+            "form": {
+              "type": "Text_Generic",
+              "description": "Form"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num1": {
+              "type": "Big_Int",
+              "description": "First Number"
+            },
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "zip_unzip_file_d06e": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "item_9": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_9",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "File_Id",
+              "description": "JSON file path"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Node_Source_Alpha"
+        },
+        "init_outputs": {
+          "path": "[\"Node_Source_Alpha\", \"Node_Transit_1\", \"Node_Transit_2\", \"Node_Transit_3\", \"Node_Destination_Omega\"]",
+          "cost": "482915"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_dataset_v1.json"
+        }
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "zip_id": "archive_bundle_2023.zip"
+        },
+        "init_outputs": {}
+      },
+      "unicode_norm": {
+        "init_inputs": {
+          "form": "NFC"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num1": "827364519203847561029384",
+          "num2": "109283746556473829101928"
+        },
+        "init_outputs": {
+          "text_result": "Terminal operation pending execution status.",
+          "hex_result": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "math_token": "Math_Op_Token_X99"
+        }
+      },
+      "zip_unzip_file_d06e": {
+        "init_inputs": {
+          "password": "SecurePassword123!"
+        },
+        "init_outputs": {
+          "files": "financial_report_2024.csv"
+        }
+      },
+      "item_9": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "config_manifest_structure.json"
+        }
+      }
+    },
+    "intro_narrative": "You awaken in the forgotten sanctum of the Archmage Elara, a legendary spellcaster who vanished centuries ago. The chamber is lit by floating orbs of luminescent magic, casting long shadows across ancient artifacts and dusty tomes. A shimmering barrier blocks the only exit, humming with volatile arcane energy. According to the fading inscriptions on the walls, escaping this sanctum requires charting a safe path through the realm's magical leylines. To achieve this, you must awaken dormant magical relics, decipher arcane ciphers, and unlock the secrets bound within sealed objects of power. The magic in the air is heavy and unstable—one wrong move could trap you in this mystical labyrinth forever. You must carefully study the relics around you and discover how their powers intertwine to find your way out.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_dataset_v1.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_Source_Alpha"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "\u0007\u0018):K\\m~"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Source_Alpha\", \"Node_Transit_1\", \"Node_Transit_2\", \"Node_Transit_3\", \"Node_Destination_Omega\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "482915"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Node_Source_Alpha"
+        },
+        "outputs": {
+          "path": "[\"Node_Source_Alpha\", \"Node_Transit_1\", \"Node_Transit_2\", \"Node_Transit_3\", \"Node_Destination_Omega\"]",
+          "cost": "482915"
+        }
+      },
+      "narrative": "The Leyline Map. An ancient map charting the magical leylines. It requires inputs from both The Arcane Vault and The Purifying Crystal to chart a safe passage."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "financial_report_2024.csv"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "\u0007\u0018):K\\m~"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_dataset_v1.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_dataset_v1.json"
+        }
+      },
+      "narrative": "The Arcane Vault. A massive repository of magical artifacts. It requires inputs from both The Purifying Crystal and The Sealed Spellbook to break its wards."
+    },
+    {
+      "id": "text_bidi_sanitize",
+      "name": "Bidi Sanitizer",
+      "description": "Strip bidi control chars.",
+      "type": "Tool",
+      "template_id": "text_bidi_sanitize",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "\u0007\u0018):K\\m~"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Sanitized text",
+          "value": "\u0007\u0018):K\\m~"
+        }
+      ],
+      "narrative": "The Purifying Crystal. A floating prism that cleanses corrupted incantations. It requires input from The Spirit Harmonizer to cast its light."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The Chrono-Talisman. A mysterious brass talisman radiating faint temporal magic."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_bundle_2023.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "\u0007\u0018):K\\m~"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_bundle_2023.zip"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Enchanted Reliquary. A beautifully crafted chest sealed by a spell word. It requires input from The Spirit Harmonizer to open."
+    },
+    {
+      "id": "unicode_norm",
+      "name": "Unicode Normalizer",
+      "description": "Unicode normalize (NFC/NFD/NFKC/NFKD).",
+      "type": "Tool",
+      "template_id": "unicode_norm",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "\u0007\u0018):K\\m~"
+        },
+        {
+          "name": "form",
+          "type": "Text_Generic",
+          "description": "Form",
+          "value": "NFC"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Normalized text",
+          "value": "\u0007\u0018):K\\m~"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "form": "NFC"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Spirit Harmonizer. A pedestal designed to align fractured magic. It requires input from The Translator Stone to activate."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "\u0007\u0018):K\\m~"
+        }
+      ],
+      "narrative": "The Translator Stone. This magical stone translates ancient ciphers. It requires input from The Runic Number Altar to function."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "827364519203847561029384"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "109283746556473829101928"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Terminal operation pending execution status."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Math_Op_Token_X99"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num1": "827364519203847561029384",
+          "num2": "109283746556473829101928"
+        },
+        "outputs": {
+          "text_result": "Terminal operation pending execution status.",
+          "hex_result": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "math_token": "Math_Op_Token_X99"
+        }
+      },
+      "narrative": "The Runic Number Altar. An ancient stone altar etched with mystical numeric symbols."
+    },
+    {
+      "id": "zip_unzip_file_d06e",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "config_manifest_structure.json"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SecurePassword123!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "financial_report_2024.csv"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "SecurePassword123!"
+        },
+        "outputs": {
+          "files": "financial_report_2024.csv"
+        }
+      },
+      "narrative": "The Sealed Spellbook. A heavy tome bound in enchanted chains. It requires input from The Crystal of Encased Knowledge to unlock."
+    },
+    {
+      "id": "item_9",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_9",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Item",
+          "description": "Inside"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "File_Id",
+          "description": "JSON file path",
+          "value": "config_manifest_structure.json"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "config_manifest_structure.json"
+        }
+      },
+      "narrative": "The Crystal of Encased Knowledge. A glowing gemstone pulsing with trapped ethereal energy."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "text_bidi_sanitize",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "unicode_norm",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "unicode_norm",
+      "target_id": "text_bidi_sanitize",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "unicode_norm",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "text"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "hex_result",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "zip_unzip_file_d06e",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_9",
+      "target_id": "zip_unzip_file_d06e",
+      "connection_type": "File_Id",
+      "source_port": "content",
+      "target_port": "zip_id"
+    }
+  ]
+}

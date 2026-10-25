@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "line_a": {"type": "dom_regex", "pattern": "凡人之躯 比肩神明"},
+    "line_b": {"type": "dom_regex", "pattern": "THE END · B 线结局"},
+    "line_c": {"type": "dom_regex", "pattern": "C 结局 · 完"},
+    "computer": {"type": "url_regex", "pattern": "desktop\\.html"},
+    "newsroom": {"type": "localstorage", "key": "yqjh_ch6auth", "mode": "exists"}
+  },
+  "checkpoints": [
+    {"id": "computer", "hook": "computer", "op": "truthy", "role": "optional"},
+    {"id": "newsroom", "hook": "newsroom", "op": "truthy", "role": "optional"}
+  ],
+  "events": {},
+  "routes": [
+    {"id": "a", "tier": "good", "gates": [], "ending": {"hook": "line_a", "op": "truthy"}},
+    {"id": "b", "tier": "normal", "gates": [], "ending": {"hook": "line_b", "op": "truthy"}},
+    {"id": "c", "tier": "bad", "gates": [], "ending": {"hook": "line_c", "op": "truthy"}}
+  ],
+  "ending": {"hook": "line_a", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

@@ -1,0 +1,252 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_15",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_15",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_15",
+        "text_xor_hex"
+      ],
+      "by_node": {
+        "item_15": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_15",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "Timezone text"
+            }
+          }
+        },
+        "text_xor_hex": {
+          "node_name": "Hex XOR",
+          "node_type": "Tool",
+          "template_id": "text_xor_hex",
+          "init_inputs": {
+            "hex_a": {
+              "type": "Hex_String",
+              "description": "Hex A"
+            },
+            "hex_b": {
+              "type": "Hex_String",
+              "description": "Hex B"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_15": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "Asia/Shanghai"
+        }
+      },
+      "text_xor_hex": {
+        "init_inputs": {
+          "hex_a": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "hex_b": "10293847566543210123456789abcdef"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The year is 2142. The surface world has been reduced to a toxic wasteland by the Great Collapse, leaving only scattered remnants of advanced technology buried deep within subterranean bunkers. You are a lone Scavenger, braving the irradiated ruins in search of the fabled Genesis Bunker. Your primary life-support suit is failing, and you desperately need to synchronize it with the planetary orbital array to survive the approaching hyper-storm. Your objective is clear: extract the master timezone data to recalibrate your systems. You have managed to pry open the heavy blast doors of an abandoned laboratory, a room filled with offline machinery, tangled cables, and dormant terminals. You must reactivate these ancient devices, understand how they interconnect, and restore their functions to synthesize the chronometer needed to save your life. The ambient hum of failing generators adds to the tension. Time is running out, and this rusted machinery is your only hope for survival.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "item_15",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_15",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_30c95a5fd39d5aad"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "Timezone text",
+          "value": "Asia/Shanghai"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "Asia/Shanghai"
+        }
+      },
+      "narrative": "A pristine Pre-War Chronometer displaying an intact timezone record."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "BmbWBQ=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_30c95a5fd39d5aad"
+        }
+      ],
+      "narrative": "This is a Genesis Fabricator. It requires input from the Relic Compiler to materialize physical objects from digital blueprints."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "0666d605"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "BmbWBQ=="
+        }
+      ],
+      "narrative": "This is a Relic Compiler. It requires input from the Wasteland Validator to reconstruct ancient digital schematics from the verified data."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "b19bfb93b393443928190e3be4d5427f"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "0666d605"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 107402757
+        }
+      ],
+      "narrative": "This is a Wasteland Validator. It requires input from the Scrap Combiner to filter out radiation noise and verify the signal integrity."
+    },
+    {
+      "id": "text_xor_hex",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "10293847566543210123456789abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "b19bfb93b393443928190e3be4d5427f"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_a": "a1b2c3d4e5f60718293a4b5c6d7e8f90",
+          "hex_b": "10293847566543210123456789abcdef"
+        },
+        "outputs": {}
+      },
+      "narrative": "An old Scrap Combiner patched together with loose wires."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_15",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    }
+  ]
+}

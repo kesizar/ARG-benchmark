@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human Evaluation Client</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Menlo', 'Consolas', monospace; background: #0f1117; color: #c9d1d9; font-size: 13px; height: 100vh; display: flex; flex-direction: column; }
+
+  /* ── 顶部栏 ── */
+  header {
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    padding: 10px 16px;
+    display: flex; align-items: center; gap: 12px;
+    flex-shrink: 0;
+  }
+  header h1 { font-size: 15px; color: #58a6ff; font-weight: 600; }
+  #status-badge {
+    font-size: 11px; padding: 2px 8px; border-radius: 10px;
+    background: #21262d; color: #8b949e; border: 1px solid #30363d;
+  }
+  #status-badge.loaded { background: #0d1117; color: #3fb950; border-color: #238636; }
+  #status-badge.win    { background: #0d1117; color: #f0883e; border-color: #d29922; }
+  #status-badge.gaveup { background: #0d1117; color: #ff7b72; border-color: #da3633; }
+  #step-counter { color: #8b949e; font-size: 11px; }
+  #player-badge { font-size: 11px; color: #79c0ff; margin-left: auto; }
+
+  /* ── 主体布局 ── */
+  main {
+    flex: 1; display: grid;
+    grid-template-columns: 280px 1fr 360px;
+    grid-template-rows: 1fr;
+    min-height: 0;
+  }
+
+  /* ── 左栏：环境状态 ── */
+  #left-panel {
+    background: #161b22;
+    border-right: 1px solid #30363d;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .panel-title {
+    font-size: 11px; font-weight: 600; color: #8b949e; text-transform: uppercase;
+    letter-spacing: .6px; padding: 8px 12px; border-bottom: 1px solid #30363d;
+    flex-shrink: 0;
+  }
+  #entities-list, #info-list {
+    overflow-y: auto; flex: 1; padding: 6px 0;
+  }
+  .entity-item {
+    padding: 5px 12px; cursor: pointer; border-radius: 4px; margin: 1px 6px;
+    display: flex; align-items: flex-start; gap: 6px;
+  }
+  .entity-item:hover { background: #21262d; }
+  .entity-type-badge {
+    font-size: 10px; padding: 1px 5px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    font-weight: 600;
+  }
+  .badge-Tool  { background: #1f6feb22; color: #58a6ff; border: 1px solid #1f6feb55; }
+  .badge-Item  { background: #23863622; color: #3fb950; border: 1px solid #23863655; }
+  .entity-id   { color: #c9d1d9; word-break: break-all; }
+  .entity-desc { color: #8b949e; font-size: 11px; margin-top: 1px; }
+  .divider { border: none; border-top: 1px solid #30363d; margin: 4px 0; }
+
+  #info-list { max-height: 180px; }
+  .info-item { padding: 4px 12px; }
+  .info-name  { color: #8b949e; font-size: 11px; }
+  .info-value { color: #e6edf3; word-break: break-all; }
+
+  /* ── 中栏：对话日志 ── */
+  #center-panel {
+    display: flex; flex-direction: column; min-height: 0;
+  }
+  #log-area {
+    flex: 1; overflow-y: auto; padding: 12px 16px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .log-entry { display: flex; flex-direction: column; gap: 3px; }
+  .log-meta { font-size: 10px; color: #484f58; }
+  .log-bubble {
+    padding: 8px 12px; border-radius: 6px; line-height: 1.6;
+    white-space: pre-wrap; word-break: break-word; max-width: 100%;
+  }
+  .role-system   .log-bubble { background: #1c2128; border-left: 3px solid #388bfd; color: #c9d1d9; }
+  .role-action   .log-bubble { background: #0d1117; border-left: 3px solid #3fb950; color: #e6edf3; }
+  .role-feedback .log-bubble { background: #161b22; border-left: 3px solid #8b949e; color: #c9d1d9; }
+  .role-feedback.win-entry .log-bubble { border-left-color: #f0883e; background: #161206; }
+  .role-feedback.giveup-entry .log-bubble { border-left-color: #da3633; background: #16060a; }
+
+  /* inline code */
+  .log-bubble code {
+    background: #21262d; padding: 1px 4px; border-radius: 3px;
+    font-family: inherit; font-size: 12px;
+  }
+  .log-bubble strong { color: #e6edf3; }
+
+  /* ── 右栏：操作面板 ── */
+  #right-panel {
+    background: #161b22;
+    border-left: 1px solid #30363d;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* 加载案例区 */
+  #load-section { padding: 10px 12px; border-bottom: 1px solid #30363d; flex-shrink: 0; }
+  #load-section label { font-size: 11px; color: #8b949e; display: block; margin-bottom: 4px; }
+  #player-id-input {
+    width: 100%; padding: 5px 8px; background: #0d1117; border: 1px solid #30363d;
+    color: #c9d1d9; border-radius: 4px; font-family: inherit; font-size: 12px;
+  }
+  #player-id-input:focus { outline: none; border-color: #388bfd; }
+
+  /* 难度选择器 */
+  .diff-tabs { display: flex; gap: 4px; margin-bottom: 6px; }
+  .diff-tab {
+    flex: 1; padding: 4px 0; text-align: center; border-radius: 4px;
+    font-size: 12px; font-weight: 600; cursor: pointer; border: 1px solid #30363d;
+    background: #0d1117; color: #8b949e; transition: all .15s;
+  }
+  .diff-tab:hover { border-color: #58a6ff; color: #58a6ff; }
+  .diff-tab.active { background: #1f6feb; border-color: #1f6feb; color: #fff; }
+
+  /* 题目列表 */
+  #case-list-wrap { margin-bottom: 6px; }
+  #case-select {
+    width: 100%; padding: 5px 8px; background: #0d1117; border: 1px solid #30363d;
+    color: #c9d1d9; border-radius: 4px; font-family: inherit; font-size: 12px;
+    max-height: 160px; overflow-y: auto;
+  }
+  #case-select:focus { outline: none; border-color: #388bfd; }
+  #case-select option { padding: 3px 0; }
+  #case-count { font-size: 10px; color: #484f58; margin-top: 3px; text-align: right; }
+  #cases-loading { font-size: 11px; color: #484f58; padding: 4px 0; }
+
+  /* 操作区 */
+  #action-section { flex: 1; overflow-y: auto; padding: 10px 12px; display: flex; flex-direction: column; gap: 10px; }
+
+  .field-label { font-size: 11px; color: #8b949e; margin-bottom: 3px; display: block; }
+
+  select, input[type=text], textarea {
+    width: 100%; padding: 5px 8px; background: #0d1117; border: 1px solid #30363d;
+    color: #c9d1d9; border-radius: 4px; font-family: inherit; font-size: 12px;
+  }
+  select:focus, input:focus, textarea:focus { outline: none; border-color: #388bfd; }
+  select option { background: #161b22; }
+
+  textarea { resize: vertical; min-height: 60px; }
+
+  /* 参数动态区 */
+  #params-area { display: flex; flex-direction: column; gap: 6px; }
+  .param-row { display: flex; gap: 6px; align-items: center; }
+  .param-name  { font-size: 11px; color: #8b949e; width: 90px; flex-shrink: 0; word-break: break-all; }
+  .param-input { flex: 1; }
+
+  /* 按钮 */
+  .btn {
+    padding: 6px 14px; border-radius: 5px; border: none; cursor: pointer;
+    font-family: inherit; font-size: 12px; font-weight: 600;
+    transition: opacity .15s;
+  }
+  .btn:hover { opacity: .85; }
+  .btn:disabled { opacity: .4; cursor: not-allowed; }
+  .btn-primary { background: #238636; color: #fff; width: 100%; margin-top: 4px; }
+  .btn-blue    { background: #1f6feb; color: #fff; width: 100%; }
+  .btn-sm      { padding: 3px 8px; font-size: 11px; background: #21262d; color: #c9d1d9; border: 1px solid #30363d; }
+  .btn-danger  { background: #da3633; color: #fff; width: 100%; margin-top: 4px; }
+  .btn-secondary { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; width: 100%; margin-top: 4px; }
+
+  #hint-box { font-size: 11px; color: #8b949e; background: #0d1117; border: 1px dashed #30363d; border-radius: 4px; padding: 6px 8px; }
+
+  /* 历史记录弹窗 */
+  #records-modal {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,.7);
+    z-index: 1000; align-items: center; justify-content: center;
+  }
+  #records-modal.visible { display: flex; }
+  #records-box {
+    background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+    width: 680px; max-height: 75vh; display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  #records-header {
+    padding: 12px 16px; border-bottom: 1px solid #30363d;
+    display: flex; align-items: center; gap: 8px;
+  }
+  #records-header h2 { font-size: 14px; color: #e6edf3; flex: 1; }
+  #records-filter { width: 200px; }
+  #records-body { overflow-y: auto; padding: 12px 16px; flex: 1; }
+  #records-close { background: none; border: none; color: #8b949e; font-size: 18px; cursor: pointer; padding: 0 4px; }
+  #records-close:hover { color: #c9d1d9; }
+  .records-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .records-table th { color: #8b949e; font-weight: 600; padding: 6px 8px; border-bottom: 1px solid #30363d; text-align: left; }
+  .records-table td { padding: 5px 8px; border-bottom: 1px solid #21262d; color: #c9d1d9; word-break: break-all; }
+  .records-table tr:last-child td { border-bottom: none; }
+  .tag-success { color: #3fb950; }
+  .tag-fail    { color: #ff7b72; }
+  .tag-giveup  { color: #f0883e; }
+  .records-player-header { font-size: 12px; color: #79c0ff; padding: 10px 0 4px; font-weight: 600; border-top: 1px solid #30363d; margin-top: 8px; }
+  .records-player-header:first-child { border-top: none; margin-top: 0; }
+
+  /* 滚动条 */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🔐 Human Evaluation Client</h1>
+  <span id="status-badge">未加载</span>
+  <span id="step-counter">步数: 0</span>
+  <span id="player-badge"></span>
+</header>
+
+<main>
+  <!-- ── 左栏 ── -->
+  <div id="left-panel">
+    <div class="panel-title">环境实体</div>
+    <div id="entities-list"></div>
+    <hr class="divider">
+    <div class="panel-title">可用信息</div>
+    <div id="info-list"></div>
+  </div>
+
+  <!-- ── 中栏 ── -->
+  <div id="center-panel">
+    <div class="panel-title" style="padding:8px 16px;border-bottom:1px solid #30363d;flex-shrink:0;">对话日志</div>
+    <div id="log-area"></div>
+  </div>
+
+  <!-- ── 右栏 ── -->
+  <div id="right-panel">
+    <!-- 加载案例 -->
+    <div id="load-section">
+      <div class="panel-title" style="margin-bottom:6px;padding:0;">加载案例</div>
+
+      <label>做题者 ID</label>
+      <input id="player-id-input" type="text" placeholder="输入做题者 ID（如：user_001）">
+
+      <label style="margin-top:8px;">选择难度</label>
+      <div class="diff-tabs">
+        <div class="diff-tab active" data-diff="5" onclick="selectDifficulty('5')">⭐ 5节点</div>
+        <div class="diff-tab" data-diff="10" onclick="selectDifficulty('10')">⭐⭐ 10节点</div>
+        <div class="diff-tab" data-diff="15" onclick="selectDifficulty('15')">⭐⭐⭐ 15节点</div>
+      </div>
+
+      <div id="case-list-wrap">
+        <label>选择题目</label>
+        <div id="cases-loading">加载题目列表中…</div>
+        <select id="case-select" size="5" style="display:none;" onchange="onCaseSelectChange()">
+          <option value="">── 请选择 ──</option>
+        </select>
+        <div id="case-count"></div>
+      </div>
+
+      <div style="display:flex;gap:6px;margin-top:6px;">
+        <button class="btn btn-blue" style="flex:1;" onclick="loadCase()">▶ 开始做题</button>
+        <button class="btn btn-secondary" style="flex:none;width:auto;padding:6px 10px;margin-top:0;" onclick="showRecords()">📊 记录</button>
+      </div>
+    </div>
+
+    <!-- 操作区 -->
+    <div id="action-section">
+      <!-- 操作类型选择 -->
+      <div>
+        <label class="field-label">操作类型</label>
+        <select id="action-type" onchange="onActionTypeChange()">
+          <option value="">── 请选择 ──</option>
+          <option value="investigate">🔍 investigate</option>
+          <option value="tool_call">⚙️ 调用工具节点</option>
+          <option value="use_item">🧩 use_item</option>
+          <option value="submit_answer">🏆 submit_answer</option>
+        </select>
+      </div>
+
+      <!-- investigate：选择或手动输入 node_id -->
+      <div id="section-investigate" style="display:none;">
+        <label class="field-label">目标节点 (node_id)</label>
+        <select id="inv-node-select" onchange="onInvNodeSelect()">
+          <option value="">── 从列表选择 ──</option>
+        </select>
+        <input id="inv-node-manual" type="text" placeholder="或手动输入 node_id" style="margin-top:4px;">
+      </div>
+
+      <!-- tool_call：选择工具 + 动态参数输入 -->
+      <div id="section-tool" style="display:none;">
+        <label class="field-label">选择已调查的工具</label>
+        <select id="tool-select" onchange="onToolSelect()">
+          <option value="">── 请先 investigate 工具 ──</option>
+        </select>
+        <div id="tool-hint" class="field-label" style="margin-top:4px; color:#484f58;"></div>
+        <div id="params-area" style="margin-top:6px;"></div>
+      </div>
+
+      <!-- use_item：选择 Item + 动态参数输入 -->
+      <div id="section-use-item" style="display:none;">
+        <label class="field-label">选择 Item 节点</label>
+        <select id="item-select" onchange="onItemSelect()">
+          <option value="">── 请先 investigate Item ──</option>
+        </select>
+        <div id="item-params-area" style="margin-top:6px;"></div>
+      </div>
+
+      <!-- submit_answer：输入答案 -->
+      <div id="section-submit" style="display:none;">
+        <label class="field-label">胜利字符串（answer）</label>
+        <textarea id="answer-input" placeholder="输入要提交的胜利字符串…" rows="3"></textarea>
+      </div>
+
+      <!-- 提示 -->
+      <div id="hint-box" style="display:none;"></div>
+
+      <!-- 提交按钮 -->
+      <button id="submit-btn" class="btn btn-primary" onclick="doAction()" disabled>提交</button>
+
+      <!-- 放弃按钮 -->
+      <button id="giveup-btn" class="btn btn-danger" onclick="doGiveup()" disabled style="display:none;">🏳️ 放弃本题</button>
+    </div>
+  </div>
+</main>
+
+<!-- ── 历史记录弹窗 ── -->
+<div id="records-modal" onclick="closeRecordsIfOutside(event)">
+  <div id="records-box">
+    <div id="records-header">
+      <h2>📊 历史做题记录</h2>
+      <input id="records-filter" class="records-filter" type="text" placeholder="按做题者 ID 过滤…" oninput="filterRecords()">
+      <button id="records-close" onclick="hideRecords()">✕</button>
+    </div>
+    <div id="records-body">
+      <div style="color:#484f58;font-size:12px;">加载中…</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────────────────────────
+// 状态
+// ─────────────────────────────────────────────────────────────────
+let state = {
+  playerId: null,
+  caseId: null,
+  step: 0,
+  entities: [],
+  info: [],
+  availableTools: [],      // [{id, description, inputs:[{name,type,description}], outputs}]
+  availableItemsForUse: [], // [{id, required_inputs:[{name,type}]}]
+  win: false,
+  gaveUp: false,
+  giveupAllowed: false,
+  giveupMinSteps: 35,
+};
+
+// 全量记录缓存（弹窗用）
+let _allRecords = {};
+
+// 题目列表缓存 { "5": [...], "10": [...], "15": [...] }
+let _casesData = {};
+let _currentDiff = "5";
+
+// ─────────────────────────────────────────────────────────────────
+// 工具函数
+// ─────────────────────────────────────────────────────────────────
+
+// 将输入框中的字面转义序列还原为真实字符，支持：
+//   \uXXXX → 对应 Unicode 字符
+//   \\      → 字面反斜杠（需最后处理，避免干扰其他转义）
+//   \n \t \r → 对应控制字符
+function unescapeInput(str) {
+  return str
+    .replace(/\\u([0-9a-fA-F]{4})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/\\x([0-9a-fA-F]{2})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/\\n/g, '\n')
+    .replace(/\\t/g, '\t')
+    .replace(/\\r/g, '\r')
+    .replace(/\\\\/g, '\\');
+}
+
+// 自动计算 base path，兼容反向代理（如 /proxy/8419/）
+const BASE_PATH = (function() {
+  const p = window.location.pathname;
+  // 去掉末尾的文件名（如 index.html），保留目录部分
+  const dir = p.endsWith('/') ? p : p.substring(0, p.lastIndexOf('/') + 1);
+  // 去掉末尾多余的斜杠，保留一个
+  return dir.replace(/\/+$/, '');
+})();
+
+function post(url, body) {
+  const fullUrl = BASE_PATH + url;
+  return fetch(fullUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  }).then(r => r.json());
+}
+
+function get(url) {
+  const fullUrl = BASE_PATH + url;
+  return fetch(fullUrl).then(r => r.json());
+}
+
+// 简单 Markdown 渲染（支持 **bold**、`code`、换行）
+function renderMd(text) {
+  return text
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\n/g, '<br>');
+}
+
+async function refreshState() {
+  const data = await get('/api/status');
+  state.playerId = data.player_id;
+  state.caseId = data.case_id;
+  state.step = data.step;
+  state.entities = data.entities || [];
+  state.info = data.info || [];
+  state.availableTools = data.available_tools || [];
+  state.availableItemsForUse = data.available_items_for_use || [];
+  state.win = data.win || false;
+  state.gaveUp = data.gave_up || false;
+  state.giveupAllowed = data.giveup_allowed || false;
+  state.giveupMinSteps = data.giveup_min_steps || 35;
+
+  renderEntities();
+  renderInfo();
+  renderLog(data.log || []);
+  updateToolSelect();
+  updateItemSelect();
+  updateInvSelect();
+  updateStatusBadge();
+  document.getElementById('step-counter').textContent = `步数: ${state.step}`;
+  document.getElementById('player-badge').textContent = state.playerId ? `👤 ${state.playerId}` : '';
+
+  const done = !state.caseId || state.win || state.gaveUp;
+  document.getElementById('submit-btn').disabled = done;
+
+  // 放弃按钮：有案例、未胜利、未放弃时显示；满足最少操作次数时激活
+  const giveupBtn = document.getElementById('giveup-btn');
+  if (state.caseId && !state.win && !state.gaveUp) {
+    giveupBtn.style.display = '';
+    giveupBtn.disabled = !state.giveupAllowed;
+    giveupBtn.title = state.giveupAllowed ? '放弃本题，视为失败' : `至少操作 ${state.giveupMinSteps} 次后才能放弃（当前 ${state.step} 次）`;
+  } else {
+    giveupBtn.style.display = 'none';
+  }
+}
+
+function updateStatusBadge() {
+  const badge = document.getElementById('status-badge');
+  if (state.gaveUp) {
+    badge.textContent = '🏳️ 已放弃'; badge.className = 'gaveup';
+  } else if (state.win) {
+    badge.textContent = '🎉 已通关'; badge.className = 'win';
+  } else if (state.caseId) {
+    badge.textContent = state.caseId; badge.className = 'loaded';
+  } else {
+    badge.textContent = '未加载'; badge.className = '';
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────
+// 渲染左栏
+// ─────────────────────────────────────────────────────────────────
+function renderEntities() {
+  const el = document.getElementById('entities-list');
+  if (!state.entities.length) { el.innerHTML = '<div style="padding:8px 12px;color:#484f58;font-size:11px;">（暂无）</div>'; return; }
+  el.innerHTML = state.entities.map(e => `
+    <div class="entity-item" onclick="quickInvestigate('${e.id}')" title="点击快速 investigate">
+      <span class="entity-type-badge badge-${e.type}">${e.type}</span>
+      <div>
+        <div class="entity-id">${e.id}</div>
+        ${e.description ? `<div class="entity-desc">${e.description}</div>` : ''}
+      </div>
+    </div>`).join('');
+}
+
+function renderInfo() {
+  const el = document.getElementById('info-list');
+  if (!state.info.length) { el.innerHTML = '<div style="padding:8px 12px;color:#484f58;font-size:11px;">（暂无）</div>'; return; }
+  el.innerHTML = state.info.map(i => {
+    // 直接显示值本身，不用 JSON.stringify 序列化，避免字符串被加上引号和转义
+    const val = i.value !== undefined ? i.value : i;
+    let displayVal = (val !== null && typeof val === 'object') ? JSON.stringify(val) : String(val);
+    // 将不可打印控制字符转义为可见形式，用户复制到输入框后 unescapeInput 会还原
+    displayVal = displayVal.replace(/[\u0000-\u001F\u007F]/g, c => {
+      const cp = c.charCodeAt(0);
+      if (cp === 0x0a) return '\\n';
+      if (cp === 0x0d) return '\\r';
+      if (cp === 0x09) return '\\t';
+      return '\\x' + cp.toString(16).padStart(2, '0');
+    });
+    return `
+    <div class="info-item">
+      <div class="info-name">${i.name || ''}</div>
+      <div class="info-value">${displayVal}</div>
+    </div>`;
+  }).join('');
+}
+
+// ─────────────────────────────────────────────────────────────────
+// 渲染对话日志
+// ─────────────────────────────────────────────────────────────────
+let _lastLogLen = 0;
+function renderLog(logs) {
+  if (logs.length === _lastLogLen) return;
+  _lastLogLen = logs.length;
+  const area = document.getElementById('log-area');
+  area.innerHTML = logs.map(entry => {
+    const winClass = (entry.role === 'feedback' && entry.content.includes('🎉')) ? 'win-entry' : '';
+    const giveupClass = (entry.role === 'system' && entry.content.includes('🏳️')) ? 'giveup-entry' : '';
+    return `<div class="log-entry role-${entry.role} ${winClass} ${giveupClass}">
+      <div class="log-meta">Step ${entry.step} · ${entry.time} · ${entry.role}</div>
+      <div class="log-bubble">${renderMd(entry.content)}</div>
+    </div>`;
+  }).join('');
+  area.scrollTop = area.scrollHeight;
+}
+
+// ─────────────────────────────────────────────────────────────────
+// 操作面板动态更新
+// ─────────────────────────────────────────────────────────────────
+function updateInvSelect() {
+  const sel = document.getElementById('inv-node-select');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">── 从列表选择 ──</option>';
+  state.entities.forEach(e => {
+    const opt = document.createElement('option');
+    opt.value = e.id; opt.textContent = `[${e.type}] ${e.id}`;
+    if (e.id === current) opt.selected = true;
+    sel.appendChild(opt);
+  });
+}
+
+function updateToolSelect() {
+  const sel = document.getElementById('tool-select');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">── 请先 investigate 工具 ──</option>';
+  state.availableTools.forEach(t => {
+    const opt = document.createElement('option');
+    opt.value = t.id; opt.textContent = t.id + (t.description ? ` — ${t.description.slice(0,30)}` : '');
+    if (t.id === current) { opt.selected = true; }
+    sel.appendChild(opt);
+  });
+  if (current) onToolSelect();
+}
+
+function updateItemSelect() {
+  const sel = document.getElementById('item-select');
+  const current = sel.value;
+  sel.innerHTML = '<option value="">── 请先 investigate Item ──</option>';
+  state.availableItemsForUse.forEach(item => {
+    const opt = document.createElement('option');
+    opt.value = item.id; opt.textContent = item.id;
+    if (item.id === current) opt.selected = true;
+    sel.appendChild(opt);
+  });
+  if (current) onItemSelect();
+}
+
+// ─────────────────────────────────────────────────────────────────
+// 操作类型切换
+// ─────────────────────────────────────────────────────────────────
+function onActionTypeChange() {
+  const t = document.getElementById('action-type').value;
+  document.getElementById('section-investigate').style.display = t === 'investigate' ? '' : 'none';
+  document.getElementById('section-tool').style.display       = t === 'tool_call'   ? '' : 'none';
+  document.getElementById('section-use-item').style.display   = t === 'use_item'    ? '' : 'none';
+  document.getElementById('section-submit').style.display     = t === 'submit_answer' ? '' : 'none';
+
+  const hints = {
+    investigate: 'investigate 一个实体，获取其详细信息和接口定义。调查 Tool 后可以直接调用该工具；调查 Item 后若需要参数则可使用 use_item。',
+    tool_call: '选择已调查的工具节点，填写参数后执行调用。',
+    use_item: '对需要参数才能解锁的 Item 节点使用 use_item，填写 investigate 时返回的 required_inputs。',
+    submit_answer: '将胜利字符串提交给系统，正确则通关。',
+  };
+  const hintBox = document.getElementById('hint-box');
+  if (hints[t]) { hintBox.textContent = hints[t]; hintBox.style.display = ''; }
+  else { hintBox.style.display = 'none'; }
+}
+
+function onInvNodeSelect() {
+  const val = document.getElementById('inv-node-select').value;
+  if (val) document.getElementById('inv-node-manual').value = '';
+}
+
+// 工具参数动态渲染
+function onToolSelect() {
+  const toolId = document.getElementById('tool-select').value;
+  const paramsArea = document.getElementById('params-area');
+  const hintEl = document.getElementById('tool-hint');
+  paramsArea.innerHTML = '';
+  hintEl.textContent = '';
+  if (!toolId) return;
+  const tool = state.availableTools.find(t => t.id === toolId);
+  if (!tool) return;
+  hintEl.textContent = tool.description || '';
+  if (!tool.inputs || !tool.inputs.length) {
+    paramsArea.innerHTML = '<div style="color:#8b949e;font-size:11px;">该工具无输入参数</div>';
+    return;
+  }
+  tool.inputs.forEach(inp => {
+    const row = document.createElement('div');
+    row.className = 'param-row';
+    row.innerHTML = `
+      <span class="param-name" title="${inp.description || ''}">${inp.name}<br><span style="color:#484f58;">${inp.type}</span></span>
+      <input class="param-input" type="text" data-param="${inp.name}" placeholder="${inp.description || inp.type}">`;
+    paramsArea.appendChild(row);
+  });
+}
+
+// use_item 参数动态渲染
+function onItemSelect() {
+  const itemId = document.getElementById('item-select').value;
+  const paramsArea = document.getElementById('item-params-area');
+  paramsArea.innerHTML = '';
+  if (!itemId) return;
+  const item = state.availableItemsForUse.find(i => i.id === itemId);
+  if (!item || !item.required_inputs || !item.required_inputs.length) {
+    paramsArea.innerHTML = '<div style="color:#8b949e;font-size:11px;">无必填参数</div>';
+    return;
+  }
+  item.required_inputs.forEach(inp => {
+    const row = document.createElement('div');
+    row.className = 'param-row';
+    row.innerHTML = `
+      <span class="param-name" title="${inp.description || ''}">${inp.name}<br><span style="color:#484f58;">${inp.type}</span></span>
+      <input class="param-input" type="text" data-param="${inp.name}" placeholder="${inp.description || inp.type}">`;
+    paramsArea.appendChild(row);
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────
+// 快捷操作（点击左栏实体）
+// ─────────────────────────────────────────────────────────────────
+function quickInvestigate(nodeId) {
+  document.getElementById('action-type').value = 'investigate';
+  onActionTypeChange();
+  document.getElementById('inv-node-select').value = nodeId || '';
+  document.getElementById('inv-node-manual').value = '';
+}
+
+// ─────────────────────────────────────────────────────────────────
+// 题目列表
+// ─────────────────────────────────────────────────────────────────
+
+// 初始化时加载所有题目
+async function initCaseList() {
+  const loadingEl = document.getElementById('cases-loading');
+  const selectEl  = document.getElementById('case-select');
+  const countEl   = document.getElementById('case-count');
+  try {
+    const data = await get('/api/list_cases');
+    if (!data.ok) throw new Error(data.error || 'unknown');
+    _casesData = data.cases || {};
+    loadingEl.style.display = 'none';
+    selectEl.style.display = '';
+    renderCaseList(_currentDiff);
+  } catch (e) {
+    loadingEl.textContent = '⚠️ 题目列表加载失败：' + e.message;
+    loadingEl.style.color = '#ff7b72';
+  }
+}
+
+// 切换难度 Tab
+function selectDifficulty(diff) {
+  _currentDiff = diff;
+  document.querySelectorAll('.diff-tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.diff === diff);
+  });
+  renderCaseList(diff);
+}
+
+// 渲染当前难度的题目列表
+function renderCaseList(diff) {
+  const sel = document.getElementById('case-select');
+  const countEl = document.getElementById('case-count');
+  const cases = _casesData[diff] || [];
+  sel.innerHTML = '<option value="">── 请选择题目 ──</option>';
+  cases.forEach((c, idx) => {
+    const opt = document.createElement('option');
+    opt.value = c.file_path;
+    // 显示序号 + 简短标题（避免太长）
+    const label = `#${String(idx+1).padStart(2,'0')} ${c.title || c.filename}`;
+    opt.textContent = label;
+    opt.title = c.file_path;
+    sel.appendChild(opt);
+  });
+  countEl.textContent = cases.length ? `共 ${cases.length} 道题` : '（该难度暂无题目）';
+}
+
+function onCaseSelectChange() {
+  // 选中题目时可以预览信息（暂时只更新 count 提示）
+  const sel = document.getElementById('case-select');
+  const path = sel.value;
+  const diff = _currentDiff;
+  if (!path) return;
+  const cases = _casesData[diff] || [];
+  const found = cases.find(c => c.file_path === path);
+  const countEl = document.getElementById('case-count');
+  if (found) {
+    const extra = found.win_node ? `  |  胜利节点: ${found.win_node}` : '';
+    countEl.textContent = `节点数: ${found.total_nodes}${extra}`;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────
+// 加载案例
+// ─────────────────────────────────────────────────────────────────
+async function loadCase() {
+  const playerId = document.getElementById('player-id-input').value.trim();
+  if (!playerId) { alert('请先输入做题者 ID'); return; }
+  const path = document.getElementById('case-select').value;
+  if (!path) { alert('请先选择一道题目'); return; }
+  const res = await post('/api/load_case', { case_file_path: path, player_id: playerId });
+  if (res.ok) {
+    await refreshState();
+  } else {
+    alert('加载失败: ' + (res.error || JSON.stringify(res)));
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────
+// 放弃本题
+// ─────────────────────────────────────────────────────────────────
+async function doGiveup() {
+  if (!confirm('确定要放弃本题吗？放弃后将记录为失败，无法继续作答。')) return;
+  const res = await post('/api/giveup', {});
+  if (res.ok) {
+    await refreshState();
+  } else {
+    alert('放弃失败: ' + (res.error || JSON.stringify(res)));
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────
+// 历史记录弹窗
+// ─────────────────────────────────────────────────────────────────
+async function showRecords() {
+  document.getElementById('records-modal').classList.add('visible');
+  await loadRecords();
+}
+
+function hideRecords() {
+  document.getElementById('records-modal').classList.remove('visible');
+}
+
+function closeRecordsIfOutside(e) {
+  if (e.target === document.getElementById('records-modal')) hideRecords();
+}
+
+async function loadRecords() {
+  const body = document.getElementById('records-body');
+  body.innerHTML = '<div style="color:#484f58;font-size:12px;">加载中…</div>';
+  try {
+    const data = await get('/api/records');
+    _allRecords = data.all_records || {};
+    renderRecords(_allRecords);
+  } catch (e) {
+    body.innerHTML = '<div style="color:#ff7b72;font-size:12px;">加载失败</div>';
+  }
+}
+
+function filterRecords() {
+  const q = document.getElementById('records-filter').value.trim().toLowerCase();
+  if (!q) { renderRecords(_allRecords); return; }
+  const filtered = {};
+  for (const [pid, recs] of Object.entries(_allRecords)) {
+    if (pid.toLowerCase().includes(q)) filtered[pid] = recs;
+  }
+  renderRecords(filtered);
+}
+
+function renderRecords(records) {
+  const body = document.getElementById('records-body');
+  if (!Object.keys(records).length) {
+    body.innerHTML = '<div style="color:#484f58;font-size:12px;padding:12px 0;">暂无记录</div>';
+    return;
+  }
+  let html = '';
+  for (const [playerId, recs] of Object.entries(records)) {
+    const total = recs.length;
+    const wins = recs.filter(r => r.success).length;
+    const giveups = recs.filter(r => r.gave_up).length;
+    const avgSteps = total ? Math.round(recs.reduce((s, r) => s + (r.steps || 0), 0) / total) : 0;
+    html += `<div class="records-player-header">👤 ${escapeHtml(playerId)} — ${total} 题，成功 ${wins}，放弃 ${giveups}，平均 ${avgSteps} 步</div>`;
+    html += `<table class="records-table"><thead><tr>
+      <th>#</th><th>案例 ID</th><th>步数</th><th>结果</th><th>开始时间</th><th>结束时间</th>
+    </tr></thead><tbody>`;
+    recs.forEach((r, idx) => {
+      const resultTag = r.success
+        ? `<span class="tag-success">✅ 成功</span>`
+        : r.gave_up
+          ? `<span class="tag-giveup">🏳️ 放弃</span>`
+          : `<span class="tag-fail">❌ 失败</span>`;
+      const start = r.start_time ? r.start_time.replace('T', ' ').slice(0, 19) : '—';
+      const end   = r.end_time   ? r.end_time.replace('T', ' ').slice(0, 19)   : '—';
+      html += `<tr>
+        <td>${idx + 1}</td>
+        <td><code>${escapeHtml(r.case_id || '—')}</code></td>
+        <td>${r.steps}</td>
+        <td>${resultTag}</td>
+        <td style="font-size:11px;color:#8b949e;">${start}</td>
+        <td style="font-size:11px;color:#8b949e;">${end}</td>
+      </tr>`;
+    });
+    html += `</tbody></table>`;
+  }
+  body.innerHTML = html;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ─────────────────────────────────────────────────────────────────
+// 执行操作
+// ─────────────────────────────────────────────────────────────────
+async function doAction() {
+  const actionType = document.getElementById('action-type').value;
+  if (!actionType) { alert('请选择操作类型'); return; }
+
+  let res;
+
+  if (actionType === 'investigate') {
+    const nodeId = document.getElementById('inv-node-manual').value.trim()
+                || document.getElementById('inv-node-select').value;
+    if (!nodeId) { alert('请指定要调查的 node_id'); return; }
+    res = await post('/api/investigate', { node_id: nodeId });
+
+  } else if (actionType === 'tool_call') {
+    const toolId = document.getElementById('tool-select').value;
+    if (!toolId) { alert('请选择工具节点'); return; }
+    const args = {};
+    document.querySelectorAll('#params-area [data-param]').forEach(inp => {
+      const val = unescapeInput(inp.value);
+      if (val !== '') args[inp.dataset.param] = val;
+    });
+    res = await post('/api/tool_call', { node_id: toolId, arguments: args });
+
+  } else if (actionType === 'use_item') {
+    const itemId = document.getElementById('item-select').value;
+    if (!itemId) { alert('请选择 Item 节点'); return; }
+    const args = {};
+    document.querySelectorAll('#item-params-area [data-param]').forEach(inp => {
+      const val = unescapeInput(inp.value);
+      if (val !== '') args[inp.dataset.param] = val;
+    });
+    res = await post('/api/use_item', { node_id: itemId, arguments: args });
+
+  } else if (actionType === 'submit_answer') {
+    const answer = unescapeInput(document.getElementById('answer-input').value);
+    if (!answer) { alert('请输入答案'); return; }
+    res = await post('/api/submit_answer', { answer });
+  }
+
+  await refreshState();
+}
+
+// Enter 键提交
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+    if (!document.getElementById('submit-btn').disabled) doAction();
+  }
+});
+
+// ─────────────────────────────────────────────────────────────────
+// 初始化
+// ─────────────────────────────────────────────────────────────────
+refreshState();
+initCaseList();
+</script>
+</body>
+</html>

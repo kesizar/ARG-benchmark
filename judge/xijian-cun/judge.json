@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "leave": {"type": "url_regex", "pattern": "leave\\.html"},
+    "stay": {"type": "url_regex", "pattern": "stay\\.html"}
+  },
+  "checkpoints": [],
+  "events": {
+    "left_at_prologue": {"hook": "stay", "op": "truthy"}
+  },
+  "routes": [
+    {"id": "leave", "tier": "good", "gates": [], "ending": {"hook": "leave", "op": "truthy"}}
+  ],
+  "ending": {"hook": "leave", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

@@ -1,0 +1,23 @@
+{
+  "hooks": {
+    "sequel": {"type": "dom_regex", "pattern": "五世谱成"},
+    "main": {"type": "dom_regex", "pattern": "尘埃落定"},
+    "scrolls": {"type": "dom_regex", "pattern": "案上又落了新卷。|案上又多了新卷。去书案。"},
+    "faces": {"type": "dom_regex", "pattern": "三处容貌已定"}
+  },
+  "checkpoints": [
+    {"id": "scrolls", "hook": "scrolls", "op": "truthy", "role": "optional"},
+    {"id": "faces", "hook": "faces", "op": "truthy", "role": "optional"}
+  ],
+  "events": {},
+  "routes": [
+    {"id": "sequel", "tier": "good", "gates": [], "ending": {"hook": "sequel", "op": "truthy"}},
+    {"id": "main", "tier": "good", "gates": [], "ending": {"hook": "main", "op": "truthy"}}
+  ],
+  "ending": {"hook": "main", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

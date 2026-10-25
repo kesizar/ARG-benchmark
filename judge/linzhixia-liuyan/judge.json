@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "last_lock": {"type": "dom_regex", "pattern": "原来安静懂事，就活该透明"},
+    "farewell": {"type": "dom_regex", "pattern": "原来安静懂事，也会有人看见"}
+  },
+  "checkpoints": [
+    {"id": "last_lock", "hook": "last_lock", "op": "truthy"}
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "farewell",
+      "tier": "good",
+      "gates": ["last_lock"],
+      "ending": {"hook": "farewell", "op": "truthy"}
+    }
+  ],
+  "ending": {"hook": "farewell", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

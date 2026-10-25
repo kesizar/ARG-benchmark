@@ -1,0 +1,895 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 18,
+    "win_node_id": "csv_query",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "csv_query",
+      "output_port": "rows",
+      "output_type": "Text_Generic",
+      "description": "Execute CSV Query and get the output from port 'rows'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "csv_query",
+        "csv_query_1247",
+        "zip_unzip_file",
+        "text_xor_hex",
+        "container_4",
+        "zip_unzip_file_9cd5",
+        "zip_unzip_file_3ed0",
+        "zip_unzip_item",
+        "item_15"
+      ],
+      "by_node": {
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {},
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "csv_query_1247": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {},
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "text_xor_hex": {
+          "node_name": "Hex XOR",
+          "node_type": "Tool",
+          "template_id": "text_xor_hex",
+          "init_inputs": {
+            "hex_a": {
+              "type": "Hex_String",
+              "description": "Hex A"
+            },
+            "hex_b": {
+              "type": "Hex_String",
+              "description": "Hex B"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Text_Generic",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "zip_unzip_file_9cd5": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_3ed0": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            },
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {}
+        },
+        "item_15": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_15",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "Timezone text"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "csv_query": {
+        "init_inputs": {},
+        "init_outputs": {
+          "rows": "[{\"id\": 101, \"name\": \"alpha\", \"score\": 98}, {\"id\": 102, \"name\": \"beta\", \"score\": 85}, {\"id\": 103, \"name\": \"gamma\", \"score\": 91}]"
+        }
+      },
+      "csv_query_1247": {
+        "init_inputs": {},
+        "init_outputs": {
+          "rows": "[{\"category\": \"A\", \"count\": 15}, {\"category\": \"B\", \"count\": 23}, {\"category\": \"C\", \"count\": 7}]"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_dataset_2023.csv"
+        }
+      },
+      "text_xor_hex": {
+        "init_inputs": {
+          "hex_a": "4a6f686e20446f65",
+          "hex_b": "1122334455667788"
+        },
+        "init_outputs": {}
+      },
+      "container_4": {
+        "init_inputs": {
+          "fingerprint_input": "fp_9a8b7c6d5e4f3a2b1c"
+        },
+        "init_outputs": {}
+      },
+      "zip_unzip_file_9cd5": {
+        "init_inputs": {
+          "zip_id": "archive_protected_v1.zip",
+          "password": "StrongPassword123!"
+        },
+        "init_outputs": {
+          "files": "confidential_report.txt"
+        }
+      },
+      "zip_unzip_file_3ed0": {
+        "init_inputs": {
+          "zip_id": "backup_logs_2024.zip",
+          "password": "admin_access_key"
+        },
+        "init_outputs": {
+          "files": "system_trace.log"
+        }
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "zip_id": "resources_bundle.zip",
+          "password": "Unlock_Resources_99"
+        },
+        "init_outputs": {}
+      },
+      "item_15": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "Asia/Tokyo"
+        }
+      }
+    },
+    "intro_narrative": "You have breached the server room of the Helios Corporation, a shadow organization accused of illicit neural experiments. The facility is in lockdown, red emergency lights pulsing against the cold steel of the server racks. Your objective is clear: retrieve the 'Project Chimera' subject list before the halon gas system triggers. The central mainframe is air-gapped and protected by layers of encryption and physical security. You must scavenge the room for credentials, decrypt the fragmented data streams, and piece together the access protocols to query the Master Database Terminal. Time is running out.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "extracted_dataset_2023.csv"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "[M[*u\"\u0018"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "[{\"category\": \"A\", \"count\": 15}, {\"category\": \"B\", \"count\": 23}, {\"category\": \"C\", \"count\": 7}]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"id\": 101, \"name\": \"alpha\", \"score\": 98}, {\"id\": 102, \"name\": \"beta\", \"score\": 85}, {\"id\": 103, \"name\": \"gamma\", \"score\": 91}]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "rows": "[{\"id\": 101, \"name\": \"alpha\", \"score\": 98}, {\"id\": 102, \"name\": \"beta\", \"score\": 85}, {\"id\": 103, \"name\": \"gamma\", \"score\": 91}]"
+        }
+      },
+      "narrative": "The Master Database Terminal. This is your final objective. To execute the retrieval command, it requires the filtered dataset from Database Node A, the specific file handle from Archive Extractor B, and the column parameters from Text Converter A."
+    },
+    {
+      "id": "csv_query_1247",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "confidential_report.txt"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "[M[*u\"\u0018"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "W01bKnUiGO0="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"category\": \"A\", \"count\": 15}, {\"category\": \"B\", \"count\": 23}, {\"category\": \"C\", \"count\": 7}]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "rows": "[{\"category\": \"A\", \"count\": 15}, {\"category\": \"B\", \"count\": 23}, {\"category\": \"C\", \"count\": 7}]"
+        }
+      },
+      "narrative": "Database Node A. This is an intermediate SQL processing unit. It constructs a query fragment. It requires the selection syntax from Text Converter B, the conditional logic from the Encoder Terminal, and the source file ID from the Main Server Archive."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "5b4d5b2a752218ed"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "[M[*u\"\u0018"
+        }
+      ],
+      "narrative": "Text Converter B. A legacy decoding script running on a monochrome monitor. It needs the System Key to unlock. Once active, it processes the raw hex output from Decryption Module Alpha."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "system_trace.log"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "W01bKnUiGO0="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_dataset_2023.csv"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_dataset_2023.csv"
+        }
+      },
+      "narrative": "Archive Extractor B. A secondary decompression utility. It requires the file reference from Archive Extractor A and the authorization string generated by the Encoder Terminal."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "5b4d5b2a752218ed"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "W01bKnUiGO0="
+        }
+      ],
+      "narrative": "The Encoder Terminal. A tablet running a format conversion tool. It requires the raw binary data output from Decryption Module Alpha to generate a readable string."
+    },
+    {
+      "id": "text_xor_hex",
+      "name": "Hex XOR",
+      "description": "XOR two hex strings.",
+      "type": "Tool",
+      "template_id": "text_xor_hex",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex_a",
+          "type": "Hex_String",
+          "description": "Hex A",
+          "value": "4a6f686e20446f65"
+        },
+        {
+          "name": "hex_b",
+          "type": "Hex_String",
+          "description": "Hex B",
+          "value": "1122334455667788"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "XOR Result Hex",
+          "value": "5b4d5b2a752218ed"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_a": "4a6f686e20446f65",
+          "hex_b": "1122334455667788"
+        },
+        "outputs": {}
+      },
+      "narrative": "Decryption Module Alpha. A dedicated cryptographic processor. It is currently locked and requires the hardware key from the Biometric Safe to activate. Once unlocked, it merges two hex data streams."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "fp_9a8b7c6d5e4f3a2b1c"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "fp_9a8b7c6d5e4f3a2b1c"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Biometric Safe. A reinforced titanium box with a glowing fingerprint scanner. It requires a specific fingerprint hash to open and reveal its contents."
+    },
+    {
+      "id": "zip_unzip_file_9cd5",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_protected_v1.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "StrongPassword123!"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "confidential_report.txt"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_protected_v1.zip",
+          "password": "StrongPassword123!"
+        },
+        "outputs": {
+          "files": "confidential_report.txt"
+        }
+      },
+      "narrative": "The Main Server Archive. The root file directory containing encrypted system logs and database files."
+    },
+    {
+      "id": "zip_unzip_file_3ed0",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "backup_logs_2024.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "admin_access_key"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "system_trace.log"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "backup_logs_2024.zip",
+          "password": "admin_access_key"
+        },
+        "outputs": {
+          "files": "system_trace.log"
+        }
+      },
+      "narrative": "Archive Extractor A. A locked file extraction protocol. It requires the rolling code from the Security Token to access the file system."
+    },
+    {
+      "id": "hex_decode_ebfb",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool",
+          "value": ""
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "5b4d5b2a752218ed"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "[M[*u\"\u0018"
+        }
+      ],
+      "narrative": "Text Converter A. A linguistic analysis tool. It requires the authorization item from the Secure Folder to function. It processes the raw hex data from Decryption Module Alpha."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "The System Key. A digital clearance key extracted from the Backup Folder."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "The Security Token. A loose RSA hardware token found under a desk. It displays a changing integer."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "resources_bundle.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Unlock_Resources_99"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "resources_bundle.zip",
+          "password": "Unlock_Resources_99"
+        },
+        "outputs": {}
+      },
+      "narrative": "The Backup Folder. An isolated backup partition containing system tools. It requires valid credentials to access the items inside."
+    },
+    {
+      "id": "zip_unzip_item_b5c1",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "confidential_report.txt"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Asia/Tokyo"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip",
+          "value": ""
+        }
+      ],
+      "narrative": "The Secure Folder. A protected sub-directory. It requires the file path from the Main Server Archive and the credentials found on the Password Note."
+    },
+    {
+      "id": "item_15",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_15",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "Timezone text",
+          "value": "Asia/Tokyo"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "Asia/Tokyo"
+        }
+      },
+      "narrative": "The Password Note. A yellow sticky note attached to a monitor with a complex string of characters written on it."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "csv_query_1247",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "where"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "csv_query_1247",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "select"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "password"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "base64_encode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "csv_query_1247",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "where"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "text_xor_hex",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "zip_unzip_file_9cd5",
+      "target_id": "csv_query_1247",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "zip_unzip_file_3ed0",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "hex_decode_ebfb",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "select"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "hex_decode",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "text_xor_hex",
+      "target_id": "hex_decode_ebfb",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "zip_unzip_file_3ed0",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_item_b5c1",
+      "target_id": "hex_decode_ebfb",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "zip_unzip_file_9cd5",
+      "target_id": "zip_unzip_item_b5c1",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "item_15",
+      "target_id": "zip_unzip_item_b5c1",
+      "connection_type": "Text_Generic",
+      "source_port": "content",
+      "target_port": "password"
+    }
+  ]
+}

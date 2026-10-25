@@ -1,0 +1,264 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "item_15",
+    "win_condition": {
+      "type": "item_content",
+      "node_id": "item_15",
+      "description": "Obtain the content of "
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_15",
+        "base64_encode",
+        "container_4_0620"
+      ],
+      "by_node": {
+        "item_15": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_15",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Text_Generic",
+              "description": "Timezone text"
+            }
+          }
+        },
+        "base64_encode": {
+          "node_name": "Base64 Encoder",
+          "node_type": "Tool",
+          "template_id": "base64_encode",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex bytes"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_4_0620": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Text_Generic",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "item_15": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "America/New_York"
+        }
+      },
+      "base64_encode": {
+        "init_inputs": {
+          "hex": "4a8c2b1d9e3f5a7c6b0d8e2f1a4b9c3d"
+        },
+        "init_outputs": {}
+      },
+      "container_4_0620": {
+        "init_inputs": {
+          "fingerprint_input": "user_device_fingerprint_hash_v2_9384"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The sky has been ash-grey for twenty years. Scavenging the ruins of the Old World, you stumble upon a reinforced bunker door, slightly ajar. Inside, the air filters are humming—a sound you haven't heard since you were a child. Rumor has it this forgotten outpost holds the location of 'Eden,' the last radiation-free zone left on the continent. You stand inside the command center, but the systems are in lockdown. The backup generator is running on fumes; you must retrieve the coordinates before the power fails and the airlock seals you in forever.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "item_15",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_15",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Text_Generic",
+          "description": "Timezone text",
+          "value": "America/New_York"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "America/New_York"
+        }
+      },
+      "narrative": "A sealed laminate document containing the precise navigation coordinates to Eden. The ink is fresh, preserved against time."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "SowrHZ4/WnxrDY4vGkucPQ=="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "A massive security console guarding the final vault. It requires a decoded command sequence from the vintage computer terminal to release the locking mechanism."
+    },
+    {
+      "id": "base64_encode",
+      "name": "Base64 Encoder",
+      "description": "Encode hex bytes to base64.",
+      "type": "Tool",
+      "template_id": "base64_encode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex bytes",
+          "value": "4a8c2b1d9e3f5a7c6b0d8e2f1a4b9c3d"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "b64",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "SowrHZ4/WnxrDY4vGkucPQ=="
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "4a8c2b1d9e3f5a7c6b0d8e2f1a4b9c3d"
+        },
+        "outputs": {}
+      },
+      "narrative": "A vintage computer terminal with a flickering green CRT monitor. It appears to be a decoding station used to translate raw data into command strings."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A high-security access card found within the steel safe. It bears the faded emblem of the old government."
+    },
+    {
+      "id": "container_4_0620",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "user_device_fingerprint_hash_v2_9384"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "user_device_fingerprint_hash_v2_9384"
+        },
+        "outputs": {}
+      },
+      "narrative": "A heavy, reinforced steel safe bolted to the floor. The biometric scanner on the front is still active, waiting for authorization."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "container_4",
+      "target_id": "item_15",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "base64_encode",
+      "target_id": "container_4",
+      "connection_type": "Text_Generic",
+      "source_port": "b64",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "container_4_0620",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "hooks": {
+    "flow": {
+      "type": "dom_regex",
+      "pattern": "材料已分别发送至本科生院和学校监督渠道。系统回执只承诺受理，没有承诺真相会在什么时候出现。"
+    },
+    "disk": {
+      "type": "dom_regex",
+      "pattern": "备份让证据没有消失，但沉默没有让任何程序停下来。"
+    },
+    "rumor": {
+      "type": "dom_regex",
+      "pattern": "银湖又有了一套方便、完整而无法核实的故事。"
+    },
+    "blog_open": {
+      "type": "dom_regex",
+      "pattern": "为何会有这个页面，以及我在未来想做些什么"
+    },
+    "album_open": {
+      "type": "dom_regex",
+      "pattern": "桌面与存储卡"
+    },
+    "mail_open": {
+      "type": "dom_regex",
+      "pattern": "关于银湖课程报告内容范围"
+    },
+    "archive_login": {
+      "type": "dom_regex",
+      "pattern": "尚未查询对象"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "blog_open",
+      "hook": "blog_open",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "album_open",
+      "hook": "album_open",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "mail_open",
+      "hook": "mail_open",
+      "op": "truthy"
+    },
+    {
+      "id": "archive_login",
+      "hook": "archive_login",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "flow",
+      "tier": "good",
+      "gates": [
+        "mail_open"
+      ],
+      "ending": {
+        "hook": "flow",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "disk",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "disk",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "rumor",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "rumor",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "flow",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

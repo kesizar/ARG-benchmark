@@ -1,0 +1,948 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 18,
+    "win_node_id": "zip_unzip_file",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "zip_unzip_file",
+      "output_port": "files",
+      "output_type": "File_Id",
+      "description": "Execute Zip Unzipper and get the output from port 'files'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "zip_unzip_file",
+        "json_get",
+        "terminal_2",
+        "calc_modexp",
+        "calc_modexp_df89",
+        "checksum_crc32",
+        "calc_modexp_60ff",
+        "container_4",
+        "calc_gcd_b2f8"
+      ],
+      "by_node": {
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "JSON file ID"
+            }
+          },
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_df89": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_60ff": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "container_4": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "container_4",
+          "init_inputs": {
+            "fingerprint_input": {
+              "type": "Text_Generic",
+              "description": "Fingerprint Hash"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_gcd_b2f8": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "archive_vault_8821.zip"
+        },
+        "init_outputs": {
+          "files": "extracted_manifest_v4.bin"
+        }
+      },
+      "json_get": {
+        "init_inputs": {
+          "file_id": "system_schema_config.json"
+        },
+        "init_outputs": {
+          "values": "[\"$.node.private_key\", \"$.node.session_id\", \"$.node.auth_secret\"]"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "$.access_control.credentials.password_hash",
+          "hex_result": "a4f2e8d1c0b3928a7156d4f3e2b1c099",
+          "math_token": "Verified mathematical sequence for cryptographic validation."
+        }
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "16"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_df89": {
+        "init_inputs": {
+          "base": "2",
+          "exp": "882736451092837465019283746501",
+          "mod": "999983"
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32": {
+        "init_inputs": {
+          "hex": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_60ff": {
+        "init_inputs": {
+          "base": "10",
+          "exp": "102938475610293847561029384756"
+        },
+        "init_outputs": {}
+      },
+      "container_4": {
+        "init_inputs": {
+          "fingerprint_input": "sha256:7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1f"
+        },
+        "init_outputs": {}
+      },
+      "calc_gcd_b2f8": {
+        "init_inputs": {
+          "a": "293847561029384756102938475610",
+          "b": "384756102938475610293847561029"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The ash storms have finally subsided, revealing the entrance to Sector 7's central bunker. As a scrapper, you've heard legends about this place—it holds the coordinates to the last uncorrupted oasis on Earth. But the facility is dead, its systems fragmented and locked behind layers of post-apocalyptic security measures. You must reactivate the scattered machinery, route power through ancient generators, and bypass the bunker's mainframe to extract the final archives. Time is running out before the radiation levels spike again.",
+    "narrative_style": "post_apocalyptic"
+  },
+  "nodes": [
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "archive_vault_8821.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"$.node.private_key\", \"$.node.session_id\", \"$.node.auth_secret\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_manifest_v4.bin"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "archive_vault_8821.zip"
+        },
+        "outputs": {
+          "files": "extracted_manifest_v4.bin"
+        }
+      },
+      "narrative": "This is the Mainframe Archive Extractor. The final firewall blocking the bunker's secrets. It requires input from the Data Parser Module to bypass the lockdown."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "system_schema_config.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "$.access_control.credentials.password_hash"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"$.node.private_key\", \"$.node.session_id\", \"$.node.auth_secret\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "system_schema_config.json"
+        },
+        "outputs": {
+          "values": "[\"$.node.private_key\", \"$.node.session_id\", \"$.node.auth_secret\"]"
+        }
+      },
+      "narrative": "This is the Data Parser Module. An automated script processor. It requires input from the Central Control Terminal to filter through the vast amount of corrupted logs."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "1072912117"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "855711"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "$.access_control.credentials.password_hash"
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "a4f2e8d1c0b3928a7156d4f3e2b1c099"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "Verified mathematical sequence for cryptographic validation."
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "$.access_control.credentials.password_hash",
+          "hex_result": "a4f2e8d1c0b3928a7156d4f3e2b1c099",
+          "math_token": "Verified mathematical sequence for cryptographic validation."
+        }
+      },
+      "narrative": "This is the Central Control Terminal. The main bunker console. It requires inputs from both the Quantum Reversal Engine and the Power Amplifier to boot up."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "855711"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "27"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "855711"
+        }
+      ],
+      "narrative": "This is the Quantum Reversal Engine. A strange, pulsing machine. It requires inputs from the Signal Translator and the Frequency Synchronizer to operate."
+    },
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "855711"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "27"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "411443100"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "855711"
+        }
+      ],
+      "narrative": "This is the Signal Translator. A complex decoding station. It requires inputs from the Frequency Synchronizer, the Primary Core Generator, and the Secondary Power Router."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "900000000090000000009"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "855711"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "27"
+        }
+      ],
+      "narrative": "This is the Frequency Synchronizer. A rusted antenna array. It requires inputs from both the Primary Core Generator and the Backup Frequency Emitter to stabilize."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "16"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "855711"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 3087229729
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1072912117"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "16"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Power Amplifier. A massive transformer unit. It requires inputs from both the Integrity Scanner and the Primary Core Generator to function safely."
+    },
+    {
+      "id": "calc_modexp_df89",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "2"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "882736451092837465019283746501"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "999983"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "855711"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "2",
+          "exp": "882736451092837465019283746501",
+          "mod": "999983"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Primary Core Generator. A humming machine, barely functioning after the fallout, used to produce base energy sequences."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "b8036321"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3087229729
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Integrity Scanner. A handheld device used to scan for data corruption in wasteland tech."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An Encrypted Log Drive. A small, heavily armored data storage device."
+    },
+    {
+      "id": "calc_modexp_60ff",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "10"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "102938475610293847561029384756"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1072912117"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "411443100"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "10",
+          "exp": "102938475610293847561029384756"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Secondary Power Router. A series of thick, glowing cables. It requires input from the Power Amplifier to distribute the energy flow."
+    },
+    {
+      "id": "container_4",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_4",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "container",
+          "type": "Hidden_Item",
+          "description": "Inside"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Text_Generic",
+          "description": "Fingerprint Hash",
+          "value": "sha256:7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1f"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "fingerprint_input": "sha256:7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1f"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is a Biometric Lockbox. A sealed container designed to keep its contents safe from scavengers."
+    },
+    {
+      "id": "item_16_3d48",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "An Access Keycard. A scratched security badge belonging to a former technician."
+    },
+    {
+      "id": "item_16_1ef6",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A Rusted Toolbox. A heavy metal case covered in thick, radioactive dust."
+    },
+    {
+      "id": "calc_gcd_b2f8",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "293847561029384756102938475610"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "384756102938475610293847561029"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "900000000090000000009"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "293847561029384756102938475610",
+          "b": "384756102938475610293847561029"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Backup Frequency Emitter. An old radio tower component emitting steady, rhythmic pulses."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "json_get",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "password"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "json_get",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "jsonpath"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "num2"
+    },
+    {
+      "source_id": "num_base_convert",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "str",
+      "target_port": "a"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "calc_modexp_df89",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "json_get",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_modexp_df89",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "s"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_modexp_60ff",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "container_4",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_16_3d48",
+      "target_id": "calc_gcd",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "calc_modexp_df89",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_modexp_60ff",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "item_16_1ef6",
+      "target_id": "container_4",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "container"
+    },
+    {
+      "source_id": "calc_gcd_b2f8",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "a"
+    }
+  ]
+}

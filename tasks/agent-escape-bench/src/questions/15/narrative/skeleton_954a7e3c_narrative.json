@@ -1,0 +1,809 @@
+{
+  "metadata": {
+    "total_nodes": 15,
+    "total_edges": 16,
+    "win_node_id": "hash_sha256",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "hash_sha256",
+      "output_port": "hex",
+      "output_type": "Hex_String",
+      "description": "Execute SHA-256 Hasher and get the output from port 'hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "item_7",
+        "zip_unzip_item",
+        "terminal_2",
+        "calc_gcd",
+        "hmac_sha256",
+        "calc_bigmul",
+        "graph_shortest_path"
+      ],
+      "by_node": {
+        "item_7": {
+          "node_name": "",
+          "node_type": "Item",
+          "template_id": "item_7",
+          "init_inputs": {},
+          "init_outputs": {
+            "content": {
+              "type": "Code_Python",
+              "description": "The integer"
+            }
+          }
+        },
+        "zip_unzip_item": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_item",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {},
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "hmac_sha256": {
+          "node_name": "HMAC-SHA256 Calculator",
+          "node_type": "Tool",
+          "template_id": "hmac_sha256",
+          "init_inputs": {
+            "hex_key": {
+              "type": "Hex_String",
+              "description": "Hex key"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_bigmul": {
+          "node_name": "Big Number Multiplier",
+          "node_type": "Tool",
+          "template_id": "calc_bigmul",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First large integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second large integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "item_7": {
+        "init_inputs": {},
+        "init_outputs": {
+          "content": "def calculate_value():\n    x = 100\n    y = 200\n    return x * y\nprint(calculate_value())"
+        }
+      },
+      "zip_unzip_item": {
+        "init_inputs": {
+          "zip_id": "secured_payload_v4.zip"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {},
+        "init_outputs": {
+          "text_result": "Process initialization sequence complete. Ready for input.",
+          "hex_result": "a1b2c3d4e5f6789012345678abcdef12"
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "837465192837465192837465"
+        },
+        "init_outputs": {}
+      },
+      "hmac_sha256": {
+        "init_inputs": {
+          "hex_key": "9f8e7d6c5b4a392817062534435261708192a3b4c5d6e7f8a9b0c1d2e3f4a5b6"
+        },
+        "init_outputs": {}
+      },
+      "calc_bigmul": {
+        "init_inputs": {
+          "a": "102938475610293847561029",
+          "b": "593847561059384756105938"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "file_id": "network_graph_data.json",
+          "src": "Server_Alpha_01",
+          "dst": "Gateway_Node_99"
+        },
+        "init_outputs": {
+          "path": "[\"Server_Alpha_01\", \"Switch_Core_05\", \"Router_Backbone_02\", \"Gateway_Node_99\"]",
+          "cost": "452910"
+        }
+      }
+    },
+    "intro_narrative": "Welcome to the Clockwork Sanctum, the abandoned workshop of the legendary inventor Archimedes Vance. Surrounded by hissing steam pipes, rotating brass gears, and the heavy smell of machine oil and ozone, you have been sent to retrieve his final masterpiece. The workshop is powered by an interconnected web of mechanical logic engines, high-pressure vaults, and aetheric synthesizers. To uncover the sanctum's ultimate secret and escape before the primary boiler pressure reaches critical mass, you must trace the pneumatic tubes connecting the devices and operate his inventions in the precise intended sequence. The Final Verification Engine holds the key to your exit, but it remains locked behind layers of analog cryptography and steam-powered computation. Explore the sprawling lab, deduce the flow of information, and complete Vance's unfinished masterpiece.",
+    "narrative_style": "steampunk"
+  },
+  "nodes": [
+    {
+      "id": "hash_sha256",
+      "name": "SHA-256 Hasher",
+      "description": "SHA-256 over UTF-8 text; returns hex.",
+      "type": "Tool",
+      "template_id": "hash_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text to hash",
+          "value": "20000\n"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "SHA-256 Hex digest",
+          "value": "0be508172e87a2af98f344d18610bbaaa0e6bbfcef0c7804b24457f839e129c9"
+        }
+      ],
+      "narrative": "This is the Final Verification Engine. It requires input from the Analytical Engine to distill the ultimate signature and complete your mission."
+    },
+    {
+      "id": "code_py_exec",
+      "name": "Python Executor",
+      "description": "Run limited Python: only safe builtins.",
+      "type": "Tool",
+      "template_id": "code_py_exec",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "code",
+          "type": "Code_Python",
+          "description": "Python code",
+          "value": "def calculate_value():\n    x = 100\n    y = 200\n    return x * y\nprint(calculate_value())"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stdout",
+          "type": "Text_Generic",
+          "description": "Standard Output (includes errors if any)",
+          "value": "20000\n"
+        }
+      ],
+      "narrative": "This is the Analytical Engine. It requires input from the perforated logic-scroll to execute its complex mechanical routines."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A small, precisely machined brass cipher-key covered in intricate mathematical engravings."
+    },
+    {
+      "id": "item_7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_7",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Code_Python",
+          "description": "The integer",
+          "value": "def calculate_value():\n    x = 100\n    y = 200\n    return x * y\nprint(calculate_value())"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "content": "def calculate_value():\n    x = 100\n    y = 200\n    return x * y\nprint(calculate_value())"
+        }
+      },
+      "narrative": "A spool of stiff parchment known as the perforated logic-scroll, dotted with mechanical instructions."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A strange temporal chronometer that seems to tick backwards, housed in a heavy brass casing."
+    },
+    {
+      "id": "item_16_d2b7",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by",
+          "value": "synthesized_item_3b4b9fbdab3b2881"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A delicately forged aetheric pocket-watch pulsing with a faint, rhythmic blue energy."
+    },
+    {
+      "id": "zip_unzip_item",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_item",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "secured_payload_v4.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "\u00157,6x\u001f\u00056{\u001faՒ\u0016/"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "item",
+          "type": "Item",
+          "description": "item in the zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "secured_payload_v4.zip"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Pressure-Sealed Vault. It requires input from the Punch-Card Translator to release the heavy steam valves."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this terminal"
+        },
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "3"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "452910"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Process initialization sequence complete. Ready for input."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "a1b2c3d4e5f6789012345678abcdef12"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "text_result": "Process initialization sequence complete. Ready for input.",
+          "hex_result": "a1b2c3d4e5f6789012345678abcdef12"
+        }
+      },
+      "narrative": "This is the Master Control Console. It requires inputs from both the Harmonic Calibrator and the Navigational Orrery to function properly."
+    },
+    {
+      "id": "hex_decode",
+      "name": "Hex to Text Decoder",
+      "description": "Decode hex to UTF-8 text.",
+      "type": "Tool",
+      "template_id": "hex_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex string",
+          "value": "cc15372c36a9a0fa9dd3781feb05ea36bf7b831f8e618cbed592ad9f162ffee4"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Decoded text",
+          "value": "\u00157,6x\u001f\u00056{\u001faՒ\u0016/"
+        }
+      ],
+      "narrative": "This is the Punch-Card Translator. It requires input from the Steam-Powered Cryptograph to decode the mechanical perforations."
+    },
+    {
+      "id": "matter_synthesizer",
+      "name": "Matter Synthesizer",
+      "description": "Synthesizes physical objects from data blueprints.",
+      "type": "Tool",
+      "template_id": "matter_synthesizer",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "blueprint",
+          "type": "Text_Generic",
+          "description": "Object Blueprint",
+          "value": "Process initialization sequence complete. Ready for input."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_slot",
+          "type": "Item",
+          "description": "Synthesized Object",
+          "value": "synthesized_item_3b4b9fbdab3b2881"
+        }
+      ],
+      "narrative": "This is the Aetheric Forge. It requires input from the Master Control Console to shape raw aether into solid form."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "837465192837465192837465"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "61129762680343964135457217755185211896844290202"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "3"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "837465192837465192837465"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Harmonic Calibrator. It requires input from the brass Difference Engine to align its internal gear frequencies."
+    },
+    {
+      "id": "hmac_sha256",
+      "name": "HMAC-SHA256 Calculator",
+      "description": "HMAC-SHA256(text) with hex key.",
+      "type": "Tool",
+      "template_id": "hmac_sha256",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex_key",
+          "type": "Hex_String",
+          "description": "Hex key",
+          "value": "9f8e7d6c5b4a392817062534435261708192a3b4c5d6e7f8a9b0c1d2e3f4a5b6"
+        },
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text message",
+          "value": "Process initialization sequence complete. Ready for input."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "HMAC Hex digest",
+          "value": "cc15372c36a9a0fa9dd3781feb05ea36bf7b831f8e618cbed592ad9f162ffee4"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex_key": "9f8e7d6c5b4a392817062534435261708192a3b4c5d6e7f8a9b0c1d2e3f4a5b6"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the Steam-Powered Cryptograph. It requires input from the Master Control Console to stamp the cryptographic seal."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "102938475610293847561029"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "593847561059384756105938"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "61129762680343964135457217755185211896844290202"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "102938475610293847561029",
+          "b": "593847561059384756105938"
+        },
+        "outputs": {}
+      },
+      "narrative": "A massive brass Difference Engine with interlocking gears. It whirs quietly, waiting to be operated."
+    },
+    {
+      "id": "item_8_2486",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "A perfectly balanced golden master artisan's gear, heavy and unnaturally warm to the touch."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "network_graph_data.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Server_Alpha_01"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Gateway_Node_99"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Server_Alpha_01\", \"Switch_Core_05\", \"Router_Backbone_02\", \"Gateway_Node_99\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "452910"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "network_graph_data.json",
+          "src": "Server_Alpha_01",
+          "dst": "Gateway_Node_99"
+        },
+        "outputs": {
+          "path": "[\"Server_Alpha_01\", \"Switch_Core_05\", \"Router_Backbone_02\", \"Gateway_Node_99\"]",
+          "cost": "452910"
+        }
+      },
+      "narrative": "A spinning Navigational Orrery mapping the city's vast pneumatic tube network."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "code_py_exec",
+      "target_id": "hash_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "stdout",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "code_py_exec",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "item_7",
+      "target_id": "code_py_exec",
+      "connection_type": "Code_Python",
+      "source_port": "content",
+      "target_port": "code"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "item_8",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "item_16_d2b7",
+      "target_id": "item_7",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_item",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "item",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "hex_decode",
+      "target_id": "zip_unzip_item",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "password"
+    },
+    {
+      "source_id": "matter_synthesizer",
+      "target_id": "item_16_d2b7",
+      "connection_type": "Item",
+      "source_port": "output_slot",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "matter_synthesizer",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "blueprint"
+    },
+    {
+      "source_id": "hmac_sha256",
+      "target_id": "hex_decode",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "calc_gcd",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "b"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "hmac_sha256",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "text"
+    },
+    {
+      "source_id": "item_8_2486",
+      "target_id": "terminal_2",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "num2"
+    }
+  ]
+}

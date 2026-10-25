@@ -1,0 +1,1649 @@
+{
+  "metadata": {
+    "total_nodes": 25,
+    "total_edges": 34,
+    "win_node_id": "num_base_convert",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "num_base_convert",
+      "output_port": "str",
+      "output_type": "Big_Int",
+      "description": "Execute Base Converter and get the output from port 'str'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "graph_shortest_path",
+        "csv_query",
+        "calc_modexp_acf6",
+        "calc_modexp_c8f3",
+        "graph_shortest_path_77db",
+        "zip_unzip_file",
+        "calc_inv_mod",
+        "graph_shortest_path_5d5b",
+        "terminal_1",
+        "zip_unzip_file_0e7b",
+        "zip_unzip_file_678d",
+        "calc_gcd",
+        "terminal_2",
+        "base64_decode",
+        "checksum_crc32_fe0b"
+      ],
+      "by_node": {
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {},
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "csv_query": {
+          "node_name": "CSV Query",
+          "node_type": "Tool",
+          "template_id": "csv_query",
+          "init_inputs": {},
+          "init_outputs": {
+            "rows": {
+              "type": "Text_Generic",
+              "description": "Result rows"
+            }
+          }
+        },
+        "calc_modexp_acf6": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            }
+          },
+          "init_outputs": {}
+        },
+        "calc_modexp_c8f3": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path_77db": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {},
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "calc_inv_mod": {
+          "node_name": "BigInt Modular Inverse",
+          "node_type": "Tool",
+          "template_id": "calc_inv_mod",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "Integer a"
+            }
+          },
+          "init_outputs": {}
+        },
+        "graph_shortest_path_5d5b": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "Graph JSON file ID"
+            },
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            },
+            "dst": {
+              "type": "Text_Generic",
+              "description": "Destination node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "terminal_1": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_1",
+          "init_inputs": {
+            "slot_a": {
+              "type": "Text_Generic",
+              "description": "Input Slot A"
+            },
+            "slot_b": {
+              "type": "Big_Int",
+              "description": "Input Slot B"
+            }
+          },
+          "init_outputs": {
+            "text_output": {
+              "type": "Text_Generic",
+              "description": "Text output when only slot_a is provided"
+            },
+            "hex_output": {
+              "type": "Hex_String",
+              "description": "Hex output when only slot_b is provided"
+            }
+          }
+        },
+        "zip_unzip_file_0e7b": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "password": {
+              "type": "Text_Generic",
+              "description": "Password"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "zip_unzip_file_678d": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "calc_gcd": {
+          "node_name": "BigInt GCD Calculator",
+          "node_type": "Tool",
+          "template_id": "calc_gcd",
+          "init_inputs": {
+            "a": {
+              "type": "Big_Int",
+              "description": "First integer"
+            },
+            "b": {
+              "type": "Big_Int",
+              "description": "Second integer"
+            }
+          },
+          "init_outputs": {}
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            }
+          }
+        },
+        "base64_decode": {
+          "node_name": "Base64 Decoder",
+          "node_type": "Tool",
+          "template_id": "base64_decode",
+          "init_inputs": {
+            "data": {
+              "type": "Text_Generic",
+              "description": "Base64 string"
+            }
+          },
+          "init_outputs": {}
+        },
+        "checksum_crc32_fe0b": {
+          "node_name": "CRC32 Checksum",
+          "node_type": "Tool",
+          "template_id": "checksum_crc32",
+          "init_inputs": {
+            "hex": {
+              "type": "Hex_String",
+              "description": "Hex data"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "graph_shortest_path": {
+        "init_inputs": {},
+        "init_outputs": {
+          "path": "[\"node1\", \"node2\", \"node3\", \"node4\", \"node5\", \"node6\"]",
+          "cost": "827364"
+        }
+      },
+      "csv_query": {
+        "init_inputs": {},
+        "init_outputs": {
+          "rows": "[{\"id\":1,\"name\":\"Alice\"}, {\"id\":2,\"name\":\"Bob\"}, {\"id\":3,\"name\":\"Charlie\"}]"
+        }
+      },
+      "calc_modexp_acf6": {
+        "init_inputs": {
+          "exp": "28374659102938475612"
+        },
+        "init_outputs": {}
+      },
+      "calc_modexp_c8f3": {
+        "init_inputs": {
+          "mod": "987653"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path_77db": {
+        "init_inputs": {
+          "file_id": "graph_data.json",
+          "src": "NodeStart",
+          "dst": "NodeEnd"
+        },
+        "init_outputs": {
+          "path": "[\"NodeStart\", \"NodeM1\", \"NodeM2\", \"NodeM3\", \"NodeM4\", \"NodeEnd\"]",
+          "cost": "459102"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {},
+        "init_outputs": {
+          "files": "extracted_content_1.zip"
+        }
+      },
+      "calc_inv_mod": {
+        "init_inputs": {
+          "a": "83746592019283746510"
+        },
+        "init_outputs": {}
+      },
+      "graph_shortest_path_5d5b": {
+        "init_inputs": {
+          "file_id": "map_network.json",
+          "src": "PointA",
+          "dst": "PointB"
+        },
+        "init_outputs": {
+          "path": "[\"PointA\", \"Point1\", \"Point2\", \"Point3\", \"Point4\", \"PointB\"]",
+          "cost": "736184"
+        }
+      },
+      "terminal_1": {
+        "init_inputs": {
+          "slot_a": "Initialization parameters loaded",
+          "slot_b": "56473829104857692013"
+        },
+        "init_outputs": {
+          "text_output": "System diagnostic complete and secure.",
+          "hex_output": "a1b2c3d4e5f67890"
+        }
+      },
+      "zip_unzip_file_0e7b": {
+        "init_inputs": {
+          "password": "SuperSecretPassword99"
+        },
+        "init_outputs": {
+          "files": "decrypted_archive_3.zip"
+        }
+      },
+      "zip_unzip_file_678d": {
+        "init_inputs": {
+          "zip_id": "locked_bundle_8.zip"
+        },
+        "init_outputs": {
+          "files": "open_bundle_8.zip"
+        }
+      },
+      "calc_gcd": {
+        "init_inputs": {
+          "a": "10928374657483920192",
+          "b": "58473628192837465748"
+        },
+        "init_outputs": {}
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num2": "37465829104857692031"
+        },
+        "init_outputs": {
+          "text_result": "Secondary terminal sequence executed.",
+          "hex_result": "112233445566778899aabbccddeeff00"
+        }
+      },
+      "base64_decode": {
+        "init_inputs": {
+          "data": "VGhpcyBpcyBhIHRlc3QgbWVzc2FnZS4="
+        },
+        "init_outputs": {}
+      },
+      "checksum_crc32_fe0b": {
+        "init_inputs": {
+          "hex": "1234567890abcdef"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "You find yourself sealed within the forgotten sanctum of the Archmage. The air crackles with ancient magic, and the central focus of the room is a towering magical gateway—your only escape. All around you, arcane devices, sealed artifacts, and mystical relics lie dormant. They are intricately interconnected, designed to channel raw magic into one another. You must decipher the ancient scripts, unlock the forgotten coffers, and rekindle the sacred altars to re-establish the grand magical circuit. Follow the flow of mystical energy and awaken the relics to unseal the ultimate portal.",
+    "narrative_style": "fantasy"
+  },
+  "nodes": [
+    {
+      "id": "num_base_convert",
+      "name": "Base Converter",
+      "description": "Convert integer between bases (2..36).",
+      "type": "Tool",
+      "template_id": "num_base_convert",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "s",
+          "type": "Big_Int",
+          "description": "Input integer value",
+          "value": "827364"
+        },
+        {
+          "name": "from_base",
+          "type": "Big_Int",
+          "description": "From base",
+          "value": "1580596896"
+        },
+        {
+          "name": "to_base",
+          "type": "Big_Int",
+          "description": "To base",
+          "value": "1117534580"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "str",
+          "type": "Big_Int",
+          "description": "Converted integer value",
+          "value": "827364"
+        }
+      ],
+      "narrative": "This is The Gate of the Realm. It requires input from The Astral Astrolabe, The Forge of Eternity, and The Moonstone Altar to stabilize its magical vortex."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_content_1.zip"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "[{\"id\":1,\"name\":\"Alice\"}, {\"id\":2,\"name\":\"Bob\"}, {\"id\":3,\"name\":\"Charlie\"}]"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "[\"NodeStart\", \"NodeM1\", \"NodeM2\", \"NodeM3\", \"NodeM4\", \"NodeEnd\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"node1\", \"node2\", \"node3\", \"node4\", \"node5\", \"node6\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "827364"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "path": "[\"node1\", \"node2\", \"node3\", \"node4\", \"node5\", \"node6\"]",
+          "cost": "827364"
+        }
+      },
+      "narrative": "This is The Astral Astrolabe. It requires input from The Book of Prophecy, The Leyline Map, and The Sealed Casket to plot the true course."
+    },
+    {
+      "id": "calc_bigmul",
+      "name": "Big Number Multiplier",
+      "description": "Multiply two (very large) decimal integers represented as strings.",
+      "type": "Tool",
+      "template_id": "calc_bigmul",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First large integer",
+          "value": "395149224"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second large integer",
+          "value": "4"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "product",
+          "type": "Big_Int",
+          "description": "Product result",
+          "value": "1580596896"
+        }
+      ],
+      "narrative": "This is The Forge of Eternity. It requires input from The Void Portal and The Scale of Balance to channel the sacred flames."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "459102"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": 3866176074
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "1117534580"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "395149224"
+        }
+      ],
+      "narrative": "This is The Void Portal. It requires input from The Moonstone Altar, The Bloodstone Gem, and The Leyline Map to focus its chaotic energy."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is The Chrono Dust. A small pouch of shimmering, timeless dust that seems to float slightly above the ground."
+    },
+    {
+      "id": "csv_query",
+      "name": "CSV Query",
+      "description": "Query CSV: select columns and simple WHERE.",
+      "type": "Tool",
+      "template_id": "csv_query",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "CSV file ID",
+          "value": "open_bundle_8.zip"
+        },
+        {
+          "name": "select",
+          "type": "Text_Generic",
+          "description": "Columns to select",
+          "value": "[\"NodeStart\", \"NodeM1\", \"NodeM2\", \"NodeM3\", \"NodeM4\", \"NodeEnd\"]"
+        },
+        {
+          "name": "where",
+          "type": "Text_Generic",
+          "description": "Where clause",
+          "value": "Secondary terminal sequence executed."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rows",
+          "type": "Text_Generic",
+          "description": "Result rows",
+          "value": "[{\"id\":1,\"name\":\"Alice\"}, {\"id\":2,\"name\":\"Bob\"}, {\"id\":3,\"name\":\"Charlie\"}]"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "rows": "[{\"id\":1,\"name\":\"Alice\"}, {\"id\":2,\"name\":\"Bob\"}, {\"id\":3,\"name\":\"Charlie\"}]"
+        }
+      },
+      "narrative": "This is The Book of Prophecy. It requires input from The Leyline Map, The Bronze Chest, and The Divination Pedestal to reveal its hidden secrets."
+    },
+    {
+      "id": "calc_modexp_acf6",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "768777"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "28374659102938475612"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 1620419939
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "1117534580"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "exp": "28374659102938475612"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Moonstone Altar. It requires input from The Spirit Prism and The Sunstone Relic to awaken its lunar magic."
+    },
+    {
+      "id": "checksum_crc32",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "5468697320697320612074657374206d6573736167652e"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "6095a563"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 1620419939
+        }
+      ],
+      "narrative": "This is The Spirit Prism. It requires input from The Rune Translator to purify the trapped spirits within."
+    },
+    {
+      "id": "calc_modexp_c8f3",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "83746592019283746510"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "736184"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "987653"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "768777"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "mod": "987653"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Sunstone Relic. It requires input from The Mirror of Reversal and The Star Chart to unlock its inner light."
+    },
+    {
+      "id": "graph_shortest_path_77db",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "graph_data.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "NodeStart"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "NodeEnd"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"NodeStart\", \"NodeM1\", \"NodeM2\", \"NodeM3\", \"NodeM4\", \"NodeEnd\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "459102"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "graph_data.json",
+          "src": "NodeStart",
+          "dst": "NodeEnd"
+        },
+        "outputs": {
+          "path": "[\"NodeStart\", \"NodeM1\", \"NodeM2\", \"NodeM3\", \"NodeM4\", \"NodeEnd\"]",
+          "cost": "459102"
+        }
+      },
+      "narrative": "This is The Leyline Map. An ancient parchment depicting the flowing magical currents of the realm."
+    },
+    {
+      "id": "checksum_crc32_581f",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this tool"
+        },
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "6095a563"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "e6712a4a"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 3866176074
+        }
+      ],
+      "narrative": "This is The Bloodstone Gem. It requires input from The Spirit Prism to stabilize its deep, pulsing resonance."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "decrypted_archive_3.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "[\"NodeStart\", \"NodeM1\", \"NodeM2\", \"NodeM3\", \"NodeM4\", \"NodeEnd\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_content_1.zip"
+        }
+      ],
+      "init": {
+        "inputs": {},
+        "outputs": {
+          "files": "extracted_content_1.zip"
+        }
+      },
+      "narrative": "This is The Sealed Casket. It requires input from The Silver Coffer and The Leyline Map to break its heavy enchantments."
+    },
+    {
+      "id": "calc_inv_mod",
+      "name": "BigInt Modular Inverse",
+      "description": "Modular inverse of a modulo mod (large decimal strings).",
+      "type": "Tool",
+      "template_id": "calc_inv_mod",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "Integer a",
+          "value": "83746592019283746510"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": 845753685
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inv",
+          "type": "Big_Int",
+          "description": "Modular inverse",
+          "value": "83746592019283746510"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "83746592019283746510"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Mirror of Reversal. It requires input from The Soul Crystal to activate its reflective, reality-bending magic."
+    },
+    {
+      "id": "item_16_b307",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "This is The Astral Sand. A handful of glowing silver sand that hums with celestial energy."
+    },
+    {
+      "id": "graph_shortest_path_5d5b",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "map_network.json"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "PointA"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "PointB"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"PointA\", \"Point1\", \"Point2\", \"Point3\", \"Point4\", \"PointB\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "736184"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "map_network.json",
+          "src": "PointA",
+          "dst": "PointB"
+        },
+        "outputs": {
+          "path": "[\"PointA\", \"Point1\", \"Point2\", \"Point3\", \"Point4\", \"PointB\"]",
+          "cost": "736184"
+        }
+      },
+      "narrative": "This is The Star Chart. A delicate, crystalline parchment detailing the celestial constellations."
+    },
+    {
+      "id": "terminal_1",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_1",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_item",
+          "type": "Item",
+          "description": "Required item to unlock this terminal"
+        },
+        {
+          "name": "slot_a",
+          "type": "Text_Generic",
+          "description": "Input Slot A",
+          "value": "Initialization parameters loaded"
+        },
+        {
+          "name": "slot_b",
+          "type": "Big_Int",
+          "description": "Input Slot B",
+          "value": "56473829104857692013"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_output",
+          "type": "Text_Generic",
+          "description": "Text output when only slot_a is provided",
+          "value": "System diagnostic complete and secure."
+        },
+        {
+          "name": "hex_output",
+          "type": "Hex_String",
+          "description": "Hex output when only slot_b is provided",
+          "value": "a1b2c3d4e5f67890"
+        },
+        {
+          "name": "item_dispenser",
+          "type": "Item",
+          "description": "Item output when both slots are provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "slot_a": "Initialization parameters loaded",
+          "slot_b": "56473829104857692013"
+        },
+        "outputs": {
+          "text_output": "System diagnostic complete and secure.",
+          "hex_output": "a1b2c3d4e5f67890"
+        }
+      },
+      "narrative": "This is The Alchemist's Crucible. A heavy iron cauldron used for transmuting magical elements."
+    },
+    {
+      "id": "item_8",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is The Shadow Essence. A small glass vial filled with swirling, dark smoke."
+    },
+    {
+      "id": "container_1",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "container_1",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        },
+        {
+          "name": "fingerprint_input",
+          "type": "Hex_String",
+          "description": "Fingerprint Hash",
+          "value": "6095a563"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "inner_space",
+          "type": "Item",
+          "description": "Contents"
+        }
+      ],
+      "narrative": "This is The Ancient Urn. It requires input from The Spirit Prism to unlock its forgotten seal."
+    },
+    {
+      "id": "zip_unzip_file_0e7b",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "open_bundle_8.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "SuperSecretPassword99"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "decrypted_archive_3.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "password": "SuperSecretPassword99"
+        },
+        "outputs": {
+          "files": "decrypted_archive_3.zip"
+        }
+      },
+      "narrative": "This is The Silver Coffer. It requires input from The Bronze Chest to open its delicate, moon-silver clasp."
+    },
+    {
+      "id": "zip_unzip_file_678d",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "locked_bundle_8.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Secondary terminal sequence executed."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "open_bundle_8.zip"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "locked_bundle_8.zip"
+        },
+        "outputs": {
+          "files": "open_bundle_8.zip"
+        }
+      },
+      "narrative": "This is The Bronze Chest. It requires input from The Divination Pedestal to reveal its concealed keyhole."
+    },
+    {
+      "id": "calc_gcd",
+      "name": "BigInt GCD Calculator",
+      "description": "Greatest common divisor of two large decimal integers.",
+      "type": "Tool",
+      "template_id": "calc_gcd",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "a",
+          "type": "Big_Int",
+          "description": "First integer",
+          "value": "10928374657483920192"
+        },
+        {
+          "name": "b",
+          "type": "Big_Int",
+          "description": "Second integer",
+          "value": "58473628192837465748"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "gcd",
+          "type": "Big_Int",
+          "description": "GCD result",
+          "value": "4"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "a": "10928374657483920192",
+          "b": "58473628192837465748"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Scale of Balance. An elegant golden scale used to weigh truth and deception."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "768777"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "37465829104857692031"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Secondary terminal sequence executed."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "112233445566778899aabbccddeeff00"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num2": "37465829104857692031"
+        },
+        "outputs": {
+          "text_result": "Secondary terminal sequence executed.",
+          "hex_result": "112233445566778899aabbccddeeff00"
+        }
+      },
+      "narrative": "This is The Divination Pedestal. It requires input from The Sunstone Relic to project its scrying visions."
+    },
+    {
+      "id": "base64_decode",
+      "name": "Base64 Decoder",
+      "description": "Decode base64 to hex bytes.",
+      "type": "Tool",
+      "template_id": "base64_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "VGhpcyBpcyBhIHRlc3QgbWVzc2FnZS4="
+        }
+      ],
+      "outputs": [
+        {
+          "name": "bytes_hex",
+          "type": "Hex_String",
+          "description": "Decoded bytes as Hex",
+          "value": "5468697320697320612074657374206d6573736167652e"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "data": "VGhpcyBpcyBhIHRlc3QgbWVzc2FnZS4="
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Rune Translator. A set of enchanted lenses that can seamlessly decipher ancient scripts."
+    },
+    {
+      "id": "checksum_crc32_fe0b",
+      "name": "CRC32 Checksum",
+      "description": "CRC32 over hex bytes.",
+      "type": "Tool",
+      "template_id": "checksum_crc32",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "Hex data",
+          "value": "1234567890abcdef"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hex",
+          "type": "Hex_String",
+          "description": "CRC32 Hex",
+          "value": "32692d55"
+        },
+        {
+          "name": "int",
+          "type": "Big_Int",
+          "description": "CRC32 Int",
+          "value": 845753685
+        }
+      ],
+      "init": {
+        "inputs": {
+          "hex": "1234567890abcdef"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is The Soul Crystal. A jagged amethyst that pulses with dormant spirit energy."
+    },
+    {
+      "id": "item_8_f284",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_8",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Hidden_Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "The integer"
+        }
+      ],
+      "narrative": "This is The Light Essence. A beautifully carved phial containing a few drops of liquid sunshine."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "s"
+    },
+    {
+      "source_id": "calc_bigmul",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "product",
+      "target_port": "from_base"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "a"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "calc_modexp",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "csv_query",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "rows",
+      "target_port": "src"
+    },
+    {
+      "source_id": "calc_modexp_acf6",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "calc_modexp_acf6",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_modexp_c8f3",
+      "target_id": "calc_modexp_acf6",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "base"
+    },
+    {
+      "source_id": "graph_shortest_path_77db",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "checksum_crc32_581f",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "calc_inv_mod",
+      "target_id": "calc_modexp_c8f3",
+      "connection_type": "Big_Int",
+      "source_port": "inv",
+      "target_port": "base"
+    },
+    {
+      "source_id": "item_16_b307",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "graph_shortest_path_77db",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "select"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "checksum_crc32_581f",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "calc_modexp_acf6",
+      "target_id": "num_base_convert",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "to_base"
+    },
+    {
+      "source_id": "graph_shortest_path_5d5b",
+      "target_id": "calc_modexp_c8f3",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "exp"
+    },
+    {
+      "source_id": "terminal_1",
+      "target_id": "checksum_crc32_581f",
+      "connection_type": "Item",
+      "source_port": "item_dispenser",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "item_8",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    },
+    {
+      "source_id": "graph_shortest_path_77db",
+      "target_id": "calc_modexp",
+      "connection_type": "Big_Int",
+      "source_port": "cost",
+      "target_port": "base"
+    },
+    {
+      "source_id": "container_1",
+      "target_id": "item_16",
+      "connection_type": "Item",
+      "source_port": "inner_space",
+      "target_port": "source_tool"
+    },
+    {
+      "source_id": "zip_unzip_file_0e7b",
+      "target_id": "zip_unzip_file",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "zip_unzip_file_678d",
+      "target_id": "csv_query",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "calc_gcd",
+      "target_id": "calc_bigmul",
+      "connection_type": "Big_Int",
+      "source_port": "gcd",
+      "target_port": "b"
+    },
+    {
+      "source_id": "checksum_crc32",
+      "target_id": "container_1",
+      "connection_type": "Hex_String",
+      "source_port": "hex",
+      "target_port": "fingerprint_input"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "zip_unzip_file_678d",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "password"
+    },
+    {
+      "source_id": "base64_decode",
+      "target_id": "checksum_crc32",
+      "connection_type": "Hex_String",
+      "source_port": "bytes_hex",
+      "target_port": "hex"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "csv_query",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "where"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "terminal_1",
+      "connection_type": "Item",
+      "source_port": "math_token",
+      "target_port": "trigger_item"
+    },
+    {
+      "source_id": "zip_unzip_file_678d",
+      "target_id": "zip_unzip_file_0e7b",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "zip_id"
+    },
+    {
+      "source_id": "checksum_crc32_fe0b",
+      "target_id": "calc_inv_mod",
+      "connection_type": "Big_Int",
+      "source_port": "int",
+      "target_port": "mod"
+    },
+    {
+      "source_id": "calc_modexp_c8f3",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "num1"
+    },
+    {
+      "source_id": "graph_shortest_path_77db",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "password"
+    },
+    {
+      "source_id": "item_8_f284",
+      "target_id": "calc_gcd",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    }
+  ]
+}

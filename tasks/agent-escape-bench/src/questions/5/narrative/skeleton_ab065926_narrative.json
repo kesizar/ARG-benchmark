@@ -1,0 +1,454 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 5,
+    "win_node_id": "json_get",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "json_get",
+      "output_port": "values",
+      "output_type": "Text_Generic",
+      "description": "Execute JSON Getter and get the output from port 'values'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "json_get",
+        "graph_shortest_path",
+        "zip_unzip_file",
+        "terminal_2",
+        "calc_modexp"
+      ],
+      "by_node": {
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "JSON file ID"
+            }
+          },
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        },
+        "graph_shortest_path": {
+          "node_name": "Shortest Path Finder",
+          "node_type": "Tool",
+          "template_id": "graph_shortest_path",
+          "init_inputs": {
+            "src": {
+              "type": "Text_Generic",
+              "description": "Source node"
+            }
+          },
+          "init_outputs": {
+            "path": {
+              "type": "Text_Generic",
+              "description": "Path list"
+            },
+            "cost": {
+              "type": "Big_Int",
+              "description": "Path cost"
+            }
+          }
+        },
+        "zip_unzip_file": {
+          "node_name": "Zip Unzipper",
+          "node_type": "Tool",
+          "template_id": "zip_unzip_file",
+          "init_inputs": {
+            "zip_id": {
+              "type": "File_Id",
+              "description": "Zip file ID"
+            }
+          },
+          "init_outputs": {
+            "files": {
+              "type": "File_Id",
+              "description": "Extracted file ID"
+            }
+          }
+        },
+        "terminal_2": {
+          "node_name": "",
+          "node_type": "Tool",
+          "template_id": "terminal_2",
+          "init_inputs": {
+            "num2": {
+              "type": "Big_Int",
+              "description": "Second Number"
+            }
+          },
+          "init_outputs": {
+            "text_result": {
+              "type": "Text_Generic",
+              "description": "Text result for partial input"
+            },
+            "hex_result": {
+              "type": "Hex_String",
+              "description": "Hexadecimal result when both inputs provided"
+            },
+            "math_token": {
+              "type": "Item",
+              "description": "Mathematics token when both inputs provided"
+            }
+          }
+        },
+        "calc_modexp": {
+          "node_name": "BigInt Modular Exponentiation",
+          "node_type": "Tool",
+          "template_id": "calc_modexp",
+          "init_inputs": {
+            "base": {
+              "type": "Big_Int",
+              "description": "Base"
+            },
+            "exp": {
+              "type": "Big_Int",
+              "description": "Exponent"
+            },
+            "mod": {
+              "type": "Big_Int",
+              "description": "Modulus"
+            }
+          },
+          "init_outputs": {}
+        }
+      }
+    },
+    "initial_values": {
+      "json_get": {
+        "init_inputs": {
+          "file_id": "inventory_data_v4.json"
+        },
+        "init_outputs": {
+          "values": "[\"item_sku_1092\", \"item_sku_1093\", \"item_sku_1094\", \"item_sku_1095\"]"
+        }
+      },
+      "graph_shortest_path": {
+        "init_inputs": {
+          "src": "Node_Gateway_A"
+        },
+        "init_outputs": {
+          "path": "[\"Node_Gateway_A\", \"Node_Cluster_1\", \"Node_Router_X\", \"Node_Bridge_9\", \"Node_Target_Z\"]",
+          "cost": "158924"
+        }
+      },
+      "zip_unzip_file": {
+        "init_inputs": {
+          "zip_id": "confidential_logs_2024.zip"
+        },
+        "init_outputs": {
+          "files": "extracted_report_final.txt"
+        }
+      },
+      "terminal_2": {
+        "init_inputs": {
+          "num2": "82736451928374650192"
+        },
+        "init_outputs": {
+          "text_result": "Calculation pending verification step.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "math_token": "This token intentionally left void."
+        }
+      },
+      "calc_modexp": {
+        "init_inputs": {
+          "base": "47582930182736451928",
+          "exp": "92837465102938475612",
+          "mod": "99989"
+        },
+        "init_outputs": {}
+      }
+    },
+    "intro_narrative": "The underground server farm of the shadowy Vanguard Corporation is eerily quiet, save for the low hum of cooling fans. You are an elite cyber-operative tasked with a singular mission: extract the master ledger containing the corporation's global blackmail targets. The facility has initiated a lockdown protocol, and you have only minutes before the server racks are wiped clean by an automated EMP. Before you stands a complex array of interconnected systems: humming mainframes, encrypted archives, and advanced network interfaces. You must navigate this physical maze of digital security, carefully tracing the data flows from one machine to the next, to isolate and extract the target file. The clock is ticking, and the digital tripwires are live.",
+    "narrative_style": "techno_thriller"
+  },
+  "nodes": [
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "inventory_data_v4.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "[\"Node_Gateway_A\", \"Node_Cluster_1\", \"Node_Router_X\", \"Node_Bridge_9\", \"Node_Target_Z\"]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "[\"item_sku_1092\", \"item_sku_1093\", \"item_sku_1094\", \"item_sku_1095\"]"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "inventory_data_v4.json"
+        },
+        "outputs": {
+          "values": "[\"item_sku_1092\", \"item_sku_1093\", \"item_sku_1094\", \"item_sku_1095\"]"
+        }
+      },
+      "narrative": "The final data extractor protocol. It requires input from the network mapper to pinpoint and isolate the exact location of the target file."
+    },
+    {
+      "id": "graph_shortest_path",
+      "name": "Shortest Path Finder",
+      "description": "Shortest path on graph json file with edges list.",
+      "type": "Tool",
+      "template_id": "graph_shortest_path",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "Graph JSON file ID",
+          "value": "extracted_report_final.txt"
+        },
+        {
+          "name": "src",
+          "type": "Text_Generic",
+          "description": "Source node",
+          "value": "Node_Gateway_A"
+        },
+        {
+          "name": "dst",
+          "type": "Text_Generic",
+          "description": "Destination node",
+          "value": "Calculation pending verification step."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "Text_Generic",
+          "description": "Path list",
+          "value": "[\"Node_Gateway_A\", \"Node_Cluster_1\", \"Node_Router_X\", \"Node_Bridge_9\", \"Node_Target_Z\"]"
+        },
+        {
+          "name": "cost",
+          "type": "Big_Int",
+          "description": "Path cost",
+          "value": "158924"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "src": "Node_Gateway_A"
+        },
+        "outputs": {
+          "path": "[\"Node_Gateway_A\", \"Node_Cluster_1\", \"Node_Router_X\", \"Node_Bridge_9\", \"Node_Target_Z\"]",
+          "cost": "158924"
+        }
+      },
+      "narrative": "An advanced network mapper interface. It requires inputs from both the encrypted archive and the security console to trace the correct signal route."
+    },
+    {
+      "id": "zip_unzip_file",
+      "name": "Zip Unzipper",
+      "description": "Unzip a password-protected zip file by id.",
+      "type": "Tool",
+      "template_id": "zip_unzip_file",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "zip_id",
+          "type": "File_Id",
+          "description": "Zip file ID",
+          "value": "confidential_logs_2024.zip"
+        },
+        {
+          "name": "password",
+          "type": "Text_Generic",
+          "description": "Password",
+          "value": "Calculation pending verification step."
+        }
+      ],
+      "outputs": [
+        {
+          "name": "files",
+          "type": "File_Id",
+          "description": "Extracted file ID",
+          "value": "extracted_report_final.txt"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "zip_id": "confidential_logs_2024.zip"
+        },
+        "outputs": {
+          "files": "extracted_report_final.txt"
+        }
+      },
+      "narrative": "A heavily encrypted data archive. It requires input from the security console to begin the decryption process."
+    },
+    {
+      "id": "terminal_2",
+      "name": "",
+      "description": "",
+      "type": "Tool",
+      "template_id": "terminal_2",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "num1",
+          "type": "Big_Int",
+          "description": "First Number",
+          "value": "47602"
+        },
+        {
+          "name": "num2",
+          "type": "Big_Int",
+          "description": "Second Number",
+          "value": "82736451928374650192"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_result",
+          "type": "Text_Generic",
+          "description": "Text result for partial input",
+          "value": "Calculation pending verification step."
+        },
+        {
+          "name": "hex_result",
+          "type": "Hex_String",
+          "description": "Hexadecimal result when both inputs provided",
+          "value": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d"
+        },
+        {
+          "name": "math_token",
+          "type": "Item",
+          "description": "Mathematics token when both inputs provided",
+          "value": "This token intentionally left void."
+        }
+      ],
+      "init": {
+        "inputs": {
+          "num2": "82736451928374650192"
+        },
+        "outputs": {
+          "text_result": "Calculation pending verification step.",
+          "hex_result": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+          "math_token": "This token intentionally left void."
+        }
+      },
+      "narrative": "A sleek security console. It requires input from the mainframe core to bypass its initial lockouts."
+    },
+    {
+      "id": "calc_modexp",
+      "name": "BigInt Modular Exponentiation",
+      "description": "Modular exponentiation pow(base, exp, mod) with large decimal strings.",
+      "type": "Tool",
+      "template_id": "calc_modexp",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "base",
+          "type": "Big_Int",
+          "description": "Base",
+          "value": "47582930182736451928"
+        },
+        {
+          "name": "exp",
+          "type": "Big_Int",
+          "description": "Exponent",
+          "value": "92837465102938475612"
+        },
+        {
+          "name": "mod",
+          "type": "Big_Int",
+          "description": "Modulus",
+          "value": "99989"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "Big_Int",
+          "description": "Result value",
+          "value": "47602"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "base": "47582930182736451928",
+          "exp": "92837465102938475612",
+          "mod": "99989"
+        },
+        "outputs": {}
+      },
+      "narrative": "A high-powered mainframe core humming with residual energy. It processes massive mathematical operations."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "graph_shortest_path",
+      "target_id": "json_get",
+      "connection_type": "Text_Generic",
+      "source_port": "path",
+      "target_port": "jsonpath"
+    },
+    {
+      "source_id": "zip_unzip_file",
+      "target_id": "graph_shortest_path",
+      "connection_type": "File_Id",
+      "source_port": "files",
+      "target_port": "file_id"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "graph_shortest_path",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "dst"
+    },
+    {
+      "source_id": "terminal_2",
+      "target_id": "zip_unzip_file",
+      "connection_type": "Text_Generic",
+      "source_port": "text_result",
+      "target_port": "password"
+    },
+    {
+      "source_id": "calc_modexp",
+      "target_id": "terminal_2",
+      "connection_type": "Big_Int",
+      "source_port": "value",
+      "target_port": "num1"
+    }
+  ]
+}

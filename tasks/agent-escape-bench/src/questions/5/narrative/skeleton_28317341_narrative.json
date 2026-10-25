@@ -1,0 +1,266 @@
+{
+  "metadata": {
+    "total_nodes": 5,
+    "total_edges": 4,
+    "win_node_id": "base64_decode",
+    "win_condition": {
+      "type": "tool_output",
+      "node_id": "base64_decode",
+      "output_port": "bytes_hex",
+      "output_type": "Hex_String",
+      "description": "Execute Base64 Decoder and get the output from port 'bytes_hex'"
+    },
+    "source_init": {
+      "source_nodes": [
+        "unicode_norm",
+        "json_get"
+      ],
+      "by_node": {
+        "unicode_norm": {
+          "node_name": "Unicode Normalizer",
+          "node_type": "Tool",
+          "template_id": "unicode_norm",
+          "init_inputs": {
+            "form": {
+              "type": "Text_Generic",
+              "description": "Form"
+            }
+          },
+          "init_outputs": {}
+        },
+        "json_get": {
+          "node_name": "JSON Getter",
+          "node_type": "Tool",
+          "template_id": "json_get",
+          "init_inputs": {
+            "file_id": {
+              "type": "File_Id",
+              "description": "JSON file ID"
+            },
+            "jsonpath": {
+              "type": "Text_Generic",
+              "description": "JSONPath expression"
+            }
+          },
+          "init_outputs": {
+            "values": {
+              "type": "Text_Generic",
+              "description": "Extracted values"
+            }
+          }
+        }
+      }
+    },
+    "initial_values": {
+      "unicode_norm": {
+        "init_inputs": {
+          "form": "NFC"
+        },
+        "init_outputs": {}
+      },
+      "json_get": {
+        "init_inputs": {
+          "file_id": "customer_data_dump.json",
+          "jsonpath": "$.user_account.iban"
+        },
+        "init_outputs": {
+          "values": "DE89370400440532013000"
+        }
+      }
+    },
+    "intro_narrative": "You have broken into the hidden office of an elusive international smuggler known only as 'The Architect.' He vanished exactly forty-eight hours ago, leaving behind a locked-down network of strange, interconnected devices and a trail of encrypted breadcrumbs. The authorities are closing in, but you know the real evidence of his syndicate lies buried in his digital files. To crack the final mainframe and expose his entire operation, you must logically trace the flow of information through his hidden gadgets before time runs out.",
+    "narrative_style": "mystery"
+  },
+  "nodes": [
+    {
+      "id": "base64_decode",
+      "name": "Base64 Decoder",
+      "description": "Decode base64 to hex bytes.",
+      "type": "Tool",
+      "template_id": "base64_decode",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "Text_Generic",
+          "description": "Base64 string",
+          "value": "True"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "bytes_hex",
+          "type": "Hex_String",
+          "description": "Decoded bytes as Hex",
+          "value": "4ebb9e"
+        }
+      ],
+      "narrative": "This is the mainframe core. It requires input from the linguistic cipher machine to crack the final layer of security."
+    },
+    {
+      "id": "unicode_norm",
+      "name": "Unicode Normalizer",
+      "description": "Unicode normalize (NFC/NFD/NFKC/NFKD).",
+      "type": "Tool",
+      "template_id": "unicode_norm",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Text",
+          "value": "True"
+        },
+        {
+          "name": "form",
+          "type": "Text_Generic",
+          "description": "Form",
+          "value": "NFC"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "Text_Generic",
+          "description": "Normalized text",
+          "value": "True"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "form": "NFC"
+        },
+        "outputs": {}
+      },
+      "narrative": "This is the linguistic cipher machine. It requires input from the offshore bank terminal to process the encrypted text."
+    },
+    {
+      "id": "iban_validate",
+      "name": "IBAN Validator",
+      "description": "IBAN checksum validation.",
+      "type": "Tool",
+      "template_id": "iban_validate",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "iban",
+          "type": "Text_Generic",
+          "description": "IBAN string",
+          "value": "DE89370400440532013000"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valid",
+          "type": "Text_Generic",
+          "description": "True/False string",
+          "value": "True"
+        }
+      ],
+      "narrative": "This is the offshore bank terminal. It requires input from the archivist's computer to verify the smuggler's accounts."
+    },
+    {
+      "id": "json_get",
+      "name": "JSON Getter",
+      "description": "Extract values by simple JSONPath.",
+      "type": "Tool",
+      "template_id": "json_get",
+      "initial_visible": false,
+      "is_revealed": false,
+      "inputs": [
+        {
+          "name": "trigger_hidden",
+          "type": "Hidden_Item",
+          "description": "Hidden item required to unlock this tool"
+        },
+        {
+          "name": "file_id",
+          "type": "File_Id",
+          "description": "JSON file ID",
+          "value": "customer_data_dump.json"
+        },
+        {
+          "name": "jsonpath",
+          "type": "Text_Generic",
+          "description": "JSONPath expression",
+          "value": "$.user_account.iban"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "values",
+          "type": "Text_Generic",
+          "description": "Extracted values",
+          "value": "DE89370400440532013000"
+        }
+      ],
+      "init": {
+        "inputs": {
+          "file_id": "customer_data_dump.json",
+          "jsonpath": "$.user_account.iban"
+        },
+        "outputs": {
+          "values": "DE89370400440532013000"
+        }
+      },
+      "narrative": "This is the archivist's computer. It seems to hold the smuggler's encrypted database."
+    },
+    {
+      "id": "item_16",
+      "name": "",
+      "description": "",
+      "type": "Item",
+      "template_id": "item_16",
+      "initial_visible": true,
+      "is_revealed": true,
+      "inputs": [
+        {
+          "name": "source_tool",
+          "type": "Item",
+          "description": "Produced by"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "content",
+          "type": "Hidden_Item",
+          "description": "Timezone text"
+        }
+      ],
+      "narrative": "A heavy silver pocket watch with a cracked glass face resting on the desk."
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "unicode_norm",
+      "target_id": "base64_decode",
+      "connection_type": "Text_Generic",
+      "source_port": "text",
+      "target_port": "data"
+    },
+    {
+      "source_id": "iban_validate",
+      "target_id": "unicode_norm",
+      "connection_type": "Text_Generic",
+      "source_port": "valid",
+      "target_port": "text"
+    },
+    {
+      "source_id": "json_get",
+      "target_id": "iban_validate",
+      "connection_type": "Text_Generic",
+      "source_port": "values",
+      "target_port": "iban"
+    },
+    {
+      "source_id": "item_16",
+      "target_id": "json_get",
+      "connection_type": "Hidden_Item",
+      "source_port": "content",
+      "target_port": "trigger_hidden"
+    }
+  ]
+}

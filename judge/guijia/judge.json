@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "true": {"type": "dom_regex", "pattern": "尘归尘，土归土"},
+    "marry": {"type": "dom_regex", "pattern": "百年好合"},
+    "escape": {"type": "dom_regex", "pattern": "逃不出去的婚礼"}
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {"id": "true", "tier": "good", "gates": [], "ending": {"hook": "true", "op": "truthy"}},
+    {"id": "marry", "tier": "normal", "gates": [], "ending": {"hook": "marry", "op": "truthy"}},
+    {"id": "escape", "tier": "bad", "gates": [], "ending": {"hook": "escape", "op": "truthy"}}
+  ],
+  "ending": {"hook": "true", "op": "truthy"},
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}
