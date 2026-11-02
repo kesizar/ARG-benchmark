@@ -1,171 +1,129 @@
 {
   "hooks": {
-    "end-good": {
-      "type": "dom_regex",
-      "pattern": "抗 日 战 争 胜 利"
+    "ending": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#screen-end.active .end-title\") && !document.querySelector(\"#gameover-overlay\")"
+    },
+    "failure": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#gameover-overlay .go-reason\")"
     },
     "archive": {
-      "type": "dom_regex",
-      "pattern": "认证通过。档案卷宗已解锁"
+      "type": "js_truthy",
+      "expr": "[\"认证通过\",\"認證通過\",\"認証成功\"].some(x => document.querySelector(\"#jp-feedback\")?.textContent.includes(x) === true)"
     },
-    "bomb": {
-      "type": "dom_regex",
-      "pattern": "論 理 爆 弾 · 投 下"
+    "facility_1": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#obs-panel .obs-card.done[data-oid=\\\"o1\\\"]\")"
     },
-    "rush": {
-      "type": "dom_regex",
-      "pattern": "时间加速密钥认证成功"
+    "facility_2": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#obs-panel .obs-card.done[data-oid=\\\"o2\\\"]\")"
     },
-    "site1": {
-      "type": "input_sha256",
-      "selector": "#oci-o1",
-      "hashes": [
-        "06ac3a262277405febfae2a4e2e047a16d3c1a975823117b7dd722630059920f",
-        "60b56c9cd9810e6d980c8fb8caecf35c65d0bbe09a1305017a373b8afedb9700"
-      ]
+    "facility_3": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#obs-panel .obs-card.done[data-oid=\\\"o3\\\"]\")"
     },
-    "site2": {
-      "type": "input_sha256",
-      "selector": "#oci-o2",
-      "hashes": [
-        "10aea40655c6e297d268a308837834e2915d1f783522363ce4edf8e8ae0fe626",
-        "298addefba9465f5b9d1f1938e7a843ab95434df651d247e86782f9eb63a2270"
-      ]
+    "facility_4": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#obs-panel .obs-card.done[data-oid=\\\"o4\\\"]\")"
     },
-    "site3": {
-      "type": "input_sha256",
-      "selector": "#oci-o3",
-      "hashes": [
-        "21aef9d6196c0f1279abf87745c9a38db8458f011b7cb146305b9c57d7062650"
-      ]
+    "facility_5": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#obs-panel .obs-card.done[data-oid=\\\"o5\\\"]\")"
     },
-    "site4": {
-      "type": "input_sha256",
-      "selector": "#oci-o4",
-      "hashes": [
-        "003c51da81d18cb137c02c92589f34344fbf6c0d443ee5ac453e2e92fa5ff3ec"
-      ]
+    "facility_6": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#obs-panel .obs-card.done[data-oid=\\\"o6\\\"]\")"
     },
-    "site5": {
-      "type": "input_sha256",
-      "selector": "#oci-o5",
-      "hashes": [
-        "4d2d6a48e7e23d47889c114d5ca939340e19791e445bfc2b4de1b0db2b0e0d7f"
-      ]
+    "facility_7": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#obs-panel .obs-card.done[data-oid=\\\"o7\\\"]\")"
     },
-    "site6": {
-      "type": "input_sha256",
-      "selector": "#oci-o6",
-      "hashes": [
-        "fdec7706f92c0dbcd154d6b4f79badaf400c5d64fab33353ed7ca867a17e5ab0"
-      ]
-    },
-    "site7": {
-      "type": "input_sha256",
-      "selector": "#oci-o7",
-      "hashes": [
-        "4615693191d93a7cab735dd627db1d3027a3a5bfccfcddcf5151900f475fde4b"
-      ]
-    },
-    "site8": {
-      "type": "input_sha256",
-      "selector": "#oci-o8",
-      "hashes": [
-        "6f6be8d70895c62025b476220f61c9cfd2234d3cd29791ccb81ace302f9a37a2"
-      ]
+    "facility_8": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#obs-panel .obs-card.done[data-oid=\\\"o8\\\"]\")"
     }
   },
   "checkpoints": [
     {
+      "id": "facility_1",
+      "hook": "facility_1",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "facility_2",
+      "hook": "facility_2",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "facility_3",
+      "hook": "facility_3",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "facility_4",
+      "hook": "facility_4",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "facility_5",
+      "hook": "facility_5",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "facility_6",
+      "hook": "facility_6",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "facility_7",
+      "hook": "facility_7",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "facility_8",
+      "hook": "facility_8",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
       "id": "archive",
       "hook": "archive",
-      "op": "truthy"
-    },
-    {
-      "id": "bomb",
-      "hook": "bomb",
-      "op": "truthy"
-    },
-    {
-      "id": "site1",
-      "hook": "site1",
-      "op": "truthy"
-    },
-    {
-      "id": "site2",
-      "hook": "site2",
-      "op": "truthy"
-    },
-    {
-      "id": "site3",
-      "hook": "site3",
-      "op": "truthy"
-    },
-    {
-      "id": "site4",
-      "hook": "site4",
-      "op": "truthy"
-    },
-    {
-      "id": "site5",
-      "hook": "site5",
-      "op": "truthy"
-    },
-    {
-      "id": "site6",
-      "hook": "site6",
-      "op": "truthy"
-    },
-    {
-      "id": "site7",
-      "hook": "site7",
-      "op": "truthy"
-    },
-    {
-      "id": "site8",
-      "hook": "site8",
-      "op": "truthy"
-    },
-    {
-      "id": "rush",
-      "hook": "rush",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     }
   ],
   "events": {},
   "routes": [
     {
-      "id": "found",
+      "id": "victory",
       "tier": "good",
-      "gates": [
-        "archive",
-        "bomb",
-        "site1",
-        "site2",
-        "site3",
-        "site4",
-        "site5",
-        "site6",
-        "site7",
-        "site8",
-        "rush"
-      ],
+      "gates": [],
       "ending": {
-        "hook": "end-good",
+        "hook": "ending",
         "op": "truthy"
       }
     }
   ],
-  "ending": {
-    "hook": "end-good",
-    "op": "truthy"
-  },
+  "terminal_failures": [
+    {
+      "id": "alarm",
+      "hook": "failure",
+      "op": "truthy"
+    }
+  ],
   "answer_sha256": [],
-  "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {
     "enabled": false,
     "schema": null
-  },
-  "rubric_path": null
+  }
 }

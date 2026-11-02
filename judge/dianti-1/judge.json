@@ -1,39 +1,78 @@
 {
   "hooks": {
-    "panel": {
-      "type": "dom_regex",
-      "pattern": "密码正确！电梯门正在开启"
+    "connect": {
+      "type": "js_truthy",
+      "expr": "STATE.terminalUnlocked"
     },
-    "escaped": {
-      "type": "dom_regex",
-      "pattern": "逃离成功"
+    "plaintext": {
+      "type": "js_truthy",
+      "expr": "STATE.clues.has(\"最终明文\")"
+    },
+    "note": {
+      "type": "js_truthy",
+      "expr": "STATE.noteTaken"
+    },
+    "board": {
+      "type": "js_truthy",
+      "expr": "STATE.boardDecoded"
+    },
+    "password": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\"body > #m-password #pwmsg\").textContent.includes(\"密码正确\")"
+    },
+    "escape": {
+      "type": "js_truthy",
+      "expr": "STATE.ended && document.querySelector(\"body > #ending\").classList.contains(\"show\") && !document.querySelector(\"body > #ending\").classList.contains(\"easter\") && !document.querySelector(\"body > #ending\").classList.contains(\"fail\") && document.querySelector(\"body > #ending #end-title\").textContent===\"逃离成功\""
     },
     "egg": {
-      "type": "dom_regex",
-      "pattern": "彩蛋结局"
+      "type": "js_truthy",
+      "expr": "STATE.ended && document.querySelector(\"body > #ending\").classList.contains(\"easter\") && document.querySelector(\"body > #ending\").classList.contains(\"show\")"
     },
-    "fell": {
-      "type": "dom_regex",
-      "pattern": "电梯坠落"
+    "fall": {
+      "type": "js_truthy",
+      "expr": "STATE.ended && document.querySelector(\"body > #ending\").classList.contains(\"fail\") && document.querySelector(\"body > #ending\").classList.contains(\"show\")"
     }
   },
   "checkpoints": [
     {
-      "id": "panel",
-      "hook": "panel",
-      "op": "truthy"
+      "id": "connect",
+      "hook": "connect",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "password",
+      "hook": "password",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "plaintext",
+      "hook": "plaintext",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "note",
+      "hook": "note",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "board",
+      "hook": "board",
+      "op": "truthy",
+      "role": "diagnostic"
     }
   ],
   "events": {},
   "routes": [
     {
       "id": "escape",
-      "tier": "good",
-      "gates": [
-        "panel"
-      ],
+      "tier": "normal",
+      "gates": [],
       "ending": {
-        "hook": "escaped",
+        "hook": "escape",
         "op": "truthy"
       }
     },
@@ -45,19 +84,10 @@
         "hook": "egg",
         "op": "truthy"
       }
-    },
-    {
-      "id": "fall",
-      "tier": "bad",
-      "gates": [],
-      "ending": {
-        "hook": "fell",
-        "op": "truthy"
-      }
     }
   ],
   "ending": {
-    "hook": "escaped",
+    "hook": "escape",
     "op": "truthy"
   },
   "answer_sha256": [],
@@ -67,5 +97,12 @@
     "enabled": false,
     "schema": null
   },
-  "rubric_path": null
+  "rubric_path": null,
+  "terminal_failures": [
+    {
+      "id": "fall",
+      "hook": "fall",
+      "op": "truthy"
+    }
+  ]
 }

@@ -1,0 +1,25 @@
+from pathlib import Path
+import json,hashlib
+R=Path(__file__).resolve().parents[1];tid='xishe-guaitan'
+def save(p,x):
+ (R/p).write_text(json.dumps(x,ensure_ascii=False,indent=2),encoding='utf-8')
+c=json.loads((R/'configs/baoya.json').read_text(encoding='utf-8'));c.update(id=tid,category='arg',entry_url='http://127.0.0.1:8811/index.html',judge_path=f'judge/{tid}/judge.json',policy_script=[{'op':'give_up'}]);c['model_visible']={'title':'西社怪谈','intro':'调查谢青果在西社村失联的真相。仅使用页面可见线索和正常界面，收集证据并尝试救出她。'};c['local_serve']['command']=['python','scripts/serve_static.py','--root',f'tasks/{tid}/mirror','--port','8811'];c['notes_for_report']=['All game assets local; pinyin-pro 3.25.0 vendored. Three reasoning checkpoints; evidence export is diagnostic. Static ending pages can be opened directly: judge additionally requires collected evidence and timer state.'];c['limits'].update(max_steps=300,max_seconds=3600)
+save(f'configs/{tid}.json',c)
+hooks={}
+def js(k,e):hooks[k]={'type':'js_truthy','expr':e}
+js('date-search',"location.pathname.endsWith('/search-202608.html') && document.body.innerText.includes('重点关注人员名单')")
+js('hidden-login',"location.pathname.endsWith('/village-committee.html') && document.querySelector('#secret-box').style.display==='block'")
+js('admin-login',"localStorage.getItem('zds_logged_in')==='1'")
+ev=['ev_victim_list','ev_register_form','ev_messages','ev_guestbook','ev_police_info']
+for e in ev:js(e,f"JSON.parse(localStorage.getItem('xsg_evidence')||'[]').includes('{e}')")
+all_ev=' && '.join(f"JSON.parse(localStorage.getItem('xsg_evidence')||'[]').includes('{e}')" for e in ev)
+deadline="Number(localStorage.getItem('xsg_deadline'))"
+js('good',f"location.pathname.endsWith('/report.html') && ({all_ev}) && {deadline}>Date.now() && localStorage.getItem('zds_logged_in')==='1'")
+js('bad',"location.pathname.endsWith('/report-bad.html') && JSON.parse(localStorage.getItem('xsg_evidence')||'[]').length>0 && JSON.parse(localStorage.getItem('xsg_evidence')||'[]').length<5")
+js('dead',f"location.pathname.endsWith('/report-dead.html') && {deadline}>0 && {deadline}<=Date.now()")
+cp=[{'id':k,'hook':k,'op':'truthy','role':'critical'} for k in ['date-search','hidden-login','admin-login']]+[{'id':e,'hook':e,'op':'truthy','role':'diagnostic'} for e in ev]
+save(f'judge/{tid}/judge.json',{'hooks':hooks,'checkpoints':cp,'events':{},'routes':[{'id':'rescue','tier':'good','gates':['date-search','hidden-login','admin-login'],'ending':{'hook':'good','op':'truthy'}},{'id':'insufficient','tier':'bad','gates':[],'ending':{'hook':'bad','op':'truthy'}},{'id':'timeout','tier':'bad','gates':['date-search'],'ending':{'hook':'dead','op':'truthy'}}]})
+save(f'judge/{tid}/checkpoint-spec.json',{'record_id':'added84:0071','latching':'Judge checkpoints latch per episode; reset requires a fresh Judge and browser context.','critical':[{'id':'date-search','reasoning':'Expanded review Yi -> menu signature dishes 20/26/08 -> YYYYMM 202608. Month/date normalized by game.','evidence':'restaurant.html signature tags; village-committee.html doSearch.'},{'id':'hidden-login','reasoning':'Search Zhao Desheng -> acrostic 政务村务 + 5次 -> click matching navigation five times. Footer five clicks is an unhinted alternate bypass.','evidence':'search-zhaodesheng.html 81-87; village-committee.html 544-556,589-596.'},{'id':'admin-login','reasoning':'Chen family article gives village initials + succession year; chief-transition 2005; username Zhao Desheng pinyin -> zhaodesheng / xsc2005.','evidence':'chen-family.html 93; chief-transition.html; village-committee.html doLogin.'}],'noncritical':'Five export buttons, menu/page reading, toggle guestbook and confirm export are not scored as reasoning.','routes':{'rescue':'5 evidence IDs, unexpired 48h timer, logged in, actual report.html; route gates three reasoning points.','insufficient':'At least one but fewer than five exports then submit; no mandatory puzzle gate because admin export alone permits this.','timeout':'Victim-list download starts 48h; expiry then submit; date search on intended UI route.'},'risks':['Ending HTML and secret page have no source-level access guards; game model goto disabled, judge rejects naked ending navigation.','Report narrative fifth evidence says medical notes whereas runtime fifth ID is police info; preserve runtime original, record discrepancy.','Menu non-signature prices are distractors; YYYYMM clue is indirect.','Footer hidden-login bypass can avoid speech reasoning, therefore modal checkpoint only measures reaching hidden UI, not proof of reading speech.']})
+files=[{'path':p.relative_to(R/f'tasks/{tid}/mirror').as_posix(),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in (R/f'tasks/{tid}/mirror').rglob('*') if p.is_file()]
+save(f'tasks/{tid}/provenance.json',{'record_id':'added84:0071','entry':'https://xisheguaitan.pages.dev/','version':'Historical index/website snapshots plus linked assets fetched 2026-10-27 Asia/Shanghai.','files':files,'upstream_download_log':'runs/xishe-guaitan/resource-fetch.json','compatibility':'Only pinned CDN script URL localized; original and diff preserved.'})
+print(len(files))

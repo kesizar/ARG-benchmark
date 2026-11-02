@@ -1,0 +1,86 @@
+{
+  "id": "added84-0002-mom",
+  "category": "arg",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "Mom",
+    "intro": "你在一份离线存档里。只能访问这个站点，只根据屏幕上能看到的信息整理资料。请继续探索，直至读到题为《还没掉呢》的卷末整理。"
+  },
+  "entry_url": "http://127.0.0.1:8991/",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/added84-0002-mom/mirror",
+      "--port",
+      "8991"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8991/",
+    "ready_timeout_s": 30,
+    "port": 8991
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261023,
+  "allow_hosts": [
+    "127.0.0.1:8991"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*spoiler*",
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 120,
+    "max_seconds": 1800,
+    "max_answer_submits": 5
+  },
+  "settle_ms": 400,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/added84-0002-mom/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "《还没掉呢》是本评测选定的目标，其他卷末可返回并继续整理；作品本身未将其定为唯一终局或好结局。"
+  ]
+}

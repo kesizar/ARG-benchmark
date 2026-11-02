@@ -1,0 +1,241 @@
+{
+  "points": [
+    {
+      "id": "key",
+      "scene": "act1_2",
+      "group": "顶针机关",
+      "evidence": "inventory.some(i => i.id === 'key')",
+      "source_lines": [
+        621,
+        785
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "sachet_face",
+      "scene": "act2_2",
+      "group": "香囊拼合",
+      "evidence": "!!document.querySelector('#cstep1.done')",
+      "source_lines": [
+        1011,
+        1024
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "sachet_alignment",
+      "scene": "act2_2",
+      "group": "香囊拼合",
+      "evidence": "!!document.querySelector('#cstep2.done')",
+      "source_lines": [
+        1025,
+        1039
+      ],
+      "role": "optional_diagnostic"
+    },
+    {
+      "id": "track",
+      "scene": "act2_4",
+      "group": "脚印追踪",
+      "evidence": "!!document.querySelector('#trk3.done')",
+      "source_lines": [
+        1116,
+        1150
+      ],
+      "role": "optional_diagnostic"
+    },
+    {
+      "id": "code",
+      "scene": "act3_2",
+      "group": "年份密码",
+      "evidence": "document.querySelectorAll('#scene-act3_2 .code-box.ok').length === 8",
+      "source_lines": [
+        1223,
+        1236
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "archive_1",
+      "scene": "act3_2b",
+      "group": "档案排序",
+      "evidence": "!!document.querySelector('#slot1.filled')",
+      "source_lines": [
+        1311,
+        1361
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "archive_2",
+      "scene": "act3_2b",
+      "group": "档案排序",
+      "evidence": "!!document.querySelector('#slot2.filled')",
+      "source_lines": [
+        1311,
+        1361
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "archive_3",
+      "scene": "act3_2b",
+      "group": "档案排序",
+      "evidence": "!!document.querySelector('#slot3.filled')",
+      "source_lines": [
+        1311,
+        1361
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "archive_4",
+      "scene": "act3_2b",
+      "group": "档案排序",
+      "evidence": "!!document.querySelector('#slot4.filled')",
+      "source_lines": [
+        1311,
+        1361
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "archive_5",
+      "scene": "act3_2b",
+      "group": "档案排序",
+      "evidence": "!!document.querySelector('#slot5.filled')",
+      "source_lines": [
+        1311,
+        1361
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "stones",
+      "scene": "act4_2",
+      "group": "石阵排列",
+      "evidence": "document.querySelectorAll('#scene-act4_2 .stone-correct').length === 7",
+      "source_lines": [
+        1453,
+        1476
+      ],
+      "role": "optional_diagnostic"
+    },
+    {
+      "id": "fog",
+      "scene": "act4_4",
+      "group": "雾中辨向",
+      "evidence": "!!document.querySelector('#nav3.done')",
+      "source_lines": [
+        1526,
+        1550
+      ],
+      "role": "optional_diagnostic"
+    },
+    {
+      "id": "carvings",
+      "scene": "act5_2",
+      "group": "刻痕顺序",
+      "evidence": "document.querySelectorAll('#scene-act5_2 .carving.touched').length === 3",
+      "source_lines": [
+        1607,
+        1625
+      ],
+      "role": "optional_diagnostic"
+    },
+    {
+      "id": "spirit_1",
+      "scene": "act5_2b",
+      "group": "亡魂问答",
+      "evidence": "!!document.querySelector('#sp1.done')",
+      "source_lines": [
+        1651,
+        1736
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "spirit_2",
+      "scene": "act5_2b",
+      "group": "亡魂问答",
+      "evidence": "!!document.querySelector('#sp2.done')",
+      "source_lines": [
+        1651,
+        1736
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "spirit_3",
+      "scene": "act5_2b",
+      "group": "亡魂问答",
+      "evidence": "!!document.querySelector('#sp3.done')",
+      "source_lines": [
+        1651,
+        1736
+      ],
+      "role": "optional_diagnostic"
+    },
+    {
+      "id": "matching_1",
+      "scene": "act6_1c",
+      "group": "线索配对",
+      "evidence": "!!document.querySelector('#scene-act6_1c #c1.matched')",
+      "source_lines": [
+        1856,
+        1915
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "matching_2",
+      "scene": "act6_1c",
+      "group": "线索配对",
+      "evidence": "!!document.querySelector('#scene-act6_1c #c2.matched')",
+      "source_lines": [
+        1856,
+        1915
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "matching_3",
+      "scene": "act6_1c",
+      "group": "线索配对",
+      "evidence": "!!document.querySelector('#scene-act6_1c #c3.matched')",
+      "source_lines": [
+        1856,
+        1915
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "matching_4",
+      "scene": "act6_1c",
+      "group": "线索配对",
+      "evidence": "!!document.querySelector('#scene-act6_1c #c4.matched')",
+      "source_lines": [
+        1856,
+        1915
+      ],
+      "role": "critical"
+    },
+    {
+      "id": "matching_5",
+      "scene": "act6_1c",
+      "group": "线索配对",
+      "evidence": "!!document.querySelector('#scene-act6_1c #c5.matched')",
+      "source_lines": [
+        1856,
+        1915
+      ],
+      "role": "critical"
+    }
+  ],
+  "group_count": 10,
+  "point_count": 21,
+  "counting_rule": "Directly supplied steps track/stones/fog/carvings and the semantically ambiguous spirit_3 are diagnostic. Other points count as critical; game requires all to advance. Sachet cut alignment is also diagnostic because the two displayed halves have identical imagery and lack a discriminating orientation.",
+  "ending_tier_status": "User approved both endings as formal completion, without good/bad rating; normal represents unranked narrative outcomes.",
+  "critical_point_count": 15,
+  "diagnostic_point_count": 6
+}

@@ -1,7 +1,7 @@
 {
   "id": "protocol-errormind",
   "category": "arg",
-  "arg_layer": "L3",
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
@@ -11,9 +11,19 @@
     "title": "protocol-errormind",
     "intro": "你在一份出错的协议里。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
   },
-  "entry_url": "https://protocol-errormind.github.io/",
+  "entry_url": "http://127.0.0.1:8811/index.html",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "port": 8811,
+    "ready_url": "http://127.0.0.1:8811/index.html",
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/protocol-errormind/mirror",
+      "--port",
+      "8811"
+    ]
   },
   "viewport": {
     "width": 1366,
@@ -23,7 +33,7 @@
   "timezone": "Asia/Shanghai",
   "seed": 20261023,
   "allow_hosts": [
-    "protocol-errormind.github.io"
+    "127.0.0.1:8811"
   ],
   "shortcut_block": [],
   "guide_block_hosts": [
@@ -47,14 +57,17 @@
     "back",
     "wait",
     "dialog",
-    "give_up"
+    "give_up",
+    "hover",
+    "switch_tab",
+    "close_tab"
   ],
   "limits": {
-    "max_steps": 120,
-    "max_seconds": 1800,
-    "max_answer_submits": 5
+    "max_steps": 1000,
+    "max_seconds": 7200,
+    "max_answer_submits": 100
   },
-  "settle_ms": 400,
+  "settle_ms": 150,
   "history": {
     "full_obs_k": 4,
     "screenshot_k": 2
@@ -69,6 +82,7 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-23 这些句子不在首屏正文里，通关时才写进页面。"
-  ]
+    "Frozen original ERRORMIND2.0. Puzzle progression unchanged; external fontimport removed and missing initLevel12 guarded. Three narrative choices all count completion only after shared final. Engineering validation is separate from content approval."
+  ],
+  "account_requirement": "none"
 }

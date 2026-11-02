@@ -1,0 +1,293 @@
+{
+  "scenes": [
+    {
+      "id": "cover",
+      "type": "cover",
+      "title": "封面",
+      "next": null,
+      "choices": [],
+      "image": null
+    },
+    {
+      "id": "act1_1",
+      "type": "narrative",
+      "title": "归乡·雾起",
+      "next": "act1_1b",
+      "choices": [],
+      "image": "scene-cover.jpg"
+    },
+    {
+      "id": "act1_1b",
+      "type": "narrative",
+      "title": "进村路上",
+      "next": "act1_1c",
+      "choices": [],
+      "image": "scene-cover.jpg"
+    },
+    {
+      "id": "act1_1c",
+      "type": "narrative",
+      "title": "老屋",
+      "next": "act1_2",
+      "choices": [],
+      "image": "scene-oldhouse.jpg"
+    },
+    {
+      "id": "act1_2",
+      "type": "puzzle",
+      "title": "奶奶的老房子",
+      "next": "act1_3",
+      "choices": [],
+      "image": "scene-oldhouse.jpg"
+    },
+    {
+      "id": "act1_3",
+      "type": "narrative",
+      "title": "木箱之中",
+      "next": "act2_1",
+      "choices": [],
+      "image": "scene-oldhouse.jpg"
+    },
+    {
+      "id": "act2_1",
+      "type": "narrative",
+      "title": "次日清晨",
+      "next": "act2_1b",
+      "choices": [],
+      "image": "scene-oldhouse.jpg"
+    },
+    {
+      "id": "act2_1b",
+      "type": "narrative",
+      "title": "闭门羹",
+      "next": "act2_1c",
+      "choices": [],
+      "image": "scene-shop.jpg"
+    },
+    {
+      "id": "act2_1c",
+      "type": "narrative",
+      "title": "哑巴婶子",
+      "next": "act2_1d",
+      "choices": [],
+      "image": "scene-shop.jpg"
+    },
+    {
+      "id": "act2_1d",
+      "type": "puzzle",
+      "title": "小卖部搜索",
+      "next": "act2_2",
+      "choices": [],
+      "image": "scene-shop.jpg"
+    },
+    {
+      "id": "act2_2",
+      "type": "puzzle",
+      "title": "两半香囊",
+      "next": "act2_3",
+      "choices": [],
+      "image": "scene-shop.jpg"
+    },
+    {
+      "id": "act2_3",
+      "type": "narrative",
+      "title": "日记第十二页",
+      "next": "act2_4",
+      "choices": [],
+      "image": "scene-oldhouse.jpg"
+    },
+    {
+      "id": "act2_4",
+      "type": "puzzle",
+      "title": "追踪脚印",
+      "next": "act3_1",
+      "choices": [],
+      "image": "scene-night.jpg"
+    },
+    {
+      "id": "act3_1",
+      "type": "narrative",
+      "title": "第三天",
+      "next": "act3_1b",
+      "choices": [],
+      "image": "scene-shop.jpg"
+    },
+    {
+      "id": "act3_1b",
+      "type": "narrative",
+      "title": "夜探",
+      "next": "act3_2",
+      "choices": [],
+      "image": "scene-night.jpg"
+    },
+    {
+      "id": "act3_2",
+      "type": "puzzle",
+      "title": "铁皮柜密码",
+      "next": "act3_2b",
+      "choices": [],
+      "image": "scene-night.jpg"
+    },
+    {
+      "id": "act3_2b",
+      "type": "puzzle",
+      "title": "柜中密档",
+      "next": "act3_3",
+      "choices": [],
+      "image": "scene-night.jpg"
+    },
+    {
+      "id": "act3_3",
+      "type": "narrative",
+      "title": "雾进村",
+      "next": "act4_1",
+      "choices": [],
+      "image": "scene-night.jpg"
+    },
+    {
+      "id": "act4_1",
+      "type": "narrative",
+      "title": "抉择",
+      "next": "act4_1b",
+      "choices": [],
+      "image": "scene-oldhouse.jpg"
+    },
+    {
+      "id": "act4_1b",
+      "type": "narrative",
+      "title": "进山",
+      "next": "act4_2",
+      "choices": [],
+      "image": "scene-stone.jpg"
+    },
+    {
+      "id": "act4_2",
+      "type": "puzzle",
+      "title": "七石之阵",
+      "next": "act4_3",
+      "choices": [],
+      "image": "scene-stone.jpg"
+    },
+    {
+      "id": "act4_3",
+      "type": "narrative",
+      "title": "雾中行",
+      "next": "act4_4",
+      "choices": [],
+      "image": "scene-stone.jpg"
+    },
+    {
+      "id": "act4_4",
+      "type": "puzzle",
+      "title": "雾中辨向",
+      "next": "act5_1",
+      "choices": [],
+      "image": "scene-stone.jpg"
+    },
+    {
+      "id": "act5_1",
+      "type": "narrative",
+      "title": "迷路",
+      "next": "act5_1b",
+      "choices": [],
+      "image": "scene-tree.jpg"
+    },
+    {
+      "id": "act5_1b",
+      "type": "narrative",
+      "title": "旧影",
+      "next": "act5_2",
+      "choices": [],
+      "image": "scene-tree.jpg"
+    },
+    {
+      "id": "act5_2",
+      "type": "puzzle",
+      "title": "三道刻痕",
+      "next": "act5_2b",
+      "choices": [],
+      "image": "scene-tree.jpg"
+    },
+    {
+      "id": "act5_2b",
+      "type": "puzzle",
+      "title": "亡魂三问",
+      "next": "act5_3",
+      "choices": [],
+      "image": "scene-tree.jpg"
+    },
+    {
+      "id": "act5_3",
+      "type": "narrative",
+      "title": "傻根归来",
+      "next": "act6_1",
+      "choices": [],
+      "image": "scene-tree.jpg"
+    },
+    {
+      "id": "act6_1",
+      "type": "narrative",
+      "title": "老槐树下",
+      "next": "act6_1b",
+      "choices": [],
+      "image": "scene-monument.jpg"
+    },
+    {
+      "id": "act6_1b",
+      "type": "narrative",
+      "title": "铁皮盒",
+      "next": "act6_1c",
+      "choices": [],
+      "image": "scene-monument.jpg"
+    },
+    {
+      "id": "act6_1c",
+      "type": "puzzle",
+      "title": "真相拼图",
+      "next": "act6_2",
+      "choices": [],
+      "image": "scene-monument.jpg"
+    },
+    {
+      "id": "act6_2",
+      "type": "narrative",
+      "title": "浓雾之源",
+      "next": "finale_1",
+      "choices": [],
+      "image": "scene-monument.jpg"
+    },
+    {
+      "id": "finale_1",
+      "type": "choice",
+      "title": "抉择·余响",
+      "next": null,
+      "choices": [
+        {
+          "text": "接过香囊，留守雾落村",
+          "next": "ending_a"
+        },
+        {
+          "text": "拎起行李，回城里的生活",
+          "next": "ending_b"
+        }
+      ],
+      "image": "scene-ending.jpg"
+    },
+    {
+      "id": "ending_a",
+      "type": "ending",
+      "title": "结局 · 留守",
+      "next": null,
+      "choices": [],
+      "image": "scene-ending.jpg"
+    },
+    {
+      "id": "ending_b",
+      "type": "ending",
+      "title": "结局 · 离开",
+      "next": null,
+      "choices": [],
+      "image": "scene-ending.jpg"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "hooks": {
+    "rules": {
+      "type": "js_truthy",
+      "expr": "!!window.CH2 && CH2._T.rulesSolved"
+    },
+    "shadow": {
+      "type": "js_truthy",
+      "expr": "!!window.CH2 && CH2._T.boxOpen && CH2._T.silverKey"
+    },
+    "echo": {
+      "type": "js_truthy",
+      "expr": "!!window.CH2 && CH2._T.echoSolved"
+    },
+    "seams": {
+      "type": "js_truthy",
+      "expr": "!!window.CH3 && !!CH3._T.seams && CH3._T.seams.every(s=>s.done)"
+    },
+    "free": {
+      "type": "js_truthy",
+      "expr": "typeof S !== \"undefined\" && S.chapter === 3 && S._pendingEnding === \"free\" && !document.querySelector(\"#ending\").classList.contains(\"hidden\") && document.querySelector(\"#ending-lines\").textContent.includes(\"第三章 · 解放\")"
+    },
+    "seal": {
+      "type": "js_truthy",
+      "expr": "typeof S !== \"undefined\" && S.chapter === 3 && S._pendingEnding === \"seal\" && !document.querySelector(\"#ending\").classList.contains(\"hidden\") && document.querySelector(\"#ending-lines\").textContent.includes(\"第三章 · 封印\")"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "rules",
+      "hook": "rules",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "shadow",
+      "hook": "shadow",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "echo",
+      "hook": "echo",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "seams",
+      "hook": "seams",
+      "op": "truthy",
+      "role": "critical"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "free",
+      "tier": "normal",
+      "gates": [
+        "shadow",
+        "seams"
+      ],
+      "ending": {
+        "hook": "free",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "seal",
+      "tier": "normal",
+      "gates": [
+        "shadow",
+        "seams"
+      ],
+      "ending": {
+        "hook": "seal",
+        "op": "truthy"
+      }
+    }
+  ]
+}

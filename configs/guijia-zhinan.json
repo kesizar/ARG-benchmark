@@ -1,7 +1,7 @@
 {
   "id": "guijia-zhinan",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
@@ -9,11 +9,23 @@
   "computer_use": false,
   "model_visible": {
     "title": "归家指南",
-    "intro": "你在找一条回家的路。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
+    "intro": "这是本地单页叙事解谜。通过页面上可见的线索和操作推进故事，达成任一正式结局。"
   },
-  "entry_url": "https://wmrlp8.gicp.fun/",
+  "entry_url": "http://127.0.0.1:8811/index.html",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/guijia-zhinan/mirror",
+      "--port",
+      "8811"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8811/index.html",
+    "ready_timeout_s": 30,
+    "port": 8811
   },
   "viewport": {
     "width": 1366,
@@ -21,16 +33,12 @@
   },
   "locale": "zh-CN",
   "timezone": "Asia/Shanghai",
-  "seed": 20261023,
+  "seed": 20261012,
   "allow_hosts": [
-    "wmrlp8.gicp.fun"
+    "127.0.0.1:8811"
   ],
   "shortcut_block": [],
-  "guide_block_hosts": [
-    "*walkthrough*",
-    "*writeup*",
-    "*攻略*"
-  ],
+  "guide_block_hosts": [],
   "allow_model_goto": false,
   "goto_scope": "none",
   "show_url": true,
@@ -46,20 +54,26 @@
     "back",
     "wait",
     "dialog",
-    "give_up"
+    "give_up",
+    "switch_tab",
+    "close_tab"
   ],
   "limits": {
-    "max_steps": 120,
+    "max_steps": 250,
     "max_seconds": 1800,
-    "max_answer_submits": 5
+    "max_answer_submits": 20
   },
-  "settle_ms": 400,
+  "settle_ms": 350,
   "history": {
     "full_obs_k": 4,
     "screenshot_k": 2
   },
   "judge_path": "judge/guijia-zhinan/judge.json",
   "policy_script": [
+    {
+      "op": "click",
+      "n": 0
+    },
     {
       "op": "give_up"
     }
@@ -68,6 +82,8 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-23 这些句子不在首屏正文里，通关时才写进页面。"
-  ]
+    "原作单页快照，虚构Tor下载/暗网访问仅为游戏内按钮，没有真实下载或外网依赖。",
+    "所有正式结局不擅自评好坏；提示直接暴露的输入只作事件。隐藏结局使用全结局收集配置。"
+  ],
+  "account_requirement": "none"
 }

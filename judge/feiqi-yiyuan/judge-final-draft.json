@@ -1,0 +1,120 @@
+{
+  "hooks": {
+    "space": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").spaceUnlocked===true"
+    },
+    "log": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").logUnlocked===true"
+    },
+    "phone": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").phoneUnlocked===true"
+    },
+    "drawer": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").drawerOpen===true"
+    },
+    "intranet": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").intranetUnlocked===true"
+    },
+    "chen": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").chenUnlocked===true"
+    },
+    "follow_ending": {
+      "type": "js_truthy",
+      "expr": "document.getElementById(\"screen-thread\").classList.contains(\"active\") && document.getElementById(\"epilogue\").textContent.includes(\"帖子后续 · 已更新\") && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").spaceUnlocked===true"
+    },
+    "truth_ending": {
+      "type": "js_truthy",
+      "expr": "document.getElementById(\"screen-thread\").classList.contains(\"active\") && document.getElementById(\"epilogue\").textContent.includes(\"真结局 · 全真相\") && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").spaceUnlocked===true && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").phoneUnlocked===true"
+    },
+    "deeper_ending": {
+      "type": "js_truthy",
+      "expr": "document.getElementById(\"screen-thread\").classList.contains(\"active\") && document.getElementById(\"epilogue\").textContent.includes(\"更深的真相 · 人体实验\") && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").spaceUnlocked===true && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").phoneUnlocked===true && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").intranetUnlocked===true"
+    },
+    "final_ending": {
+      "type": "js_truthy",
+      "expr": "document.getElementById(\"screen-thread\").classList.contains(\"active\") && document.getElementById(\"epilogue\").textContent.includes(\"亡魂的真相 · 禁入区\") && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").spaceUnlocked===true && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").phoneUnlocked===true && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").intranetUnlocked===true && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").chenUnlocked===true"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "space",
+      "hook": "space",
+      "op": "truthy"
+    },
+    {
+      "id": "log",
+      "hook": "log",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "phone",
+      "hook": "phone",
+      "op": "truthy"
+    },
+    {
+      "id": "drawer",
+      "hook": "drawer",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "intranet",
+      "hook": "intranet",
+      "op": "truthy"
+    },
+    {
+      "id": "chen",
+      "hook": "chen",
+      "op": "truthy"
+    }
+  ],
+  "events": {
+    "follow_observed": {
+      "hook": "follow_ending",
+      "op": "truthy"
+    },
+    "truth_observed": {
+      "hook": "truth_ending",
+      "op": "truthy"
+    },
+    "deeper_observed": {
+      "hook": "deeper_ending",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "final",
+      "tier": "good",
+      "gates": [
+        "space",
+        "phone",
+        "intranet",
+        "chen"
+      ],
+      "ending": {
+        "hook": "final_ending",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "final_ending",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

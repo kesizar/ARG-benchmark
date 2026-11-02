@@ -1,19 +1,31 @@
 {
   "id": "k7-dangan",
   "category": "arg",
-  "arg_layer": "L3",
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
   ],
   "computer_use": false,
   "model_visible": {
-    "title": "K7 数位典藏",
-    "intro": "你在一台旧终端前。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
+    "title": "K7 数位典藏：第47次记录",
+    "intro": "通过本地模拟终端和站内网页探索档案，达成一个作品结局。只使用网页中可见的命令和界面，不访问外网。"
   },
-  "entry_url": "https://l9o9f6.kicp.fun/",
+  "entry_url": "http://127.0.0.1:8811/index.html",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/k7-dangan/mirror",
+      "--port",
+      "8811"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8811/index.html",
+    "ready_timeout_s": 30,
+    "port": 8811
   },
   "viewport": {
     "width": 1366,
@@ -21,17 +33,12 @@
   },
   "locale": "zh-CN",
   "timezone": "Asia/Shanghai",
-  "seed": 20261023,
+  "seed": 20261012,
   "allow_hosts": [
-    "l9o9f6.kicp.fun"
+    "127.0.0.1:8811"
   ],
   "shortcut_block": [],
-  "guide_block_hosts": [
-    "*walkthrough*",
-    "*writeup*",
-    "*攻略*",
-    "*spoiler*"
-  ],
+  "guide_block_hosts": [],
   "allow_model_goto": false,
   "goto_scope": "none",
   "show_url": true,
@@ -47,14 +54,16 @@
     "back",
     "wait",
     "dialog",
-    "give_up"
+    "give_up",
+    "switch_tab",
+    "close_tab"
   ],
   "limits": {
-    "max_steps": 120,
-    "max_seconds": 1800,
-    "max_answer_submits": 5
+    "max_steps": 400,
+    "max_seconds": 3600,
+    "max_answer_submits": 50
   },
-  "settle_ms": 400,
+  "settle_ms": 350,
   "history": {
     "full_obs_k": 4,
     "screenshot_k": 2
@@ -69,6 +78,9 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-23 这些句子不在首屏正文里，通关时才写进页面。"
-  ]
+    "自包含模拟终端/官网/电话，全部L1，无真实外网与账号。",
+    "原作20结局定义中E01/H03没有任何触发调用，不作为可达路线。",
+    "零严格推理点：钥匙多处直接明文，其他结局命令无证据门。"
+  ],
+  "account_requirement": "none"
 }

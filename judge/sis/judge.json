@@ -1,42 +1,18 @@
 {
   "hooks": {
-    "loaded": {"type": "dom_regex", "pattern": "S\\s*I\\s*S"},
-    "left_loading": {"type": "dom_regex", "pattern": "请查收"},
-    "hair_certificate": {
-      "type": "localstorage",
-      "key": "sis_game_progress_v1",
-      "mode": "json_path",
-      "path": "flags.opened_hair_certificate"
-    },
-    "missing_notice": {
-      "type": "localstorage",
-      "key": "sis_game_progress_v1",
-      "mode": "json_path",
-      "path": "flags.found_lin_missing_notice"
-    },
     "employee_login": {
-      "type": "localstorage",
-      "key": "sis_game_progress_v1",
-      "mode": "json_path",
-      "path": "flags.employee_login_success"
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.employee-system')"
     },
     "admin_login": {
-      "type": "localstorage",
-      "key": "sis_game_progress_v1",
-      "mode": "json_path",
-      "path": "flags.admin_login_success"
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.admin-workspace')"
     },
-    "organ_trade": {
+    "welfare_lookup": {
       "type": "localstorage",
       "key": "sis_game_progress_v1",
       "mode": "json_path",
-      "path": "flags.confirmed_organ_trade"
-    },
-    "lin_record": {
-      "type": "localstorage",
-      "key": "sis_game_progress_v1",
-      "mode": "json_path",
-      "path": "flags.found_lin_record"
+      "path": "flags.found_welfare_record"
     },
     "cloud_drive": {
       "type": "localstorage",
@@ -44,72 +20,347 @@
       "mode": "json_path",
       "path": "flags.cloud_drive_unlocked"
     },
-    "quiz_passed": {
+    "quiz_relation": {
+      "type": "js_truthy",
+      "expr": "(() => { if (!window.__sisJudgeSubmission) { window.__sisJudgeSubmission={}; document.addEventListener('submit', ev => { const form=ev.target; if (!(form instanceof HTMLFormElement)) return; const fs=[...form.querySelectorAll('fieldset')]; if(fs.length!==5 || !form.querySelector('input[name=relation]')) return; const answers={relation:1,guitu:1,transfer:2,daughters:1,sender:2}; for(const field of fs){ const inputs=[...field.querySelectorAll('input[type=radio]')]; const id=inputs[0]?.name; if(id in answers) window.__sisJudgeSubmission[id]=inputs.findIndex(x=>x.checked)===answers[id]; } }, true); } return window.__sisJudgeSubmission[\"relation\"]===true; })()"
+    },
+    "quiz_guitu": {
+      "type": "js_truthy",
+      "expr": "(() => { if (!window.__sisJudgeSubmission) { window.__sisJudgeSubmission={}; document.addEventListener('submit', ev => { const form=ev.target; if (!(form instanceof HTMLFormElement)) return; const fs=[...form.querySelectorAll('fieldset')]; if(fs.length!==5 || !form.querySelector('input[name=relation]')) return; const answers={relation:1,guitu:1,transfer:2,daughters:1,sender:2}; for(const field of fs){ const inputs=[...field.querySelectorAll('input[type=radio]')]; const id=inputs[0]?.name; if(id in answers) window.__sisJudgeSubmission[id]=inputs.findIndex(x=>x.checked)===answers[id]; } }, true); } return window.__sisJudgeSubmission[\"guitu\"]===true; })()"
+    },
+    "quiz_transfer": {
+      "type": "js_truthy",
+      "expr": "(() => { if (!window.__sisJudgeSubmission) { window.__sisJudgeSubmission={}; document.addEventListener('submit', ev => { const form=ev.target; if (!(form instanceof HTMLFormElement)) return; const fs=[...form.querySelectorAll('fieldset')]; if(fs.length!==5 || !form.querySelector('input[name=relation]')) return; const answers={relation:1,guitu:1,transfer:2,daughters:1,sender:2}; for(const field of fs){ const inputs=[...field.querySelectorAll('input[type=radio]')]; const id=inputs[0]?.name; if(id in answers) window.__sisJudgeSubmission[id]=inputs.findIndex(x=>x.checked)===answers[id]; } }, true); } return window.__sisJudgeSubmission[\"transfer\"]===true; })()"
+    },
+    "quiz_daughters": {
+      "type": "js_truthy",
+      "expr": "(() => { if (!window.__sisJudgeSubmission) { window.__sisJudgeSubmission={}; document.addEventListener('submit', ev => { const form=ev.target; if (!(form instanceof HTMLFormElement)) return; const fs=[...form.querySelectorAll('fieldset')]; if(fs.length!==5 || !form.querySelector('input[name=relation]')) return; const answers={relation:1,guitu:1,transfer:2,daughters:1,sender:2}; for(const field of fs){ const inputs=[...field.querySelectorAll('input[type=radio]')]; const id=inputs[0]?.name; if(id in answers) window.__sisJudgeSubmission[id]=inputs.findIndex(x=>x.checked)===answers[id]; } }, true); } return window.__sisJudgeSubmission[\"daughters\"]===true; })()"
+    },
+    "quiz_sender": {
+      "type": "js_truthy",
+      "expr": "(() => { if (!window.__sisJudgeSubmission) { window.__sisJudgeSubmission={}; document.addEventListener('submit', ev => { const form=ev.target; if (!(form instanceof HTMLFormElement)) return; const fs=[...form.querySelectorAll('fieldset')]; if(fs.length!==5 || !form.querySelector('input[name=relation]')) return; const answers={relation:1,guitu:1,transfer:2,daughters:1,sender:2}; for(const field of fs){ const inputs=[...field.querySelectorAll('input[type=radio]')]; const id=inputs[0]?.name; if(id in answers) window.__sisJudgeSubmission[id]=inputs.findIndex(x=>x.checked)===answers[id]; } }, true); } return window.__sisJudgeSubmission[\"sender\"]===true; })()"
+    },
+    "ending_true": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.true-ending .ending-title')"
+    },
+    "ending_normal": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.normal-ending .ending-title')"
+    },
+    "opened_initial_email": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.opened_initial_email"
+    },
+    "opened_hair_certificate": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.opened_hair_certificate"
+    },
+    "found_lin_missing_notice": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_lin_missing_notice"
+    },
+    "noticed_date_conflict": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.noticed_date_conflict"
+    },
+    "found_charity_closed": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_charity_closed"
+    },
+    "found_charity_lifespan": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_charity_lifespan"
+    },
+    "found_boss_name": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_boss_name"
+    },
+    "found_guitu_connection": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_guitu_connection"
+    },
+    "found_employee_profile": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_employee_profile"
+    },
+    "found_password_rule": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_password_rule"
+    },
+    "noticed_human_fields": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.noticed_human_fields"
+    },
+    "found_admin_account": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_admin_account"
+    },
+    "found_admin_password_hint": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_admin_password_hint"
+    },
+    "found_first_rescue_name": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_first_rescue_name"
+    },
+    "confirmed_trafficking": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.confirmed_trafficking"
+    },
+    "confirmed_organ_trade": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.confirmed_organ_trade"
+    },
+    "found_lin_record": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_lin_record"
+    },
+    "found_mother_daughter_photo": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_mother_daughter_photo"
+    },
+    "found_welfare_home": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_welfare_home"
+    },
+    "found_second_daughter_name": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.found_second_daughter_name"
+    },
+    "mother_identity_resolved": {
+      "type": "localstorage",
+      "key": "sis_game_progress_v1",
+      "mode": "json_path",
+      "path": "flags.mother_identity_resolved"
+    },
+    "final_quiz_passed": {
       "type": "localstorage",
       "key": "sis_game_progress_v1",
       "mode": "json_path",
       "path": "flags.final_quiz_passed"
-    },
-    "true_screen": {"type": "dom_regex", "pattern": "完美结局"},
-    "true_saved": {"type": "localstorage", "key": "sis_true_end_forever_v1", "mode": "exists"},
-    "normal_screen": {"type": "dom_regex", "pattern": "普通结局"},
-    "login_reject": {"type": "dom_regex", "pattern": "账号或密码错误"},
-    "extract_reject": {"type": "dom_regex", "pattern": "提取密码错误"}
+    }
   },
   "checkpoints": [
-    {"id": "flag_opened_hair_certificate", "hook": "hair_certificate", "op": "truthy"},
-    {"id": "flag_found_lin_missing_notice", "hook": "missing_notice", "op": "truthy"},
-    {"id": "flag_employee_login", "hook": "employee_login", "op": "truthy"},
-    {"id": "flag_admin_login", "hook": "admin_login", "op": "truthy"},
-    {"id": "flag_confirmed_organ_trade", "hook": "organ_trade", "op": "truthy"},
-    {"id": "flag_found_lin_record", "hook": "lin_record", "op": "truthy"},
-    {"id": "flag_cloud_drive_unlocked", "hook": "cloud_drive", "op": "truthy"},
-    {"id": "flag_final_quiz_passed", "hook": "quiz_passed", "op": "truthy"}
+    {
+      "id": "employee_login",
+      "hook": "employee_login",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "admin_login",
+      "hook": "admin_login",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "welfare_lookup",
+      "hook": "welfare_lookup",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "cloud_drive",
+      "hook": "cloud_drive",
+      "op": "truthy"
+    },
+    {
+      "id": "quiz_relation",
+      "hook": "quiz_relation",
+      "op": "truthy"
+    },
+    {
+      "id": "quiz_guitu",
+      "hook": "quiz_guitu",
+      "op": "truthy"
+    },
+    {
+      "id": "quiz_transfer",
+      "hook": "quiz_transfer",
+      "op": "truthy"
+    },
+    {
+      "id": "quiz_daughters",
+      "hook": "quiz_daughters",
+      "op": "truthy"
+    },
+    {
+      "id": "quiz_sender",
+      "hook": "quiz_sender",
+      "op": "truthy"
+    }
   ],
   "events": {
-    "page_loaded": {"hook": "loaded", "op": "truthy"},
-    "past_loading": {"hook": "left_loading", "op": "truthy"},
-    "ending_true": {"hook": "true_saved", "op": "truthy"},
-    "ending_normal": {"hook": "normal_screen", "op": "truthy"},
-    "login_reject": {"hook": "login_reject", "op": "truthy"},
-    "extract_reject": {"hook": "extract_reject", "op": "truthy"}
+    "opened_initial_email": {
+      "hook": "opened_initial_email",
+      "op": "truthy"
+    },
+    "opened_hair_certificate": {
+      "hook": "opened_hair_certificate",
+      "op": "truthy"
+    },
+    "found_lin_missing_notice": {
+      "hook": "found_lin_missing_notice",
+      "op": "truthy"
+    },
+    "noticed_date_conflict": {
+      "hook": "noticed_date_conflict",
+      "op": "truthy"
+    },
+    "found_charity_closed": {
+      "hook": "found_charity_closed",
+      "op": "truthy"
+    },
+    "found_charity_lifespan": {
+      "hook": "found_charity_lifespan",
+      "op": "truthy"
+    },
+    "found_boss_name": {
+      "hook": "found_boss_name",
+      "op": "truthy"
+    },
+    "found_guitu_connection": {
+      "hook": "found_guitu_connection",
+      "op": "truthy"
+    },
+    "found_employee_profile": {
+      "hook": "found_employee_profile",
+      "op": "truthy"
+    },
+    "found_password_rule": {
+      "hook": "found_password_rule",
+      "op": "truthy"
+    },
+    "noticed_human_fields": {
+      "hook": "noticed_human_fields",
+      "op": "truthy"
+    },
+    "found_admin_account": {
+      "hook": "found_admin_account",
+      "op": "truthy"
+    },
+    "found_admin_password_hint": {
+      "hook": "found_admin_password_hint",
+      "op": "truthy"
+    },
+    "found_first_rescue_name": {
+      "hook": "found_first_rescue_name",
+      "op": "truthy"
+    },
+    "confirmed_trafficking": {
+      "hook": "confirmed_trafficking",
+      "op": "truthy"
+    },
+    "confirmed_organ_trade": {
+      "hook": "confirmed_organ_trade",
+      "op": "truthy"
+    },
+    "found_lin_record": {
+      "hook": "found_lin_record",
+      "op": "truthy"
+    },
+    "found_mother_daughter_photo": {
+      "hook": "found_mother_daughter_photo",
+      "op": "truthy"
+    },
+    "found_welfare_home": {
+      "hook": "found_welfare_home",
+      "op": "truthy"
+    },
+    "found_second_daughter_name": {
+      "hook": "found_second_daughter_name",
+      "op": "truthy"
+    },
+    "mother_identity_resolved": {
+      "hook": "mother_identity_resolved",
+      "op": "truthy"
+    },
+    "final_quiz_passed": {
+      "hook": "final_quiz_passed",
+      "op": "truthy"
+    }
   },
   "routes": [
-    {
-      "id": "true_end",
-      "tier": "good",
-      "gates": [
-        "flag_opened_hair_certificate",
-        "flag_found_lin_missing_notice",
-        "flag_employee_login",
-        "flag_admin_login",
-        "flag_confirmed_organ_trade",
-        "flag_found_lin_record",
-        "flag_cloud_drive_unlocked",
-        "flag_final_quiz_passed"
-      ],
-      "ending": {"hook": "true_saved", "op": "truthy"},
-      "any_of": [{"hook": "true_screen", "op": "truthy"}]
-    },
     {
       "id": "normal_end",
       "tier": "normal",
       "gates": [
-        "flag_opened_hair_certificate",
-        "flag_found_lin_missing_notice",
-        "flag_employee_login",
-        "flag_admin_login",
-        "flag_confirmed_organ_trade",
-        "flag_found_lin_record",
-        "flag_cloud_drive_unlocked",
-        "flag_final_quiz_passed"
+        "cloud_drive",
+        "quiz_relation",
+        "quiz_guitu",
+        "quiz_transfer",
+        "quiz_daughters",
+        "quiz_sender"
       ],
-      "ending": {"hook": "normal_screen", "op": "truthy"}
+      "ending": {
+        "hook": "ending_normal",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "true_end",
+      "tier": "good",
+      "gates": [
+        "cloud_drive",
+        "quiz_relation",
+        "quiz_guitu",
+        "quiz_transfer",
+        "quiz_daughters",
+        "quiz_sender"
+      ],
+      "ending": {
+        "hook": "ending_true",
+        "op": "truthy"
+      }
     }
   ],
-  "ending": {"hook": "true_screen", "op": "truthy"},
+  "ending": null,
   "answer_hash_file": null,
   "request_milestones": [],
-  "submit_conclusion": {"enabled": false, "schema": null},
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
   "rubric_path": null
 }

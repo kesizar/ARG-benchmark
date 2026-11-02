@@ -1,0 +1,149 @@
+{
+  "hooks": {
+    "reflection": {
+      "type": "js_truthy",
+      "expr": "Array.from(document.querySelectorAll('.archive-check-status')).some(e=>e.getClientRects().length>0 && e.textContent.includes(\"两角度原片与现今位置相互核对：反光里的窗不属于现实那面实墙。\"))"
+    },
+    "fate": {
+      "type": "js_truthy",
+      "expr": "Array.from(document.querySelectorAll('.archive-check-status')).some(e=>e.getClientRects().length>0 && e.textContent.includes(\"名单与亲属记录相符，沈芸已死亡、被认领安葬。“一直没找到”并非事实。\"))"
+    },
+    "role": {
+      "type": "js_truthy",
+      "expr": "Array.from(document.querySelectorAll('.archive-check-status')).some(e=>e.getClientRects().length>0 && e.textContent.includes(\"内侧固定与外侧接应作用不同；试纸和衣料未固定，顾岚的转嫁未成立。\"))"
+    },
+    "timing": {
+      "type": "js_truthy",
+      "expr": "Array.from(document.querySelectorAll('.archive-check-status')).some(e=>e.getClientRects().length>0 && e.textContent.includes(\"交接先于行动，排水中断是联系条件的变化；不把未知后果写成通知已证实的结果。\"))"
+    },
+    "result": {
+      "type": "js_truthy",
+      "expr": "Array.from(document.querySelectorAll('.archive-check-status')).some(e=>e.getClientRects().length>0 && e.textContent.includes(\"孩子获救、母亲死亡有现实记录；异常经过另按私人证言保存。\"))"
+    },
+    "life": {
+      "type": "js_truthy",
+      "expr": "Array.from(document.querySelectorAll('.archive-check-status')).some(e=>e.getClientRects().length>0 && e.textContent.includes(\"工作中的疲惫、孩子缝的扣子与以后的约定，都是她原本生活的一部分。\"))"
+    },
+    "responsibility": {
+      "type": "js_truthy",
+      "expr": "Array.from(document.querySelectorAll('.archive-check-status')).some(e=>e.getClientRects().length>0 && e.textContent.includes(\"已分别核实沈桂芬的知情、含混说法与转嫁企图，保留未成立事实，不补造判决。\"))"
+    },
+    "promises": {
+      "type": "js_truthy",
+      "expr": "Array.from(document.querySelectorAll('.archive-check-status')).some(e=>e.getClientRects().length>0 && e.textContent.includes(\"返程、旅馆和歪扣子对上了原来的日常，交接让照料继续，孩子不必偿债。\"))"
+    },
+    "end_rice": {
+      "type": "js_truthy",
+      "expr": "location.hash==='#archive/closure' && !!document.querySelector('#archive-content h1') && document.querySelector('#archive-content h1').textContent === \"饭在锅里\""
+    },
+    "end_seasons": {
+      "type": "js_truthy",
+      "expr": "location.hash==='#archive/closure' && !!document.querySelector('#archive-content h1') && document.querySelector('#archive-content h1').textContent === \"换季\""
+    },
+    "end_street": {
+      "type": "js_truthy",
+      "expr": "location.hash==='#archive/closure' && !!document.querySelector('#archive-content h1') && document.querySelector('#archive-content h1').textContent === \"旧街有名\""
+    },
+    "end_signature": {
+      "type": "js_truthy",
+      "expr": "location.hash==='#archive/closure' && !!document.querySelector('#archive-content h1') && document.querySelector('#archive-content h1').textContent === \"落款\""
+    },
+    "end_coat": {
+      "type": "js_truthy",
+      "expr": "location.hash==='#archive/closure' && !!document.querySelector('#archive-content h1') && document.querySelector('#archive-content h1').textContent === \"借来的外套\""
+    },
+    "end_button": {
+      "type": "js_truthy",
+      "expr": "location.hash==='#archive/closure' && !!document.querySelector('#archive-content h1') && document.querySelector('#archive-content h1').textContent === \"还没掉呢\""
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "reflection",
+      "hook": "reflection",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "fate",
+      "hook": "fate",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "role",
+      "hook": "role",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "timing",
+      "hook": "timing",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "result",
+      "hook": "result",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "life",
+      "hook": "life",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "responsibility",
+      "hook": "responsibility",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "promises",
+      "hook": "promises",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {
+    "rice": {
+      "hook": "end_rice",
+      "op": "truthy"
+    },
+    "seasons": {
+      "hook": "end_seasons",
+      "op": "truthy"
+    },
+    "street": {
+      "hook": "end_street",
+      "op": "truthy"
+    },
+    "coat": {
+      "hook": "end_coat",
+      "op": "truthy"
+    },
+    "signature": {
+      "hook": "end_signature",
+      "op": "truthy"
+    }
+  },
+  "scoring_protocol": "target_v1",
+  "target_success": {
+    "route_ids": [
+      "button"
+    ]
+  },
+  "routes": [
+    {
+      "id": "button",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "end_button",
+        "op": "truthy"
+      }
+    }
+  ]
+}

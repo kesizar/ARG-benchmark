@@ -1,0 +1,31 @@
+{
+  "status": "partial_validation_formal_review_pending",
+  "checkpoints": [
+    {
+      "id": "kettle_correct",
+      "evidence": "UI correct HIPPOGRIFF accepted; wrong HIPRGFOIFP also accepted by game but independent judge false; criterion requires correct arrangement and success."
+    },
+    {
+      "id": "lunch",
+      "evidence": "UI correct ingredient selection and recipe produced lunch; independent judge latched."
+    },
+    {
+      "id": "surgito",
+      "evidence": "UI correct barrier spell latched; wrong Alohomora did not score."
+    },
+    {
+      "id": "scroll",
+      "evidence": "UI correct phrase latched; wrong input did not score. Source uses includes."
+    },
+    {
+      "id": "cup",
+      "evidence": "UI Cute Plant substitution latched; Key led to recoverable Fainted and did not score."
+    }
+  ],
+  "ending": "Visible Great Hall house-cup banner; UI positive and pre-cup negative verified. Four house variants share the text; only Hufflepuff was walked end-to-end.",
+  "caveats": [
+    "A single Judge instance latched all five checkpoints and the good ending during one continuous browser run, starting from a prior normally earned pre-checkpoint session; the pre-checkpoint 99-water sequence was verified separately.",
+    "Source has exact-count plant growth and random item collection; benchmark step budget needs calibration.",
+    "Complete branch audit, alternate routes and model calibration are pending."
+  ]
+}

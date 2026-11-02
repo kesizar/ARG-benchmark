@@ -1,7 +1,7 @@
 {
   "id": "qingmiao-zhongxue",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
@@ -11,9 +11,21 @@
     "title": "青苗中学",
     "intro": "你在这个站点的开头。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
   },
-  "entry_url": "https://qingmiaomiddleschool.github.io/Start-Game-/",
+  "entry_url": "http://127.0.0.1:8811/qingmiaomiddleschool.github.io/Start-Game-/",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/qingmiao-zhongxue/mirror",
+      "--port",
+      "8811"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8811/qingmiaomiddleschool.github.io/Start-Game-/",
+    "ready_timeout_s": 30,
+    "port": 8811
   },
   "viewport": {
     "width": 1366,
@@ -23,7 +35,7 @@
   "timezone": "Asia/Shanghai",
   "seed": 20261023,
   "allow_hosts": [
-    "qingmiaomiddleschool.github.io"
+    "127.0.0.1:8811"
   ],
   "shortcut_block": [],
   "guide_block_hosts": [
@@ -46,12 +58,14 @@
     "back",
     "wait",
     "dialog",
+    "switch_tab",
+    "close_tab",
     "give_up"
   ],
   "limits": {
-    "max_steps": 100,
-    "max_seconds": 1800,
-    "max_answer_submits": 5
+    "max_steps": 650,
+    "max_seconds": 7200,
+    "max_answer_submits": 20
   },
   "settle_ms": 400,
   "history": {
@@ -68,6 +82,8 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-25 两条结束画面都是发出特定内容后，才往各自的空白节点写入结束标记。前面的填写都能跳过，只记成可选，不放进必经。"
-  ]
+    "原始无账号静态作品，本地化五站页面与图像/字体。仅把原文字URL改为可点击新标签链接；答案、验证、动画及状态逻辑保持原作。",
+    "源码存在结局短语绕过前序流程；两个原作结局按画面记录，研究准备结论独立于通关。裁判另记提交后锁存的可选推理点。"
+  ],
+  "account_requirement": "none"
 }

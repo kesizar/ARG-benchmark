@@ -1,0 +1,138 @@
+{
+  "hooks": {
+    "camera": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/jiankong.html') && (()=>{const e=document.querySelector(\"#evidenceVideoContainer\");return !!e && getComputedStyle(e).display!=='none' && e.getClientRects().length>0;})()"
+    },
+    "old_case": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/linshu.html') && (()=>{const e=document.querySelector(\"#decryptionResult\");return !!e && getComputedStyle(e).display!=='none' && e.getClientRects().length>0;})()"
+    },
+    "mail": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/locked_mail.html') && (()=>{const e=document.querySelector(\"#emailContainer\");return !!e && getComputedStyle(e).display!=='none' && e.getClientRects().length>0;})()"
+    },
+    "shepherd": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/muyangren.html') && (()=>{const e=document.querySelector(\"#contentContainer\");return !!e && getComputedStyle(e).display!=='none' && e.getClientRects().length>0;})()"
+    },
+    "server": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/qiongdinghui.html') && (()=>{const e=document.querySelector(\"#serverContent\");return !!e && getComputedStyle(e).display!=='none' && e.getClientRects().length>0;})()"
+    },
+    "ark": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/qiongdinghui.html') && (()=>{const e=document.querySelector(\"#arkContent\");return !!e && getComputedStyle(e).display!=='none' && e.getClientRects().length>0;})()"
+    },
+    "daughter": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/shenmeng.html') && (()=>{const e=document.querySelector(\"#recoveredFiles\");return !!e && getComputedStyle(e).display!=='none' && e.getClientRects().length>0;})()"
+    },
+    "forum": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/xingyao.html') && (()=>{const e=document.querySelector(\"#forumContent\");return !!e && getComputedStyle(e).display!=='none' && e.getClientRects().length>0;})()"
+    },
+    "ending1": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/evidence.html') && (()=>{const e=document.querySelector(\"#ending1\");return !!e && getComputedStyle(e).display!=='none' && e.getClientRects().length>0;})()"
+    },
+    "ending2": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/evidence.html') && (()=>{const e=document.querySelector(\"#ending2\");return !!e && getComputedStyle(e).display!=='none' && e.getClientRects().length>0;})()"
+    },
+    "ending3": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/evidence.html') && (()=>{const e=document.querySelector(\"#ending3\");return !!e && getComputedStyle(e).display!=='none' && e.getClientRects().length>0;})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "camera",
+      "role": "diagnostic",
+      "hook": "camera",
+      "op": "truthy"
+    },
+    {
+      "id": "old_case",
+      "role": "diagnostic",
+      "hook": "old_case",
+      "op": "truthy"
+    },
+    {
+      "id": "mail",
+      "role": "diagnostic",
+      "hook": "mail",
+      "op": "truthy"
+    },
+    {
+      "id": "shepherd",
+      "role": "diagnostic",
+      "hook": "shepherd",
+      "op": "truthy"
+    },
+    {
+      "id": "server",
+      "role": "diagnostic",
+      "hook": "server",
+      "op": "truthy"
+    },
+    {
+      "id": "ark",
+      "role": "diagnostic",
+      "hook": "ark",
+      "op": "truthy"
+    },
+    {
+      "id": "daughter",
+      "role": "diagnostic",
+      "hook": "daughter",
+      "op": "truthy"
+    },
+    {
+      "id": "forum",
+      "role": "diagnostic",
+      "hook": "forum",
+      "op": "truthy"
+    }
+  ],
+  "events": {
+    "ending1": {
+      "hook": "ending1",
+      "op": "truthy"
+    },
+    "ending2": {
+      "hook": "ending2",
+      "op": "truthy"
+    },
+    "ending3": {
+      "hook": "ending3",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "ending1",
+      "gates": [],
+      "ending": {
+        "hook": "ending1",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "ending2",
+      "gates": [],
+      "ending": {
+        "hook": "ending2",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "ending3",
+      "gates": [],
+      "ending": {
+        "hook": "ending3",
+        "op": "truthy"
+      }
+    }
+  ]
+}

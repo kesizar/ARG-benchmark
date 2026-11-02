@@ -1,0 +1,86 @@
+{
+  "id": "bailu-guangguang",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "白鹭观光局",
+    "intro": "选择不添加提示挑战模式，修复缺失路线，收集五枚彩蛋路标并发布志工感谢信。只根据界面与站内提供的查看源代码功能推理。"
+  },
+  "entry_url": "http://127.0.0.1:8811/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/bailu-guangguang/mirror",
+      "--port",
+      "8811"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8811/index.html",
+    "ready_timeout_s": 30,
+    "port": 8811
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261023,
+  "allow_hosts": [
+    "127.0.0.1:8811"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 240,
+    "max_seconds": 1800,
+    "max_answer_submits": 5
+  },
+  "settle_ms": 800,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/bailu-guangguang/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "Original game recovered from live Arena iframe 2026-10-27. No paid model API used."
+  ],
+  "account_requirement": "none"
+}

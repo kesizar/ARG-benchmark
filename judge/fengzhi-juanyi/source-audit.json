@@ -1,0 +1,145 @@
+{
+  "record_id": "base664:0420",
+  "status": "partial_static_audit_not_completed",
+  "deductions": [
+    {
+      "id": "D0",
+      "text": "这不是普通凶杀，像一场仪式。",
+      "required_evidence": [
+        "E01",
+        "E02"
+      ],
+      "validation": "source_only_not_UI_accepted"
+    },
+    {
+      "id": "D1",
+      "text": "连环杀人（五行）——这不是一起独立的案子。",
+      "required_evidence": [
+        "E02",
+        "E04"
+      ],
+      "validation": "source_only_not_UI_accepted"
+    },
+    {
+      "id": "D2",
+      "text": "五行顺序——下一个是“火”，再下一个是“土”。",
+      "required_evidence": [
+        "E04",
+        "E05"
+      ],
+      "validation": "source_only_not_UI_accepted"
+    },
+    {
+      "id": "D3",
+      "text": "三个死者，生前都找同一个人算过命。",
+      "required_evidence": [
+        "E08",
+        "E27",
+        "E24"
+      ],
+      "validation": "source_only_not_UI_accepted"
+    },
+    {
+      "id": "D4",
+      "text": "全真会就在案子正中间。",
+      "required_evidence": [
+        "E06",
+        "E07",
+        "E24"
+      ],
+      "validation": "source_only_not_UI_accepted"
+    },
+    {
+      "id": "D5",
+      "text": "钱达，就是那个“钱先生”。",
+      "required_evidence": [
+        "E22",
+        "E14"
+      ],
+      "validation": "source_only_not_UI_accepted"
+    },
+    {
+      "id": "D6",
+      "text": "第五个目标选了个火命的人——他在“重做火”。",
+      "required_evidence": [
+        "E12",
+        "E13",
+        "E09"
+      ],
+      "validation": "source_only_not_UI_accepted"
+    },
+    {
+      "id": "D7",
+      "text": "焦尸是周媛——尸体被换过。",
+      "required_evidence": [
+        "E10",
+        "E11"
+      ],
+      "validation": "source_only_not_UI_accepted"
+    },
+    {
+      "id": "D8",
+      "text": "换尸者，是孙浩。",
+      "required_evidence": [
+        "E18",
+        "E16",
+        "E25"
+      ],
+      "validation": "source_only_not_UI_accepted"
+    },
+    {
+      "id": "D9",
+      "text": "教钱达杀人的“引路人”，就是孙浩。",
+      "required_evidence": [
+        "E30",
+        "E18"
+      ],
+      "validation": "source_only_not_UI_accepted"
+    },
+    {
+      "id": "D10",
+      "text": "真凶：孙浩主谋 + 钱达执行——为妻复仇，借刀杀人。",
+      "required_evidence": [
+        "E23",
+        "E31"
+      ],
+      "validation": "source_only_not_UI_accepted"
+    }
+  ],
+  "confrontation_evidence": [
+    "E18",
+    "E30",
+    "E25",
+    "E16",
+    "E10"
+  ],
+  "confrontation": "All five evidence must be presented to sunhao2; early questioning leads to gate_fail retry node. Not independently UI-verified.",
+  "chapter_count": 16,
+  "ending_source_labels": [
+    {
+      "id": "A",
+      "title": "逍遥法外",
+      "label": "结局一",
+      "source_trigger": "chooseBranch(stop)"
+    },
+    {
+      "id": "B",
+      "title": "真相大白",
+      "label": "真结局"
+    },
+    {
+      "id": "C",
+      "title": "火噬",
+      "label": "结局三"
+    }
+  ],
+  "debug_risk": "Original ?debug=1 or #debug exposes chapter jump/full evidence/ending triggers. Do not use for UI acceptance. Config disallows model goto; complete packaging must explicitly review debug boundary.",
+  "not_yet_verified": [
+    "Every mandatory/optional deduction route dependency",
+    "All scene hotspots and dialogue branches",
+    "Wrong evidence and deduction behaviour",
+    "All endings using normal UI",
+    "Reset and save recovery",
+    "Independent runtime delivery"
+  ]
+}

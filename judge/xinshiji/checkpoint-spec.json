@@ -1,0 +1,93 @@
+{
+  "readiness": "engineering verified; formal content review required for explicit ambiguities",
+  "gates": [
+    {
+      "id": "survey",
+      "solution": "8 yes answers; any no rejects; surveyDone latched; restart required to resend",
+      "source": "xiaoyou-chat.html: answerQuestion/finishSurvey",
+      "role": "optional clue branch; replay card may startSurvey again, UI unverified"
+    },
+    {
+      "id": "manager-food",
+      "solution": "西餐料理",
+      "source": "sun-chat.html: chooseFood",
+      "role": "optional manager branch"
+    },
+    {
+      "id": "manager-parents",
+      "solution": "mother 陈萍 father 赵桉",
+      "source": "sun-chat.html: submitParent",
+      "role": "optional manager branch"
+    },
+    {
+      "id": "manager-hobby",
+      "solution": "股票基金/基金股票/股票/基金",
+      "source": "sun-chat.html: submitActivity",
+      "role": "optional manager branch"
+    },
+    {
+      "id": "manager-date",
+      "solution": "10/4",
+      "source": "sun-chat.html: submitDate",
+      "role": "optional manager branch"
+    },
+    {
+      "id": "member",
+      "solution": "cp10040316 / 19890825",
+      "source": "leyuan.html: memberLogin",
+      "role": "optional clue branch"
+    },
+    {
+      "id": "portraits",
+      "solution": [
+        8,
+        6,
+        1,
+        5,
+        3,
+        2,
+        4,
+        7
+      ],
+      "source": "member-page.html: clickPortrait",
+      "role": "optional clue branch; any wrong resets progress"
+    },
+    {
+      "id": "company-lock",
+      "solution": "diamond5 star4 heart8",
+      "source": "sunflower-lock.html: checkLock",
+      "role": "mandatory normal UI"
+    },
+    {
+      "id": "garden",
+      "solution": "pink1/2 closed, yellow3/4/5 open, sunForm3, >=3 butterfly clicks; changing flower resets butterfly",
+      "source": "sunflower.html: checkUnlock",
+      "role": "mandatory normal UI"
+    },
+    {
+      "id": "archive",
+      "solution": "162039578",
+      "source": "darkweb.html: submitKey",
+      "role": "mandatory; session latch"
+    },
+    {
+      "id": "chat",
+      "solution": "645",
+      "source": "darkweb.html: submitKey",
+      "role": "mandatory; session latch"
+    },
+    {
+      "id": "plan",
+      "solution": "thenewcentury case-insensitive",
+      "source": "darkweb.html: submitKey/openPlanKey",
+      "role": "mandatory; archive+chat required; session latch"
+    }
+  ],
+  "ending": "One authored game end after four plan pages and nine monologues; sad story outcome is authored completion, no invented bad-ending tier.",
+  "failure": "Normal UI verified: manager wrong food/hobby retry, wrong parents/date modal, wrong member login, portrait wrong resets, survey rejection then existing card replay may recover. No separate death ending.",
+  "judge": "Final endingFinal.show plus all three session verification flags, checked only in darkweb frame; old regex awarded after third monologue, before completion.",
+  "bypass": "Search 向阳花有限公司 immediately; no member/portrait/manager flags required. Clue branches optional, hardcoded answer knowledge can skip them.",
+  "resource_soft_omission": "beijing.jpg is decorative cover; original onerror hides; all moments clue text works",
+  "current_judge": "5 critical and6 optional reasoning checkpoints; questionnaire is unscored event; actual ending and three flags required",
+  "review": "judge/xinshiji/review.md"
+}

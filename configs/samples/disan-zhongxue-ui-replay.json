@@ -1,0 +1,122 @@
+{
+  "id": "disan-zhongxue",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "第三中学",
+    "intro": "你在查一所中学的旧系统。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
+  },
+  "entry_url": "http://127.0.0.1:8821/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/disan-zhongxue/mirror",
+      "--port",
+      "8821"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8821/index.html",
+    "ready_timeout_s": 30,
+    "port": 8821
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261023,
+  "allow_hosts": [
+    "127.0.0.1:8821"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 100,
+    "max_seconds": 1800,
+    "max_answer_submits": 5
+  },
+  "settle_ms": 400,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/disan-zhongxue/judge.json",
+  "policy_script": [
+    {
+      "op": "click",
+      "x": 450,
+      "y": 110
+    },
+    {
+      "op": "type",
+      "text": "删除日志",
+      "clear": true
+    },
+    {
+      "op": "click",
+      "x": 716,
+      "y": 110
+    },
+    {
+      "op": "scroll",
+      "x": 800,
+      "y": 600,
+      "dy": 650
+    },
+    {
+      "op": "scroll",
+      "x": 800,
+      "y": 600,
+      "dy": 650
+    },
+    {
+      "op": "scroll",
+      "x": 800,
+      "y": 600,
+      "dy": 650
+    },
+    {
+      "op": "click",
+      "x": 90,
+      "y": 43
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "Snapshot-derived local edition. No scored reasoning checkpoints: 25 exact-match lookups are collection diagnostics; direct final lookup unlocks all three narrative choices. Engineering readiness is separate from formal scoring suitability.",
+    "No model API used. Source-auditor UI acceptance is not a model score."
+  ],
+  "account_requirement": "none"
+}

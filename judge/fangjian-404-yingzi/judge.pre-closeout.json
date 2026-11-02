@@ -1,0 +1,114 @@
+{
+  "hooks": {
+    "admin_login": {
+      "type": "js_truthy",
+      "expr": "typeof currentUser!=='undefined'&&currentUser==='menghua'"
+    },
+    "offering_cancelled": {
+      "type": "js_truthy",
+      "expr": "typeof offeringCanceled!=='undefined'&&offeringCanceled===true"
+    },
+    "brother_login": {
+      "type": "js_truthy",
+      "expr": "typeof currentUser!=='undefined'&&currentUser==='menghui19'"
+    },
+    "guardian_login": {
+      "type": "js_truthy",
+      "expr": "typeof currentUser!=='undefined'&&currentUser==='chenshouyi'"
+    },
+    "true": {
+      "type": "js_truthy",
+      "expr": "(() => {const m=document.querySelector('#ending-modal'),t=document.querySelector('#ending-title');if(getComputedStyle(m).display==='none'||!t.textContent.includes(\"真结局：解脱\"))return false;const r=t.getBoundingClientRect();return m.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));})()"
+    },
+    "bad": {
+      "type": "js_truthy",
+      "expr": "(() => {const m=document.querySelector('#ending-modal'),t=document.querySelector('#ending-title');if(getComputedStyle(m).display==='none'||!t.textContent.includes(\"坏结局：留下\"))return false;const r=t.getBoundingClientRect();return m.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));})()"
+    },
+    "hidden": {
+      "type": "js_truthy",
+      "expr": "(() => {const m=document.querySelector('#ending-modal'),t=document.querySelector('#ending-title');if(getComputedStyle(m).display==='none'||!t.textContent.includes(\"隐藏结局：守护者\"))return false;const r=t.getBoundingClientRect();return m.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));})()"
+    },
+    "loop_failure": {
+      "type": "js_truthy",
+      "expr": "(() => {const m=document.querySelector('#ending-modal'),t=document.querySelector('#ending-title');if(getComputedStyle(m).display==='none'||!t.textContent.includes(\"假结局：循环继续\"))return false;const r=t.getBoundingClientRect();return m.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "admin_login",
+      "hook": "admin_login",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "offering_cancelled",
+      "hook": "offering_cancelled",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "brother_login",
+      "hook": "brother_login",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "guardian_login",
+      "hook": "guardian_login",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "true",
+      "tier": "good",
+      "gates": [
+        "admin_login",
+        "offering_cancelled"
+      ],
+      "ending": {
+        "hook": "true",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "bad",
+      "tier": "bad",
+      "gates": [
+        "admin_login",
+        "offering_cancelled"
+      ],
+      "ending": {
+        "hook": "bad",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "hidden",
+      "tier": "normal",
+      "gates": [
+        "admin_login",
+        "offering_cancelled"
+      ],
+      "ending": {
+        "hook": "hidden",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "terminal_failures": [
+    {
+      "id": "loop_failure",
+      "hook": "loop_failure",
+      "op": "truthy"
+    }
+  ]
+}

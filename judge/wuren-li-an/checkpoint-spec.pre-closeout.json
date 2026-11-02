@@ -1,0 +1,87 @@
+{
+  "record_id": "base664:0604",
+  "resource": "Single archived HTML, inline CSS/JS and drawn photo/text-transcribed audio; no external file references. Live TLS EOF, no live parity claim.",
+  "modes": {
+    "surface": "Any nonempty name except王笑/陈慎言; one client email, staff four chat chains and empty main mailbox.",
+    "intern": "王笑; five client documents, staff history/four chat chains, surname+given-name clues.",
+    "truth": "陈慎言; six boot inbox emails, seven navigation panes, twelve evidence/document panels and complete puzzle chain."
+  },
+  "critical_puzzles": [
+    {
+      "id": "decode",
+      "evidence": "Ledger114=煤气208=阀门 plus diary torn page305=动了412=手脚. Third will gives114208305412.",
+      "accepted": [
+        "煤气阀门动了手脚",
+        "煤气阀门动手脚",
+        "煤气阀门被动了手脚",
+        "燃气阀门动了手脚",
+        "燃气阀门动手脚"
+      ],
+      "validation": "Correct submit creates reveal DOM; whitespace stripped; other/blank input fails."
+    },
+    {
+      "id": "sort",
+      "order": [
+        "e",
+        "d",
+        "c",
+        "b",
+        "a"
+      ],
+      "meaning": "July9→12→13→14→17. One temporal ordering point, not five inflated points. Wrong complete order fails; partial/reset unscored."
+    },
+    {
+      "id": "witness",
+      "correct": "A authored answer: repair record allegedly forged",
+      "review": "Reasoning does not logically prove forging: a slightly loose valve can leak. Treat as authored ground truth, pending content review."
+    },
+    {
+      "id": "final",
+      "correct": "A authored answer: third will strongest direct evidence",
+      "review": "Draft unsigned/undated and decoded sentence does not identify killer; legal/evidentiary claims require independent review."
+    }
+  ],
+  "optional_puzzles": [
+    {
+      "id": "will_priority",
+      "pid": "pd",
+      "correct": "C",
+      "not_required_for_main_route": true
+    },
+    {
+      "id": "duress_evidence",
+      "pid": "pd2",
+      "correct": "A",
+      "requires": "pd correct to display",
+      "not_required_for_main_route": true
+    }
+  ],
+  "events_not_scored": [
+    "Identity entry: full陈慎言 visible in surface chat title despite redacted staff row; direct copying can bypass intended name reconstruction.",
+    "Document opening, photo flip, transcript reading, linear NPC chats and final moral choice."
+  ],
+  "formal_endings": {
+    "A": "沉默的共谋",
+    "B": "越界的良知",
+    "C": "以律法为刃"
+  },
+  "ending_policy": "All three formal completions, no invented ranking. Only classify after actual final choice, not merely wlb_finished key/choice landing screen. End choices can be revisited.",
+  "failures": [
+    "pd",
+    "pd2",
+    "decode",
+    "sort",
+    "pw",
+    "pf"
+  ],
+  "failure_policy": "Six wrong-answer paths enter view-bad, with only restart; terminal_failures with respective failure IDs, not successful completion. Formal choices A/B/C remain story completions.",
+  "unreachable_or_defective_source": [
+    "revealChenClue is defined but never invoked; its wlb_foundChen hint path is unwired.",
+    "chatSelf has no reachable UI button.",
+    "intern buildInbox branch never called by normal boot (intern immediately accepts).",
+    "main mail-list-box is never populated; main mailbox is empty except truth extra scheduled message.",
+    "Returning home preserves current puzzle DOM; restart/reload retains name/mode. init does not restore decoded/finished DOM although stale storage keys may remain. Judge therefore reads actual branch DOM, not stale keys."
+  ],
+  "reset": "Harness fresh context clears all. Failure restart removes decoded/finished and reloads, keeping name. Refresh alone resets DOM but can retain stale keys, never counted by new judge.",
+  "content_status": "Review required for identity leak, trivial explicit-date sort, legal plausibility, unsupported causal and killer-identity inference. No model performance or difficulty calibration."
+}

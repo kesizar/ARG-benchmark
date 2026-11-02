@@ -1,0 +1,154 @@
+1127:    <button class="active" data-view="discover" onclick="handleNav('discover')">发现</button>
+1128:    <button data-view="community" onclick="handleNav('community')">社区</button>
+1129:    <button data-view="hot" onclick="handleNav('hot')">热门</button>
+1130:    <button data-view="messages" class="logged-only-nav" onclick="handleNav('messages')">消息<span class="nav-dot" id="messageNavUnread">10</span></button>
+1131:    <button data-view="help" onclick="handleNav('help')">帮助中心</button>
+1136:      <button class="case-search-btn" onclick="searchCases()">搜索</button>
+1139:    <button class="login-btn" id="loginButton" onclick="openLogin()">登录</button>
+1157:        <button class="primary" onclick="openLogin()">加入回声</button>
+1158:        <button class="secondary" onclick="document.getElementById('feed').scrollIntoView({behavior:'smooth'})">先逛逛</button>
+1180:          <div class="post-meta"><button onclick="openFeature('点赞')">♡ 128</button><button onclick="openFeature('评论')">评论 23</button><button onclick="openFeature('分享')">分享 7</button></div>
+1185:          <div class="post-meta"><button onclick="openFeature('点赞')">♡ 46</button><button onclick="openFeature('评论')">评论 17</button></div>
+1190:          <div class="post-meta"><button onclick="openFeature('点赞')">♡ 91</button><button onclick="openFeature('评论')">评论 14</button><button onclick="openFeature('社区参与')">参与 36</button></div>
+1196:          <button class="topic topic-button" onclick="openFeature('# 江渡晚霞')"><span># 江渡晚霞</span><span>2.4k</span></button>
+1197:          <button class="topic topic-button" onclick="openFeature('# 校园生活')"><span># 校园生活</span><span>1.8k</span></button>
+1198:          <button class="topic topic-button" onclick="openFeature('# 摄影')"><span># 摄影</span><span>1.5k</span></button>
+1199:          <button class="topic topic-button" onclick="openFeature('# 今天吃什么')"><span># 今天吃什么</span><span>1.2k</span></button>
+1200:          <button class="topic topic-button" onclick="openFeature('# 游戏')"><span># 游戏</span><span>987</span></button>
+1211:    <div class="feature"><div class="icon">✦</div><h3>发现你感兴趣的内容</h3><p>根据你的兴趣和互动，整理更适合你的内容。</p><button class="feature-btn" onclick="openFeature('个性化发现')">开始发现</button></div>
+1212:    <div class="feature"><div class="icon">◎</div><h3>找到属于你的社区</h3><p>摄影、游戏、音乐、校园、科技……找到与你合拍的人。</p><button class="feature-btn" onclick="openFeature('社区')">浏览社区</button></div>
+1213:    <div class="feature"><div class="icon">↗</div><h3>保持联系</h3><p>通过即时聊天，与朋友和社区成员保持联系。</p><button class="feature-btn" onclick="openFeature('私聊')">打开消息</button></div>
+1225:        <article class="app-card recommendation-card" onclick="openContentPreview('江渡吃喝指南 · 推荐内容','江渡最近突然爆火的 7 家小店，第 4 家排队两小时','周末餐饮推荐合集，整理了近期热度较高的几家店铺。')">
+1230:          <div class="post-meta"><button onclick="event.stopPropagation();showEchoToast('已记录你的反馈。')">不感兴趣</button><button onclick="event.stopPropagation();showEchoToast('已收藏。')">收藏</button></div>
+1232:        <article class="app-card recommendation-card" onclick="openContentPreview('光影日记 · 摄影','拍日落一定要知道的 5 个构图技巧','简单介绍手机摄影中的曝光、取景和构图技巧。')">
+1237:          <div class="post-meta"><button onclick="event.stopPropagation();showEchoToast('已记录你的反馈。')">不感兴趣</button><button onclick="event.stopPropagation();showEchoToast('已收藏。')">收藏</button></div>
+1239:        <article class="app-card recommendation-card" onclick="openContentPreview('今日测一测 · 热门内容','你最适合哪一种城市生活？3 分钟测出答案','一则普通的互动测试内容，根据选项生成娱乐性质的城市生活标签。')">
+1247:        <div class="app-side-card"><h3>推荐理由</h3><p>这些内容来自你近期的浏览、关注和互动记录。</p><button class="plain-link" onclick="showEchoToast('推荐设置将在后续开放。')">管理推荐偏好 →</button></div>
+1256:      <article class="channel-card"><span class="channel-icon">摄</span><div class="channel-main"><div class="channel-title"><b>江渡摄影</b><span>官方账号</span></div><h3>本周征集｜城市里的蓝色</h3><p>不限设备、不限地点，投稿将在周日统一展示。</p><small>今天 18:40 · 阅读 2.1k</small></div><button onclick="openContentPreview('江渡摄影 · 官方账号','本周征集｜城市里的蓝色','本周摄影主题征集开放，投稿将在周日统一展示。')">查看</button></article>
+1257:      <article class="channel-card"><span class="channel-icon">校</span><div class="channel-main"><div class="channel-title"><b>江渡校园通</b><span>校园资讯</span></div><h3>新学期校车时刻表更新</h3><p>部分线路自周一开始调整，请提前查看。</p><small>今天 16:12 · 阅读 5.8k</small></div><button onclick="openContentPreview('江渡校园通 · 校园资讯','新学期校车时刻表更新','部分校车线路将在新学期调整运行时间，具体安排请以学校通知为准。')">查看</button></article>
+1258:      <article class="channel-card"><span class="channel-icon">城</span><div class="channel-main"><div class="channel-title"><b>今日江渡</b><span>城市资讯</span></div><h3>白榆桥周边夜间照明维护公告</h3><p>维护期间部分步行区域将临时调整通行路线。</p><small>昨天 21:03 · 阅读 8.4k</small></div><button onclick="openContentPreview('今日江渡 · 城市资讯','白榆桥周边夜间照明维护公告','白榆桥周边将进行常规夜间照明维护，部分步行区域临时调整通行路线。')">查看</button></article>
+1259:      <article class="channel-card"><span class="channel-icon">数</span><div class="channel-main"><div class="channel-title"><b>数码观察</b><span>科技</span></div><h3>为什么越来越多平台强调“懂你”？</h3><p>从内容分发到个性化主页，推荐已经成为产品的基础能力。</p><small>昨天 17:25 · 阅读 3.6k</small></div><button onclick="openContentPreview('数码观察 · 科技','为什么越来越多平台强调“懂你”？','一篇关于内容推荐和个性化产品趋势的普通行业文章。')">查看</button></article>
+1266:      <button class="hot-row" onclick="openContentPreview('热门话题 · 2.4万讨论','# 江渡晚霞','今天江渡的晚霞照片很多，讨论主要是拍摄地点和手机随手拍。')"><span class="rank top">1</span><div><b># 江渡晚霞</b><small>2.4万讨论</small></div><span class="trend">热</span></button>
+1267:      <button class="hot-row" onclick="openContentPreview('热门话题 · 1.9万讨论','# 今天吃什么','大家正在分享学校附近、公司附近和江渡城区的餐馆推荐。')"><span class="rank top">2</span><div><b># 今天吃什么</b><small>1.9万讨论</small></div><span class="trend">热</span></button>
+1268:      <button class="hot-row" onclick="openContentPreview('热门话题 · 1.6万讨论','# 开学第一周','新学期课程、社团和校园生活相关的普通讨论。')"><span class="rank top">3</span><div><b># 开学第一周</b><small>1.6万讨论</small></div><span class="trend">新</span></button>
+1269:      <button class="hot-row" onclick="openContentPreview('热门话题 · 1.2万讨论','# 城市摄影','城市街景、建筑和日常随拍相关讨论。')"><span class="rank">4</span><div><b># 城市摄影</b><small>1.2万讨论</small></div><span></span></button>
+1270:      <button class="hot-row" onclick="openContentPreview('热门话题 · 9,870讨论','# 最近在玩的游戏','玩家正在分享最近玩过的游戏和组队信息。')"><span class="rank">5</span><div><b># 最近在玩的游戏</b><small>9,870讨论</small></div><span></span></button>
+1271:      <button class="hot-row" onclick="openContentPreview('热门话题 · 8,420讨论','# 江渡周末去哪','江渡周末活动、公园和展览的普通推荐。')"><span class="rank">6</span><div><b># 江渡周末去哪</b><small>8,420讨论</small></div><span></span></button>
+1272:      <button class="hot-row" onclick="openContentPreview('热门话题 · 7,910讨论','# 手机摄影挑战','使用手机完成指定摄影主题的社区挑战。')"><span class="rank">7</span><div><b># 手机摄影挑战</b><small>7,910讨论</small></div><span></span></button>
+1281:        <button class="conversation active" data-chat="back" onclick="selectConversation(this,'back')"><span class="chat-avatar back-avatar">回</span><div><b>回头</b><p>我之后不会再上这个号。</p></div><div class="conversation-meta"><time>07/18</time></div></button>
+1282:        <button class="conversation" data-chat="chen" data-unread="3" onclick="selectConversation(this,'chen')"><span class="chat-avatar chen-avatar">屿</span><div><b>陈屿</b><p>林沐，你到底去哪了？</p></div><div class="conversation-meta"><time>07/20</time><span class="unread-badge">3</span></div></button>
+1283:        <button class="conversation" data-chat="wan" data-unread="3" onclick="selectConversation(this,'wan')"><span class="chat-avatar wan-avatar">婉</span><div><b>婉婉</b><p>看到消息回我一下，大家都在找你</p></div><div class="conversation-meta"><time>07/20</time><span class="unread-badge">3</span></div></button>
+1284:        <button class="conversation" data-chat="photo" data-unread="1" onclick="selectConversation(this,'photo')"><span class="chat-avatar photo-avatar">摄</span><div><b>江渡摄影社</b><p>林沐，看到消息的话联系我们一下。</p></div><div class="conversation-meta"><time>07/21</time><span class="unread-badge">1</span></div></button>
+1285:        <button class="conversation" data-chat="media" onclick="selectConversation(this,'media')"><span class="chat-avatar media-avatar">媒</span><div><b>校媒中心</b><p>0516采访整理也已收到。</p></div><div class="conversation-meta"><time>06/03</time></div></button>
+1286:        <button class="conversation" data-chat="zhou" data-unread="3" onclick="selectConversation(this,'zhou')"><span class="chat-avatar class-avatar">晴</span><div><b>周晴</b><p>看到消息回一下吧，大家都挺担心你的</p></div><div class="conversation-meta"><time>07/20</time><span class="unread-badge">3</span></div></button>
+1289:        <div class="chat-header"><div><h3 id="chatName">回头</h3><span id="chatStatus">最后活跃：2024年7月18日</span></div><button onclick="showEchoToast('聊天信息。')">•••</button></div>
+1293:            <button onclick="cannotSendMessage()" title="表情">☺</button>
+1294:            <button onclick="cannotSendMessage()" title="文件">▱</button>
+1295:            <button onclick="cannotSendMessage()" title="截图">⌗</button>
+1298:            <textarea placeholder="输入消息…" readonly onclick="cannotSendMessage()"></textarea>
+1299:            <button class="send-btn" onclick="cannotSendMessage()">发送</button>
+1311:        <button class="active" onclick="showHelpArticle(this,'overview')">帮助首页</button>
+1312:        <button onclick="showHelpArticle(this,'account')">账号与安全</button>
+1313:        <button onclick="showHelpArticle(this,'privacy')">隐私与数据</button>
+1314:        <button onclick="showHelpArticle(this,'messages')">消息与社区</button>
+1317:        <div class="help-search"><input id="helpSearchInput" placeholder="搜索帮助内容，例如：丢失数据"><button onclick="searchHelp()">搜索</button></div>
+1323:            <button onclick="openHelp('account')"><b>账号与安全</b><span>登录、安全验证、账号信息</span></button>
+1324:            <button onclick="openHelp('privacy')"><b>隐私与数据</b><span>历史数据、删除与同步</span></button>
+1325:            <button onclick="openHelp('messages')"><b>消息与社区</b><span>私信、社区内容与举报</span></button>
+1328:          <button class="faq-row" onclick="openHelp('download-guide')"><strong>如何下载我的回声数据？</strong><span>›</span></button>
+1329:          <button class="faq-row" onclick="showEchoToast('帮助内容将在后续补充。')">如何修改账号信息？<span>›</span></button>
+1330:          <button class="faq-row" onclick="showEchoToast('帮助内容将在后续补充。')">删除动态后还能恢复吗？<span>›</span></button>
+1334:          <button class="article-back" onclick="openHelp('overview')">← 返回帮助中心</button>
+1350:          <button class="faq-row" onclick="showEchoToast('当前账号已完成安全验证。')">安全验证说明<span>›</span></button>
+1351:          <button class="faq-row" onclick="showEchoToast('帮助内容将在后续补充。')">无法登录账号怎么办？<span>›</span></button>
+1357:          <button class="faq-row" onclick="openHelp('lostdata')"><b>查找丢失的数据</b><span>›</span></button>
+1358:          <button class="faq-row" onclick="showEchoToast('帮助内容将在后续补充。')">账号数据说明<span>›</span></button>
+1359:          <button class="faq-row" onclick="showEchoToast('帮助内容将在后续补充。')">删除与清理<span>›</span></button>
+1363:          <button class="article-back" onclick="openHelp('privacy')">← 返回隐私与数据</button>
+1371:            <button class="lost-primary" onclick="startLostDataScan()">开始查找</button>
+1385:            <button class="retained-button" onclick="openRetainedVerify()">RETAINED</button>
+1390:              <button class="lost-file recovered-file" onclick="showRecovered('back')"><div class="file-type chat">CHAT</div><div><b>聊天记录</b><span>回头 / 木棉 · 2024-07-16</span></div><em>查看 ›</em></button>
+1391:              <button class="lost-file recovered-file" onclick="showRecovered('pdf')"><div class="file-type pdf">PDF</div><div><b>项目调查摘要.pdf</b><span>2024-07-17</span></div><em>查看 ›</em></button>
+1392:              <button class="lost-file recovered-file" onclick="showRecovered('null')"><div class="file-type threat">CHAT</div><div><b>聊天记录</b><span>NULL / 木棉 · 2024-07-17 — 2024-07-19</span></div><em>查看 ›</em></button>
+1400:          <button class="faq-row" onclick="showEchoToast('帮助内容将在后续补充。')">私信功能说明<span>›</span></button>
+1401:          <button class="faq-row" onclick="showEchoToast('帮助内容将在后续补充。')">社区内容管理规则<span>›</span></button>
+1415:          <div class="profile-top"><div><h1>木棉</h1><p>@mumian_47</p></div><button onclick="showEchoToast('个人资料编辑功能不可用。')">编辑资料</button></div>
+1423:        <button onclick="showAppView('moments')">我的动态<span>›</span></button>
+1424:        <button onclick="showAppView('favorites')">我的收藏<span>›</span></button>
+1425:        <button onclick="handleNav('help'); openHelp('account');">账号与安全<span>›</span></button>
+1426:        <button onclick="handleNav('help'); openHelp('privacy');">隐私与数据<span>›</span></button>
+1427:        <button class="danger-link" onclick="openLogoutConfirm()">退出登录<span>›</span></button>
+1434:      <div class="profile-subview-head"><button onclick="showAppView('profile')">← 返回个人主页</button><h1>我的动态</h1></div>
+1448:      <div class="profile-subview-head"><button onclick="showAppView('profile')">← 返回个人主页</button><h1>我的收藏</h1></div>
+1450:        <button class="saved-card" onclick="openContentPreview('江渡生活 · 2024-05-28','江渡人私藏的 8 家深夜食堂','从学校南门的小面馆，到白榆路营业到凌晨两点的砂锅店……')"><div class="saved-meta">江渡生活 · 2024-05-28</div><h3>🍜 江渡人私藏的 8 家深夜食堂</h3><p>从学校南门的小面馆，到白榆路营业到凌晨两点的砂锅店……</p><span class="saved-tag">已收藏</span></button>
+1451:        <button class="saved-card" onclick="openAwardFavorite()"><div class="saved-meta">江渡大学 · 2024-06-03</div><h3>📷 我校学生作品在江渡市大学生摄影作品评选中获奖</h3><p>江渡大学多名学生作品在本届大学生摄影作品评选中获奖……</p><span class="saved-tag">已收藏</span></button>
+1452:        <button class="saved-card key-save" onclick="openShenFavorite()"><div class="saved-meta">栖川科技 · 2024-06-26</div><h3>专访沈川：让“回声”更早理解用户真正需要什么</h3><p>栖川科技创始人兼首席执行官沈川近日接受采访，谈及回声产品未来的发展方向……</p><span class="saved-tag">已收藏</span><div class="saved-time">收藏时间：2024-07-15</div></button>
+1459:      <button class="person-back" onclick="returnFromPersonProfile()">← 返回</button>
+1494:    <button class="preview-close" onclick="closeContentPreview()">×</button>
+1499:    <button class="preview-back" onclick="closeContentPreview()">返回</button>
+1506:    <button class="feature-panel-close" onclick="closeFeaturePanel()">×</button>
+1516:    <button class="modal-close" onclick="closeRetainedVerify()" aria-label="关闭">×</button>
+1523:    <div class="retained-actions"><button onclick="closeRetainedVerify()">取消</button><button class="confirm" onclick="verifyRetained()">确认</button></div>
+1528:    <button class="modal-close" onclick="closeRecovered()" aria-label="关闭">×</button>
+1539:      <button class="cancel" onclick="closeLogoutConfirm()">取消</button>
+1540:      <button class="confirm" onclick="confirmLogout()">确认退出</button>
+1547:    <button class="modal-close" onclick="closeLogin()" aria-label="关闭">×</button>
+1566:      <button class="login-submit" onclick="continueLogin()">继续</button>
+1588:      <button class="login-submit" onclick="verifySecurityAnswer()">确认登录</button>
+1589:      <button class="login-back" onclick="backToNickname()">返回</button>
+1604:<button class="echo-trigger-notice" id="echoTriggerNotice" type="button" onclick="openTriggeredEcho()" aria-label="打开回声新消息">
+1615:function showEchoToast(message){
+1621:  echoToastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+1624:function openFeature(name){
+1643:function closeFeaturePanel(){
+1647:function searchCases(){
+1700:    <button class="account-search-result" onclick="openPersonProfile('${accountKey}')">
+1726:function openLogoutConfirm(){
+1729:function closeLogoutConfirm(){
+1732:function confirmLogout(){
+1748:  setTimeout(() => showEchoToast('已退出登录。'), 180);
+1755:function openLogin(){ document.getElementById('loginModal').classList.add('show'); resetEchoLogin(); setTimeout(() => document.getElementById('echoNickname')?.focus(), 50); }
+1756:function closeLogin(){ document.getElementById('loginModal').classList.remove('show'); }
+1760:function resetEchoLogin(){
+1779:function continueLogin(){
+1792:  setTimeout(() => document.getElementById('securityAnswer')?.focus(), 50);
+1795:function verifySecurityAnswer(){
+1820:  setTimeout(() => {
+1826:function backToNickname(){
+1847:function openAwardFavorite(){
+1850:function openShenFavorite(){
+1856:function openContentPreview(source,title,text){
+1862:function closeContentPreview(){
+1866:function handleNav(view){
+1874:function showAppView(view){
+1960:function updateEchoTriggerNotice(){
+1963:  const pending=localStorage.getItem('null_searched')==='1' && localStorage.getItem('null_message_read')!=='1';
+1967:function fireNullSearchTrigger(){
+1968:  const firstTrigger=localStorage.getItem('null_searched')!=='1';
+1969:  localStorage.setItem('null_searched','1');
+1971:    localStorage.removeItem('null_message_read');
+1972:    localStorage.removeItem('transfer_message_read');
+1977:function openTriggeredEcho(){
+1978:  window.location.href='game.html?open=echo&chat=null';
+1981:function openPersonProfile(key){
+2027:function returnFromPersonProfile(){
+2034:function openProfile(){
+2157:function msg(name,text,time,mine=false,unread=false){
+2162:function updateMessageUnreadUI(){
+2180:function markConversationRead(button){
+2197:function selectConversation(button,key){
+2216:function cannotSendMessage(){showEchoToast('该账号当前无法发送消息。');}
+2219:function showHelpArticle(button,name){
+2225:function openHelp(name){
+2231:function showDataDownloadArticle(){
+2235:function searchHelp(){
+2256:function startLostDataScan(){
+2261:  setTimeout(()=>{if(status)status.textContent='正在检查历史文件……';},650);
+2262:  setTimeout(()=>{if(status)status.textContent='正在检查不可见记录……';},1300);
+2263:  setTimeout(()=>{if(b)b.style.display='none';if(c)c.style.display='block';lostDataScanned=true;},2050);
+2265:function openRetainedVerify(){
+2267:  if(e)e.textContent=''; if(i)i.value=''; if(m)m.classList.add('show'); setTimeout(()=>i?.focus(),50);
+2269:function closeRetainedVerify(){document.getElementById('retainedVerifyModal')?.classList.remove('show');}
+2270:function verifyRetained(){
+2279:function showRecovered(type){
+2293:function closeRecovered(){document.getElementById('recoveredModal')?.classList.remove('show');}

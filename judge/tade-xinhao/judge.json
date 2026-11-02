@@ -1,0 +1,245 @@
+{
+  "hooks": {
+    "place_00": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(0)===true}catch(e){return false}})()"
+    },
+    "place_01": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(1)===true}catch(e){return false}})()"
+    },
+    "place_02": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(2)===true}catch(e){return false}})()"
+    },
+    "place_03": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(3)===true}catch(e){return false}})()"
+    },
+    "place_04": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(4)===true}catch(e){return false}})()"
+    },
+    "place_05": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(5)===true}catch(e){return false}})()"
+    },
+    "place_06": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(6)===true}catch(e){return false}})()"
+    },
+    "place_07": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(7)===true}catch(e){return false}})()"
+    },
+    "place_08": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(8)===true}catch(e){return false}})()"
+    },
+    "place_09": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(9)===true}catch(e){return false}})()"
+    },
+    "place_10": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(10)===true}catch(e){return false}})()"
+    },
+    "place_11": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(11)===true}catch(e){return false}})()"
+    },
+    "place_12": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(12)===true}catch(e){return false}})()"
+    },
+    "place_13": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(13)===true}catch(e){return false}})()"
+    },
+    "place_14": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(14)===true}catch(e){return false}})()"
+    },
+    "place_15": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(15)===true}catch(e){return false}})()"
+    },
+    "place_16": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(16)===true}catch(e){return false}})()"
+    },
+    "place_17": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(17)===true}catch(e){return false}})()"
+    },
+    "place_18": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(18)===true}catch(e){return false}})()"
+    },
+    "place_19": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(19)===true}catch(e){return false}})()"
+    },
+    "place_20": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(20)===true}catch(e){return false}})()"
+    },
+    "place_21": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('citymystery_save')||'{}').knownPlaceNames?.includes(21)===true}catch(e){return false}})()"
+    },
+    "E01": {
+      "type": "js_truthy",
+      "expr": "document.body.classList.contains('ending-e01') && document.querySelector('.ending-id')?.textContent.trim() === 'E-01'"
+    },
+    "E02": {
+      "type": "js_truthy",
+      "expr": "document.body.classList.contains('ending-e02') && document.querySelector('.ending-id')?.textContent.trim() === 'E-02'"
+    },
+    "E03": {
+      "type": "js_truthy",
+      "expr": "document.body.classList.contains('ending-e03') && document.querySelector('.ending-id')?.textContent.trim() === 'E-03'"
+    },
+    "E04": {
+      "type": "js_truthy",
+      "expr": "document.body.classList.contains('ending-e04') && document.querySelector('.ending-id')?.textContent.trim() === 'E-04'"
+    },
+    "E05": {
+      "type": "js_truthy",
+      "expr": "document.body.classList.contains('ending-e05') && document.querySelector('.ending-id')?.textContent.trim() === 'E-05'"
+    }
+  },
+  "checkpoints": [],
+  "events": {
+    "place_00": {
+      "hook": "place_00",
+      "op": "truthy"
+    },
+    "place_01": {
+      "hook": "place_01",
+      "op": "truthy"
+    },
+    "place_02": {
+      "hook": "place_02",
+      "op": "truthy"
+    },
+    "place_03": {
+      "hook": "place_03",
+      "op": "truthy"
+    },
+    "place_04": {
+      "hook": "place_04",
+      "op": "truthy"
+    },
+    "place_05": {
+      "hook": "place_05",
+      "op": "truthy"
+    },
+    "place_06": {
+      "hook": "place_06",
+      "op": "truthy"
+    },
+    "place_07": {
+      "hook": "place_07",
+      "op": "truthy"
+    },
+    "place_08": {
+      "hook": "place_08",
+      "op": "truthy"
+    },
+    "place_09": {
+      "hook": "place_09",
+      "op": "truthy"
+    },
+    "place_10": {
+      "hook": "place_10",
+      "op": "truthy"
+    },
+    "place_11": {
+      "hook": "place_11",
+      "op": "truthy"
+    },
+    "place_12": {
+      "hook": "place_12",
+      "op": "truthy"
+    },
+    "place_13": {
+      "hook": "place_13",
+      "op": "truthy"
+    },
+    "place_14": {
+      "hook": "place_14",
+      "op": "truthy"
+    },
+    "place_15": {
+      "hook": "place_15",
+      "op": "truthy"
+    },
+    "place_16": {
+      "hook": "place_16",
+      "op": "truthy"
+    },
+    "place_17": {
+      "hook": "place_17",
+      "op": "truthy"
+    },
+    "place_18": {
+      "hook": "place_18",
+      "op": "truthy"
+    },
+    "place_19": {
+      "hook": "place_19",
+      "op": "truthy"
+    },
+    "place_20": {
+      "hook": "place_20",
+      "op": "truthy"
+    },
+    "place_21": {
+      "hook": "place_21",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "E01",
+      "gates": [],
+      "ending": {
+        "hook": "E01",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "E02",
+      "gates": [],
+      "ending": {
+        "hook": "E02",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "E03",
+      "gates": [],
+      "ending": {
+        "hook": "E03",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "E04",
+      "gates": [],
+      "ending": {
+        "hook": "E04",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "E05",
+      "gates": [],
+      "ending": {
+        "hook": "E05",
+        "op": "truthy"
+      }
+    }
+  ]
+}

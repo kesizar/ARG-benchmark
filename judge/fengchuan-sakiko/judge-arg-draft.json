@@ -1,0 +1,92 @@
+{
+  "hooks": {
+    "legend": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-arg.active #arg-result.on') && document.querySelector('#arg-result-title').textContent.trim()===\"传奇 ARG 工作室\""
+    },
+    "top": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-arg.active #arg-result.on') && document.querySelector('#arg-result-title').textContent.trim()===\"圈内顶流\""
+    },
+    "minor": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-arg.active #arg-result.on') && document.querySelector('#arg-result-title').textContent.trim()===\"小有名气\""
+    },
+    "philosophy": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-arg.active #arg-result.on') && document.querySelector('#arg-result-title').textContent.trim()===\"查无此 ARG（哲学结局）\""
+    },
+    "none": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-arg.active #arg-result.on') && document.querySelector('#arg-result-title').textContent.trim()===\"查无此组\""
+    },
+    "bankrupt": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-arg.active #arg-result.on') && document.querySelector('#arg-result-title').textContent.trim()===\"工作室解散 · 资金链断裂\""
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "legend",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "legend",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "top",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "top",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "minor",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "minor",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "philosophy",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "philosophy",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "none",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "none",
+        "op": "truthy"
+      }
+    }
+  ],
+  "terminal_failures": [
+    {
+      "id": "bankrupt",
+      "hook": "bankrupt",
+      "op": "truthy"
+    }
+  ],
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

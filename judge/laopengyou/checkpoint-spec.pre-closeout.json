@@ -1,0 +1,65 @@
+{
+  "critical": [
+    {
+      "id": "system",
+      "mechanism": "decode forum secret posts to system name/password; accepted credentials enter sub home"
+    },
+    {
+      "id": "quiz_1",
+      "question": "奇想项目真正的发起人是谁？",
+      "mechanism": "single",
+      "grading": "judge sees selected DOM only while completed quiz submission result modal is visible; correct answer latched even if other submitted questions wrong; no grading mere unsubmitted selection"
+    },
+    {
+      "id": "quiz_2",
+      "question": "时安是因为什么而死？",
+      "mechanism": "single",
+      "grading": "judge sees selected DOM only while completed quiz submission result modal is visible; correct answer latched even if other submitted questions wrong; no grading mere unsubmitted selection"
+    },
+    {
+      "id": "quiz_3",
+      "question": "请将人和她的专业配对",
+      "mechanism": "pair",
+      "grading": "judge sees selected DOM only while completed quiz submission result modal is visible; correct answer latched even if other submitted questions wrong; no grading mere unsubmitted selection"
+    },
+    {
+      "id": "quiz_4",
+      "question": "向晴川是谁？",
+      "mechanism": "single",
+      "grading": "judge sees selected DOM only while completed quiz submission result modal is visible; correct answer latched even if other submitted questions wrong; no grading mere unsubmitted selection"
+    },
+    {
+      "id": "quiz_5",
+      "question": "请将大家的现状配对",
+      "mechanism": "pair",
+      "grading": "judge sees selected DOM only while completed quiz submission result modal is visible; correct answer latched even if other submitted questions wrong; no grading mere unsubmitted selection"
+    },
+    {
+      "id": "quiz_6",
+      "question": "项云归遭遇过什么？",
+      "mechanism": "single",
+      "grading": "judge sees selected DOM only while completed quiz submission result modal is visible; correct answer latched even if other submitted questions wrong; no grading mere unsubmitted selection"
+    },
+    {
+      "id": "quiz_7",
+      "question": "牧深为什么给项云归优惠？",
+      "mechanism": "single",
+      "grading": "judge sees selected DOM only while completed quiz submission result modal is visible; correct answer latched even if other submitted questions wrong; no grading mere unsubmitted selection"
+    },
+    {
+      "id": "quiz_8",
+      "question": "之前的宿舍矛盾有几个？（多选，少选多选均不得分）",
+      "mechanism": "multi",
+      "grading": "judge sees selected DOM only while completed quiz submission result modal is visible; correct answer latched even if other submitted questions wrong; no grading mere unsubmitted selection"
+    }
+  ],
+  "optional": [
+    "wechat",
+    "qq",
+    "diary",
+    "subqq"
+  ],
+  "why_optional": "mechanically no mandatory read/login prerequisite if solver knows final facts; keep evidence acquisition gates distinct from route requirements",
+  "pair_scoring": "one checkpoint per complete matching question; not per person",
+  "negative_requirements": "hidden static endings, incomplete quiz, wrong credentials, wrong/missing/extra answers must not falsely score the corresponding point"
+}

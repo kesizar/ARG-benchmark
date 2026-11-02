@@ -1,24 +1,104 @@
 {
   "hooks": {
-    "stay": {
-      "type": "dom_regex",
-      "pattern": "你接过槐花香囊。一瞬间，身边的雾气淡了大半"
-    },
-    "leave": {
-      "type": "dom_regex",
-      "pattern": "下一个月圆，雾会去找你"
-    },
     "key": {
-      "type": "dom_regex",
-      "pattern": "找到钥匙了！"
+      "type": "js_truthy",
+      "expr": "inventory.some(i => i.id === 'key')"
+    },
+    "sachet_face": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#cstep1.done')"
+    },
+    "sachet_alignment": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#cstep2.done')"
+    },
+    "track": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#trk3.done')"
     },
     "code": {
-      "type": "dom_regex",
-      "pattern": "咔哒——锁开了。"
+      "type": "js_truthy",
+      "expr": "document.querySelectorAll('#scene-act3_2 .code-box.ok').length === 8"
+    },
+    "archive_1": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#slot1.filled')"
+    },
+    "archive_2": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#slot2.filled')"
+    },
+    "archive_3": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#slot3.filled')"
+    },
+    "archive_4": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#slot4.filled')"
+    },
+    "archive_5": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#slot5.filled')"
     },
     "stones": {
-      "type": "dom_regex",
-      "pattern": "石阵亮起微光，雾气向两侧退开，一条小路出现了。"
+      "type": "js_truthy",
+      "expr": "document.querySelectorAll('#scene-act4_2 .stone-correct').length === 7"
+    },
+    "fog": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#nav3.done')"
+    },
+    "carvings": {
+      "type": "js_truthy",
+      "expr": "document.querySelectorAll('#scene-act5_2 .carving.touched').length === 3"
+    },
+    "spirit_1": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#sp1.done')"
+    },
+    "spirit_2": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#sp2.done')"
+    },
+    "spirit_3": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#sp3.done')"
+    },
+    "matching_1": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#scene-act6_1c #c1.matched')"
+    },
+    "matching_2": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#scene-act6_1c #c2.matched')"
+    },
+    "matching_3": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#scene-act6_1c #c3.matched')"
+    },
+    "matching_4": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#scene-act6_1c #c4.matched')"
+    },
+    "matching_5": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#scene-act6_1c #c5.matched')"
+    },
+    "stay": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#scene-ending_a .ending-title')"
+    },
+    "leave": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#scene-ending_b .ending-title')"
+    },
+    "shop_found": {
+      "type": "js_truthy",
+      "expr": "inventory.some(i => i.id === 'sachet2')"
+    },
+    "hint_opened": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#hintPanel.show')"
     }
   },
   "checkpoints": [
@@ -28,25 +108,142 @@
       "op": "truthy"
     },
     {
+      "id": "sachet_face",
+      "hook": "sachet_face",
+      "op": "truthy"
+    },
+    {
+      "id": "sachet_alignment",
+      "hook": "sachet_alignment",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "track",
+      "hook": "track",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
       "id": "code",
       "hook": "code",
       "op": "truthy"
     },
     {
+      "id": "archive_1",
+      "hook": "archive_1",
+      "op": "truthy"
+    },
+    {
+      "id": "archive_2",
+      "hook": "archive_2",
+      "op": "truthy"
+    },
+    {
+      "id": "archive_3",
+      "hook": "archive_3",
+      "op": "truthy"
+    },
+    {
+      "id": "archive_4",
+      "hook": "archive_4",
+      "op": "truthy"
+    },
+    {
+      "id": "archive_5",
+      "hook": "archive_5",
+      "op": "truthy"
+    },
+    {
       "id": "stones",
       "hook": "stones",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "fog",
+      "hook": "fog",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "carvings",
+      "hook": "carvings",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "spirit_1",
+      "hook": "spirit_1",
+      "op": "truthy"
+    },
+    {
+      "id": "spirit_2",
+      "hook": "spirit_2",
+      "op": "truthy"
+    },
+    {
+      "id": "spirit_3",
+      "hook": "spirit_3",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "matching_1",
+      "hook": "matching_1",
+      "op": "truthy"
+    },
+    {
+      "id": "matching_2",
+      "hook": "matching_2",
+      "op": "truthy"
+    },
+    {
+      "id": "matching_3",
+      "hook": "matching_3",
+      "op": "truthy"
+    },
+    {
+      "id": "matching_4",
+      "hook": "matching_4",
+      "op": "truthy"
+    },
+    {
+      "id": "matching_5",
+      "hook": "matching_5",
       "op": "truthy"
     }
   ],
-  "events": {},
+  "events": {
+    "shop_found": {
+      "hook": "shop_found",
+      "op": "truthy"
+    },
+    "hint_opened": {
+      "hook": "hint_opened",
+      "op": "truthy"
+    }
+  },
   "routes": [
     {
       "id": "stay",
-      "tier": "good",
+      "tier": "normal",
       "gates": [
         "key",
+        "sachet_face",
         "code",
-        "stones"
+        "archive_1",
+        "archive_2",
+        "archive_3",
+        "archive_4",
+        "archive_5",
+        "spirit_1",
+        "spirit_2",
+        "matching_1",
+        "matching_2",
+        "matching_3",
+        "matching_4",
+        "matching_5"
       ],
       "ending": {
         "hook": "stay",
@@ -55,11 +252,23 @@
     },
     {
       "id": "leave",
-      "tier": "bad",
+      "tier": "normal",
       "gates": [
         "key",
+        "sachet_face",
         "code",
-        "stones"
+        "archive_1",
+        "archive_2",
+        "archive_3",
+        "archive_4",
+        "archive_5",
+        "spirit_1",
+        "spirit_2",
+        "matching_1",
+        "matching_2",
+        "matching_3",
+        "matching_4",
+        "matching_5"
       ],
       "ending": {
         "hook": "leave",
@@ -67,10 +276,7 @@
       }
     }
   ],
-  "ending": {
-    "hook": "stay",
-    "op": "truthy"
-  },
+  "ending": null,
   "answer_sha256": [],
   "answer_hash_file": null,
   "request_milestones": [],

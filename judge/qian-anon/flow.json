@@ -1,0 +1,691 @@
+{
+  "record_id": "base664:0521",
+  "version": "v1.4 frozen snapshot; original row v1.2",
+  "global_ending": null,
+  "units": [
+    {
+      "id": "qian-anon-quiz",
+      "key": "quiz",
+      "title": "日谜对对碰",
+      "config": "configs/qian-anon-quiz.json",
+      "judge": "judge/qian-anon/quiz.json",
+      "status": "engineering_ready_content_review_required",
+      "scope": "first round only",
+      "endings": [
+        "win",
+        "lose",
+        "draw"
+      ],
+      "verified_endings": [
+        "draw",
+        "lose",
+        "win"
+      ],
+      "evidence": "judge/qian-anon/verification/quiz-acceptance.json"
+    },
+    {
+      "id": "qian-anon-pipa",
+      "key": "pipa",
+      "title": "弹心爱的琵琶吧",
+      "config": "configs/qian-anon-pipa.json",
+      "judge": "judge/qian-anon/pipa.json",
+      "status": "engineering_ready_content_review_required",
+      "scope": "first round only",
+      "endings": [
+        "answer",
+        "caught"
+      ],
+      "verified_endings": [
+        "answer",
+        "caught"
+      ],
+      "evidence": "judge/qian-anon/verification/pipa-acceptance.json"
+    },
+    {
+      "id": "qian-anon-cross",
+      "key": "cross",
+      "title": "crossword 大赛",
+      "config": "configs/qian-anon-cross.json",
+      "judge": "judge/qian-anon/cross.json",
+      "status": "engineering_ready_content_review_required",
+      "scope": "first round only",
+      "endings": [
+        "win",
+        "lose",
+        "draw_unreachable"
+      ],
+      "verified_endings": [
+        "lose",
+        "win"
+      ],
+      "evidence": "judge/qian-anon/verification/cross-acceptance.json"
+    },
+    {
+      "id": "qian-anon-hunt",
+      "key": "hunt",
+      "title": "世界第一 puzzlehunt 游戏设计师",
+      "config": "configs/qian-anon-hunt.json",
+      "judge": "judge/qian-anon/hunt.json",
+      "status": "engineering_ready_content_review_required",
+      "scope": "first round only",
+      "endings": [
+        "best",
+        "great",
+        "normal",
+        "flop",
+        "burnout"
+      ],
+      "verified_endings": [
+        "best",
+        "burnout",
+        "flop",
+        "great",
+        "normal"
+      ],
+      "evidence": "judge/qian-anon/verification/hunt-acceptance.json"
+    },
+    {
+      "id": "qian-anon-surf",
+      "key": "surf",
+      "title": "海啸冲浪",
+      "config": "configs/qian-anon-surf.json",
+      "judge": "judge/qian-anon/surf.json",
+      "status": "engineering_ready_content_review_required",
+      "scope": "first round only",
+      "endings": [
+        "escaped",
+        "swallowed"
+      ],
+      "verified_endings": [
+        "escaped",
+        "swallowed"
+      ],
+      "evidence": "judge/qian-anon/verification/surf-acceptance.json"
+    },
+    {
+      "id": "qian-anon-maze",
+      "key": "maze",
+      "title": "汉字方阵迷宫",
+      "config": "configs/qian-anon-maze.json",
+      "judge": "judge/qian-anon/maze.json",
+      "status": "engineering_ready_content_review_required",
+      "scope": "first round only",
+      "endings": [
+        "escaped"
+      ],
+      "verified_endings": [
+        "escaped"
+      ],
+      "evidence": "judge/qian-anon/verification/maze-acceptance.json"
+    },
+    {
+      "id": "qian-anon-gal",
+      "key": "gal",
+      "title": "与时柒的七日",
+      "config": "configs/qian-anon-gal.json",
+      "judge": "judge/qian-anon/gal.json",
+      "status": "engineering_ready_content_review_required",
+      "scope": "first round only",
+      "endings": [
+        "hi",
+        "mid",
+        "lo"
+      ],
+      "verified_endings": [
+        "hi",
+        "lo",
+        "mid"
+      ],
+      "evidence": "judge/qian-anon/verification/gal-acceptance.json"
+    }
+  ],
+  "coverage": {
+    "quiz": {
+      "rounds": 10,
+      "verified_endings": [
+        "draw",
+        "lose",
+        "win"
+      ],
+      "seeds": [
+        20261027,
+        20261028,
+        20261029,
+        20261030,
+        20261031,
+        20261032,
+        20261033,
+        20261034,
+        20261035,
+        20261036
+      ],
+      "pool": 22,
+      "all_correctly_submitted": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "sampling": "with replacement; same question may reappear in one ten-round episode; denominator is ten actual player answer slots"
+    },
+    "pipa": {
+      "rounds": 4,
+      "verified_endings": [
+        "answer",
+        "caught"
+      ],
+      "seeds": [
+        20261027,
+        20261028,
+        20261029,
+        20261030
+      ],
+      "paths": [
+        "honest",
+        "buff",
+        "safe",
+        "caught"
+      ],
+      "fictional_staff_no_real_messages": true
+    },
+    "cross": {
+      "rounds": 2,
+      "verified_endings": [
+        "lose",
+        "win"
+      ],
+      "seeds": [
+        20261027,
+        20261028
+      ],
+      "unreachable": "draw_unreachable: source induction proof in review.md, no state injection or fake live claim",
+      "dictionary_unique_words": 2870
+    },
+    "hunt": {
+      "rounds": 20,
+      "verified_endings": [
+        "best",
+        "burnout",
+        "flop",
+        "great",
+        "normal"
+      ],
+      "seeds": [
+        20261027,
+        20261028,
+        20261029,
+        20261030,
+        20261031,
+        20261032,
+        20261033,
+        20261034,
+        20261035,
+        20261036,
+        20261037,
+        20261038,
+        20261039,
+        20261040,
+        20261041,
+        20261042,
+        20261043,
+        20261044,
+        20261045,
+        20261046
+      ],
+      "events": 24,
+      "choices_verified": 72,
+      "choice_pairs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          12,
+          1
+        ],
+        [
+          12,
+          2
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          13,
+          1
+        ],
+        [
+          13,
+          2
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          14,
+          1
+        ],
+        [
+          14,
+          2
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          15,
+          1
+        ],
+        [
+          15,
+          2
+        ],
+        [
+          16,
+          0
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          17,
+          0
+        ],
+        [
+          17,
+          1
+        ],
+        [
+          17,
+          2
+        ],
+        [
+          18,
+          0
+        ],
+        [
+          18,
+          1
+        ],
+        [
+          18,
+          2
+        ],
+        [
+          19,
+          0
+        ],
+        [
+          19,
+          1
+        ],
+        [
+          19,
+          2
+        ],
+        [
+          20,
+          0
+        ],
+        [
+          20,
+          1
+        ],
+        [
+          20,
+          2
+        ],
+        [
+          21,
+          0
+        ],
+        [
+          21,
+          1
+        ],
+        [
+          21,
+          2
+        ],
+        [
+          22,
+          0
+        ],
+        [
+          22,
+          1
+        ],
+        [
+          22,
+          2
+        ],
+        [
+          23,
+          0
+        ],
+        [
+          23,
+          1
+        ],
+        [
+          23,
+          2
+        ]
+      ],
+      "planning": "Private original-rule deterministic event planning; each event matched live UI before actual selection."
+    },
+    "surf": {
+      "rounds": 3,
+      "verified_endings": [
+        "escaped",
+        "swallowed"
+      ],
+      "seeds": [
+        20261026,
+        20261126,
+        20261127
+      ],
+      "reasoning_points": 0,
+      "success_native": [
+        {
+          "t": 45.0140340000004,
+          "score": 16,
+          "waveX": -0.6405364255360187,
+          "y": 274.92000000000377
+        }
+      ],
+      "limitation": "Real-time world continues during model API latency. Curator reads rendered-equivalent positions and issues normal long_press/wait; no model score."
+    },
+    "maze": {
+      "rounds": 1,
+      "verified_endings": [
+        "escaped"
+      ],
+      "seeds": [
+        20261027
+      ],
+      "early_locked_exit": true,
+      "wall_or_boundary_rejection": true,
+      "reasoning_points": 1,
+      "collectibles_are_events": true
+    },
+    "gal": {
+      "rounds": 4,
+      "verified_endings": [
+        "hi",
+        "lo",
+        "mid"
+      ],
+      "seeds": [
+        20261027,
+        20261028,
+        20261029,
+        20261030
+      ],
+      "choices_verified": 21,
+      "choice_pairs": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      "reasoning_points": 0
+    }
+  },
+  "finite_reachable_settlements": 18,
+  "source_unreachable_settlements": 1,
+  "ui_audited_rounds": 44,
+  "unscored_checks": 245,
+  "private_inventory": "judge/qian-anon/source-inventory.json",
+  "review": "judge/qian-anon/review.md"
+}

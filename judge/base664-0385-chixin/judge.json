@@ -1,0 +1,11 @@
+{
+  "hooks":{
+    "door":{"type":"js_truthy","expr":"location.hash==='#/404' && !!document.querySelector('.unlockbox.show')"},
+    "all_fragments":{"type":"js_truthy","expr":"(()=>{try{let s=JSON.parse(localStorage.getItem('chixin_state')||'{}');return Array.isArray(s.fragments)&&new Set(s.fragments).size===14}catch(e){return false}})()"},
+    "delivered":{"type":"js_truthy","expr":"(()=>{let e=document.querySelector('#shatter');return location.hash==='#/deliver'&&!!e&&getComputedStyle(e).display!=='none'&&e.innerText.includes('信件无法送达')})()"},
+    "kept":{"type":"js_truthy","expr":"location.hash==='#/kept' && !!document.querySelector('.finale.on')"}
+  },
+  "checkpoints":[{"id":"door","hook":"door","op":"truthy","role":"diagnostic"},{"id":"all_fragments","hook":"all_fragments","op":"truthy","role":"diagnostic"}],
+  "events":{},"routes":[{"id":"deliver","gates":[],"ending":{"hook":"delivered","op":"truthy"}},{"id":"keep","gates":[],"ending":{"hook":"kept","op":"truthy"}}],
+  "ending":{"hook":"delivered","op":"truthy"},"answer_sha256":[],"answer_hash_file":null,"request_milestones":[],"submit_conclusion":{"enabled":false,"schema":null},"rubric_path":null
+}

@@ -1,0 +1,38 @@
+{
+  "hooks": {
+    "escaped": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return document.querySelector('#surf-main .ending h2')?.textContent==='逃离成功！';\n})()"
+    },
+    "swallowed": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return document.querySelector('#surf-main .ending h2')?.textContent==='被速记吞没';\n})()"
+    }
+  },
+  "checkpoints": [],
+  "routes": [
+    {
+      "id": "escaped",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "escaped",
+        "op": "truthy"
+      }
+    }
+  ],
+  "events": {},
+  "ending": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "terminal_failures": [
+    {
+      "id": "swallowed",
+      "hook": "swallowed",
+      "op": "truthy"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "hooks": {
+    "mack": {
+      "type": "js_truthy",
+      "expr": "typeof viewedFiles !== 'undefined' && !!viewedFiles[\"ch-麦克-0505-530366/5771007\"]"
+    },
+    "eli": {
+      "type": "js_truthy",
+      "expr": "typeof viewedFiles !== 'undefined' && !!viewedFiles[\"ch-伊莱-1043-530612/5770334\"]"
+    },
+    "luka": {
+      "type": "js_truthy",
+      "expr": "typeof viewedFiles !== 'undefined' && !!viewedFiles[\"ch-卢卡-0317-524495/5773223\"]"
+    },
+    "frank": {
+      "type": "js_truthy",
+      "expr": "typeof viewedFiles !== 'undefined' && !!viewedFiles[\"ch-弗兰克-2019-530528/5770558\"]"
+    },
+    "alan": {
+      "type": "js_truthy",
+      "expr": "typeof viewedFiles !== 'undefined' && !!viewedFiles[\"ch-艾伦-6789-524895/5775623\"]"
+    },
+    "theme_1": {
+      "type": "js_truthy",
+      "expr": "typeof epThemeSolved !== 'undefined' && epThemeSolved.t1 === 'complete'"
+    },
+    "theme_2": {
+      "type": "js_truthy",
+      "expr": "typeof epThemeSolved !== 'undefined' && epThemeSolved.t2 === 'complete'"
+    },
+    "theme_3": {
+      "type": "js_truthy",
+      "expr": "typeof epThemeSolved !== 'undefined' && epThemeSolved.t3 === 'complete'"
+    },
+    "terminal": {
+      "type": "js_truthy",
+      "expr": "LOCS['530366/5771007'].files.some(f => f.id === 'ms1-terminal' && f._unlocked === true)"
+    },
+    "soil": {
+      "type": "js_truthy",
+      "expr": "LOCS['530446/5770783'].files.some(f => f.id === 'ms2-photos' && f._unlocked === true)"
+    },
+    "ms3_key": {
+      "type": "js_truthy",
+      "expr": "typeof ms3Unlocked !== 'undefined' && ms3Unlocked === true"
+    },
+    "stone_house": {
+      "type": "js_truthy",
+      "expr": "typeof stoneHouseBadge !== 'undefined' && stoneHouseBadge === true"
+    },
+    "plain": {
+      "type": "js_truthy",
+      "expr": "(()=>{const o=document.getElementById('eov'),r=document.getElementById('erv'),t=document.getElementById('ert');return !!o&&!!r&&!!t&&o.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&r.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&t.innerText === \"结局：任务完成\"})()"
+    },
+    "economic": {
+      "type": "js_truthy",
+      "expr": "(()=>{const o=document.getElementById('eov'),r=document.getElementById('erv'),t=document.getElementById('ert');return !!o&&!!r&&!!t&&o.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&r.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&t.innerText === \"沉默的真相\"})()"
+    },
+    "economic2": {
+      "type": "js_truthy",
+      "expr": "(()=>{const o=document.getElementById('eov'),r=document.getElementById('erv'),t=document.getElementById('ert');return !!o&&!!r&&!!t&&o.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&r.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&t.innerText === \"金钱的诱惑\"})()"
+    },
+    "join": {
+      "type": "js_truthy",
+      "expr": "(()=>{const o=document.getElementById('eov'),r=document.getElementById('erv'),t=document.getElementById('ert');return !!o&&!!r&&!!t&&o.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&r.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&t.innerText === \"同盟者\"})()"
+    },
+    "justice": {
+      "type": "js_truthy",
+      "expr": "(()=>{const o=document.getElementById('eov'),r=document.getElementById('erv'),t=document.getElementById('ert');return !!o&&!!r&&!!t&&o.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&r.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&t.innerText === \"正义的光\"})()"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "(()=>{const o=document.getElementById('eov'),r=document.getElementById('erv'),t=document.getElementById('ert');return !!o&&!!r&&!!t&&o.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&r.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&['结局：任务完成','结局：功亏一篑','沉默的真相','金钱的诱惑','同盟者','正义的光'].includes(t.innerText)})()"
+    },
+    "media_basic": {
+      "type": "js_truthy",
+      "expr": "(()=>{const o=document.getElementById('eov'),r=document.getElementById('erv'),t=document.getElementById('ert');return !!o&&!!r&&!!t&&o.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&r.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&t.innerText === \"结局：功亏一篑\" && document.getElementById('erb').innerText.includes(\"报道最终还是发了出来\")})()"
+    },
+    "company_basic": {
+      "type": "js_truthy",
+      "expr": "(()=>{const o=document.getElementById('eov'),r=document.getElementById('erv'),t=document.getElementById('ert');return !!o&&!!r&&!!t&&o.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&r.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&t.innerText === \"结局：功亏一篑\" && document.getElementById('erb').innerText.includes(\"公司认为现有证据不足\")})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "mack",
+      "hook": "mack",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "eli",
+      "hook": "eli",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "luka",
+      "hook": "luka",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "frank",
+      "hook": "frank",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "alan",
+      "hook": "alan",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "theme_1",
+      "hook": "theme_1",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "theme_2",
+      "hook": "theme_2",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "theme_3",
+      "hook": "theme_3",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "terminal",
+      "hook": "terminal",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "soil",
+      "hook": "soil",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "ms3_key",
+      "hook": "ms3_key",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "stone_house",
+      "hook": "stone_house",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "plain",
+      "gates": [],
+      "ending": {
+        "hook": "plain",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "economic",
+      "gates": [],
+      "ending": {
+        "hook": "economic",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "economic2",
+      "gates": [],
+      "ending": {
+        "hook": "economic2",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "join",
+      "gates": [],
+      "ending": {
+        "hook": "join",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "justice",
+      "gates": [],
+      "ending": {
+        "hook": "justice",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "media_basic",
+      "gates": [],
+      "ending": {
+        "hook": "media_basic",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "company_basic",
+      "gates": [],
+      "ending": {
+        "hook": "company_basic",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "ending",
+    "op": "truthy"
+  },
+  "terminal_failures": [],
+  "answer_sha256": [],
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  }
+}

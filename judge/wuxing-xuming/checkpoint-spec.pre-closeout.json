@@ -1,0 +1,216 @@
+{
+  "record_id": "base664:0214",
+  "version": "2026-10-27 live four-act main case; original 156379-byte cached index retained separately",
+  "scoring": {
+    "critical_count": 19,
+    "reasoning": [
+      "mark: 5 distinct body hit positions; miss/repeat not progress",
+      "step: select 分房独饮符水; wrong options retryable",
+      "cuff: close-up sleeve target (16%,80%), 14% radius; only after watching video",
+      "flaw: exactly checkbox values 1,2,3 without 4",
+      "drawer: reveal compartment then submit 15, success DOM required; typing alone never scores",
+      "fingerprint: finish all 3 AFIS comparisons and select D04; matched B02/C03 do not score",
+      "timeline-1..7: ordered 筛选焦虑女→自创伪仪式诈骗→恐吓逼取现→布坛代写遗书→投毒分批杀→规整尸位造假象→卷款潜逃; wrong choice does not advance",
+      "alias: choose 凶手工作室化名",
+      "network-1..5: each photo goes into the matching data-slot; source clickSlot validates data-idx equality; wrong slot does not count"
+    ],
+    "non_reasoning_diagnostics": [
+      "funds: click all 5 fund nodes; simple retrieval, not a reasoning point",
+      "archive-evidence: archive 4 cards; viewing alone not sufficient",
+      "pending-butt: mark cigarette as pending; no correctness choice"
+    ],
+    "latch": "harness Judge.update latches successes per evaluation episode across page navigation. New evaluation uses new Judge and context. Reload clears current page puzzle DOM but does not undo an already earned episode checkpoint.",
+    "hook_conditions": {
+      "mark": {
+        "type": "js_truthy",
+        "expr": "document.getElementById('markProg')?.textContent.includes('5 / 5') && document.getElementById('penSvg')?.classList.contains('show')"
+      },
+      "step": {
+        "type": "js_truthy",
+        "expr": "(['index.html'].includes(location.pathname.split('/').pop()) || location.pathname.endsWith('/')) && (document.getElementById('quizStepAns')?.classList.contains('ok'))"
+      },
+      "cuff": {
+        "type": "js_truthy",
+        "expr": "(['index.html'].includes(location.pathname.split('/').pop()) || location.pathname.endsWith('/')) && (document.getElementById('cuffReveal')?.classList.contains('show'))"
+      },
+      "flaw": {
+        "type": "js_truthy",
+        "expr": "(['act2.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('quizFlawAns')?.classList.contains('ok'))"
+      },
+      "drawer": {
+        "type": "js_truthy",
+        "expr": "(['act2.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('drawerContent')?.classList.contains('show') && document.getElementById('drawerPwd')?.disabled)"
+      },
+      "fingerprint": {
+        "type": "js_truthy",
+        "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('fpVerdict')?.classList.contains('show'))"
+      },
+      "alias": {
+        "type": "js_truthy",
+        "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('fleeVerdict')?.classList.contains('show'))"
+      },
+      "timeline-1": {
+        "type": "js_truthy",
+        "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot0')?.classList.contains('filled'))"
+      },
+      "timeline-2": {
+        "type": "js_truthy",
+        "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot1')?.classList.contains('filled'))"
+      },
+      "timeline-3": {
+        "type": "js_truthy",
+        "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot2')?.classList.contains('filled'))"
+      },
+      "timeline-4": {
+        "type": "js_truthy",
+        "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot3')?.classList.contains('filled'))"
+      },
+      "timeline-5": {
+        "type": "js_truthy",
+        "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot4')?.classList.contains('filled'))"
+      },
+      "timeline-6": {
+        "type": "js_truthy",
+        "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot5')?.classList.contains('filled'))"
+      },
+      "timeline-7": {
+        "type": "js_truthy",
+        "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot6')?.classList.contains('filled'))"
+      },
+      "network-1": {
+        "type": "js_truthy",
+        "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.querySelector('.js-slot[data-slot=\"0\"]')?.classList.contains('placed'))"
+      },
+      "network-2": {
+        "type": "js_truthy",
+        "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.querySelector('.js-slot[data-slot=\"1\"]')?.classList.contains('placed'))"
+      },
+      "network-3": {
+        "type": "js_truthy",
+        "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.querySelector('.js-slot[data-slot=\"2\"]')?.classList.contains('placed'))"
+      },
+      "network-4": {
+        "type": "js_truthy",
+        "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.querySelector('.js-slot[data-slot=\"3\"]')?.classList.contains('placed'))"
+      },
+      "network-5": {
+        "type": "js_truthy",
+        "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.querySelector('.js-slot[data-slot=\"4\"]')?.classList.contains('placed'))"
+      },
+      "ending-A": {
+        "type": "js_truthy",
+        "expr": "(['act2.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('finale')?.classList.contains('show') && document.getElementById('brA')?.classList.contains('sel'))"
+      },
+      "ending-B": {
+        "type": "js_truthy",
+        "expr": "(['act2.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('finale')?.classList.contains('show') && document.getElementById('brB')?.classList.contains('sel'))"
+      },
+      "ending-final": {
+        "type": "js_truthy",
+        "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('finale')?.classList.contains('show'))"
+      },
+      "funds": {
+        "type": "js_truthy",
+        "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('fundVerdict')?.classList.contains('show'))"
+      },
+      "archive-evidence": {
+        "type": "js_truthy",
+        "expr": "(['index.html'].includes(location.pathname.split('/').pop()) || location.pathname.endsWith('/')) && (document.querySelectorAll('.ec.found').length===4)"
+      },
+      "pending-butt": {
+        "type": "js_truthy",
+        "expr": "(['index.html'].includes(location.pathname.split('/').pop()) || location.pathname.endsWith('/')) && (document.getElementById('buttEvi')?.classList.contains('picked'))"
+      }
+    }
+  },
+  "source_functions": {
+    "index.html": [
+      "placeMark",
+      "finishScene",
+      "resetMarks",
+      "playVideo",
+      "zoomChair",
+      "cuffWrap click handler",
+      "quizStep",
+      "checkAct2Clear",
+      "act1Clear",
+      "acceptNewCase",
+      "dismissNewCase"
+    ],
+    "act2.html": [
+      "quizFlaw",
+      "toggleStudio",
+      "revealDrawer",
+      "unlockDrawer",
+      "pickBranch",
+      "checkFinish",
+      "showFinale"
+    ],
+    "act3.html": [
+      "clickFlowNode",
+      "runCompare",
+      "lockAnomaly",
+      "pickFrag",
+      "triggerClimax"
+    ],
+    "act4.html": [
+      "pickFlee",
+      "selectPiece",
+      "placePieceCore",
+      "clickSlot",
+      "openFinale",
+      "closeFinale",
+      "replayFinale"
+    ]
+  },
+  "routes": [
+    {
+      "id": "full-narrative",
+      "sequence": [
+        "homepage apply/cancel modal and dossier",
+        "5 body marks (local reset available)",
+        "video + sleeve + 4 archived evidence + cigarette pending + single-select",
+        "jump scare then preliminary closure / continue act2",
+        "flaw multi-select + all 4 studio cards + drawer password + locked branch A or B",
+        "branch A/B preliminary closure / continue act3",
+        "fund retrieval + fingerprint compare and anomaly + ordered 7 fragments",
+        "climax / continue act4",
+        "alias + 5 photos / final cinematic",
+        "replay/close/return homepage",
+        "followup application yes or no; no further linked gameplay"
+      ],
+      "formal_final": "act4 finale.show",
+      "interim_branches": [
+        "A 优先遗物",
+        "B 优先文书; equal tier; not mutually superior endings"
+      ],
+      "failure_endings": "none in reviewed four-act scripts; wrong attempts retry or show message; cancel/back/modal exits are non-ending",
+      "necessary_final_gates": [
+        "network-1",
+        "network-2",
+        "network-3",
+        "network-4",
+        "network-5"
+      ],
+      "not_necessary_final_gates": [
+        "all earlier acts",
+        "funds",
+        "fingerprint",
+        "timeline",
+        "alias"
+      ]
+    }
+  ],
+  "scope_limits": [
+    "Archive catalogue entries girls-traces/silent-judgment/jiangwan-land/vanished-flight are separately titled linked games, outside the four-act main case. Initial recovery crawl copied their entry pages but was not a correct nested-asset crawl; these are retained as recovery evidence only and not represented as complete local games.",
+    "No account or paid API used. Source code and recovered four main acts have no gameplay backend; analytics SDK is removed locally.",
+    "Windows local deployment only, no cross-OS or real-model API acceptance."
+  ],
+  "risks": [
+    "Source resetMarks leaves act1Next enabled. New judge uses actual 5/5 marker + shown array rather than stale enabled button. Original gameplay is not altered.",
+    "Source act3 timeline climax ignores funds/fingerprint; act4 final gate only checks 5 photo placements, and does not require alias. Judge does not invent mandatory route gates.",
+    "Source strings conflict: homepage funds/case names differ from act3 and narrative mentions 容惠贞, while scene list uses 郑惠贞. Fingerprint text 98.6% versus 100% also conflicts. These ambiguities remain and are not repaired into new game facts.",
+    "AFIS displays match/no-match results before anomaly selection; this is low difficulty. Photo network slots have strong visual/name cues.",
+    "External archive games not evaluated or complete in main-case bundle. Entire portal including those separate games remains unprepared."
+  ]
+}

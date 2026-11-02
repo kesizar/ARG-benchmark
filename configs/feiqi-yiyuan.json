@@ -1,34 +1,90 @@
 {
   "id": "feiqi-yiyuan",
   "category": "arg",
-  "arg_layer": "L3",
+  "runtime_layer": "L1",
   "obs_mode": "B",
-  "obs_modes_to_run": ["B"],
+  "obs_modes_to_run": [
+    "B"
+  ],
   "computer_use": false,
   "model_visible": {
     "title": "废弃的医院",
-    "intro": "你在青溪探秘论坛里看一则约伴帖。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
+    "intro": "你在青溪探秘论坛里看一则约伴帖。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。 本次任务目标：继续调查至院长手记，再回帖子查看最深的真相。"
   },
-  "entry_url": "https://ba48180a1b264fe4be0148ef997887a5.app.workbuddy.link/",
-  "local_serve": {"enabled": false},
-  "viewport": {"width": 1366, "height": 900},
+  "entry_url": "http://127.0.0.1:8821/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/feiqi-yiyuan/mirror",
+      "--port",
+      "8821"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8821/index.html",
+    "ready_timeout_s": 30,
+    "port": 8821
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
   "locale": "zh-CN",
   "timezone": "Asia/Shanghai",
   "seed": 20261023,
-  "allow_hosts": ["ba48180a1b264fe4be0148ef997887a5.app.workbuddy.link"],
+  "allow_hosts": [
+    "127.0.0.1:8821"
+  ],
   "shortcut_block": [],
-  "guide_block_hosts": ["*walkthrough*", "*writeup*", "*攻略*", "*spoiler*"],
-  "allow_model_goto": false,
-  "goto_scope": "none",
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*",
+    "*spoiler*"
+  ],
+  "allow_model_goto": true,
+  "goto_scope": "same_host",
   "show_url": true,
   "text_scope": "page",
   "text_limit": 6000,
-  "actions_enabled": ["click", "dblclick", "type", "key", "scroll", "drag", "back", "wait", "dialog", "give_up"],
-  "limits": {"max_steps": 80, "max_seconds": 1800, "max_answer_submits": 5},
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up",
+    "goto"
+  ],
+  "limits": {
+    "max_steps": 260,
+    "max_seconds": 1800,
+    "max_answer_submits": 5
+  },
   "settle_ms": 400,
-  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
   "judge_path": "judge/feiqi-yiyuan/judge.json",
-  "policy_script": [{"op": "give_up"}],
-  "isolation": {"container": false},
-  "notes_for_report": ["2026-10-23 实机：论坛首页没有结局句。空间打开后，电话线也接通才写入「真结局 · 全真相」；只打开空间时写的是「帖子后续 · 已更新」。"]
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "Archived single HTML local mirror, live source TLS unavailable.",
+    "Six distinct validation puzzles; four cumulative story completion levels.",
+    "Fresh browser context clears state. No game changes.",
+    "本配置只以 final 层终止；其他尾声为可继续事件。"
+  ]
 }

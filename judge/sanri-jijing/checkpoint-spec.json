@@ -1,0 +1,85 @@
+{
+  "checkpoints": [
+    {
+      "id": "name",
+      "order": 0,
+      "condition": "unlocked[0] === true && !!document.querySelector('#l0 .lock-body.open')",
+      "prerequisite": "start plus three stone clicks",
+      "route": "complete",
+      "latching": "Judge checkpoints latch for one episode; new Judge required on reload.",
+      "role": "diagnostic",
+      "rationale": "直接抄写前文名字"
+    },
+    {
+      "id": "choice",
+      "order": 1,
+      "condition": "unlocked[1] === true && !!document.querySelector('#l1 .lock-body.open')",
+      "prerequisite": "name",
+      "route": "complete",
+      "latching": "Judge checkpoints latch for one episode; new Judge required on reload.",
+      "role": "diagnostic",
+      "rationale": "正文直接指出眼睛，阅读甄别"
+    },
+    {
+      "id": "glyphs",
+      "order": 2,
+      "condition": "unlocked[2] === true && !!document.querySelector('#l2 .lock-body.open')",
+      "prerequisite": "choice",
+      "route": "complete",
+      "latching": "Judge checkpoints latch for one episode; new Judge required on reload.",
+      "role": "diagnostic",
+      "rationale": "正文给出完整原句，照抄两字"
+    },
+    {
+      "id": "timeline",
+      "order": 3,
+      "condition": "unlocked[3] === true && !!document.querySelector('#l3 .lock-body.open')",
+      "prerequisite": "glyphs",
+      "route": "complete",
+      "latching": "Judge checkpoints latch for one episode; new Judge required on reload.",
+      "role": "critical",
+      "rationale": "跨章节重建事件先后；可尝试重试"
+    },
+    {
+      "id": "final",
+      "order": 4,
+      "condition": "unlocked[4] === true && !!document.querySelector('#l4 .lock-body.open')",
+      "prerequisite": "timeline",
+      "route": "complete",
+      "latching": "Judge checkpoints latch for one episode; new Judge required on reload.",
+      "role": "diagnostic",
+      "rationale": "引句未见于先前正文；题称一个字但仅接受两字，作者预设不可靠"
+    }
+  ],
+  "answers_evaluator_only": [
+    "白玛",
+    "一双藏民的眼睛",
+    [
+      "沉",
+      "默"
+    ],
+    [
+      "白玛服下藏海花",
+      "进入冰陵沉睡",
+      "张起灵来到拉吉寺",
+      "上师让他凿石头"
+    ],
+    "石头"
+  ],
+  "branches": {
+    "wrong_name": "empty or wrong, unlimited retry",
+    "wrong_choice": "three wrong options, retry",
+    "wrong_glyphs": "15 possible ordered distinct pairs; any except 沉默 resets after two clicks",
+    "timeline": "subset/wrong permutation resets; clicking selected button toggles off",
+    "wrong_final": "empty, 石, or other fails; 石头 succeeds",
+    "snow": "second stone clicks optionally show 7-second overlay; final lock already auto appears after c4",
+    "ending": "c5 only. end is permanently display:none; no failure ending or in-game exit."
+  },
+  "risks": [
+    "Final prompt says one character but answer has two. Quote not otherwise present in player text.",
+    "吉拉寺 versus 拉吉寺 inconsistency.",
+    "Simple reading retrieval dominates: five locks do not demonstrate high puzzle difficulty.",
+    "Wrong-choice timer references global event.target asynchronously and can throw; negative UI still retryable.",
+    "Chronology follows cross-chapter event relation but 拉吉寺 versus 吉拉寺 mismatch and unlimited retries limit interpretation as independent reasoning."
+  ]
+}

@@ -1,0 +1,10 @@
+"""Restrict an auto-edit timer to the still-open originating post."""
+import hashlib,json
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];TASK='fangjian-404-yingzi'
+def main():
+ raw=(ROOT/f'judge/{TASK}/source/359.original.html').read_bytes();s=raw.decode('utf-8');changes=[("    setTimeout(()=>{\r\n      document.getElementById('post-content').style.opacity='0';", "    setTimeout(()=>{\n      if(document.getElementById('post-view').style.display==='none' || document.getElementById('post-title').textContent!==post.title)return;\r\n      document.getElementById('post-content').style.opacity='0';"),("      setTimeout(()=>{\r\n        document.getElementById('post-content').textContent=post.editContent;", "      setTimeout(()=>{\n        if(document.getElementById('post-view').style.display==='none' || document.getElementById('post-title').textContent!==post.title)return;\r\n        document.getElementById('post-content').textContent=post.editContent;")]
+ changes += [('<h1>📡 红光厂家园网</h1>','<h1 id="forum-title">📡 红光厂家园网</h1>'),('.modal-content{','.modal#ending-modal{z-index:100000}\n.modal-content{')]
+ for old,new in changes:assert s.count(old)==1;s=s.replace(old,new)
+ out=s.encode('utf-8');(ROOT/f'tasks/{TASK}/mirror/index.html').write_bytes(out);p=ROOT/f'tasks/{TASK}/provenance.json';r=json.loads(p.read_text(encoding='utf-8'));r['runtime_sha256']=hashlib.sha256(out).hexdigest();r['compatibility_changes']=[{'reason':'Original c1 auto-edit timer overwrites a different currently open post; real UI confirmed. Check originating visible title at both timer stages, preserving original text, timing and puzzle answers. Also supply the missing forum-title target used by post-clear onload and raise ending modal above page404 so its authored text/restart remain operable.','evidence':f'judge/{TASK}/verification/original-probe.json','exact_replacements':[{'from':a,'to':b} for a,b in changes]}];p.write_text(json.dumps(r,ensure_ascii=False,indent=2),encoding='utf-8');print(r['runtime_sha256'])
+if __name__=='__main__':main()

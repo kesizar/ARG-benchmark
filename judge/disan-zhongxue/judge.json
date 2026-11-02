@@ -1,104 +1,116 @@
 {
   "hooks": {
-    "truth": {
-      "type": "dom_regex",
-      "pattern": "真相永不彻底消失，只是被暂时掩埋"
-    },
-    "shard": {
-      "type": "dom_regex",
-      "pattern": "碎片不灭，余息永存"
-    },
-    "silence": {
-      "type": "dom_regex",
-      "pattern": "沉默是最彻底的抹杀"
-    },
     "d01": {
-      "type": "dom_regex",
-      "pattern": "校方对外口径一切正常，没有学生失"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：5月3日\";})()"
     },
     "d02": {
-      "type": "dom_regex",
-      "pattern": "磁盘有大量被擦除的痕迹，恢复出来"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：磁盘残留\";})()"
     },
     "d03": {
-      "type": "dom_regex",
-      "pattern": "升学率直接关系教师考核、班级荣誉"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：没有月亮\";})()"
     },
     "d04": {
-      "type": "dom_regex",
-      "pattern": "本子上很多页面被撕掉，墨水涂改层"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：日记原稿\";})()"
     },
     "d05": {
-      "type": "dom_regex",
-      "pattern": "系统检索不到该生学籍，档案库只有"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：林晓\";})()"
     },
     "d06": {
-      "type": "dom_regex",
-      "pattern": "学校看重对外口碑，不允许丑闻流出"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：班级升学率\";})()"
     },
     "d07": {
-      "type": "dom_regex",
-      "pattern": "评优名额和成绩强绑定，材料可以修"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：年级第二\";})()"
     },
     "d08": {
-      "type": "dom_regex",
-      "pattern": "档案管理人员收到通知，删除相关条"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：评优材料\";})()"
     },
     "d09": {
-      "type": "dom_regex",
-      "pattern": "家长被学校约谈，要求配合对外说辞"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：涂改档案\";})()"
     },
     "d10": {
-      "type": "dom_regex",
-      "pattern": "U盘外壳磨损严重，里面大部分文件"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：模拟考\";})()"
     },
     "d11": {
-      "type": "dom_regex",
-      "pattern": "现场还遗留半张撕碎的纸张"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：家长会记录\";})()"
     },
     "d12": {
-      "type": "dom_regex",
-      "pattern": "剩余片段写满疲惫，害怕考试，害怕"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：旧U盘\";})()"
     },
     "d13": {
-      "type": "dom_regex",
-      "pattern": "谈话记录，劝导学生看淡分数竞争，"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：天台楼道\";})()"
     },
     "d14": {
-      "type": "dom_regex",
-      "pattern": "关键时间点录像文件显示损坏，技术"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：周记本\";})()"
     },
     "d15": {
-      "type": "dom_regex",
-      "pattern": "曾经有学生在校园内网发帖质疑，很"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：班主任谈话\";})()"
     },
     "d16": {
-      "type": "dom_regex",
-      "pattern": "所有签字回执统一收回粉碎，不留纸"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：监控备份\";})()"
     },
     "d17": {
-      "type": "dom_regex",
-      "pattern": "原本的心理预警记录被改写，风险标"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：匿名留言\";})()"
     },
     "d18": {
-      "type": "dom_regex",
-      "pattern": "表格重新打印下发，旧版本全部回收"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：纸质回执\";})()"
     },
     "d19": {
-      "type": "dom_regex",
-      "pattern": "那一份卷子不知所踪，登记册上对应"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：心理登记表\";})()"
     },
     "d20": {
-      "type": "dom_regex",
-      "pattern": "本该属于她的奖状被撕碎丢弃，对外"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：排名统计表\";})()"
     },
     "d21": {
-      "type": "dom_regex",
-      "pattern": "家人承受巨大压力，在外不能承认自"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：消失的答卷\";})()"
     },
     "d22": {
-      "type": "dom_regex",
-      "pattern": "时间戳：20XX-05-03"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：晚自修记录\";})()"
+    },
+    "d23": {
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：撕掉的奖状\";})()"
+    },
+    "d24": {
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：家长签字\";})()"
+    },
+    "d25": {
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#resultPage');return !!e && e.getClientRects().length>0 && e.querySelector('h4')?.textContent===\"校内文档：删除日志\";})()"
+    },
+    "truth": {
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#fullEndPage'); return !!e && e.getClientRects().length>0 && e.innerText.includes(\"【结局归档：真相公示】\");})()"
+    },
+    "silence": {
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#fullEndPage'); return !!e && e.getClientRects().length>0 && e.innerText.includes(\"【结局归档：永久封存】\");})()"
+    },
+    "shard": {
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#fullEndPage'); return !!e && e.getClientRects().length>0 && e.innerText.includes(\"【结局归档：碎片留存】\");})()"
     }
   },
   "checkpoints": [
@@ -106,180 +118,186 @@
       "id": "d01",
       "hook": "d01",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d02",
       "hook": "d02",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d03",
       "hook": "d03",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d04",
       "hook": "d04",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d05",
       "hook": "d05",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d06",
       "hook": "d06",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d07",
       "hook": "d07",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d08",
       "hook": "d08",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d09",
       "hook": "d09",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d10",
       "hook": "d10",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d11",
       "hook": "d11",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d12",
       "hook": "d12",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d13",
       "hook": "d13",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d14",
       "hook": "d14",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d15",
       "hook": "d15",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d16",
       "hook": "d16",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d17",
       "hook": "d17",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d18",
       "hook": "d18",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d19",
       "hook": "d19",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d20",
       "hook": "d20",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d21",
       "hook": "d21",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "d22",
       "hook": "d22",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "d23",
+      "hook": "d23",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "d24",
+      "hook": "d24",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "d25",
+      "hook": "d25",
+      "op": "truthy",
+      "role": "diagnostic"
     }
   ],
   "events": {},
   "routes": [
     {
       "id": "truth",
-      "tier": "good",
-      "gates": [
-        "d22"
-      ],
+      "tier": "normal",
+      "gates": [],
       "ending": {
         "hook": "truth",
         "op": "truthy"
       }
     },
     {
-      "id": "shard",
-      "tier": "normal",
-      "gates": [
-        "d22"
-      ],
-      "ending": {
-        "hook": "shard",
-        "op": "truthy"
-      }
-    },
-    {
       "id": "silence",
-      "tier": "bad",
-      "gates": [
-        "d22"
-      ],
+      "tier": "normal",
+      "gates": [],
       "ending": {
         "hook": "silence",
         "op": "truthy"
       }
+    },
+    {
+      "id": "shard",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "shard",
+        "op": "truthy"
+      }
     }
   ],
-  "ending": {
-    "hook": "truth",
-    "op": "truthy"
-  },
   "answer_sha256": [],
-  "answer_hash_file": null,
-  "request_milestones": [],
   "submit_conclusion": {
     "enabled": false,
     "schema": null
-  },
-  "rubric_path": null
+  }
 }

@@ -1,0 +1,116 @@
+{
+  "deployment_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\liushi-fenzhong-deployment\\1793036351",
+  "same_os": "Windows; not cross-OS test",
+  "base_environment": "external Python3.11 environment, installed Playwright and Edge; not bundled",
+  "packages": {
+    "resources": {
+      "archive_sha256": "c1bf6e45f8ec0f39733c98d7e9660fc4e00c6f2c16a01b6c9a89952f2a88abab",
+      "extract_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\liushi-fenzhong-deployment\\1793036351\\resources",
+      "html_sha256": "be6ee1e798be7cfdb0b9753770356786445739f31feb6ee4b03b3f5a4bb7773b",
+      "ui_win": true,
+      "fresh_reload_reset": true,
+      "judge_not_served_status": 404,
+      "mode": "normal locator.click; private read-only answer oracle; no state or clock mutation"
+    },
+    "prepared": {
+      "archive_sha256": "f6fc7f0be11b6e25cd70bba4697d9a694ed61b51673a6a9d32e0e8f610ad9a04",
+      "extract_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\liushi-fenzhong-deployment\\1793036351\\prepared",
+      "html_sha256": "be6ee1e798be7cfdb0b9753770356786445739f31feb6ee4b03b3f5a4bb7773b",
+      "manifest_verified_files": 36,
+      "verifier_exit_code": 0,
+      "acceptance_path": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\liushi-fenzhong-deployment\\1793036351\\prepared\\judge\\liushi-fenzhong\\verification\\acceptance.json",
+      "acceptance": {
+        "root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\liushi-fenzhong-deployment\\1793036351\\prepared",
+        "normal_ui": "harness.observe element index and harness.act click, no state mutation",
+        "answer_oracle": "private quizData read used only by verification",
+        "clock": "real wall-clock, no Date/performance/setInterval monkeypatch or Playwright clock",
+        "full_3600second_expiry_verified": false,
+        "page_errors": [],
+        "http_errors": [],
+        "cases": [
+          {
+            "target_index": 0,
+            "ending": "bypass",
+            "score": {
+              "checkpoints_reached": 5,
+              "checkpoints_total": 5,
+              "checkpoints": {
+                "motive": 10,
+                "method": 11,
+                "time": 12,
+                "place": 13,
+                "flaw": 14
+              },
+              "diagnostic": {},
+              "route_id": "caught",
+              "route_progress": 1.0,
+              "ending_reached": true,
+              "ending_tier": null,
+              "good_ending": false,
+              "ending_step": 14,
+              "events": [
+                {
+                  "id": "bypass",
+                  "step": 14
+                }
+              ],
+              "milestones": {},
+              "answer_correct": false,
+              "judge_error": null
+            }
+          },
+          {
+            "wrong_question": 1,
+            "points": 0,
+            "locked": true
+          },
+          {
+            "wrong_question": 2,
+            "points": 1,
+            "locked": true
+          },
+          {
+            "wrong_question": 3,
+            "points": 2,
+            "locked": true
+          },
+          {
+            "wrong_question": 4,
+            "points": 3,
+            "locked": true
+          },
+          {
+            "wrong_question": 5,
+            "points": 4,
+            "locked": true
+          },
+          {
+            "zero_notes_main_list_block": true
+          }
+        ],
+        "next_memory": {
+          "round": 2,
+          "scenario": "0",
+          "confirm": 1,
+          "notes": 7,
+          "confirmed": true
+        },
+        "fatal_hot_branch_seed": 1,
+        "timer_test": {
+          "query": "?test",
+          "nominal_seconds": 90,
+          "elapsed_seconds": 92.297,
+          "clock": "00:00",
+          "chat_trigger_ids": [
+            "t_time30",
+            "t_time10"
+          ],
+          "killer_message_sent": true
+        },
+        "reset_pass": true,
+        "pass": true
+      }
+    }
+  },
+  "pass": true
+}

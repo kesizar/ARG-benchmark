@@ -1,0 +1,343 @@
+{
+  "hooks": {
+    "emblem": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem(\"xinshu_internal_auth\")===\"1\""
+    },
+    "exhibit_china_1": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-china.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[0]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_china_2": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-china.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[1]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_china_3": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-china.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[2]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_china_4": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-china.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[3]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_china_5": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-china.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[4]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_china_6": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-china.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[5]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_china_7": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-china.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[6]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_greece_rome_1": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-greece-rome.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[0]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_greece_rome_2": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-greece-rome.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[1]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_greece_rome_3": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-greece-rome.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[2]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_greece_rome_4": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-greece-rome.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[3]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_greece_rome_5": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-greece-rome.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[4]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_greece_rome_6": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-greece-rome.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[5]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_greece_rome_7": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-greece-rome.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[6]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_renaissance_1": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-renaissance.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[0]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_renaissance_2": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-renaissance.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[1]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_renaissance_3": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-renaissance.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[2]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_renaissance_4": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-renaissance.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[3]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_renaissance_5": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-renaissance.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[4]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_southeast_asia_1": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-southeast-asia.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[0]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_southeast_asia_2": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-southeast-asia.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[1]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_southeast_asia_3": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-southeast-asia.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[2]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_southeast_asia_4": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-southeast-asia.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[3]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "exhibit_southeast_asia_5": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hall-southeast-asia.html\") && !!document.querySelectorAll(\".quiz[data-q]\")[4]?.querySelector(\".ans.show b:not(.no)\")"
+    },
+    "doc_annotation_1": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#blank0.ok\")"
+    },
+    "doc_annotation_2": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#blank1.ok\")"
+    },
+    "doc_annotation_3": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#blank2.ok\")"
+    },
+    "doc_annotation_4": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#blank3.ok\")"
+    },
+    "end1": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#ending.on #endingFoot.in #endingTitle\") && document.querySelector(\"#endingTitle\").textContent===\"我只是一个打工人\""
+    },
+    "end2": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#gy.on #gyFoot.in #gyTitle\") && document.querySelector(\"#gyTitle\").textContent===\"甘愿\""
+    },
+    "end3": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#gy.on #gyFoot.in #gyTitle\") && document.querySelector(\"#gyTitle\").textContent===\"我的存在\""
+    },
+    "published": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#state.live #stateText\") && document.querySelector(\"#stateText\").textContent===\"已发布\""
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "emblem",
+      "hook": "emblem",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "exhibit_china_1",
+      "hook": "exhibit_china_1",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_china_2",
+      "hook": "exhibit_china_2",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_china_3",
+      "hook": "exhibit_china_3",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_china_4",
+      "hook": "exhibit_china_4",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_china_5",
+      "hook": "exhibit_china_5",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_china_6",
+      "hook": "exhibit_china_6",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_china_7",
+      "hook": "exhibit_china_7",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_greece_rome_1",
+      "hook": "exhibit_greece_rome_1",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_greece_rome_2",
+      "hook": "exhibit_greece_rome_2",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_greece_rome_3",
+      "hook": "exhibit_greece_rome_3",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_greece_rome_4",
+      "hook": "exhibit_greece_rome_4",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_greece_rome_5",
+      "hook": "exhibit_greece_rome_5",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_greece_rome_6",
+      "hook": "exhibit_greece_rome_6",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_greece_rome_7",
+      "hook": "exhibit_greece_rome_7",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_renaissance_1",
+      "hook": "exhibit_renaissance_1",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_renaissance_2",
+      "hook": "exhibit_renaissance_2",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_renaissance_3",
+      "hook": "exhibit_renaissance_3",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_renaissance_4",
+      "hook": "exhibit_renaissance_4",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_renaissance_5",
+      "hook": "exhibit_renaissance_5",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_southeast_asia_1",
+      "hook": "exhibit_southeast_asia_1",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_southeast_asia_2",
+      "hook": "exhibit_southeast_asia_2",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_southeast_asia_3",
+      "hook": "exhibit_southeast_asia_3",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_southeast_asia_4",
+      "hook": "exhibit_southeast_asia_4",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exhibit_southeast_asia_5",
+      "hook": "exhibit_southeast_asia_5",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "doc_annotation_1",
+      "hook": "doc_annotation_1",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "doc_annotation_2",
+      "hook": "doc_annotation_2",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "doc_annotation_3",
+      "hook": "doc_annotation_3",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "doc_annotation_4",
+      "hook": "doc_annotation_4",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {
+    "end1": {
+      "hook": "end1",
+      "op": "truthy"
+    },
+    "end2": {
+      "hook": "end2",
+      "op": "truthy"
+    },
+    "end3": {
+      "hook": "end3",
+      "op": "truthy"
+    }
+  },
+  "scoring_protocol": "target_v1",
+  "target_success": {
+    "route_ids": [
+      "local_publication"
+    ]
+  },
+  "routes": [
+    {
+      "id": "local_publication",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "published",
+        "op": "truthy"
+      }
+    }
+  ]
+}

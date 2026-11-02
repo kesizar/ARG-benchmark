@@ -1,0 +1,18 @@
+import json,re,pathlib
+r=pathlib.Path('.'); src=(r/'data/preparation/results/base664-0431-embed.html').read_text(encoding='utf-8')
+pat=r'id:\s*(\d+),\s*chapter:\s*"([^"]+)",\s*title:\s*"([^"]+)",\s*type:\s*"([^"]+)",\s*answer:\s*"([^"]+)",\s*desc:\s*"([^"]+)",\s*hint:\s*"([^"]+)"'
+rows=re.findall(pat,src); assert len(rows)==50
+reasons={1:'从微信或日历读取9月11日并转为MMDD',2:'社群警报贴或日记直接读取标签',3:'微信欢迎短讯或名册直接读取UID',4:'微信找到第一笔金额，直接读取数字',5:'将升华/上升翻译为ASCEND；同义词可能造成歧义',6:'十诫落款或论坛帖子读取UID',7:'9月15日日记读取等级并按指定格式组合',8:'微信或日记读取房间代号',9:'日历读取日期并转为MMDD',10:'给定尾数8035，却验证9481；公式缺失',11:'拼接十诫前五项首字母DEATH',12:'将题面直接给出的眼睛翻译为EYE',13:'每次加3小时30分，19:00推出22:30',14:'十诫红字直接读取BLOOD',15:'剧情选择，非谜题',16:'十诫或内部网页直接读取777',17:'名册首帖直接读取ELDER_01',18:'录音信息直接读取210秒',19:'日历说明直接读取49',20:'将题面给出的灵魂翻译为SOUL',21:'调整照片3反色与亮度显影，读取RUNES',22:'照片3显影后依序连接1-4-8-9',23:'日记直接写出虚弱(WEAK)',24:'RHETAE重排为AETHER，以太提示限定词义',25:'调谐滑块寻找432Hz，也可由帖子读取432',26:'把题面给定3声、1声、4声转换为3-1-4',27:'题面明确给出3、5、7，按序点击',28:'相册EXIF直接读取纬度前三位N40',29:'日记直接写出头发(HAIR)',30:'剧情选择，非谜题',31:'照片4说明直接读取120',32:'安保群直接读取ZONE_C',33:'12+15+15=42',34:'大典图直接读取地下二层B2',35:'将题面中的日食/月食翻译为ECLIPSE',36:'安保群直接读取5821并拨轮输入',37:'安保群直接读取MINOTAUR',38:'大典图直接读取ROOM_09',39:'微信或日历读取2:15并格式化为0215',40:'内部网直接读取SACRIFICE',41:'词义“密钥/密码”可能为KEY、PASSWORD、CIPHER；验证CYPHER而无充分限定',42:'日记直接写出罪恶感(GUILT)',43:'题面提及财务审计，但素材中未见该审计或王强全名；名字出现在结局及提示中',44:'将题面500万转换为5000000',45:'剧情选择，非谜题',46:'将沐阳转换为大写拼音MUYANG',47:'我国报警电话110，添加前缀9缺依据',48:'将题面给出的超载翻译为OVERLOAD',49:'题面称生日在日记开头，但素材中未找到生日；0618仅出现在答案和提示中',50:'将指定前缀WAKE_UP_与沐阳拼音组合；正确提交触发结局'}
+selected={5:'英译升华',11:'十诫藏头',12:'英译眼睛',13:'等差时间推算',20:'英译灵魂',21:'照片滤镜显影',22:'符印序列',24:'以太变位词',25:'频率调谐',26:'节奏数字转换',33:'GPS里程累加',35:'英译日食',44:'金额单位转换',46:'姓名拼音转换',48:'英译超载',50:'组合唤醒词'}
+judgepath=r/'judge/guiyihui-meimei/judge.json'; j=json.loads(judgepath.read_text(encoding='utf-8')); expr=j['hooks']['init']['expr']; expr=expr.replace('now===before+1&&!s.hints[before]',"(now===before+1||(before===50&&!document.querySelector('#ending-overlay').classList.contains('hidden')&&!document.querySelector('#ending-title').textContent.includes('结局 A')))&&!s.hints[before]");j['hooks']['init']['expr']=expr
+for key in list(j['hooks']):
+ if re.fullmatch(r'p\d+',key):del j['hooks'][key]
+for n in selected:j['hooks'][f'p{n}']={'type':'js_truthy','expr':f'!!window.__benchGuiyi?.solved[{n}]'}
+j['checkpoints']=[{'id':f'p{n}','hook':f'p{n}','op':'truthy','description':v} for n,v in selected.items()];judgepath.write_text(json.dumps(j,ensure_ascii=False,indent=2),encoding='utf-8')
+audit=[]
+for i,chapter,title,typ,ans,desc,hint in rows:
+ n=int(i); defect='10: 给定数据与答案矛盾' if n==10 else '47: 额外前缀无来源' if n==47 else '41: 答案拼写/词义未充分限定' if n==41 else '素材未见所述关键线索，答案在提示或结局中' if n in (43,49) else '英译存在潜在同义词歧义，待校准' if n in (5,23) else None
+ audit.append({'level':n,'chapter':chapter,'title':title,'prompt':desc,'validator_type':typ,'accepted_answer':ans,'solution_and_source':reasons[n],'classification':'推理或转换/交互' if n in selected else '待审' if n in (10,41,43,47,49) else '剧情选择' if typ=='choice' else '直接提取或题面照抄及格式化','hint':hint,'hint_or_epiphany':'本关提示或自动跳过后不计分','route_requirement':'可快捷跳关，非结局必经','defect':defect,'checkpoint':f'p{n}' if n in selected else None})
+(r/'judge/guiyihui-meimei/level-audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2),encoding='utf-8')
+(r/'judge/guiyihui-meimei/checkpoint-spec.json').write_text(json.dumps({'selected_optional':selected,'rationale':'所有候选均可跳过；含英语词汇翻译、格式转换和交互，粒度与难度待审核；本关提示或自动跳过后不计分；可从线索原文直接复制的关卡排除。','excluded':{'10':'题干和答案矛盾','41':'词义与CYPHER拼写缺充分限定','43':'未找到财务审计中的全名','47':'报警电话额外前缀缺依据','49':'未找到日记中的生日','choices':'剧情分支而非推理门'},'audit':'judge/guiyihui-meimei/level-audit.json'},ensure_ascii=False,indent=2),encoding='utf-8')
+print('audit',len(audit),'selected',len(selected))

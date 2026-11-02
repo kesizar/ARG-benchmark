@@ -1,0 +1,21 @@
+{
+  "reasoning_checkpoints": [],
+  "ending": {
+    "id": "end",
+    "tier": "normal",
+    "trigger": "visible Exit link",
+    "gate": "none",
+    "latch": "Judge route_endings once per episode",
+    "early_exit": "allowed by original; no reading requirements"
+  },
+  "failure_branches": [
+    "empty reply",
+    "cache-only reply",
+    "chat no response",
+    "space search no match",
+    "missing photo",
+    "overwritten attendance record"
+  ],
+  "formal_scoring_suitable": false,
+  "reason": "No evaluated inference; unconditional exit endpoint."
+}

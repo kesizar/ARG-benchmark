@@ -1,7 +1,7 @@
 {
   "id": "yanhuo",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
@@ -11,9 +11,21 @@
     "title": "验火",
     "intro": "你在这个站点的开头。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
   },
-  "entry_url": "https://dcd887.github.io/classics-emergence/",
+  "entry_url": "http://127.0.0.1:8821/index.html",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/yanhuo/mirror",
+      "--port",
+      "8821"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8821/index.html",
+    "ready_timeout_s": 30,
+    "port": 8821
   },
   "viewport": {
     "width": 1366,
@@ -23,7 +35,7 @@
   "timezone": "Asia/Shanghai",
   "seed": 20261023,
   "allow_hosts": [
-    "dcd887.github.io"
+    "127.0.0.1:8821"
   ],
   "shortcut_block": [],
   "guide_block_hosts": [
@@ -49,7 +61,7 @@
     "give_up"
   ],
   "limits": {
-    "max_steps": 100,
+    "max_steps": 300,
     "max_seconds": 1800,
     "max_answer_submits": 5
   },
@@ -68,6 +80,11 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-25 结算层默认不显示。七个槽位全部判对才写入通过句；判错写入的是可返回的存疑句。十二个验目和七个槽位都绕不开。"
-  ]
+    "完整单文件本地游戏；移除源站URL触发自动通关测试脚本，保留全部正常游戏逻辑。",
+    "七个结论只在实际落判后评分。预算未由模型校准。"
+  ],
+  "account": {
+    "required": false,
+    "reason": "Local fictional case, no external account."
+  }
 }

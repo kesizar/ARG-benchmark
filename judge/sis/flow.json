@@ -1,0 +1,126 @@
+{
+  "record_id": "base664:0012",
+  "task_id": "sis",
+  "runtime_layer": "L1",
+  "model_visible_environment": "A fully local fictional internet; apparent website domains and accounts are in-game content, not real network/login dependencies.",
+  "entry": "home",
+  "active_screens": [
+    "home",
+    "mail",
+    "certificate",
+    "search",
+    "document",
+    "files",
+    "guitu",
+    "employeeLogin",
+    "adminLogin",
+    "employeeDashboard",
+    "adminDashboard",
+    "linRecord",
+    "drive",
+    "quiz",
+    "sisterReveal",
+    "endingNormal",
+    "endingTrue"
+  ],
+  "inactive_render_states": [
+    {
+      "screen": "intro",
+      "reason": "No live UI handler enters this state; new game goes directly to mail."
+    },
+    {
+      "screen": "desktop",
+      "reason": "Only reached by the inactive intro timer; not on current new-game path."
+    }
+  ],
+  "search_result_ids": [
+    "missing",
+    "forum-repost",
+    "charity-site",
+    "charity-opening",
+    "charity-closed",
+    "boss-normal",
+    "guitu-connection",
+    "guitu-site",
+    "guitu-404",
+    "welfare-about",
+    "welfare-damaged"
+  ],
+  "site_tabs": {
+    "guitu": [
+      "home",
+      "rescue",
+      "about",
+      "staff",
+      "gallery",
+      "login"
+    ],
+    "employee": [
+      "overview",
+      "animals",
+      "accounts",
+      "team"
+    ],
+    "admin": [
+      "subjects",
+      "transfers",
+      "damaged",
+      "dictionary"
+    ]
+  },
+  "paths": [
+    {
+      "name": "full_investigation",
+      "edges": [
+        "home -> mail -> certificate",
+        "mail -> search -> all documents",
+        "search -> guitu -> employeeLogin -> employeeDashboard",
+        "employeeLogin -> adminDashboard -> linRecord",
+        "search -> welfare document -> named archive lookup",
+        "mail -> drive -> quiz -> sisterReveal -> endingTrue or endingNormal"
+      ]
+    },
+    {
+      "name": "short_route",
+      "edges": [
+        "home -> mail -> drive -> quiz -> sisterReveal -> either ending"
+      ],
+      "meaning": "The program does not require prior investigation flags before cloud verification and quiz; therefore research gates are optional, not structurally mandatory."
+    }
+  ],
+  "formal_endings": [
+    {
+      "screen": "endingNormal",
+      "author_label": "普通结局",
+      "tier": "normal"
+    },
+    {
+      "screen": "endingTrue",
+      "author_label": "完美结局",
+      "tier": "good"
+    }
+  ],
+  "failure_behavior": [
+    "Login rejection stays on login page",
+    "Invalid/unknown search produces empty or intentionally broken fictional web page",
+    "Wrong welfare lookup produces no archive result",
+    "Wrong drive password stays locked",
+    "Wrong quiz submission stays in quiz; individual correct answers can be evaluated without completing the full quiz"
+  ],
+  "scoring": {
+    "required": [
+      "cloud_drive",
+      "quiz_relation",
+      "quiz_guitu",
+      "quiz_transfer",
+      "quiz_daughters",
+      "quiz_sender"
+    ],
+    "optional": [
+      "employee_login",
+      "admin_login",
+      "welfare_lookup"
+    ],
+    "unscored": "Ordinary document reading, discovery flags, navigation, choosing between narrative endings, save/reset controls."
+  }
+}

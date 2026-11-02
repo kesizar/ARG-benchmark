@@ -1,0 +1,11 @@
+const fs = require('fs');
+const vm = require('vm');
+const s = fs.readFileSync('tasks/huaixia-qiri/original.html', 'utf8');
+const a = s.indexOf('const IH=[{id:"c1_start"');
+const b = s.indexOf(',Ha={};for(const G of Ye)', a);
+if (a < 0 || b < 0) throw Error('story bounds not found');
+const code = `(()=>{${s.slice(a,b)};return Ye})()`;
+const nodes = vm.runInNewContext(code, Object.create(null), {timeout: 3000});
+const graph = nodes.map(n => ({...n, text: undefined}));
+fs.writeFileSync('runs/huaixia-qiri/graph.json', JSON.stringify(graph, (k,v) => typeof v === 'function' ? `FUNCTION: ${v.toString()}` : v, 2));
+console.log(JSON.stringify({nodes:graph.length,puzzles:graph.filter(x=>x.puzzle).map(x=>x.id),endings:graph.filter(x=>x.ending).map(x=>x.id)}));

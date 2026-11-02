@@ -6,7 +6,7 @@ harness 不用改。每道题只加配置、材料和裁判。主榜默认有一
 mirror\harness\.venv\Scripts\python scripts/new_task.py --id my-game --category web_puzzle --port 8770
 ```
 
-ARG 加上 `--layer L1`、`L2` 或 `L3`。文字冒险用 `--category text_adventure`，把 `.z5` 或 `.z8` 放到配置里的 `if.story_file`。静态题用 `--category static`。
+所有类别都独立填写运行层级：`--runtime-layer L1`（默认，本地运行）或 `--runtime-layer L3`（依赖真实网站）。定义见 [runtime_layers.md](runtime_layers.md)。文字冒险用 `--category text_adventure`，把 `.z5` 或 `.z8` 放到配置里的 `if.story_file`。静态题用 `--category static`，这两类当前模板使用 L1。
 
 然后：
 
@@ -22,7 +22,7 @@ ARG 加上 `--layer L1`、`L2` 或 `L3`。文字冒险用 `--category text_adven
 - 没写 `routes` 时，全部 critical 门合成一条 `good` 路线。
 - 页码比例、不同网址的个数、打开目录页，只能放进 `events`。
 - 正式题要有结局。`configs/fixtures/` 里的接线夹具可以只有浅层的 `entered`，它们不进主榜。
-- 没有可计分的门、也还没答对时，`progress` 留空。只有答案、没有门的题，答对后进度为 1，并记作好结局。汇总里的 `mean_progress` 跳过进度为空的局；`endings_rate` 和 `good_endings_rate` 仍按全部局数算。
+- legacy 裁判没有 critical 门且未判定答案正确时，`progress` 和 `reasoning_progress` 为 null；`route_progress` 独立保留路线完成状态。只有答案的 legacy 题在明确答对时可记录 1。历史摘要显式记录零门但未记录答对时，汇总不推断其为满分；缺少门数的旧摘要保留原文件但进度不纳入均值，须单独审计。`mean_progress` 跳过未定义的局，并报告 `progress_observed_runs`。`target_v1` 的 `progress` 是已声明目标的进度而非推理分，按协议单独分组，不与 legacy 混合；`reasoning_progress` 始终单列；CSV 的 `mean_reasoning_progress` 及 `reasoning_observed_runs` 只汇总有明确定义的 critical 检查点覆盖比例或已确认的答案；门组存在替代路径时该比例仅为诊断覆盖，不能代替路线或目标分数。
 
 检查并开跑：
 

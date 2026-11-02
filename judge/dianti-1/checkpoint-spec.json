@@ -1,0 +1,43 @@
+{
+  "source_record": "base664:0322",
+  "checkpoints": {
+    "connect": {
+      "condition": "STATE.terminalUnlocked, only exact IP+port connect sets it",
+      "role": "diagnostic",
+      "prerequisites": [],
+      "latch": "Judge per run; game state persists across clear",
+      "route": "optional for escape; never require for egg/fall",
+      "reason": "Interface gives command syntax, exact address and automatically decoded port; composition/copy is not formally scored as reasoning."
+    },
+    "password": {
+      "condition": "#pwmsg reports correct after comparison with STATE.finalPassword",
+      "role": "diagnostic",
+      "prerequisites": [],
+      "latch": "Judge per run; delayed escape after 1200ms",
+      "route": "escape outcome observed directly, no scored gate",
+      "reason": "Automatic decryption explicitly yields THE ELEVATOR KEY IS KEYS; extracting and copying KEYS is diagnostic."
+    },
+    "plaintext": {
+      "condition": "correct ciphertext and shift=3 adds final plaintext clue",
+      "role": "diagnostic",
+      "prerequisites": [],
+      "reason": "The response provides shift and cipher; the supplied decrypt command performs the decoding."
+    },
+    "note": {
+      "role": "diagnostic",
+      "condition": "noteTaken"
+    },
+    "board": {
+      "role": "diagnostic",
+      "condition": "boardDecoded"
+    }
+  },
+  "endings": {
+    "escape": "normal, visible end-title escaped + ended",
+    "egg": "normal, ended + ending.easter"
+  },
+  "coverage": "all terminal branches, floor 1-25, help dialog/copy, all clue panels, positive/negative passwords, every ending, reset, direct password bypass",
+  "terminal_failures": {
+    "fall": "三次非空错误坠落，终止失败，不计通关"
+  }
+}

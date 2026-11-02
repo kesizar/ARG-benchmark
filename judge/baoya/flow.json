@@ -1,0 +1,64 @@
+{
+  "record_id": "base664:0032",
+  "story_pages": [
+    "index.html",
+    "email.html",
+    "baoyahealth.html",
+    "junjunnainai.html",
+    "stafftian.html",
+    "cv.html",
+    "blog.html",
+    "staffyu.html",
+    "staffyujiamiyouxiang.html",
+    "staffxu.html",
+    "emailbox.html",
+    "emailwangbaoya.html",
+    "wushan.html",
+    "game1.html",
+    "map.html",
+    "choice.html",
+    "choice1.html",
+    "choice2.html"
+  ],
+  "narrative_endings": [
+    "choice1.html",
+    "choice2.html"
+  ],
+  "puzzle_points": {
+    "customer_login": "fictional customer credentials",
+    "tian_login": "fictional staff credentials",
+    "yu_login": "combine clues for fictional staff credentials",
+    "xu_login": "fictional staff credentials from another account",
+    "boss_login": "fictional mailbox credentials",
+    "secret_login": "derive company slogan",
+    "code_sequence": "ordered code-fragment matching",
+    "caesar_key": "Caesar transformation fallback"
+  },
+  "events_not_scored": [
+    "opening pages",
+    "reading or collecting emails",
+    "discovering hidden xu button",
+    "copying the displayed QTE key sequence",
+    "choosing a narrative ending"
+  ],
+  "route_structure": [
+    "root -> received email -> company portal / mailbox login",
+    "company portal -> customer or three employee profiles",
+    "customer invitation -> fictional contacts and weekly-date clue",
+    "staff Tian -> resume -> blog -> clues for staff Yu",
+    "staff Yu -> work details / locked tab / encrypted mailbox",
+    "staff Xu -> personal account disclosure -> boss mailbox clue",
+    "boss mailbox -> Wushan page -> hidden game entry -> ordering puzzle",
+    "ordering accepted -> map -> timed QTE",
+    "QTE accepted -> choice hub",
+    "QTE wrong or timed out -> Caesar key -> choice hub",
+    "choice hub -> one of two endings"
+  ],
+  "critical_gate_reasoning": "Player UI has only the boss mailbox link into Wushan; game1 ordering must succeed to reach map. Other logins and Caesar fallback can be skipped by the alternative UI path, so are optional in route denominator.",
+  "prototype_or_inactive_artifacts": [
+    "wushan.js is not imported by current wushan.html",
+    "alert-timer.js is not imported by active pages",
+    "测试.html and 测试 are unlinked prototypes and excluded from story completeness"
+  ],
+  "reset": "New browser context clears state; no real accounts, localStorage or remote side effects in active game logic."
+}

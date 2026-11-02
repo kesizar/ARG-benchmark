@@ -1,0 +1,86 @@
+{
+  "id": "2toreeale",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "account_requirement": "none",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "2TorEEale",
+    "intro": "Explore the tutorial website and graduate using its clues."
+  },
+  "entry_url": "http://127.0.0.1:8941/rooms/tutorial/",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/2toreeale/mirror",
+      "--port",
+      "8941"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8941/rooms/tutorial/",
+    "ready_timeout_s": 30,
+    "port": 8941
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "en-US",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261027,
+  "allow_hosts": [
+    "127.0.0.1:8941"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 100,
+    "max_seconds": 1800,
+    "max_answer_submits": 10
+  },
+  "settle_ms": 800,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/2toreeale/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "Two independent tutorial answers; hint use and difficulty require scoring review. L1 uses a documented offline compatibility copy."
+  ]
+}

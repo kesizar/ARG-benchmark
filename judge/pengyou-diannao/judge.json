@@ -1,0 +1,298 @@
+{
+  "hooks": {
+    "necklace_code": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem(\"has_secret_code\")===\"true\""
+    },
+    "editor_login": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem(\"editor_logged_in\")===\"true\""
+    },
+    "surface": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/crash.html\") && !!document.querySelector(\".xp-dialog\")"
+    },
+    "true": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/true_ending.html\") && !!document.querySelector(\".xp-dialog\")"
+    },
+    "hidden": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/hidden_ending.html\") && !!document.querySelector(\".xp-dialog\")"
+    },
+    "processed": {
+      "type": "localstorage",
+      "key": "review_processed",
+      "mode": "json_path",
+      "path": ""
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "article_00",
+      "hook": "processed",
+      "op": "includes",
+      "value": 0,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_01",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 1
+    },
+    {
+      "id": "article_02",
+      "hook": "processed",
+      "op": "includes",
+      "value": 2,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_03",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 3
+    },
+    {
+      "id": "article_04",
+      "hook": "processed",
+      "op": "includes",
+      "value": 4,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_05",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 5
+    },
+    {
+      "id": "article_06",
+      "hook": "processed",
+      "op": "includes",
+      "value": 6,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_07",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 7
+    },
+    {
+      "id": "article_08",
+      "hook": "processed",
+      "op": "includes",
+      "value": 8,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_09",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 9
+    },
+    {
+      "id": "article_10",
+      "hook": "processed",
+      "op": "includes",
+      "value": 10,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_11",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 11
+    },
+    {
+      "id": "article_12",
+      "hook": "processed",
+      "op": "includes",
+      "value": 12,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_13",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 13
+    },
+    {
+      "id": "article_14",
+      "hook": "processed",
+      "op": "includes",
+      "value": 14,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_15",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 15
+    },
+    {
+      "id": "article_16",
+      "hook": "processed",
+      "op": "includes",
+      "value": 16,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_17",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 17
+    },
+    {
+      "id": "article_18",
+      "hook": "processed",
+      "op": "includes",
+      "value": 18,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_19",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 19
+    },
+    {
+      "id": "article_20",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 20
+    },
+    {
+      "id": "article_21",
+      "hook": "processed",
+      "op": "includes",
+      "value": 21,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_22",
+      "hook": "processed",
+      "op": "includes",
+      "value": 22,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_23",
+      "hook": "processed",
+      "op": "includes",
+      "value": 23,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_24",
+      "hook": "processed",
+      "op": "includes",
+      "value": 24,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_25",
+      "hook": "processed",
+      "op": "includes",
+      "value": 25,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_26",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 26
+    },
+    {
+      "id": "article_27",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 27
+    },
+    {
+      "id": "article_28",
+      "hook": "processed",
+      "op": "includes",
+      "value": 28,
+      "role": "diagnostic"
+    },
+    {
+      "id": "article_29",
+      "hook": "processed",
+      "op": "includes",
+      "role": "diagnostic",
+      "value": 29
+    },
+    {
+      "id": "editor_login",
+      "hook": "editor_login",
+      "op": "truthy"
+    }
+  ],
+  "events": {
+    "necklace_search": {
+      "hook": "necklace_code",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "surface",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "surface",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "true",
+      "tier": "normal",
+      "gates": [
+        "editor_login"
+      ],
+      "ending": {
+        "hook": "true",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "hidden",
+      "tier": "normal",
+      "gates": [
+        "editor_login"
+      ],
+      "ending": {
+        "hook": "hidden",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "true",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

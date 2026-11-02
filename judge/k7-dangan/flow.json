@@ -1,0 +1,193 @@
+{
+  "record_id": "added84:0024",
+  "endings": [
+    {
+      "id": "E01",
+      "name": "沉默的檔案員",
+      "type": "normal",
+      "trigger": "no trigger in source",
+      "reachable": false,
+      "rank": null
+    },
+    {
+      "id": "E02",
+      "name": "報告上級",
+      "type": "normal",
+      "trigger": "report",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "E03",
+      "name": "公開檔案",
+      "type": "normal",
+      "trigger": "publish",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "E04",
+      "name": "解密者",
+      "type": "normal",
+      "trigger": "cat any actual unlocked VAULT file",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "E05",
+      "name": "計數者",
+      "type": "normal",
+      "trigger": "count",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "E06",
+      "name": "回應者",
+      "type": "normal",
+      "trigger": "respond",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "E07",
+      "name": "銷毀檔案",
+      "type": "normal",
+      "trigger": "destroy",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "E08",
+      "name": "調查員",
+      "type": "normal",
+      "trigger": "investigate",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "E09",
+      "name": "時間旅行者",
+      "type": "normal",
+      "trigger": "date in browser hour23..04",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "E10",
+      "name": "孤獨的守夜人",
+      "type": "normal",
+      "trigger": "listen twice",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "E11",
+      "name": "翻譯者",
+      "type": "normal",
+      "trigger": "decode",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "E12",
+      "name": "天文學家",
+      "type": "normal",
+      "trigger": "observe",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "E13",
+      "name": "考古學家",
+      "type": "normal",
+      "trigger": "excavate",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "E14",
+      "name": "收藏家",
+      "type": "normal",
+      "trigger": "collect",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "E15",
+      "name": "告別者",
+      "type": "normal",
+      "trigger": "goodbye",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "H01",
+      "name": "第四十七個",
+      "type": "hidden",
+      "trigger": "47th nonempty command",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "H02",
+      "name": "金鑰本身",
+      "type": "hidden",
+      "trigger": "enter raw key as command",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "H03",
+      "name": "空白卷",
+      "type": "hidden",
+      "trigger": "no trigger in source",
+      "reachable": false,
+      "rank": null
+    },
+    {
+      "id": "H04",
+      "name": "第七人",
+      "type": "hidden",
+      "trigger": "read6 hidden files then next command",
+      "reachable": true,
+      "rank": null
+    },
+    {
+      "id": "H05",
+      "name": "下一位",
+      "type": "hidden",
+      "trigger": "100th command after unlock",
+      "reachable": true,
+      "rank": null
+    }
+  ],
+  "commands_with_no_prerequisite": {
+    "E02": "report",
+    "E03": "publish",
+    "E05": "count",
+    "E06": "respond",
+    "E07": "destroy",
+    "E08": "investigate",
+    "E11": "decode",
+    "E12": "observe",
+    "E13": "excavate",
+    "E14": "collect",
+    "E15": "goodbye"
+  },
+  "key": "Base64/hex clues exist but .MARSHALL and SEQ_A/SEQ_B/RAW.DAT explicitly print decoded pieces; .MARSHALL gives complete assembled key. Therefore vault event only, no inference credit.",
+  "hidden_six": [
+    "/STAFF/.MARSHALL",
+    "/STAFF/.VOSS",
+    "/STAFF/.FERRARI",
+    "/STAFF/.HAN.NOTE",
+    "/STAFF/.VOSS.DRAFT",
+    "/SYS/.OKONKWO.BAK"
+  ],
+  "web": "7 local HTML views; BBS yes/no/other are alert side events, not extra ENDINGS entries.",
+  "failure": "unknown commands, wrong key, missing file are recoverable, no terminal failure ending",
+  "exit": "exit/logout/quit simulate disconnect then reconnect, no E01 trigger",
+  "continue": "Original gameOver is display state only; commands are not blocked. Normal replay explicitly uses continue to avoid racing endings.",
+  "reset": "restart clears origin localStorage and reloads. Reload alone restores vault and old ending object before boot removes storage key; new context clears all.",
+  "atmosphere": "Idle47/94/141s, repeated file reads3/7, minute5/15/30/47 and04:12 events do not affect formal ending set; source mapped, not all waited in real time."
+}

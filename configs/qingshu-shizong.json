@@ -1,0 +1,87 @@
+{
+  "id": "qingshu-shizong",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "青树镇失踪案（官方完整历史论坛版本）",
+    "intro": "调查树洞帖子、学校存档和本地论坛，解开线索并到达故事结局。部分网页文字原本损坏。"
+  },
+  "entry_url": "http://127.0.0.1:8831/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/qingshu_serve.py",
+      "--root",
+      "tasks/qingshu-shizong/mirror",
+      "--port",
+      "8831"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8831/index.html",
+    "ready_timeout_s": 30,
+    "port": 8831
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20260003,
+  "allow_hosts": [
+    "127.0.0.1:8831"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up",
+    "switch_tab",
+    "close_tab"
+  ],
+  "limits": {
+    "max_steps": 1500,
+    "max_seconds": 3600,
+    "max_answer_submits": 100
+  },
+  "settle_ms": 800,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/qingshu-shizong/judge.json",
+  "policy_script": [
+    {
+      "op": "wait"
+    },
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "Archived original entry + current official school + explicitly frozen complete official historical forum. Current live forum is truncated."
+  ],
+  "account_requirement": "none"
+}

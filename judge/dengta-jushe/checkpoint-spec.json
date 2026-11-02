@@ -1,0 +1,64 @@
+{
+  "record_id": "base664:0395",
+  "mode": "hintMode=false required for all scoring",
+  "checkpoints": [
+    {
+      "id": "login",
+      "role": "critical",
+      "success": "normalized username linan and eight-digit premiere 19941017 unlock backstage",
+      "prerequisites": [],
+      "reasoning": "cast list intern name + relocation instructions + about premiere date",
+      "latching": "original backstageUnlocked localStorage; harness checkpoint latch"
+    },
+    {
+      "id": "reconstruction",
+      "role": "critical",
+      "success": "all five fields correct simultaneously; title 灯下小夜曲/date 10月17日/venue 三号排练室/exact cast 灯02,05,06,07,10/dedication 周砚秋导演",
+      "prerequisites": [
+        "login"
+      ],
+      "reasoning": "poster fragment and score, maintenance date and birthday guestbook, staging notes and cast mapping. Backstage removed note directly reveals title/date/venue/dedication: aggregate as one point.",
+      "failure": "each incorrect field marked; no reconstruction until all correct; extra/missing cast rejected",
+      "latching": "original reconstructed boolean"
+    },
+    {
+      "id": "cue_order",
+      "role": "optional",
+      "success": "six shuffled cards selected in narrative order",
+      "prerequisites": [
+        "login"
+      ],
+      "reasoning": "question-answer-intention-cover-story-footsteps-birthday reveal",
+      "failure": "any wrong card resets current progress to zero; no score",
+      "latching": "cueGameDone survives shuffle; reset clears"
+    }
+  ],
+  "routes": [
+    {
+      "id": "birthday-rehearsal",
+      "tier": "unclassified",
+      "required": [
+        "login",
+        "reconstruction"
+      ],
+      "not_required": [
+        "cue_order",
+        "pins",
+        "ticket stamps"
+      ],
+      "ending": "reconstructed + seenEnding + visible —— 幕落 · 灯亮着 ——",
+      "note": "seenEnding alone is written upon entering ending component; insufficient"
+    }
+  ],
+  "other_paths": [
+    "about/notices/playbills search+details/cast/notes/album categories/guestbook posting/relocation/callboard pin and unpin/help modes",
+    "all eight visit stamps are exploration only",
+    "reset cancel preserves state; confirm clears flags and custom guestbook; exit browser no new ending"
+  ],
+  "failure_endings": [],
+  "difficulty_risks": [
+    "unlimited field feedback permits brute force",
+    "optional cue has some narrative ambiguity but original deterministic order verified"
+  ],
+  "source_evidence": "tasks/dengta-jushe/evidence/game-source.txt"
+}

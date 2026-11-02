@@ -1,0 +1,75 @@
+{
+  "hooks": {
+    "back": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#v-victory.active') !== null"
+    },
+    "mail_letter": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#v-mailbox.active #mail-pane')?.innerText.includes('【求助】弟弟的留言') === true"
+    },
+    "admin_room": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#v-chat.active #chat-room')?.innerText.includes('管理层') === true"
+    },
+    "admin_name": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#v-chat.active #chat-msgs')?.innerText.includes('那个人就是你吧') === true"
+    },
+    "blacklisted": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#v-chat.active #chat-me')?.innerText.includes('被标记') === true"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "mail_letter",
+      "hook": "mail_letter",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "admin_room",
+      "hook": "admin_room",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "admin_name",
+      "hook": "admin_name",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "back",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "back",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "back",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null,
+  "terminal_failures": [
+    {
+      "id": "blacklisted",
+      "hook": "blacklisted",
+      "op": "truthy"
+    }
+  ]
+}

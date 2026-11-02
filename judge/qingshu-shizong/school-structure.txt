@@ -1,0 +1,71 @@
+27:.ending-hide{display:none}
+69:#endingOverlay{position:fixed;top:0;left:0;right:0;bottom:0;z-index:500;display:none;flex-direction:column;align-items:center;justify-content:center;padding:30px;box-sizing:border-box;opacity:0;transition:opacity 1.2s ease-out}
+70:#endingOverlay.show{opacity:1}
+71:#endingOverlay.bad-ending{background:#0a0000}
+72:#endingOverlay.perfect-ending{background:#0a0a1a}
+73:#endingOverlay .ending-box{max-width:620px;text-align:center;color:#fff;font-family:"SimSun",serif}
+74:#endingOverlay .ending-box .ending-title{font-size:clamp(28px,5vw,42px);font-weight:bold;margin-bottom:16px}
+75:#endingOverlay .ending-box .ending-title.bad{color:#c00}
+76:#endingOverlay .ending-box .ending-title.perfect{color:#fd4}
+77:#endingOverlay .ending-box .ending-text{font-size:clamp(15px,2vw,18px);line-height:2;color:#ddd;margin-bottom:20px}
+78:#endingOverlay .ending-box .ending-btn{padding:10px 30px;font-size:clamp(14px,1.8vw,16px);background:#333;border:2px solid #666;color:#fff;cursor:pointer;font-family:"SimSun",serif;touch-action:manipulation}
+79:#endingOverlay .ending-box .ending-btn:hover{background:#555}
+132:<div id="endingOverlay">
+133:<div class="ending-box">
+134:<div class="ending-title" id="endingTitle"></div>
+135:<div class="ending-text" id="endingText"></div>
+136:<button class="ending-btn" onclick="resetAll()">重新开始</button>
+255:<div id="endingNavBlock" class="ending-hide"><hr></div>
+262:<div class="old-box"><h3>校园存档照片｜学校正门</h3><hr><img src="https://s41.ax1x.com/2026/08/25/pnpiDMR.jpg" alt="青树镇中心小学正门" style="border:2px inset #888;max-width:100%;"><p><small>档案备注：学校正门，拍摄时间2004‑04‑20</small></p></div>
+263:<div class="old-box"><h3>存档照片｜旧实验楼</h3><hr><img src="https://s41.ax1x.com/2026/08/25/pnpPucR.png" alt="旧实验楼" style="border:2px inset #888;max-width:100%;"><p><small>档案备注：图像存在局部损坏，拍摄时间2004‑05‑14</small></p></div>
+268:<div class="old-box"><h3>学校简介</h3><hr><img src="https://s41.ax1x.com/2026/08/25/pnpiDMR.jpg" alt="青树镇中心小学正门" style="border:2px inset #888;max-width:100%;margin-bottom:10px;"><p>青树镇中心小学位于青树镇中心区域，始建于1992年，是一所全日制公办小学。学校占地面积约12000平方米，现有教学楼2栋、实验楼1栋、操场1个。</p><p>校内建有旧实验楼，五月下旬因校舍维修封闭，禁止学生靠近。后巷、地下储物间为危险区域。</p><p>校方对外报告校内无安全事故记录。维修记录编号：0405‑L71</p><p class="hide-text">.... .- .-. -  -.-. .- - </p></div>
+318:<div id="repairLogUnlockedArea" style="display:none;"><img src="https://s41.ax1x.com/2026/08/25/pnpPn39.png" alt="维修工手写笔记扫描件" style="border:2px inset #aaa;max-width:100%;"><hr><pre style="white-space:pre-line;font-family:SimSun;font-size:clamp(13px,1.6vw,14px);">
+365:<div id="page_ending" class="ending-hide" style="display:none;">
+366:<div class="old-box"><h3>事件最终卷宗</h3><hr><div id="endingContent"><p>完整事件还原：</p><p>2004‑05‑16，学生范明磊捡到庄军挪用班费的账本复印件，打算上交校长。庄军得知后，将范明磊拦截在旧实验楼储物间。争执酿成悲剧。</p><p>顾千躲在角落目睹全部经过。王浩宇在楼梯转角窥见部分画面，事后遭受胁迫封口。维修工深夜听见楼内异响，却不敢直接介入。</p><p>校方销毁账本原件，删除论坛帖子，对外宣告学生私自出走。顾千手握残存物证，陷入三种选择。</p><p>读完卷宗全部内容之后，你必须做出最终抉择。</p><p class="hide-text">刷新页面，全部记忆归零，可以开启另一条时间线。</p></div></div>
+382:var endingNavBlock=document.getElementById("endingNavBlock");
+389:function getFragments(){try{var data=localStorage.getItem("fragments_collected");if(data)return JSON.parse(data);}catch(e){}return [];}
+390:function getFragmentProgress(){var frags=getFragments();var target=['i','n','v','i','s','i','b','l','e','t'];var c=0;for(var i=0;i<target.length;i++){if(frags.indexOf(target[i])!==-1)c++;}return c+"/"+target.length;}
+395:function showClassDetail(className){
+407:function closeClassroomPopup(){document.getElementById('classroomPopup').style.display='none';}
+412:function openForumKeyPopup(){document.getElementById("forumKeyPopup").style.display="flex";document.getElementById("forumKeyInput").value="";document.getElementById("forumKeyErr").innerText="";document.getElementById("forumKeyInput").focus();}
+413:function closeForumKeyPopup(){document.getElementById("forumKeyPopup").style.display="none";document.getElementById("forumKeyErr").innerText="";}
+414:function checkForumKey(){var key=document.getElementById("forumKeyInput").value.trim().toLowerCase();if(key==="memorialfile"){closeForumKeyPopup();window.location.href="https://mc-zian.github.io/argqingshu/";}else{document.getElementById("forumKeyErr").innerText="❌ 密钥错误，请重试。";document.getElementById("forumKeyInput").value="";document.getElementById("forumKeyInput").focus();}}
+419:function openVolumeKeyPopup(){document.getElementById("volumeKeyPopup").style.display="flex";document.getElementById("volumeKeyInput").value="";document.getElementById("volumeKeyErr").innerText="";document.getElementById("volumeKeyInput").focus();}
+420:function closeVolumeKeyPopup(){document.getElementById("volumeKeyPopup").style.display="none";document.getElementById("volumeKeyErr").innerText="";}
+421:function checkVolumeKey(){var key=document.getElementById("volumeKeyInput").value.trim().toLowerCase();if(key==="invisiblet"){closeVolumeKeyPopup();startBlackScreen();}else{document.getElementById("volumeKeyErr").innerText="❌ 密钥错误。";document.getElementById("volumeKeyInput").value="";document.getElementById("volumeKeyInput").focus();}}
+426:function openKeyPopup(){document.getElementById("keyPopup").style.display="flex";}
+427:function closeKeyPopup(){document.getElementById("keyPopup").style.display="none";}
+428:function checkArchiveKey(){var v=document.getElementById("keyInput").value.trim().toLowerCase();if(v==="memorialfile"){closeKeyPopup();archiveUnlocked=true;endingNavBlock.style.display="block";document.getElementById("marqueeText").innerText="【档案解锁】卷宗权限已开放｜部分真相得以重见天日｜但仍有大量碎片永久遗失";}else{alert("密钥错误，拒绝访问");}}
+433:function showPage(id){
+436:if(archiveUnlocked){endingNavBlock.style.display="block";}else{endingNavBlock.style.display="none";}
+440:function checkRepairPassword(){var pw=document.getElementById("repairPwdInput").value.trim();if(pw==="0516"){document.getElementById("repairLogLockArea").style.display="none";document.getElementById("repairLogUnlockedArea").style.display="block";}else{document.getElementById("repairPwdErr").style.display="block";}}
+445:function openModernEnd(title,subtext){var page=document.getElementById("modernEndPage");document.getElementById("endMainTitle").innerText=title;document.getElementById("endSubTitle").innerText=subtext;page.style.display="flex";setTimeout(function(){page.classList.add("show");},10);}
+446:function closeModernEnd(){var page=document.getElementById("modernEndPage");page.classList.remove("show");setTimeout(function(){page.style.display="none";},900);}
+447:function delayAppendMsg(text,delay){setTimeout(function(){appendMsg(text);},delay);}
+448:function safeHtml(text){return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+449:function sendChat(){
+451:if(unlockStep===0 && lowerInput==="came male"){unlockStep=1;delayAppendMsg("???: ……你竟然把散落碎片拼出来了。",1500);delayAppendMsg("顾千: 我是顾千。那天我就在现场。",3000);delayAppendMsg("顾千: 庄军把范明磊扣在旧实验楼里面，我躲在角落不敢出声。",4500);delayAppendMsg("顾千: 这么久，我一直活在愧疚里。",6000);delayAppendMsg("顾千: 但我还不能完全信任你。实验楼墙壁上，滴答声留下了第二个暗号。",7500);delayAppendMsg("???: 解开摩斯碎片，把答案发给我。",9000);}
+452:else if(unlockStep===1 && lowerInput==="hart cat"){unlockStep=2;delayAppendMsg("顾千: 太好了。你听懂了墙壁上滴答的声音。",1500);delayAppendMsg("顾千: 现在我完全信任你。",3000);delayAppendMsg("顾千: 通往论坛的钥匙是：memorialfile。",4500);delayAppendMsg("顾千: 拿着这个密钥去导航栏点击'青树镇本地论坛'进入。",6000);delayAppendMsg("顾千: 另外，真正的卷宗需要另一把钥匙，它散落在论坛的各个角落。",7500);}
+456:function appendMsg(text){chatLog.innerHTML+="<div>"+text+"</div>";chatLog.scrollTop=chatLog.scrollHeight;}
+476:function renderForum(){
+487:function startBlackScreen(){
+493:function showNext(){
+505:function closeChoicePopup(){document.getElementById("choiceMask").style.display="none";}
+506:function submitFinalChoice(){
+515:function openTerminal(){document.getElementById("terminalModal").style.display="flex";document.getElementById("terminalOutput").innerHTML="> 终端已激活。输入 help 查看可用指令。";document.getElementById("terminalInput").value="";document.getElementById("terminalInput").focus();}
+516:function closeTerminal(){document.getElementById("terminalModal").style.display="none";}
+517:function processTerminalCommand(cmd){
+519:if(lower==="help"){output.innerHTML+="\n> 可用指令：\n  - trust yourself  : 相信自己的判断\n  - surrender       : 向黑暗妥协\n  - status          : 查看碎片进度\n  - clear           : 清空终端\n  - exit            : 关闭终端";}
+520:else if(lower==="trust yourself"){output.innerHTML+="\n> 你选择了相信自己。光芒正在苏醒……";closeTerminal();document.getElementById("blackScreen").style.display="none";blackScreenRunning=false;showPerfectEnding();}
+521:else if(lower==="surrender"){output.innerHTML+="\n> 你选择了屈服。黑暗正在蔓延……";closeTerminal();document.getElementById("blackScreen").style.display="none";blackScreenRunning=false;showBadEnding();}
+534:function showBadEnding(){
+535:var overlay=document.getElementById("endingOverlay");overlay.className="bad-ending";
+536:document.getElementById("endingTitle").className="ending-title bad";document.getElementById("endingTitle").innerHTML="■ 结局 · 无声黑暗";
+537:document.getElementById("endingText").innerHTML="你选择了妥协。真相随着你的沉默一同沉入深渊。<br><br>范明磊的名字被彻底遗忘，庄军的罪行被永远掩埋。<br><br>顾千的证词消失在档案室的灰尘里，<br>王浩宇的恐惧化为终身的阴影。<br><br>一切，都结束了。";
+540:function showPerfectEnding(){
+543:var overlay=document.getElementById("endingOverlay");overlay.className="perfect-ending";
+544:document.getElementById("endingTitle").className="ending-title perfect";document.getElementById("endingTitle").innerHTML="■ 结局 · 破晓";
+545:document.getElementById("endingText").innerHTML="你选择了相信自己。你没有被黑暗吞噬。<br><br>你拼凑的碎片、收集的证词、还原的真相，最终化为一道光。<br><br>庄军被绳之以法，范明磊的冤屈得以昭雪。<br><br>顾千终于能够放下愧疚，王浩宇走出了恐惧。<br><br>你做到了。";
+548:function resetAll(){
+549:var overlay=document.getElementById("endingOverlay");overlay.classList.remove("show");overlay.style.display="none";
+566:console.log("🔑 卷宗访问密钥: invisiblet (从论坛十个碎片拼成)");

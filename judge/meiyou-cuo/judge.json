@@ -1,8 +1,8 @@
 {
   "hooks": {
     "end": {
-      "type": "dom_regex",
-      "pattern": "2008年8月22日凌晨3:17，她写完了最后一篇自述"
+      "type": "js_truthy",
+      "expr": "(() => {const e=document.querySelector('#endingView');const l=e?.querySelector('.ending-line');return !!(e && l && e.getClientRects().length && getComputedStyle(l).opacity==='1' && l.textContent.includes('2008年8月22日凌晨3:17'));})()"
     }
   },
   "checkpoints": [],
@@ -10,7 +10,7 @@
   "routes": [
     {
       "id": "end",
-      "tier": "good",
+      "tier": "normal",
       "gates": [],
       "ending": {
         "hook": "end",

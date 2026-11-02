@@ -89,7 +89,7 @@ class ReadyTests(unittest.TestCase):
             config = {
                 "id": "if-smoke",
                 "category": "text_adventure",
-                "arg_layer": None,
+                "runtime_layer": "L1",
                 "obs_mode": "A",
                 "model_visible": {"title": "烟测", "intro": "空故事。"},
                 "entry_url": None,

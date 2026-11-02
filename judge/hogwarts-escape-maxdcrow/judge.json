@@ -1,0 +1,236 @@
+{
+  "hooks": {
+    "kettle_correct": {
+      "type": "js_truthy",
+      "expr": "(() => { const p = document.querySelector('#passages .passage:last-child'); if (!p || !p.innerText.includes('successfully unscrambled the word')) return false; return Array.from(p.querySelectorAll('a.swappable')).map(x => x.textContent.trim()).join('') === 'HIPPOGRIFF'; })()"
+    },
+    "lunch": {
+      "type": "dom_regex",
+      "pattern": "You put the packed lunch and put it in your inventory"
+    },
+    "surgito": {
+      "type": "dom_regex",
+      "pattern": "You cast Surgito and watch as the magic barrier suddenly disappears"
+    },
+    "scroll": {
+      "type": "dom_regex",
+      "pattern": "You successfully translate the runes and speak the incantation"
+    },
+    "cup": {
+      "type": "dom_regex",
+      "pattern": "House Cup has been added to your inventory"
+    },
+    "victory": {
+      "type": "js_truthy",
+      "expr": "(() => { const p = document.querySelector('#passages .passage:last-child'); return !!p && p.getClientRects().length > 0 && p.innerText.includes(\"You've won the house cup and brought eternally glory\"); })()"
+    },
+    "password_slytherin": {
+      "type": "js_truthy",
+      "expr": "(() => {const s=window.SugarCube?.State;if(!s)return false;const h=s.history.slice(-2).map(x=>x.title);return h[0] === \"Sopen\" && h[1] === \"Slytherin Common Room\";})()"
+    },
+    "password_gryffindor": {
+      "type": "js_truthy",
+      "expr": "(() => {const s=window.SugarCube?.State;if(!s)return false;const h=s.history.slice(-2).map(x=>x.title);return h[0] === \"Gopen\" && h[1] === \"Gryffindor Common Room\";})()"
+    },
+    "password_ravenclaw": {
+      "type": "js_truthy",
+      "expr": "(() => {const s=window.SugarCube?.State;if(!s)return false;const h=s.history.slice(-2).map(x=>x.title);return h[0] === \"Ropen\" && h[1] === \"Ravenclaw Common Room\";})()"
+    },
+    "password_hufflepuff": {
+      "type": "js_truthy",
+      "expr": "(() => {const s=window.SugarCube?.State;if(!s)return false;const h=s.history.slice(-2).map(x=>x.title);return h[0] === \"Hopen\" && h[1] === \"Hufflepuff Common Room\";})()"
+    },
+    "guest_password": {
+      "type": "js_truthy",
+      "expr": "(() => {const s=window.SugarCube?.State;if(!s)return false;const h=s.history.slice(-2).map(x=>x.title);return (h[0] === \"Sopen\" && h[1] === \"Slytherin Common Room\") || (h[0] === \"Gopen\" && h[1] === \"Gryffindor Common Room\") || (h[0] === \"Ropen\" && h[1] === \"Ravenclaw Common Room\") || (h[0] === \"Hopen\" && h[1] === \"Hufflepuff Common Room\");})()"
+    },
+    "portrait": {
+      "type": "dom_regex",
+      "pattern": "with the right answer! Look in Headmaster Dumbledore"
+    },
+    "luck_brew": {
+      "type": "dom_regex",
+      "pattern": "You've made the perfect Felix Felicis potion!"
+    },
+    "strength_brew": {
+      "type": "dom_regex",
+      "pattern": "You've made the perfect Strength potion!"
+    },
+    "charms_word": {
+      "type": "js_truthy",
+      "expr": "(() => {const p=document.querySelector('#passages .passage:last-child');return !!p && p.innerText.includes('successfully unscrambled the word') && Array.from(p.querySelectorAll('a.swappable')).map(x=>x.textContent.trim()).join('')==='LONGBOTTOM';})()"
+    },
+    "charms_quote": {
+      "type": "js_truthy",
+      "expr": "(() => {const s=window.SugarCube?.State,p=document.querySelector('#passages .passage:last-child');return !!s && s.passage==='Charmsies' && !!p && p.innerText.trim().startsWith('CORRECT!');})()"
+    },
+    "charms_creature": {
+      "type": "dom_regex",
+      "pattern": "You've learned the spell Protego!"
+    },
+    "rowena": {
+      "type": "dom_regex",
+      "pattern": "How clever you are! You have won the"
+    },
+    "star_ursa": {
+      "type": "js_truthy",
+      "expr": "(() => {const s=window.SugarCube?.State,p=document.querySelector('#passages .passage:last-child');return !!s && s.passage===\"Yes2\" && !!p && p.innerText.includes('Correct');})()"
+    },
+    "star_orion": {
+      "type": "js_truthy",
+      "expr": "(() => {const s=window.SugarCube?.State,p=document.querySelector('#passages .passage:last-child');return !!s && s.passage===\"Yes4\" && !!p && p.innerText.includes('Correct');})()"
+    },
+    "star_cassiopeia": {
+      "type": "js_truthy",
+      "expr": "(() => {const s=window.SugarCube?.State,p=document.querySelector('#passages .passage:last-child');return !!s && s.passage===\"Yes6\" && !!p && p.innerText.includes('Correct');})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "kettle_correct",
+      "hook": "kettle_correct",
+      "op": "truthy"
+    },
+    {
+      "id": "lunch",
+      "hook": "lunch",
+      "op": "truthy"
+    },
+    {
+      "id": "surgito",
+      "hook": "surgito",
+      "op": "truthy"
+    },
+    {
+      "id": "scroll",
+      "hook": "scroll",
+      "op": "truthy"
+    },
+    {
+      "id": "cup",
+      "hook": "cup",
+      "op": "truthy"
+    },
+    {
+      "id": "guest_password",
+      "hook": "guest_password",
+      "op": "truthy"
+    },
+    {
+      "id": "luck_brew",
+      "hook": "luck_brew",
+      "op": "truthy"
+    },
+    {
+      "id": "strength_brew",
+      "hook": "strength_brew",
+      "op": "truthy"
+    },
+    {
+      "id": "password_slytherin",
+      "hook": "password_slytherin",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "password_gryffindor",
+      "hook": "password_gryffindor",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "password_ravenclaw",
+      "hook": "password_ravenclaw",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "password_hufflepuff",
+      "hook": "password_hufflepuff",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "portrait",
+      "hook": "portrait",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "charms_word",
+      "hook": "charms_word",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "charms_quote",
+      "hook": "charms_quote",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "charms_creature",
+      "hook": "charms_creature",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "rowena",
+      "hook": "rowena",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "star_ursa",
+      "hook": "star_ursa",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "star_orion",
+      "hook": "star_orion",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "star_cassiopeia",
+      "hook": "star_cassiopeia",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "house_cup",
+      "tier": "good",
+      "gates": [
+        "kettle_correct",
+        "lunch",
+        "surgito",
+        "scroll",
+        "cup",
+        "guest_password",
+        "luck_brew",
+        "strength_brew"
+      ],
+      "ending": {
+        "hook": "victory",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "victory",
+    "op": "truthy"
+  },
+  "terminal_failures": [],
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

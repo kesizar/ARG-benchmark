@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "intro04_transition": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=state.levels[curlevel].section;const previous=window.__reliquiaJudgePreviousSection;window.__reliquiaJudgePreviousSection=s;return previous==='INTRO-04'&&s==='INTRO-05'}catch(e){return false}})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "intro04_crate_puzzle",
+      "hook": "intro04_transition",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "ending": null,
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

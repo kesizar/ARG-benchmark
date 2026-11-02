@@ -1,0 +1,105 @@
+{
+  "hooks": {
+    "caesar": {
+      "type": "js_truthy",
+      "expr": "typeof unlockStep!=='undefined'&&unlockStep>=1"
+    },
+    "morse": {
+      "type": "js_truthy",
+      "expr": "typeof unlockStep!=='undefined'&&unlockStep>=2"
+    },
+    "repair": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#repairLogUnlockedArea')&&document.querySelector('#repairLogUnlockedArea').style.display==='block'"
+    },
+    "p71": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#p71.active')"
+    },
+    "volume": {
+      "type": "js_truthy",
+      "expr": "typeof blackScreenRunning!=='undefined'&&blackScreenRunning"
+    },
+    "terminal": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#terminalModal')&&document.querySelector('#terminalModal').style.display==='flex'"
+    },
+    "bad": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#endingOverlay.bad-ending.show')"
+    },
+    "good": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#endingOverlay.perfect-ending.show')"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "volume",
+      "hook": "volume",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "caesar",
+      "hook": "caesar",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "morse",
+      "hook": "morse",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "repair",
+      "hook": "repair",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p71",
+      "hook": "p71",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "terminal",
+      "hook": "terminal",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "silent_darkness",
+      "tier": "bad",
+      "gates": [
+        "volume"
+      ],
+      "ending": {
+        "hook": "bad",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "dawn",
+      "tier": "good",
+      "gates": [
+        "volume"
+      ],
+      "ending": {
+        "hook": "good",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  }
+}

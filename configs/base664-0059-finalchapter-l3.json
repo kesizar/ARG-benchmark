@@ -1,0 +1,74 @@
+{
+  "id": "base664-0059-finalchapter-l3",
+  "category": "web_puzzle",
+  "runtime_layer": "L3",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "黑川龙的最后一章",
+    "intro": "请探索本站，查明事件经过并读完主要结局。"
+  },
+  "entry_url": "https://devotioncx330.github.io/Thefinalchapter/",
+  "local_serve": {
+    "enabled": false
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261023,
+  "allow_hosts": [
+    "devotioncx330.github.io"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up",
+    "hover"
+  ],
+  "limits": {
+    "max_steps": 1500,
+    "max_seconds": 14400,
+    "max_answer_submits": 10
+  },
+  "settle_ms": 400,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/base664-0059-finalchapter/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "主结局之后还有可继续的失败支线；独立失败审计配置不会在主结局停止。"
+  ]
+}

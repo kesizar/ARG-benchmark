@@ -1,0 +1,95 @@
+{
+  "id": "yiwu-yuren",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "遗物整理师 · 001 愚人节的短信",
+    "intro": "你已接下001愚人节的短信委托，正在调查沈沁的电脑。根据页面可见线索调查消息来源和死因，完成这件委托。首页其他独立委托不属于本任务范围。只使用本站界面。"
+  },
+  "entry_url": "http://127.0.0.1:8811/001/window.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/yiwu-yuren/mirror",
+      "--port",
+      "8811"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8811/001/window.html",
+    "ready_timeout_s": 30,
+    "port": 8811
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261023,
+  "allow_hosts": [
+    "127.0.0.1:8811"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 400,
+    "max_seconds": 3600,
+    "max_answer_submits": 5
+  },
+  "settle_ms": 400,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/yiwu-yuren/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "Explicit case001 variant, entry at accepted commission desktop; cases002/003 are out of scope.",
+    "Live version fetched 2026-10-27; exact historical entry retained on evaluator side.",
+    "Removed remote font requests, vendored icons; fixed undefined ordinary email credential check to reject, preserving recovery path; fixed broken park-diary return fallback.",
+    "Ending tiers normal: original labels 1/2/3 do not establish benchmark good/bad tiers.",
+    "Step and time limits are engineering budgets, not model-calibrated.",
+    "Restored missing hospital searchFeedback container used by original rejection handlers; no answers or match conditions changed."
+  ],
+  "account": {
+    "required": false,
+    "reason": "Fictional local account recovery; no real account or submission."
+  },
+  "account_requirement": "none"
+}

@@ -1,0 +1,93 @@
+345:#achievementListModal .ach-item.unlocked {
+475:                <input type="text" id="searchInput" size="18" placeholder="输入关键词搜索">
+505:        <td><span class="stickyIcon">📌</span> <a onclick="openPost('top3')">【公告】部分帖子已被隐藏，仅关键词搜索可进入</a></td>
+562:<!-- ==================== top1（含碎片7: b） ==================== -->
+571:    <tr><td>2楼<br>小镇居民</td><td colspan="3">这个论坛开了这么久一直都挺平和的，希望大家都好好遵守规矩。<span class="hideText">碎片7: b</span></td></tr>
+581:<!-- ==================== top2（含碎片8: l） ==================== -->
+592:    <tr><td>3楼<br>晚风吹岸</td><td colspan="3">管理员也是怕我们被牵连，现在校方查得很紧。<span class="hideText">碎片8: l</span></td></tr>
+610:<!-- ==================== top3（含碎片9: e） ==================== -->
+612:<table><tr><td colspan="4" class="topBanner"><h3>【公告】部分帖子已被隐藏，仅关键词搜索可进入</h3></td></tr></table>
+617:    <tr><td>1楼<br>夜色微凉</td><td colspan="3">原来是这样，怪不得有些帖子我刷新好几次首页都找不到。<span class="hideText">碎片9: e</span></td></tr>
+631:<!-- ==================== p21（含碎片1: i） ===================== -->
+636:    <tr><td width="15%">楼主<br>匿名用户</td><td colspan="3">发布时间：2004‑05‑16<br>昨天傍晚六点多，我路过旧实验楼，楼里面传出很响的争吵声。当时天色已经慢慢暗下来，我不敢靠近，就直接回家了。<span class="hideText">碎片1: i</span></td></tr>
+672:<!-- ==================== p47（含碎片2: n） ===================== -->
+689:    <tr><td>6楼<br><span class="mysteryUser">‑‑神秘访客‑‑</span></td><td colspan="3">黄昏落下，树丛藏眼，三的脚步退向后，真相锁于白色幕布之后，风带走声音，钥匙等寻路人。<span class="hideText">碎片2: n</span></td></tr>
+725:<!-- ==================== p53（含碎片3: v） ===================== -->
+736:    <tr><td>3楼<br>夜色微凉</td><td colspan="3">校内网站最近删帖速度快得惊人，刚发出去几分钟就消失。<span class="hideText">碎片3: v</span></td></tr>
+766:<!-- ==================== p58（含碎片4: i） ===================== -->
+773:    <tr><td>1楼<br>过客042</td><td colspan="3">维修工一直在学校干活，说不定他看见了什么不能对外讲的事情。<span class="hideText">碎片4: i</span></td></tr>
+789:<!-- ==================== p62（含碎片5: s） ===================== -->
+798:    <tr><td>2楼<br>过客042</td><td colspan="3">我也愿意参加，人多安全一些。<span class="hideText">碎片5: s</span></td></tr>
+810:<!-- ==================== p68（含碎片6: i） ===================== -->
+825:    <tr><td>5楼<br>一粒沙</td><td colspan="3">千万不要直接过去和他搭话，太危险了。<span class="hideText">碎片6: i</span></td></tr>
+865:<!-- ==================== p71（含碎片10: t） ==================== -->
+866:<div id="p71" class="page-screen">
+870:    <tr><td width="15%">楼主<br>落叶无声</td><td colspan="3">发布时间：2004‑05‑20<br>今天下午我在实验楼旁边的树丛里捡到几页撕破的笔记本纸，像是学生留下的。<br><br>📝 残页内容：<br>"我把发现的东西藏在了旧书里。那间仓库的门一直锁着。有些事一旦开口就收不回了。"<br><br>最后一页被撕掉了一半，只留下模糊的墨迹。<span class="hideText">碎片10: t</span></td></tr>
+879:<div class="pageWrap"><button class="arrowPageBtn" id="prev-p71" onclick="prevPage('p71')" disabled>← 上一页</button><span id="pageText-p71">第 1 页 / 共 1 页</span><button class="arrowPageBtn" id="next-p71" onclick="nextPage('p71')" disabled>下一页 →</button></div>
+981:    "unlock_p71": { name: "【旧书猎人】", desc: "你找到了藏在旧书里的秘密", icon: "📖" },
+993:function loadAchievements() {
+995:        var data = localStorage.getItem("ach_data");
+1003:function saveAchievements(data) {
+1004:    localStorage.setItem("ach_data", JSON.stringify(data));
+1007:function unlockAchievement(key) {
+1026:function isAchievementUnlocked(key) {
+1031:function getUnlockedCount() {
+1040:function showAchievementToast(key) {
+1068:    setTimeout(function() {
+1070:        setTimeout(function() {
+1076:function checkFiveAchievements() {
+1079:        unlockAchievement("five_achievements");
+1083:function refreshAchievementList() {
+1086:    var unlocked = 0;
+1091:        var unlockedFlag = data[key] || false;
+1092:        if (unlockedFlag) unlocked++;
+1093:        var lockedClass = unlockedFlag ? "unlocked" : "";
+1094:        var nameClass = unlockedFlag ? "" : "locked";
+1095:        var descClass = unlockedFlag ? "" : "locked";
+1096:        var displayName = unlockedFlag ? ach.name : "???";
+1097:        var displayDesc = unlockedFlag ? ach.desc : "尚未解锁";
+1098:        var icon = unlockedFlag ? ach.icon : "❓";
+1106:    document.getElementById("achProgress").innerText = "(" + unlocked + "/" + ACH_KEYS.length + ")";
+1107:    var pct = Math.round((unlocked / ACH_KEYS.length) * 100);
+1111:function openAchievementList() {
+1112:    unlockAchievement("open_achievement_list");
+1117:function closeAchievementList() {
+1135:var allPostIds = ["top1","top2","top3","p21","p47","p53","p58","p62","p68","p71","h1","h2","h3","h4"];
+1153:window.onload = function() {
+1171:        unlockAchievement("night_owl");
+1175:function backToList() {
+1176:    document.querySelectorAll('.page-screen').forEach(function(el) {
+1184:function openPost(postId) {
+1190:        unlockAchievement("click_same_post");
+1198:        unlockAchievement("view_5_posts");
+1201:    if (postId === 'p71') {
+1208:    document.querySelectorAll('.page-screen').forEach(function(el) {
+1223:function closeModal() {
+1228:function verifyKey() {
+1232:        document.querySelectorAll('.page-screen').forEach(function(el) {
+1235:        document.getElementById('p71').classList.add("active");
+1236:        if (!pageState['p71']) {
+1237:            pageState['p71'] = 1;
+1239:        refreshFloorView('p71');
+1241:        unlockAchievement("unlock_p71");
+1249:function getMaxPage(postId) {
+1254:function refreshFloorView(postId) {
+1281:function prevPage(postId) {
+1288:function nextPage(postId) {
+1296:function handleNavClick(text) {
+1299:        unlockAchievement("click_spam");
+1308:function doSearch() {
+1311:        alert("请输入关键词进行搜索");
+1319:        unlockAchievement("search_676767");
+1351:                    unlockAchievement("all_names");
+1366:    if (searchLower === "p71") {
+1369:            '<a onclick="openPost(\'p71\')">【隐藏】#71 实验楼树丛里发现的笔记本残页</a>' +
+1378:        unlockAchievement("search_mystery");
+1391:        "top3": "【公告】部分帖子已被隐藏，仅关键词搜索可进入",
+1415:function trigger676767EasterEgg() {
+1424:document.addEventListener('keydown', function(e) {
+1434:            unlockAchievement("keyboard_i");
+1443:document.getElementById('searchInput').addEventListener('keydown', function(e) {
+1449:document.getElementById('keyInput').addEventListener('keydown', function(e) {
+1455:document.getElementById('keyModal').addEventListener('click', function(e) {
+1461:document.getElementById('achievementListModal').addEventListener('click', function(e) {

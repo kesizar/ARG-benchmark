@@ -1,0 +1,44 @@
+{
+  "core": [
+    "private diagnostic unlock",
+    "wechat clue collection",
+    "recycle archive password",
+    "hospital search god",
+    "eye cinematic",
+    "yanguang cinematic",
+    "inside search"
+  ],
+  "routes": {
+    "self": [
+      "献祭 / 祭讫",
+      "献祭自己",
+      "confirm -> self_end1 / cancel -> self_end2"
+    ],
+    "other": [
+      "献祭 / 祭讫",
+      "献祭他人",
+      "identity/birth/key -> real",
+      "接受一切 -> real1 / 改写一切 -> real2"
+    ],
+    "extra": [
+      "白鹿/山神/鹿神/白鹿山",
+      "丁子熙 (also present in local 马飞 chat)",
+      "egg",
+      "改写这个结局 twice -> uuu"
+    ]
+  },
+  "supporting": [
+    "6 hospital navigation pages",
+    "hospital keyword map and aliases",
+    "wechat 4 contacts, doctor follow-up and moments",
+    "tieba 3 expandable posts",
+    "questionnaire 4 score bands plus incomplete error",
+    "telephone 2 audio numbers and invalid input",
+    "research accepted/wrong",
+    "linwan corrupted search inert",
+    "lens diaries, key reveal, empty/wrong searches",
+    "camera denial fallback without real camera",
+    "desktop window management and save reset"
+  ],
+  "not_a_terminal_failure": "Incorrect inputs retry in place; four bad-tone narrative endings are authored outcomes, not generic error dialogs."
+}

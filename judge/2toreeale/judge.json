@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "code": {"type": "js_truthy", "expr": "localStorage.getItem('tutorial-codeok') === '1'"},
+    "word": {"type": "js_truthy", "expr": "localStorage.getItem('tutorial-wordok') === '1'"},
+    "graduate": {"type": "js_truthy", "expr": "localStorage.getItem('tutorial-codeok') === '1' && localStorage.getItem('tutorial-wordok') === '1' && location.pathname.replace(/\\/$/, '') === '/rooms/tutorial/escaped' && document.body.innerText.includes('You Graduated!')"}
+  },
+  "checkpoints": [{"id":"code","hook":"code","op":"truthy"},{"id":"word","hook":"word","op":"truthy"}],
+  "events": {},
+  "routes": [{"id":"graduated","tier":"normal","gates":["code","word"],"ending":{"hook":"graduate","op":"truthy"}}],
+  "ending": null,
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {"enabled": false, "schema": null},
+  "rubric_path": null
+}

@@ -1,0 +1,9 @@
+{
+ "record_id": "added84:0058",
+ "scope": "Independent snapshot and recovery archive inspection; prior network and browser observations reused, no new origin availability claim.",
+ "independent_checks": {"snapshot_bytes": 500483, "snapshot_sha256": "ffee95eb517e7453562724a91d9cc80014cad960160dbe54200368ba6a25ba4e", "script_open": 1, "script_close": 0, "html_close": 0, "tail": "ends mid JavaScript expression normalScale.copy(t.", "access_bundle_sha256": "dcfb3d4ecb48dbcb5c2d475f6155e6231bce9a1a32f6906dd978fe68cdebf98d", "access_bundle_crc": "testzip returned no bad member", "bundle_contents": "original truncated snapshot, access and runtime audit, recovery instructions, audit script and NOT-READY marker; no runnable game or judge"},
+ "findings": "Prior local browser observation found no canvas and undefined game state. Prior origin connection was closed; that is a point-in-time access failure, not proof of permanent closure. Truncated library cannot support a verified gameplay path, scoring checkpoints, endings or resource closure. No game behavior or solution inferred from catalogue title.",
+ "delivery": "Recovery access bundle only; original complete export or working official public source needed to examine game and its dependencies before runnable packaging, flow tests or scoring design. Preserve the original snapshot and existing evidence.",
+ "references": ["data/preparation/results/added84-0058.json", "judge/shouren-shengcun/access-audit.json", "judge/shouren-shengcun/truncated-runtime.json", "tasks/shouren-shengcun/RECOVERY.md"],
+ "ready_for_local_execution": false, "ready_for_formal_scoring": false, "shared_progress_modified": false
+}

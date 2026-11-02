@@ -1,294 +1,233 @@
 {
   "hooks": {
-    "h01": {
-      "type": "dom_regex",
-      "pattern": "══ 隱藏結局 01：第四十七個 ══"
+    "E02": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E02'] && G.gameOver && document.querySelector('#out')?.textContent.includes('報告上級')"
     },
-    "h02": {
-      "type": "dom_regex",
-      "pattern": "══ 隱藏結局 02：金鑰本身 ══"
+    "E03": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E03'] && G.gameOver && document.querySelector('#out')?.textContent.includes('公開檔案')"
     },
-    "h03": {
-      "type": "dom_regex",
-      "pattern": "══ 隱藏結局 03：空白卷 ══"
+    "E04": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E04'] && G.gameOver && document.querySelector('#out')?.textContent.includes('解密者')"
     },
-    "h04": {
-      "type": "dom_regex",
-      "pattern": "══ 隱藏結局 04：第七人 ══"
+    "E05": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E05'] && G.gameOver && document.querySelector('#out')?.textContent.includes('計數者')"
     },
-    "h05": {
-      "type": "dom_regex",
-      "pattern": "══ 隱藏結局 05：下一位 ══"
+    "E06": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E06'] && G.gameOver && document.querySelector('#out')?.textContent.includes('回應者')"
     },
-    "e01": {
-      "type": "dom_regex",
-      "pattern": "── 結局 01：沉默的檔案員 ──"
+    "E07": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E07'] && G.gameOver && document.querySelector('#out')?.textContent.includes('銷毀檔案')"
     },
-    "e02": {
-      "type": "dom_regex",
-      "pattern": "── 結局 02：報告上級 ──"
+    "E08": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E08'] && G.gameOver && document.querySelector('#out')?.textContent.includes('調查員')"
     },
-    "e03": {
-      "type": "dom_regex",
-      "pattern": "── 結局 03：公開檔案 ──"
+    "E09": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E09'] && G.gameOver && document.querySelector('#out')?.textContent.includes('時間旅行者')"
     },
-    "e04": {
-      "type": "dom_regex",
-      "pattern": "── 結局 04：解密者 ──"
+    "E10": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E10'] && G.gameOver && document.querySelector('#out')?.textContent.includes('孤獨的守夜人')"
     },
-    "e05": {
-      "type": "dom_regex",
-      "pattern": "── 結局 05：計數者 ──"
+    "E11": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E11'] && G.gameOver && document.querySelector('#out')?.textContent.includes('翻譯者')"
     },
-    "e06": {
-      "type": "dom_regex",
-      "pattern": "── 結局 06：回應者 ──"
+    "E12": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E12'] && G.gameOver && document.querySelector('#out')?.textContent.includes('天文學家')"
     },
-    "e07": {
-      "type": "dom_regex",
-      "pattern": "── 結局 07：銷毀檔案 ──"
+    "E13": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E13'] && G.gameOver && document.querySelector('#out')?.textContent.includes('考古學家')"
     },
-    "e08": {
-      "type": "dom_regex",
-      "pattern": "── 結局 08：調查員 ──"
+    "E14": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E14'] && G.gameOver && document.querySelector('#out')?.textContent.includes('收藏家')"
     },
-    "e09": {
-      "type": "dom_regex",
-      "pattern": "── 結局 09：時間旅行者 ──"
+    "E15": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['E15'] && G.gameOver && document.querySelector('#out')?.textContent.includes('告別者')"
     },
-    "e10": {
-      "type": "dom_regex",
-      "pattern": "── 結局 10：孤獨的守夜人 ──"
+    "H01": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['H01'] && G.gameOver && document.querySelector('#out')?.textContent.includes('第四十七個')"
     },
-    "e11": {
-      "type": "dom_regex",
-      "pattern": "── 結局 11：翻譯者 ──"
+    "H02": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['H02'] && G.gameOver && document.querySelector('#out')?.textContent.includes('金鑰本身')"
     },
-    "e12": {
-      "type": "dom_regex",
-      "pattern": "── 結局 12：天文學家 ──"
+    "H04": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['H04'] && G.gameOver && document.querySelector('#out')?.textContent.includes('第七人')"
     },
-    "e13": {
-      "type": "dom_regex",
-      "pattern": "── 結局 13：考古學家 ──"
-    },
-    "e14": {
-      "type": "dom_regex",
-      "pattern": "── 結局 14：收藏家 ──"
-    },
-    "e15": {
-      "type": "dom_regex",
-      "pattern": "── 結局 15：告別者 ──"
+    "H05": {
+      "type": "js_truthy",
+      "expr": "!!G.endings['H05'] && G.gameOver && document.querySelector('#out')?.textContent.includes('下一位')"
     },
     "vault": {
-      "type": "dom_regex",
-      "pattern": "金鑰有效。"
+      "type": "js_truthy",
+      "expr": "G.unlocked && localStorage.getItem('k7_unlocked') === '1'"
     }
   },
-  "checkpoints": [
-    {
-      "id": "vault",
+  "checkpoints": [],
+  "events": {
+    "vault": {
       "hook": "vault",
       "op": "truthy"
     }
-  ],
-  "events": {},
+  },
   "routes": [
     {
-      "id": "h01",
-      "tier": "good",
+      "id": "E02",
       "gates": [],
       "ending": {
-        "hook": "h01",
+        "hook": "E02",
         "op": "truthy"
       }
     },
     {
-      "id": "h02",
-      "tier": "good",
+      "id": "E03",
       "gates": [],
       "ending": {
-        "hook": "h02",
+        "hook": "E03",
         "op": "truthy"
       }
     },
     {
-      "id": "h03",
-      "tier": "good",
+      "id": "E04",
       "gates": [],
       "ending": {
-        "hook": "h03",
+        "hook": "E04",
         "op": "truthy"
       }
     },
     {
-      "id": "h04",
-      "tier": "good",
+      "id": "E05",
       "gates": [],
       "ending": {
-        "hook": "h04",
+        "hook": "E05",
         "op": "truthy"
       }
     },
     {
-      "id": "h05",
-      "tier": "good",
-      "gates": [
-        "vault"
-      ],
-      "ending": {
-        "hook": "h05",
-        "op": "truthy"
-      }
-    },
-    {
-      "id": "e01",
-      "tier": "normal",
+      "id": "E06",
       "gates": [],
       "ending": {
-        "hook": "e01",
+        "hook": "E06",
         "op": "truthy"
       }
     },
     {
-      "id": "e02",
-      "tier": "normal",
+      "id": "E07",
       "gates": [],
       "ending": {
-        "hook": "e02",
+        "hook": "E07",
         "op": "truthy"
       }
     },
     {
-      "id": "e03",
-      "tier": "normal",
+      "id": "E08",
       "gates": [],
       "ending": {
-        "hook": "e03",
+        "hook": "E08",
         "op": "truthy"
       }
     },
     {
-      "id": "e04",
-      "tier": "normal",
-      "gates": [
-        "vault"
-      ],
-      "ending": {
-        "hook": "e04",
-        "op": "truthy"
-      }
-    },
-    {
-      "id": "e05",
-      "tier": "normal",
+      "id": "E09",
       "gates": [],
       "ending": {
-        "hook": "e05",
+        "hook": "E09",
         "op": "truthy"
       }
     },
     {
-      "id": "e06",
-      "tier": "normal",
+      "id": "E10",
       "gates": [],
       "ending": {
-        "hook": "e06",
+        "hook": "E10",
         "op": "truthy"
       }
     },
     {
-      "id": "e07",
-      "tier": "normal",
+      "id": "E11",
       "gates": [],
       "ending": {
-        "hook": "e07",
+        "hook": "E11",
         "op": "truthy"
       }
     },
     {
-      "id": "e08",
-      "tier": "normal",
+      "id": "E12",
       "gates": [],
       "ending": {
-        "hook": "e08",
+        "hook": "E12",
         "op": "truthy"
       }
     },
     {
-      "id": "e09",
-      "tier": "normal",
+      "id": "E13",
       "gates": [],
       "ending": {
-        "hook": "e09",
+        "hook": "E13",
         "op": "truthy"
       }
     },
     {
-      "id": "e10",
-      "tier": "normal",
+      "id": "E14",
       "gates": [],
       "ending": {
-        "hook": "e10",
+        "hook": "E14",
         "op": "truthy"
       }
     },
     {
-      "id": "e11",
-      "tier": "normal",
+      "id": "E15",
       "gates": [],
       "ending": {
-        "hook": "e11",
+        "hook": "E15",
         "op": "truthy"
       }
     },
     {
-      "id": "e12",
-      "tier": "normal",
+      "id": "H01",
       "gates": [],
       "ending": {
-        "hook": "e12",
+        "hook": "H01",
         "op": "truthy"
       }
     },
     {
-      "id": "e13",
-      "tier": "normal",
+      "id": "H02",
       "gates": [],
       "ending": {
-        "hook": "e13",
+        "hook": "H02",
         "op": "truthy"
       }
     },
     {
-      "id": "e14",
-      "tier": "normal",
+      "id": "H04",
       "gates": [],
       "ending": {
-        "hook": "e14",
+        "hook": "H04",
         "op": "truthy"
       }
     },
     {
-      "id": "e15",
-      "tier": "normal",
+      "id": "H05",
       "gates": [],
       "ending": {
-        "hook": "e15",
+        "hook": "H05",
         "op": "truthy"
       }
     }
-  ],
-  "ending": {
-    "hook": "h01",
-    "op": "truthy"
-  },
-  "answer_sha256": [],
-  "answer_hash_file": null,
-  "request_milestones": [],
-  "submit_conclusion": {
-    "enabled": false,
-    "schema": null
-  },
-  "rubric_path": null
+  ]
 }

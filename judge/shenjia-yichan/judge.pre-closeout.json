@@ -1,0 +1,713 @@
+{
+  "hooks": {
+    "G1-01": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G1-01\")&&(s.placedMembers||{})[\"G1-01\"]===\"沈绪堂\"})()"
+    },
+    "G1-02": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G1-02\")&&(s.placedMembers||{})[\"G1-02\"]===\"赵淑贞\"})()"
+    },
+    "G1-03": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G1-03\")&&(s.placedMembers||{})[\"G1-03\"]===\"沈鸿儒\"})()"
+    },
+    "G2-01": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G2-01\")&&(s.placedMembers||{})[\"G2-01\"]===\"沈伯年\"})()"
+    },
+    "G2-05": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G2-05\")&&(s.placedMembers||{})[\"G2-05\"]===\"陆婉秋\"})()"
+    },
+    "G2-02": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G2-02\")&&(s.placedMembers||{})[\"G2-02\"]===\"沈仲华\"})()"
+    },
+    "G2-06": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G2-06\")&&(s.placedMembers||{})[\"G2-06\"]===\"陆婉清\"})()"
+    },
+    "G2-03": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G2-03\")&&(s.placedMembers||{})[\"G2-03\"]===\"沈叔慧\"})()"
+    },
+    "G2-07": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G2-07\")&&(s.placedMembers||{})[\"G2-07\"]===\"周瑞卿\"})()"
+    },
+    "G2-04": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G2-04\")&&(s.placedMembers||{})[\"G2-04\"]===\"沈季芳\"})()"
+    },
+    "G2-08": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G2-08\")&&(s.placedMembers||{})[\"G2-08\"]===\"陈维德\"})()"
+    },
+    "G2-09": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G2-09\")&&(s.placedMembers||{})[\"G2-09\"]===\"陆宗翰\"})()"
+    },
+    "G2-10": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G2-10\")&&(s.placedMembers||{})[\"G2-10\"]===\"周德昌\"})()"
+    },
+    "G3-01": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-01\")&&(s.placedMembers||{})[\"G3-01\"]===\"沈哲明\"})()"
+    },
+    "G3-09": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-09\")&&(s.placedMembers||{})[\"G3-09\"]===\"方敏\"})()"
+    },
+    "G3-02": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-02\")&&(s.placedMembers||{})[\"G3-02\"]===\"沈雅琴\"})()"
+    },
+    "G3-03": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-03\")&&(s.placedMembers||{})[\"G3-03\"]===\"沈哲远\"})()"
+    },
+    "G3-10": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-10\")&&(s.placedMembers||{})[\"G3-10\"]===\"张佩仪\"})()"
+    },
+    "G3-04": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-04\")&&(s.placedMembers||{})[\"G3-04\"]===\"沈美珊\"})()"
+    },
+    "G3-11": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-11\")&&(s.placedMembers||{})[\"G3-11\"]===\"周建业\"})()"
+    },
+    "G3-05": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-05\")&&(s.placedMembers||{})[\"G3-05\"]===\"周立言\"})()"
+    },
+    "G3-12": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-12\")&&(s.placedMembers||{})[\"G3-12\"]===\"Patricia Wang\"})()"
+    },
+    "G3-06": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-06\")&&(s.placedMembers||{})[\"G3-06\"]===\"周美华\"})()"
+    },
+    "G3-07": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-07\")&&(s.placedMembers||{})[\"G3-07\"]===\"陈家骏\"})()"
+    },
+    "G3-13": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-13\")&&(s.placedMembers||{})[\"G3-13\"]===\"刘桂芬\"})()"
+    },
+    "G3-15": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-15\")&&(s.placedMembers||{})[\"G3-15\"]===\"方静\"})()"
+    },
+    "G3-16": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G3-16\")&&(s.placedMembers||{})[\"G3-16\"]===\"陈维良\"})()"
+    },
+    "SP-01": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"SP-01\")&&(s.placedMembers||{})[\"SP-01\"]===\"王桂兰\"})()"
+    },
+    "SP-02": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"SP-02\")&&(s.placedMembers||{})[\"SP-02\"]===\"何明远\"})()"
+    },
+    "G4-01": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G4-01\")&&(s.placedMembers||{})[\"G4-01\"]===\"沈之韬\"})()"
+    },
+    "G4-02": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G4-02\")&&(s.placedMembers||{})[\"G4-02\"]===\"沈音\"})()"
+    },
+    "G4-03": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G4-03\")&&(s.placedMembers||{})[\"G4-03\"]===\"沈嘉豪\"})()"
+    },
+    "G4-04": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G4-04\")&&(s.placedMembers||{})[\"G4-04\"]===\"周诗涵\"})()"
+    },
+    "G4-05": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G4-05\")&&(s.placedMembers||{})[\"G4-05\"]===\"周凯文\"})()"
+    },
+    "G4-06": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G4-06\")&&(s.placedMembers||{})[\"G4-06\"]===\"林若梅\"})()"
+    },
+    "G4-07": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G4-07\")&&(s.placedMembers||{})[\"G4-07\"]===\"陈思远\"})()"
+    },
+    "G4-08": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G4-08\")&&(s.placedMembers||{})[\"G4-08\"]===\"李浩然\"})()"
+    },
+    "G4-09": {
+      "type": "js_truthy",
+      "expr": "(()=>{const s=JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\");return (s.confirmedSlots||[]).includes(\"G4-09\")&&(s.placedMembers||{})[\"G4-09\"]===\"Emily Chen\"})()"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "(()=>{const w=document.getElementById(\"win-screen\");return !!w&&getComputedStyle(w).display!==\"none\"&&w.innerText.includes(\"调 查 完 成\")})()"
+    },
+    "CLUE-01": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-01\")"
+    },
+    "CLUE-02": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-02\")"
+    },
+    "CLUE-03": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-03\")"
+    },
+    "CLUE-04": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-04\")"
+    },
+    "CLUE-05": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-05\")"
+    },
+    "CLUE-06": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-06\")"
+    },
+    "CLUE-07": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-07\")"
+    },
+    "CLUE-08": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-08\")"
+    },
+    "CLUE-09": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-09\")"
+    },
+    "CLUE-10": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-10\")"
+    },
+    "CLUE-11": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-11\")"
+    },
+    "CLUE-12": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-12\")"
+    },
+    "CLUE-13": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-13\")"
+    },
+    "CLUE-14": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-14\")"
+    },
+    "CLUE-15": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-15\")"
+    },
+    "CLUE-16": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-16\")"
+    },
+    "CLUE-17": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-17\")"
+    },
+    "CLUE-18": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-18\")"
+    },
+    "CLUE-19": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-19\")"
+    },
+    "CLUE-20": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-20\")"
+    },
+    "CLUE-21": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-21\")"
+    },
+    "CLUE-22": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-22\")"
+    },
+    "CLUE-23": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-23\")"
+    },
+    "CLUE-24": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-24\")"
+    },
+    "CLUE-25": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-25\")"
+    },
+    "CLUE-26": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-26\")"
+    },
+    "CLUE-27": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-27\")"
+    },
+    "CLUE-28": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-28\")"
+    },
+    "CLUE-29": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"shen_family_save\")||\"{}\").discoveredClues||[]).includes(\"CLUE-29\")"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "G1-01",
+      "hook": "G1-01",
+      "op": "truthy",
+      "description": "创始人的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G1-02",
+      "hook": "G1-02",
+      "op": "truthy",
+      "description": "创始人之妻的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G1-03",
+      "hook": "G1-03",
+      "op": "truthy",
+      "description": "创始人之弟的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G2-01",
+      "hook": "G2-01",
+      "op": "truthy",
+      "description": "长子的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G2-05",
+      "hook": "G2-05",
+      "op": "truthy",
+      "description": "长子之妻的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G2-02",
+      "hook": "G2-02",
+      "op": "truthy",
+      "description": "次子的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G2-06",
+      "hook": "G2-06",
+      "op": "truthy",
+      "description": "次子之妻的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G2-03",
+      "hook": "G2-03",
+      "op": "truthy",
+      "description": "三女的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G2-07",
+      "hook": "G2-07",
+      "op": "truthy",
+      "description": "三女之夫的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G2-04",
+      "hook": "G2-04",
+      "op": "truthy",
+      "description": "四女的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G2-08",
+      "hook": "G2-08",
+      "op": "truthy",
+      "description": "四女之夫的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G2-09",
+      "hook": "G2-09",
+      "op": "truthy",
+      "description": "陆家之父的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G2-10",
+      "hook": "G2-10",
+      "op": "truthy",
+      "description": "香港茶商的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G3-01",
+      "hook": "G3-01",
+      "op": "truthy",
+      "description": "长房长子的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G3-09",
+      "hook": "G3-09",
+      "op": "truthy",
+      "description": "长房长媳的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G3-02",
+      "hook": "G3-02",
+      "op": "truthy",
+      "description": "长房次女的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G3-03",
+      "hook": "G3-03",
+      "op": "truthy",
+      "description": "二房长子的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G3-10",
+      "hook": "G3-10",
+      "op": "truthy",
+      "description": "二房长媳的身份关系经原作批量验证确认",
+      "role": "diagnostic"
+    },
+    {
+      "id": "G3-04",
+      "hook": "G3-04",
+      "op": "truthy",
+      "description": "二房次女的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G3-11",
+      "hook": "G3-11",
+      "op": "truthy",
+      "description": "二房次婿的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G3-05",
+      "hook": "G3-05",
+      "op": "truthy",
+      "description": "三房长子的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G3-12",
+      "hook": "G3-12",
+      "op": "truthy",
+      "description": "三房长媳的身份关系经原作批量验证确认",
+      "role": "diagnostic"
+    },
+    {
+      "id": "G3-06",
+      "hook": "G3-06",
+      "op": "truthy",
+      "description": "三房次女的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G3-07",
+      "hook": "G3-07",
+      "op": "truthy",
+      "description": "四房独子的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G3-13",
+      "hook": "G3-13",
+      "op": "truthy",
+      "description": "四房儿媳的身份关系经原作批量验证确认",
+      "role": "diagnostic"
+    },
+    {
+      "id": "G3-15",
+      "hook": "G3-15",
+      "op": "truthy",
+      "description": "长房长媳之妹的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G3-16",
+      "hook": "G3-16",
+      "op": "truthy",
+      "description": "四女夫之弟的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "SP-01",
+      "hook": "SP-01",
+      "op": "truthy",
+      "description": "家族老仆的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "SP-02",
+      "hook": "SP-02",
+      "op": "truthy",
+      "description": "遗产律师的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G4-01",
+      "hook": "G4-01",
+      "op": "truthy",
+      "description": "长房孙的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G4-02",
+      "hook": "G4-02",
+      "op": "truthy",
+      "description": "长房孙女的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G4-03",
+      "hook": "G4-03",
+      "op": "truthy",
+      "description": "二房孙的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G4-04",
+      "hook": "G4-04",
+      "op": "truthy",
+      "description": "二房外孙女的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G4-05",
+      "hook": "G4-05",
+      "op": "truthy",
+      "description": "三房外孙的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G4-06",
+      "hook": "G4-06",
+      "op": "truthy",
+      "description": "三房外曾孙女的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G4-07",
+      "hook": "G4-07",
+      "op": "truthy",
+      "description": "四房外孙的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G4-08",
+      "hook": "G4-08",
+      "op": "truthy",
+      "description": "长房孙女友的身份关系经原作批量验证确认",
+      "role": "critical"
+    },
+    {
+      "id": "G4-09",
+      "hook": "G4-09",
+      "op": "truthy",
+      "description": "二房孙媳的身份关系经原作批量验证确认",
+      "role": "critical"
+    }
+  ],
+  "events": {
+    "CLUE-01": {
+      "hook": "CLUE-01",
+      "op": "truthy"
+    },
+    "CLUE-02": {
+      "hook": "CLUE-02",
+      "op": "truthy"
+    },
+    "CLUE-03": {
+      "hook": "CLUE-03",
+      "op": "truthy"
+    },
+    "CLUE-04": {
+      "hook": "CLUE-04",
+      "op": "truthy"
+    },
+    "CLUE-05": {
+      "hook": "CLUE-05",
+      "op": "truthy"
+    },
+    "CLUE-06": {
+      "hook": "CLUE-06",
+      "op": "truthy"
+    },
+    "CLUE-07": {
+      "hook": "CLUE-07",
+      "op": "truthy"
+    },
+    "CLUE-08": {
+      "hook": "CLUE-08",
+      "op": "truthy"
+    },
+    "CLUE-09": {
+      "hook": "CLUE-09",
+      "op": "truthy"
+    },
+    "CLUE-10": {
+      "hook": "CLUE-10",
+      "op": "truthy"
+    },
+    "CLUE-11": {
+      "hook": "CLUE-11",
+      "op": "truthy"
+    },
+    "CLUE-12": {
+      "hook": "CLUE-12",
+      "op": "truthy"
+    },
+    "CLUE-13": {
+      "hook": "CLUE-13",
+      "op": "truthy"
+    },
+    "CLUE-14": {
+      "hook": "CLUE-14",
+      "op": "truthy"
+    },
+    "CLUE-15": {
+      "hook": "CLUE-15",
+      "op": "truthy"
+    },
+    "CLUE-16": {
+      "hook": "CLUE-16",
+      "op": "truthy"
+    },
+    "CLUE-17": {
+      "hook": "CLUE-17",
+      "op": "truthy"
+    },
+    "CLUE-18": {
+      "hook": "CLUE-18",
+      "op": "truthy"
+    },
+    "CLUE-19": {
+      "hook": "CLUE-19",
+      "op": "truthy"
+    },
+    "CLUE-20": {
+      "hook": "CLUE-20",
+      "op": "truthy"
+    },
+    "CLUE-21": {
+      "hook": "CLUE-21",
+      "op": "truthy"
+    },
+    "CLUE-22": {
+      "hook": "CLUE-22",
+      "op": "truthy"
+    },
+    "CLUE-23": {
+      "hook": "CLUE-23",
+      "op": "truthy"
+    },
+    "CLUE-24": {
+      "hook": "CLUE-24",
+      "op": "truthy"
+    },
+    "CLUE-25": {
+      "hook": "CLUE-25",
+      "op": "truthy"
+    },
+    "CLUE-26": {
+      "hook": "CLUE-26",
+      "op": "truthy"
+    },
+    "CLUE-27": {
+      "hook": "CLUE-27",
+      "op": "truthy"
+    },
+    "CLUE-28": {
+      "hook": "CLUE-28",
+      "op": "truthy"
+    },
+    "CLUE-29": {
+      "hook": "CLUE-29",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "investigation_complete",
+      "gates": [
+        "G1-01",
+        "G1-02",
+        "G1-03",
+        "G2-01",
+        "G2-05",
+        "G2-02",
+        "G2-06",
+        "G2-03",
+        "G2-07",
+        "G2-04",
+        "G2-08",
+        "G2-09",
+        "G2-10",
+        "G3-01",
+        "G3-09",
+        "G3-02",
+        "G3-03",
+        "G3-04",
+        "G3-11",
+        "G3-05",
+        "G3-06",
+        "G3-07",
+        "G3-15",
+        "G3-16",
+        "SP-01",
+        "SP-02",
+        "G4-01",
+        "G4-02",
+        "G4-03",
+        "G4-04",
+        "G4-05",
+        "G4-06",
+        "G4-07",
+        "G4-08",
+        "G4-09"
+      ],
+      "ending": {
+        "hook": "ending",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "ending",
+    "op": "truthy"
+  },
+  "answer_sha256": []
+}

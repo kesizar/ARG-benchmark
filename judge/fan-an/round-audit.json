@@ -1,0 +1,178 @@
+{
+  "record_id": "base664:0580",
+  "source": "tasks/fan-an/mirror/index.html",
+  "scope": "Private audit; source key is not exposed as model observation. Nineteen of twenty notes are rendered before response.",
+  "rounds": [
+    {
+      "round": 1,
+      "speaker": "陈警官",
+      "prompt": "林深，8月20号晚10点，城西公寓，你合伙人周明死了。监控、指纹、通话记录——三证指向你。交代吧。",
+      "visible_note": "（脑海里浮起一张纸条：呼吸。城东。你记得城东的灯还亮着。）",
+      "native_correct_option": "「我整晚在城东开会，签到和楼道监控都能证明我不在场。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 2,
+      "speaker": "陈警官",
+      "prompt": "可城西公寓的楼道监控，拍到你当天进出过。怎么解释？",
+      "visible_note": "（纸条又出现：那监控的时间戳——被人为回拨过。）",
+      "native_correct_option": "「那是白天去拿文件，和命案差了两个钟头。你们对比过原始码流吗？」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 3,
+      "speaker": "陈警官",
+      "prompt": "周明手机最后一通电话，就是打给你的。案发前二十分钟。",
+      "visible_note": "（纸条：那通电话，是他在跟自己演戏。）",
+      "native_correct_option": "「那通是他拨给自己另一号、再免提外放，伪造我在场。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 4,
+      "speaker": "陈警官",
+      "prompt": "凶器上，清清楚楚是你右手食指的指纹。",
+      "visible_note": "（纸条：那指纹是冷的。是他在布置现场时，自己按上去的。）",
+      "native_correct_option": "「指纹是周明自己的。他先刺伤自己，再握着我的手去碰凶器布置现场。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 5,
+      "speaker": "陈警官",
+      "prompt": "证据链完整。签了字，这案子今天就结。林深，别挣扎了。",
+      "visible_note": "",
+      "native_correct_option": "「我要翻案。先查他的资产转移和偷偷改回的保险受益人。」",
+      "assessment": "No scene note; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 6,
+      "speaker": "陈警官",
+      "prompt": "我们查了保单——受益人早就改了。你说你不知情？",
+      "visible_note": "（纸条：受益人改回的是他自己。他图的是理赔金。）",
+      "native_correct_option": "「原始投保单受益人一直是周明本人，所谓涂改，是想把名字塞回他自己。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 7,
+      "speaker": "陈警官",
+      "prompt": "你说监控被篡改，拿得出后台记录吗？",
+      "visible_note": "（纸条：整栋楼的后台，只有他一个人能进。）",
+      "native_correct_option": "「全楼后台唯一管理员是周明，他电脑里还留着删门禁日志的记录。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 8,
+      "speaker": "陈警官",
+      "prompt": "凶器总归是你买的。物流单上收货人写的就是你。",
+      "visible_note": "（纸条：物流寄到的是他家，不是你。）",
+      "native_correct_option": "「凶器是周明本人网购，物流寄到他家地址，与我的消费记录毫无交集。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 9,
+      "speaker": "物业老周",
+      "prompt": "我是这栋楼的物业老周。你说你没进过城西公寓？可门禁系统里，你这半年的记录一大堆。",
+      "visible_note": "（纸条：他说的\"你记录多\"是正常上下班。真正被删的，是案发那晚他自己的进出。）",
+      "native_correct_option": "「我每天门禁是上下班，案发那晚的进出记录恰好被人删了。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 10,
+      "speaker": "陈警官",
+      "prompt": "我们调了你的网约车记录，那晚你确实打过车。",
+      "visible_note": "（纸条：行程单时间戳在平台服务器，他改不了。）",
+      "native_correct_option": "「我22:40从城东打车回住处，行程单和城东三位同事联名证词都在。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 11,
+      "speaker": "陈警官",
+      "prompt": "你同事说你那晚在城东，可他们也说了，你中途离席过二十分钟。",
+      "visible_note": "（纸条：离席是去取文件，22:40 的网约车和三位同事都在，二十分钟盖不住命案时间。）",
+      "native_correct_option": "「离席二十分钟取文件，22:40网约车和同事证词足以盖过空隙。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 12,
+      "speaker": "陈警官",
+      "prompt": "你说他搬空公司资产，有证据吗？空口无凭。",
+      "visible_note": "（纸条：海外壳公司的股权过户邮件，落款是他的私人邮箱。）",
+      "native_correct_option": "「海外壳公司股权过户邮件落款是周明私人邮箱，法人是他安排的情人。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 13,
+      "speaker": "核保员小苏",
+      "prompt": "我是保险公司核保员。这份保单受益人栏，确实被涂改过——但笔迹鉴定说，更像你模仿的。",
+      "visible_note": "（纸条：模仿说站不住脚，原始投保单受益人一直是他本人，涂改是想塞回自己名字。）",
+      "native_correct_option": "「原始投保单受益人始终是周明本人，涂改是想把名字塞回他自己。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 14,
+      "speaker": "陈警官",
+      "prompt": "你说时间戳回拨，可原始码流我们技术科比对过，没发现问题。",
+      "visible_note": "（纸条：他们比对的\"原始码流\"是他提交的备份，真正的底层时间戳在服务器日志里。）",
+      "native_correct_option": "「你们比对的是他提交的备份。真正的底层时间戳在平台服务器日志里，调出来就露馅。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 15,
+      "speaker": "陈警官",
+      "prompt": "就算那通电话是他演的，可你手机里也有和他当天的通话记录。",
+      "visible_note": "（纸条：你手机里的是正常业务通话，他\"打给你\"的那通是拨给自己另一号再外放，两码事。）",
+      "native_correct_option": "「我手机里是正常业务通话，他演的那通是拨自己另一号再外放。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 16,
+      "speaker": "陈警官",
+      "prompt": "指纹转移说不通。你手上有伤，和凶器握痕吻合。",
+      "visible_note": "（纸条：那伤是你之前修水管划的，和案子无关；凶器上只有他自己的指纹。）",
+      "native_correct_option": "「手上的伤是修水管划的，和案子无关。凶器上只有周明自己的指纹，没有我的。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 17,
+      "speaker": "周明助理阿杰",
+      "prompt": "我是周明的助理阿杰。林总，老板生前确实提过把资产转去海外，但他说……是你同意的。",
+      "visible_note": "（纸条：他替周明圆谎。海外壳公司法人是周明情人，和你没关系，阿杰不敢说全。）",
+      "native_correct_option": "「周明在替自己圆谎。海外壳公司法人是他情人，资产流向他隐名账户。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 18,
+      "speaker": "陈警官",
+      "prompt": "你邻居作证，说那阵子你俩关系紧张，你还放话\"迟早收拾他\"。",
+      "visible_note": "（纸条：邻居是周明请的，话是他教的。别被带节奏。）",
+      "native_correct_option": "「那是酒桌上的气话，全公司都听过。他拿这个当动机，正说明他手里没真东西。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 19,
+      "speaker": "陈警官",
+      "prompt": "林深，最后机会。认罪，算自首，从轻。翻供，你就把后半生押上去了。",
+      "visible_note": "（纸条：把陈词拼出来。顺序别乱——先不在场，再资产、骗保，然后监控、日志，最后戳穿来电、凶器、物流。）",
+      "native_correct_option": "「我从没杀他。给我纸笔，我把八条陈词一条条写清楚。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    },
+    {
+      "round": 20,
+      "speaker": "陈警官",
+      "prompt": "行，那你说。把你的八条陈词，一条条讲清楚——我记着。八条，少一条都不算翻案。",
+      "visible_note": "（纸条：八条，按我说的顺序。别把假记忆当证据交上去——那会要你的命。）",
+      "native_correct_option": "「第一条城东；第二条他搬空资产；第三条他改回受益人……第八条凶器寄到他家。」",
+      "assessment": "Scene note visible before selection; accepted response is source key, not independent proof of reasoning."
+    }
+  ],
+  "slot_assessment": [
+    "Alibi: category and fragment tags match; timeline conflicts.",
+    "Assets: fragment tag directly names asset motive.",
+    "Insurance: fragment tag names insurance; beneficiary narrative conflicts.",
+    "Monitor: fragment directly says manipulated monitoring.",
+    "Logs: named deleted logs/admin permission.",
+    "Call: directly named self-directed call.",
+    "Weapon: fragment directly names self-inflicted weapon, location chronology conflicts.",
+    "Shipping: fragment explicitly names weapon purchase record."
+  ],
+  "limitations": "Clicking an accepted option does not establish a supported conclusion or independent thought; seven or eight synchronized checks at final success count the same event. All are diagnostic pending coherent evidence and defined scoring."
+}

@@ -1,0 +1,84 @@
+{
+  "id": "xishe-guaitan",
+  "category": "arg",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "西社怪谈",
+    "intro": "调查谢青果在西社村失联的真相。仅使用页面可见线索和正常界面，收集证据并尝试救出她。"
+  },
+  "entry_url": "http://127.0.0.1:8811/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/xishe-guaitan/mirror",
+      "--port",
+      "8811"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8811/index.html",
+    "ready_timeout_s": 30,
+    "port": 8811
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261012,
+  "allow_hosts": [
+    "127.0.0.1:8811"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up",
+    "switch_tab",
+    "close_tab"
+  ],
+  "limits": {
+    "max_steps": 300,
+    "max_seconds": 3600,
+    "max_answer_submits": 20
+  },
+  "settle_ms": 350,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/xishe-guaitan/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "All game assets local; pinyin-pro 3.25.0 vendored. Three reasoning checkpoints; evidence export is diagnostic. Static ending pages can be opened directly: judge additionally requires collected evidence and timer state."
+  ],
+  "account_requirement": "none"
+}

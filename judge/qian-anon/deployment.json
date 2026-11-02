@@ -1,0 +1,85 @@
+{
+  "archive": "packs/qian-anon.prepared.zip",
+  "archive_sha256": "7dc61c546370981e951269049fbee32a8c32bc49f48f94f3f8586beb63aef71d",
+  "deployment_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\qian-deployment-e5454c5b",
+  "crc_ok": true,
+  "all_manifest_hashes_match": true,
+  "model_api_used": false,
+  "environment": "Same Windows host; preinstalled Python dependencies and Edge/Chromium, not a clean install or cross-OS test.",
+  "runtime_hashes": {
+    "harness/observe.py": "bf9c2ba647c63f0e69af6f899c44cf7dbe52f2be9350e2f49f390352c4ed59b2",
+    "harness/browser_harness.py": "194bf2c2d5b872c56525feb05a833280663259474b7bd6186001c688f933c43f",
+    "harness/judge.py": "a75b3ab1513d473ce2768d75e10773300b4deb0c8f9181774facec57a37cddef"
+  },
+  "standard_cli": [
+    "runs/qian-deployment-e5454c5b/runs/qian-anon-quiz/B/20261026_175517/summary.json",
+    "runs/qian-deployment-e5454c5b/runs/qian-anon-pipa/B/20261026_175524/summary.json",
+    "runs/qian-deployment-e5454c5b/runs/qian-anon-cross/B/20261026_175532/summary.json",
+    "runs/qian-deployment-e5454c5b/runs/qian-anon-hunt/B/20261026_175539/summary.json",
+    "runs/qian-deployment-e5454c5b/runs/qian-anon-surf/A/20261026_175546/summary.json",
+    "runs/qian-deployment-e5454c5b/runs/qian-anon-maze/B/20261026_175554/summary.json",
+    "runs/qian-deployment-e5454c5b/runs/qian-anon-gal/B/20261026_175601/summary.json"
+  ],
+  "unit_ui": [
+    {
+      "unit": "quiz",
+      "evidence": "runs/qian-deployment-e5454c5b/judge/qian-anon/verification/quiz-deployment-acceptance.json",
+      "ending_ids": [
+        "win"
+      ],
+      "retained_evidence": "judge/qian-anon/verification/deployed-quiz-acceptance.json"
+    },
+    {
+      "unit": "hunt",
+      "evidence": "runs/qian-deployment-e5454c5b/judge/qian-anon/verification/hunt-deployment-acceptance.json",
+      "ending_ids": [
+        "best"
+      ],
+      "retained_evidence": "judge/qian-anon/verification/deployed-hunt-acceptance.json"
+    },
+    {
+      "unit": "gal",
+      "evidence": "runs/qian-deployment-e5454c5b/judge/qian-anon/verification/gal-deployment-acceptance.json",
+      "ending_ids": [
+        "hi"
+      ],
+      "retained_evidence": "judge/qian-anon/verification/deployed-gal-acceptance.json"
+    },
+    {
+      "unit": "pipa",
+      "evidence": "runs/qian-deployment-e5454c5b/judge/qian-anon/verification/pipa-deployment-acceptance.json",
+      "ending_ids": [
+        "answer"
+      ],
+      "retained_evidence": "judge/qian-anon/verification/deployed-pipa-acceptance.json"
+    },
+    {
+      "unit": "cross",
+      "evidence": "runs/qian-deployment-e5454c5b/judge/qian-anon/verification/cross-deployment-acceptance.json",
+      "ending_ids": [
+        "win"
+      ],
+      "retained_evidence": "judge/qian-anon/verification/deployed-cross-acceptance.json"
+    },
+    {
+      "unit": "maze",
+      "evidence": "runs/qian-deployment-e5454c5b/judge/qian-anon/verification/maze-deployment-acceptance.json",
+      "ending_ids": [
+        "escaped"
+      ],
+      "retained_evidence": "judge/qian-anon/verification/deployed-maze-acceptance.json"
+    },
+    {
+      "unit": "surf",
+      "evidence": "runs/qian-deployment-e5454c5b/judge/qian-anon/verification/surf-acceptance.json",
+      "ending_ids": [
+        "escaped",
+        "swallowed"
+      ],
+      "retained_evidence": "judge/qian-anon/verification/deployed-surf-acceptance.json"
+    }
+  ],
+  "pass": true,
+  "retained_auxiliary": "judge/qian-anon/verification/deployed-auxiliary-acceptance.json",
+  "retained_cli_summaries": "judge/qian-anon/verification/deployed-cli-summaries.json"
+}

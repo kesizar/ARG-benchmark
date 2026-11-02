@@ -1,0 +1,51 @@
+{
+  "entry": "index police badge -> desk; only private source-assisted credential established",
+  "applications": [
+    "wechat 10 chats",
+    "evidence 14 exact-keyword documents",
+    "notepad localStorage support"
+  ],
+  "all_html_pages": [
+    "binjiang_case.html",
+    "chengtou.html",
+    "customized_cuffs.html",
+    "damaged_phone.html",
+    "desk.html",
+    "evidence.html",
+    "indentation.html",
+    "index.html",
+    "jiangchuan.html",
+    "jiankong.html",
+    "linshu.html",
+    "locked_mail.html",
+    "muyangren.html",
+    "qiongdinghui.html",
+    "raven.html",
+    "shenmeng.html",
+    "wechat.html",
+    "xingyao.html"
+  ],
+  "password_branches": [
+    "camera",
+    "old_case",
+    "mail",
+    "shepherd",
+    "server",
+    "ark",
+    "daughter",
+    "forum"
+  ],
+  "routes": [
+    "ending1 truth",
+    "ending2 insufficient evidence",
+    "ending3 wrong suspect"
+  ],
+  "failure_modes": [
+    "empty/short/wrong badge",
+    "unknown search",
+    "incorrect document passwords",
+    "blank or prohibited suspect",
+    "no evidence selected"
+  ],
+  "reset": "fresh browser context full; report retry partial; document reload clears unlocked DOM"
+}

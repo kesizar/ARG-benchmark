@@ -1,8 +1,12 @@
 {
   "hooks": {
+    "audit_init": {
+      "type": "js_truthy",
+      "expr": "(()=>{const key='__yan_audit_v1';if(!window.__yanAudit){let t;try{t=JSON.parse(sessionStorage.getItem(key)||'null')}catch(e){};if(!t){t={tainted:{},unknown:{}};if(S){for(const id of Object.keys(S.itemState||{})){if(S.itemState[id]==='ok'||S.itemState[id]==='partial')t.unknown[id]=true;}}}window.__yanAudit=t;const save=()=>{try{sessionStorage.setItem(key,JSON.stringify(t))}catch(e){}};const see=()=>{if(S&&S.help)for(const id of Object.keys(S.help))if(S.help[id]>=3)t.tainted[id]=true;save()};document.addEventListener('click',e=>{if(!e.isTrusted)return;const b=e.target.closest('button');if(!b)return;see();const old=S;setTimeout(()=>{if(['btn-reset','btn-again','btn-start'].includes(b.id)&&S!==old){t.tainted={};t.unknown={}}see()},0)},true);see()}else{let t=window.__yanAudit;if(S&&S.help){for(const id of Object.keys(S.help))if(S.help[id]>=3)t.tainted[id]=true;try{sessionStorage.setItem(key,JSON.stringify(t))}catch(e){}}}return true})()"
+    },
     "verdict": {
-      "type": "dom_regex",
-      "pattern": "他杀焚尸"
+      "type": "js_truthy",
+      "expr": "S && S.scr === \"scr-verdict\" && document.getElementById(\"scr-verdict\").classList.contains(\"active\") && SLOTS.every(function(s){return slotCorrect(s.id)}) && document.getElementById(\"v-stat\").textContent.length>0"
     },
     "i1": {
       "type": "js_truthy",
@@ -54,156 +58,285 @@
     },
     "s1": {
       "type": "js_truthy",
-      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s1\")"
+      "expr": "S && S.scr === \"scr-verdict\" && slotCorrect(\"s1\")"
     },
     "s2": {
       "type": "js_truthy",
-      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s2\")"
+      "expr": "S && S.scr === \"scr-verdict\" && slotCorrect(\"s2\")"
     },
     "s3": {
       "type": "js_truthy",
-      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s3\")"
+      "expr": "S && S.scr === \"scr-verdict\" && slotCorrect(\"s3\")"
     },
     "s4": {
       "type": "js_truthy",
-      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s4\")"
+      "expr": "S && S.scr === \"scr-verdict\" && slotCorrect(\"s4\")"
     },
     "s5": {
       "type": "js_truthy",
-      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s5\")"
+      "expr": "S && S.scr === \"scr-verdict\" && slotCorrect(\"s5\")"
     },
     "s6": {
       "type": "js_truthy",
-      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s6\")"
+      "expr": "S && S.scr === \"scr-verdict\" && slotCorrect(\"s6\")"
     },
     "s7": {
       "type": "js_truthy",
-      "expr": "typeof slotCorrect===\"function\"&&slotCorrect(\"s7\")"
+      "expr": "S && S.scr === \"scr-verdict\" && slotCorrect(\"s7\")"
+    },
+    "clean_i1": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i1===\"ok\"&&window.__yanAudit&&!window.__yanAudit.tainted.i1&&!window.__yanAudit.unknown.i1"
+    },
+    "clean_i2": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i2===\"ok\"&&window.__yanAudit&&!window.__yanAudit.tainted.i2&&!window.__yanAudit.unknown.i2"
+    },
+    "clean_i3": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i3===\"ok\"&&window.__yanAudit&&!window.__yanAudit.tainted.i3&&!window.__yanAudit.unknown.i3"
+    },
+    "clean_i4": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i4===\"ok\"&&window.__yanAudit&&!window.__yanAudit.tainted.i4&&!window.__yanAudit.unknown.i4"
+    },
+    "clean_i5": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i5===\"ok\"&&window.__yanAudit&&!window.__yanAudit.tainted.i5&&!window.__yanAudit.unknown.i5"
+    },
+    "clean_i6": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i6===\"ok\"&&window.__yanAudit&&!window.__yanAudit.tainted.i6&&!window.__yanAudit.unknown.i6"
+    },
+    "clean_i7": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i7===\"ok\"&&window.__yanAudit&&!window.__yanAudit.tainted.i7&&!window.__yanAudit.unknown.i7"
+    },
+    "clean_i8": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i8===\"ok\"&&window.__yanAudit&&!window.__yanAudit.tainted.i8&&!window.__yanAudit.unknown.i8"
+    },
+    "clean_i9": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i9===\"ok\"&&window.__yanAudit&&!window.__yanAudit.tainted.i9&&!window.__yanAudit.unknown.i9"
+    },
+    "clean_i10": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i10===\"ok\"&&window.__yanAudit&&!window.__yanAudit.tainted.i10&&!window.__yanAudit.unknown.i10"
+    },
+    "clean_i11": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i11===\"ok\"&&window.__yanAudit&&!window.__yanAudit.tainted.i11&&!window.__yanAudit.unknown.i11"
+    },
+    "clean_i12": {
+      "type": "js_truthy",
+      "expr": "S&&S.itemState&&S.itemState.i12===\"ok\"&&window.__yanAudit&&!window.__yanAudit.tainted.i12&&!window.__yanAudit.unknown.i12"
+    },
+    "clean_all": {
+      "type": "js_truthy",
+      "expr": "S && window.__yanAudit && ITEMS.every(x=>S.itemState[x.id]===\"ok\" && !window.__yanAudit.tainted[x.id] && !window.__yanAudit.unknown[x.id])"
     }
   },
   "checkpoints": [
     {
       "id": "i1",
       "hook": "i1",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "i2",
       "hook": "i2",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "i3",
       "hook": "i3",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "i4",
       "hook": "i4",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "i5",
       "hook": "i5",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "i6",
       "hook": "i6",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "i7",
       "hook": "i7",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "i8",
       "hook": "i8",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "i9",
       "hook": "i9",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "i10",
       "hook": "i10",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "i11",
       "hook": "i11",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "i12",
       "hook": "i12",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "s1",
       "hook": "s1",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "s2",
       "hook": "s2",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "s3",
       "hook": "s3",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "s4",
       "hook": "s4",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "s5",
       "hook": "s5",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "s6",
       "hook": "s6",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "s7",
       "hook": "s7",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "clean_i1",
+      "hook": "clean_i1",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "clean_i2",
+      "hook": "clean_i2",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "clean_i3",
+      "hook": "clean_i3",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "clean_i4",
+      "hook": "clean_i4",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "clean_i5",
+      "hook": "clean_i5",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "clean_i6",
+      "hook": "clean_i6",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "clean_i7",
+      "hook": "clean_i7",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "clean_i8",
+      "hook": "clean_i8",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "clean_i9",
+      "hook": "clean_i9",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "clean_i10",
+      "hook": "clean_i10",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "clean_i11",
+      "hook": "clean_i11",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "clean_i12",
+      "hook": "clean_i12",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "unhinted_book_matching",
+      "hook": "clean_all",
+      "op": "truthy",
+      "role": "critical"
     }
   ],
   "events": {},
   "routes": [
     {
       "id": "verdict",
-      "tier": "good",
-      "gates": [
-        "i1",
-        "i2",
-        "i3",
-        "i4",
-        "i5",
-        "i6",
-        "i7",
-        "i8",
-        "i9",
-        "i10",
-        "i11",
-        "i12",
-        "s1",
-        "s2",
-        "s3",
-        "s4",
-        "s5",
-        "s6",
-        "s7"
-      ],
+      "tier": "normal",
+      "gates": [],
       "ending": {
         "hook": "verdict",
         "op": "truthy"

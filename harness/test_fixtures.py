@@ -34,10 +34,10 @@ class FixtureTests(unittest.TestCase):
         self.assertIn('"op": "click"', steps)
         self.assertIn('"result": "ok"', steps)
         l2 = json.loads((_latest(ROOT / "runs" / "arg-l2-fixture" / "B") / "summary.json").read_text(encoding="utf-8"))
-        self.assertEqual(l2["arg_layer"], "L2")
+        self.assertEqual(l2["runtime_layer"], "L1")
         rows = aggregate(ROOT / "runs")
-        self.assertIn(("arg", "L2"), {(row["category"], row["arg_layer"]) for row in rows})
-        self.assertTrue(all(row["arg_layer"] != "ALL" for row in rows))
+        self.assertIn(("arg", "L1"), {(row["category"], row["runtime_layer"]) for row in rows})
+        self.assertTrue(all(row["runtime_layer"] != "ALL" for row in rows))
         out = ROOT / "runs" / "fixture-aggregate.csv"
         write_csv(rows, out)
         with out.open(encoding="utf-8-sig", newline="") as handle:
@@ -46,7 +46,7 @@ class FixtureTests(unittest.TestCase):
             list(header or []),
             [
                 "category",
-                "arg_layer",
+                "runtime_layer",
                 "obs_mode",
                 "model",
                 "runs",
@@ -54,6 +54,9 @@ class FixtureTests(unittest.TestCase):
                 "checkpoints_total",
                 "endings",
                 "endings_rate",
+                "failure_observed_runs",
+                "failures",
+                "failure_rate",
                 "good_endings",
                 "good_endings_rate",
                 "mean_progress",
@@ -65,7 +68,7 @@ class FixtureTests(unittest.TestCase):
 
 async def _l3_block() -> None:
     summary = await run(L3, policy="script", obs_mode="B", repo_root=ROOT)
-    if summary.get("arg_layer") != "L3":
+    if summary.get("runtime_layer") != "L3":
         raise AssertionError(summary)
     if summary.get("ended_reason") != "give_up":
         raise AssertionError(summary)

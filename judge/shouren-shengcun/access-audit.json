@@ -1,0 +1,110 @@
+{
+  "record_id": "added84:0058",
+  "timestamp_utc": "2026-10-26T13:09:09.600962+00:00",
+  "snapshot": {
+    "path": "ARG-packs/verify-84/bodies/58.html",
+    "bytes": 500483,
+    "sha256": "ffee95eb517e7453562724a91d9cc80014cad960160dbe54200368ba6a25ba4e",
+    "script_open": 1,
+    "script_close": 0,
+    "has_html_close": false,
+    "tail": "ntensity,this.emissive.copy(t.emissive),this.emissiveMap=t.emissiveMap,this.emissiveIntensity=t.emissiveIntensity,this.bumpMap=t.bumpMap,this.bumpScale=t.bumpScale,this.normalMap=t.normalMap,this.normalMapType=t.normalMapType,this.normalScale.copy(t.",
+    "interpretation": "Cut mid bundled Three.js, before closing script and actual game logic. Not a runnable snapshot."
+  },
+  "curl_checks": [
+    {
+      "url": "https://a361d78ee30e54fbe.app.workbuddy.host/",
+      "error": "schannel TLS handshake failed"
+    },
+    {
+      "url": "https://miyeji.cn/games/da-chu-wang",
+      "error": "schannel TLS handshake failed"
+    }
+  ],
+  "httpx_checks": [
+    {
+      "url": "https://a361d78ee30e54fbe.app.workbuddy.host/",
+      "error": "ConnectError('')"
+    },
+    {
+      "url": "https://miyeji.cn/games/da-chu-wang",
+      "error": "ConnectError('')"
+    }
+  ],
+  "archive_indexes": [
+    {
+      "path": "ARG-packs/incoming/agent-escape-bench.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/incoming/baba-is-ai.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/incoming/bellingcat.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/incoming/mackerelmediafish-source.zip",
+      "error": "truncated/unreadable ZIP index retained"
+    },
+    {
+      "path": "ARG-packs/incoming/meta-data.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/pilot-11/baoya.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/pilot-11/escape-the-website-gh.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/pilot-11/gongwei-404.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/pilot-11/lingyi-forum.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/pilot-11/lost-pig.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/pilot-11/nanwan-findme.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/pilot-11/night-computer-center.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/pilot-11/nine-oh-five.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/pilot-11/python-challenge-0-3.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/pilot-11/sis.zip",
+      "matches": []
+    },
+    {
+      "path": "ARG-packs/pilot-11/zenon.zip",
+      "matches": []
+    }
+  ],
+  "browser_probe": {
+    "url": "https://a361d78ee30e54fbe.app.workbuddy.host/",
+    "request_failures": [
+      {
+        "url": "https://a361d78ee30e54fbe.app.workbuddy.host/",
+        "error": "net::ERR_CONNECTION_CLOSED"
+      }
+    ],
+    "error": "Page.goto: net::ERR_CONNECTION_CLOSED at https://a361d78ee30e54fbe.app.workbuddy.host/\nCall log:\n  - navigating to \"https://a361d78ee30e54fbe.app.workbuddy.host/\", waiting until \"domcontentloaded\"\n"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "hooks": {
+    "identity": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/001/xuesheng.html\") && Array.from(document.querySelectorAll(\".reply-item\")).some(x=>x.textContent.includes(\"你是陈屿。\"))"
+    },
+    "intent": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/001/xuesheng.html\") && Array.from(document.querySelectorAll(\".reply-item\")).some(x=>x.textContent.includes(\"你只需要告诉我你这样做是为了什么。\"))"
+    },
+    "killer": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/001/xuesheng.html\") && Array.from(document.querySelectorAll(\".reply-item\")).some(x=>x.textContent.includes(\"嫉妒她的周毅\"))"
+    },
+    "branch1": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/001/xuesheng.html\") && !!document.querySelector(\"[data-final=true]\") && Array.from(document.querySelectorAll(\".reply-item\")).some(x=>x.textContent.includes(\"我觉得俩人一样该死\"))"
+    },
+    "end1": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/001/jj1.html\") && document.querySelector(\".page-indicator\")?.textContent.includes(\"结局一\") && !!window.opener && window.opener.location.pathname.endsWith(\"/001/xuesheng.html\") && Array.from(window.opener.document.querySelectorAll(\"[data-fourth-choice]\")).some(x=>x.dataset.fourthChoice===\"该死\") && !!window.opener.document.querySelector(\"[data-final=true]\")"
+    },
+    "branch2": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/001/xuesheng.html\") && !!document.querySelector(\"[data-final=true]\") && Array.from(document.querySelectorAll(\".reply-item\")).some(x=>x.textContent.includes(\"死亡对他这种人来说太轻了。\"))"
+    },
+    "end2": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/001/jj2.html\") && document.querySelector(\".page-indicator\")?.textContent.includes(\"结局二\") && !!window.opener && window.opener.location.pathname.endsWith(\"/001/xuesheng.html\") && Array.from(window.opener.document.querySelectorAll(\"[data-fourth-choice]\")).some(x=>x.dataset.fourthChoice===\"不该死\") && !!window.opener.document.querySelector(\"[data-final=true]\")"
+    },
+    "branch3": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/001/xuesheng.html\") && !!document.querySelector(\"[data-final=true]\") && Array.from(document.querySelectorAll(\".reply-item\")).some(x=>x.textContent.includes(\"我不想毁了我的信誉 今天我就当没见过你\"))"
+    },
+    "end3": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/001/jj3.html\") && document.querySelector(\".page-indicator\")?.textContent.includes(\"结局三\") && !!window.opener && window.opener.location.pathname.endsWith(\"/001/xuesheng.html\") && Array.from(window.opener.document.querySelectorAll(\"[data-fourth-choice]\")).some(x=>x.dataset.fourthChoice===\"who cares？\") && !!window.opener.document.querySelector(\"[data-final=true]\")"
+    },
+    "wechat": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/001/weixin.html\")"
+    },
+    "outlook": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/001/mailbox.html\")"
+    },
+    "hospital": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/001/yiyuanjilu.html\")"
+    },
+    "teacher": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/001/zhigong.html\")"
+    },
+    "completed": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith(\"/index.html\") && JSON.parse(localStorage.getItem(\"caseCompleted\")||\"[]\")[0]===true"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "identity",
+      "hook": "identity",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "intent",
+      "hook": "intent",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "killer",
+      "hook": "killer",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "branch1",
+      "hook": "branch1",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "branch2",
+      "hook": "branch2",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "branch3",
+      "hook": "branch3",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "wechat",
+      "hook": "wechat",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "outlook",
+      "hook": "outlook",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "hospital",
+      "hook": "hospital",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "teacher",
+      "hook": "teacher",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "completed",
+      "hook": "completed",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "ending1",
+      "tier": "normal",
+      "gates": [
+        "identity",
+        "intent",
+        "killer",
+        "branch1"
+      ],
+      "ending": {
+        "hook": "end1",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "ending2",
+      "tier": "normal",
+      "gates": [
+        "identity",
+        "intent",
+        "killer",
+        "branch2"
+      ],
+      "ending": {
+        "hook": "end2",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "ending3",
+      "tier": "normal",
+      "gates": [
+        "identity",
+        "intent",
+        "killer",
+        "branch3"
+      ],
+      "ending": {
+        "hook": "end3",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": null,
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,0 +1,12 @@
+{
+  "hooks": {
+    "final_view": {"type":"js_truthy", "expr":"(()=>{let e=document.querySelector('#page-secret.active');return !!e && e.innerText.includes('第三章 完') && e.innerText.includes('夜莺不会停止')})()"},
+    "final_search": {"type":"js_truthy", "expr":"(()=>{let e=document.querySelector('#page-search.active');return !!e && e.innerText.includes('你已解锁江燕医院的最终真相')})()"}
+  },
+  "checkpoints":[{"id":"final_search","hook":"final_search","op":"truthy","role":"diagnostic"}],
+  "events":{},
+  "routes":[{"id":"final_view","gates":[],"ending":{"hook":"final_view","op":"truthy"}}],
+  "ending":{"hook":"final_view","op":"truthy"},
+  "answer_sha256":[],"answer_hash_file":null,"request_milestones":[],
+  "submit_conclusion":{"enabled":false,"schema":null},"rubric_path":null
+}

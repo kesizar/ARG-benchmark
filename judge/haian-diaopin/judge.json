@@ -1,0 +1,42 @@
+{
+  "hooks": {
+    "login": {
+      "type": "js_truthy",
+      "expr": "((()=>{try{return JSON.parse(localStorage.getItem('coastfm893_save_v1')||'{}')}catch{return {}}})().internUnlocked === true && (()=>{try{return JSON.parse(localStorage.getItem('coastfm893_save_v1')||'{}')}catch{return {}}})().hintChosen === true && (()=>{try{return JSON.parse(localStorage.getItem('coastfm893_save_v1')||'{}')}catch{return {}}})().hintsEnabled === false)"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"coastfm893_save_v1\")||\"{}\");return s.endingSeen===true && s.endingUnlocked===true && document.body.innerText.includes(\"真相拼图\")}catch{return false}})()"
+    },
+    "hints": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return JSON.parse(localStorage.getItem('coastfm893_save_v1')||'{}')}catch{return {}}})().hintsEnabled === true"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "intern_password",
+      "hook": "login",
+      "op": "truthy",
+      "description": "无提示模式下登录实习园地，推导并输入开播年份和达标时刻"
+    }
+  ],
+  "events": {
+    "hint_mode": {
+      "hook": "hints",
+      "op": "truthy"
+    }
+  },
+  "terminal_failures": [],
+  "routes": [
+    {
+      "id": "restored_recording",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "ending",
+        "op": "truthy"
+      }
+    }
+  ]
+}

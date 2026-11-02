@@ -1,0 +1,815 @@
+{
+  "hooks": {
+    "file_01": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"01-AT-2\"))"
+    },
+    "file_02": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"01-BI-6-10\"))"
+    },
+    "file_03": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"01-DI-7-8\"))"
+    },
+    "file_04": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"01-HE-4-9\"))"
+    },
+    "file_05": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"01-LI-3-5\"))"
+    },
+    "file_06": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"01-ST-12\"))"
+    },
+    "file_07": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"02-AT-2-4\"))"
+    },
+    "file_08": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"02-KI-11\"))"
+    },
+    "file_09": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"02-LI-5-8-9\"))"
+    },
+    "file_10": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"02-OS-3\"))"
+    },
+    "file_11": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"03-AT-2-3\"))"
+    },
+    "file_12": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"03-KI-10-11\"))"
+    },
+    "file_13": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"04-AT-2-7\"))"
+    },
+    "file_14": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"04-BI-6-9\"))"
+    },
+    "file_15": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"04-HE-4\"))"
+    },
+    "file_16": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"04-KI-3-10-11\"))"
+    },
+    "file_17": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"04-ST-1-5-8\"))"
+    },
+    "file_18": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"05-AT-2-4\"))"
+    },
+    "file_19": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"05-BI-6-7\"))"
+    },
+    "file_20": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"05-DI-1-5\"))"
+    },
+    "file_21": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"05-KI-8-10-11\"))"
+    },
+    "file_22": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"05-LI-3-9\"))"
+    },
+    "file_23": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"06-DI-5-6-7\"))"
+    },
+    "file_24": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"06-ED-8-10\"))"
+    },
+    "file_25": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"06-LI-2-9\"))"
+    },
+    "file_26": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"06-ST-1-11\"))"
+    },
+    "file_27": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"06-TO-3-4\"))"
+    },
+    "file_28": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"07-DI-1-2-4-5-6-7-8-9\"))"
+    },
+    "file_29": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"07-ED-10\"))"
+    },
+    "file_30": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"07-KI-11\"))"
+    },
+    "file_31": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"07-ST-3\"))"
+    },
+    "file_32": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"08-DI-2-7-8-9\"))"
+    },
+    "file_33": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"08-ED-4-10\"))"
+    },
+    "file_34": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"08-KI-1-6\"))"
+    },
+    "file_35": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"08-MA-3-5\"))"
+    },
+    "file_36": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"09-DI-1-3\"))"
+    },
+    "file_37": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"09-ED-6-10\"))"
+    },
+    "file_38": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"09-MA-5-7\"))"
+    },
+    "file_39": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"09-TO-4-9\"))"
+    },
+    "file_40": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"09-VI-2-8\"))"
+    },
+    "file_41": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"10-DI-2-3\"))"
+    },
+    "file_42": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"10-ED-8\"))"
+    },
+    "file_43": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"10-LI-7-9\"))"
+    },
+    "file_44": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"10-MA-5-6\"))"
+    },
+    "file_45": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"10-TO-1-4\"))"
+    },
+    "file_46": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"11-BI-6-9\"))"
+    },
+    "file_47": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"11-LI-1-7-8\"))"
+    },
+    "file_48": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"11-OS-2-3\"))"
+    },
+    "file_49": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"11-TO-4-5\"))"
+    },
+    "file_50": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"12-BI-1-2-3-4-5-7-8-9\"))"
+    },
+    "file_51": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"12-TO-6\"))"
+    },
+    "file_52": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"13-AT-2\"))"
+    },
+    "file_53": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"13-MA-5\"))"
+    },
+    "file_54": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"13-OS-3\"))"
+    },
+    "file_55": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"13-ST-1\"))"
+    },
+    "file_56": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"13-TO-4-6\"))"
+    },
+    "file_57": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"13-VI-7-8\"))"
+    },
+    "file_58": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"14-AT-2-4\"))"
+    },
+    "file_59": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"14-DI-1-3-5\"))"
+    },
+    "file_60": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"14-LI-6\"))"
+    },
+    "file_61": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"14-VI-7\"))"
+    },
+    "file_62": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"15-DI-3-6\"))"
+    },
+    "file_63": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"15-VI-1-2-4-5-7\"))"
+    },
+    "file_64": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"16-DI-5-7\"))"
+    },
+    "file_65": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"16-KI-1-2-3-4-6\"))"
+    },
+    "file_66": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"17-DI-6-7\"))"
+    },
+    "file_67": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"17-KI-2-3-4\"))"
+    },
+    "file_68": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"17-MA-1-5\"))"
+    },
+    "file_69": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"18-AT-1-4\"))"
+    },
+    "file_70": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"18-KI-3\"))"
+    },
+    "file_71": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"18-MA-5-6\"))"
+    },
+    "file_72": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"18-VI-2-7\"))"
+    },
+    "file_73": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"19-AT-1-2\"))"
+    },
+    "file_74": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"19-DI-4-6\"))"
+    },
+    "file_75": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"19-KI-3-5\"))"
+    },
+    "file_76": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"20-DI-1\"))"
+    },
+    "file_77": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"20-KI-3-4\"))"
+    },
+    "file_78": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"20-LI-2-5\"))"
+    },
+    "file_79": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"21-CH-3\"))"
+    },
+    "file_80": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"21-LI-1-2-4\"))"
+    },
+    "file_81": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"22-CH-2-3\"))"
+    },
+    "file_82": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"22-LI-1\"))"
+    },
+    "file_83": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"23-CH-1-2\"))"
+    },
+    "file_84": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"24-DI-1\"))"
+    },
+    "file_85": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"25-AT-1\"))"
+    },
+    "file_86": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.cache && SugarCube.State.variables.cache.includes(\"25-WI-K\"))"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.passage === \"End\" && document.querySelector(\"#passages .passage\"))"
+    },
+    "complete": {
+      "type": "js_truthy",
+      "expr": "!!(window.SugarCube && SugarCube.State.variables.is_complete)"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "file_01",
+      "hook": "file_01",
+      "op": "truthy"
+    },
+    {
+      "id": "file_02",
+      "hook": "file_02",
+      "op": "truthy"
+    },
+    {
+      "id": "file_03",
+      "hook": "file_03",
+      "op": "truthy"
+    },
+    {
+      "id": "file_04",
+      "hook": "file_04",
+      "op": "truthy"
+    },
+    {
+      "id": "file_05",
+      "hook": "file_05",
+      "op": "truthy"
+    },
+    {
+      "id": "file_06",
+      "hook": "file_06",
+      "op": "truthy"
+    },
+    {
+      "id": "file_07",
+      "hook": "file_07",
+      "op": "truthy"
+    },
+    {
+      "id": "file_08",
+      "hook": "file_08",
+      "op": "truthy"
+    },
+    {
+      "id": "file_09",
+      "hook": "file_09",
+      "op": "truthy"
+    },
+    {
+      "id": "file_10",
+      "hook": "file_10",
+      "op": "truthy"
+    },
+    {
+      "id": "file_11",
+      "hook": "file_11",
+      "op": "truthy"
+    },
+    {
+      "id": "file_12",
+      "hook": "file_12",
+      "op": "truthy"
+    },
+    {
+      "id": "file_13",
+      "hook": "file_13",
+      "op": "truthy"
+    },
+    {
+      "id": "file_14",
+      "hook": "file_14",
+      "op": "truthy"
+    },
+    {
+      "id": "file_15",
+      "hook": "file_15",
+      "op": "truthy"
+    },
+    {
+      "id": "file_16",
+      "hook": "file_16",
+      "op": "truthy"
+    },
+    {
+      "id": "file_17",
+      "hook": "file_17",
+      "op": "truthy"
+    },
+    {
+      "id": "file_18",
+      "hook": "file_18",
+      "op": "truthy"
+    },
+    {
+      "id": "file_19",
+      "hook": "file_19",
+      "op": "truthy"
+    },
+    {
+      "id": "file_20",
+      "hook": "file_20",
+      "op": "truthy"
+    },
+    {
+      "id": "file_21",
+      "hook": "file_21",
+      "op": "truthy"
+    },
+    {
+      "id": "file_22",
+      "hook": "file_22",
+      "op": "truthy"
+    },
+    {
+      "id": "file_23",
+      "hook": "file_23",
+      "op": "truthy"
+    },
+    {
+      "id": "file_24",
+      "hook": "file_24",
+      "op": "truthy"
+    },
+    {
+      "id": "file_25",
+      "hook": "file_25",
+      "op": "truthy"
+    },
+    {
+      "id": "file_26",
+      "hook": "file_26",
+      "op": "truthy"
+    },
+    {
+      "id": "file_27",
+      "hook": "file_27",
+      "op": "truthy"
+    },
+    {
+      "id": "file_28",
+      "hook": "file_28",
+      "op": "truthy"
+    },
+    {
+      "id": "file_29",
+      "hook": "file_29",
+      "op": "truthy"
+    },
+    {
+      "id": "file_30",
+      "hook": "file_30",
+      "op": "truthy"
+    },
+    {
+      "id": "file_31",
+      "hook": "file_31",
+      "op": "truthy"
+    },
+    {
+      "id": "file_32",
+      "hook": "file_32",
+      "op": "truthy"
+    },
+    {
+      "id": "file_33",
+      "hook": "file_33",
+      "op": "truthy"
+    },
+    {
+      "id": "file_34",
+      "hook": "file_34",
+      "op": "truthy"
+    },
+    {
+      "id": "file_35",
+      "hook": "file_35",
+      "op": "truthy"
+    },
+    {
+      "id": "file_36",
+      "hook": "file_36",
+      "op": "truthy"
+    },
+    {
+      "id": "file_37",
+      "hook": "file_37",
+      "op": "truthy"
+    },
+    {
+      "id": "file_38",
+      "hook": "file_38",
+      "op": "truthy"
+    },
+    {
+      "id": "file_39",
+      "hook": "file_39",
+      "op": "truthy"
+    },
+    {
+      "id": "file_40",
+      "hook": "file_40",
+      "op": "truthy"
+    },
+    {
+      "id": "file_41",
+      "hook": "file_41",
+      "op": "truthy"
+    },
+    {
+      "id": "file_42",
+      "hook": "file_42",
+      "op": "truthy"
+    },
+    {
+      "id": "file_43",
+      "hook": "file_43",
+      "op": "truthy"
+    },
+    {
+      "id": "file_44",
+      "hook": "file_44",
+      "op": "truthy"
+    },
+    {
+      "id": "file_45",
+      "hook": "file_45",
+      "op": "truthy"
+    },
+    {
+      "id": "file_46",
+      "hook": "file_46",
+      "op": "truthy"
+    },
+    {
+      "id": "file_47",
+      "hook": "file_47",
+      "op": "truthy"
+    },
+    {
+      "id": "file_48",
+      "hook": "file_48",
+      "op": "truthy"
+    },
+    {
+      "id": "file_49",
+      "hook": "file_49",
+      "op": "truthy"
+    },
+    {
+      "id": "file_50",
+      "hook": "file_50",
+      "op": "truthy"
+    },
+    {
+      "id": "file_51",
+      "hook": "file_51",
+      "op": "truthy"
+    },
+    {
+      "id": "file_52",
+      "hook": "file_52",
+      "op": "truthy"
+    },
+    {
+      "id": "file_53",
+      "hook": "file_53",
+      "op": "truthy"
+    },
+    {
+      "id": "file_54",
+      "hook": "file_54",
+      "op": "truthy"
+    },
+    {
+      "id": "file_55",
+      "hook": "file_55",
+      "op": "truthy"
+    },
+    {
+      "id": "file_56",
+      "hook": "file_56",
+      "op": "truthy"
+    },
+    {
+      "id": "file_57",
+      "hook": "file_57",
+      "op": "truthy"
+    },
+    {
+      "id": "file_58",
+      "hook": "file_58",
+      "op": "truthy"
+    },
+    {
+      "id": "file_59",
+      "hook": "file_59",
+      "op": "truthy"
+    },
+    {
+      "id": "file_60",
+      "hook": "file_60",
+      "op": "truthy"
+    },
+    {
+      "id": "file_61",
+      "hook": "file_61",
+      "op": "truthy"
+    },
+    {
+      "id": "file_62",
+      "hook": "file_62",
+      "op": "truthy"
+    },
+    {
+      "id": "file_63",
+      "hook": "file_63",
+      "op": "truthy"
+    },
+    {
+      "id": "file_64",
+      "hook": "file_64",
+      "op": "truthy"
+    },
+    {
+      "id": "file_65",
+      "hook": "file_65",
+      "op": "truthy"
+    },
+    {
+      "id": "file_66",
+      "hook": "file_66",
+      "op": "truthy"
+    },
+    {
+      "id": "file_67",
+      "hook": "file_67",
+      "op": "truthy"
+    },
+    {
+      "id": "file_68",
+      "hook": "file_68",
+      "op": "truthy"
+    },
+    {
+      "id": "file_69",
+      "hook": "file_69",
+      "op": "truthy"
+    },
+    {
+      "id": "file_70",
+      "hook": "file_70",
+      "op": "truthy"
+    },
+    {
+      "id": "file_71",
+      "hook": "file_71",
+      "op": "truthy"
+    },
+    {
+      "id": "file_72",
+      "hook": "file_72",
+      "op": "truthy"
+    },
+    {
+      "id": "file_73",
+      "hook": "file_73",
+      "op": "truthy"
+    },
+    {
+      "id": "file_74",
+      "hook": "file_74",
+      "op": "truthy"
+    },
+    {
+      "id": "file_75",
+      "hook": "file_75",
+      "op": "truthy"
+    },
+    {
+      "id": "file_76",
+      "hook": "file_76",
+      "op": "truthy"
+    },
+    {
+      "id": "file_77",
+      "hook": "file_77",
+      "op": "truthy"
+    },
+    {
+      "id": "file_78",
+      "hook": "file_78",
+      "op": "truthy"
+    },
+    {
+      "id": "file_79",
+      "hook": "file_79",
+      "op": "truthy"
+    },
+    {
+      "id": "file_80",
+      "hook": "file_80",
+      "op": "truthy"
+    },
+    {
+      "id": "file_81",
+      "hook": "file_81",
+      "op": "truthy"
+    },
+    {
+      "id": "file_82",
+      "hook": "file_82",
+      "op": "truthy"
+    },
+    {
+      "id": "file_83",
+      "hook": "file_83",
+      "op": "truthy"
+    },
+    {
+      "id": "file_84",
+      "hook": "file_84",
+      "op": "truthy"
+    },
+    {
+      "id": "file_85",
+      "hook": "file_85",
+      "op": "truthy"
+    },
+    {
+      "id": "file_86",
+      "hook": "file_86",
+      "op": "truthy"
+    }
+  ],
+  "events": {
+    "full_cache": {
+      "hook": "complete",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "end",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "ending",
+        "op": "truthy"
+      }
+    }
+  ],
+  "terminal_failures": [],
+  "ending": null,
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

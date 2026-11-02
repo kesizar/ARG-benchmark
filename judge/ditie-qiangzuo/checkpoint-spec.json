@@ -1,0 +1,12 @@
+{
+  "reasoning_checkpoints": [],
+  "reason": "No clue deduction, password, puzzle or reasoning gate exists. Visible rules directly explain every action; outcomes depend on movement timing, collisions, energy and randomness.",
+  "routes": {
+    "arrived": "timeLeft <= 0 with positive energy; normal, regardless 1/2/3 stars",
+    "exhausted": "energy <= 0: gameOver(false), terminal failure"
+  },
+  "latching": "Harness ending state latches per episode; create a new Judge on reset. Game result state only is observed, never injected.",
+  "stars": "Original score = energy*.6 + moral*.2 + max(0,100-clashes*clashPenalty)*.2; >=85:3, >=50:2, otherwise1. Not reasoning points.",
+  "failure_order": "Energy exhaustion is checked before time expiration.",
+  "custom_route_caveat": "Custom station count determines duration; no universal fixed-duration gate."
+}

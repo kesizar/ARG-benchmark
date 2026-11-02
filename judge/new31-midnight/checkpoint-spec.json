@@ -1,0 +1,48 @@
+{
+  "record_id": "new31:06",
+  "cases": [
+    {
+      "id": "case1",
+      "required_edges": [
+        [
+          "clock",
+          "watch"
+        ],
+        [
+          "watch",
+          "photo"
+        ]
+      ]
+    },
+    {
+      "id": "case2",
+      "required_edges": [
+        [
+          "route",
+          "receipt"
+        ],
+        [
+          "receipt",
+          "car"
+        ]
+      ]
+    },
+    {
+      "id": "case3",
+      "required_edges": [
+        [
+          "blueprint",
+          "vent"
+        ],
+        [
+          "vent",
+          "tapeclue"
+        ]
+      ]
+    }
+  ],
+  "scoring": "Draft hooks latch completed case index, not individual edges. Current source accepts extra incorrect connections, so completion does not prove reasoning.",
+  "ending": "After case3, saved progress equals 3 and visible ending is shown.",
+  "terminal_failures": [],
+  "verification": "L1 and L3 real UI tested each wrong edge, partial chain, correct completion, ending and reset; extracted evaluator full flow verified."
+}

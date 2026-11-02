@@ -1,0 +1,22 @@
+{
+  "hooks": {
+    "enc1": {"type":"js_truthy", "expr":"!!document.querySelector('.window .file-body-pad .file-text') && [...document.querySelectorAll('.window')].some(e=>e.innerText.includes('我一直都在看着你') && e.innerText.includes('解开了'))"},
+    "enc2": {"type":"js_truthy", "expr":"[...document.querySelectorAll('.window')].some(e=>e.innerText.includes('那天晚上，我又梦见豆豆') && e.innerText.includes('解开了'))"},
+    "author_page": {"type":"js_truthy", "expr":"!!document.querySelector('#sacrifice.on')"},
+    "ending_1": {"type":"js_truthy", "expr":"!!document.querySelector('#sacrifice.on [data-end=\"0\"].open')"},
+    "ending_2": {"type":"js_truthy", "expr":"!!document.querySelector('#sacrifice.on [data-end=\"1\"].open')"},
+    "ending_visible": {"type":"js_truthy", "expr":"!!document.querySelector('#sacrifice.on .end-card.open')"}
+  },
+  "checkpoints": [
+    {"id":"enc1", "hook":"enc1", "op":"truthy", "role":"diagnostic"},
+    {"id":"enc2", "hook":"enc2", "op":"truthy", "role":"diagnostic"},
+    {"id":"author_page", "hook":"author_page", "op":"truthy", "role":"diagnostic"},
+    {"id":"ending_1", "hook":"ending_1", "op":"truthy", "role":"diagnostic"},
+    {"id":"ending_2", "hook":"ending_2", "op":"truthy", "role":"diagnostic"}
+  ],
+  "events": {},
+  "routes": [{"id":"ending_visible", "gates":[], "ending":{"hook":"ending_visible", "op":"truthy"}}],
+  "ending":{"hook":"ending_visible", "op":"truthy"},
+  "answer_sha256":[], "answer_hash_file":null, "request_milestones":[],
+  "submit_conclusion":{"enabled":false,"schema":null}, "rubric_path":null
+}

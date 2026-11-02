@@ -1,19 +1,31 @@
 {
   "id": "hushan-xiangcheng",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
   ],
   "computer_use": false,
   "model_visible": {
-    "title": "户山香澄解谜社",
-    "intro": "你在一个拼字小游戏里。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
+    "title": "IDS 拆字工坊",
+    "intro": "这是户山香澄解谜社合集。本次只评测「IDS 拆字工坊」：从大厅进入该游戏，完成一轮并取得尽可能高的成绩。只根据屏幕信息推理与操作。其他小游戏和友情链接不属于本次任务。"
   },
-  "entry_url": "https://kirakiradokidoki.netlify.app/",
+  "entry_url": "http://127.0.0.1:8831/index.html",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/hushan-xiangcheng/mirror",
+      "--port",
+      "8831"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8831/index.html",
+    "ready_timeout_s": 30,
+    "port": 8831
   },
   "viewport": {
     "width": 1366,
@@ -21,16 +33,12 @@
   },
   "locale": "zh-CN",
   "timezone": "Asia/Shanghai",
-  "seed": 20261023,
+  "seed": 20261026,
   "allow_hosts": [
-    "kirakiradokidoki.netlify.app"
+    "127.0.0.1:8831"
   ],
   "shortcut_block": [],
-  "guide_block_hosts": [
-    "*walkthrough*",
-    "*writeup*",
-    "*攻略*"
-  ],
+  "guide_block_hosts": [],
   "allow_model_goto": false,
   "goto_scope": "none",
   "show_url": true,
@@ -49,17 +57,20 @@
     "give_up"
   ],
   "limits": {
-    "max_steps": 100,
+    "max_steps": 180,
     "max_seconds": 1800,
-    "max_answer_submits": 5
+    "max_answer_submits": 40
   },
-  "settle_ms": 400,
+  "settle_ms": 800,
   "history": {
     "full_obs_k": 4,
     "screenshot_k": 2
   },
-  "judge_path": "judge/hushan-xiangcheng/judge.json",
+  "judge_path": "judge/hushan-xiangcheng/ids.json",
   "policy_script": [
+    {
+      "op": "wait"
+    },
     {
       "op": "give_up"
     }
@@ -68,6 +79,8 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-23 这些句子不在首屏正文里，通关时才写进页面。"
-  ]
+    "One independently scored unit of base664:0445, not whole-collection completion.",
+    "Compatibility default aliases IDS only; never a collection-level score."
+  ],
+  "account_requirement": "none"
 }

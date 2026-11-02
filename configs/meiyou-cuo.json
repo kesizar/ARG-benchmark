@@ -1,7 +1,7 @@
 {
   "id": "meiyou-cuo",
   "category": "arg",
-  "arg_layer": "L3",
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
@@ -11,9 +11,21 @@
     "title": "可我真的没有错啊",
     "intro": "你在一个旧论坛里。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
   },
-  "entry_url": "https://animated-monstera-a66831.netlify.app/",
+  "entry_url": "http://127.0.0.1:8811/index.html",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/meiyou-cuo/mirror",
+      "--port",
+      "8811"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8811/index.html",
+    "ready_timeout_s": 30,
+    "port": 8811
   },
   "viewport": {
     "width": 1366,
@@ -23,7 +35,7 @@
   "timezone": "Asia/Shanghai",
   "seed": 20261023,
   "allow_hosts": [
-    "animated-monstera-a66831.netlify.app"
+    "127.0.0.1:8811"
   ],
   "shortcut_block": [],
   "guide_block_hosts": [
@@ -69,6 +81,8 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-23 结局页默认不显示，结案函数才把它打开。"
-  ]
+    "原样单文件缓存作品；退出直接展示唯一结局，无推理门，工程可运行但不适合正式解谜计分。",
+    "密码与验证码未校验，无需真实QQ账号。刷新/新context重置。"
+  ],
+  "account_requirement": "none"
 }

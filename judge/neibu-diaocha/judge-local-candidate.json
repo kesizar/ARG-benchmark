@@ -1,0 +1,130 @@
+{
+  "hooks": {
+    "diag_answer": {
+      "type": "js_truthy",
+      "expr": "(()=>{if(!window.__meridianJudge){const s=window.__meridianJudge={diag:false};const on=e=>{const el=e.target;const clicked=e.type==='click'&&el.closest?.('#lkGo');const entered=e.type==='keydown'&&el.id==='lkA'&&e.key==='Enter';if(!e.isTrusted||(!clicked&&!entered))return;const box=document.querySelector('#docBox');if(!box||!box.innerText.includes('诊断报告')&&!box.innerText.includes('Diagnosis'))return;const input=document.querySelector('#lkA');if(!input||input.tagName!=='INPUT')return;const v=input.value.normalize('NFKC').trim().toLowerCase().replace(/\\s+/g,' ');if(!['lisa','kim','lisa kim','丽萨','莉莎'].includes(v)&&!/^lisa kim\\s*[（(](?:girlfriend|女友)[）)]$/.test(v))return;let before=false;try{before=!!JSON.parse(localStorage.getItem('meridian-ms0519-v1')||'{}').unlocked?.diag}catch(e){}if(before)return;setTimeout(()=>{try{if(JSON.parse(localStorage.getItem('meridian-ms0519-v1')||'{}').unlocked?.diag)s.diag=true}catch(e){}},0)};document.addEventListener('click',on,true);document.addEventListener('keydown',on,true)}return window.__meridianJudge.diag})()"
+    },
+    "case1": {
+      "type": "js_truthy",
+      "expr": "(()=>{const e=document.querySelector('#verdictModal.show #verdictBox.verdict.win h2');const ok=!!e&&['真相大白。','Case solved.'].includes(e.textContent.trim());if(ok)localStorage.setItem('__arg_neibu_case1','1');return ok})()"
+    },
+    "case2": {
+      "type": "js_truthy",
+      "expr": "(()=>{const e=document.querySelector('#verdictModal.show #verdictBox.verdict.win h2');return !!e && ['案件告破。','Case Closed.'].includes(e.textContent.trim())})()"
+    },
+    "snake_sender": {
+      "type": "js_truthy",
+      "expr": "(()=>{if(!window.__meridianSender){const x=window.__meridianSender={};document.addEventListener('click',e=>{if(!e.isTrusted||!e.target.closest?.('#lkGo,#lkSubmit'))return;const a=document.querySelector('#lkA'),b=document.querySelector('#lkB'),title=document.querySelector('#docBox .dn')?.textContent||'';const rules=[{\"ident\": \"snake_sender\", \"fid\": \"snake\", \"storage\": \"meridian-ms0519-v1\", \"sender\": \"luis\", \"receiver\": \"kevin\", \"title\": [\"Project_Snake\"]}, {\"ident\": \"q1_sender\", \"fid\": \"e2q1report\", \"storage\": \"meridian-e2-v1\", \"sender\": \"kevin\", \"receiver\": \"daniel\", \"title\": [\"2026Q1\", \"Q1_2026\"]}, {\"ident\": \"visa_sender\", \"fid\": \"e2visa\", \"storage\": \"meridian-e2-v1\", \"sender\": \"daniel\", \"receiver\": \"kelly\", \"title\": [\"签证申请\", \"Visa_Application\"]}];for(const r of rules){if(!r.title.some(t=>title.includes(t))||!b||b.value!==r.receiver)continue;let before=false;try{before=!!JSON.parse(localStorage.getItem(r.storage)||'{}').unlocked?.[r.fid]}catch(e){}if(before)continue;x[r.ident]=true}},true)}return !!window.__meridianSender[\"snake_sender\"]})()"
+    },
+    "q1_sender": {
+      "type": "js_truthy",
+      "expr": "(()=>{if(!window.__meridianSender){const x=window.__meridianSender={};document.addEventListener('click',e=>{if(!e.isTrusted||!e.target.closest?.('#lkGo,#lkSubmit'))return;const a=document.querySelector('#lkA'),b=document.querySelector('#lkB'),title=document.querySelector('#docBox .dn')?.textContent||'';const rules=[{\"ident\": \"snake_sender\", \"fid\": \"snake\", \"storage\": \"meridian-ms0519-v1\", \"sender\": \"luis\", \"receiver\": \"kevin\", \"title\": [\"Project_Snake\"]}, {\"ident\": \"q1_sender\", \"fid\": \"e2q1report\", \"storage\": \"meridian-e2-v1\", \"sender\": \"kevin\", \"receiver\": \"daniel\", \"title\": [\"2026Q1\", \"Q1_2026\"]}, {\"ident\": \"visa_sender\", \"fid\": \"e2visa\", \"storage\": \"meridian-e2-v1\", \"sender\": \"daniel\", \"receiver\": \"kelly\", \"title\": [\"签证申请\", \"Visa_Application\"]}];for(const r of rules){if(!r.title.some(t=>title.includes(t))||!b||b.value!==r.receiver)continue;let before=false;try{before=!!JSON.parse(localStorage.getItem(r.storage)||'{}').unlocked?.[r.fid]}catch(e){}if(before)continue;x[r.ident]=true}},true)}return !!window.__meridianSender[\"q1_sender\"]})()"
+    },
+    "visa_sender": {
+      "type": "js_truthy",
+      "expr": "(()=>{if(!window.__meridianSender){const x=window.__meridianSender={};document.addEventListener('click',e=>{if(!e.isTrusted||!e.target.closest?.('#lkGo,#lkSubmit'))return;const a=document.querySelector('#lkA'),b=document.querySelector('#lkB'),title=document.querySelector('#docBox .dn')?.textContent||'';const rules=[{\"ident\": \"snake_sender\", \"fid\": \"snake\", \"storage\": \"meridian-ms0519-v1\", \"sender\": \"luis\", \"receiver\": \"kevin\", \"title\": [\"Project_Snake\"]}, {\"ident\": \"q1_sender\", \"fid\": \"e2q1report\", \"storage\": \"meridian-e2-v1\", \"sender\": \"kevin\", \"receiver\": \"daniel\", \"title\": [\"2026Q1\", \"Q1_2026\"]}, {\"ident\": \"visa_sender\", \"fid\": \"e2visa\", \"storage\": \"meridian-e2-v1\", \"sender\": \"daniel\", \"receiver\": \"kelly\", \"title\": [\"签证申请\", \"Visa_Application\"]}];for(const r of rules){if(!r.title.some(t=>title.includes(t))||!b||b.value!==r.receiver)continue;let before=false;try{before=!!JSON.parse(localStorage.getItem(r.storage)||'{}').unlocked?.[r.fid]}catch(e){}if(before)continue;x[r.ident]=true}},true)}return !!window.__meridianSender[\"visa_sender\"]})()"
+    },
+    "case2_continuous": {
+      "type": "js_truthy",
+      "expr": "(()=>{const e=document.querySelector('#verdictModal.show #verdictBox.verdict.win h2');let completed=false;try{completed=JSON.parse(localStorage.getItem('meridian-ms0519-v1')||'{}').completed===true}catch(_){}return completed&&localStorage.getItem('__arg_neibu_case1')==='1'&&!!e&&['案件告破。','Case Closed.'].includes(e.textContent.trim())})()"
+    },
+    "gmail_answer": {
+      "type": "js_truthy",
+      "expr": "(()=>{if(!window.__argGmail){const s=window.__argGmail={ok:false};document.addEventListener('click',e=>{if(!e.isTrusted||!e.target.closest?.('[data-add=\"gmail\"]'))return;const input=document.querySelector('#calSearch');const v=(input?.value||'').toLowerCase().replace(/\\s/g,'');if(v!=='simon.chou19880515@gmail.com')return;let before=true;try{before=(JSON.parse(localStorage.getItem('meridian-ms0519-v1')||'{}').known||[]).includes('gmail')}catch(_){}if(before)return;setTimeout(()=>{try{if((JSON.parse(localStorage.getItem('meridian-ms0519-v1')||'{}').known||[]).includes('gmail'))s.ok=true}catch(_){}},0)},true)}return window.__argGmail.ok})()"
+    },
+    "case1_where": {
+      "type": "js_truthy",
+      "expr": "(()=>{if(!window.__argWhere){const s=window.__argWhere={ok:false};document.addEventListener('click',e=>{if(!e.isTrusted||!e.target.closest?.('#accuseConfirm'))return;const modal=document.querySelector('#accuseModal.show');const button=modal?.querySelector('#accuseConfirm');const where=modal?.querySelector('.opts[data-q=\"where\"] .opt.sel')?.dataset.id;const why=modal?.querySelector('#q2opts .opt.sel')?.dataset.id;if(button&&!button.disabled&&where==='prison'&&why)s.ok=true},true)}return window.__argWhere.ok})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "diag_answer",
+      "hook": "diag_answer",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Submitted patient identity: author-listed forms or full name with girlfriend annotation"
+    },
+    {
+      "id": "case1_verdict",
+      "hook": "case1",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Correct first-case motive submitted with correct whereabouts"
+    },
+    {
+      "id": "case2_verdict",
+      "hook": "case2",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Correct second-case conclusion"
+    },
+    {
+      "id": "snake_sender",
+      "hook": "snake_sender",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Correct recipient actually submitted for the locked file; sender disclosed in prompt"
+    },
+    {
+      "id": "q1_sender",
+      "hook": "q1_sender",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Correct recipient actually submitted for the locked file; sender disclosed in prompt"
+    },
+    {
+      "id": "visa_sender",
+      "hook": "visa_sender",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Correct recipient actually submitted for the locked file; sender disclosed in prompt"
+    },
+    {
+      "id": "gmail_answer",
+      "hook": "gmail_answer",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Reconstructed and submitted Simon private Gmail calendar address"
+    },
+    {
+      "id": "case1_where",
+      "hook": "case1_where",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Submitted correct first-case whereabouts"
+    }
+  ],
+  "events": {
+    "case1_completed": {
+      "hook": "case1",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "case2",
+      "gates": [
+        "case1_verdict"
+      ],
+      "ending": {
+        "hook": "case2_continuous",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "case2_continuous",
+    "op": "truthy"
+  },
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "scoring_protocol": "target_v1",
+  "target_success": {
+    "route_ids": [
+      "case2"
+    ]
+  }
+}

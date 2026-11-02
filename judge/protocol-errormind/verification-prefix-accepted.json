@@ -1,0 +1,7141 @@
+{
+  "functional_hashes": {
+    "configs/protocol-errormind.json": "22346ec8bb6f288dab5b8d425ce6b3ea38a8f8b4a80a52c30eeb55c7a6b4b824",
+    "judge/protocol-errormind/judge.json": "94f18a80d84c45ef0dd9907c1030abf5f9f96f5a76b2844d10fb91c8a16c85a8",
+    "tasks/protocol-errormind/mirror/index.html": "a80cc255185c41c04e97d5c69a57664613b31f9b69dc5233a1a2eb72f121f16a",
+    "harness/actions.py": "50bd5cfbee03136f4f92ba8608b8adff8e789dd12658ff8eb8941e282413fabf",
+    "harness/batch.py": "492779577478b4004d21acbd5f07208a2171c55300f058582e0998eec3ff3469",
+    "harness/browser_harness.py": "19bd39f4e106118729ad6d86bae821d263043d5473b50fb7d35def50b0d6bb3b",
+    "harness/config.py": "b02020b65f6eaa4499b483598ad8e2dfb19609fb41d9aa5bf2cf7cb459daec1a",
+    "harness/env.py": "6b0f67b6e7fe502d623ecc06ae552b236e2ad4b84214e93ad4804d887a3b1e90",
+    "harness/grid_harness.py": "4e4c31908885742ec31098dc49fcb88226913417312ddf94d57951b9bb9e45cc",
+    "harness/if_harness.py": "775f620fa22000653db97762f1d2014f045d5fb714a021e50e1d06d5bc0fd71c",
+    "harness/judge.py": "e86cdedfd70a72bd226601aea14d886fa651e2c5644d7cecff5f407f5e307988",
+    "harness/loop.py": "58271f2139e8f07b29ca408928ce4726fe96b95e440f4e016d9523c629c5d488",
+    "harness/network.py": "941e7a64170f50d76e7e220864d764ae8b127a03ce8ec80b178f716faa322387",
+    "harness/observe.py": "bf9c2ba647c63f0e69af6f899c44cf7dbe52f2be9350e2f49f390352c4ed59b2",
+    "harness/policy_llm.py": "a3eab660f291ae7ad24f4b9dfba2fb51bc380b7c2ea472fd5ef7c6437a599144",
+    "harness/policy_script.py": "ebe8811311e4b8d0980d7aa9dd03cf05422700f48ba6e8e99b2301b72e1cc898",
+    "harness/prompts.py": "124efb57a8077b12dce378c24ca8d5702ad34f1bd7fc5c7d204d5a890f569de2",
+    "harness/sandbox.py": "a0c89402eea1aec0d05e35af756a1ada63f48e4bf37a5300168245e7c3b27b24",
+    "harness/scaffold.py": "e96fc4ccc39eb8212e01ff9608fd08ff9abcd6cbfbf5874f9954fed5f75fb6d0",
+    "harness/scenario_harness.py": "4b8f151adfe23e5d797f848391d97d88443378bb161e1069c3865bfe1052864d",
+    "harness/serve_local.py": "c33d3b763408d09f995440b2e4613f2671c715ff5c832c6203ba22750a63476b",
+    "harness/static_harness.py": "45de2fe5e0f857b00180255f5e8e039fb3c439884020ff21380848f4f88cad37",
+    "harness/summary.py": "8adecd02da0666a59953dbd357a59f9a064b9dc6c55eb45f9c750395f06c39f4",
+    "harness/tokens.py": "8ae57467a5437c1ed06e2a92bd512b5785ec54d6c6f323322f4586b360a59b31",
+    "harness/validate.py": "dc2f1642b39affc5386853997aeaae9f98cabca1842b7ca6c776fb4d9010c429",
+    "harness/__init__.py": "387e8fd2f9029f135be5b6ed0c3a3b93b2dd17e24a57a7b03ec42008fb0f85cd"
+  },
+  "memory_words": [
+    "CIPHER",
+    "GHOST",
+    "MIRROR",
+    "OMEGA",
+    "PROTOCOL",
+    "SIGNAL",
+    "VOID"
+  ],
+  "last_validated_screen": [
+    "screen-fakenews"
+  ],
+  "trace": [
+    {
+      "action": {
+        "op": "fresh_context"
+      },
+      "active": [
+        "screen-0"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 0
+      },
+      "active": [
+        "screen-0"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 1
+      },
+      "active": [
+        "screen-1"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 0
+      },
+      "active": [
+        "screen-1"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "wait",
+        "ms": 1300
+      },
+      "active": [
+        "screen-1"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 0
+      },
+      "active": [
+        "screen-1"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "wait",
+        "ms": 1300
+      },
+      "active": [
+        "screen-1"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 0
+      },
+      "active": [
+        "screen-1"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "wait",
+        "ms": 1300
+      },
+      "active": [
+        "screen-1"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 0
+      },
+      "active": [
+        "screen-1"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 2
+      },
+      "active": [
+        "screen-2"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 682.9921875,
+        "y": 450.0
+      },
+      "active": [
+        "screen-2"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "wait",
+        "ms": 600
+      },
+      "active": [
+        "screen-2"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 0
+      },
+      "active": [
+        "screen-2"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 3
+      },
+      "active": [
+        "screen-3"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "INVALID_739",
+        "clear": true,
+        "enter": true,
+        "n": 0
+      },
+      "active": [
+        "screen-3"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_wrong_feedback": "#reverse-input"
+      },
+      "active": [
+        "screen-3"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "lost",
+        "clear": true,
+        "enter": true,
+        "n": 0
+      },
+      "active": [
+        "screen-3"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 0,
+        "checkpoints_total": 7,
+        "checkpoints": {},
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 4
+      },
+      "active": [
+        "screen-4"
+      ],
+      "new": [
+        [
+          "checkpoint",
+          "reverse"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 10.0,
+        "y": 10.0
+      },
+      "active": [
+        "screen-4"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 682.9921875,
+        "y": 440.5
+      },
+      "active": [
+        "screen-4"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 10.0,
+        "y": 10.0
+      },
+      "active": [
+        "screen-4"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 787.4609375,
+        "y": 388.71875
+      },
+      "active": [
+        "screen-4"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 10.0,
+        "y": 10.0
+      },
+      "active": [
+        "screen-4"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 764.1015625,
+        "y": 427.640625
+      },
+      "active": [
+        "screen-4"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 10.0,
+        "y": 10.0
+      },
+      "active": [
+        "screen-4"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 676.3046875,
+        "y": 426.046875
+      },
+      "active": [
+        "screen-4"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 10.0,
+        "y": 10.0
+      },
+      "active": [
+        "screen-4"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 603.6328125,
+        "y": 501.84375
+      },
+      "active": [
+        "screen-4"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 0
+      },
+      "active": [
+        "screen-4"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 5
+      },
+      "active": [
+        "screen-5"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "INVALID_739",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-5"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_wrong_feedback": "#pixel-input"
+      },
+      "active": [
+        "screen-5"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "PIXEL IS A LIE",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-5"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {},
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 6
+      },
+      "active": [
+        "screen-6"
+      ],
+      "new": [
+        [
+          "diagnostic",
+          "visual_signal"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "wait",
+        "ms": 3100
+      },
+      "active": [
+        "screen-6"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 0
+      },
+      "active": [
+        "screen-6"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "INVALID_739",
+        "clear": true,
+        "enter": true,
+        "n": 0
+      },
+      "active": [
+        "screen-6"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_wrong_feedback": "#sum-input"
+      },
+      "active": [
+        "screen-6"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "19",
+        "clear": true,
+        "enter": true,
+        "n": 0
+      },
+      "active": [
+        "screen-6"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 1,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.1429,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 7
+      },
+      "active": [
+        "screen-7"
+      ],
+      "new": [
+        [
+          "checkpoint",
+          "sum"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 0
+      },
+      "active": [
+        "screen-7"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "wait",
+        "ms": 800
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 8
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 0
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 2
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 5
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 3
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 5
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 4
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 5
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 0
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "key",
+        "key": "ArrowDown"
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "wait",
+        "ms": 900
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "key",
+        "key": "ArrowUp"
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "key",
+        "key": "ArrowUp"
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "key",
+        "key": "ArrowDown"
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "key",
+        "key": "ArrowDown"
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "key",
+        "key": "ArrowLeft"
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "key",
+        "key": "ArrowRight"
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "key",
+        "key": "ArrowLeft"
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "key",
+        "key": "ArrowRight"
+      },
+      "active": [
+        "screen-8"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 9
+      },
+      "active": [
+        "screen-9"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "INVALID_739",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-9"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_wrong_feedback": "#bsod-input"
+      },
+      "active": [
+        "screen-9"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "OMEGA",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-9"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 10
+      },
+      "active": [
+        "screen-10"
+      ],
+      "new": [
+        [
+          "diagnostic",
+          "omega"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "INVALID_739",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-10"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_wrong_feedback": "#key-input"
+      },
+      "active": [
+        "screen-10"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "TRUTH_IS_HIDDEN",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-10"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 11
+      },
+      "active": [
+        "screen-11"
+      ],
+      "new": [
+        [
+          "diagnostic",
+          "source_copy"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "INVALID_739",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-11"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_wrong_feedback": "#cipher-input"
+      },
+      "active": [
+        "screen-11"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "THETRUTH",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-11"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 2,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.2857,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 12
+      },
+      "active": [
+        "screen-12"
+      ],
+      "new": [
+        [
+          "checkpoint",
+          "a1z26"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 3,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.4286,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "INVALID_739",
+        "clear": true,
+        "enter": true,
+        "n": 3
+      },
+      "active": [
+        "screen-12"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 3,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.4286,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_wrong_feedback": "#morse-input"
+      },
+      "active": [
+        "screen-12"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 3,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.4286,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 2
+      },
+      "active": [
+        "screen-12"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 3,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.4286,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "YOU ARE CLOSE",
+        "clear": true,
+        "enter": true,
+        "n": 3
+      },
+      "active": [
+        "screen-12"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 3,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.4286,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 13
+      },
+      "active": [
+        "screen-13"
+      ],
+      "new": [
+        [
+          "checkpoint",
+          "morse"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 4,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.5714,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 1
+      },
+      "active": [
+        "screen-13"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 4,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.5714,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wrong_logic": "A"
+      },
+      "active": [
+        "screen-13"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 4,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.5714,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 2
+      },
+      "active": [
+        "screen-13"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 4,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.5714,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wrong_logic": "B"
+      },
+      "active": [
+        "screen-13"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 4,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.5714,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 3
+      },
+      "active": [
+        "screen-13"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 4,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.5714,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wrong_logic": "C"
+      },
+      "active": [
+        "screen-13"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 4,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.5714,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 4
+      },
+      "active": [
+        "screen-13"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 4,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.5714,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 14
+      },
+      "active": [
+        "screen-14"
+      ],
+      "new": [
+        [
+          "checkpoint",
+          "paradox"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 1
+      },
+      "active": [
+        "screen-14"
+      ],
+      "new": [
+        [
+          "event",
+          "meta"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": 15
+      },
+      "active": [
+        "screen-15"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-15"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "TEST SUBJECT 0",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-15"
+      ],
+      "new": [
+        [
+          "event",
+          "name"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "false_ending_transition": true
+      },
+      "active": [],
+      "new": [
+        [
+          "event",
+          "false_ending"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "wait",
+        "ms": 6100
+      },
+      "active": [],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "PROTOCOL"
+      },
+      "active": [],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 1
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "PROTOCOL"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 2
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "CIPHER"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 2
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "PROTOCOL"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 1
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "GHOST"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 1
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "SIGNAL"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 1
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "CIPHER"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 1
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "PROTOCOL"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 2
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "VOID"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 1
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "SIGNAL"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 2
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "MIRROR"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 1
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "CIPHER"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 2
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "VOID"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 2
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "MIRROR"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 1
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "GHOST"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 1
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "visible_memory_word": "OMEGA"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "memory"
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 4
+      },
+      "active": [
+        "screen-memory"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "cipher"
+      },
+      "active": [
+        "screen-cipher"
+      ],
+      "new": [
+        [
+          "diagnostic",
+          "memory"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "INVALID_739",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-cipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_wrong_feedback": "#mlc-input"
+      },
+      "active": [
+        "screen-cipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "MIND",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-cipher"
+      ],
+      "new": [
+        [
+          "event",
+          "mlc_1"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "wait",
+        "ms": 1900
+      },
+      "active": [
+        "screen-cipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "INVALID_739",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-cipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_wrong_feedback": "#mlc-input"
+      },
+      "active": [
+        "screen-cipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "MIND",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-cipher"
+      ],
+      "new": [
+        [
+          "event",
+          "mlc_2"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "wait",
+        "ms": 1900
+      },
+      "active": [
+        "screen-cipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "INVALID_739",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-cipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_wrong_feedback": "#mlc-input"
+      },
+      "active": [
+        "screen-cipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "MIND",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-cipher"
+      ],
+      "new": [
+        [
+          "event",
+          "mlc_3"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "wait",
+        "ms": 1900
+      },
+      "active": [
+        "screen-hexcipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "hexcipher"
+      },
+      "active": [
+        "screen-hexcipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "INVALID_739",
+        "clear": true,
+        "enter": true,
+        "n": 9
+      },
+      "active": [
+        "screen-hexcipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_wrong_feedback": "#hex-input"
+      },
+      "active": [
+        "screen-hexcipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 554.0,
+        "y": 439.0
+      },
+      "active": [
+        "screen-hexcipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 640.0,
+        "y": 439.0
+      },
+      "active": [
+        "screen-hexcipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 726.0,
+        "y": 439.0
+      },
+      "active": [
+        "screen-hexcipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "hover",
+        "x": 812.0,
+        "y": 439.0
+      },
+      "active": [
+        "screen-hexcipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "MIND",
+        "clear": true,
+        "enter": true,
+        "n": 9
+      },
+      "active": [
+        "screen-hexcipher"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 5,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.7143,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "binary"
+      },
+      "active": [
+        "screen-binary"
+      ],
+      "new": [
+        [
+          "checkpoint",
+          "hex"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 6,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87,
+          "hex": 163
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.8571,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "INVALID_739",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-binary"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 6,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87,
+          "hex": 163
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.8571,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_wrong_feedback": "#binary-input"
+      },
+      "active": [
+        "screen-binary"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 6,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87,
+          "hex": 163
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.8571,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "type",
+        "text": "HIDE",
+        "clear": true,
+        "enter": true,
+        "n": 1
+      },
+      "active": [
+        "screen-binary"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 6,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87,
+          "hex": 163
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 0.8571,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "wait_for_screen": "fakenews"
+      },
+      "active": [
+        "screen-fakenews"
+      ],
+      "new": [
+        [
+          "checkpoint",
+          "binary"
+        ]
+      ],
+      "score": {
+        "checkpoints_reached": 7,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87,
+          "hex": 163,
+          "binary": 167
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 1.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 1
+      },
+      "active": [
+        "screen-fakenews"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 7,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87,
+          "hex": 163,
+          "binary": 167
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 1.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 2
+      },
+      "active": [
+        "screen-fakenews"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 7,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87,
+          "hex": 163,
+          "binary": 167
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 1.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    },
+    {
+      "action": {
+        "op": "click",
+        "n": 3
+      },
+      "active": [
+        "screen-fakenews"
+      ],
+      "new": [],
+      "score": {
+        "checkpoints_reached": 7,
+        "checkpoints_total": 7,
+        "checkpoints": {
+          "reverse": 18,
+          "sum": 40,
+          "a1z26": 74,
+          "morse": 79,
+          "paradox": 87,
+          "hex": 163,
+          "binary": 167
+        },
+        "diagnostic": {
+          "visual_signal": 34,
+          "omega": 66,
+          "source_copy": 70,
+          "memory": 142
+        },
+        "route_id": "comply",
+        "route_progress": 1.0,
+        "ending_reached": false,
+        "ending_tier": null,
+        "good_ending": false,
+        "ending_step": null,
+        "events": [
+          {
+            "id": "meta",
+            "step": 88
+          },
+          {
+            "id": "name",
+            "step": 91
+          },
+          {
+            "id": "false_ending",
+            "step": 92
+          },
+          {
+            "id": "mlc_1",
+            "step": 145
+          },
+          {
+            "id": "mlc_2",
+            "step": 149
+          },
+          {
+            "id": "mlc_3",
+            "step": 153
+          }
+        ],
+        "milestones": {},
+        "answer_correct": false,
+        "judge_error": null
+      }
+    }
+  ],
+  "reason": "All7memory variants and criticalgates verified before auditlocator failed on multicolumn redaction. No completedcase claimed."
+}

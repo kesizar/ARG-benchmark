@@ -1,28 +1,28 @@
 {
   "hooks": {
-    "end_d": {
-      "type": "dom_regex",
-      "pattern": "结局\\ D\\ ·\\ 返程"
-    },
     "end_a": {
-      "type": "dom_regex",
-      "pattern": "结局\\ A\\ ·\\ 融于城"
+      "type": "js_truthy",
+      "expr": "document.querySelector('#ending').classList.contains('show') && document.querySelector('#endTag').textContent.startsWith('结局 A ·')"
     },
     "end_b": {
-      "type": "dom_regex",
-      "pattern": "结局\\ B\\ ·\\ 被记住的逃出者"
+      "type": "js_truthy",
+      "expr": "document.querySelector('#ending').classList.contains('show') && document.querySelector('#endTag').textContent.startsWith('结局 B ·')"
     },
     "end_c": {
-      "type": "dom_regex",
-      "pattern": "结局\\ C\\ ·\\ 断档"
+      "type": "js_truthy",
+      "expr": "document.querySelector('#ending').classList.contains('show') && document.querySelector('#endTag').textContent.startsWith('结局 C ·')"
+    },
+    "end_d": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#ending').classList.contains('show') && document.querySelector('#endTag').textContent.startsWith('结局 D ·')"
     },
     "dragged": {
-      "type": "dom_regex",
-      "pattern": "结局\\ ·\\ 被拖走"
+      "type": "js_truthy",
+      "expr": "document.querySelector('#ending').classList.contains('show') && document.querySelector('#endTag').textContent==='过早结局 · 被拖走'"
     },
     "archive_lock": {
-      "type": "dom_regex",
-      "pattern": "锁舌弹开。档案室的门，为你打开了。"
+      "type": "js_truthy",
+      "expr": "document.querySelector('#scTitle').textContent==='档案室 · 内部' && ['2600','suburb'].includes(document.querySelector('#miniInput').value.trim().toLowerCase()) && document.querySelector('#miniOut').textContent==='锁舌弹开。档案室的门，为你打开了。'"
     }
   },
   "checkpoints": [
@@ -30,20 +30,11 @@
       "id": "archive_lock",
       "hook": "archive_lock",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     }
   ],
   "events": {},
   "routes": [
-    {
-      "id": "end_d",
-      "tier": "good",
-      "gates": [],
-      "ending": {
-        "hook": "end_d",
-        "op": "truthy"
-      }
-    },
     {
       "id": "end_a",
       "tier": "normal",
@@ -72,25 +63,29 @@
       }
     },
     {
-      "id": "dragged",
-      "tier": "bad",
+      "id": "end_d",
+      "tier": "normal",
       "gates": [],
       "ending": {
-        "hook": "dragged",
+        "hook": "end_d",
         "op": "truthy"
       }
     }
   ],
   "ending": {
-    "hook": "end_d",
+    "hook": "end_c",
     "op": "truthy"
   },
   "answer_sha256": [],
-  "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {
-    "enabled": false,
-    "schema": null
+    "enabled": false
   },
-  "rubric_path": null
+  "terminal_failures": [
+    {
+      "id": "dragged",
+      "hook": "dragged",
+      "op": "truthy"
+    }
+  ]
 }

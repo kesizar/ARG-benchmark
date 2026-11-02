@@ -1,0 +1,26 @@
+{
+  "archives": [
+    {
+      "kind": "resources",
+      "path": "packs/binjiang-lanwei.resources.zip",
+      "bytes": 164196,
+      "sha256": "c5e59e175668b996d87f317d2eeea50e986ed1779e61ef2a43913a5f875daece"
+    },
+    {
+      "kind": "evaluation",
+      "path": "packs/binjiang-lanwei.prepared.zip",
+      "bytes": 233410,
+      "sha256": "274de632ecadb7b59eea5d34243270e5c387e1b117c7f76a1b60d00c3a9a7c15"
+    }
+  ],
+  "independent_roots": {
+    "resources": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\binjiang-lanwei\\deployment\\resources",
+    "evaluation": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\binjiang-lanwei\\deployment\\evaluation"
+  },
+  "base_environment": {
+    "python": "3.11.15 (main, Jun 23 2026, 15:20:37) [MSC v.1944 64 bit (AMD64)]",
+    "playwright": "1.63.0",
+    "browser": "installed Microsoft Edge"
+  },
+  "cross_os": false
+}

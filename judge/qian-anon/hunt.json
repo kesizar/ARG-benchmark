@@ -1,0 +1,122 @@
+{
+  "hooks": {
+    "creativity": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return !!document.querySelector('#hunt-main .ending')&&H.c>=9&&H.e>0;\n})()"
+    },
+    "logic": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return !!document.querySelector('#hunt-main .ending')&&H.l>=9&&H.e>0;\n})()"
+    },
+    "reputation": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return !!document.querySelector('#hunt-main .ending')&&H.r>=9&&H.e>0;\n})()"
+    },
+    "best": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return document.querySelector('#hunt-main .ending h2')?.textContent===\"世界第一 puzzlehunt 设计师\";\n})()"
+    },
+    "great": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return document.querySelector('#hunt-main .ending h2')?.textContent===\"圈内顶流设计师\";\n})()"
+    },
+    "normal": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return document.querySelector('#hunt-main .ending h2')?.textContent===\"完赛即胜利\";\n})()"
+    },
+    "flop": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return document.querySelector('#hunt-main .ending h2')?.textContent===\"史诗级烂尾\";\n})()"
+    },
+    "burnout": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return document.querySelector('#hunt-main .ending h2')?.textContent===\"燃尽了\";\n})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "creativity",
+      "hook": "creativity",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "logic",
+      "hook": "logic",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "reputation",
+      "hook": "reputation",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "best_planning",
+      "hook": "best",
+      "op": "truthy",
+      "role": "critical"
+    }
+  ],
+  "routes": [
+    {
+      "id": "best",
+      "tier": "good",
+      "gates": [
+        "best_planning"
+      ],
+      "ending": {
+        "hook": "best",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "great",
+      "tier": "good",
+      "gates": [
+        "best_planning"
+      ],
+      "ending": {
+        "hook": "great",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "normal",
+      "tier": "normal",
+      "gates": [
+        "best_planning"
+      ],
+      "ending": {
+        "hook": "normal",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "flop",
+      "tier": "bad",
+      "gates": [
+        "best_planning"
+      ],
+      "ending": {
+        "hook": "flop",
+        "op": "truthy"
+      }
+    }
+  ],
+  "events": {},
+  "ending": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "terminal_failures": [
+    {
+      "id": "burnout",
+      "hook": "burnout",
+      "op": "truthy"
+    }
+  ]
+}

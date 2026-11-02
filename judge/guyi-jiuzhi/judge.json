@@ -1,0 +1,116 @@
+{
+  "hooks": {
+    "clock": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/level1-sz.html') && document.querySelector('#image-modal')?.style.display==='flex'"
+    },
+    "employee": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/level2-1.html') && document.body.innerText.includes('员工姓名:林淮生')"
+    },
+    "statistics": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/level2-qftctz.html') && document.querySelector('#imageModal')?.classList.contains('active')"
+    },
+    "terminal": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/level3-1.html') && document.body.innerText.includes('操作员: 林长清')"
+    },
+    "refuse": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/level3-end.html') && document.querySelector('#ending-panel')?.style.display==='flex' && document.querySelector('#ending-title')?.textContent==='这场荒诞的统治结束了'"
+    },
+    "agree": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/level3-end.html') && document.querySelector('#ending-panel')?.style.display==='flex' && document.querySelector('#ending-title')?.textContent==='你已成为下一年的祭品'"
+    },
+    "archive_gw": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/level3-1.html') && document.querySelector('#body-gw')?.classList.contains('unlocked') && document.querySelector('#pw-gw')?.value==='3461'"
+    },
+    "archive_yl": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/level3-1.html') && document.querySelector('#body-yl')?.classList.contains('unlocked') && document.querySelector('#pw-yl')?.value==='3538'"
+    },
+    "archive_ls": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/level3-1.html') && document.querySelector('#body-ls')?.classList.contains('unlocked') && document.querySelector('#pw-ls')?.value==='5779'"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "clock",
+      "hook": "clock",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "employee",
+      "hook": "employee",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "statistics",
+      "hook": "statistics",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "terminal",
+      "hook": "terminal",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "archive_gw",
+      "hook": "archive_gw",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "archive_yl",
+      "hook": "archive_yl",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "archive_ls",
+      "hook": "archive_ls",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {
+    "failure_agree": {
+      "hook": "agree",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "refuse",
+      "tier": "good",
+      "gates": [
+        "terminal"
+      ],
+      "ending": {
+        "hook": "refuse",
+        "op": "truthy"
+      }
+    }
+  ],
+  "answer_sha256": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "request_milestones": [],
+  "terminal_failures": [
+    {
+      "id": "agree_failure",
+      "hook": "agree",
+      "op": "truthy"
+    }
+  ]
+}

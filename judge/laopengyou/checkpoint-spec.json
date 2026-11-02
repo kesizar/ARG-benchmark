@@ -1,0 +1,57 @@
+{
+  "critical": [
+    {
+      "id": "system",
+      "mechanism": "decode forum secret posts to system name/password; accepted credentials enter sub home"
+    },
+    {
+      "id": "quiz_1",
+      "question": "奇想项目真正的发起人是谁？",
+      "mechanism": "single",
+      "grading": "judge sees selected DOM only while completed quiz submission result modal is visible; correct answer latched even if other submitted questions wrong; no grading mere unsubmitted selection"
+    },
+    {
+      "id": "quiz_7",
+      "question": "牧深为什么给项云归优惠？",
+      "mechanism": "single",
+      "grading": "judge sees selected DOM only while completed quiz submission result modal is visible; correct answer latched even if other submitted questions wrong; no grading mere unsubmitted selection"
+    },
+    {
+      "id": "quiz_8",
+      "question": "之前的宿舍矛盾有几个？（多选，少选多选均不得分）",
+      "mechanism": "multi",
+      "grading": "judge sees selected DOM only while completed quiz submission result modal is visible; correct answer latched even if other submitted questions wrong; no grading mere unsubmitted selection"
+    },
+    {
+      "id": "qq",
+      "mechanism": "nine unique digits with adjacent two-digit products constrained to multiplication table and birthday two-rail conversion; bypassable and not a route gate"
+    },
+    {
+      "id": "diary",
+      "mechanism": "Connect narrator departure hint to same persona account logout date in sub QQ; bypassable and not a route gate."
+    }
+  ],
+  "optional": [
+    "wechat",
+    "subqq"
+  ],
+  "why_optional": "mechanically no mandatory read/login prerequisite if solver knows final facts; keep evidence acquisition gates distinct from route requirements",
+  "pair_scoring": "one checkpoint per complete matching question; not per person",
+  "negative_requirements": "hidden static endings, incomplete quiz, wrong credentials, wrong/missing/extra answers must not falsely score the corresponding point",
+  "diagnostic_quiz": {
+    "quiz_2": "Public report explicitly says fatal online abuse.",
+    "quiz_3": "Match explicitly stated majors; retrieval rather than independent deduction.",
+    "quiz_4": "Diary states narrator is protective alter of Yun Gui.",
+    "quiz_5": "Match stated current occupations; retrieval.",
+    "quiz_6": "Diary states Yun Gui was abducted."
+  },
+  "reasoning_support": {
+    "system": "Convert two forum secret messages into pinyin credentials.",
+    "quiz_1": "Join shareholder project source, 10w account and father identity to identify founder.",
+    "quiz_7": "Compare consultation 5000/h to 20000/h profile, relate diary treatment history to inferred follow-up motive; narrative attribution remains uncertain.",
+    "quiz_8": "Combine dormitory conflict evidence across recollections; exact selected set is author key.",
+    "qq": "Solve adjacency and birthday arithmetic/rail transformation. No prior collection required by login.",
+    "diary": "Identify narrator and correlate her account closure on 2020-07-23 with the departure date asked by diary password; the date is visible in another app."
+  },
+  "route_note": "QQ is scored but bypassable; route gates are system and quiz 1,7,8. Diagnostic answers remain required by original game to pass, but are not scored as reasoning."
+}

@@ -1,0 +1,88 @@
+{
+  "hooks": {
+    "god": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-city.active #city-result.on') && document.querySelector('#city-result-title').textContent.trim()===\"wig 地产之神\""
+    },
+    "tycoon": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-city.active #city-result.on') && document.querySelector('#city-result-title').textContent.trim()===\"地产大亨\""
+    },
+    "steady": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-city.active #city-result.on') && document.querySelector('#city-result-title').textContent.trim()===\"稳健开发商\""
+    },
+    "quiet": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-city.active #city-result.on') && document.querySelector('#city-result-title').textContent.trim()===\"白忙两年\""
+    },
+    "bankrupt": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-city.active #city-result.on') && document.querySelector('#city-result-title').textContent.trim()===\"资金链断裂 · 暴雷\""
+    },
+    "prison": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-city.active #city-result.on') && document.querySelector('#city-result-title').textContent.trim()===\"无期徒刑 · 2.44 万亿的代价\""
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "god",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "god",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "tycoon",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "tycoon",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "steady",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "steady",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "quiet",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "quiet",
+        "op": "truthy"
+      }
+    }
+  ],
+  "terminal_failures": [
+    {
+      "id": "bankrupt",
+      "hook": "bankrupt",
+      "op": "truthy"
+    },
+    {
+      "id": "prison",
+      "hook": "prison",
+      "op": "truthy"
+    }
+  ],
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

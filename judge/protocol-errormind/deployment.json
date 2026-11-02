@@ -1,0 +1,53 @@
+{
+  "deployment_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\errormind-deploy-final",
+  "archive_sha256": "748a4c1d20d4dd4921ab54d3a77550867f5c1e986386059cc218ce7c8618cf4b",
+  "manifest_files_verified": 32,
+  "crc_verified": true,
+  "status": "main_flow_independent_ui_accepted_optional_visibility_limited",
+  "port": 8812,
+  "independent_cases": [
+    {
+      "case": 0,
+      "ending": "comply",
+      "pass": true,
+      "critical": 7,
+      "diagnostic": 4
+    },
+    {
+      "case": 1,
+      "ending": "resist",
+      "pass": true,
+      "critical": 7,
+      "diagnostic": 4
+    },
+    {
+      "case": 2,
+      "ending": "void",
+      "pass": true,
+      "critical": 7,
+      "diagnostic": 4
+    },
+    {
+      "case": 3,
+      "ending": "void",
+      "pass": true,
+      "critical": 7,
+      "diagnostic": 4
+    }
+  ],
+  "fresh_context_reset": true,
+  "normal_reload_reset": true,
+  "optional_visibility_accepted": false,
+  "prerequisites": {
+    "python": "3.11+",
+    "python_packages": {
+      "playwright": "1.63.0",
+      "jsonschema": "4.26.0",
+      "httpx": "0.28.1",
+      "python-dotenv": "1.2.4"
+    },
+    "browser": "Playwright Chromium or installed Edge/Chrome"
+  },
+  "python_actual": "3.11.15 (main, Jun 23 2026, 15:20:37) [MSC v.1944 64 bit (AMD64)]",
+  "zero_paid_api_calls": true
+}

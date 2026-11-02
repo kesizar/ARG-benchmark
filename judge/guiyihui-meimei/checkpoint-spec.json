@@ -1,0 +1,32 @@
+{
+  "rationale": "All levels can be freely skipped: none is a mandatory route gate. Three critical outcome checks count as elementary inference; guessing and prior knowledge remain possible. Hints and epiphany invalidate score for that level. Other candidates are diagnostics, not reasoning score.",
+  "excluded": {
+    "10": "题干和答案矛盾",
+    "41": "词义与CYPHER拼写缺充分限定",
+    "43": "未找到财务审计中的全名",
+    "47": "报警电话额外前缀缺依据",
+    "49": "未找到日记中的生日",
+    "choices": "剧情分支而非推理门"
+  },
+  "audit": "judge/guiyihui-meimei/level-audit.json",
+  "selected_critical": {
+    "11": "first letters combine to DEATH",
+    "33": "12 + 15 + 15 = 42",
+    "44": "500 ten-thousands = 5000000"
+  },
+  "diagnostic_only": {
+    "5": "six-letter translation ambiguous",
+    "12": "literal Chinese word to English",
+    "13": "format example reveals exact 2230",
+    "20": "literal translation",
+    "21": "execute explicitly given filter settings, then read",
+    "22": "copy revealed node sequence",
+    "24": "AETHER printed in diary",
+    "25": "432 displayed beside slider and forum",
+    "26": "3-1-4 written in recording text",
+    "35": "literal translation",
+    "46": "name transliteration",
+    "48": "literal translation",
+    "50": "given prefix plus transliterated name"
+  }
+}

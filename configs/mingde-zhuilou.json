@@ -1,0 +1,84 @@
+{
+  "id": "mingde-zhuilou",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "明德中学坠楼案",
+    "intro": "你是警员岳月，调查明德中学坠楼案。通过屏幕和站内资料推理，提交案件报告。开局作者名线索尚待补充，本版本只供条件验收。"
+  },
+  "entry_url": "http://127.0.0.1:8831/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/mingde-zhuilou/mirror",
+      "--port",
+      "8831"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8831/index.html",
+    "ready_timeout_s": 30,
+    "port": 8831
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20260003,
+  "allow_hosts": [
+    "127.0.0.1:8831"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up",
+    "switch_tab",
+    "close_tab"
+  ],
+  "limits": {
+    "max_steps": 1500,
+    "max_seconds": 3600,
+    "max_answer_submits": 100
+  },
+  "settle_ms": 800,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/mingde-zhuilou/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "作者身份入口线索未提供；六个主线密码和两报告选择均诊断，零推理计分点，0/0不算满分。孤立页面不作为主路线。"
+  ],
+  "account_requirement": "none"
+}

@@ -1,0 +1,3 @@
+from pathlib import Path
+p=Path('scripts/guiyihui-meimei-setup.py');s=p.read_text(encoding='utf-8');s=s.replace("'events':{x:{'hook':x,'op':'truthy'} for x in ['hint','skip','jump']},'routes':[{'id':'ending_'+e,'tier':'normal','gates':[],'ending':{'hook':'ending_'+e,'op':'truthy'}} for e in 'ABCD']", "'events':{**{x:{'hook':x,'op':'truthy'} for x in ['hint','skip','jump']},'failure_timeout_A':{'hook':'ending_A','op':'truthy','tier':'bad','description':'倒计时耗尽，妹妹未获救；失败事件，不算通关'}},'routes':[{'id':'ending_'+e,'tier':'normal','gates':[],'ending':{'hook':'ending_'+e,'op':'truthy'}} for e in 'BCD']")
+p.write_text(s,encoding='utf-8')

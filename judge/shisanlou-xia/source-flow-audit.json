@@ -1,0 +1,116 @@
+{
+  "record_id": "base664:0554",
+  "scope": "Historical source audit only; no UI/independent deployment accepted",
+  "state": {
+    "nights": [
+      1,
+      2,
+      3
+    ],
+    "clues": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i"
+    ],
+    "persistent_key": "shisanlou_save_v1",
+    "advance": "home continue increments to3; at3 further continue refused; no prerequisites",
+    "ending_after_reload": "state.ended displayed; reset restores defaults"
+  },
+  "puzzle_candidates": [
+    {
+      "id": "elevator",
+      "answer": "0033",
+      "evidence": "notice abnormal00:33",
+      "required": "optional: radio ENTER13 bypasses elevator"
+    },
+    {
+      "id": "archive",
+      "answer": "873",
+      "required": "needed for e; explicit answer printed in notes; record validation as mechanic, review inference credit"
+    },
+    {
+      "id": "fire",
+      "answer": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ],
+      "required": "c required for true ending; words recombine research institute1998"
+    },
+    {
+      "id": "watermark",
+      "answer": "极光",
+      "required": "optional; displays许远1998, no clue/state unlock"
+    },
+    {
+      "id": "broadcast_command",
+      "answer": "ENTER 13",
+      "required": "alternative to elevator onceweek>=2; accepted at anyfrequency. HELP prints full instruction, so no forced Morse inference"
+    },
+    {
+      "id": "search_departures",
+      "answer": "离职记录",
+      "required": "i required for true; search visible placeholder lists it directly"
+    }
+  ],
+  "routes": [
+    {
+      "id": "resign",
+      "title": "结局 · 辞呈",
+      "source_type": "normal",
+      "condition": "home submit resignation anynight",
+      "classification": "formal ending; source labels normal"
+    },
+    {
+      "id": "takeover",
+      "title": "结局 · 接站",
+      "source_type": "bad",
+      "condition": "enter broadcast room atnight>=2 while not(week>=3 and9clues), then leave",
+      "classification": "failure ending by source bad flag"
+    },
+    {
+      "id": "shutdown",
+      "title": "结局 · 话筒已关",
+      "source_type": "true",
+      "condition": "night3 andall9clues, then shut microphone",
+      "classification": "formal true ending by source"
+    }
+  ],
+  "clue_sources": {
+    "a": "notice click",
+    "b": "CCTV0033 cigarette click",
+    "c": "fire ordered4pieces",
+    "d": "tenant click orsearch极光",
+    "e": "archive password success",
+    "f": "home radio backcover",
+    "g": "home flower",
+    "h": "night>=2 setfrequency87.3 thenwait2700ms",
+    "i": "search离职记录"
+  },
+  "branches": [
+    "12navigationpages; log lockednight1/unlockednight2; additionallogtextnight3",
+    "CCTV0047 replay onlynight>=2",
+    "8exactsearchkeywords, six are information-only",
+    "wrong elevator/archive/radio each3errors triggersnormalface; secondtotal scare usesburnedface; no terminaldeath",
+    "random whisper20–44s; radio Morse table; audio proceduraldrone/blip/scare; clues text accessible",
+    "true readybranch removes takeoverbutton; all9clues unlock truthfinale",
+    "resetGame doesnot re-lock nav-log CSS afterhighernight (sourceissue); navigate stillenforcesweek"
+  ],
+  "legacy_judge_issues": [
+    "Legacy meet tiergood contradicts sourcebad; resign tierbad contradicts sourcenormal",
+    "Legacy room13 is exploration not inference; archive explicitcopy; watermark missing",
+    "No revised scoredjudge shipped before UI verification"
+  ],
+  "missing_assets": [
+    "style.css",
+    "scare-normal.png",
+    "scare-burned.png"
+  ]
+}

@@ -1,194 +1,104 @@
 {
   "hooks": {
+    "k01": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[1]?.content||'').includes(\"350\")"
+    },
+    "k02": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[2]?.content||'').includes(\"2510\")"
+    },
+    "k03": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[3]?.content||'').includes(\"乳糖不耐\")"
+    },
+    "k04": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[4]?.content||'').includes(\"5201\")"
+    },
+    "k05": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[5]?.content||'').includes(\"YC001\")"
+    },
+    "k06": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[6]?.content||'').includes(\"20101123\")"
+    },
+    "k07": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[7]?.content||'').includes(\"英才2301班\")"
+    },
+    "k08": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[8]?.content||'').includes(\"营养不良性贫血\")"
+    },
+    "k09": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[13]?.content||'').includes(\"青苗论坛\")"
+    },
+    "k10": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[15]?.content||'').includes(\"农场办公室档案柜\")"
+    },
+    "k11": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[16]?.content||'').includes(\"20250308\")"
+    },
+    "k12": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[19]?.content||'').includes(\"QM230617001\")"
+    },
+    "k13": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[20]?.content||'').includes(\"幼苗共育\")"
+    },
+    "k14": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[21]?.content||'').includes(\"QM251123489\")"
+    },
+    "k15": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[22]?.content||'').includes(\"吃植物人\")"
+    },
+    "k16": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[23]?.content||'').includes(\"牛奶\")"
+    },
+    "k17": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[25]?.content||'').includes(\"砧木\")"
+    },
+    "k18": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[26]?.content||'').includes(\"接穗\")"
+    },
+    "k19": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[27]?.content||'').includes(\"成材\")"
+    },
+    "report": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#resultMessage.success')&&document.querySelector('#submitReportBtn').disabled"
+    },
+    "report-decrypt": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#encryptedContent')&&document.querySelector('#encryptedContent').style.display==='block'"
+    },
+    "labor-2": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#imageContainer2')&&document.querySelector('#imageContainer2').style.display==='block'"
+    },
+    "labor-3": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#imageContainer3')&&document.querySelector('#imageContainer3').style.display==='block'"
+    },
     "gentle": {
       "type": "js_truthy",
-      "expr": "document.getElementById(\"typewriterEndTypedText\")&&document.getElementById(\"typewriterEndTypedText\").textContent===\"END\""
+      "expr": "document.getElementById('typewriterEndTypedText')&&document.getElementById('typewriterEndTypedText').textContent==='END'"
     },
     "harsh": {
       "type": "js_truthy",
-      "expr": "document.getElementById(\"animationEndTypedText\")&&document.getElementById(\"animationEndTypedText\").textContent===\"END\""
-    },
-    "k01": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "deeeb5df3f2cee6bf4e597a8a3a878a6ce49b932b9e90b416922d4499f54fae6"
-      ]
-    },
-    "k02": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "ff150bc51704cbc2fb2f412c2d8a79afb6212c9dff3d6127c2b0f937a33ea5ed"
-      ]
-    },
-    "k03": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "9cc70e03d3017b0e27bbf0671ca095138d6f1202ec6edd926a1481dccf99d05c"
-      ]
-    },
-    "k04": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "f4cd1757ff9e8604d505c4ccacec52800f3142453b8bf9ba4f87013611aee3df"
-      ]
-    },
-    "k05": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "377361f624a5a96a9b31000865141f52c3493a3c30bcc79c72b5891ae351aa69"
-      ]
-    },
-    "k06": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "37d75babb3e71cae6068fb7ba494eef36d907df781248b22a018238ba7a14e10"
-      ]
-    },
-    "k07": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "d9bc14de6cd9efb7be9370ee414925fc5eb408a18bccc9922a89ec511f86b110"
-      ]
-    },
-    "k08": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "5df6d875f39c0ff8fbc67f2dcab79e00f194296339cfcd76048cd6fa442a029f"
-      ]
-    },
-    "k09": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "c4422aca3422ed448176dcb8fbd709c24a2d3c2d2cb9d2dd196909e83a723c35"
-      ]
-    },
-    "k10": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "a35650d436b7f3a0860a341b7ebeae27851ddcfaf83264fa411adc08f781c91b"
-      ]
-    },
-    "k11": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "6a2b28e970f67d96b804060a050b5c3bcd3b023c0ee91f53d13304966c82d991"
-      ]
-    },
-    "k12": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "f8f04295047d31af8850c964ba45c8316287e9d6d6d8c7ee8dbfd5f64b5a84dc"
-      ]
-    },
-    "k13": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "af61146d143b58fc52133dd670430294642cf0d567855fb2cd28bd411595b172"
-      ]
-    },
-    "k14": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "ddcedc898b3b66144665b8c50a424327850e8211ee697622ced8853bcf19231c"
-      ]
-    },
-    "k15": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "05a152b9ace4c630d38ef0e462f7fa4982f184d0c7dd29867d7ca14c29d9cb39"
-      ]
-    },
-    "k16": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "b892a42b9695881d77512e97ade8d3c59c111c8a9065db9f728b769cbbc5fa3f"
-      ]
-    },
-    "k17": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "350b92be9d82b7ed4481e415c31435859d1d1cc70f939a00e7b3788f4cb0cd82"
-      ]
-    },
-    "k18": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "30f749053c3d97566cee194c14058ed2bd09f514f3fc7fd018f4fad9b129650b"
-      ]
-    },
-    "k19": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "26a7eb5deae9a7c4e8cab8eecfc66cda58b183b1adf5709885bb1b320fab067f"
-      ]
-    },
-    "k20": {
-      "type": "input_sha256",
-      "selector": "#messageInput",
-      "hashes": [
-        "7b41108c95ec459d0514c4df8e840f3da774f5bd70e68edf7eada5a12c2aa6f4"
-      ]
-    },
-    "blank1": {
-      "type": "input_sha256",
-      "selector": "#blank1",
-      "hashes": [
-        "af609b4421083f4c60830b303c684e2b08a6e56b0b578e3b23af80ba951e980a"
-      ]
-    },
-    "blank2": {
-      "type": "input_sha256",
-      "selector": "#blank2",
-      "hashes": [
-        "7ed96b6eee95d470d8e0c95b0d1f9a3816da082984d35e55660fd3bc263d0596"
-      ]
-    },
-    "blank3": {
-      "type": "input_sha256",
-      "selector": "#blank3",
-      "hashes": [
-        "0604cd3138feed202ef293e062da2f4720f77a05d25ee036a7a01c9cfcdd1f0a"
-      ]
-    },
-    "blank4": {
-      "type": "input_sha256",
-      "selector": "#blank4",
-      "hashes": [
-        "de133d46c446e066752cc3c88cb6b0b9a9c89d12d842526e1229a6adca75bd2f"
-      ]
-    },
-    "blank5": {
-      "type": "input_sha256",
-      "selector": "#blank5",
-      "hashes": [
-        "36dbe1a01420495a6591fb212a0414689b6f60f4381b061b8870127caa0453b8"
-      ]
-    },
-    "blank6": {
-      "type": "input_sha256",
-      "selector": "#blank6",
-      "hashes": [
-        "5e8437f5f095b5b6b0c9ebb8e2f205000e08aa35ed19ceadfb1b887be0ce355e"
-      ]
+      "expr": "document.getElementById('animationEndTypedText')&&document.getElementById('animationEndTypedText').textContent==='END'"
     }
   },
   "checkpoints": [
@@ -196,79 +106,79 @@
       "id": "k01",
       "hook": "k01",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k02",
       "hook": "k02",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k03",
       "hook": "k03",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k04",
       "hook": "k04",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k05",
       "hook": "k05",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k06",
       "hook": "k06",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k07",
       "hook": "k07",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k08",
       "hook": "k08",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k09",
       "hook": "k09",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k10",
       "hook": "k10",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k11",
       "hook": "k11",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k12",
       "hook": "k12",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k13",
       "hook": "k13",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k14",
@@ -280,80 +190,61 @@
       "id": "k15",
       "hook": "k15",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k16",
       "hook": "k16",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k17",
       "hook": "k17",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k18",
       "hook": "k18",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
       "id": "k19",
       "hook": "k19",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
-      "id": "k20",
-      "hook": "k20",
+      "id": "report",
+      "hook": "report",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "report-decrypt",
+      "hook": "report-decrypt",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "labor-2",
+      "hook": "labor-2",
       "op": "truthy",
       "role": "optional"
     },
     {
-      "id": "blank1",
-      "hook": "blank1",
-      "op": "truthy",
-      "role": "optional"
-    },
-    {
-      "id": "blank2",
-      "hook": "blank2",
-      "op": "truthy",
-      "role": "optional"
-    },
-    {
-      "id": "blank3",
-      "hook": "blank3",
-      "op": "truthy",
-      "role": "optional"
-    },
-    {
-      "id": "blank4",
-      "hook": "blank4",
-      "op": "truthy",
-      "role": "optional"
-    },
-    {
-      "id": "blank5",
-      "hook": "blank5",
-      "op": "truthy",
-      "role": "optional"
-    },
-    {
-      "id": "blank6",
-      "hook": "blank6",
+      "id": "labor-3",
+      "hook": "labor-3",
       "op": "truthy",
       "role": "optional"
     }
   ],
-  "events": {},
   "routes": [
     {
       "id": "gentle",
-      "tier": "good",
+      "tier": "normal",
       "gates": [],
       "ending": {
         "hook": "gentle",
@@ -370,16 +261,11 @@
       }
     }
   ],
-  "ending": {
-    "hook": "gentle",
-    "op": "truthy"
-  },
+  "events": {},
   "answer_sha256": [],
-  "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {
     "enabled": false,
     "schema": null
-  },
-  "rubric_path": null
+  }
 }

@@ -1,0 +1,25 @@
+{
+  "archive": "packs\\hushan-xiangcheng.prepared.zip",
+  "archive_sha256": "983ec4cbe82a082d82d91df44d1647265e20fcf9261c824ef686c6c27775c5e1",
+  "extracted_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\hushan-deployment-6a345e75",
+  "crc_ok": true,
+  "all_manifest_hashes_match": true,
+  "model_api_used": false,
+  "base_environment": "Windows; already installed Python dependencies and Edge/Chromium, not fresh installation",
+  "runtime_hashes": {
+    "harness/observe.py": "bf9c2ba647c63f0e69af6f899c44cf7dbe52f2be9350e2f49f390352c4ed59b2",
+    "harness/browser_harness.py": "194bf2c2d5b872c56525feb05a833280663259474b7bd6186001c688f933c43f",
+    "harness/judge.py": "f5409fc40907b33c51feea3d96786508be9e45260673e45c28d5625a82d0fbd1"
+  },
+  "standard_cli": [
+    "runs\\hushan-deployment-6a345e75\\runs\\hushan-xiangcheng-ids\\B\\20261026_163452\\summary.json",
+    "runs\\hushan-deployment-6a345e75\\runs\\hushan-xiangcheng-radical\\B\\20261026_163500\\summary.json",
+    "runs\\hushan-deployment-6a345e75\\runs\\hushan-xiangcheng-iol\\B\\20261026_163510\\summary.json",
+    "runs\\hushan-deployment-6a345e75\\runs\\hushan-xiangcheng-family\\B\\20261026_163519\\summary.json",
+    "runs\\hushan-deployment-6a345e75\\runs\\hushan-xiangcheng-tone\\B\\20261026_163527\\summary.json",
+    "runs\\hushan-deployment-6a345e75\\runs\\hushan-xiangcheng-merge\\B\\20261026_163536\\summary.json"
+  ],
+  "ui_acceptance": "runs\\hushan-deployment-6a345e75\\judge\\hushan-xiangcheng\\verification\\deployment-acceptance.json",
+  "auxiliary_acceptance": "runs\\hushan-deployment-6a345e75\\judge\\hushan-xiangcheng\\verification\\auxiliary-acceptance.json",
+  "pass": true
+}

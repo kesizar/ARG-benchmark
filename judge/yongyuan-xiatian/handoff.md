@@ -1,0 +1,9 @@
+# added84:0003 完成工程验收，待主代理复核
+
+独立prepared包的原完整验收已经成功落盘；未因旧session不存在重跑。已复制验收与终页图到本目录verification。339条记录，50次负检查，8推理点全到达，4不计分事件，唯一正式normal结局fp6、返回封面、新context清空存储均通过；无页面错误、HTTP错误或外网拦截。工程回放为源码辅助普通UI动作，不是模型得分。
+
+74个prepared清单文件在ZIP、独立目录runs/yongyuan-deploy-0fd1d515、当前工作区三者逐字节一致。ZIP SHA256仍为0fd1d515178b37fac21014d6a28178d9334e2eaa7d080dac6848a878ebda60b0。资源ZIP另解压runs/yongyuan-resources-deploy；分别在8833/8832启动自有服务器读取37个游戏文件全部与ZIP一致，私有judge/config/harness URL均404，服务finally停止。deployment.json记录哈希与日志。原独立标准CLI两步退出仅为接线测试，证据在独立目录standard-cli.log与runs下summary.json。
+
+未改动游戏、裁判、配置或已验收运行时，因而不重新打包。新增scripts/yongyuan_deployment_verify.py可复验两包。既有视频3段原生播放通过。保留原workspace缩放失败记录workspace-pre-zoom-fix-failure.json，最终acceptance对应包内已修正的脚本。
+
+本地执行ready=true，正式评分暂false待主代理复核；第二幕普通直达第三幕、照片绿色反馈、原作路线歧义已在review中披露。未使用个人账号、购买或API；未改共享harness/progress、未push。现有Windows基础环境复用，不声称新OS/跨平台。主代理可复核deployment.json和acceptance，不需重新梳理作品。

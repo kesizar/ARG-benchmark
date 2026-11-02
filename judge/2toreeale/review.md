@@ -1,0 +1,9 @@
+# Review and scope
+
+The tutorial contains two independent reasoning tasks: the four highlighted home statistics produce 3741, and the four Lessons pillar initials produce READ. Each can be submitted first; errors are retryable. There is one graduation ending. No non-retryable failure was found in the reviewed tutorial code and exercised route. Hint UI has three steps; the last reveals both answers. The page also promotes external rooms, newsletter, sharing and tournament services; these are outside this tutorial and may depend on live services or an account.
+
+The original public ending URL is directly accessible without answers. The judge requires both actual browser storage flags plus visible graduation on the ending path. The flags reflect answer acceptance but do not prove a player reasoned independently, and the final hint discloses answers. Both facts are reasons to hold formal scoring pending benchmark policy and difficulty calibration. No real-model trial was performed.
+
+The offline mirror is a compatibility copy. It preserves the original bundled game logic and the downloaded image/style assets; HTML image URLs are rewritten to local files and `compat.js` emulates the public access-gate responses observed during capture and converts tutorial navigation into full document loads. Network-based peripheral services are unavailable. The unmodified four captured pages and hashes are in `data/preparation/results/base664-0169/`. A future source-site update may change L3 behavior. Do not treat this offline copy as the live backend or claim that unrelated links work.
+
+Normal UI testing through the shared BrowserHarness and Judge covers both answer orders, wrong answers, code-first score, ending, fresh context reset, and direct-ending negative (answer-order reversal is separately verified by Playwright). Independent resource and evaluator ZIP extraction tests are in `data/preparation/results/base664-0169/deployment.json`.

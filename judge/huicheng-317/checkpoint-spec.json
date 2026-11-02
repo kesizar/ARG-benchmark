@@ -1,0 +1,27 @@
+{
+  "reasoning_points": [],
+  "endings": {
+    "A": "normal: original supplies no ranked good/bad tier",
+    "B": "normal: original supplies no ranked good/bad tier",
+    "C": "normal: original supplies no ranked good/bad tier",
+    "D": "normal: original supplies no ranked good/bad tier"
+  },
+  "failure": "sanity0 before act3 triggers dragged terminal failure, not a route; setAct never3, but act4 protects",
+  "risks": [
+    "Repeated bus/city locations count again; no inference required.",
+    "C offered without archive or burnedNeg prerequisite.",
+    "S.act remains1 during act3; sanity0 driver can create premature ending then continue choices.",
+    "Replay resets current state but retains localStorage endings, runNum fixed until reload.",
+    "Mini output persists; judge additionally requires valid current input and visible success modal or current archive-inside heading to prevent stale/reset credit."
+  ],
+  "diagnostic_points": [
+    {
+      "id": "archive_lock",
+      "answer": "2600",
+      "role": "diagnostic",
+      "reason": "Visible departure board says 26:00 and prompt asks next departure as four digits; copying and omitting colon.",
+      "condition": "Successful open reaches archive interior; current input and output are checked to avoid stale mini output on replay.",
+      "alternate": "suburb unreachable by normal maxlength=4 input"
+    }
+  ]
+}

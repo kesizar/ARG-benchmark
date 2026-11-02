@@ -1,0 +1,230 @@
+{
+  "scored_inference": [
+    "volume: order ten numbered hidden letters into invisiblet"
+  ],
+  "optional_inference": [
+    "caesar FDPHPDOH shifted back three -> CAMEMALE, validator requires came male (ambiguous space)",
+    "morse .... .- .-. - / -.-. .- - -> hart cat",
+    "repair date 05-16 -> 0516",
+    "p71 poetic clue -> 后退三步",
+    "terminal discovery input help (unclued/guessable)"
+  ],
+  "not_inference": [
+    "automatic entry chat",
+    "memorialfile copied from testimony",
+    "post reading/floor paging",
+    "hidden exact-name search (retrieval)",
+    "achievement clicks",
+    "trust yourself copied from help"
+  ],
+  "routes": {
+    "bad": [
+      "volume",
+      "any nonempty choice except help OR terminal surrender"
+    ],
+    "good": [
+      "volume",
+      "help",
+      "trust yourself"
+    ]
+  },
+  "bypass": "volume accepts key without prior gates or fragment storage; school/forum gates optional",
+  "defects": [
+    "forum never writes fragments_collected; status remains 0/10",
+    "duplicate-letter counting in getFragmentProgress is also flawed",
+    "resetAll only resets ending UI, not chat/repair/achievement state; full fresh context required",
+    "legacy final dossier and archive popup have no reachable menu trigger",
+    "silence, Escape and terminal exit/close leave black screen trapped until ordinary reload"
+  ],
+  "forum_posts": [
+    {
+      "id": "top1",
+      "pages": [
+        "1"
+      ],
+      "fragments": [
+        "碎片7: b",
+        "碎片8: l"
+      ]
+    },
+    {
+      "id": "top2",
+      "pages": [
+        "1",
+        "2"
+      ],
+      "fragments": [
+        "碎片8: l",
+        "碎片9: e"
+      ]
+    },
+    {
+      "id": "top3",
+      "pages": [
+        "1"
+      ],
+      "fragments": [
+        "碎片9: e",
+        "碎片1: i"
+      ]
+    },
+    {
+      "id": "p21",
+      "pages": [
+        "1",
+        "2",
+        "3"
+      ],
+      "fragments": [
+        "碎片1: i",
+        "碎片2: n"
+      ]
+    },
+    {
+      "id": "p47",
+      "pages": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "fragments": [
+        "碎片2: n",
+        "碎片3: v"
+      ]
+    },
+    {
+      "id": "p53",
+      "pages": [
+        "1"
+      ],
+      "fragments": [
+        "碎片3: v",
+        "碎片4: i"
+      ]
+    },
+    {
+      "id": "p58",
+      "pages": [
+        "1"
+      ],
+      "fragments": [
+        "碎片4: i",
+        "碎片5: s"
+      ]
+    },
+    {
+      "id": "p62",
+      "pages": [
+        "1"
+      ],
+      "fragments": [
+        "碎片5: s",
+        "碎片6: i"
+      ]
+    },
+    {
+      "id": "p68",
+      "pages": [
+        "1"
+      ],
+      "fragments": [
+        "碎片6: i",
+        "碎片10: t"
+      ]
+    },
+    {
+      "id": "p71",
+      "pages": [
+        "1"
+      ],
+      "fragments": [
+        "碎片10: t"
+      ]
+    },
+    {
+      "id": "h1",
+      "pages": [
+        "1"
+      ],
+      "fragments": []
+    },
+    {
+      "id": "h2",
+      "pages": [
+        "1"
+      ],
+      "fragments": []
+    },
+    {
+      "id": "h3",
+      "pages": [
+        "1"
+      ],
+      "fragments": []
+    },
+    {
+      "id": "h4",
+      "pages": [
+        "1"
+      ],
+      "fragments": []
+    }
+  ],
+  "achievements": "12 actual configured keys (comment says 11); night_owl requires browser local hour 0-4; all_achievements requires other 11; achievements are diagnostic only",
+  "numbered_fragment_ui_pages": [
+    {
+      "post": "top1",
+      "floor_page": "1",
+      "text": "碎片7: b"
+    },
+    {
+      "post": "top2",
+      "floor_page": "1",
+      "text": "碎片8: l"
+    },
+    {
+      "post": "top3",
+      "floor_page": "1",
+      "text": "碎片9: e"
+    },
+    {
+      "post": "p21",
+      "floor_page": "1",
+      "text": "碎片1: i"
+    },
+    {
+      "post": "p47",
+      "floor_page": "1",
+      "text": "碎片2: n"
+    },
+    {
+      "post": "p53",
+      "floor_page": "1",
+      "text": "碎片3: v"
+    },
+    {
+      "post": "p58",
+      "floor_page": "1",
+      "text": "碎片4: i"
+    },
+    {
+      "post": "p62",
+      "floor_page": "1",
+      "text": "碎片5: s"
+    },
+    {
+      "post": "p68",
+      "floor_page": "1",
+      "text": "碎片6: i"
+    },
+    {
+      "post": "p71",
+      "floor_page": "1",
+      "text": "碎片10: t"
+    }
+  ],
+  "original_presentation_defect_and_compatibility": "Original blackScreen300 covered choice120/terminal250; retain original evidence, authorized local choice320/terminal350 fixes presentation only"
+}

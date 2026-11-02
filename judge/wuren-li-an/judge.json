@@ -1,13 +1,192 @@
 {
   "hooks": {
-    "finished": {"type": "localstorage", "key": "wlb_finished", "mode": "exists"}
+    "truth_login": {
+      "type": "js_truthy",
+      "expr": "state.mode===\"truth\" && document.querySelector(\"#view-main.active\")!==null"
+    },
+    "decode": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#e-will3 .reveal\")"
+    },
+    "sort": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#p-timeline > .reveal\")"
+    },
+    "witness": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#puzzle-witness .opt.right\")"
+    },
+    "final": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#view-ending.active\") && localStorage.getItem(\"wlb_finished\")===\"1\""
+    },
+    "will_priority": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#puzzle-defend .opt.right\")"
+    },
+    "duress_evidence": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#puzzle-defend2 .opt.right\")"
+    },
+    "ending_A": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#view-ending.active\") && document.getElementById(\"ending-result\").style.display===\"block\" && document.getElementById(\"ending-title\").textContent===\"结局 A · 沉默的共谋\""
+    },
+    "ending_B": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#view-ending.active\") && document.getElementById(\"ending-result\").style.display===\"block\" && document.getElementById(\"ending-title\").textContent===\"结局 B · 越界的良知\""
+    },
+    "ending_C": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#view-ending.active\") && document.getElementById(\"ending-result\").style.display===\"block\" && document.getElementById(\"ending-title\").textContent===\"结局 C · 以律法为刃\""
+    },
+    "bad_pd": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#view-bad.active\") && document.getElementById(\"bad-text\").textContent===badTexts[\"pd\"]"
+    },
+    "bad_pd2": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#view-bad.active\") && document.getElementById(\"bad-text\").textContent===badTexts[\"pd2\"]"
+    },
+    "bad_decode": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#view-bad.active\") && document.getElementById(\"bad-text\").textContent===badTexts[\"decode\"]"
+    },
+    "bad_sort": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#view-bad.active\") && document.getElementById(\"bad-text\").textContent===badTexts[\"sort\"]"
+    },
+    "bad_pw": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#view-bad.active\") && document.getElementById(\"bad-text\").textContent===badTexts[\"pw\"]"
+    },
+    "bad_pf": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#view-bad.active\") && document.getElementById(\"bad-text\").textContent===badTexts[\"pf\"]"
+    }
   },
-  "checkpoints": [],
-  "events": {},
-  "ending": {"hook": "finished", "op": "truthy"},
+  "checkpoints": [
+    {
+      "id": "decode",
+      "hook": "decode",
+      "op": "truthy"
+    },
+    {
+      "id": "sort",
+      "hook": "sort",
+      "op": "truthy"
+    },
+    {
+      "id": "witness",
+      "hook": "witness",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "final",
+      "hook": "final",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "will_priority",
+      "hook": "will_priority",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "duress_evidence",
+      "hook": "duress_evidence",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {
+    "truth_login": {
+      "hook": "truth_login",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "A",
+      "tier": "normal",
+      "gates": [
+        "decode",
+        "sort"
+      ],
+      "ending": {
+        "hook": "ending_A",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "B",
+      "tier": "normal",
+      "gates": [
+        "decode",
+        "sort"
+      ],
+      "ending": {
+        "hook": "ending_B",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "C",
+      "tier": "normal",
+      "gates": [
+        "decode",
+        "sort"
+      ],
+      "ending": {
+        "hook": "ending_C",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "ending_C",
+    "op": "truthy"
+  },
   "answer_sha256": [],
   "answer_hash_file": null,
   "request_milestones": [],
-  "submit_conclusion": {"enabled": false, "schema": null},
-  "rubric_path": null
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null,
+  "terminal_failures": [
+    {
+      "id": "failure_pd",
+      "hook": "bad_pd",
+      "op": "truthy"
+    },
+    {
+      "id": "failure_pd2",
+      "hook": "bad_pd2",
+      "op": "truthy"
+    },
+    {
+      "id": "failure_decode",
+      "hook": "bad_decode",
+      "op": "truthy"
+    },
+    {
+      "id": "failure_sort",
+      "hook": "bad_sort",
+      "op": "truthy"
+    },
+    {
+      "id": "failure_pw",
+      "hook": "bad_pw",
+      "op": "truthy"
+    },
+    {
+      "id": "failure_pf",
+      "hook": "bad_pf",
+      "op": "truthy"
+    }
+  ]
 }

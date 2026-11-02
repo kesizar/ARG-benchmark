@@ -1,39 +1,46 @@
 {
   "hooks": {
-    "end": {
-      "type": "dom_regex",
-      "pattern": "这台电脑从来没有闹鬼。"
+    "zip": {
+      "type": "js_truthy",
+      "expr": "zipExtracted"
     },
-    "letter": {
-      "type": "dom_regex",
-      "pattern": "给念的信"
+    "monitor": {
+      "type": "js_truthy",
+      "expr": "monitorUnlocked"
+    },
+    "end": {
+      "type": "js_truthy",
+      "expr": "getComputedStyle(document.querySelector('#endingScreen')).display !== 'none' && document.querySelector('#endingScreen .ending-line.final.visible') !== null"
     }
   },
   "checkpoints": [
     {
-      "id": "letter",
-      "hook": "letter",
-      "op": "truthy"
+      "id": "zip",
+      "hook": "zip",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "monitor",
+      "hook": "monitor",
+      "op": "truthy",
+      "role": "diagnostic"
     }
   ],
   "events": {},
   "routes": [
     {
-      "id": "end",
-      "tier": "good",
-      "gates": [
-        "letter"
-      ],
+      "id": "ending",
+      "tier": "normal",
+      "gates": [],
       "ending": {
         "hook": "end",
         "op": "truthy"
       }
     }
   ],
-  "ending": {
-    "hook": "end",
-    "op": "truthy"
-  },
+  "ending": null,
+  "terminal_failures": [],
   "answer_sha256": [],
   "answer_hash_file": null,
   "request_milestones": [],

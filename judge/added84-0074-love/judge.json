@@ -1,0 +1,72 @@
+{
+  "hooks": {
+    "drawer": {
+      "type": "js_truthy",
+      "expr": "typeof G !== 'undefined' && G.drawerOpen === true"
+    },
+    "quiz": {
+      "type": "js_truthy",
+      "expr": "typeof quizDone !== 'undefined' && quizDone === true"
+    },
+    "verse": {
+      "type": "js_truthy",
+      "expr": "typeof G !== 'undefined' && G.jileFound === true"
+    },
+    "companion": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#escapeOverlay.active')"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "(()=>{const e=document.querySelector('.slide-tag');return !!e && e.textContent.trim()==='—— 解救 ——' && !!e.getClientRects().length;})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "drawer",
+      "hook": "drawer",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "quiz",
+      "hook": "quiz",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "verse",
+      "hook": "verse",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "companion",
+      "hook": "companion",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "rescue",
+      "gates": [],
+      "ending": {
+        "hook": "ending",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "ending",
+    "op": "truthy"
+  },
+  "terminal_failures": [],
+  "answer_sha256": [],
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  }
+}

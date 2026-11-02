@@ -1,34 +1,85 @@
 {
   "id": "fangjian-404-yingzi",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L1",
   "obs_mode": "B",
-  "obs_modes_to_run": ["B"],
+  "obs_modes_to_run": [
+    "B"
+  ],
   "computer_use": false,
   "model_visible": {
     "title": "404——不存在的房间",
-    "intro": "你在一个在线网页解谜里。只能用列出的动作，只根据屏幕上能看到的信息推理。不要打开其他网站。"
+    "intro": "你在本地托管的论坛解谜中，寻找线索、推理账号与关键操作，完成故事。只用屏幕信息与列出的动作；站内人物和账号是游戏虚构内容。"
   },
-  "entry_url": "https://yingzizzzz936-ux.github.io/404-game/",
-  "local_serve": {"enabled": false},
-  "viewport": {"width": 1366, "height": 900},
+  "entry_url": "http://127.0.0.1:8831/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/fangjian-404-yingzi/mirror",
+      "--port",
+      "8831"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8831/index.html",
+    "ready_timeout_s": 30,
+    "port": 8831
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
   "locale": "zh-CN",
   "timezone": "Asia/Shanghai",
-  "seed": 20261023,
-  "allow_hosts": ["yingzizzzz936-ux.github.io"],
+  "seed": 20260359,
+  "allow_hosts": [
+    "127.0.0.1:8831"
+  ],
   "shortcut_block": [],
-  "guide_block_hosts": ["*walkthrough*", "*writeup*", "*攻略*"],
+  "guide_block_hosts": [],
   "allow_model_goto": false,
   "goto_scope": "none",
   "show_url": true,
   "text_scope": "page",
   "text_limit": 6000,
-  "actions_enabled": ["click", "dblclick", "type", "key", "scroll", "drag", "back", "wait", "dialog", "give_up"],
-  "limits": {"max_steps": 80, "max_seconds": 1800, "max_answer_submits": 5},
-  "settle_ms": 400,
-  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 600,
+    "max_seconds": 1800,
+    "max_answer_submits": 30
+  },
+  "settle_ms": 800,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
   "judge_path": "judge/fangjian-404-yingzi/judge.json",
-  "policy_script": [{"op": "give_up"}],
-  "isolation": {"container": false},
-  "notes_for_report": ["2026-10-23 重试打开。真结局函数写入 zy_cleared，并显示「真结局：解脱」。坏结局和隐藏结局只改页面文字，首屏没有这些句子。假结局是循环，只记事件。"]
+  "policy_script": [
+    {
+      "op": "wait"
+    },
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "Original record base664:0359; all site/account functions are local fiction; source-view affordance not currently exposed to model."
+  ],
+  "account_requirement": "none"
 }

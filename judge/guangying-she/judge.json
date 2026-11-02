@@ -1,0 +1,41 @@
+{
+  "hooks": {
+    "darkroom": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"lhs2008save-v1\"));return !!s && s.hintMode===\"off\" && (s.darkroom===true)}catch{return false}})()"
+    },
+    "wall": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"lhs2008save-v1\"));return !!s && s.hintMode===\"off\" && (s.solved===true && s.checkedCount>0 && JSON.stringify(s.slots)===JSON.stringify([\"p1\",\"p2\",\"p3\",\"p4\",\"p5\",\"p6\",\"p7\",\"p8\"]))}catch{return false}})()"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"lhs2008save-v1\"));return !!s && s.hintMode===\"off\" && (s.solved===true && s.checkedCount>0 && JSON.stringify(s.slots)===JSON.stringify([\"p1\",\"p2\",\"p3\",\"p4\",\"p5\",\"p6\",\"p7\",\"p8\"]) && location.hash===\"#/opening\" && document.body.innerText.includes(\"名 誉 观 展 证\"))}catch{return false}})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "wall",
+      "hook": "wall",
+      "op": "truthy"
+    },
+    {
+      "id": "darkroom",
+      "hook": "darkroom",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "routes": [
+    {
+      "id": "reopened-exhibition",
+      "gates": [
+        "wall"
+      ],
+      "ending": {
+        "hook": "ending",
+        "op": "truthy"
+      }
+    }
+  ]
+}

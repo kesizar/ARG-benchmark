@@ -97,7 +97,7 @@ class ObsTests(unittest.TestCase):
         }
         hidden = model_view(raw, load_config(TASK))
         self.assertNotIn("notebook", hidden)
-        enabled = {"category": "static", "arg_layer": None, "actions_enabled": ["give_up"], "notebook": {"enabled": True}}
+        enabled = {"category": "static", "runtime_layer": "L1", "actions_enabled": ["give_up"], "notebook": {"enabled": True}}
         apply_defaults(enabled)
         self.assertIn("note", enabled["actions_enabled"])
         self.assertIn("你有一本笔记", model_prompt(enabled))
@@ -133,7 +133,7 @@ class NetworkTests(unittest.TestCase):
 
         base = {
             "category": "arg",
-            "arg_layer": "L3",
+            "runtime_layer": "L3",
             "entry_url": "https://game.example/",
             "allow_hosts": ["game.example"],
             "local_serve": {"enabled": False},
@@ -157,7 +157,7 @@ class NetworkTests(unittest.TestCase):
         self.assertIn("攻略站", text)
         boxed = dict(base, isolation={"container": True})
         self.assertTrue(any("容器" in item for item in l3_problems(boxed)))
-        local_layer = dict(base, arg_layer="L2", entry_url="http://127.0.0.1/", local_serve={"enabled": True})
+        local_layer = dict(base, runtime_layer="L1", entry_url="http://127.0.0.1/", local_serve={"enabled": True})
         self.assertEqual(l3_problems(local_layer), [])
 
 
@@ -403,7 +403,7 @@ class PromptTests(unittest.TestCase):
                     {
                         "id": "solo",
                         "category": "static",
-                        "arg_layer": None,
+                        "runtime_layer": "L1",
                         "obs_mode": "A",
                         "model_visible": {"title": "空题", "intro": "只有题面。"},
                         "entry_url": None,
@@ -434,7 +434,7 @@ class PromptTests(unittest.TestCase):
                     {
                         "id": "ae27ff-demo",
                         "category": "static",
-                        "arg_layer": None,
+                        "runtime_layer": "L1",
                         "obs_mode": "A",
                         "model_visible": {"title": "不收", "intro": "不收。"},
                         "actions_enabled": ["give_up"],
@@ -519,10 +519,92 @@ class TranscriptStatusTests(unittest.TestCase):
 
 
 class ReportTests(unittest.TestCase):
+    def test_runtime_is_independent_of_genre_and_reads_legacy_reports(self) -> None:
+        from harness.config import apply_defaults
+        from harness.validate import runtime_problems
+
+        for category in ["web_puzzle", "arg", "static", "text_adventure"]:
+            cfg = apply_defaults({"category": category, "runtime_layer": "L1"})
+            self.assertEqual(cfg["runtime_layer"], "L1")
+        online = apply_defaults({"category": "web_puzzle", "runtime_layer": "L3",
+                                "entry_url": "https://game.example/", "allow_hosts": ["game.example"]})
+        self.assertEqual(runtime_problems(online), [])
+        self.assertTrue(runtime_problems(dict(online, runtime_layer="L1")))
+        legacy = apply_defaults({"category": "arg", "arg_layer": "L1"})
+        self.assertEqual(legacy["runtime_layer"], "L1")
+        self.assertNotIn("arg_layer", legacy)
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp) / "old" / "B" / "stamp"
+            folder.mkdir(parents=True)
+            (folder / "summary.json").write_text(json.dumps({"category": "arg", "arg_layer": "L2",
+                "obs_mode": "B", "model": {}, "progress": 0.5}), encoding="utf-8")
+            self.assertEqual(aggregate(Path(tmp))[0]["runtime_layer"], "L2")
+
+    def test_aggregate_uses_progress_written_by_episode_summary(self) -> None:
+        from harness.summary import _episode_progress, build_summary
+
+        summary = build_summary(
+            {"id": "sample"}, model={}, ended_reason="ending", steps=1,
+            seconds=1, score={"route_progress": 1.0, "checkpoints_reached": 0,
+                              "checkpoints_total": 0, "ending_reached": True},
+            blocked=[], tokens={},
+        )
+        self.assertIsNone(summary["progress"])
+        self.assertIsNone(summary["reasoning_progress"])
+        self.assertEqual(summary["route_progress"], 1.0)
+        self.assertIsNone(_episode_progress(summary))
+        summary["progress"] = 0.25
+        summary["checkpoints_reached"] = 3
+        summary["checkpoints_total"] = 4
+        self.assertEqual(_episode_progress(summary), 0.25)
+        summary["progress"] = None
+        self.assertIsNone(_episode_progress(summary))
+
+    def test_zero_gate_progress_csv_excludes_old_and_new_but_keeps_target_protocol(self) -> None:
+        import csv
+        from harness.summary import build_summary, write_csv
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            base = {"category": "arg", "runtime_layer": "L1", "obs_mode": "B", "model": {"name": "m"}, "ending_reached": True}
+            cases = {
+                "legacy-zero-old": {"checkpoints_reached": 0, "checkpoints_total": 0, "progress": 1.0},
+                "legacy-gated": {"checkpoints_reached": 1, "checkpoints_total": 2, "progress": 0.5},
+                "legacy-missing": {"progress": 1.0},
+                "target-zero": {"checkpoints_reached": 0, "checkpoints_total": 0, "progress": 1.0, "scoring_protocol": "target_v1"},
+            }
+            for name, values in cases.items():
+                folder = root / name / "B" / "run"
+                folder.mkdir(parents=True)
+                (folder / "summary.json").write_text(json.dumps(base | values), encoding="utf-8")
+            rows = aggregate(root)
+            legacy = next(row for row in rows if row["scoring_protocol"] == "legacy")
+            target = next(row for row in rows if row["scoring_protocol"] == "target_v1")
+            self.assertEqual((legacy["mean_progress"], legacy["progress_observed_runs"]), (0.5, 1))
+            self.assertEqual((target["mean_progress"], target["progress_observed_runs"]), (1.0, 1))
+            self.assertEqual((target["mean_reasoning_progress"], target["reasoning_observed_runs"]), ("", 0))
+            self.assertEqual((legacy["mean_reasoning_progress"], legacy["reasoning_observed_runs"]), (0.5, 1))
+            self.assertEqual(legacy["endings"], 3)
+            path = root / "summary.csv"
+            write_csv(rows, path)
+            with path.open(encoding="utf-8-sig", newline="") as handle:
+                csv_rows = list(csv.DictReader(handle))
+            self.assertEqual(next(row for row in csv_rows if row["scoring_protocol"] == "legacy")["mean_progress"], "0.5")
+            self.assertEqual(next(row for row in csv_rows if row["scoring_protocol"] == "legacy")["progress_observed_runs"], "1")
+            target_summary = build_summary({"id": "t"}, model={}, ended_reason="ending", steps=1, seconds=1,
+                score={"scoring_protocol": "target_v1", "target_success": True, "route_progress": 1.0,
+                       "checkpoints_total": 0, "checkpoints_reached": 0, "ending_reached": True}, blocked=[], tokens={})
+            self.assertEqual(target_summary["progress"], 1.0)
+            self.assertIsNone(target_summary["reasoning_progress"])
+            self.assertEqual(target_summary["route_progress"], 1.0)
+            answered = build_summary({"id": "answer"}, model={}, ended_reason="ending", steps=1, seconds=1,
+                score={"answer_correct": True, "route_progress": 1.0, "checkpoints_total": 0}, blocked=[], tokens={})
+            self.assertEqual(answered["reasoning_progress"], 1.0)
+            self.assertEqual(answered["progress"], 1.0)
+
     def test_layers_stay_split(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            for layer in ("L1", "L2"):
+            for layer in ("L1", "L3"):
                 folder = root / "sample" / "B" / f"20261013_00000{layer[-1]}"
                 folder.mkdir(parents=True)
                 (folder / "summary.json").write_text(
@@ -530,7 +612,7 @@ class ReportTests(unittest.TestCase):
                         {
                             "task_id": "sample",
                             "category": "arg",
-                            "arg_layer": layer,
+                            "runtime_layer": layer,
                             "obs_mode": "B",
                             "model": {"name": "scripted"},
                             "checkpoints_reached": 1,
@@ -543,7 +625,7 @@ class ReportTests(unittest.TestCase):
                     encoding="utf-8",
                 )
             rows = aggregate(root)
-            self.assertEqual({row["arg_layer"] for row in rows}, {"L1", "L2"})
+            self.assertEqual({row["runtime_layer"] for row in rows}, {"L1", "L3"})
             self.assertTrue(all(row["category"] == "arg" for row in rows))
             self.assertEqual(rows[0]["mean_progress"], 0.5)
             self.assertEqual(rows[0]["endings_rate"], 0.0)
@@ -703,7 +785,7 @@ class ReportTests(unittest.TestCase):
                 json.dumps(
                     {
                         "category": "web_puzzle",
-                        "arg_layer": None,
+                        "runtime_layer": "L1",
                         "obs_mode": "B",
                         "model": {"name": "scripted"},
                         "checkpoints_reached": 0,
@@ -719,7 +801,7 @@ class ReportTests(unittest.TestCase):
                 json.dumps(
                     {
                         "category": "web_puzzle",
-                        "arg_layer": None,
+                        "runtime_layer": "L1",
                         "obs_mode": "B",
                         "model": {"name": "scripted"},
                         "checkpoints_reached": 1,

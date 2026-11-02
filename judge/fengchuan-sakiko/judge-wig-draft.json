@@ -1,0 +1,211 @@
+{
+  "hooks": {
+    "god": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"真结局 · wig 之神\""
+    },
+    "feces": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"赶工粪作\""
+    },
+    "lawyer": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"律师函结局 · 绝对没有影射\""
+    },
+    "mountain": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"跑路结局 · 上山取材\""
+    },
+    "tier5": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"被第五层级收编\""
+    },
+    "galaxy": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"银河电灯联动结局\""
+    },
+    "meta": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"玩家觉醒 · META\""
+    },
+    "forever": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"永不完工\""
+    },
+    "cold": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"煤灶熄灭\""
+    },
+    "demo": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"叫好不叫座的 Demo\""
+    },
+    "plain": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"平平无奇发售日\""
+    },
+    "normal": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"无疾而终的一周\""
+    },
+    "loops": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"轮回结局 · 多周目之神\""
+    },
+    "crowdfund": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"众筹奇迹\""
+    },
+    "award": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-ending.active') && document.querySelector('#ending-title').textContent.trim()===\"独立游戏大奖 · 评委会特别奖\""
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "god",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "god",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "feces",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "feces",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "lawyer",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "lawyer",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "mountain",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "mountain",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "tier5",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "tier5",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "galaxy",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "galaxy",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "meta",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "meta",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "forever",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "forever",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "cold",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "cold",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "demo",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "demo",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "plain",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "plain",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "normal",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "normal",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "loops",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "loops",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "crowdfund",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "crowdfund",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "award",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "award",
+        "op": "truthy"
+      }
+    }
+  ],
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

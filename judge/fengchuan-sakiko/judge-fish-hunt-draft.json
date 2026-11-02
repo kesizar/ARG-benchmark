@@ -1,0 +1,40 @@
+{
+  "hooks": {
+    "win": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-fish.active #fish-result.on') && document.querySelector('#fish-result-stats').textContent.includes('模式 01') && document.querySelector('#fish-result-title').classList.contains('win')"
+    },
+    "defeat": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-fish.active #fish-result.on') && document.querySelector('#fish-result-stats').textContent.includes('模式 01') && document.querySelector('#fish-result-title').classList.contains('lose')"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "win",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "win",
+        "op": "truthy"
+      }
+    }
+  ],
+  "terminal_failures": [
+    {
+      "id": "defeat",
+      "hook": "defeat",
+      "op": "truthy"
+    }
+  ],
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

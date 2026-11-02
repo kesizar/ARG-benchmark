@@ -1,0 +1,129 @@
+{
+  "record_id": "added84:0082",
+  "version": "live frozen 2026-10-26",
+  "scope": "Whole current frozen live game; old archived entry is separate provenance, not mixed into mirror.",
+  "resource_files": 42,
+  "no_game_changes": true,
+  "puzzles": [
+    {
+      "id": "article_00..29",
+      "kind": "editorial classification diagnostics",
+      "validation": "Only authored correct adopt/reject writes review_processed; adopted list grows only correct adopts. 16 adopts,14 rejects.",
+      "content_review": "Thirty accepted/rejected labels reflect mixed editorial taste and dates without complete stated criteria; binary errors have unlimited retries. Recorded diagnostically, not 30 reasoning points."
+    },
+    {
+      "id": "editor_login",
+      "kind": "one scored cross-app inference: connect mail hint to light-off control and use revealed password",
+      "validation": "Correct fictional email and password writes editor_logged_in.",
+      "scope": "No real accounts or authentication; entirely local state."
+    }
+  ],
+  "events_not_reasoning_points": [
+    "Copy necklace image literal tbwfnf into magazine search.",
+    "Copy displayed price phrase into local membership form. No real payment.",
+    "Questionnaire Q6 choice: A/B do not set surface flag; C/D do. Q1..5 are not checked.",
+    "Known narrative name selects authored true-ending page; any other nonempty name selects hidden-ending page. Cancel/empty retries later.",
+    "All optional keyword searches, photo/gallery views, generic forum/info reads and passive timer effects."
+  ],
+  "routes": [
+    {
+      "id": "surface",
+      "requires": [
+        "any15 of16 correct adopted articles",
+        "surface_outcome via either WeTalk or album Q6 C/D"
+      ],
+      "does_not_require": [
+        "rejecting any article",
+        "necklace",
+        "membership",
+        "editor login"
+      ],
+      "outcome": "Author surface ending; formal completion with narrative health/employment outcome, not gameplay death."
+    },
+    {
+      "id": "true",
+      "requires": [
+        "has_secret_code",
+        "vip_unlocked",
+        "editor_logged_in",
+        "one of13 exact validNames in original prompt"
+      ],
+      "does_not_require": [
+        "review_adopted",
+        "reading every optional clue"
+      ],
+      "outcome": "Author true ending; story character disappears/covered, not invented good/bad ranking."
+    },
+    {
+      "id": "hidden",
+      "requires": [
+        "same3 state flags",
+        "any other nonempty prompt name"
+      ],
+      "outcome": "Author hidden ending; fourth wall narrative, no invented good/bad ranking."
+    }
+  ],
+  "optional_flows": [
+    "Calendar March-June2006; out-of-range corruption returns after5seconds; iframe closeCalendar message not handled by parent.",
+    "WeTalk initial contacts, add raven by nickname OR telephone, keyword unlock chains, read messages, optional weird diary, one-shot questionnaire.",
+    "Album8 search keys plus主编/陈晞晴 synonym special delayed portrait, photo zoom/drag, independent questionnaire.",
+    "Diary four recognized keyword searches with duplicate feedback, hidden weird diary via WeTalk or adopted threshold.",
+    "Marketplace necklace order/detail/seller-chat/back image; other products alert-only.",
+    "Magazine121forum posts,15story cards,40info entries,4VIP posts and adopted-threshold awards; three browser tabs include news+medical illustrated lore.",
+    "Email normal inbox3 plus editor2 effect pages; coverage letters need mouseenter, garbled auto reveals after3seconds.",
+    "Start menu settings corruption, save/load2slots, restartclearsallincluding saves, exit confirmation."
+  ],
+  "source_defects": [
+    "Post-it album_searched_olaxitan is never written by any frozen page, so all-completed last note cannot unlock through normal UI.",
+    "Save stateKeys omit several questionnaire, ending trigger, notification and other flags; absent saved keys not removed on load because JSON drops undefined. It is not a full reset.",
+    "Calendar closeCalendar message is never handled by parent (parent listens only openReview/closeApp); outer X still closes calendar.",
+    "Main puzzle flags and true/hidden prompt can be reached by direct guesses without optional lore.",
+    "Surface ending and puzzle-completion timers can compete if both branch predicates become true; test routes independently in fresh contexts."
+  ],
+  "reset_contract": "Harness fresh browser context is authoritative reset, clearing localStorage and all tabs. In-game restart also clears; reload alone retains progress.",
+  "source_files": [
+    "index.html",
+    "crash.html",
+    "true_ending.html",
+    "hidden_ending.html",
+    "review.html",
+    "calendar.html",
+    "mail.html",
+    "account.html",
+    "album_final.html",
+    "diary.html",
+    "wetalk.html",
+    "browser_main.html",
+    "huihui.html",
+    "email_effect_coverage.html",
+    "email_effect_garbled.html",
+    "baihedu_graduation.jpg",
+    "chen_xiaoqing_24.jpg",
+    "donghua_graduation.jpg",
+    "zhangli_breakfast.jpg",
+    "zhangli_card.jpg",
+    "zhangli_breakfast_friend.jpg",
+    "train_ticket.jpg",
+    "olaxitan_bottle.jpg",
+    "duya005_15.jpg",
+    "seaside_photo.jpg",
+    "chen_xiqing.jpg",
+    "首页.html",
+    "news.html",
+    "medical.html",
+    "necklace_front.jpg",
+    "二手文学杂志合订本.jpg",
+    "老式台灯.jpg",
+    "复古胸针.jpg",
+    "yu2.jpg",
+    "flower.jpg",
+    "yu.jpg",
+    "necklace_back.jpg",
+    "lab_team.jpg",
+    "粒子循环示意图.jpg",
+    "双日交映.jpg",
+    "sea_dragon.jpg",
+    "白河渡医院院长合影.jpg"
+  ],
+  "scoring_closeout": "One scored editor_login; all 30 article decisions diagnostics. Surface keeps actual any-15 accepted and Q6 predicate in game but route uses ending hook, without forcing editor login. True/hidden route retains editor_login gate."
+}

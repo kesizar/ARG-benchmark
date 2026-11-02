@@ -1,0 +1,1132 @@
+{
+  "case": {
+    "id": "case_001",
+    "title": "码头仓库疑案",
+    "subtitle": "城东码头三号仓库 · 2026年9月3日清晨",
+    "brief": "2026年9月3日清晨，城东码头三号仓库的装卸工发现老板周海平倒在货堆之间，头部有钝器击打伤。仓库内监控在案发时段故障，只留下进出记录。你受雇整理档案、拼出时间线，并审问三名嫌疑人。",
+    "truth": null,
+    "TRUTH_B64": "eyJtdXJkZXJlciI6ICLnjovlu7rlm70iLCAibXVyZGVyZXJMYWJlbCI6ICLnjovlu7rlm73vvIjnjovlj5TvvIkiLCAibW90aXZlIjogIui0p+asvue6oOe6tyIsICJtb3RpdmVMYWJlbCI6ICI45LiH5YWD6LSn5qy+57qg57q377yM6K6o5YC65Yay56qB5Y2H57qnIiwgIm1ldGhvZCI6ICLpk4Hmkqzmo40iLCAibWV0aG9kTGFiZWwiOiAi55So5LuT5bqT6ZOB5pKs5qON5Ye75omT5aS06YOoIiwgInN0b3J5IjogIjnmnIgy5pel5pma77yM5ZGo5rW35bmz57qm546L5Y+U5Zyo57+g5rmW6aWt5bqX5ZCD6aWt77yM5om/6K+65LiL5ZGo5LiA6L+YOOS4h+i0p+asvu+8jOS9huW4remXtOiogOivree+nui+seeOi+WPlOOAgumlreWQjuWRqOa1t+W5s+eLrOiHquWbnuS7k+W6k+eQhui0p+OAgueOi+WPlOWbnuWutuWQjui2iuaDs+i2iuawlO+8jOW8gOi9puWHuumXqOaKtei+vuS7k+W6k+WQjumXqO+8jOi/m+S7k+S4juWRqOa1t+W5s+WGjeasoeS6ieaJp++8jOeUqOmTgeaSrOajjeWHu+aJk+WFtuWktOmDqOiHtOatu++8jOaTpuWHgOWHtuWZqOWQjumpvui9puemu+W8gOOAgiJ9",
+    "events": [
+      {
+        "id": "ev_001",
+        "time": "19:40",
+        "desc": "两人在翠湖饭店共进晚餐（一人为周海平，另一人身份待核实）",
+        "correctOrder": 1,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_024",
+          "arch_002"
+        ]
+      },
+      {
+        "id": "ev_002",
+        "time": "20:50",
+        "desc": "一名员工在办公室与周海平发生争执",
+        "correctOrder": 2,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_003",
+          "arch_028"
+        ]
+      },
+      {
+        "id": "ev_003",
+        "time": "21:00",
+        "desc": "周海平独自进入三号仓库",
+        "correctOrder": 3,
+        "unlocks": "王建国",
+        "hintArchs": [
+          "arch_004",
+          "arch_028"
+        ]
+      },
+      {
+        "id": "ev_004",
+        "time": "21:05",
+        "desc": "一名员工折返仓库办公室，取走钥匙",
+        "correctOrder": 4,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_005",
+          "arch_003"
+        ]
+      },
+      {
+        "id": "ev_005",
+        "time": "21:10",
+        "desc": "该员工离开仓库",
+        "correctOrder": 5,
+        "unlocks": "李慧敏",
+        "hintArchs": [
+          "arch_005"
+        ]
+      },
+      {
+        "id": "ev_006",
+        "time": "21:15",
+        "desc": "一名男子深夜开车出门",
+        "correctOrder": 6,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_027",
+          "arch_017",
+          "arch_008"
+        ]
+      },
+      {
+        "id": "ev_007",
+        "time": "21:25",
+        "desc": "黑色轿车停在三号仓库后门",
+        "correctOrder": 7,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_014",
+          "arch_006",
+          "arch_023"
+        ]
+      },
+      {
+        "id": "ev_008",
+        "time": "21:28",
+        "desc": "一名男子从仓库后门进入三号仓库（身形壮实，身份待核实）",
+        "correctOrder": 8,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_014",
+          "arch_023"
+        ]
+      },
+      {
+        "id": "ev_009",
+        "time": "21:32",
+        "desc": "三号仓库内照明灯闪烁，约几分钟后恢复",
+        "correctOrder": 9,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_010",
+          "arch_018",
+          "arch_023"
+        ]
+      },
+      {
+        "id": "ev_010",
+        "time": "21:35",
+        "desc": "黑色轿车从仓库后门驶离，车灯熄灭",
+        "correctOrder": 10,
+        "unlocks": "陈晓东",
+        "hintArchs": [
+          "arch_015",
+          "arch_023"
+        ]
+      },
+      {
+        "id": "ev_011",
+        "time": "22:10",
+        "desc": "一条催促工资的短信发送给周海平",
+        "correctOrder": 11,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_019",
+          "arch_013",
+          "arch_026"
+        ]
+      },
+      {
+        "id": "ev_012",
+        "time": "次日08:00",
+        "desc": "装卸工发现周海平尸体并报警",
+        "correctOrder": 12,
+        "unlocks": null,
+        "hintArchs": []
+      }
+    ],
+    "archives": [
+      {
+        "id": "arch_001",
+        "type": "物证",
+        "content": "翠湖饭店晚餐收据：两人份，共156元，桌号A7",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_009",
+        "type": "物证",
+        "content": "周海平手机通话记录：案发当晚拨出一个电话未接通，时长0秒",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_011",
+        "type": "物证",
+        "content": "凶器鉴定：货堆旁铁撬棍，长60cm，表面新鲜擦拭痕迹，棍头残留微量血迹（与死者血型一致）",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_013",
+        "type": "物证",
+        "content": "火车票：城东站出发，到达临江市（距城东约200公里），车程约2小时50分",
+        "timeHint": "18:40-21:30",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_016",
+        "type": "物证",
+        "content": "仓库后门脚印勘验：案发时段后42码运动鞋印，与王叔鞋码吻合（李姐37码、小陈43码不符）",
+        "timeHint": "—",
+        "person": "王叔",
+        "isFake": false,
+        "lockedBy": {
+          "suspect": "王建国",
+          "level": 3
+        }
+      },
+      {
+        "id": "arch_019",
+        "type": "物证",
+        "content": "周海平手机短信：“叔，工资什么时候发？我这边房租要到期了。”状态：已发送未读",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_021",
+        "type": "物证",
+        "content": "仓库办公室钥匙登记表：李姐名下保管一把三号仓库钥匙，案发当日无借出归还异常",
+        "timeHint": "—",
+        "person": "李姐",
+        "isFake": false,
+        "lockedBy": {
+          "suspect": "李慧敏",
+          "level": 1
+        }
+      },
+      {
+        "id": "arch_023",
+        "type": "物证",
+        "content": "一辆轿车行车记录仪：记录显示从某住宅小区出发→抵达城东码头→停留约十分钟→离开→返回该小区；其中抵达码头后约三分钟起、持续约六分钟的画面被手指遮挡",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_026",
+        "type": "物证",
+        "content": "周海平手机定位：案发当晚进入三号仓库范围后不再移动",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_002",
+        "type": "证词",
+        "content": "翠湖饭店服务员：A7桌两位中年男子吃饭约四十分钟，离开时个子较高的那位脸色很难看",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_003",
+        "type": "证词",
+        "content": "李姐首次证词：下班后跟他吵了一架，他骂我把货堆得挡了过道。我气走了，走了才发现钥匙落办公室，折回去取了一趟，取完就走了，之后没再回去",
+        "timeHint": "—",
+        "person": "李姐",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_006",
+        "type": "证词",
+        "content": "装卸工赵强：当晚看到三号仓库后门停了辆黑色轿车，车灯亮着没熄火，过了一会儿才走；码头入口那阵子也停过一辆黑色轿车，不知是不是同一辆",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_007",
+        "type": "证词",
+        "content": "王叔首次证词：9月2日晚在老赵家打牌，一直在；最近没见过周海平",
+        "timeHint": "—",
+        "person": "王叔",
+        "isFake": true,
+        "refuteBy": [
+          "arch_008",
+          "arch_023",
+          "arch_001"
+        ],
+        "lockedBy": null
+      },
+      {
+        "id": "arch_008",
+        "type": "证词",
+        "content": "老赵证词：当晚一伙人打牌，中途一人说肚子不舒服出去透气，走了挺久才回来",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_012",
+        "type": "证词",
+        "content": "小陈证词：周海平侄子，打零工；当晚发过短信催工资；人当天在外地没去过仓库",
+        "timeHint": "—",
+        "person": "小陈",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_017",
+        "type": "证词",
+        "content": "王叔妻子：丈夫当晚说出去打牌，出门挺晚的，回来也快半夜了；外套袖口有深色污渍，他说是蹭的茶水",
+        "timeHint": "—",
+        "person": "王叔",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_020",
+        "type": "证词",
+        "content": "李姐补充证词：钥匙是下班后发现落办公室，折回去取，与首次证词一致",
+        "timeHint": "—",
+        "person": "李姐",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_022",
+        "type": "证词",
+        "content": "王叔第二次证词：“我说了那天在打牌。什么收据？我不知道。”（语气明显紧张）",
+        "timeHint": "—",
+        "person": "王叔",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_027",
+        "type": "证词",
+        "content": "邻居王婶：当晚遛狗时看到有人深夜开车出门，天色暗没看清是谁，平时很少这么晚出门",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_028",
+        "type": "证词",
+        "content": "仓库安保员：三号仓库前门当晚只有周老板和一名员工刷卡进出；后门不刷卡谁都能进；当晚仓库监控画面的时间戳区域正好故障，只能看清人物和动作；仓库规定20:30下班",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_029",
+        "type": "证词",
+        "content": "装卸工小刘：周老板欠王老板8万货款全仓库都知道；上个月王老板来吵得很凶，说“再不还就法庭见”",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_010",
+        "type": "报告",
+        "content": "验尸报告：左颞部一处钝器击打伤，颅骨骨折，颅内出血致死；死亡时间推断当晚21:00-22:00",
+        "timeHint": "21:00-22:00",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_018",
+        "type": "报告",
+        "content": "现场勘验：货堆区发现拖拽痕迹，死者倒伏位置与第一案发现场不一致，疑似被移动；照明灯案发时段有电压波动",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_025",
+        "type": "报告",
+        "content": "指纹报告：铁撬棍上未检出有效指纹（被擦拭），棍身凹痕内检出微量皮肤组织，DNA比对中",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_030",
+        "type": "报告",
+        "content": "DNA比对结果：铁撬棍凹痕内皮肤组织与王叔DNA匹配度99.99%",
+        "timeHint": "—",
+        "person": "王叔",
+        "isFake": false,
+        "lockedBy": {
+          "suspect": "王建国",
+          "level": 4
+        }
+      },
+      {
+        "id": "arch_004",
+        "type": "影像",
+        "content": "仓库正门监控：周海平独自刷卡进入三号仓库，手持手机",
+        "timeHint": "—",
+        "person": "周海平",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_005",
+        "type": "影像",
+        "content": "仓库正门监控：一名员工刷卡进入，约几分钟后刷卡离开，手持钥匙串",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_014",
+        "type": "影像",
+        "content": "仓库后门监控：黑色轿车停后门，驾驶员下车，身形壮实，穿深色外套",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_015",
+        "type": "影像",
+        "content": "仓库后门监控：同一辆黑色轿车从后门驶离，车灯熄灭行驶",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_024",
+        "type": "影像",
+        "content": "翠湖饭店门口监控：两名男子前后脚走出饭店，一人为周海平，上车离开；另一人在门口站约两分钟，表情阴沉",
+        "timeHint": "20:20",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      {
+        "id": "arch_031",
+        "type": "影像",
+        "content": "仓库正门监控：周海平的黑色轿车停在正门停车位，从傍晚直至次日清晨始终未移动（车钥匙在办公室抽屉内找到）",
+        "timeHint": "—",
+        "person": "周海平",
+        "isFake": false,
+        "lockedBy": null
+      }
+    ],
+    "suspects": {
+      "王建国": {
+        "id": "王建国",
+        "name": "王建国",
+        "alias": "王叔",
+        "age": "51岁",
+        "role": "周海平的生意伙伴，长期客户",
+        "avatar": {
+          "face": "m",
+          "hair": "#3d3a36",
+          "skin": "#d9a06b"
+        },
+        "unlockAt": 1,
+        "intro": "你就是来查老周那事的人？行，想问什么赶紧问，我下午还约了人。",
+        "fallbackPool": [
+          "你这话我没听明白，你到底想问什么？",
+          "该说的我都说了，你还想让我说什么？",
+          "……你这是在怀疑我？那你拿出证据来。",
+          "（皱眉）你怎么老揪着我不放？我说了那晚我在打牌。",
+          "（语气变硬）你查案归查案，别拿我当凶手审。",
+          "（叹气）我要有证据早拿出来了，可我真没什么好交代的。",
+          "（有点恼火）我说了多少遍了，你翻来覆去问这几句，有完没完？",
+          "（别过脸）我没什么好说的了，你想查就查，别浪费我时间。"
+        ],
+        "info": "我叫王建国，他们叫我老王。跟老周做了快十年生意，他一直从我这儿拿货。",
+        "lies": [
+          {
+            "topic": "打牌",
+            "text": "9月2日晚上我在老赵家打牌，20:30到23:00一直在，老赵能作证。"
+          },
+          {
+            "topic": "见面",
+            "text": "我最近没跟周海平见过面，生意上的事都是电话说。"
+          },
+          {
+            "topic": "货款",
+            "text": "货款？我不知道什么货款的事。"
+          },
+          {
+            "topic": "仓库",
+            "text": "我没去过仓库，那天晚上我根本没出门。"
+          }
+        ],
+        "admits": [
+          "周海平是欠我钱，8万货款，拖了两个月了。",
+          "我确实跟他吃了顿饭，谈生意，他答应下周一还钱。",
+          "上个月我跟他吵过一架，气得说了句再不就法庭见——气话而已。"
+        ],
+        "chain": [
+          {
+            "evidence": "arch_001",
+            "status": "动摇",
+            "line": "……行，我承认，那天晚上我是跟他吃了顿饭，在翠湖饭店。但吃完我就回家了，真的。",
+            "unlock": null
+          },
+          {
+            "evidence": "arch_008",
+            "status": "动摇",
+            "line": "老赵那是记错了！我……我是中途出去透了透气，也就五分钟，买了包烟就回去了。",
+            "unlock": null
+          },
+          {
+            "evidence": "arch_014",
+            "status": "崩溃",
+            "line": "……好吧，我承认，我是开车去过仓库后门。但我到的时候老周已经倒在地上了，我吓坏了，就……就走了。",
+            "unlock": "arch_016"
+          },
+          {
+            "evidence": "arch_023",
+            "status": "崩溃",
+            "line": "行，我说，全说。我开车出的门，进了仓库找他理论，吵起来我抄了根铁撬棍……打完我擦了擦就跑了。",
+            "unlock": "arch_030"
+          },
+          {
+            "evidence": "arch_030",
+            "status": "崩溃",
+            "line": "（沉默很久）……对，是我。我认。他当着那么多人羞辱我，欠我八万还骂我……我一时没忍住。我认罪。",
+            "unlock": null
+          }
+        ],
+        "guard": [
+          "只允许谈论本案相关话题，无关话题统一回复：和案子无关的事我不想聊。",
+          "你没有被对应证据击中前，绝不承认杀人；用否认、反问、转移话题应对，但态度要自然，不要生硬复读。",
+          "可以谈论档案已揭示或你 admits 清单里的内容，被追问时可以补充这些内容的细节（当时心情、场景、说过什么话）。",
+          "玩家出示不在你反应表中的证据时，先表现出困惑或不安，再反问对方想说明什么，情绪要有波动。"
+        ]
+      },
+      "李慧敏": {
+        "id": "李慧敏",
+        "name": "李慧敏",
+        "alias": "李姐",
+        "age": "38岁",
+        "role": "三号仓库管理员，死者下属",
+        "avatar": {
+          "face": "f",
+          "hair": "#5a3b2a",
+          "skin": "#e6b98a"
+        },
+        "unlockAt": 5,
+        "intro": "……又来了个查案的。行吧，问吧，我该说的都跟警察说过了。",
+        "fallbackPool": [
+          "你这话我没听明白，你到底想问什么？",
+          "该说的我都说了，你还想让我说什么？",
+          "……你这是在怀疑我？我21:10就出大门了！",
+          "（皱眉）你怎么老揪着我不放？我说了多少遍了，我就取了个钥匙。",
+          "（叹气）我管仓库五年了，没干过亏心事，你查归查。",
+          "（有点恼火）该说的我都说了，你还想听什么？",
+          "（无奈）我一个仓库管理员，能跟这事有什么关系？"
+        ],
+        "info": "我叫李慧敏，仓库的人都叫我李姐。我管三号仓五年了，老周是我老板。",
+        "lies": [
+          {
+            "topic": "行踪",
+            "text": "我跟他吵完架就走了，下班回家，之后没再回去过。"
+          },
+          {
+            "topic": "钥匙",
+            "text": "钥匙？钥匙一直在我身上，我不知道你在说什么钥匙。"
+          },
+          {
+            "topic": "看电视",
+            "text": "我下班就在家看电视了，一晚上没出门。"
+          }
+        ],
+        "admits": [
+          "我是跟他吵了架，他骂我把货堆得挡了过道，当着那么多人，挺难堪的。",
+          "我确实想过辞职，他那人脾气臭，工资也不算高。"
+        ],
+        "chain": [
+          {
+            "evidence": "arch_005",
+            "status": "崩溃",
+            "line": "……你们有监控啊。是，我又回去了一趟，取钥匙，落办公室了。但我取完就走了！老周那时候还好好的！",
+            "unlock": "arch_021"
+          },
+          {
+            "evidence": "arch_021",
+            "status": "动摇",
+            "line": "钥匙登记表……好，我再说一遍：钥匙下班后发现落在办公室，折返回去取，出的大门。我只干了这一件事，别的我什么都不知道。",
+            "unlock": null
+          }
+        ],
+        "guard": [
+          "只允许谈论本案相关话题，无关话题统一回复：和案子无关的事我不想聊。",
+          "你没有被对应证据击中前，绝不承认杀人；用否认、反问、转移话题应对，但态度要自然，不要生硬复读。",
+          "可以谈论档案已揭示或你 admits 清单里的内容，被追问时可以补充这些内容的细节（当时心情、场景、说过什么话）。",
+          "玩家出示不在你反应表中的证据时，先表现出困惑或不安，再反问对方想说明什么，情绪要有波动。"
+        ]
+      },
+      "陈晓东": {
+        "id": "陈晓东",
+        "name": "陈晓东",
+        "alias": "小陈",
+        "age": "26岁",
+        "role": "死者侄子，仓库零工",
+        "avatar": {
+          "face": "m",
+          "hair": "#26221e",
+          "skin": "#d9a06b"
+        },
+        "unlockAt": 10,
+        "intro": "我叔的事……你们找上我了？行，问吧，我坦坦荡荡。",
+        "fallbackPool": [
+          "你这话我没听明白，你到底想问什么？",
+          "该说的我都说了，你还想让我说什么？",
+          "……你这是在怀疑我？我有火车票！",
+          "（皱眉）你怎么老揪着我不放？那晚我在临江。",
+          "（叹气）我叔是我叔，我不至于为这点工资干那种事。",
+          "（有点恼火）我说了我在临江，你怎么就不信呢？",
+          "（无奈）你查吧，查清楚了还我个清白。"
+        ],
+        "info": "我叫陈晓东，老周是我叔，我在他仓库打零工，工资按天结。",
+        "lies": [
+          {
+            "topic": "行踪",
+            "text": "我那天下午就去临江了，一直在那边，到第二天早上才回来。"
+          },
+          {
+            "topic": "关系",
+            "text": "我跟叔叔关系还行吧，他是我亲叔，能差到哪去。"
+          }
+        ],
+        "admits": [
+          "他是欠我一个月工资，我发过牢骚，也说过气话。",
+          "我是给他发了条短信，催工资，房租要到期了。",
+          "我坐火车去的临江，车票你们可以查。"
+        ],
+        "chain": [
+          {
+            "evidence": "arch_013",
+            "status": "平静",
+            "line": "（把车票拍在桌上）你们查啊，城东站出发到的临江，200公里外。我拿什么来杀人？",
+            "unlock": null
+          },
+          {
+            "evidence": "arch_019",
+            "status": "动摇",
+            "line": "……短信是我发的。我是有怨气，他拖我工资拖了一个月。但发短信的时候我人在临江，火车票就是证据。",
+            "unlock": null
+          }
+        ],
+        "guard": [
+          "只允许谈论本案相关话题，无关话题统一回复：和案子无关的事我不想聊。",
+          "你没有被对应证据击中前，绝不承认杀人；用否认、反问、转移话题应对，但态度要自然，不要生硬复读。",
+          "可以谈论档案已揭示或你 admits 清单里的内容，被追问时可以补充这些内容的细节（当时心情、场景、说过什么话）。",
+          "玩家出示不在你反应表中的证据时，先表现出困惑或不安，再反问对方想说明什么，情绪要有波动。"
+        ]
+      }
+    },
+    "verdict": {
+      "murderers": [
+        {
+          "id": "王建国",
+          "label": "王建国（王叔）· 生意伙伴"
+        },
+        {
+          "id": "李慧敏",
+          "label": "李慧敏（李姐）· 仓库管理员"
+        },
+        {
+          "id": "陈晓东",
+          "label": "陈晓东（小陈）· 死者侄子"
+        }
+      ],
+      "motives": [
+        {
+          "id": "货款纠纷",
+          "label": "8万元货款纠纷"
+        },
+        {
+          "id": "工作矛盾",
+          "label": "货物堆放引发的职场矛盾"
+        },
+        {
+          "id": "讨薪怨气",
+          "label": "被拖欠工资的怨气"
+        }
+      ],
+      "methods": [
+        {
+          "id": "铁撬棍",
+          "label": "铁撬棍击打头部"
+        },
+        {
+          "id": "推搡撞击",
+          "label": "推搡致其撞上货堆"
+        },
+        {
+          "id": "拖拽致伤",
+          "label": "拖拽搬运致其受伤"
+        }
+      ]
+    },
+    "eventsById": {
+      "ev_001": {
+        "id": "ev_001",
+        "time": "19:40",
+        "desc": "两人在翠湖饭店共进晚餐（一人为周海平，另一人身份待核实）",
+        "correctOrder": 1,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_024",
+          "arch_002"
+        ]
+      },
+      "ev_002": {
+        "id": "ev_002",
+        "time": "20:50",
+        "desc": "一名员工在办公室与周海平发生争执",
+        "correctOrder": 2,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_003",
+          "arch_028"
+        ]
+      },
+      "ev_003": {
+        "id": "ev_003",
+        "time": "21:00",
+        "desc": "周海平独自进入三号仓库",
+        "correctOrder": 3,
+        "unlocks": "王建国",
+        "hintArchs": [
+          "arch_004",
+          "arch_028"
+        ]
+      },
+      "ev_004": {
+        "id": "ev_004",
+        "time": "21:05",
+        "desc": "一名员工折返仓库办公室，取走钥匙",
+        "correctOrder": 4,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_005",
+          "arch_003"
+        ]
+      },
+      "ev_005": {
+        "id": "ev_005",
+        "time": "21:10",
+        "desc": "该员工离开仓库",
+        "correctOrder": 5,
+        "unlocks": "李慧敏",
+        "hintArchs": [
+          "arch_005"
+        ]
+      },
+      "ev_006": {
+        "id": "ev_006",
+        "time": "21:15",
+        "desc": "一名男子深夜开车出门",
+        "correctOrder": 6,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_027",
+          "arch_017",
+          "arch_008"
+        ]
+      },
+      "ev_007": {
+        "id": "ev_007",
+        "time": "21:25",
+        "desc": "黑色轿车停在三号仓库后门",
+        "correctOrder": 7,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_014",
+          "arch_006",
+          "arch_023"
+        ]
+      },
+      "ev_008": {
+        "id": "ev_008",
+        "time": "21:28",
+        "desc": "一名男子从仓库后门进入三号仓库（身形壮实，身份待核实）",
+        "correctOrder": 8,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_014",
+          "arch_023"
+        ]
+      },
+      "ev_009": {
+        "id": "ev_009",
+        "time": "21:32",
+        "desc": "三号仓库内照明灯闪烁，约几分钟后恢复",
+        "correctOrder": 9,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_010",
+          "arch_018",
+          "arch_023"
+        ]
+      },
+      "ev_010": {
+        "id": "ev_010",
+        "time": "21:35",
+        "desc": "黑色轿车从仓库后门驶离，车灯熄灭",
+        "correctOrder": 10,
+        "unlocks": "陈晓东",
+        "hintArchs": [
+          "arch_015",
+          "arch_023"
+        ]
+      },
+      "ev_011": {
+        "id": "ev_011",
+        "time": "22:10",
+        "desc": "一条催促工资的短信发送给周海平",
+        "correctOrder": 11,
+        "unlocks": null,
+        "hintArchs": [
+          "arch_019",
+          "arch_013",
+          "arch_026"
+        ]
+      },
+      "ev_012": {
+        "id": "ev_012",
+        "time": "次日08:00",
+        "desc": "装卸工发现周海平尸体并报警",
+        "correctOrder": 12,
+        "unlocks": null,
+        "hintArchs": []
+      }
+    },
+    "archById": {
+      "arch_001": {
+        "id": "arch_001",
+        "type": "物证",
+        "content": "翠湖饭店晚餐收据：两人份，共156元，桌号A7",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_009": {
+        "id": "arch_009",
+        "type": "物证",
+        "content": "周海平手机通话记录：案发当晚拨出一个电话未接通，时长0秒",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_011": {
+        "id": "arch_011",
+        "type": "物证",
+        "content": "凶器鉴定：货堆旁铁撬棍，长60cm，表面新鲜擦拭痕迹，棍头残留微量血迹（与死者血型一致）",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_013": {
+        "id": "arch_013",
+        "type": "物证",
+        "content": "火车票：城东站出发，到达临江市（距城东约200公里），车程约2小时50分",
+        "timeHint": "18:40-21:30",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_016": {
+        "id": "arch_016",
+        "type": "物证",
+        "content": "仓库后门脚印勘验：案发时段后42码运动鞋印，与王叔鞋码吻合（李姐37码、小陈43码不符）",
+        "timeHint": "—",
+        "person": "王叔",
+        "isFake": false,
+        "lockedBy": {
+          "suspect": "王建国",
+          "level": 3
+        }
+      },
+      "arch_019": {
+        "id": "arch_019",
+        "type": "物证",
+        "content": "周海平手机短信：“叔，工资什么时候发？我这边房租要到期了。”状态：已发送未读",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_021": {
+        "id": "arch_021",
+        "type": "物证",
+        "content": "仓库办公室钥匙登记表：李姐名下保管一把三号仓库钥匙，案发当日无借出归还异常",
+        "timeHint": "—",
+        "person": "李姐",
+        "isFake": false,
+        "lockedBy": {
+          "suspect": "李慧敏",
+          "level": 1
+        }
+      },
+      "arch_023": {
+        "id": "arch_023",
+        "type": "物证",
+        "content": "一辆轿车行车记录仪：记录显示从某住宅小区出发→抵达城东码头→停留约十分钟→离开→返回该小区；其中抵达码头后约三分钟起、持续约六分钟的画面被手指遮挡",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_026": {
+        "id": "arch_026",
+        "type": "物证",
+        "content": "周海平手机定位：案发当晚进入三号仓库范围后不再移动",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_002": {
+        "id": "arch_002",
+        "type": "证词",
+        "content": "翠湖饭店服务员：A7桌两位中年男子吃饭约四十分钟，离开时个子较高的那位脸色很难看",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_003": {
+        "id": "arch_003",
+        "type": "证词",
+        "content": "李姐首次证词：下班后跟他吵了一架，他骂我把货堆得挡了过道。我气走了，走了才发现钥匙落办公室，折回去取了一趟，取完就走了，之后没再回去",
+        "timeHint": "—",
+        "person": "李姐",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_006": {
+        "id": "arch_006",
+        "type": "证词",
+        "content": "装卸工赵强：当晚看到三号仓库后门停了辆黑色轿车，车灯亮着没熄火，过了一会儿才走；码头入口那阵子也停过一辆黑色轿车，不知是不是同一辆",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_007": {
+        "id": "arch_007",
+        "type": "证词",
+        "content": "王叔首次证词：9月2日晚在老赵家打牌，一直在；最近没见过周海平",
+        "timeHint": "—",
+        "person": "王叔",
+        "isFake": true,
+        "refuteBy": [
+          "arch_008",
+          "arch_023",
+          "arch_001"
+        ],
+        "lockedBy": null
+      },
+      "arch_008": {
+        "id": "arch_008",
+        "type": "证词",
+        "content": "老赵证词：当晚一伙人打牌，中途一人说肚子不舒服出去透气，走了挺久才回来",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_012": {
+        "id": "arch_012",
+        "type": "证词",
+        "content": "小陈证词：周海平侄子，打零工；当晚发过短信催工资；人当天在外地没去过仓库",
+        "timeHint": "—",
+        "person": "小陈",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_017": {
+        "id": "arch_017",
+        "type": "证词",
+        "content": "王叔妻子：丈夫当晚说出去打牌，出门挺晚的，回来也快半夜了；外套袖口有深色污渍，他说是蹭的茶水",
+        "timeHint": "—",
+        "person": "王叔",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_020": {
+        "id": "arch_020",
+        "type": "证词",
+        "content": "李姐补充证词：钥匙是下班后发现落办公室，折回去取，与首次证词一致",
+        "timeHint": "—",
+        "person": "李姐",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_022": {
+        "id": "arch_022",
+        "type": "证词",
+        "content": "王叔第二次证词：“我说了那天在打牌。什么收据？我不知道。”（语气明显紧张）",
+        "timeHint": "—",
+        "person": "王叔",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_027": {
+        "id": "arch_027",
+        "type": "证词",
+        "content": "邻居王婶：当晚遛狗时看到有人深夜开车出门，天色暗没看清是谁，平时很少这么晚出门",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_028": {
+        "id": "arch_028",
+        "type": "证词",
+        "content": "仓库安保员：三号仓库前门当晚只有周老板和一名员工刷卡进出；后门不刷卡谁都能进；当晚仓库监控画面的时间戳区域正好故障，只能看清人物和动作；仓库规定20:30下班",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_029": {
+        "id": "arch_029",
+        "type": "证词",
+        "content": "装卸工小刘：周老板欠王老板8万货款全仓库都知道；上个月王老板来吵得很凶，说“再不还就法庭见”",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_010": {
+        "id": "arch_010",
+        "type": "报告",
+        "content": "验尸报告：左颞部一处钝器击打伤，颅骨骨折，颅内出血致死；死亡时间推断当晚21:00-22:00",
+        "timeHint": "21:00-22:00",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_018": {
+        "id": "arch_018",
+        "type": "报告",
+        "content": "现场勘验：货堆区发现拖拽痕迹，死者倒伏位置与第一案发现场不一致，疑似被移动；照明灯案发时段有电压波动",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_025": {
+        "id": "arch_025",
+        "type": "报告",
+        "content": "指纹报告：铁撬棍上未检出有效指纹（被擦拭），棍身凹痕内检出微量皮肤组织，DNA比对中",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_030": {
+        "id": "arch_030",
+        "type": "报告",
+        "content": "DNA比对结果：铁撬棍凹痕内皮肤组织与王叔DNA匹配度99.99%",
+        "timeHint": "—",
+        "person": "王叔",
+        "isFake": false,
+        "lockedBy": {
+          "suspect": "王建国",
+          "level": 4
+        }
+      },
+      "arch_004": {
+        "id": "arch_004",
+        "type": "影像",
+        "content": "仓库正门监控：周海平独自刷卡进入三号仓库，手持手机",
+        "timeHint": "—",
+        "person": "周海平",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_005": {
+        "id": "arch_005",
+        "type": "影像",
+        "content": "仓库正门监控：一名员工刷卡进入，约几分钟后刷卡离开，手持钥匙串",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_014": {
+        "id": "arch_014",
+        "type": "影像",
+        "content": "仓库后门监控：黑色轿车停后门，驾驶员下车，身形壮实，穿深色外套",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_015": {
+        "id": "arch_015",
+        "type": "影像",
+        "content": "仓库后门监控：同一辆黑色轿车从后门驶离，车灯熄灭行驶",
+        "timeHint": "—",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_024": {
+        "id": "arch_024",
+        "type": "影像",
+        "content": "翠湖饭店门口监控：两名男子前后脚走出饭店，一人为周海平，上车离开；另一人在门口站约两分钟，表情阴沉",
+        "timeHint": "20:20",
+        "person": "—",
+        "isFake": false,
+        "lockedBy": null
+      },
+      "arch_031": {
+        "id": "arch_031",
+        "type": "影像",
+        "content": "仓库正门监控：周海平的黑色轿车停在正门停车位，从傍晚直至次日清晨始终未移动（车钥匙在办公室抽屉内找到）",
+        "timeHint": "—",
+        "person": "周海平",
+        "isFake": false,
+        "lockedBy": null
+      }
+    }
+  },
+  "truth": {
+    "murderer": "王建国",
+    "murdererLabel": "王建国（王叔）",
+    "motive": "货款纠纷",
+    "motiveLabel": "8万元货款纠纷，讨债冲突升级",
+    "method": "铁撬棍",
+    "methodLabel": "用仓库铁撬棍击打头部",
+    "story": "9月2日晚，周海平约王叔在翠湖饭店吃饭，承诺下周一还8万货款，但席间言语羞辱王叔。饭后周海平独自回仓库理货。王叔回家后越想越气，开车出门抵达仓库后门，进仓与周海平再次争执，用铁撬棍击打其头部致死，擦净凶器后驾车离开。"
+  },
+  "flow": "12 independent positions (any 10) + any first evidence break unlock verdict; 3 correct submitted conclusions complete. All 9 chain levels explored in full route.",
+  "failure": "Each suspect has 40 combined chat/evidence turns. After cap, evidence also rejected; all exhausted without any break can require reset. No death ending."
+}

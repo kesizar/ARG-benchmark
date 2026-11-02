@@ -1,0 +1,101 @@
+{
+  "status": "completed_after_resume",
+  "saved_at_utc": "2026-10-26T09:36:08.443380+00:00",
+  "record_id": "base664:0521",
+  "current_game": "qian-anon",
+  "source_directory_all_seven_units_passed": true,
+  "source_unit_evidence": {
+    "quiz": {
+      "source_ui_pass": true,
+      "evidence": "judge/qian-anon/verification/quiz-acceptance.json"
+    },
+    "pipa": {
+      "source_ui_pass": true,
+      "evidence": "judge/qian-anon/verification/pipa-acceptance.json"
+    },
+    "cross": {
+      "source_ui_pass": true,
+      "evidence": "judge/qian-anon/verification/cross-acceptance.json"
+    },
+    "hunt": {
+      "source_ui_pass": true,
+      "evidence": "judge/qian-anon/verification/hunt-acceptance.json"
+    },
+    "surf": {
+      "source_ui_pass": true,
+      "evidence": "judge/qian-anon/verification/surf-acceptance.json"
+    },
+    "maze": {
+      "source_ui_pass": true,
+      "evidence": "judge/qian-anon/verification/maze-acceptance.json"
+    },
+    "gal": {
+      "source_ui_pass": true,
+      "evidence": "judge/qian-anon/verification/gal-acceptance.json"
+    }
+  },
+  "source_coverage": "22 riddle questions each correct; 24 hunt events/72 choices/5 endings; GAL21 choices/3 endings; pipa4 routes; crosswinlose+turnlock; maze112steps+lockedexit; surfwin45.014seconds16letters+loss",
+  "bundle_exists": true,
+  "resources_bundle": "packs/qian-anon.resources.zip",
+  "evaluation_bundle": "packs/qian-anon.prepared.zip",
+  "evaluation_bundle_sha256": "7dc61c546370981e951269049fbee32a8c32bc49f48f94f3f8586beb63aef71d",
+  "independent_deployment_complete": true,
+  "independent_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\qian-deployment-e5454c5b",
+  "independent_passed_units": [
+    "quiz",
+    "pipa",
+    "cross",
+    "hunt",
+    "surf",
+    "maze",
+    "gal"
+  ],
+  "independent_failed_unit": null,
+  "independent_not_run": [],
+  "failure_log": null,
+  "failure_reason": null,
+  "resume_actions": [],
+  "resume_commands": [],
+  "source_material": "ARG-packs/verify-416/bodies/521.html (workspace-migrated original hash matches catalogue)",
+  "next_game": "added84:0024 / k7-dangan",
+  "next_material": "ARG-packs/verify-84/bodies/24.html",
+  "next_game_started": false,
+  "process_status": "Independent deploy command session35418 exited0; all browser/server verifiers and seven CLI invocations completed their cleanup.",
+  "model_api_used": false,
+  "process_check_utc": "2026-10-26T09:37:08.110499+00:00",
+  "resumed_at_utc": "2026-10-26T09:53:13.576211+00:00",
+  "next_game_assignment": "K7 reassigned to another worker; this worker stops for next allocation after qian completion.",
+  "completed_at_utc": "2026-10-26T09:57:09.480392+00:00",
+  "latest_deployment_evidence": "judge/qian-anon/deployment.json",
+  "latest_evaluation_bundle_sha256": "7dc61c546370981e951269049fbee32a8c32bc49f48f94f3f8586beb63aef71d",
+  "latest_independent_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\qian-deployment-e5454c5b",
+  "historical_pause_state": {
+    "independent_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\qian-deployment-0a594728",
+    "independent_passed_units": [
+      "pipa",
+      "quiz",
+      "hunt",
+      "gal",
+      "surf"
+    ],
+    "independent_failed_unit": "cross",
+    "independent_not_run": [
+      "maze",
+      "auxiliary reset verification",
+      "seven standard run_one CLI checks"
+    ],
+    "failure_log": "runs\\qian-deployment-0a594728\\deployment-ui-cross.log",
+    "failure_reason": "Auditor assumed extra click still occurs during 650ms foe delay. Under concurrent browser load it sometimes executes in the next unlocked player turn and changes aPos, so timing-sensitive negative assertion failed. Must inspect/fix auditor timing proof and rerun; do not claim package ready.",
+    "resume_actions": [
+      "Inspect cross deployment failure and guard the extra-click negative check by actual active foe turn; do not change game mechanics merely to satisfy audit.",
+      "After verifier changes rebuild evaluator bundle and record new hash.",
+      "Rerun independent deployment of seven units, auxiliary checks and seven standard CLI checks.",
+      "Update base664-0521 delivery status only after all independent checks pass.",
+      "Then continue already assigned added84:0024 K7; not started."
+    ],
+    "resume_commands": [
+      "mirror/harness/.venv/Scripts/python.exe scripts/qian_bundle.py",
+      "mirror/harness/.venv/Scripts/python.exe scripts/qian_deploy.py"
+    ]
+  }
+}

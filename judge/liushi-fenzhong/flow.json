@@ -1,0 +1,29 @@
+{
+  "characters": 18,
+  "random": "uniform killer and different ally, shuffled choices; runtime seeding not injected",
+  "scenarios": [
+    "电梯事故",
+    "下毒",
+    "坠楼"
+  ],
+  "scene_items": 7,
+  "mislead_rules": 4,
+  "timed_chat_triggers": [
+    "after40seconds",
+    "remaining30min",
+    "remaining10min"
+  ],
+  "failures": [
+    "quiz wrong => distrust+lock; game continues",
+    "killer hot question => stir death",
+    "alert 5 => alert death",
+    "timeout => death",
+    "post-win confirmation => twist death"
+  ],
+  "reset": "reload/new context starts round1; next button only removes disabled localStorage keys and fails to reset in-memory killer/scenario/alert/deadline. Consecutive rounds are defective.",
+  "unreachable_branch": "die(reason default) no UI caller; no terminal voluntary exit except harness give_up",
+  "modes": {
+    "default_seconds": 3600,
+    "source_test_seconds": 90
+  }
+}

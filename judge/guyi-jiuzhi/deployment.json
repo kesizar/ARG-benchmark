@@ -1,0 +1,24 @@
+{
+  "candidate_only": true,
+  "deployments": {
+    "resources": "runs\\guyi-jiuzhi-deployment\\resources",
+    "prepared": "runs\\guyi-jiuzhi-deployment\\prepared"
+  },
+  "archives": {
+    "resources": {
+      "sha256": "be53d2c8b5a7859208f4bb558cdb84fdd40e44e10d0c83d302779e55e4ee4ce7",
+      "bytes": 59050373
+    },
+    "prepared": {
+      "sha256": "4b982112627f4a216e3d637949087454255dfc3637c743a9f3828854185233de",
+      "bytes": 59122597
+    }
+  },
+  "resource_http": {
+    "url": "http://127.0.0.1:8833/index.html",
+    "sha256": "b1603a0e3e77f2803b28af0343a815b90823a4c9cfa1770c63a6c534a2a46a8a"
+  },
+  "manifest_hashes_pass": true,
+  "cli_smoke_exit_code": 0,
+  "scope": "Game files identical; independent resource server8833 and extracted evaluator CLI on8832. Existing Windows Python/Edge prerequisites reused. One-step give_up is startup/observe/judge/log/cleanup only; complete UI trace is separate."
+}

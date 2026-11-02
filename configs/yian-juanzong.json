@@ -1,7 +1,7 @@
 {
   "id": "yian-juanzong",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
@@ -11,9 +11,21 @@
     "title": "疑案卷宗",
     "intro": "你在这个站点的开头。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
   },
-  "entry_url": "https://dcd887.github.io/anluo-yiyun/",
+  "entry_url": "http://127.0.0.1:8821/index.html",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/yian-juanzong/mirror",
+      "--port",
+      "8821"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8821/index.html",
+    "ready_timeout_s": 30,
+    "port": 8821
   },
   "viewport": {
     "width": 1366,
@@ -23,7 +35,7 @@
   "timezone": "Asia/Shanghai",
   "seed": 20261023,
   "allow_hosts": [
-    "dcd887.github.io"
+    "127.0.0.1:8821"
   ],
   "shortcut_block": [],
   "guide_block_hosts": [
@@ -49,7 +61,7 @@
     "give_up"
   ],
   "limits": {
-    "max_steps": 100,
+    "max_steps": 350,
     "max_seconds": 1800,
     "max_answer_submits": 5
   },
@@ -68,6 +80,8 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-25 时间线归位不足十条，或还没有一次说法被证据击破时，提交页打不开。只有三项都判对才写入告破句；判错只写偏差，不写这句。十二条齐可以绕过，不进结局门。告破句本身不单列谜门。"
+    "本地离线演示模式，保留确定性证据链、档案、时间线、结案机制。",
+    "已移除URL自动通关、网关凭证；仅原始提交评分分支增加私有裁判标记。",
+    "300+步预算未经模型校准。"
   ]
 }

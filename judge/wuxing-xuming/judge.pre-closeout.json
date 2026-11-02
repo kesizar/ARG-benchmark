@@ -1,0 +1,265 @@
+{
+  "hooks": {
+    "mark": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('markProg')?.textContent.includes('5 / 5') && document.getElementById('penSvg')?.classList.contains('show')"
+    },
+    "step": {
+      "type": "js_truthy",
+      "expr": "(['index.html'].includes(location.pathname.split('/').pop()) || location.pathname.endsWith('/')) && (document.getElementById('quizStepAns')?.classList.contains('ok'))"
+    },
+    "cuff": {
+      "type": "js_truthy",
+      "expr": "(['index.html'].includes(location.pathname.split('/').pop()) || location.pathname.endsWith('/')) && (document.getElementById('cuffReveal')?.classList.contains('show'))"
+    },
+    "flaw": {
+      "type": "js_truthy",
+      "expr": "(['act2.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('quizFlawAns')?.classList.contains('ok'))"
+    },
+    "drawer": {
+      "type": "js_truthy",
+      "expr": "(['act2.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('drawerContent')?.classList.contains('show') && document.getElementById('drawerPwd')?.disabled)"
+    },
+    "fingerprint": {
+      "type": "js_truthy",
+      "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('fpVerdict')?.classList.contains('show'))"
+    },
+    "alias": {
+      "type": "js_truthy",
+      "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('fleeVerdict')?.classList.contains('show'))"
+    },
+    "timeline-1": {
+      "type": "js_truthy",
+      "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot0')?.classList.contains('filled'))"
+    },
+    "timeline-2": {
+      "type": "js_truthy",
+      "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot1')?.classList.contains('filled'))"
+    },
+    "timeline-3": {
+      "type": "js_truthy",
+      "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot2')?.classList.contains('filled'))"
+    },
+    "timeline-4": {
+      "type": "js_truthy",
+      "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot3')?.classList.contains('filled'))"
+    },
+    "timeline-5": {
+      "type": "js_truthy",
+      "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot4')?.classList.contains('filled'))"
+    },
+    "timeline-6": {
+      "type": "js_truthy",
+      "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot5')?.classList.contains('filled'))"
+    },
+    "timeline-7": {
+      "type": "js_truthy",
+      "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('slot6')?.classList.contains('filled'))"
+    },
+    "network-1": {
+      "type": "js_truthy",
+      "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.querySelector('.js-slot[data-slot=\"0\"]')?.classList.contains('placed'))"
+    },
+    "network-2": {
+      "type": "js_truthy",
+      "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.querySelector('.js-slot[data-slot=\"1\"]')?.classList.contains('placed'))"
+    },
+    "network-3": {
+      "type": "js_truthy",
+      "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.querySelector('.js-slot[data-slot=\"2\"]')?.classList.contains('placed'))"
+    },
+    "network-4": {
+      "type": "js_truthy",
+      "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.querySelector('.js-slot[data-slot=\"3\"]')?.classList.contains('placed'))"
+    },
+    "network-5": {
+      "type": "js_truthy",
+      "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.querySelector('.js-slot[data-slot=\"4\"]')?.classList.contains('placed'))"
+    },
+    "ending-A": {
+      "type": "js_truthy",
+      "expr": "(['act2.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('finale')?.classList.contains('show') && document.getElementById('brA')?.classList.contains('sel'))"
+    },
+    "ending-B": {
+      "type": "js_truthy",
+      "expr": "(['act2.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('finale')?.classList.contains('show') && document.getElementById('brB')?.classList.contains('sel'))"
+    },
+    "ending-final": {
+      "type": "js_truthy",
+      "expr": "(['act4.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('finale')?.classList.contains('show'))"
+    },
+    "funds": {
+      "type": "js_truthy",
+      "expr": "(['act3.html'].includes(location.pathname.split('/').pop())) && (document.getElementById('fundVerdict')?.classList.contains('show'))"
+    },
+    "archive-evidence": {
+      "type": "js_truthy",
+      "expr": "(['index.html'].includes(location.pathname.split('/').pop()) || location.pathname.endsWith('/')) && (document.querySelectorAll('.ec.found').length===4)"
+    },
+    "pending-butt": {
+      "type": "js_truthy",
+      "expr": "(['index.html'].includes(location.pathname.split('/').pop()) || location.pathname.endsWith('/')) && (document.getElementById('buttEvi')?.classList.contains('picked'))"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "mark",
+      "hook": "mark",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "step",
+      "hook": "step",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "cuff",
+      "hook": "cuff",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "flaw",
+      "hook": "flaw",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "drawer",
+      "hook": "drawer",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "fingerprint",
+      "hook": "fingerprint",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "alias",
+      "hook": "alias",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "timeline-1",
+      "hook": "timeline-1",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "timeline-2",
+      "hook": "timeline-2",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "timeline-3",
+      "hook": "timeline-3",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "timeline-4",
+      "hook": "timeline-4",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "timeline-5",
+      "hook": "timeline-5",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "timeline-6",
+      "hook": "timeline-6",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "timeline-7",
+      "hook": "timeline-7",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "network-1",
+      "hook": "network-1",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "network-2",
+      "hook": "network-2",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "network-3",
+      "hook": "network-3",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "network-4",
+      "hook": "network-4",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "network-5",
+      "hook": "network-5",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "funds",
+      "hook": "funds",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "archive-evidence",
+      "hook": "archive-evidence",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "pending-butt",
+      "hook": "pending-butt",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "main-final",
+      "tier": "good",
+      "gates": [
+        "network-1",
+        "network-2",
+        "network-3",
+        "network-4",
+        "network-5"
+      ],
+      "ending": {
+        "hook": "ending-final",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "ending-final",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  }
+}

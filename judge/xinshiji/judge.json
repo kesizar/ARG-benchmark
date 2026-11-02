@@ -1,25 +1,151 @@
 {
   "hooks": {
-    "home": {
-      "type": "dom_regex",
-      "pattern": "我回家了，你们也快点回来好吗"
+    "archive": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/darkweb.html') && sessionStorage.getItem('verified_archive') === '1'"
+    },
+    "chat": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/darkweb.html') && sessionStorage.getItem('verified_chat') === '1'"
+    },
+    "plan": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/darkweb.html') && sessionStorage.getItem('verified_plan') === '1'"
+    },
+    "final": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/darkweb.html') && document.querySelector('#endingScreen.show') !== null && document.querySelector('#endingFinal.show') !== null && ['archive','chat','plan'].every(k => sessionStorage.getItem('verified_'+k)==='1')"
+    },
+    "company-lock": {
+      "type": "js_truthy",
+      "expr": "['/sunflower.html','/darkweb.html'].some(x=>location.pathname.endsWith(x))"
+    },
+    "garden": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/darkweb.html')"
+    },
+    "manager-food": {
+      "type": "js_truthy",
+      "expr": "Number(localStorage.getItem('sunStep')||0)>=2"
+    },
+    "manager-parents": {
+      "type": "js_truthy",
+      "expr": "Number(localStorage.getItem('sunStep')||0)>=3"
+    },
+    "manager-hobby": {
+      "type": "js_truthy",
+      "expr": "Number(localStorage.getItem('sunStep')||0)>=4"
+    },
+    "manager-date": {
+      "type": "js_truthy",
+      "expr": "Number(localStorage.getItem('sunStep')||0)>=5"
+    },
+    "member": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/member-page.html')"
+    },
+    "portraits": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/member-page.html')&&typeof photosAllLit!=='undefined'&&photosAllLit"
+    },
+    "survey": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('surveyPassed')==='true'"
     }
   },
-  "checkpoints": [],
-  "events": {},
+  "checkpoints": [
+    {
+      "id": "company-lock",
+      "hook": "company-lock",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "garden",
+      "hook": "garden",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "manager-food",
+      "hook": "manager-food",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "manager-parents",
+      "hook": "manager-parents",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "manager-hobby",
+      "hook": "manager-hobby",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "manager-date",
+      "hook": "manager-date",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "member",
+      "hook": "member",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "portraits",
+      "hook": "portraits",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "archive",
+      "hook": "archive",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "chat",
+      "hook": "chat",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "plan",
+      "hook": "plan",
+      "op": "truthy",
+      "role": "critical"
+    }
+  ],
+  "events": {
+    "survey_passed": {
+      "hook": "survey",
+      "op": "truthy"
+    }
+  },
   "routes": [
     {
-      "id": "home",
-      "tier": "good",
-      "gates": [],
+      "id": "truth",
+      "tier": null,
+      "gates": [
+        "company-lock",
+        "garden",
+        "archive",
+        "chat",
+        "plan"
+      ],
       "ending": {
-        "hook": "home",
+        "hook": "final",
         "op": "truthy"
       }
     }
   ],
   "ending": {
-    "hook": "home",
+    "hook": "final",
     "op": "truthy"
   },
   "answer_sha256": [],

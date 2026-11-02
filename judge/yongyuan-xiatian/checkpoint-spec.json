@@ -1,0 +1,63 @@
+{
+  "record_id": "added84:0003",
+  "source_version": "official currently retrievable prologue_v38 / act1_v35 / act2_v7 / act3, frozen with hashes; original archive landing preserved",
+  "candidate_reasoning_points": 8,
+  "critical_route_points": [
+    "photo_sequence"
+  ],
+  "optional_points": [
+    "exclude_boys",
+    "exclude_wrong_age",
+    "timeline_0",
+    "timeline_1",
+    "timeline_2",
+    "timeline_3",
+    "timeline_4"
+  ],
+  "puzzle_conditions": {
+    "date_comparison": "select both print date and earlier publication date; requires comparing separate documents, but direct highlighted affordances lower difficulty",
+    "history_filter": "filter browser history to 37 qingxi URL results and no others; wrong/empty queries do not succeed",
+    "phone_time": "0013 derived from pinned memorial time and thirteen minute gap; retries eventually show direct hint",
+    "child_identity": "reject girls during boys phase; eliminate only wrong-age girls during age phase; choose target last",
+    "timeline": "five matching day/countdown pairs; mismatch does not latch",
+    "photo_sequence": "nine photos swap into prescribed chronological route; only full correct arrangement awards this checkpoint"
+  },
+  "ordinary_events_not_puzzles": [
+    "answer phone",
+    "open relics",
+    "diary keyword highlights",
+    "fictional ticket payment",
+    "visit grandmother",
+    "read provided evidence synthesis",
+    "final narrative pages",
+    "third-act repeated phone code",
+    "date_comparison",
+    "history_filter",
+    "phone_time",
+    "identify_zhixia"
+  ],
+  "endings": [
+    {
+      "id": "full_story",
+      "kind": "formal_completion",
+      "tier": "normal",
+      "signal": "fp6 visible active final page"
+    }
+  ],
+  "failures": "wrong passwords/choices retry; no authored terminal death/failure/alternative ending branches found",
+  "shortcut_limitations": [
+    "Act2 top navigation exposes direct third-act link, bypassing earlier puzzles. Therefore optional earlier points are not required route gates.",
+    "Developer ?start= parameters exist in original pages but model goto disabled and full audit starts at cover.",
+    "Photo sort shows correct-position green feedback and route text labels; difficulty needs review."
+  ],
+  "flow": [
+    "cover → prologue incoming call → package",
+    "act1 nine relics, date pair, phone/history, album",
+    "simulated tourism site, optional information/maps/video, simulated payment → act2 new tab",
+    "village three objects → seven diary pages → eleven-child elimination → narrative → five timeline pairs → call → grandmother",
+    "retained website tab search unlocked after grandmother, maintenance notice/download",
+    "act3 grandmother → repeated phone → nine-photo swap → zoom/drag → three evidence branches → eight cards → eight-step supplied synthesis → six-page finale"
+  ],
+  "scoring_note": "Judge uses read-only DOM/global probes; no task state injection. Full engineering replay is source assisted, not a model score. Highlighted dates require clicking the only two targets; history offers a direct qingxi chip; phone time is printed on lock screen. These three remain unscored events. Selecting the only child left after elimination is also an unscored confirmation event.",
+  "reasoning_points": 8
+}

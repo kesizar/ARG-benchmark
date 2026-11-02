@@ -17,9 +17,9 @@ def main() -> None:
     parser.add_argument("--id", required=True)
     parser.add_argument("--category", required=True, choices=["web_puzzle", "escape_room", "arg", "static", "text_adventure"])
     parser.add_argument("--port", type=int, default=8770)
-    parser.add_argument("--layer", choices=["L1", "L2", "L3"], default=None)
+    parser.add_argument("--runtime-layer", "--layer", choices=["L1", "L3"], default="L1")
     args = parser.parse_args()
-    written = scaffold_task(ROOT, args.id, args.category, port=args.port, arg_layer=args.layer)
+    written = scaffold_task(ROOT, args.id, args.category, port=args.port, runtime_layer=args.runtime_layer)
     for path in written:
         print(path.relative_to(ROOT))
     print("下一步：换上真题材料，再执行")

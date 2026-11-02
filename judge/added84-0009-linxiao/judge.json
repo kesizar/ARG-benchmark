@@ -1,0 +1,111 @@
+{
+  "hooks": {
+    "found": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#fr-result') && document.querySelector('#fr-result').innerText.includes('结局 · 寻回')"
+    },
+    "peril": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#fr-result') && document.querySelector('#fr-result').innerText.includes('结局 · 险途')"
+    },
+    "tooLate": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#fr-result') && document.querySelector('#fr-result').innerText.includes('结局 · 迟了一步')"
+    },
+    "wrong": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#fr-result') && document.querySelector('#fr-result').innerText.includes('结局 · 误判')"
+    },
+    "missed": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#fr-result') && document.querySelector('#fr-result').innerText.includes('结局 · 失之交臂')"
+    },
+    "capsule": {
+      "type": "js_truthy",
+      "expr": "typeof S !== \"undefined\" && S.unlocked === true"
+    },
+    "binary_diagnostic": {
+      "type": "js_truthy",
+      "expr": "typeof S !== \"undefined\" && Array.isArray(S.clues) && S.clues.includes(\"door7\")"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "capsule",
+      "hook": "capsule",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "binary",
+      "hook": "binary_diagnostic",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "found",
+      "gates": [
+        "capsule"
+      ],
+      "ending": {
+        "hook": "found",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "peril",
+      "gates": [
+        "capsule"
+      ],
+      "ending": {
+        "hook": "peril",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "tooLate",
+      "gates": [
+        "capsule"
+      ],
+      "ending": {
+        "hook": "tooLate",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "wrong",
+      "gates": [
+        "capsule"
+      ],
+      "ending": {
+        "hook": "wrong",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "missed",
+      "gates": [
+        "capsule"
+      ],
+      "ending": {
+        "hook": "missed",
+        "op": "truthy"
+      }
+    }
+  ],
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null,
+  "ending": {
+    "hook": "found",
+    "op": "truthy"
+  }
+}

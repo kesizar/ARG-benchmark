@@ -1,0 +1,89 @@
+{
+  "hooks": {
+    "album": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/desktop.html') && !!document.querySelector('#success-view') && getComputedStyle(document.querySelector('#success-view')).display !== 'none' && document.querySelector('#album-pwd').value.trim().toLowerCase()==='sunflower'"
+    },
+    "album_any": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/desktop.html') && !!document.querySelector('#success-view') && getComputedStyle(document.querySelector('#success-view')).display !== 'none'"
+    },
+    "search": {
+      "type": "localstorage",
+      "key": "sys_search_unlocked",
+      "mode": "value"
+    },
+    "diary": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/riji.html')"
+    },
+    "publisher": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/niming.html')"
+    },
+    "flower": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/hidden_backend.html')"
+    },
+    "normal": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/end.html') && (e => {if (!e || !e.getClientRects().length) return false; const b=e.getBoundingClientRect(); return b.bottom>0 && b.top<innerHeight && b.right>0 && b.left<innerWidth && getComputedStyle(e).visibility!=='hidden';})(document.querySelector('#secret-container.show'))"
+    },
+    "bad": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/badend.html') && getComputedStyle(document.querySelector('#creditsWrapper')).opacity!=='0' && (e => {if (!e || !e.getClientRects().length) return false; const b=e.getBoundingClientRect(); return b.bottom>0 && b.top<innerHeight && b.right>0 && b.left<innerWidth && getComputedStyle(e).visibility!=='hidden';})(document.querySelector('.bad-end'))"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "album_exact",
+      "hook": "album",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "album_game_unlock",
+      "hook": "album_any",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "search_unlock",
+      "hook": "search",
+      "op": "eq",
+      "value": "true",
+      "role": "critical"
+    },
+    {
+      "id": "diary",
+      "hook": "diary",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "publisher",
+      "hook": "publisher",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "flower",
+      "hook": "flower",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {
+    "normal": {
+      "hook": "normal",
+      "op": "truthy"
+    }
+  },
+  "terminal_failures": [
+    {
+      "id": "bad_end",
+      "hook": "bad",
+      "op": "truthy"
+    }
+  ]
+}

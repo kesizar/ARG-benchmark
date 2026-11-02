@@ -1,0 +1,153 @@
+{
+  "hooks": {
+    "tomori": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-love.active #love-result.on') && document.querySelector('#love-result-title').textContent.trim()===\"♥ 告白成功 · 高松灯 线通关\""
+    },
+    "raana": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-love.active #love-result.on') && document.querySelector('#love-result-title').textContent.trim()===\"♥ 告白成功 · 要乐奈 线通关\""
+    },
+    "soyo": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-love.active #love-result.on') && document.querySelector('#love-result-title').textContent.trim()===\"♥ 告白成功 · 长崎素世 线通关\""
+    },
+    "taki": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-love.active #love-result.on') && document.querySelector('#love-result-title').textContent.trim()===\"♥ 告白成功 · 椎名立希 线通关\""
+    },
+    "sakiko": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-love.active #love-result.on') && document.querySelector('#love-result-title').textContent.trim()===\"♥ 告白成功 · 丰川祥子 线通关\""
+    },
+    "uika": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-love.active #love-result.on') && document.querySelector('#love-result-title').textContent.trim()===\"♥ 告白成功 · 三角初华 线通关\""
+    },
+    "umiri": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-love.active #love-result.on') && document.querySelector('#love-result-title').textContent.trim()===\"♥ 告白成功 · 八幡海铃 线通关\""
+    },
+    "nyamu": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-love.active #love-result.on') && document.querySelector('#love-result-title').textContent.trim()===\"♥ 告白成功 · 祐天寺若麦 线通关\""
+    },
+    "mutsumi": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-love.active #love-result.on') && document.querySelector('#love-result-title').textContent.trim()===\"♥ 告白成功 · 若叶睦 线通关\""
+    },
+    "friend": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-love.active #love-result.on') && document.querySelector('#love-result-title').textContent.trim().startsWith(\"♡ 朋友以上 · \")"
+    },
+    "rejected": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-love.active #love-result.on') && document.querySelector('#love-result-title').textContent.trim().startsWith(\"♢ 好人卡 · \")"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "tomori",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "tomori",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "raana",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "raana",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "soyo",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "soyo",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "taki",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "taki",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "sakiko",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "sakiko",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "uika",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "uika",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "umiri",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "umiri",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "nyamu",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "nyamu",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "mutsumi",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "mutsumi",
+        "op": "truthy"
+      }
+    }
+  ],
+  "terminal_failures": [
+    {
+      "id": "friend",
+      "hook": "friend",
+      "op": "truthy"
+    },
+    {
+      "id": "rejected",
+      "hook": "rejected",
+      "op": "truthy"
+    }
+  ],
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

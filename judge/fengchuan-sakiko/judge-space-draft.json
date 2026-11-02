@@ -1,0 +1,40 @@
+{
+  "hooks": {
+    "win": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-space.active #space-result.on') && document.querySelector('#space-result-title').textContent.trim()==='全宇宙归于电灯'"
+    },
+    "timeout": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#screen-space.active #space-result.on') && document.querySelector('#space-result-title').textContent.trim()==='编辑部催稿结局'"
+    }
+  },
+  "checkpoints": [],
+  "events": {},
+  "routes": [
+    {
+      "id": "win",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "win",
+        "op": "truthy"
+      }
+    }
+  ],
+  "terminal_failures": [
+    {
+      "id": "timeout",
+      "hook": "timeout",
+      "op": "truthy"
+    }
+  ],
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

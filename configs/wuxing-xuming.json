@@ -1,7 +1,7 @@
 {
   "id": "wuxing-xuming",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
@@ -11,9 +11,21 @@
     "title": "五行续命坛",
     "intro": "你在这个站点的开头。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
   },
-  "entry_url": "https://wuxing-altar.pages.dev/",
+  "entry_url": "http://127.0.0.1:8831/",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/wuxing-xuming/mirror",
+      "--port",
+      "8831"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8831/",
+    "port": 8831,
+    "ready_timeout_s": 30
   },
   "viewport": {
     "width": 1366,
@@ -23,7 +35,8 @@
   "timezone": "Asia/Shanghai",
   "seed": 20261023,
   "allow_hosts": [
-    "wuxing-altar.pages.dev"
+    "127.0.0.1",
+    "localhost"
   ],
   "shortcut_block": [],
   "guide_block_hosts": [
@@ -49,9 +62,9 @@
     "give_up"
   ],
   "limits": {
-    "max_steps": 100,
-    "max_seconds": 1800,
-    "max_answer_submits": 5
+    "max_steps": 600,
+    "max_seconds": 7200,
+    "max_answer_submits": 50
   },
   "settle_ms": 400,
   "history": {
@@ -68,6 +81,8 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-25 首页那层是 flex 且透明度为 0，一打开就在可见文本里，不拿来当终局。下一幕结案后才把终局层从隐藏改为显示。绕不过的是两处点击命中、一道单选、一道多选和一处短输入。点开卡片、归档和分支没有对错，不进结局门。答错和空提交不改这些标记。终局层不单列谜门。"
-  ]
+    "2026-10-27 preparation: recovered current four-act main case. See task README, judge checkpoint-spec, source and acceptance evidence. Original cached index retained; do not reuse legacy five-point judgement.",
+    "Separate archive catalogue games are linked works, excluded from four-act main-case score and not yet locally complete. Main case has non-prerequisite navigation that can skip reasoning; see risk report."
+  ],
+  "account_requirement": "none"
 }

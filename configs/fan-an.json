@@ -1,7 +1,7 @@
 {
   "id": "fan-an",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
@@ -11,9 +11,21 @@
     "title": "替另一个自己翻案",
     "intro": "你在一个在线网页解谜里。只能用列出的动作，只根据屏幕上能看到的信息推理。不要打开其他网站。"
   },
-  "entry_url": "https://e9ac42d2aee04fd1a286465fc4183bdb.app.workbuddy.link/",
+  "entry_url": "http://127.0.0.1:8981/index.html",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/fan-an/mirror",
+      "--port",
+      "8981"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8981/index.html",
+    "ready_timeout_s": 30,
+    "port": 8981
   },
   "viewport": {
     "width": 1366,
@@ -23,7 +35,7 @@
   "timezone": "Asia/Shanghai",
   "seed": 20261023,
   "allow_hosts": [
-    "e9ac42d2aee04fd1a286465fc4183bdb.app.workbuddy.link"
+    "127.0.0.1:8981"
   ],
   "shortcut_block": [],
   "guide_block_hosts": [
@@ -50,7 +62,7 @@
     "give_up"
   ],
   "limits": {
-    "max_steps": 80,
+    "max_steps": 160,
     "max_seconds": 1800,
     "max_answer_submits": 5
   },
@@ -69,6 +81,6 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-23 结局函数才把这些句子写进页面，首屏没有。"
+    "原作线索直接透露多项答案，裁判与内容适用性待审核；重置为重新加载。"
   ]
 }

@@ -1,0 +1,59 @@
+{
+  "hooks": {
+    "answer_acquired": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return !!document.querySelector('#pipa-main .ending h2')&&document.querySelector('#pipa-main .ending h2').textContent.includes('答案到手');\n})()"
+    },
+    "star_buff": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return typeof PP!=='undefined'&&PP&&PP.popipa===true;\n})()"
+    },
+    "answer": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return document.querySelector('#pipa-main .ending h2')?.textContent.includes('答案到手')===true;\n})()"
+    },
+    "caught": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return document.querySelector('#pipa-main .ending h2')?.textContent.includes('道 歉 信')===true;\n})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "answer_acquired",
+      "hook": "answer_acquired",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "star_buff",
+      "hook": "star_buff",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "routes": [
+    {
+      "id": "answer",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "answer",
+        "op": "truthy"
+      }
+    }
+  ],
+  "events": {},
+  "ending": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "terminal_failures": [
+    {
+      "id": "caught",
+      "hook": "caught",
+      "op": "truthy"
+    }
+  ]
+}

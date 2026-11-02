@@ -1,0 +1,411 @@
+{
+  "hooks": {
+    "p1": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.1"
+    },
+    "p2": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.2"
+    },
+    "p3": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.3"
+    },
+    "p4": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.4"
+    },
+    "p5": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.5"
+    },
+    "p6": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.6"
+    },
+    "p7": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.7"
+    },
+    "p8": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.8"
+    },
+    "p9": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.9"
+    },
+    "p10": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.10"
+    },
+    "p11": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.11"
+    },
+    "p12": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.12"
+    },
+    "p13": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.13"
+    },
+    "p14": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.14"
+    },
+    "p15": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.15"
+    },
+    "p16": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.16"
+    },
+    "p17": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.17"
+    },
+    "p18": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.18"
+    },
+    "p19": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.19"
+    },
+    "p20": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.20"
+    },
+    "p21": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.21"
+    },
+    "p22": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.22"
+    },
+    "p23": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.23"
+    },
+    "p24": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.24"
+    },
+    "p25": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.25"
+    },
+    "p26": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.26"
+    },
+    "p27": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.27"
+    },
+    "p28": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.28"
+    },
+    "p29": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.29"
+    },
+    "p30": {
+      "type": "localstorage",
+      "key": "yanyu_arg_save_v1",
+      "mode": "json_path",
+      "path": "solved.30"
+    },
+    "A": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#overlay.show .ending-card h2')?.textContent === '结局 A · 回声' && JSON.parse(localStorage.getItem('yanyu_arg_save_v1')||'{}').ending === 'A'"
+    },
+    "B": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#overlay.show .ending-card h2')?.textContent === '结局 B · 传承' && JSON.parse(localStorage.getItem('yanyu_arg_save_v1')||'{}').ending === 'B'"
+    },
+    "C": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#overlay.show .ending-card h2')?.textContent === '结局 C · 散播' && JSON.parse(localStorage.getItem('yanyu_arg_save_v1')||'{}').ending === 'C'"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "p1",
+      "hook": "p1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p2",
+      "hook": "p2",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p3",
+      "hook": "p3",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p4",
+      "hook": "p4",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p5",
+      "hook": "p5",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p6",
+      "hook": "p6",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p7",
+      "hook": "p7",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p8",
+      "hook": "p8",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p9",
+      "hook": "p9",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p10",
+      "hook": "p10",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p11",
+      "hook": "p11",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p12",
+      "hook": "p12",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p13",
+      "hook": "p13",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p14",
+      "hook": "p14",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p15",
+      "hook": "p15",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p16",
+      "hook": "p16",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p17",
+      "hook": "p17",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p18",
+      "hook": "p18",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p19",
+      "hook": "p19",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p20",
+      "hook": "p20",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p21",
+      "hook": "p21",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p22",
+      "hook": "p22",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p23",
+      "hook": "p23",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p24",
+      "hook": "p24",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p25",
+      "hook": "p25",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p26",
+      "hook": "p26",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p27",
+      "hook": "p27",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p28",
+      "hook": "p28",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p30",
+      "hook": "p30",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "A",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "A",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "B",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "B",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "C",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "C",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": null,
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

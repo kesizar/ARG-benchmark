@@ -1,0 +1,87 @@
+{
+  "init_script": "(() => {\n let ns;\n Object.defineProperty(window, 'gdjs', {configurable:true, get(){return ns;}, set(value){\n   ns=value;\n   if (!value || Object.prototype.hasOwnProperty.call(value,'__captureInstalled')) return;\n   Object.defineProperty(value,'__captureInstalled',{value:true});\n   let ctor;\n   Object.defineProperty(value,'RuntimeGame',{configurable:true,get(){return ctor},set(original){\n     ctor=new Proxy(original,{construct(target,args,newTarget){const instance=Reflect.construct(target,args,newTarget);window.__islandGame=instance;return instance;}});\n   }});\n }});\n})();\n",
+  "hooks": {
+    "box": {
+      "type": "js_truthy",
+      "expr": "(()=>{let g=window.__islandGame,s=g?.getSceneStack().getCurrentScene();return !!s && ((s.getName()===\"密码箱子\" && s.getObjects(\"box_open\").some(o=>o.isVisible())) || [\"栈道\", \"林中小径\", \"湖泊\", \"照相机\", \"湖泊与坑\", \"照相机2\", \"大厅\", \"大厅2\", \"大厅3\", \"火柴\", \"全家福\", \"壁炉台面\", \"厨房场景\", \"卧室场景\", \"卧室子场景\", \"厨房场景2\", \"卧室场景2\", \"地下\", \"Credict\"].includes(s.getName()))})()"
+    },
+    "camera": {
+      "type": "js_truthy",
+      "expr": "(()=>{let s=window.__islandGame?.getSceneStack().getCurrentScene();return !!s && [\"大厅\", \"大厅2\", \"大厅3\", \"火柴\", \"全家福\", \"壁炉台面\", \"厨房场景\", \"卧室场景\", \"卧室子场景\", \"厨房场景2\", \"卧室场景2\", \"地下\", \"Credict\"].includes(s.getName())})()"
+    },
+    "fireplace": {
+      "type": "js_truthy",
+      "expr": "(()=>{let s=window.__islandGame?.getSceneStack().getCurrentScene();return !!s && ((s.getName()===\"大厅\" && s.getVariables().getFromIndex(2).getAsBoolean()) || s.getName()===\"壁炉台面\" || [\"大厅2\", \"厨房场景2\", \"大厅3\", \"卧室场景2\", \"地下\", \"Credict\"].includes(s.getName()))})()"
+    },
+    "brooch": {
+      "type": "js_truthy",
+      "expr": "window.__islandGame?.getVariables().getFromIndex(10).getAsNumber() === 1"
+    },
+    "bow": {
+      "type": "js_truthy",
+      "expr": "window.__islandGame?.getVariables().getFromIndex(11).getAsNumber() === 1"
+    },
+    "poison": {
+      "type": "js_truthy",
+      "expr": "(()=>{let s=window.__islandGame?.getSceneStack().getCurrentScene();return !!s && s.getName()===\"大厅3\" && [\"women3\",\"women4\"].some(n=>s.getObjects(n).some(o=>o.isVisible()))})()"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "(()=>{let s=window.__islandGame?.getSceneStack().getCurrentScene();return !!s && s.getName()===\"地下\" && s.getObjects(\"TransparentButtonWithWhiteYellowBorder\").some(o=>o.isVisible()) && s.getObjects(\"TransparentButtonWithWhiteYellowBorder2\").some(o=>o.isVisible())})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "box",
+      "hook": "box",
+      "op": "truthy"
+    },
+    {
+      "id": "camera",
+      "hook": "camera",
+      "op": "truthy"
+    },
+    {
+      "id": "fireplace",
+      "hook": "fireplace",
+      "op": "truthy"
+    },
+    {
+      "id": "brooch",
+      "hook": "brooch",
+      "op": "truthy"
+    },
+    {
+      "id": "bow",
+      "hook": "bow",
+      "op": "truthy"
+    },
+    {
+      "id": "poison",
+      "hook": "poison",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "ending",
+      "tier": "normal",
+      "gates": [
+        "box",
+        "camera",
+        "fireplace",
+        "brooch",
+        "bow"
+      ],
+      "ending": {
+        "hook": "ending",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": null,
+  "terminal_failures": [],
+  "answer_sha256": []
+}

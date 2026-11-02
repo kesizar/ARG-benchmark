@@ -1,0 +1,85 @@
+{
+  "hooks": {
+    "wechat": {
+      "type": "js_truthy",
+      "expr": "typeof wechatUnlocked !== 'undefined' && wechatUnlocked === true"
+    },
+    "member": {
+      "type": "js_truthy",
+      "expr": "typeof memberVerified !== 'undefined' && memberVerified === true"
+    },
+    "contact": {
+      "type": "js_truthy",
+      "expr": "typeof tianyanchaContactVerified !== 'undefined' && tianyanchaContactVerified === true"
+    },
+    "hongsheng": {
+      "type": "js_truthy",
+      "expr": "typeof hongshengPhoneVerified !== 'undefined' && hongshengPhoneVerified === true"
+    },
+    "questions": {
+      "type": "js_truthy",
+      "expr": "(()=>{const e=document.getElementById('bossCommandKeyWindow');return !!e && e.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})})()"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "(()=>{const e=document.getElementById('gameCompletePage');return !!e && e.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}) && e.innerText.includes('恭喜您成功完成所有挑战')})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "wechat",
+      "hook": "wechat",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "member",
+      "hook": "member",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "contact",
+      "hook": "contact",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "hongsheng",
+      "hook": "hongsheng",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "questions",
+      "hook": "questions",
+      "op": "truthy",
+      "role": "critical"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "completion",
+      "tier": "normal",
+      "gates": [
+        "questions"
+      ],
+      "ending": {
+        "hook": "ending",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "ending",
+    "op": "truthy"
+  },
+  "terminal_failures": [],
+  "answer_sha256": [],
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  }
+}

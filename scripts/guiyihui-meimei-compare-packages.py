@@ -1,0 +1,2 @@
+import zipfile,pathlib,json,hashlib
+root=pathlib.Path('.');r=zipfile.ZipFile(root/'packs/guiyihui-meimei.resources.zip');e=zipfile.ZipFile(root/'packs/guiyihui-meimei.prepared.zip');m=json.loads(r.read('RESOURCE-MANIFEST.json'));pairs=[(x['path'],hashlib.sha256(r.read(x['path'])).hexdigest(),hashlib.sha256(e.read('tasks/guiyihui-meimei/mirror/'+x['path'])).hexdigest()) for x in m['files']];assert all(a==b for _,a,b in pairs);print('identical_game_files',len(pairs))

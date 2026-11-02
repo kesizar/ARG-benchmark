@@ -1,7 +1,7 @@
 {
   "id": "shenjia-yichan",
   "category": "arg",
-  "arg_layer": "L3",
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
@@ -11,9 +11,19 @@
     "title": "沈家遗产",
     "intro": "你在查一份旧档案。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
   },
-  "entry_url": "https://pcz58ruc.mule.page/%E6%B2%88%E5%AE%B6%E9%81%97%E4%BA%A7_%E6%B8%B8%E6%88%8F%E5%8E%9F%E5%9E%8B.html",
+  "entry_url": "http://127.0.0.1:8811/index.html",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "port": 8811,
+    "ready_url": "http://127.0.0.1:8811/index.html",
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/shenjia-yichan/mirror",
+      "--port",
+      "8811"
+    ]
   },
   "viewport": {
     "width": 1366,
@@ -23,7 +33,7 @@
   "timezone": "Asia/Shanghai",
   "seed": 20261023,
   "allow_hosts": [
-    "pcz58ruc.mule.page"
+    "127.0.0.1:8811"
   ],
   "shortcut_block": [],
   "guide_block_hosts": [
@@ -47,9 +57,9 @@
     "give_up"
   ],
   "limits": {
-    "max_steps": 100,
-    "max_seconds": 1800,
-    "max_answer_submits": 5
+    "max_steps": 1500,
+    "max_seconds": 7200,
+    "max_answer_submits": 100
   },
   "settle_ms": 400,
   "history": {
@@ -59,6 +69,10 @@
   "judge_path": "judge/shenjia-yichan/judge.json",
   "policy_script": [
     {
+      "op": "click",
+      "n": 1
+    },
+    {
       "op": "give_up"
     }
   ],
@@ -66,6 +80,7 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-23 终局对话结束后才把完成画面设为可见。"
-  ]
+    "Frozen archived source; all named websites and accounts are locally simulated. Engineering readiness depends on independent UI acceptance. Original optional logo video acquired; game HTML unchanged."
+  ],
+  "account_requirement": "none"
 }

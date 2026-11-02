@@ -113,10 +113,20 @@ ELEMENTS_JS = r"""
     const rect = node.getBoundingClientRect();
     if (rect.width < 2 || rect.height < 2) continue;
     if (rect.bottom <= 0 || rect.top >= viewH || rect.right <= 0 || rect.left >= viewW) continue;
-    const x = Math.round(rect.left + rect.width / 2);
-    const y = Math.round(rect.top + rect.height / 2);
-    const top = document.elementFromPoint(x, y);
-    if (!top || (top !== node && !node.contains(top) && !top.contains(node))) continue;
+    // A wrapped inline link's bounding-box center may fall in empty space.
+    // Use a visible text fragment and require the hit to be the control or
+    // its descendant; an ancestor at the point does not prove clickability.
+    let point = null;
+    for (const fragment of node.getClientRects()) {
+      const left = Math.max(0, fragment.left), right = Math.min(viewW, fragment.right);
+      const topEdge = Math.max(0, fragment.top), bottom = Math.min(viewH, fragment.bottom);
+      if (right - left < 2 || bottom - topEdge < 2) continue;
+      const px = Math.round((left + right) / 2), py = Math.round((topEdge + bottom) / 2);
+      const hit = document.elementFromPoint(px, py);
+      if (hit && (hit === node || node.contains(hit))) { point = {x: px, y: py}; break; }
+    }
+    if (!point) continue;
+    const {x, y} = point;
     const label = (node.innerText || "").replace(/\s+/g, " ").trim().slice(0, 80);
     const role = (node.getAttribute("role") || "").toLowerCase();
     const kind = roles.has(role) ? role : node.tagName.toLowerCase();

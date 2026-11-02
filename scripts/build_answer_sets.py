@@ -29,7 +29,7 @@ def static_config(task_id: str, title: str, intro: str, prompt: str, note: str) 
     return {
         "id": task_id,
         "category": "static",
-        "arg_layer": None,
+        "runtime_layer": "L1",
         "obs_mode": "A",
         "obs_modes_to_run": ["A"],
         "computer_use": False,
@@ -154,7 +154,7 @@ def build_bellingcat() -> list[str]:
         cfg = {
             "id": task_id,
             "category": "web_puzzle",
-            "arg_layer": None,
+            "runtime_layer": "L1",
             "obs_mode": "B",
             "obs_modes_to_run": ["B"],
             "computer_use": False,

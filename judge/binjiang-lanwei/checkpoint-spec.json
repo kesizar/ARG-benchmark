@@ -1,0 +1,29 @@
+{
+  "formal_scoring": false,
+  "critical_reasoning_points": [],
+  "entry_condition": "Police badge is not visible on entry; badge occurs in downstream case and WeChat pages only. No source credential added to player prompt.",
+  "ending_policy": {
+    "ending1": "真相大白·正义降临: correct suspect and 监控 keyword selected",
+    "ending2": "证据不足: correct suspect without 监控",
+    "ending3": "冤枉好人: any nonblocked wrong suspect with at least one evidence"
+  },
+  "bypass": "Search discovers evidence before opening document. A report can select 监控 without reading or decrypting footage. All 8 document password gates are optional. Search keywords and reading alone are unscored.",
+  "latching": "Shared harness latches observed DOM success. Fresh context is full reset. Retry button preserves discoveredEvidences/searchHistory, clears current report only.",
+  "clue_risks": [
+    "Entry badge missing before login.",
+    "Server 02 clue is ambiguous Biblical animal pairs; accepted spelling 02 hardcoded.",
+    "Linshu old-address coordinate differs from locked_mail cloud coordinate; do not silently equate them.",
+    "Forum prose calls three birthdays intersection 0630; explicit June30 sentence provides source-local answer."
+  ],
+  "diagnostic_password_gates": [
+    "camera",
+    "old_case",
+    "mail",
+    "shepherd",
+    "server",
+    "ark",
+    "daughter",
+    "forum"
+  ],
+  "reason": "提示直接给定或可直接读取、地图等同规则不明确/资料矛盾；未证明独立推理，均 diagnostic。"
+}

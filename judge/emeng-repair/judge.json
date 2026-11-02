@@ -1,0 +1,126 @@
+{
+  "hooks": {
+    "wake": {
+      "type": "dom_regex",
+      "pattern": "【觉醒】真结局"
+    },
+    "sink": {
+      "type": "dom_regex",
+      "pattern": "【沉沦】坏结局"
+    },
+    "void": {
+      "type": "dom_regex",
+      "pattern": "【湮灭】隐藏结局"
+    },
+    "forget": {
+      "type": "dom_regex",
+      "pattern": "【遗忘】中立结局"
+    },
+    "door": {
+      "type": "dom_regex",
+      "pattern": "门锁开了"
+    },
+    "cabinet": {
+      "type": "dom_regex",
+      "pattern": "机柜前"
+    },
+    "office": {
+      "type": "dom_regex",
+      "pattern": "这是一间办公室"
+    },
+    "final_door": {
+      "type": "input_sha256",
+      "selector": "input[placeholder=\"输入密码...\"]",
+      "hashes": [
+        "7784a43dd7d0fa6307beff34b5c2191e216a16aaee1912f5e9cf7f84a6d7c0ea"
+      ]
+    },
+    "sink_selected": {
+      "type": "js_truthy",
+      "expr": "window.__nightmareSinkChoice === true && document.body.innerText.includes('【沉沦】坏结局')"
+    },
+    "sink_forced": {
+      "type": "js_truthy",
+      "expr": "window.__nightmareSinkChoice === false && document.body.innerText.includes('【沉沦】坏结局')"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "door",
+      "hook": "door",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "cabinet",
+      "hook": "cabinet",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "office",
+      "hook": "office",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "wake",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "wake",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "forget",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "forget",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "void",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "void",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "sink",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "sink_selected",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "wake",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null,
+  "init_script": "(() => { window.__nightmareSinkChoice = false; document.addEventListener('click', e => { const b = e.target instanceof Element ? e.target.closest('button') : null; if (!b) return; const text = (b.innerText || '').trim(); if (text === '开始新游戏' || text === '重新开始') window.__nightmareSinkChoice = false; if (text.includes('【沉沦】也许... 留在这里也不错')) window.__nightmareSinkChoice = true; }, true); })();",
+  "terminal_failures": [
+    {
+      "id": "sanity_exhausted",
+      "hook": "sink_forced",
+      "op": "truthy"
+    }
+  ]
+}

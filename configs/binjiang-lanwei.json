@@ -1,0 +1,90 @@
+{
+  "id": "binjiang-lanwei",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "滨江新城烂尾楼案",
+    "intro": "依据本地网页的可见材料调查案件，提交调查报告。禁止读取源码或评测私有文件。"
+  },
+  "entry_url": "http://127.0.0.1:8831/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/binjiang-lanwei/mirror",
+      "--port",
+      "8831"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8831/index.html",
+    "ready_timeout_s": 30,
+    "port": 8831
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261012,
+  "allow_hosts": [
+    "127.0.0.1:8831"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up",
+    "switch_tab",
+    "close_tab"
+  ],
+  "limits": {
+    "max_steps": 650,
+    "max_seconds": 3600,
+    "max_answer_submits": 60
+  },
+  "settle_ms": 350,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/binjiang-lanwei/judge.json",
+  "policy_script": [
+    {
+      "op": "wait",
+      "ms": 250
+    },
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "入口六位警号未提供可见初始线索。当前只作源码辅助工程回放，formal scoring false。",
+    "结局允许直接检索监控并报告，不依赖摄像头解密。8个密码点全为可绕过的optional候选；普通搜集和开页不计分。",
+    "第三结局后菜单重开会在updateProgress产生空节点异常；fresh context完整重置可用。记事本最小化后打开不恢复位置。"
+  ],
+  "account_requirement": "none"
+}

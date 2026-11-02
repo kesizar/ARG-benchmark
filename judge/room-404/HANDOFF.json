@@ -1,0 +1,21 @@
+{
+  "record_id": "base664:0002",
+  "task_id": "room-404",
+  "result": "data/preparation/results/base664-0002.json",
+  "status": "core_and_auxiliary_ui_verified_secondary_navigation_content_review_required",
+  "work_complete": true,
+  "formal_ready": false,
+  "evidence": "judge/room-404/verification/deployed-acceptance.json",
+  "remaining": [
+    "Human rubric review for real inference/difficulty and tiers",
+    "Review optional FakeBrowser raw-link navigation before formal acceptance",
+    "No further action delegated; parent should review result and update shared progress itself."
+  ],
+  "ports_used": [
+    8811,
+    8812,
+    8813
+  ],
+  "shared_harness_or_progress_modified": false,
+  "paid_or_model_api_calls": 0
+}

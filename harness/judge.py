@@ -29,7 +29,41 @@ def _tier_rank(route: dict) -> int:
 
 
 def _route_gates(route: dict) -> set[str]:
-    return {str(item) for item in (route.get("gates") or []) if item}
+    ids = {str(item) for item in (route.get("gates") or []) if item}
+    for group in route.get("gate_groups") or []:
+        ids.update(group["ids"])
+    return ids
+
+
+def _route_counts(route: dict, reached: set[str]) -> tuple[int, int]:
+    fixed = {str(item) for item in (route.get("gates") or []) if item}
+    hits, total = len(fixed & reached), len(fixed)
+    for group in route.get("gate_groups") or []:
+        required = group["required"]
+        hits += min(required, len(set(group["ids"]) & reached))
+        total += required
+    return hits, total
+
+
+def _validate_gate_groups(cfg: dict) -> None:
+    critical = {str(item["id"]) for item in _critical_checkpoints(cfg)}
+    for route in cfg.get("routes") or []:
+        if not route.get("gate_groups"):
+            continue
+        used = set(route.get("gates") or [])
+        if not used <= critical:
+            raise ValueError("Grouped route gates must reference critical checkpoints")
+        for group in route["gate_groups"]:
+            ids, required = group.get("ids"), group.get("required")
+            if not isinstance(ids, list) or not ids or any(not isinstance(x, str) for x in ids):
+                raise ValueError("gate_groups.ids must be a nonempty list of checkpoint IDs")
+            if len(set(ids)) != len(ids) or used & set(ids):
+                raise ValueError("gate_groups must not duplicate or overlap checkpoint IDs")
+            if type(required) is not int or not 1 <= required <= len(ids):
+                raise ValueError("gate_groups.required must be between 1 and the group size")
+            if not set(ids) <= critical:
+                raise ValueError("gate_groups must reference critical checkpoints")
+            used.update(ids)
 
 
 def _optional_checkpoint_ids(cfg: dict) -> list[str]:
@@ -52,6 +86,38 @@ def answer_sha256(text: str) -> str:
 class Judge:
     def __init__(self, judge_cfg: dict | None, task_id: str, root: Path | None = None):
         self.cfg = judge_cfg or {}
+        _validate_gate_groups(self.cfg)
+        self.protocol = self.cfg.get("scoring_protocol", "legacy")
+        if self.protocol not in {"legacy", "target_v1"}:
+            raise ValueError("未知评分协议")
+        if self.protocol == "target_v1":
+            target = self.cfg.get("target_success")
+            if not isinstance(target, dict) or not target:
+                raise ValueError("target_v1 必须明确配置 target_success")
+            route_ids = target.get("route_ids", [])
+            if not isinstance(route_ids, list) or any(not isinstance(x, str) for x in route_ids):
+                raise ValueError("target_success.route_ids 必须为字符串列表")
+            routes = {str(r.get("id")): r for r in self.cfg.get("routes", []) if isinstance(r, dict)}
+            if len(set(route_ids)) != len(route_ids) or any(x not in routes for x in route_ids):
+                raise ValueError("target_success.route_ids 存在重复或未知路线")
+            if any(str(routes[x].get("tier")) == "bad" for x in route_ids):
+                raise ValueError("坏结局不能作为目标成功路线")
+            critical = {str(item["id"]) for item in _critical_checkpoints(self.cfg)}
+            if any(not _route_gates(routes[x]) <= critical for x in route_ids):
+                raise ValueError("目标路线的门必须属于 critical checkpoint")
+            for key in ("answer", "ending"):
+                if key in target and type(target[key]) is not bool:
+                    raise ValueError(f"target_success.{key} 必须为布尔值")
+            if target.get("ending") and (routes or not isinstance(self.cfg.get("ending"), dict)):
+                raise ValueError("target_success.ending 仅适用于单结局配置")
+            condition = target.get("hook_condition")
+            if condition is not None:
+                if (not isinstance(condition, dict) or set(condition) != {"hook", "op"}
+                        or condition.get("op") != "truthy"
+                        or condition.get("hook") not in (self.cfg.get("hooks") or {})):
+                    raise ValueError("target_success.hook_condition must reference a known truthy hook")
+            if not (route_ids or target.get("answer") is True or target.get("ending") is True or condition):
+                raise ValueError("target_success 必须包含明确的成功条件")
         self.task_id = task_id
         self.root = root or Path(".")
         self.available = judge_cfg is not None
@@ -63,7 +129,11 @@ class Judge:
         self.events: list[dict[str, Any]] = []
         self.milestones: dict[str, int] = {}
         self.ending_reached = False
+        self.game_ending_reached = False
+        self.target_hook_reached = False
         self.ending_step: int | None = None
+        self.failure_id: str | None = None
+        self.failure_step: int | None = None
         self.route_endings: dict[str, int] = {}
         self.distinct: dict[str, set[str]] = {}
         self.maxima: dict[str, float] = {}
@@ -85,7 +155,12 @@ class Judge:
             return {"error": self.error}
         values: dict[str, Any] = {}
         for name, hook in (self.cfg.get("hooks") or {}).items():
-            values[name] = await self._eval_hook(name, hook, harness)
+            if getattr(harness, "pending", None) and hook.get("type") in {
+                "dom_regex", "localstorage", "js_truthy", "input_sha256"
+            }:
+                values[name] = self.values.get(name)
+            else:
+                values[name] = await self._eval_hook(name, hook, harness)
         for item in self.cfg.get("request_milestones") or []:
             values[f"milestone:{item.get('id')}"] = self._milestone_now(item, harness)
         self.values = values
@@ -115,7 +190,24 @@ class Judge:
             if current and not previous:
                 self.events.append({"id": ident, "step": step})
                 fresh.append(("event", str(ident)))
-        if self._explicit_routes():
+        # Failures are terminal outcomes, but never successful completions.
+        # Opt-in preserves the semantics of existing judge files.
+        if not self.ending_reached and self.failure_id is None:
+            for failure in self.cfg.get("terminal_failures") or []:
+                ident = str(failure.get("id") or "")
+                if ident and self._op_ok(self.values.get(failure.get("hook")), failure):
+                    self.failure_id = ident
+                    self.failure_step = step
+                    fresh.append(("failure", ident))
+                    break
+        condition = (self.cfg.get("target_success") or {}).get("hook_condition") if self.protocol == "target_v1" else None
+        if self.failure_id is None and condition and not self.target_hook_reached:
+            if self._op_ok(self.values.get(condition["hook"]), condition):
+                self.target_hook_reached = True
+                fresh.append(("target", str(condition["hook"])))
+        if self.failure_id is not None:
+            pass
+        elif self._explicit_routes():
             for route in self._explicit_routes():
                 ident = str(route.get("id") or "")
                 ending = route.get("ending")
@@ -125,6 +217,7 @@ class Judge:
                     continue
                 self.route_endings[ident] = step
                 self.ending_reached = True
+                self.game_ending_reached = True
                 if self.ending_step is None:
                     self.ending_step = step
                 fresh.append(("ending", ident))
@@ -132,6 +225,7 @@ class Judge:
             ending = self.cfg.get("ending")
             if ending and not self.ending_reached and self._op_ok(self.values.get(ending.get("hook")), ending):
                 self.ending_reached = True
+                self.game_ending_reached = True
                 self.ending_step = step
                 fresh.append(("ending", str(ending.get("hook") or "ending")))
         for item in self.cfg.get("request_milestones") or []:
@@ -148,20 +242,28 @@ class Judge:
         total = len(_critical_checkpoints(self.cfg)) if self.available else 0
         route = self._selected_route()
         tier = None
-        if self.answer_correct:
+        if self.failure_id is not None:
+            tier = None
+        elif self.answer_correct:
             tier = "good"
         elif route is not None and str(route.get("id") or "") in self.route_endings:
             tier = str(route.get("tier") or "") or None
         elif route is not None and not self._explicit_routes() and (self.ending_reached or self.answer_correct):
             tier = "good"
+        success = self._target_success() if self.protocol == "target_v1" else None
         return {
             "checkpoints_reached": len(self.checkpoints),
             "checkpoints_total": total,
             "checkpoints": dict(self.checkpoints),
             "diagnostic": dict(self.side),
             "route_id": None if route is None else str(route.get("id") or ""),
-            "route_progress": self._route_progress(route),
-            "ending_reached": self.ending_reached or self.answer_correct,
+            "route_progress": self._target_progress(success) if self.protocol == "target_v1" else self._route_progress(route),
+            "scoring_protocol": self.protocol,
+            "target_success": success,
+            "ending_reached": (self.ending_reached or self.answer_correct) and self.failure_id is None,
+            "failure_reached": self.failure_id is not None,
+            "failure_id": self.failure_id,
+            "failure_step": self.failure_step,
             "ending_tier": tier,
             "good_ending": tier == "good",
             "ending_step": self.ending_step,
@@ -170,6 +272,32 @@ class Judge:
             "answer_correct": self.answer_correct,
             "judge_error": self.error,
         }
+
+    def _target_success(self) -> bool:
+        if self.failure_id is not None:
+            return False
+        target = self.cfg["target_success"]
+        return bool(
+            (target.get("answer") is True and self.answer_correct)
+            or (target.get("ending") is True and self.game_ending_reached)
+            or any(ident in self.route_endings for ident in target.get("route_ids", []))
+            or self.target_hook_reached
+        )
+
+    def _target_progress(self, success: bool) -> float | None:
+        if success:
+            return 1.0
+        routes = self._explicit_routes()
+        if not routes and self.cfg["target_success"].get("ending") is True:
+            routes = [{"gates": [str(item["id"]) for item in _critical_checkpoints(self.cfg)]}]
+        elif not routes:
+            routes = []
+        values = []
+        for route in routes:
+            hits, total = _route_counts(route, set(self.checkpoints))
+            if total > 0:
+                values.append(hits / (total + 1))
+        return max(values) if values else None
 
     def _route_ending_ok(self, route: dict) -> bool:
         specs = []
@@ -199,7 +327,9 @@ class Judge:
             gates = _route_gates(route)
             if not gates:
                 continue
-            if any(gates < _route_gates(other) for other in routes):
+            if not route.get("gate_groups") and any(
+                not other.get("gate_groups") and gates < _route_gates(other) for other in routes
+            ):
                 continue
             live.append(route)
         if not live:
@@ -207,15 +337,13 @@ class Judge:
         return max(live, key=lambda route: self._open_key(route, reached))
 
     def _match_key(self, route: dict, reached: set[str]) -> tuple:
-        gates = _route_gates(route)
-        hits = len(reached & gates)
-        ratio = hits / len(gates) if gates else 1.0
+        hits, total = _route_counts(route, reached)
+        ratio = hits / total if total else 1.0
         return (_tier_rank(route), hits, ratio)
 
     def _open_key(self, route: dict, reached: set[str]) -> tuple:
-        gates = _route_gates(route)
-        hits = len(reached & gates)
-        return (hits, hits / len(gates) if gates else 0.0)
+        hits, total = _route_counts(route, reached)
+        return (hits, hits / total if total else 0.0)
 
     def _route_progress(self, route: dict | None) -> float | None:
         optional = _optional_checkpoint_ids(self.cfg)
@@ -225,18 +353,18 @@ class Judge:
             hits = len(set(self.side) & set(optional))
             return round(hits / len(optional), 4)
         gates = _route_gates(route)
+        gate_hits, gate_total = _route_counts(route, set(self.checkpoints))
         ident = str(route.get("id") or "")
         ended = ident in self.route_endings or (not self._explicit_routes() and self.ending_reached)
         if ended:
-            if not gates:
+            if not gate_total:
                 return 1.0
-            hits = len(set(self.checkpoints) & gates)
-            return round(hits / len(gates), 4)
+            return round(gate_hits / gate_total, 4)
         extra = [item for item in optional if item not in gates]
-        denom = len(gates) + len(extra)
+        denom = gate_total + len(extra)
         if denom == 0:
             return None
-        hits = len(set(self.checkpoints) & gates) + len(set(self.side) & set(extra))
+        hits = gate_hits + len(set(self.side) & set(extra))
         return round(hits / denom, 4)
 
     def check_answer(self, text: str) -> str:
@@ -301,6 +429,11 @@ class Judge:
             if not isinstance(found, (set, list, tuple)):
                 return False
             return bool(wanted & {str(item).lower() for item in found})
+        if kind == "js_strict_truthy":
+            reader = getattr(harness, "strict_page_expr", None)
+            if reader is None:
+                raise RuntimeError("strict judge reader unavailable")
+            return await reader(str(hook.get("expr") or ""))
         if kind == "js_truthy":
             reader = getattr(harness, "page_expr", None)
             if reader is None:

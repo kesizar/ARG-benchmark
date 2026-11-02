@@ -34,6 +34,9 @@ class GridHarness:
 
     async def reset(self) -> None:
         if self.env is not None:
+            from baba.registration import make
+            grid = self.cfg.get("grid") or {}
+            self.env = make(str(grid.get("env_id") or "env/two_room-break_stop-make_win"))
             self.env.reset(seed=int(self.cfg.get("seed") or 0))
 
     async def observe(self, label: str | None = None) -> dict:

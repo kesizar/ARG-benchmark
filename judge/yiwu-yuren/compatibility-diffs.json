@@ -1,0 +1,94 @@
+[
+  {
+    "file": "contact.html",
+    "diff": "--- original/contact.html\n+++ mirror/contact.html\n@@ -4,10 +4,10 @@\n   <meta charset=\"UTF-8\">\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=yes\">\n   <title>表格 · 渡鸦处置</title>\n-  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n-  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n-  <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap\" rel=\"stylesheet\">\n-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+  \n+  \n+  \n+  <link rel=\"stylesheet\" href=\"vendor/all.min.css\">\n   <style>\n     * {\n       margin: 0;\n"
+  },
+  {
+    "file": "index.html",
+    "diff": "--- original/index.html\n+++ mirror/index.html\n@@ -4,10 +4,10 @@\n   <meta charset=\"UTF-8\">\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=yes\">\n   <title>遗物整理师</title>\n-  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n-  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n-  <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap\" rel=\"stylesheet\">\n-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+  \n+  \n+  \n+  <link rel=\"stylesheet\" href=\"vendor/all.min.css\">\n   <style>\n         * {\n           margin: 0;\n"
+  },
+  {
+    "file": "001/baodao.html",
+    "diff": "--- original/001\\baodao.html\n+++ mirror/001\\baodao.html\n@@ -5,7 +5,7 @@\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes\">\n   <title>新闻</title>\n   <!-- Font Awesome 图标库 -->\n-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+  <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n   <style>\n     * {\n       margin: 0;\n"
+  },
+  {
+    "file": "001/gongyuanyy.html",
+    "diff": "--- original/001\\gongyuanyy.html\n+++ mirror/001\\gongyuanyy.html\n@@ -4,7 +4,7 @@\n     <meta charset=\"UTF-8\">\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>航海公园预约</title>\n-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+    <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n     <style>\n         * {\n             margin: 0;\n"
+  },
+  {
+    "file": "001/gongzhonghao.html",
+    "diff": "--- original/001\\gongzhonghao.html\n+++ mirror/001\\gongzhonghao.html\n@@ -4,7 +4,7 @@\n     <meta charset=\"UTF-8\">\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover\">\n     <title>公众号文章 · 命理缺水</title>\n-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+    <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n     <style>\n         * {\n             margin: 0;\n"
+  },
+  {
+    "file": "001/jiaowuchu.html",
+    "diff": "--- original/001\\jiaowuchu.html\n+++ mirror/001\\jiaowuchu.html\n@@ -5,7 +5,7 @@\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes\">\n   <meta name=\"description\" content=\"同海大学教务处 · 统一身份认证登录\">\n   <title>教务处登陆系统</title>\n-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+  <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n   <style>\n     /* ----- 沿用同海大学官网直角风格 · 一屏优化版 ----- */\n     * {\n"
+  },
+  {
+    "file": "001/jishiben.html",
+    "diff": "--- original/001\\jishiben.html\n+++ mirror/001\\jishiben.html\n@@ -4,7 +4,7 @@\n   <meta charset=\"UTF-8\">\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n <title>记事本</title>\n-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+  <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n   <style>\n     * {\n       margin: 0;\n"
+  },
+  {
+    "file": "001/jj1.html",
+    "diff": "--- original/001\\jj1.html\n+++ mirror/001\\jj1.html\n@@ -5,7 +5,7 @@\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes\">\n   <title>青岚新闻 · 同海大学恶性案件追踪</title>\n   <!-- Font Awesome 图标库 -->\n-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+  <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n   <style>\n     * {\n       margin: 0;\n"
+  },
+  {
+    "file": "001/jj2.html",
+    "diff": "--- original/001\\jj2.html\n+++ mirror/001\\jj2.html\n@@ -5,7 +5,7 @@\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover\">\n     <title>微博正文 - 同海大学举报事件</title>\n     <!-- Font Awesome 6 (免费图标库，用于仿真微博图标) -->\n-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+    <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n     <style>\n         * {\n             margin: 0;\n"
+  },
+  {
+    "file": "001/mailbox.html",
+    "diff": "--- original/001\\mailbox.html\n+++ mirror/001\\mailbox.html\n@@ -4,7 +4,7 @@\n   <meta charset=\"UTF-8\">\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, viewport-fit=cover\">\n   <title>outlook邮箱</title>\n-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+  <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n   <style>\n     * {\n       margin: 0;\n"
+  },
+  {
+    "file": "001/shenqinjianli.html",
+    "diff": "--- original/001\\shenqinjianli.html\n+++ mirror/001\\shenqinjianli.html\n@@ -5,7 +5,7 @@\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, viewport-fit=cover\">\n     <title>园林设计简历</title>\n     <!-- Font Awesome 6 -->\n-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+    <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n     <style>\n         * {\n             margin: 0;\n"
+  },
+  {
+    "file": "001/tonghai.html",
+    "diff": "--- original/001\\tonghai.html\n+++ mirror/001\\tonghai.html\n@@ -6,7 +6,7 @@\n   <meta name=\"description\" content=\"同海大学官方网站 — 同天下共海内，坐落于青岚市，以园艺设计为王牌学科，设有硕士点与博士点。\">\n   <meta name=\"keywords\" content=\"同海大学,园艺设计,研究生,博士点,青岚市,名师,教务处\">\n   <title>同海大学官网</title>\n-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+  <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n   <style>\n     * {\n       margin: 0;\n"
+  },
+  {
+    "file": "001/weixin.html",
+    "diff": "--- original/001\\weixin.html\n+++ mirror/001\\weixin.html\n@@ -4,7 +4,7 @@\n     <meta charset=\"UTF-8\">\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, viewport-fit=cover\">\n     <title>微信</title>\n-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+    <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n     <style>\n         * {\n             margin: 0;\n"
+  },
+  {
+    "file": "001/weixindenglu.html",
+    "diff": "--- original/001\\weixindenglu.html\n+++ mirror/001\\weixindenglu.html\n@@ -4,7 +4,7 @@\n   <meta charset=\"UTF-8\">\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover\">\n <title>微信登录页面</title>\n-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+  <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n   <style>\n     * {\n       margin: 0;\n"
+  },
+  {
+    "file": "001/window.html",
+    "diff": "--- original/001\\window.html\n+++ mirror/001\\window.html\n@@ -4,7 +4,7 @@\n   <meta charset=\"UTF-8\">\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n  <title>桌面</title>\n-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+  <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n   <style>\n     * {\n       margin: 0;\n"
+  },
+  {
+    "file": "001/xuesheng.html",
+    "diff": "--- original/001\\xuesheng.html\n+++ mirror/001\\xuesheng.html\n@@ -5,7 +5,7 @@\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes\">\n   <meta name=\"description\" content=\"同海大学学生工作台 · 沈沁 · 学号24071225\">\n  <title>学生账号</title>\n-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+  <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n   <style>\n     /* ========== 样式部分 完全保留 ========== */\n     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', '微软雅黑', 'PingFang SC', system-ui, sans-serif; }\n"
+  },
+  {
+    "file": "001/yitiji.html",
+    "diff": "--- original/001\\yitiji.html\n+++ mirror/001\\yitiji.html\n@@ -5,7 +5,7 @@\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=yes\">\n     <title>喂食器记录</title>\n     <!-- 直角风格 · 工业监控 · 无圆角 -->\n-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+    <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n     <style>\n         *,\n         *::before,\n"
+  },
+  {
+    "file": "001/yiyuan.html",
+    "diff": "--- original/001\\yiyuan.html\n+++ mirror/001\\yiyuan.html\n@@ -4,7 +4,7 @@\n     <meta charset=\"UTF-8\">\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=yes\">\n     <title>青岚第二医院</title>\n-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+    <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n     <style>\n         /* ===== 全局重置 & 变量 ===== */\n         * {\n@@ -646,7 +646,7 @@\n                     <button type=\"button\" class=\"btn-search\" id=\"searchRecordBtn\">\n                         <i class=\"fas fa-magnifying-glass\"></i> 验证并查询病历\n                     </button>\n-                </form>\n+                <div id=\"searchFeedback\" class=\"search-feedback\" aria-live=\"polite\">请输入患者信息进行验证。</div></form>\n             </div>\n         </div>\n     </main>\n"
+  },
+  {
+    "file": "001/yiyuanjilu.html",
+    "diff": "--- original/001\\yiyuanjilu.html\n+++ mirror/001\\yiyuanjilu.html\n@@ -4,7 +4,7 @@\n     <meta charset=\"UTF-8\">\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=yes\">\n     <title>医院档案</title>\n-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+    <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n     <style>\n         /* ===== 与首页完全一致的样式变量 ===== */\n         * {\n"
+  },
+  {
+    "file": "001/youjian.html",
+    "diff": "--- original/001\\youjian.html\n+++ mirror/001\\youjian.html\n@@ -5,7 +5,7 @@\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n   \n   <title>outlook登陆页面</title>\n-  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+  <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n   <style>\n     * {\n       margin: 0;\n@@ -472,7 +472,7 @@\n         return;\n       }\n \n-      if (email === VALID_EMAIL && password === VALID_PASSWORD) {\n+      if (false) { // Original referenced undefined credentials; recovery is the intended route.\n         window.location.href = REDIRECT_URL;\n       } else {\n         showError('账户或密码错误，请重试。');\n"
+  },
+  {
+    "file": "001/yuxiaoli.html",
+    "diff": "--- original/001\\yuxiaoli.html\n+++ mirror/001\\yuxiaoli.html\n@@ -4,7 +4,7 @@\n     <meta charset=\"UTF-8\">\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.5\">\n     <title>于晓丽介绍</title>\n-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+    <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n     <style>\n         * {\n             margin: 0;\n"
+  },
+  {
+    "file": "001/zhigong.html",
+    "diff": "--- original/001\\zhigong.html\n+++ mirror/001\\zhigong.html\n@@ -5,7 +5,7 @@\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes\">\n     <meta name=\"description\" content=\"同海大学教职工工作台 · 于晓丽教授\">\n     <title>职工账号</title>\n-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+    <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n     <style>\n         /* ----- 同海大学直角风格 (沿用) ----- */\n         * {\n"
+  },
+  {
+    "file": "001/zhuye.html",
+    "diff": "--- original/001\\zhuye.html\n+++ mirror/001\\zhuye.html\n@@ -5,7 +5,7 @@\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n <title>个人主页</title>\n     <!-- Font Awesome 图标库 -->\n-    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css\">\n+    <link rel=\"stylesheet\" href=\"../vendor/all.min.css\">\n     <style>\n         * {\n             margin: 0;\n@@ -475,7 +475,7 @@\n                 if (document.referrer) {\n                     window.history.back();\n                 } else {\n-                    window.location.href = 'index.html'; // 预约主页面\n+                    window.location.href = 'gongyuanyy.html'; // 预约主页面\n                 }\n                 e.preventDefault();\n             });\n"
+  }
+]

@@ -1,0 +1,249 @@
+{
+  "hooks": {
+    "reverse": {
+      "type": "js_truthy",
+      "expr": "currentLevel===4"
+    },
+    "sum": {
+      "type": "js_truthy",
+      "expr": "currentLevel===7"
+    },
+    "a1z26": {
+      "type": "js_truthy",
+      "expr": "currentLevel===12"
+    },
+    "morse": {
+      "type": "js_truthy",
+      "expr": "currentLevel===13"
+    },
+    "paradox": {
+      "type": "js_truthy",
+      "expr": "currentLevel===14"
+    },
+    "hex": {
+      "type": "js_truthy",
+      "expr": "currentLevel===\"binary\""
+    },
+    "binary": {
+      "type": "js_truthy",
+      "expr": "currentLevel===\"fakenews\""
+    },
+    "visual_signal": {
+      "type": "js_truthy",
+      "expr": "currentLevel===6"
+    },
+    "omega": {
+      "type": "js_truthy",
+      "expr": "currentLevel===10"
+    },
+    "source_copy": {
+      "type": "js_truthy",
+      "expr": "currentLevel===11"
+    },
+    "memory": {
+      "type": "js_truthy",
+      "expr": "currentLevel===\"cipher\""
+    },
+    "mlc_1": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('cs1').classList.contains('solved')"
+    },
+    "mlc_2": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('cs2').classList.contains('solved')"
+    },
+    "mlc_3": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('cs3').classList.contains('solved')"
+    },
+    "name": {
+      "type": "js_truthy",
+      "expr": "!!userName&&document.getElementById('mirror-reveal').classList.contains('show')"
+    },
+    "meta": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('errormind_meta_choice')!==null"
+    },
+    "false_ending": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('false-ending-overlay').classList.contains('show')"
+    },
+    "news": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('ending-choice-overlay').classList.contains('show')"
+    },
+    "ending_comply": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('screen-final').classList.contains('active')&&document.getElementById(\"ec1\").classList.contains('show')&&document.getElementById('final-classified').classList.contains('show')"
+    },
+    "ending_resist": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('screen-final').classList.contains('active')&&document.getElementById(\"er1\").classList.contains('show')&&document.getElementById('final-classified').classList.contains('show')"
+    },
+    "ending_void": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('screen-final').classList.contains('active')&&document.getElementById(\"ev2\").classList.contains('show')&&document.getElementById('final-classified').classList.contains('show')"
+    },
+    "any_final": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('screen-final').classList.contains('active')&&document.getElementById('final-classified').classList.contains('show')"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "reverse",
+      "hook": "reverse",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Reverse-message inference"
+    },
+    {
+      "id": "sum",
+      "hook": "sum",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Infer sum7+3+9"
+    },
+    {
+      "id": "a1z26",
+      "hook": "a1z26",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Numeric alphabet decoding"
+    },
+    {
+      "id": "morse",
+      "hook": "morse",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Visual/audio Morse decoding"
+    },
+    {
+      "id": "paradox",
+      "hook": "paradox",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Inconsistent statement system"
+    },
+    {
+      "id": "hex",
+      "hook": "hex",
+      "op": "truthy",
+      "role": "diagnostic",
+      "description": "Hex stage: answer already supplied by prior MIND stages and hover tooltip"
+    },
+    {
+      "id": "binary",
+      "hook": "binary",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Binary-to-ASCII decoding"
+    },
+    {
+      "id": "visual_signal",
+      "hook": "visual_signal",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "omega",
+      "hook": "omega",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "source_copy",
+      "hook": "source_copy",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "memory",
+      "hook": "memory",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {
+    "mlc_1": {
+      "hook": "mlc_1",
+      "op": "truthy"
+    },
+    "mlc_2": {
+      "hook": "mlc_2",
+      "op": "truthy"
+    },
+    "mlc_3": {
+      "hook": "mlc_3",
+      "op": "truthy"
+    },
+    "name": {
+      "hook": "name",
+      "op": "truthy"
+    },
+    "meta": {
+      "hook": "meta",
+      "op": "truthy"
+    },
+    "false_ending": {
+      "hook": "false_ending",
+      "op": "truthy"
+    },
+    "news": {
+      "hook": "news",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "comply",
+      "gates": [
+        "reverse",
+        "sum",
+        "a1z26",
+        "morse",
+        "paradox",
+        "binary"
+      ],
+      "ending": {
+        "hook": "ending_comply",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "resist",
+      "gates": [
+        "reverse",
+        "sum",
+        "a1z26",
+        "morse",
+        "paradox",
+        "binary"
+      ],
+      "ending": {
+        "hook": "ending_resist",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "void",
+      "gates": [
+        "reverse",
+        "sum",
+        "a1z26",
+        "morse",
+        "paradox",
+        "binary"
+      ],
+      "ending": {
+        "hook": "ending_void",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "any_final",
+    "op": "truthy"
+  },
+  "answer_sha256": []
+}

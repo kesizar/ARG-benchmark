@@ -1,0 +1,14 @@
+{
+  "hooks":{
+    "connected":{"type":"js_truthy","expr":"!!document.querySelector('#term-out') && document.querySelector('#term-out').innerText.includes('TLS 握手成功')"},
+    "decoded":{"type":"js_truthy","expr":"!!document.querySelector('#term-out') && document.querySelector('#term-out').innerText.includes('发现出口密码线索：REIN')"},
+    "escaped":{"type":"js_truthy","expr":"!!document.querySelector('#ending.show:not(.bad):not(.egg)') && document.querySelector('#end-title').innerText==='逃离成功'"},
+    "egg":{"type":"js_truthy","expr":"!!document.querySelector('#ending.show.egg')"},
+    "lockout":{"type":"js_truthy","expr":"!!document.querySelector('#ending.show.bad')"}
+  },
+  "checkpoints":[{"id":"connected","hook":"connected","op":"truthy","role":"diagnostic"},{"id":"decoded","hook":"decoded","op":"truthy","role":"diagnostic"}],
+  "events":{},"terminal_failures":[{"id":"lockout","hook":"lockout","op":"truthy"}],
+  "routes":[{"id":"escape","gates":[],"ending":{"hook":"escaped","op":"truthy"}},{"id":"egg","gates":[],"ending":{"hook":"egg","op":"truthy"}}],
+  "ending":{"hook":"escaped","op":"truthy"},"answer_sha256":[],"answer_hash_file":null,"request_milestones":[],
+  "submit_conclusion":{"enabled":false,"schema":null},"rubric_path":null
+}

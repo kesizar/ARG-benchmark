@@ -1,0 +1,266 @@
+{
+  "hooks": {
+    "init": {
+      "type": "js_truthy",
+      "expr": "(()=>{if(!document.querySelector('#panel-level-indicator'))return false;if(!window.__benchGuiyi){const s=window.__benchGuiyi={solved:{},hints:{},skips:{},jumps:0,photo:false};document.addEventListener('click',e=>{if(!e.isTrusted)return;const b=e.target.closest('button');if(!b)return;const n=parseInt(document.querySelector('#panel-level-indicator').textContent);const a=b.getAttribute('onclick')||'';if(a.includes('toggleHint'))s.hints[n]=true;if(a.includes('skipLevelEpiphany'))s.skips[n]=true;if(b.closest('#levels-quick-nav'))s.jumps++;if(b.id==='btn-validate'){const before=n;setTimeout(()=>{let now=parseInt(document.querySelector('#panel-level-indicator').textContent);if((now===before+1||(before===50&&!document.querySelector('#ending-overlay').classList.contains('hidden')&&!document.querySelector('#ending-title').textContent.includes('结局 A')))&&!s.hints[before]&&!s.skips[before]&&(![21,22].includes(before)||s.photo))s.solved[before]=true;},0)}},true)}if(!document.querySelector(\"#win-photos\").classList.contains(\"hidden\") && document.querySelector(\"#hidden-rune-text\").classList.contains(\"opacity-100\"))window.__benchGuiyi.photo=true;return true})()"
+    },
+    "ending_A": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('#ending-overlay').classList.contains('hidden') && document.querySelector('#ending-title').textContent.includes('结局 A')"
+    },
+    "ending_B": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('#ending-overlay').classList.contains('hidden') && document.querySelector('#ending-title').textContent.includes('结局 B')"
+    },
+    "ending_C": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('#ending-overlay').classList.contains('hidden') && document.querySelector('#ending-title').textContent.includes('结局 C')"
+    },
+    "ending_D": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('#ending-overlay').classList.contains('hidden') && document.querySelector('#ending-title').textContent.includes('结局 D')"
+    },
+    "hint": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi && Object.keys(window.__benchGuiyi.hints).length>0"
+    },
+    "skip": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi && Object.keys(window.__benchGuiyi.skips).length>0"
+    },
+    "jump": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi && window.__benchGuiyi.jumps>0"
+    },
+    "p5": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[5]"
+    },
+    "p11": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[11]"
+    },
+    "p12": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[12]"
+    },
+    "p13": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[13]"
+    },
+    "p20": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[20]"
+    },
+    "p21": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[21]"
+    },
+    "p22": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[22]"
+    },
+    "p24": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[24]"
+    },
+    "p25": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[25]"
+    },
+    "p26": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[26]"
+    },
+    "p33": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[33]"
+    },
+    "p35": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[35]"
+    },
+    "p44": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[44]"
+    },
+    "p46": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[46]"
+    },
+    "p48": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[48]"
+    },
+    "p50": {
+      "type": "js_truthy",
+      "expr": "!!window.__benchGuiyi?.solved[50]"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "p5",
+      "hook": "p5",
+      "op": "truthy",
+      "description": "英译升华",
+      "role": "diagnostic"
+    },
+    {
+      "id": "p11",
+      "hook": "p11",
+      "op": "truthy",
+      "description": "十诫藏头",
+      "role": "critical"
+    },
+    {
+      "id": "p12",
+      "hook": "p12",
+      "op": "truthy",
+      "description": "英译眼睛",
+      "role": "diagnostic"
+    },
+    {
+      "id": "p13",
+      "hook": "p13",
+      "op": "truthy",
+      "description": "等差时间推算",
+      "role": "diagnostic"
+    },
+    {
+      "id": "p20",
+      "hook": "p20",
+      "op": "truthy",
+      "description": "英译灵魂",
+      "role": "diagnostic"
+    },
+    {
+      "id": "p21",
+      "hook": "p21",
+      "op": "truthy",
+      "description": "照片滤镜显影",
+      "role": "diagnostic"
+    },
+    {
+      "id": "p22",
+      "hook": "p22",
+      "op": "truthy",
+      "description": "符印序列",
+      "role": "diagnostic"
+    },
+    {
+      "id": "p24",
+      "hook": "p24",
+      "op": "truthy",
+      "description": "以太变位词",
+      "role": "diagnostic"
+    },
+    {
+      "id": "p25",
+      "hook": "p25",
+      "op": "truthy",
+      "description": "频率调谐",
+      "role": "diagnostic"
+    },
+    {
+      "id": "p26",
+      "hook": "p26",
+      "op": "truthy",
+      "description": "节奏数字转换",
+      "role": "diagnostic"
+    },
+    {
+      "id": "p33",
+      "hook": "p33",
+      "op": "truthy",
+      "description": "GPS里程累加",
+      "role": "critical"
+    },
+    {
+      "id": "p35",
+      "hook": "p35",
+      "op": "truthy",
+      "description": "英译日食",
+      "role": "diagnostic"
+    },
+    {
+      "id": "p44",
+      "hook": "p44",
+      "op": "truthy",
+      "description": "金额单位转换",
+      "role": "critical"
+    },
+    {
+      "id": "p46",
+      "hook": "p46",
+      "op": "truthy",
+      "description": "姓名拼音转换",
+      "role": "diagnostic"
+    },
+    {
+      "id": "p48",
+      "hook": "p48",
+      "op": "truthy",
+      "description": "英译超载",
+      "role": "diagnostic"
+    },
+    {
+      "id": "p50",
+      "hook": "p50",
+      "op": "truthy",
+      "description": "组合唤醒词",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {
+    "hint": {
+      "hook": "hint",
+      "op": "truthy"
+    },
+    "skip": {
+      "hook": "skip",
+      "op": "truthy"
+    },
+    "jump": {
+      "hook": "jump",
+      "op": "truthy"
+    }
+  },
+  "terminal_failures": [
+    {
+      "id": "failure_timeout_A",
+      "hook": "ending_A",
+      "op": "truthy",
+      "tier": "bad",
+      "description": "倒计时耗尽，妹妹未获救；失败，不算通关"
+    }
+  ],
+  "routes": [
+    {
+      "id": "ending_B",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "ending_B",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "ending_C",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "ending_C",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "ending_D",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "ending_D",
+        "op": "truthy"
+      }
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "hooks": {
+    "student": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/jiangdudaxue.html') && !!document.querySelector('#studentResult.active')"
+    },
+    "nickname": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/huisheng.html') && document.querySelector('#loginStep2')?.style.display === 'block'"
+    },
+    "account": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/huisheng.html') && !!document.querySelector('#loggedInApp.show')"
+    },
+    "retained": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/huisheng.html') && document.querySelector('#retainedRecovered')?.style.display === 'block'"
+    },
+    "null_search": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('null_searched') === '1'"
+    },
+    "memo": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/game.html') && !!document.querySelector('#memoOpenOverlay.show')"
+    },
+    "confession": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('null_confession_read') === '1'"
+    },
+    "privacy": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/game.html') && !!document.querySelector('.evidence-list')"
+    },
+    "handback": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('evidence_handed_back') === '1'"
+    },
+    "end_handback": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/theonlyend1.html') && !!document.querySelector('#laterStage.show')"
+    },
+    "end_truth": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/end2.html') && !!document.querySelector('#endingStage.show')"
+    },
+    "end_self": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/end3.html') && !!document.querySelector('#endingStage.show')"
+    },
+    "end_cut": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/end4.html') && !!document.querySelector('#endingStage.show')"
+    },
+    "end_forget": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/end5.html') && !!document.querySelector('#endingStage.show')"
+    },
+    "e7_warning": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/qichuankeji.html') && !!document.querySelector('#securityWarning.show')"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "student",
+      "hook": "student",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "nickname",
+      "hook": "nickname",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "account",
+      "hook": "account",
+      "op": "truthy"
+    },
+    {
+      "id": "e7_warning",
+      "hook": "e7_warning",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "retained",
+      "hook": "retained",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "null_search",
+      "hook": "null_search",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "memo",
+      "hook": "memo",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "confession",
+      "hook": "confession",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "privacy",
+      "hook": "privacy",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "handback",
+      "hook": "handback",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "handback",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "end_handback",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "truth",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "end_truth",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "self",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "end_self",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "cut",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "end_cut",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "forget",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "end_forget",
+        "op": "truthy"
+      }
+    }
+  ],
+  "terminal_failures": [],
+  "ending": null,
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

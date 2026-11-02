@@ -1,0 +1,13 @@
+# Content and judge review
+
+Engineering readiness and formal scoring suitability are separate. All 25 searches and three endings are reproducible locally, but there are **zero true reasoning gates**. Mark formal_scoring_ready=false. Searching a known final keyword is enough to access every ending; no evidence-chain reconstruction is tested by the original. The ending text asserts that all evidence was collected even at 1/25. Do not infer a collection prerequisite from that narrative.
+
+The prior judge scored the final log as a critical checkpoint and ranked A good, C normal, B bad. That confuses collection with deduction and moral choice with earned performance. The prepared judge records every search as diagnostic, records each visible final archive separately, assigns no critical checkpoints, and uses normal as neutral completion for all three. The source titles make no explicit earned score classification. Route gates are empty.
+
+Hooks read only visible rendered result titles and the visible archive. They never inspect the source search dictionary or private game state. Hidden stale `fullEndText` survives reset/close in the original; visibility guards prevent fresh judging of hidden retained text. Judge state latches within an episode by harness design; in-game reset does not erase already earned episode history. New context plus a new Judge resets both.
+
+The keyword graph is branching collection: 5月3日 -> 磁盘残留/没有月亮; 磁盘残留 -> 日记原稿/林晓; 没有月亮 -> 班级升学率/年级第二/评优材料; 日记原稿 -> 涂改档案/模拟考; 林晓 -> 家长会记录/旧U盘. Remaining bold words lead to terminal documents; 旧U盘 leads to 删除日志. Navigation pages also expose keywords directly. All 25 titles are inventoried in checkpoint-spec.json. Navigation, keyword collection, document scrolling, and moral choices are not inference checkpoints.
+
+Negative paths covered: unknown keyword, partial final keyword, partial date, Enter without click, duplicate searches, whitespace trimming, final document before bottom scroll, hidden archive after close/reset, normal navigation, fresh context. There is no irreversible failure branch. Give-up is a harness exit. No paid API/model performance measurement was used; auditors used source knowledge for coverage and normal UI inputs for execution. Independent deployment verifies Windows extraction/relocation only.
+
+Evidence: tasks/disan-zhongxue/audit/ui/acceptance.json and screenshots; independent deployment acceptance paths are listed in deployment.json. Source game script is unchanged. Infrastructure-only differences are in tasks/disan-zhongxue/audit/localization.diff. Live-versus-snapshot decoded diff is empty; byte-size difference is newline representation.

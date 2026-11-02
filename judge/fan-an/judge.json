@@ -1,114 +1,106 @@
 {
   "hooks": {
     "flip": {
-      "type": "dom_regex",
-      "pattern": "翻案成功"
+      "type": "js_truthy",
+      "expr": "document.querySelector(\".ending h2\")?.textContent.includes(\"翻案成功\") === true"
     },
     "rescue": {
-      "type": "dom_regex",
-      "pattern": "辰小辰救场"
+      "type": "js_truthy",
+      "expr": "document.querySelector(\".ending h2\")?.textContent.includes(\"辰小辰救场\") === true"
     },
     "doubt": {
-      "type": "dom_regex",
-      "pattern": "羁押候审"
+      "type": "js_truthy",
+      "expr": "document.querySelector(\".ending h2\")?.textContent.includes(\"羁押候审 · 证据不足\") === true"
     },
-    "frag_monitor": {
-      "type": "dom_regex",
-      "pattern": "解锁记忆碎片：被篡改的监控"
+    "confess": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\".ending h2\")?.textContent.includes(\"羁押候审 · 已认罪\") === true"
     },
-    "frag_call": {
-      "type": "dom_regex",
-      "pattern": "解锁记忆碎片：自导的来电"
+    "broken": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\".ending h2\")?.textContent.includes(\"羁押候审 · 真假不分\") === true"
     },
-    "frag_weapon": {
-      "type": "dom_regex",
-      "pattern": "解锁记忆碎片：自伤的凶器"
+    "slot_1": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\".ending h2\")?.textContent.includes(\"翻案成功\") === true && [\"案发夜·城东\", \"网约车行程单\", \"同事联名证词\"].some(x => document.querySelector(\"[data-slot=\\\"0\\\"] .chip b\")?.textContent === x)"
     },
-    "frag_ship": {
-      "type": "dom_regex",
-      "pattern": "解锁记忆碎片：凶器网购记录"
+    "slot_2": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\".ending h2\")?.textContent.includes(\"翻案成功\") === true && [\"秘密资产转移\", \"海外壳公司股权\"].some(x => document.querySelector(\"[data-slot=\\\"1\\\"] .chip b\")?.textContent === x)"
     },
-    "frag_alibi_east": {
-      "type": "dom_regex",
-      "pattern": "解锁记忆碎片：案发夜·城东"
+    "slot_3": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\".ending h2\")?.textContent.includes(\"翻案成功\") === true && [\"骗保的受益人\", \"保单涂改痕迹\"].some(x => document.querySelector(\"[data-slot=\\\"2\\\"] .chip b\")?.textContent === x)"
     },
-    "frag_motive": {
-      "type": "dom_regex",
-      "pattern": "解锁记忆碎片：秘密资产转移|解锁记忆碎片：骗保的受益人"
+    "slot_4": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\".ending h2\")?.textContent.includes(\"翻案成功\") === true && [\"被篡改的监控\"].some(x => document.querySelector(\"[data-slot=\\\"3\\\"] .chip b\")?.textContent === x)"
     },
-    "frag_policy": {
-      "type": "dom_regex",
-      "pattern": "解锁记忆碎片：保单涂改痕迹"
+    "slot_5": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\".ending h2\")?.textContent.includes(\"翻案成功\") === true && [\"运维后台权限\", \"被删的门禁日志\"].some(x => document.querySelector(\"[data-slot=\\\"4\\\"] .chip b\")?.textContent === x)"
     },
-    "frag_logs": {
-      "type": "dom_regex",
-      "pattern": "解锁记忆碎片：运维后台权限|解锁记忆碎片：被删的门禁日志"
+    "slot_6": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\".ending h2\")?.textContent.includes(\"翻案成功\") === true && [\"自导的来电\"].some(x => document.querySelector(\"[data-slot=\\\"5\\\"] .chip b\")?.textContent === x)"
     },
-    "frag_alibi_pair": {
-      "type": "dom_regex",
-      "pattern": "解锁记忆碎片：网约车行程单|解锁记忆碎片：同事联名证词"
+    "slot_7": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\".ending h2\")?.textContent.includes(\"翻案成功\") === true && [\"自伤的凶器\"].some(x => document.querySelector(\"[data-slot=\\\"6\\\"] .chip b\")?.textContent === x)"
     },
-    "frag_shell": {
-      "type": "dom_regex",
-      "pattern": "解锁记忆碎片：海外壳公司股权"
+    "slot_8": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\".ending h2\")?.textContent.includes(\"翻案成功\") === true && [\"凶器网购记录\"].some(x => document.querySelector(\"[data-slot=\\\"7\\\"] .chip b\")?.textContent === x)"
     }
   },
   "checkpoints": [
     {
-      "id": "frag_monitor",
-      "hook": "frag_monitor",
-      "op": "truthy"
-    },
-    {
-      "id": "frag_call",
-      "hook": "frag_call",
-      "op": "truthy"
-    },
-    {
-      "id": "frag_weapon",
-      "hook": "frag_weapon",
-      "op": "truthy"
-    },
-    {
-      "id": "frag_ship",
-      "hook": "frag_ship",
-      "op": "truthy"
-    },
-    {
-      "id": "frag_alibi_east",
-      "hook": "frag_alibi_east",
+      "id": "slot_1",
+      "hook": "slot_1",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
-      "id": "frag_motive",
-      "hook": "frag_motive",
+      "id": "slot_2",
+      "hook": "slot_2",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
-      "id": "frag_policy",
-      "hook": "frag_policy",
+      "id": "slot_3",
+      "hook": "slot_3",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
-      "id": "frag_logs",
-      "hook": "frag_logs",
+      "id": "slot_4",
+      "hook": "slot_4",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
-      "id": "frag_alibi_pair",
-      "hook": "frag_alibi_pair",
+      "id": "slot_5",
+      "hook": "slot_5",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
     },
     {
-      "id": "frag_shell",
-      "hook": "frag_shell",
+      "id": "slot_6",
+      "hook": "slot_6",
       "op": "truthy",
-      "role": "optional"
+      "role": "diagnostic"
+    },
+    {
+      "id": "slot_7",
+      "hook": "slot_7",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "slot_8",
+      "hook": "slot_8",
+      "op": "truthy",
+      "role": "diagnostic"
     }
   ],
   "events": {},
@@ -116,12 +108,7 @@
     {
       "id": "flip",
       "tier": "good",
-      "gates": [
-        "frag_monitor",
-        "frag_call",
-        "frag_weapon",
-        "frag_ship"
-      ],
+      "gates": [],
       "ending": {
         "hook": "flip",
         "op": "truthy"
@@ -135,27 +122,29 @@
         "hook": "rescue",
         "op": "truthy"
       }
-    },
-    {
-      "id": "doubt",
-      "tier": "bad",
-      "gates": [],
-      "ending": {
-        "hook": "doubt",
-        "op": "truthy"
-      }
     }
   ],
-  "ending": {
-    "hook": "flip",
-    "op": "truthy"
-  },
+  "terminal_failures": [
+    {
+      "id": "doubt",
+      "hook": "doubt",
+      "op": "truthy"
+    },
+    {
+      "id": "confess",
+      "hook": "confess",
+      "op": "truthy"
+    },
+    {
+      "id": "broken",
+      "hook": "broken",
+      "op": "truthy"
+    }
+  ],
   "answer_sha256": [],
-  "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {
     "enabled": false,
     "schema": null
-  },
-  "rubric_path": null
+  }
 }

@@ -1,0 +1,22 @@
+{
+  "reasoning_checkpoints": [],
+  "diagnostic": "ending titles observed only in visible ending screen, egg is nested perfect variant; no points for ordinary collection/chapters",
+  "endings": {
+    "perfect": "holes >=7, at least 4 of 5 viewpoints >=60, alert<=50",
+    "clean": "otherwise score>=30",
+    "bitter": "otherwise score>=20",
+    "both": "otherwise score>=10; narrative full ending, no literal death",
+    "killed": "otherwise; game lost and explicit retry, terminal failure",
+    "egg": "perfect and holes>=9"
+  },
+  "score": "holes*2 + meet*3 + (alert<=50 ? 2 : 0) + min(evidence,10)",
+  "latching": "new Judge for each episode; title hooks check screen visibility, no hidden-text matches",
+  "source_caveats": [
+    "need uses ANY evidence, not all",
+    "pickOpt unconditionally adds hole and gotEv even on fail",
+    "top toolbar opens messages/mail/log for zero AP; probe buttons spend AP but can be bypassed normally",
+    "compareLog rewards fixed entries without asking player to identify contradiction",
+    "ending restart showIntro retains state; refresh or failure btnRetry resets state"
+  ],
+  "formal_review": "do not certify a reasoning benchmark from scripted known-answer/source routes"
+}

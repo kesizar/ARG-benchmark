@@ -1,0 +1,90 @@
+{
+  "hooks": {
+    "true_end": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#ending-overlay.visible')?.innerText.includes('海风与新生') === true"
+    },
+    "hidden_end": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#ending-overlay.visible')?.innerText.includes('海风来信') === true"
+    },
+    "stay": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#ending-overlay.visible')?.innerText.includes('留在原地') === true"
+    },
+    "desk": {
+      "type": "js_truthy",
+      "expr": "window.__gameState && !window.__gameState.locked"
+    },
+    "diary": {
+      "type": "js_truthy",
+      "expr": "window.__gameState && window.__gameState.diaryUnlocked"
+    },
+    "chat": {
+      "type": "js_truthy",
+      "expr": "window.__gameState && window.__gameState.chatUnlocked"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "desk",
+      "hook": "desk",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "diary",
+      "hook": "diary",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "chat",
+      "hook": "chat",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "sea",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "true_end",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "letter",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "hidden_end",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "stay",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "stay",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "true_end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

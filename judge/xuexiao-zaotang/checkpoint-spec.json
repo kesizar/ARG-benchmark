@@ -1,0 +1,24 @@
+{
+  "status": "blocked_unmapped",
+  "observed_actions": [
+    "toggle only original poster/all replies",
+    "open author profile (missing)",
+    "resume start.html conditional on argUser (missing)"
+  ],
+  "entry_writes": {
+    "argStep": "1 on every entry load; previous higher step overwritten before resume test"
+  },
+  "reasoning_checkpoints": [],
+  "reasoning_checkpoint_status": "cannot determine without profile and later game pages",
+  "legacy_judge": {
+    "ending_quote": "那个声音，从来就不是水。",
+    "evidence": "legacy configuration only; source and successful UI unavailable",
+    "formal_scoring_approved": false
+  },
+  "endings": "unknown",
+  "failures": "unknown",
+  "blocked_resources": [
+    "profile.html",
+    "start.html"
+  ]
+}

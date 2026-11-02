@@ -1,0 +1,52 @@
+{
+  "hooks": {
+    "login": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"lighthouse-theater-save-v1\"));return !!s && s.hintMode===false && (s.backstageUnlocked===true)}catch{return false}})()"
+    },
+    "reconstruction": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"lighthouse-theater-save-v1\"));return !!s && s.hintMode===false && (s.backstageUnlocked===true && s.reconstructed===true)}catch{return false}})()"
+    },
+    "cue_order": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"lighthouse-theater-save-v1\"));return !!s && s.hintMode===false && (s.backstageUnlocked===true && s.cueGameDone===true)}catch{return false}})()"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"lighthouse-theater-save-v1\"));return !!s && s.hintMode===false && (s.backstageUnlocked===true && s.reconstructed===true && s.seenEnding===true && document.body.innerText.includes(\"—— 幕落 · 灯亮着 ——\"))}catch{return false}})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "login",
+      "hook": "login",
+      "op": "truthy"
+    },
+    {
+      "id": "reconstruction",
+      "hook": "reconstruction",
+      "op": "truthy"
+    },
+    {
+      "id": "cue_order",
+      "hook": "cue_order",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "routes": [
+    {
+      "id": "birthday-rehearsal",
+      "gates": [
+        "login",
+        "reconstruction"
+      ],
+      "ending": {
+        "hook": "ending",
+        "op": "truthy"
+      }
+    }
+  ],
+  "events": {}
+}

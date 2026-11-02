@@ -1,56 +1,56 @@
 {
   "hooks": {
-    "rain": {
-      "type": "dom_regex",
-      "pattern": "谁也没再提那个天井"
+    "time": {
+      "type": "js_truthy",
+      "expr": "document.querySelectorAll(\"#quizWrap .quiz-card\")[0]?.querySelector(\".q-explain.show b\")?.textContent === \"回答正确\""
     },
-    "letter": {
-      "type": "dom_regex",
-      "pattern": "日子就这么过下去"
+    "lock": {
+      "type": "js_truthy",
+      "expr": "document.querySelectorAll(\"#quizWrap .quiz-card\")[1]?.querySelector(\".q-explain.show b\")?.textContent === \"回答正确\""
     },
-    "morning": {
-      "type": "dom_regex",
-      "pattern": "把影子拉得很长"
+    "blow": {
+      "type": "js_truthy",
+      "expr": "document.querySelectorAll(\"#quizWrap .quiz-card\")[2]?.querySelector(\".q-explain.show b\")?.textContent === \"回答正确\""
     },
-    "quiz_time": {
-      "type": "dom_regex",
-      "pattern": "回答正确 · 线索08"
+    "accuse": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\"#truth\")?.style.display !== \"none\" && document.querySelector(\"#truthTitle\")?.textContent === \"案件告破\""
     },
-    "quiz_lock": {
-      "type": "dom_regex",
-      "pattern": "回答正确 · 线索05"
+    "end_A": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\"#truth\")?.style.display !== \"none\" && document.querySelector(\"#endingDoc .ed-title\")?.textContent === \"《雨夜的供词》\""
     },
-    "quiz_blow": {
-      "type": "dom_regex",
-      "pattern": "回答正确 · 线索02"
+    "end_B": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\"#truth\")?.style.display !== \"none\" && document.querySelector(\"#endingDoc .ed-title\")?.textContent === \"《未寄出的信》\""
     },
-    "accuse_hit": {
-      "type": "dom_regex",
-      "pattern": "案件告破"
+    "end_C": {
+      "type": "js_truthy",
+      "expr": "document.querySelector(\"#truth\")?.style.display !== \"none\" && document.querySelector(\"#endingDoc .ed-title\")?.textContent === \"《明德中学的早晨》\""
     }
   },
   "checkpoints": [
     {
-      "id": "quiz_time",
-      "hook": "quiz_time",
+      "id": "time",
+      "hook": "time",
       "op": "truthy",
       "role": "optional"
     },
     {
-      "id": "quiz_lock",
-      "hook": "quiz_lock",
+      "id": "lock",
+      "hook": "lock",
       "op": "truthy",
       "role": "optional"
     },
     {
-      "id": "quiz_blow",
-      "hook": "quiz_blow",
+      "id": "blow",
+      "hook": "blow",
       "op": "truthy",
       "role": "optional"
     },
     {
-      "id": "accuse_hit",
-      "hook": "accuse_hit",
+      "id": "accuse",
+      "hook": "accuse",
       "op": "truthy",
       "role": "optional"
     }
@@ -58,43 +58,35 @@
   "events": {},
   "routes": [
     {
-      "id": "morning",
-      "tier": "good",
+      "id": "A",
       "gates": [],
       "ending": {
-        "hook": "morning",
+        "hook": "end_A",
         "op": "truthy"
       }
     },
     {
-      "id": "rain",
-      "tier": "normal",
+      "id": "B",
       "gates": [],
       "ending": {
-        "hook": "rain",
+        "hook": "end_B",
         "op": "truthy"
       }
     },
     {
-      "id": "letter",
-      "tier": "normal",
+      "id": "C",
       "gates": [],
       "ending": {
-        "hook": "letter",
+        "hook": "end_C",
         "op": "truthy"
       }
     }
   ],
-  "ending": {
-    "hook": "morning",
-    "op": "truthy"
-  },
+  "terminal_failures": [],
   "answer_sha256": [],
-  "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {
     "enabled": false,
     "schema": null
-  },
-  "rubric_path": null
+  }
 }

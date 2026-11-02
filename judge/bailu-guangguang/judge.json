@@ -1,0 +1,93 @@
+{
+  "hooks": {
+    "login": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"egret_bureau_save_v1\"));return !!s && s.hintMode === \"off\" && (s.loggedIn===true)}catch{return false}})()"
+    },
+    "republish": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"egret_bureau_save_v1\"));return !!s && s.hintMode === \"off\" && (s.republished===true)}catch{return false}})()"
+    },
+    "marker_1": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"egret_bureau_save_v1\"));return !!s && s.hintMode === \"off\" && (s.markers.includes(\"Y-1\"))}catch{return false}})()"
+    },
+    "marker_2": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"egret_bureau_save_v1\"));return !!s && s.hintMode === \"off\" && (s.markers.includes(\"Y-2\"))}catch{return false}})()"
+    },
+    "marker_3": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"egret_bureau_save_v1\"));return !!s && s.hintMode === \"off\" && (s.markers.includes(\"Y-3\"))}catch{return false}})()"
+    },
+    "marker_4": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"egret_bureau_save_v1\"));return !!s && s.hintMode === \"off\" && (s.markers.includes(\"Y-4\"))}catch{return false}})()"
+    },
+    "marker_5": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"egret_bureau_save_v1\"));return !!s && s.hintMode === \"off\" && (s.markers.includes(\"Y-5\"))}catch{return false}})()"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const s=JSON.parse(localStorage.getItem(\"egret_bureau_save_v1\"));return !!s && s.hintMode === \"off\" && (s.ended===true && s.republished===true && s.loggedIn===true && [1,2,3,4,5].every(n=>s.markers.includes(\"Y-\"+n)))}catch{return false}})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "login",
+      "hook": "login",
+      "op": "truthy"
+    },
+    {
+      "id": "republish",
+      "hook": "republish",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "marker_1",
+      "hook": "marker_1",
+      "op": "truthy"
+    },
+    {
+      "id": "marker_2",
+      "hook": "marker_2",
+      "op": "truthy"
+    },
+    {
+      "id": "marker_3",
+      "hook": "marker_3",
+      "op": "truthy"
+    },
+    {
+      "id": "marker_4",
+      "hook": "marker_4",
+      "op": "truthy"
+    },
+    {
+      "id": "marker_5",
+      "hook": "marker_5",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "thank-you-letter",
+      "tier": "normal",
+      "gates": [
+        "login",
+        "marker_1",
+        "marker_2",
+        "marker_3",
+        "marker_4",
+        "marker_5"
+      ],
+      "ending": {
+        "hook": "ending",
+        "op": "truthy"
+      }
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "id": "type-help-william-rous-0017",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "Type Help",
+    "intro": "Investigate the mystery using the game interface and the evidence it provides."
+  },
+  "entry_url": "http://127.0.0.1:8851/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/type-help-william-rous-0017/mirror",
+      "--port",
+      "8851"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8851/index.html",
+    "ready_timeout_s": 30,
+    "port": 8851
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "en-US",
+  "timezone": "UTC",
+  "seed": 20261023,
+  "allow_hosts": [
+    "127.0.0.1:8851"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 1000,
+    "max_seconds": 7200,
+    "max_answer_submits": 5
+  },
+  "settle_ms": 800,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/type-help-william-rous-0017/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "Source-assisted engineering verification is not a model reasoning evaluation."
+  ],
+  "account_requirement": "none",
+  "require_images": false
+}

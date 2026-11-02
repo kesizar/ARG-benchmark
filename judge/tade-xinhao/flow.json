@@ -1,0 +1,65 @@
+{
+  "status": "SOURCE REVIEW PARTIAL; NOT FULL UI ACCEPTANCE",
+  "evidence": {
+    "place_check": "index.html:3493-3540 strict name equality, wrong input increments verifyErrors, right input records knownPlaceNames and unlocks neighbors",
+    "auto_credit": "index.html:1792+ node04 automatically marked recognized on entering; cannot count as independent reasoning gate",
+    "hidden_node": "index.html:1738+ node00 appears after node06 recognized",
+    "corruption": "index.html:1823+ first node08 entry locks controls; key recovery and UI hint route unverified"
+  },
+  "endings": [
+    {
+      "id": "E01",
+      "name": "献祭",
+      "sources": [
+        "assets/route-cache-7f31.html acceptBtn",
+        "assets/exchange-market.html wish 袁以初 + accept -> ledger redirect"
+      ],
+      "normal_ui_complete": false
+    },
+    {
+      "id": "E02",
+      "name": "凋零",
+      "sources": [
+        "assets/route-cache-7f31.html abandonBtn"
+      ],
+      "normal_ui_complete": false
+    },
+    {
+      "id": "E03",
+      "name": "融合",
+      "sources": [
+        "assets/route-cache-7f31.html remembered phrase",
+        "assets/profile-yc-02.html confirm prompt"
+      ],
+      "normal_ui_complete": false
+    },
+    {
+      "id": "E04",
+      "name": "安宁",
+      "sources": [
+        "assets/exchange-market.html 一切重归安宁 + 大阿卡那"
+      ],
+      "normal_ui_complete": false
+    },
+    {
+      "id": "E05",
+      "name": "生路",
+      "sources": [
+        "assets/exchange-market.html 一切重归安宁 + 0901 -> cache-f7b2 -> note-7a10"
+      ],
+      "normal_ui_complete": false
+    }
+  ],
+  "failure_paths_pending": [
+    "wrong-place retry beyond first node",
+    "corruption wrong key and recovery",
+    "archive/document unlock failures",
+    "oracle wrong answers/collapse",
+    "exchange invalid wish/cost and reject",
+    "profile-yc ritual refusal",
+    "E01/E02 return to pre-ending and search trace"
+  ],
+  "no_tiers_assigned": true,
+  "route_gates": "not accepted; E04/E05 exchange may terminate before all locations, E03 has alternative profile path; do not use all-place AND gates",
+  "reset_limits": "First-gate UI reset verified; origin exchange_intro_seen/exchange_request_count are not listed in top-level reset. Use entirely fresh browser context for benchmark episodes. Full branch state-reset audit pending."
+}

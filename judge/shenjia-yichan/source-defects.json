@@ -1,0 +1,35 @@
+{
+  "unsupported_relationship_answers": [
+    {
+      "id": "G3-10",
+      "name": "张佩仪",
+      "role": "二房长媳",
+      "search_result": "CLUE-04"
+    },
+    {
+      "id": "G3-12",
+      "name": "Patricia Wang",
+      "role": "三房长媳",
+      "search_result": "CLUE-17"
+    },
+    {
+      "id": "G3-13",
+      "name": "刘桂芬",
+      "role": "四房儿媳",
+      "search_result": "CLUE-24"
+    }
+  ],
+  "evidence_gap": "All three names absent from all29CLUES document content. They occur in source answer map / namebank / searchkeyword map, and searchresults do not establish named relationship. Do not claim35comment actualfamilycount; actual38.",
+  "navigation_bug": "navigateToAddress performs prefixcontains loop in insertionorder. CLUE29 URL begins with CLUE12 URL, so addressbar selects12. Original search李浩然 result opens29 correctly, no repair made.",
+  "unwired_functions": [
+    "openNotepad exists but no onclick/ondblclick reference; cannot claim reachable notepad UI branch"
+  ],
+  "noops": [
+    "Browser maximize button has no onclick",
+    "Homepage guestbook anchor has no handler",
+    "documenthyperlinks often have no href; visible text remains"
+  ],
+  "persistent_endgame": "Winning overlay not saved directly. On reload confirmedSlots38 restored, submitdisabled, finaldialogue not automatically retriggered. Freshcontext/in-game reset required for next episode.",
+  "tiers": "Only completion ending; no invented good/bad rank. Wronganswers recoverable retry notterminalfailure.",
+  "logo_skip": "Injected MuleRun footer overlaps labelled skip atdefaultviewport; author whole-logo background click and natural8s end remain usable. Defaultbrowser autoplayrestriction triggers original playPromise catch/fallback."
+}

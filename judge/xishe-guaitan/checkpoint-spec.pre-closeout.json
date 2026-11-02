@@ -1,0 +1,33 @@
+{
+  "record_id": "added84:0071",
+  "latching": "Judge checkpoints latch per episode; reset requires a fresh Judge and browser context.",
+  "critical": [
+    {
+      "id": "date-search",
+      "reasoning": "Expanded review Yi -> menu signature dishes 20/26/08 -> YYYYMM 202608. Month/date normalized by game.",
+      "evidence": "restaurant.html signature tags; village-committee.html doSearch."
+    },
+    {
+      "id": "hidden-login",
+      "reasoning": "Search Zhao Desheng -> acrostic 政务村务 + 5次 -> click matching navigation five times. Footer five clicks is an unhinted alternate bypass.",
+      "evidence": "search-zhaodesheng.html 81-87; village-committee.html 544-556,589-596."
+    },
+    {
+      "id": "admin-login",
+      "reasoning": "Chen family article gives village initials + succession year; chief-transition 2005; username Zhao Desheng pinyin -> zhaodesheng / xsc2005.",
+      "evidence": "chen-family.html 93; chief-transition.html; village-committee.html doLogin."
+    }
+  ],
+  "noncritical": "Five export buttons, menu/page reading, toggle guestbook and confirm export are not scored as reasoning.",
+  "routes": {
+    "rescue": "5 evidence IDs, unexpired 48h timer, logged in, actual report.html; route gates three reasoning points.",
+    "insufficient": "Report not accepted; page offers return to continue investigation. Diagnostic only, not an ending or terminal failure, despite narrative label 结局一.",
+    "timeout": "Victim-list download starts 48h; expiry and submission yield irreversible victim death and only restart; terminal failure."
+  },
+  "risks": [
+    "Ending HTML and secret page have no source-level access guards; game model goto disabled, judge rejects naked ending navigation.",
+    "Report narrative fifth evidence says medical notes whereas runtime fifth ID is police info; preserve runtime original, record discrepancy.",
+    "Menu non-signature prices are distractors; YYYYMM clue is indirect.",
+    "Footer hidden-login bypass can avoid speech reasoning, therefore modal checkpoint only measures reaching hidden UI, not proof of reading speech."
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "id": "fushou-yangkang-prepared-l3",
+  "category": "web_puzzle",
+  "runtime_layer": "L3",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "福寿养康",
+    "intro": "你在一台模拟电脑里。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
+  },
+  "entry_url": "https://share.htmlput.com/p/fh5udbrgzx",
+  "local_serve": {
+    "enabled": false
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261023,
+  "allow_hosts": [
+    "share.htmlput.com",
+    "cdn.tailwindcss.com",
+    "cdn.jsdelivr.net",
+    "picsum.photos",
+    "fastly.picsum.photos"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 100,
+    "max_seconds": 1800,
+    "max_answer_submits": 5
+  },
+  "settle_ms": 400,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/fushou-yangkang-prepared/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "原站在线 L3；白名单仅含游戏页面及其显示依赖，其他域名包括站点统计被阻断。新上下文重置。"
+  ],
+  "account_requirement": "none"
+}

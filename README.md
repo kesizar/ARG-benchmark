@@ -2,6 +2,10 @@
 
 用 ARG 和其他解谜测试模型的多种能力。总的能力框架尚未定名。
 
+给同事交接请先看 [统一交付说明](docs/delivery.md)：通过 `scripts/build_delivery.py` 生成固定版本目录，随后统一使用 `run.ps1` / `benchmark.py` 列题、检查、试跑和执行。源码工作区本身不是已冻结交付版；正式实验清单需单独验收与冻结。
+
+游戏类别与运行方式独立配置：所有类别均可使用 `runtime_layer` 标记本地 L1 或真实在线 L3。定义、迁移兼容和 API 验证说明见 [docs/runtime_layers.md](docs/runtime_layers.md)。
+
 当前题是《非自愿摄入 / INVOLUNTARY APPETITE》。模型在本机浏览器里调查这份镜像，不访问原站。
 
 - `mirror/involuntary-appetite/`：游戏镜像

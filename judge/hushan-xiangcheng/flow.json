@@ -1,0 +1,453 @@
+{
+  "record_id": "base664:0445",
+  "global_ending": null,
+  "entry": "hub",
+  "optional_branches": [
+    "社团公告",
+    "六个友站链接（外站非本题所需，本地沙箱阻止）"
+  ],
+  "units": [
+    {
+      "id": "hushan-xiangcheng-ids",
+      "entry": "hub -> idsStart",
+      "return": "show(hub) exits current round; replay starts a new round, not a new scoring episode",
+      "puzzles": [
+        "ids-01",
+        "ids-02",
+        "ids-03",
+        "ids-04",
+        "ids-05",
+        "ids-06",
+        "ids-07",
+        "ids-08",
+        "ids-09",
+        "ids-10",
+        "ids-11",
+        "ids-12",
+        "ids-13",
+        "ids-14",
+        "ids-15",
+        "ids-16"
+      ],
+      "states": [
+        "question",
+        "correct_or_wrong_reveal",
+        "next",
+        "rank_settlement"
+      ],
+      "endings": [
+        "rank_0",
+        "rank_1",
+        "rank_2",
+        "rank_3"
+      ],
+      "failures": "No explicit authored death/failure; low-rank settlement remains separately named."
+    },
+    {
+      "id": "hushan-xiangcheng-radical",
+      "entry": "hub -> radicalStart",
+      "return": "show(hub) exits current round; replay starts a new round, not a new scoring episode",
+      "puzzles": [
+        "radical-01",
+        "radical-02",
+        "radical-03",
+        "radical-04",
+        "radical-05",
+        "radical-06",
+        "radical-07",
+        "radical-08",
+        "radical-09",
+        "radical-10",
+        "radical-11",
+        "radical-12",
+        "radical-13",
+        "radical-14",
+        "radical-15",
+        "radical-16"
+      ],
+      "states": [
+        "question",
+        "correct_or_wrong_reveal",
+        "next",
+        "rank_settlement"
+      ],
+      "endings": [
+        "rank_0",
+        "rank_1",
+        "rank_2",
+        "rank_3"
+      ],
+      "failures": "No explicit authored death/failure; low-rank settlement remains separately named."
+    },
+    {
+      "id": "hushan-xiangcheng-iol",
+      "entry": "hub -> iolStart",
+      "return": "show(hub) exits current round; replay starts a new round, not a new scoring episode",
+      "puzzles": [
+        "iol_01",
+        "iol_02",
+        "iol_03",
+        "iol_04",
+        "iol_05",
+        "iol_06",
+        "iol_07",
+        "iol_08",
+        "iol_09"
+      ],
+      "states": [
+        "question_with_corpus",
+        "wrong_retry_or_skip",
+        "correct_locked",
+        "timed_advance",
+        "rank_settlement"
+      ],
+      "endings": [
+        "preparatory",
+        "experience"
+      ],
+      "failures": "No explicit authored death/failure; low-rank settlement remains separately named."
+    },
+    {
+      "id": "hushan-xiangcheng-family",
+      "entry": "hub -> familyStart",
+      "return": "show(hub) exits current round; replay starts a new round, not a new scoring episode",
+      "puzzles": [
+        "family-01",
+        "family-02",
+        "family-03",
+        "family-04",
+        "family-05",
+        "family-06",
+        "family-07",
+        "family-08",
+        "family-09",
+        "family-10",
+        "family-11",
+        "family-12",
+        "family-13",
+        "family-14",
+        "family-15",
+        "family-16"
+      ],
+      "states": [
+        "question",
+        "correct_or_wrong_reveal",
+        "next",
+        "rank_settlement"
+      ],
+      "endings": [
+        "rank_0",
+        "rank_1",
+        "rank_2",
+        "rank_3"
+      ],
+      "failures": "No explicit authored death/failure; low-rank settlement remains separately named."
+    },
+    {
+      "id": "hushan-xiangcheng-tone",
+      "entry": "hub -> toneStart",
+      "return": "show(hub) exits current round; replay starts a new round, not a new scoring episode",
+      "puzzles": [
+        "tone-01",
+        "tone-02",
+        "tone-03",
+        "tone-04",
+        "tone-05",
+        "tone-06",
+        "tone-07",
+        "tone-08",
+        "tone-09",
+        "tone-10",
+        "tone-11",
+        "tone-12",
+        "tone-13",
+        "tone-14",
+        "tone-15",
+        "tone-16"
+      ],
+      "states": [
+        "question",
+        "correct_or_wrong_reveal",
+        "next",
+        "rank_settlement"
+      ],
+      "endings": [
+        "rank_0",
+        "rank_1",
+        "rank_2",
+        "rank_3"
+      ],
+      "failures": "No explicit authored death/failure; low-rank settlement remains separately named."
+    },
+    {
+      "id": "hushan-xiangcheng-merge",
+      "entry": "hub -> mergeStart",
+      "return": "show(hub) exits current round; replay starts a new round, not a new scoring episode",
+      "puzzles": [
+        "base_group_to_second",
+        "second_group_to_third",
+        "optional_top_group_removal"
+      ],
+      "states": [
+        "random_grid",
+        "invalid_singleton_no_cost",
+        "same_adjacent_connected_group",
+        "evolve_or_clear",
+        "gravity_refill",
+        "deadboard_overwrite_pair",
+        "40_valid_moves_settlement"
+      ],
+      "endings": [
+        "triple",
+        "practice"
+      ],
+      "failures": "No explicit authored death/failure; low-rank settlement remains separately named."
+    }
+  ],
+  "coverage": {
+    "ids": {
+      "pool_size": 16,
+      "presented": [
+        "ids-01",
+        "ids-02",
+        "ids-03",
+        "ids-04",
+        "ids-05",
+        "ids-06",
+        "ids-07",
+        "ids-08",
+        "ids-09",
+        "ids-10",
+        "ids-11",
+        "ids-12",
+        "ids-13",
+        "ids-14",
+        "ids-15",
+        "ids-16"
+      ],
+      "correctly_submitted": [
+        "ids-01",
+        "ids-02",
+        "ids-03",
+        "ids-04",
+        "ids-05",
+        "ids-06",
+        "ids-07",
+        "ids-08",
+        "ids-09",
+        "ids-10",
+        "ids-11",
+        "ids-12",
+        "ids-13",
+        "ids-14",
+        "ids-15",
+        "ids-16"
+      ],
+      "rounds": 5,
+      "seeds": [
+        20261027,
+        20261028,
+        20261029,
+        20261030,
+        20261031
+      ],
+      "tested_native_scores": [
+        10,
+        6,
+        3,
+        0,
+        10
+      ]
+    },
+    "radical": {
+      "pool_size": 16,
+      "presented": [
+        "radical-01",
+        "radical-02",
+        "radical-03",
+        "radical-04",
+        "radical-05",
+        "radical-06",
+        "radical-07",
+        "radical-08",
+        "radical-09",
+        "radical-10",
+        "radical-11",
+        "radical-12",
+        "radical-13",
+        "radical-14",
+        "radical-15",
+        "radical-16"
+      ],
+      "correctly_submitted": [
+        "radical-01",
+        "radical-02",
+        "radical-03",
+        "radical-04",
+        "radical-05",
+        "radical-06",
+        "radical-07",
+        "radical-08",
+        "radical-09",
+        "radical-10",
+        "radical-11",
+        "radical-12",
+        "radical-13",
+        "radical-14",
+        "radical-15",
+        "radical-16"
+      ],
+      "rounds": 6,
+      "seeds": [
+        20261032,
+        20261033,
+        20261034,
+        20261035,
+        20261036,
+        20261037
+      ],
+      "tested_native_scores": [
+        10,
+        6,
+        3,
+        0,
+        10,
+        10
+      ]
+    },
+    "iol": {
+      "fixed_subquestions": 9,
+      "tested_scores": [
+        9,
+        0
+      ],
+      "all_wrong_then_correct": true,
+      "all_wrong_then_skip": true
+    },
+    "family": {
+      "pool_size": 16,
+      "presented": [
+        "family-01",
+        "family-02",
+        "family-03",
+        "family-04",
+        "family-05",
+        "family-06",
+        "family-07",
+        "family-08",
+        "family-09",
+        "family-10",
+        "family-11",
+        "family-12",
+        "family-13",
+        "family-14",
+        "family-15",
+        "family-16"
+      ],
+      "correctly_submitted": [
+        "family-01",
+        "family-02",
+        "family-03",
+        "family-04",
+        "family-05",
+        "family-06",
+        "family-07",
+        "family-08",
+        "family-09",
+        "family-10",
+        "family-11",
+        "family-12",
+        "family-13",
+        "family-14",
+        "family-15",
+        "family-16"
+      ],
+      "rounds": 7,
+      "seeds": [
+        20261038,
+        20261039,
+        20261040,
+        20261041,
+        20261042,
+        20261043,
+        20261044
+      ],
+      "tested_native_scores": [
+        10,
+        6,
+        3,
+        0,
+        10,
+        10,
+        10
+      ]
+    },
+    "tone": {
+      "pool_size": 16,
+      "presented": [
+        "tone-01",
+        "tone-02",
+        "tone-03",
+        "tone-04",
+        "tone-05",
+        "tone-06",
+        "tone-07",
+        "tone-08",
+        "tone-09",
+        "tone-10",
+        "tone-11",
+        "tone-12",
+        "tone-13",
+        "tone-14",
+        "tone-15",
+        "tone-16"
+      ],
+      "correctly_submitted": [
+        "tone-01",
+        "tone-02",
+        "tone-03",
+        "tone-04",
+        "tone-05",
+        "tone-06",
+        "tone-07",
+        "tone-08",
+        "tone-09",
+        "tone-10",
+        "tone-11",
+        "tone-12",
+        "tone-13",
+        "tone-14",
+        "tone-15",
+        "tone-16"
+      ],
+      "rounds": 6,
+      "seeds": [
+        20261045,
+        20261046,
+        20261047,
+        20261048,
+        20261049,
+        20261050
+      ],
+      "tested_native_scores": [
+        10,
+        6,
+        3,
+        0,
+        10,
+        10
+      ]
+    },
+    "merge": {
+      "rounds": 2,
+      "successful_moves_each": 40,
+      "settlements": [
+        "三叠字制造者！",
+        "合体练习生"
+      ],
+      "top_level_clear_positive": true,
+      "planning": "Private deterministic original-rule planner returns UI click origins; predicted and actual DOM board match after every click. Not a model solve."
+    }
+  },
+  "infinite_state_limit": "Not all shuffled permutations/random boards enumerated; all finite question keys and authored rank branches covered."
+}

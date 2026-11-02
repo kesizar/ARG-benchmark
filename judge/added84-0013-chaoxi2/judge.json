@@ -1,0 +1,303 @@
+{
+  "hooks": {
+    "f1": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['f1']}catch(e){return false}})()"
+    },
+    "f2": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['f2']}catch(e){return false}})()"
+    },
+    "f3": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['f3']}catch(e){return false}})()"
+    },
+    "f4": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['f4']}catch(e){return false}})()"
+    },
+    "f5": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['f5']}catch(e){return false}})()"
+    },
+    "f6": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['f6']}catch(e){return false}})()"
+    },
+    "f1b": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['f1b']}catch(e){return false}})()"
+    },
+    "f2b": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['f2b']}catch(e){return false}})()"
+    },
+    "f3b": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['f3b']}catch(e){return false}})()"
+    },
+    "f4b": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['f4b']}catch(e){return false}})()"
+    },
+    "f5b": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['f5b']}catch(e){return false}})()"
+    },
+    "f6b": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['f6b']}catch(e){return false}})()"
+    },
+    "m1": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['m1']}catch(e){return false}})()"
+    },
+    "m2": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['m2']}catch(e){return false}})()"
+    },
+    "m3": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['m3']}catch(e){return false}})()"
+    },
+    "m4": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['m4']}catch(e){return false}})()"
+    },
+    "m5": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['m5']}catch(e){return false}})()"
+    },
+    "m6": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['m6']}catch(e){return false}})()"
+    },
+    "m7": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['m7']}catch(e){return false}})()"
+    },
+    "m8": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['m8']}catch(e){return false}})()"
+    },
+    "m9": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['m9']}catch(e){return false}})()"
+    },
+    "m10": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['m10']}catch(e){return false}})()"
+    },
+    "m11": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['m11']}catch(e){return false}})()"
+    },
+    "m12": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{return !!JSON.parse(localStorage.getItem('tide-ng-puzzles')||'{}')['m12']}catch(e){return false}})()"
+    },
+    "end": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#view-ng2-end.active')"
+    },
+    "inv-f2": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#inv-f2-fb.ok\")"
+    },
+    "inv-f3": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#inv-f3-fb.ok\")"
+    },
+    "inv-f6": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\"#inv-f6-fb.ok\")"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "f1",
+      "hook": "f1",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "f2",
+      "hook": "f2",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "f3",
+      "hook": "f3",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "f4",
+      "hook": "f4",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "f5",
+      "hook": "f5",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "f6",
+      "hook": "f6",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "f1b",
+      "hook": "f1b",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "f2b",
+      "hook": "f2b",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "f3b",
+      "hook": "f3b",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "f4b",
+      "hook": "f4b",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "f5b",
+      "hook": "f5b",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "f6b",
+      "hook": "f6b",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "m1",
+      "hook": "m1",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "m2",
+      "hook": "m2",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "m3",
+      "hook": "m3",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "m4",
+      "hook": "m4",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "m5",
+      "hook": "m5",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "m6",
+      "hook": "m6",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "m7",
+      "hook": "m7",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "m8",
+      "hook": "m8",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "m9",
+      "hook": "m9",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "m10",
+      "hook": "m10",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "m11",
+      "hook": "m11",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "m12",
+      "hook": "m12",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "inv-f2",
+      "hook": "inv-f2",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "inv-f3",
+      "hook": "inv-f3",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "inv-f6",
+      "hook": "inv-f6",
+      "op": "truthy",
+      "role": "critical"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "end",
+      "gates": [],
+      "ending": {
+        "hook": "end",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "end",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

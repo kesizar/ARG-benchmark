@@ -1,0 +1,86 @@
+{
+  "id": "huisheng-weizhi",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "回声未止",
+    "intro": "调查林沐失踪事件，使用作品内的电脑与网站搜集线索并作出选择。"
+  },
+  "entry_url": "http://127.0.0.1:8823/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/huisheng-weizhi/mirror",
+      "--port",
+      "8823"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8823/index.html",
+    "ready_timeout_s": 30,
+    "port": 8823
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261023,
+  "allow_hosts": [
+    "127.0.0.1:8823"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 400,
+    "max_seconds": 3600,
+    "max_answer_submits": 5
+  },
+  "settle_ms": 800,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/huisheng-weizhi/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "本地镜像为公开作品现行版本，虚构游戏账号为作品内交互，无需真实账号。"
+  ],
+  "account_requirement": "none"
+}

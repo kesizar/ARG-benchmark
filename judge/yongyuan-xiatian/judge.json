@@ -1,0 +1,143 @@
+{
+  "hooks": {
+    "date_comparison": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#note1.on')"
+    },
+    "history_filter": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#p2stats.on,#webReveal.on')"
+    },
+    "phone_time": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('act1_v35.html')&&!!document.querySelector('#note3.on')"
+    },
+    "exclude_boys": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('act2_v7.html')&&typeof p06Phase!=='undefined'&&p06Phase>=2"
+    },
+    "exclude_wrong_age": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('act2_v7.html')&&typeof p06Phase!=='undefined'&&p06Phase>=3"
+    },
+    "identify_zhixia": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#p06Next')"
+    },
+    "timeline_0": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.align-col.ok[data-side=\"a\"][data-i=\"0\"]')"
+    },
+    "timeline_1": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.align-col.ok[data-side=\"a\"][data-i=\"1\"]')"
+    },
+    "timeline_2": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.align-col.ok[data-side=\"a\"][data-i=\"2\"]')"
+    },
+    "timeline_3": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.align-col.ok[data-side=\"a\"][data-i=\"3\"]')"
+    },
+    "timeline_4": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.align-col.ok[data-side=\"a\"][data-i=\"4\"]')"
+    },
+    "photo_sequence": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#sortMsg')&&document.querySelector('#sortMsg').textContent.includes('九张，拼成了一条线')"
+    },
+    "complete": {
+      "type": "js_truthy",
+      "expr": "(()=>{const e=document.querySelector('#fp6.on');return !!e&&e.getBoundingClientRect().width>0&&getComputedStyle(e).visibility==='visible'&&Number(getComputedStyle(e).opacity)>0.5})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "exclude_boys",
+      "hook": "exclude_boys",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "exclude_wrong_age",
+      "hook": "exclude_wrong_age",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "timeline_0",
+      "hook": "timeline_0",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "timeline_1",
+      "hook": "timeline_1",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "timeline_2",
+      "hook": "timeline_2",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "timeline_3",
+      "hook": "timeline_3",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "timeline_4",
+      "hook": "timeline_4",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "photo_sequence",
+      "hook": "photo_sequence",
+      "op": "truthy",
+      "role": "critical"
+    }
+  ],
+  "events": {
+    "date_comparison": {
+      "hook": "date_comparison",
+      "op": "truthy"
+    },
+    "history_filter": {
+      "hook": "history_filter",
+      "op": "truthy"
+    },
+    "phone_time": {
+      "hook": "phone_time",
+      "op": "truthy"
+    },
+    "identify_zhixia": {
+      "hook": "identify_zhixia",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "full_story",
+      "tier": "normal",
+      "gates": [
+        "photo_sequence"
+      ],
+      "ending": {
+        "hook": "complete",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  }
+}

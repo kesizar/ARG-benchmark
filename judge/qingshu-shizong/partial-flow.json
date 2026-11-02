@@ -1,0 +1,51 @@
+{
+  "record_id": "base664:0528",
+  "coverage_status": "source_mapped_partial_only_no_complete_ui_acceptance",
+  "chain": [
+    "shudong forum (original snapshot and current revisions retained)",
+    "school archive with three images",
+    "argqingshu downstream forum required for ten letter fragments",
+    "return to school volume key -> choice -> terminal -> two story outcomes"
+  ],
+  "school_source_candidates": [
+    {
+      "id": "repair_log",
+      "answer": "0516",
+      "role": "optional_pending_full_flow"
+    },
+    {
+      "id": "caesar",
+      "answer": "came male",
+      "role": "chat_step"
+    },
+    {
+      "id": "morse",
+      "answer": "hart cat",
+      "role": "chat_step"
+    },
+    {
+      "id": "forum_access",
+      "answer": "memorialfile",
+      "role": "navigation_gate"
+    },
+    {
+      "id": "volume_access",
+      "answer": "invisiblet",
+      "role": "missing_fragment_evidence"
+    },
+    {
+      "id": "final_help",
+      "answer": "help",
+      "role": "terminal_entry"
+    }
+  ],
+  "school_endings": [
+    "无声黑暗 via any nonempty final input except help, or surrender terminal command",
+    "破晓 via trust yourself terminal command"
+  ],
+  "notes": [
+    "Terminal help prints trust yourself/surrender, so choosing them alone is not an inference score.",
+    "Ten fragments cannot be audited because official downstream forum has no body elements or scripts.",
+    "Do not expose source-derived volume key as replacement gameplay evidence."
+  ]
+}

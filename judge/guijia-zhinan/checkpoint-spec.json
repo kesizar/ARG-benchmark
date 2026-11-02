@@ -1,0 +1,36 @@
+{
+  "critical": [
+    {
+      "id": "decode",
+      "mechanism": "Base64 to Chinese; requires decoded input to advance",
+      "evidence": "source line329 check + persistent evidence DOM",
+      "wrong_not_scored": true
+    }
+  ],
+  "optional": [
+    {
+      "id": "morse",
+      "mechanism": "decode Morse; laptop bypass means not mandatory",
+      "evidence": "source line326 check + persistent evidence DOM"
+    }
+  ],
+  "unscored": [
+    {
+      "id": "memo",
+      "reason": "hint visibly supplies complete password; copy event only"
+    },
+    {
+      "id": "address",
+      "reason": "Base64 task hint visibly supplies complete answer; copy event only"
+    },
+    {
+      "id": "tor",
+      "reason": "fictional install button, ordinary click"
+    },
+    {
+      "id": "search",
+      "reason": "suggested keywords/search result collection does not gate progression"
+    }
+  ],
+  "latching": "Judge.update after every UI action; #el evidence survives scenes until in-game restart. Mandatory decode counted once per run, including collection variant."
+}

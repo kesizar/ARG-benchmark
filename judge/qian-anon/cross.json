@@ -1,0 +1,76 @@
+{
+  "hooks": {
+    "valid_word_jump": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return window.__qianJudge.cross.valid===true;\n})()"
+    },
+    "long_word_bonus": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return window.__qianJudge.cross.long===true;\n})()"
+    },
+    "win": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return document.querySelector('#cross-main .ending h2')?.textContent===\"钱爱音获胜！\";\n})()"
+    },
+    "lose": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return document.querySelector('#cross-main .ending h2')?.textContent===\"冯祥子获胜\";\n})()"
+    },
+    "draw_unreachable": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return document.querySelector('#cross-main .ending h2')?.textContent===\"同时到达终点！\";\n})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "valid_word_jump",
+      "hook": "valid_word_jump",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "long_word_bonus",
+      "hook": "long_word_bonus",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "routes": [
+    {
+      "id": "win",
+      "tier": "good",
+      "gates": [
+        "valid_word_jump"
+      ],
+      "ending": {
+        "hook": "win",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "draw_unreachable",
+      "tier": "normal",
+      "gates": [
+        "valid_word_jump"
+      ],
+      "ending": {
+        "hook": "draw_unreachable",
+        "op": "truthy"
+      }
+    }
+  ],
+  "events": {},
+  "ending": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "terminal_failures": [
+    {
+      "id": "lose",
+      "hook": "lose",
+      "op": "truthy"
+    }
+  ]
+}

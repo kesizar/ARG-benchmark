@@ -1,0 +1,86 @@
+{
+  "id": "new31-unwiped",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "UNWIPED",
+    "intro": "Investigate the used computer and work out what happened to the Halloran family."
+  },
+  "entry_url": "http://127.0.0.1:8951/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/new31-unwiped/mirror",
+      "--port",
+      "8951"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8951/index.html",
+    "ready_timeout_s": 30,
+    "port": 8951
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "en-US",
+  "timezone": "America/Chicago",
+  "seed": 20261023,
+  "allow_hosts": [
+    "127.0.0.1:8951"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 600,
+    "max_seconds": 5400,
+    "max_answer_submits": 20
+  },
+  "settle_ms": 800,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/new31-unwiped/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "原版提供逐格显示答案的提示，使用提示会降低推理计分的解释效度；正式计分规则待复核。"
+  ],
+  "account_requirement": "none"
+}

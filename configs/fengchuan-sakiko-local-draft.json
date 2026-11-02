@@ -1,0 +1,85 @@
+{
+  "id": "fengchuan-sakiko",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "丰川祥子解谜社",
+    "intro": "你在解谜社的终端前面。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
+  },
+  "entry_url": "http://127.0.0.1:8997/",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/fengchuan-sakiko/mirror",
+      "--port",
+      "8997"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8997/",
+    "ready_timeout_s": 30,
+    "port": 8997
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261023,
+  "allow_hosts": [
+    "127.0.0.1:8997"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 100,
+    "max_seconds": 1800,
+    "max_answer_submits": 5
+  },
+  "settle_ms": 400,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/fengchuan-sakiko/judge-scope-draft.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "Inventory and startup draft only: no scored checkpoints or selected target. Six games require separate objectives and full judge/branch validation. 0/0 is unknown, never a full score. Historical v5.2 name versus current v5.4 announcement unresolved."
+  ]
+}

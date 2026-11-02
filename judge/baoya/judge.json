@@ -1,48 +1,138 @@
 {
   "hooks": {
-    "on_mail": {"type": "url_regex", "pattern": "email\\.html"},
-    "wrong_try": {"type": "dialog_regex", "pattern": "密码错误"},
-    "boss_mail": {"type": "url_regex", "pattern": "emailwangbaoya\\.html"},
-    "staff_yu": {"type": "url_regex", "pattern": "staffyu\\.html"},
-    "secret_mail": {"type": "dom_regex", "pattern": "献祭还差一个关键引子"},
-    "wushan": {"type": "url_regex", "pattern": "wushan\\.html"},
-    "game_map": {"type": "url_regex", "pattern": "map\\.html"},
-    "choice_hub": {"type": "url_regex", "pattern": "choice\\.html"},
-    "ending_any": {"type": "url_regex", "pattern": "choice[12]\\.html"},
-    "ending_dawn": {"type": "url_regex", "pattern": "choice2\\.html"},
-    "ending_sacrifice": {"type": "url_regex", "pattern": "choice1\\.html"}
+    "customer_login": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/junjunnainai.html') && !!document.querySelector('h2')"
+    },
+    "tian_login": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/stafftian.html') && !!document.querySelector('h1')"
+    },
+    "yu_login": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/staffyu.html') && !!document.querySelector('h1')"
+    },
+    "xu_login": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/staffxu.html') && !!document.querySelector('h1')"
+    },
+    "boss_login": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/emailwangbaoya.html') && !!document.querySelector('h1')"
+    },
+    "secret_login": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/staffyujiamiyouxiang.html') && !!document.querySelector('.email-item')"
+    },
+    "code_sequence": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/game1.html') && document.querySelector('#hintBox')?.textContent.includes('验证通过')"
+    },
+    "caesar_key": {
+      "type": "dom_regex",
+      "pattern": "成功登入，欢迎回来。"
+    },
+    "qte_copy": {
+      "type": "dom_regex",
+      "pattern": "判定成功！"
+    },
+    "dawn": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/choice2.html') && !!document.querySelector('h1')"
+    },
+    "sacrifice": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/choice1.html') && !!document.querySelector('h1')"
+    }
   },
   "checkpoints": [
-    {"id": "boss_mail_login", "hook": "boss_mail", "op": "truthy"},
-    {"id": "staff_yu_login", "hook": "staff_yu", "op": "truthy"},
-    {"id": "yu_secret_mail", "hook": "secret_mail", "op": "truthy"},
-    {"id": "wushan_entered", "hook": "wushan", "op": "truthy"},
-    {"id": "game1_to_map", "hook": "game_map", "op": "truthy"},
-    {"id": "choice_hub", "hook": "choice_hub", "op": "truthy"}
+    {
+      "id": "boss_login",
+      "hook": "boss_login",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "code_sequence",
+      "hook": "code_sequence",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "customer_login",
+      "hook": "customer_login",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "tian_login",
+      "hook": "tian_login",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "yu_login",
+      "hook": "yu_login",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "xu_login",
+      "hook": "xu_login",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "secret_login",
+      "hook": "secret_login",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "caesar_key",
+      "hook": "caesar_key",
+      "op": "truthy",
+      "role": "optional"
+    }
   ],
   "events": {
-    "opened_mail": {"hook": "on_mail", "op": "truthy"},
-    "rejected_try": {"hook": "wrong_try", "op": "truthy"},
-    "ending_dawn": {"hook": "ending_dawn", "op": "truthy"},
-    "ending_sacrifice": {"hook": "ending_sacrifice", "op": "truthy"}
+    "qte_copy": {
+      "hook": "qte_copy",
+      "op": "truthy"
+    }
   },
   "routes": [
     {
       "id": "dawn",
-      "tier": "good",
-      "gates": ["boss_mail_login", "staff_yu_login", "yu_secret_mail", "wushan_entered", "game1_to_map", "choice_hub"],
-      "ending": {"hook": "ending_dawn", "op": "truthy"}
+      "tier": "normal",
+      "gates": [
+        "boss_login",
+        "code_sequence"
+      ],
+      "ending": {
+        "hook": "dawn",
+        "op": "truthy"
+      }
     },
     {
       "id": "sacrifice",
-      "tier": "bad",
-      "gates": ["boss_mail_login", "staff_yu_login", "yu_secret_mail", "wushan_entered", "game1_to_map", "choice_hub"],
-      "ending": {"hook": "ending_sacrifice", "op": "truthy"}
+      "tier": "normal",
+      "gates": [
+        "boss_login",
+        "code_sequence"
+      ],
+      "ending": {
+        "hook": "sacrifice",
+        "op": "truthy"
+      }
     }
   ],
-  "ending": {"hook": "ending_any", "op": "truthy"},
+  "ending": null,
   "answer_hash_file": null,
   "request_milestones": [],
-  "submit_conclusion": {"enabled": false, "schema": null},
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
   "rubric_path": null
 }

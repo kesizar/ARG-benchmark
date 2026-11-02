@@ -1,0 +1,271 @@
+{
+  "hooks": {
+    "k01": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[1]?.content||'').includes(\"350\")"
+    },
+    "k02": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[2]?.content||'').includes(\"2510\")"
+    },
+    "k03": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[3]?.content||'').includes(\"乳糖不耐\")"
+    },
+    "k04": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[4]?.content||'').includes(\"5201\")"
+    },
+    "k05": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[5]?.content||'').includes(\"YC001\")"
+    },
+    "k06": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[6]?.content||'').includes(\"20101123\")"
+    },
+    "k07": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[7]?.content||'').includes(\"英才2301班\")"
+    },
+    "k08": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[8]?.content||'').includes(\"营养不良性贫血\")"
+    },
+    "k09": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[13]?.content||'').includes(\"青苗论坛\")"
+    },
+    "k10": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[15]?.content||'').includes(\"农场办公室档案柜\")"
+    },
+    "k11": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[16]?.content||'').includes(\"20250308\")"
+    },
+    "k12": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[19]?.content||'').includes(\"QM230617001\")"
+    },
+    "k13": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[20]?.content||'').includes(\"幼苗共育\")"
+    },
+    "k14": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[21]?.content||'').includes(\"QM251123489\")"
+    },
+    "k15": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[22]?.content||'').includes(\"吃植物人\")"
+    },
+    "k16": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[23]?.content||'').includes(\"牛奶\")"
+    },
+    "k17": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[25]?.content||'').includes(\"砧木\")"
+    },
+    "k18": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[26]?.content||'').includes(\"接穗\")"
+    },
+    "k19": {
+      "type": "js_truthy",
+      "expr": "typeof conversationHistory!=='undefined'&&(conversationHistory.filter(m=>m.type==='sent')[27]?.content||'').includes(\"成材\")"
+    },
+    "report": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#resultMessage.success')&&document.querySelector('#submitReportBtn').disabled"
+    },
+    "report-decrypt": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#encryptedContent')&&document.querySelector('#encryptedContent').style.display==='block'"
+    },
+    "labor-2": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#imageContainer2')&&document.querySelector('#imageContainer2').style.display==='block'"
+    },
+    "labor-3": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#imageContainer3')&&document.querySelector('#imageContainer3').style.display==='block'"
+    },
+    "gentle": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('typewriterEndTypedText')&&document.getElementById('typewriterEndTypedText').textContent==='END'"
+    },
+    "harsh": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('animationEndTypedText')&&document.getElementById('animationEndTypedText').textContent==='END'"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "k01",
+      "hook": "k01",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k02",
+      "hook": "k02",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k03",
+      "hook": "k03",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k04",
+      "hook": "k04",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k05",
+      "hook": "k05",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k06",
+      "hook": "k06",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k07",
+      "hook": "k07",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k08",
+      "hook": "k08",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k09",
+      "hook": "k09",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k10",
+      "hook": "k10",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k11",
+      "hook": "k11",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k12",
+      "hook": "k12",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k13",
+      "hook": "k13",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k14",
+      "hook": "k14",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k15",
+      "hook": "k15",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k16",
+      "hook": "k16",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k17",
+      "hook": "k17",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k18",
+      "hook": "k18",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "k19",
+      "hook": "k19",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "report",
+      "hook": "report",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "report-decrypt",
+      "hook": "report-decrypt",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "labor-2",
+      "hook": "labor-2",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "labor-3",
+      "hook": "labor-3",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "routes": [
+    {
+      "id": "gentle",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "gentle",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "harsh",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "harsh",
+        "op": "truthy"
+      }
+    }
+  ],
+  "events": {},
+  "answer_sha256": [],
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  }
+}

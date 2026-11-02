@@ -1,0 +1,70 @@
+{
+  "record_id": "base664:0398",
+  "reasoning_gates": [],
+  "scored_checkpoints": 0,
+  "diagnostic_lookup_keys": [
+    "5月3日",
+    "磁盘残留",
+    "没有月亮",
+    "日记原稿",
+    "林晓",
+    "班级升学率",
+    "年级第二",
+    "评优材料",
+    "涂改档案",
+    "模拟考",
+    "家长会记录",
+    "旧U盘",
+    "天台楼道",
+    "周记本",
+    "班主任谈话",
+    "监控备份",
+    "匿名留言",
+    "纸质回执",
+    "心理登记表",
+    "排名统计表",
+    "消失的答卷",
+    "晚自修记录",
+    "撕掉的奖状",
+    "家长签字",
+    "删除日志"
+  ],
+  "unlock": "Search 删除日志 then scroll resultPage to its bottom. No other document prerequisite.",
+  "routes": [
+    {
+      "id": "truth",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "truth",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "silence",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "silence",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "shard",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "shard",
+        "op": "truthy"
+      }
+    }
+  ],
+  "failures": [
+    "Unknown exact keyword: 未检索到相关校内文档; no state change.",
+    "Partial keyword and Enter do not search.",
+    "No death/timer/failure ending. Give-up is evaluator exit, not an authored ending."
+  ],
+  "latching": "Judge diagnostics/endings latch for one episode; in-game reset clears game visited/UI only; a new Judge instance/new context is required to reset evaluation.",
+  "classification": "All three authored archives are formal narrative endings. Normal means completion only; no source-defined earned good/bad score.",
+  "source": "tasks/disan-zhongxue/upstream/snapshot.html"
+}

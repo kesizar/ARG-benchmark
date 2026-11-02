@@ -1,0 +1,168 @@
+{
+  "hooks": {
+    "p1-usb": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p1-usb\")"
+    },
+    "p2-redacted": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p2-redacted\")"
+    },
+    "p3-years": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p3-years\")"
+    },
+    "p4-frequency": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p4-frequency\")"
+    },
+    "p5-employee": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p5-employee\")"
+    },
+    "p6-timeline": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p6-timeline\")"
+    },
+    "p7-darkweb": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p7-darkweb\")"
+    },
+    "p8-server": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p8-server\")"
+    },
+    "p10-hidden": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p10-hidden\")"
+    },
+    "ending_normal": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\").ending===\"normal\" && Array.from(document.querySelectorAll(\"h2\")).some(x=>/结局：|Ending:/.test(x.textContent))"
+    },
+    "ending_hidden": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\").ending===\"hidden\" && Array.from(document.querySelectorAll(\"h2\")).some(x=>/结局：|Ending:/.test(x.textContent))"
+    },
+    "ending_secret": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\").ending===\"secret\" && Array.from(document.querySelectorAll(\"h2\")).some(x=>/结局：|Ending:/.test(x.textContent))"
+    },
+    "ending_true": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\").ending===\"true\" && Array.from(document.querySelectorAll(\"h2\")).some(x=>/结局：|Ending:/.test(x.textContent))"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "p1-usb",
+      "hook": "p1-usb",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "p2-redacted",
+      "hook": "p2-redacted",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p3-years",
+      "hook": "p3-years",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p4-frequency",
+      "hook": "p4-frequency",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p5-employee",
+      "hook": "p5-employee",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "p6-timeline",
+      "hook": "p6-timeline",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "p7-darkweb",
+      "hook": "p7-darkweb",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "p8-server",
+      "hook": "p8-server",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "p10-hidden",
+      "hook": "p10-hidden",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "normal",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "ending_normal",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "hidden",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "ending_hidden",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "secret",
+      "tier": "normal",
+      "gates": [
+        "p7-darkweb",
+        "p8-server"
+      ],
+      "ending": {
+        "hook": "ending_secret",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "true",
+      "tier": "good",
+      "gates": [
+        "p1-usb",
+        "p6-timeline",
+        "p7-darkweb",
+        "p8-server"
+      ],
+      "ending": {
+        "hook": "ending_true",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "ending_true",
+    "op": "truthy"
+  },
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "record_id": "base664:0028",
+  "scope": "Archived entry page only; child pages unavailable",
+  "source_integrity": "Complete HTML document, 25953 bytes, inline CSS and JS, closing body/html present. Not a complete game.",
+  "known_entry_paths": [
+    {
+      "path": "meng-letter.html",
+      "trigger": "visible timed-email link",
+      "available": false
+    },
+    {
+      "path": "arc.html",
+      "trigger": "always available archive entry and locked-entry guidance",
+      "available": false
+    },
+    {
+      "path": "desktop.html",
+      "trigger": "story unlock localStorage yqjh_desktop_unlocked then password login",
+      "available": false
+    },
+    {
+      "path": "ch6-room.html",
+      "trigger": "story unlock localStorage yqjh_ch6_unlocked then password login; sets sessionStorage/localStorage yqjh_ch6auth",
+      "available": false
+    }
+  ],
+  "known_failure_behaviors": [
+    "Locked desktop/newsroom buttons show story-progress guidance, no login input until unlocked.",
+    "Desktop wrong password shows 密码错误.",
+    "Newsroom wrong password shows 口令不正确.",
+    "Login modal cancellation clears entered password and error. Escape closes login; Enter invokes login."
+  ],
+  "reasoning_review": "No validated reasoning gate from entry page alone. Password comparisons exist, but unavailable narrative child pages prevent checking evidence, solving necessity, bypass routes or point semantics. This does not establish a zero-puzzle game.",
+  "endings": "Legacy judge claims A/B/C via strings 凡人之躯 比肩神明 / THE END · B 线结局 / C 结局 · 完. None occurs in archived entry HTML. Number, tiers, prerequisite gates, failure endings and all branches remain unverified.",
+  "legacy_judge_risks": [
+    "All legacy routes have empty gates; terminal string matches cannot establish solve progress.",
+    "computer URL visit and newsroom storage key are access/navigation state, not independently proven reasoning.",
+    "Legacy good/normal/bad tiers lack source evidence here."
+  ],
+  "dependencies": {
+    "account_requirement": "unknown for full game; entry contains fictional in-game password prompts, no evidence of external personal account requirement",
+    "game_assets": [
+      "meng-letter.html",
+      "arc.html",
+      "desktop.html",
+      "ch6-room.html",
+      "assets/theme-song.mp3"
+    ],
+    "external_telemetry": [
+      "code.coze.cn analytics report",
+      "apm.volccdn.com browser.cn.js"
+    ],
+    "runtime": "Original configuration L3 retained, but availability not revalidated. No local mirror advertised."
+  },
+  "acceptance": {
+    "normal_UI_full_flow": false,
+    "positive_negative_judge": false,
+    "reset": false,
+    "independent_game_bundle_deployment": false,
+    "independent_evaluator_bundle_deployment": false
+  },
+  "reset_note": "Entry source shows permanent localStorage unlock flags and newsroom authorization session/local storage. New browser context would clear these, but full-game reset semantics unknown."
+}

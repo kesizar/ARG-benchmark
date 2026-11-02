@@ -1,0 +1,39 @@
+{
+  "authorization": "User tonight deadline: usable or delete; retain original source, precise diff, hashes and exclusion evidence",
+  "scope": "Only four confirmed failed window3 candidate ZIPs",
+  "original_sources_and_failure_logs_retained": true,
+  "items": [
+    {
+      "path": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\data\\preparation\\window3-base664-0562\\base664-0562-soiros-password-v2-candidate.zip",
+      "relative": "data/preparation/window3-base664-0562/base664-0562-soiros-password-v2-candidate.zip",
+      "sha256": "c2be85471a5dfe9aa524b2100494ce719c332aab8d75bda974405485500bb2eb",
+      "bytes": 12936050,
+      "reason": "Missing both required manifests and task submission-limit field; replaced by reviewed v2a",
+      "removed": true
+    },
+    {
+      "path": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\packs\\window3-deliveries-20261030\\base664-0562-soiros-password-local-v2.zip",
+      "relative": "packs/window3-deliveries-20261030/base664-0562-soiros-password-local-v2.zip",
+      "sha256": "c2be85471a5dfe9aa524b2100494ce719c332aab8d75bda974405485500bb2eb",
+      "bytes": 12936050,
+      "reason": "Failed detailed validation before any delivery review was saved; replaced by reviewed v2a",
+      "removed": true
+    },
+    {
+      "path": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\data\\preparation\\window3-base664-0301\\superseded\\draft-async-hook-incompatible.zip",
+      "relative": "data/preparation/window3-base664-0301/superseded/draft-async-hook-incompatible.zip",
+      "sha256": "57af7fe9cca9bbb79243a39b52b12b21961d79850107fbb7f633abeea66913e8",
+      "bytes": 524555,
+      "reason": "Async Promise became true in real BrowserHarness expression wrapper; replaced by reviewed synchronous judge",
+      "removed": true
+    },
+    {
+      "path": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\data\\preparation\\window3-base664-0301\\superseded\\draft-wrong-runtime-category.zip",
+      "relative": "data/preparation/window3-base664-0301/superseded/draft-wrong-runtime-category.zip",
+      "sha256": "7e73b97da0db15b0e285f13dc5edbd3ffc769ae93b9bd8c498248baf1eb621bd",
+      "bytes": 524553,
+      "reason": "Incorrect runtime category selected IF harness; replaced by reviewed escape_room configuration",
+      "removed": true
+    }
+  ]
+}

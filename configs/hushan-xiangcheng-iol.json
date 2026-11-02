@@ -1,0 +1,85 @@
+{
+  "id": "hushan-xiangcheng-iol",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "IOL 迷你体验赛",
+    "intro": "这是户山香澄解谜社合集。本次只评测「IOL 迷你体验赛」：从大厅进入该游戏，完成一轮并取得尽可能高的成绩。只根据屏幕信息推理与操作。其他小游戏和友情链接不属于本次任务。"
+  },
+  "entry_url": "http://127.0.0.1:8831/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/hushan-xiangcheng/mirror",
+      "--port",
+      "8831"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8831/index.html",
+    "ready_timeout_s": 30,
+    "port": 8831
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261026,
+  "allow_hosts": [
+    "127.0.0.1:8831"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 180,
+    "max_seconds": 1800,
+    "max_answer_submits": 40
+  },
+  "settle_ms": 800,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/hushan-xiangcheng/iol.json",
+  "policy_script": [
+    {
+      "op": "wait"
+    },
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "One independently scored unit of base664:0445, not whole-collection completion."
+  ],
+  "account_requirement": "none"
+}

@@ -1,0 +1,113 @@
+{
+  "hooks": {
+    "community": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/lpj.html') && document.referrer.split('?')[0].endsWith('/ruimin.html')"
+    },
+    "clean": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/ljczg.html') && document.referrer.split('?')[0].endsWith('/ljclean.html')"
+    },
+    "cong": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/ccczg.html') && document.referrer.split('?')[0].endsWith('/congcong.html')"
+    },
+    "police": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/zgq.html') && document.referrer.split('?')[0].endsWith('/centerjd.html')"
+    },
+    "identity": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/tonghua.html') && !!document.querySelector('#reply-commission-btn') && getComputedStyle(document.querySelector('#reply-commission-btn')).display !== 'none'"
+    },
+    "summary": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/tonghua.html') && !!document.querySelector('.case-detail-btn') && document.body.innerText.includes('回复中所载所有信息')"
+    },
+    "quiz_1": {
+      "type": "js_truthy",
+      "expr": "(() => {const q=document.querySelectorAll('.quiz-options')[0]; return location.pathname.endsWith('/centerjd.html') && !!q && !!q.querySelector('.quiz-option.correct') && !q.querySelector('.quiz-option.incorrect');})()"
+    },
+    "quiz_2": {
+      "type": "js_truthy",
+      "expr": "(() => {const q=document.querySelectorAll('.quiz-options')[1]; return location.pathname.endsWith('/centerjd.html') && !!q && !!q.querySelector('.quiz-option.correct') && !q.querySelector('.quiz-option.incorrect');})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "community",
+      "hook": "community",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "clean",
+      "hook": "clean",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "cong",
+      "hook": "cong",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "police",
+      "hook": "police",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "identity",
+      "hook": "identity",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "summary",
+      "hook": "summary",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "quiz_1",
+      "hook": "quiz_1",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "quiz_2",
+      "hook": "quiz_2",
+      "op": "truthy",
+      "role": "critical"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "normal",
+      "tier": "normal",
+      "gates": [
+        "identity",
+        "summary"
+      ],
+      "ending": {
+        "hook": "summary",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "summary",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

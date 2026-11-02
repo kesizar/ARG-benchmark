@@ -1,0 +1,26 @@
+{
+  "resources": {
+    "archive": "packs/yucai-gaozhong.resources.zip",
+    "deployment": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\yucai-gaozhong\\deployments\\resources",
+    "files": 42,
+    "hashes_passed": true
+  },
+  "prepared": {
+    "archive": "packs/yucai-gaozhong.prepared.zip",
+    "deployment": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\yucai-gaozhong\\deployments\\prepared",
+    "files": 78,
+    "hashes_passed": true
+  },
+  "ui_acceptance": [
+    "runs/yucai-gaozhong/deployments/prepared/acceptance/summary.json",
+    "runs/yucai-gaozhong/deployments/resources-acceptance/summary.json"
+  ],
+  "all_three_reachable_routes_passed_both_packages": true,
+  "all_twenty_clues_in_best_UI_route": true,
+  "ports": [
+    8822,
+    8823
+  ],
+  "standard_run_one_smoke": "runs/yucai-gaozhong/deployments/prepared/runs/yucai-gaozhong/B/20261027_103400/summary.json",
+  "cross_os_verified": false
+}

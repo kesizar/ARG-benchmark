@@ -1,0 +1,172 @@
+{
+  "hooks": {
+    "boot": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/desk.html')"
+    },
+    "diary": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/dairy.html') && !!document.querySelector('#diaryContent') && getComputedStyle(document.querySelector('#diaryContent')).display!=='none'"
+    },
+    "logs": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/work_logs.html') && !!document.querySelector('#hiddenJournal') && getComputedStyle(document.querySelector('#hiddenJournal')).display!=='none'"
+    },
+    "account": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/account_records.html') && !!document.querySelector('#main-content.show') && getComputedStyle(document.querySelector('#main-content.show')).display!=='none'"
+    },
+    "counseling": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/counseling_records.html') && !!document.querySelector('#recordSection') && getComputedStyle(document.querySelector('#recordSection')).display!=='none'"
+    },
+    "monitor": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/monitoring.html') && !!document.querySelector('#mainContainer') && getComputedStyle(document.querySelector('#mainContainer')).display!=='none'"
+    },
+    "office": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/monitoring.html') && typeof officePasswordEntered!=='undefined' && officePasswordEntered"
+    },
+    "mail": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/locked_mail.html') && !!document.querySelector('#emailContainer') && getComputedStyle(document.querySelector('#emailContainer')).display!=='none'"
+    },
+    "server": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/qiongdinghui.html') && !!document.querySelector('#serverContent') && getComputedStyle(document.querySelector('#serverContent')).display!=='none'"
+    },
+    "ark": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/qiongdinghui.html') && !!document.querySelector('#arkContent') && getComputedStyle(document.querySelector('#arkContent')).display!=='none'"
+    },
+    "ending1": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/evidence.html') && !!document.querySelector('#ending1') && getComputedStyle(document.querySelector('#ending1')).display!=='none'"
+    },
+    "ending2": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/evidence.html') && !!document.querySelector('#ending2') && getComputedStyle(document.querySelector('#ending2')).display!=='none'"
+    },
+    "ending3": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/evidence.html') && !!document.querySelector('#ending3') && getComputedStyle(document.querySelector('#ending3')).display!=='none'"
+    },
+    "compensation": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/evidence.html') && typeof selectedEvidences!=='undefined' && selectedEvidences.includes('赔偿协议') && [1,2,3].some(i=>getComputedStyle(document.querySelector('#ending'+i)).display!=='none')"
+    },
+    "witness": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/evidence.html') && typeof selectedEvidences!=='undefined' && selectedEvidences.includes('李阳') && [1,2,3].some(i=>getComputedStyle(document.querySelector('#ending'+i)).display!=='none')"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "boot",
+      "hook": "boot",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "diary",
+      "hook": "diary",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "logs",
+      "hook": "logs",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "account",
+      "hook": "account",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "counseling",
+      "hook": "counseling",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "monitor",
+      "hook": "monitor",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "office",
+      "hook": "office",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "mail",
+      "hook": "mail",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "server",
+      "hook": "server",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "ark",
+      "hook": "ark",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "compensation",
+      "hook": "compensation",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "witness",
+      "hook": "witness",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "silent",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "ending1",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "late-justice",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "ending2",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "bright-trial",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "ending3",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "ending3",
+    "op": "truthy"
+  }
+}

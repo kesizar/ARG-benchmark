@@ -1,0 +1,87 @@
+{
+  "id": "reliquia-park-provisional",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "Reliquia Park [v1.D]",
+    "intro": "使用方向键探索游戏；Z 撤销，R 重置关卡，X 打开菜单。"
+  },
+  "entry_url": "http://127.0.0.1:8921/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/reliquia-park/mirror",
+      "--port",
+      "8921"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8921/index.html",
+    "ready_timeout_s": 30,
+    "port": 8921
+  },
+  "viewport": {
+    "width": 1000,
+    "height": 800
+  },
+  "locale": "en-US",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261023,
+  "allow_hosts": [
+    "127.0.0.1:8921"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 500,
+    "max_seconds": 7200,
+    "max_answer_submits": 0
+  },
+  "settle_ms": 800,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/reliquia-park/judge.provisional.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "Provisional: only the INTRO-04 transition is instrumented. No full-game ending or route coverage validated. Do not use for formal scoring."
+  ],
+  "account_requirement": "none",
+  "require_images": true
+}

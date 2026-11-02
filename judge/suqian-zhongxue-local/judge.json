@@ -1,0 +1,70 @@
+{
+  "hooks": {
+    "tonggui": {
+      "type": "dom_regex",
+      "pattern": "你脱下鞋，走进水里。"
+    },
+    "chenfeng": {
+      "type": "dom_regex",
+      "pattern": "林昭被找到了。"
+    },
+    "lieshou": {
+      "type": "dom_regex",
+      "pattern": "一切回归日常。"
+    },
+    "pond": {
+      "type": "dom_regex",
+      "pattern": "关于半月池地质勘探的报告"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "pond_visit",
+      "hook": "pond",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "tonggui",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "tonggui",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "chenfeng",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "chenfeng",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "lieshou",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "lieshou",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "tonggui",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

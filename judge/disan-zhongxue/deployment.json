@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "resource_archive": "packs/disan-zhongxue.resources.zip",
+  "evaluation_archive": "packs/disan-zhongxue.prepared.zip",
+  "evaluation_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\tasks\\disan-zhongxue\\audit\\deployed\\evaluation",
+  "resource_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\tasks\\disan-zhongxue\\audit\\deployed\\resources",
+  "evaluation_port": 8822,
+  "resource_port": 8823,
+  "evaluation_acceptance": "tasks/disan-zhongxue/audit/deployed-evaluation-ui/acceptance.json",
+  "resource_acceptance": "tasks/disan-zhongxue/audit/deployed-resources-ui/acceptance.json",
+  "standard_deployed_summary": "tasks/disan-zhongxue/audit/deployed/evaluation/runs/disan-zhongxue/B/20261027_101837/summary.json",
+  "independence": "Extracted evaluation harness + extracted resources; resource test and standard run executed with extracted evaluation as cwd. Installed Python environment and Edge reused. No original game/config/judge directory used. No cross-OS claim.",
+  "hashes_crc": "tasks/disan-zhongxue/audit/bundle-checks.json",
+  "packages": {
+    "disan-zhongxue.resources.zip": "cc283541e10701a14c23367151c262e5cea96fe82196da727ae0aa51b9648de9",
+    "disan-zhongxue.prepared.zip": "59eeb4f2a6ccfcef5ececc2cd4f4347aeea8a4481b6a34740f0ddb20fc48f183"
+  }
+}

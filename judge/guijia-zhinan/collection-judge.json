@@ -1,0 +1,100 @@
+{
+  "hooks": {
+    "morse": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.ei') && document.querySelector('#el').textContent.includes('录音笔摩斯电码')"
+    },
+    "decode": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#el').textContent.includes('网站源代码隐藏信息')"
+    },
+    "memo": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#el').textContent.includes('弟弟备忘录')"
+    },
+    "address": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#el').textContent.includes('暗网地址')"
+    },
+    "tor": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#el').textContent.includes('已安装 Tor Browser')"
+    },
+    "guide": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.he') && document.querySelector('.he').textContent.includes('隐藏结局 · 引路人')"
+    },
+    "peace": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#st h1')?.textContent === \"结局 A · 安宁\""
+    },
+    "curious": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#st h1')?.textContent === \"结局 B · 好奇\""
+    },
+    "duty": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#st h1')?.textContent === \"结局 C · 职责\""
+    },
+    "watch": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#st h1')?.textContent === \"结局 D · 旁观者\""
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "decode",
+      "hook": "decode",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "morse",
+      "hook": "morse",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {
+    "memo": {
+      "hook": "memo",
+      "op": "truthy"
+    },
+    "address": {
+      "hook": "address",
+      "op": "truthy"
+    },
+    "tor": {
+      "hook": "tor",
+      "op": "truthy"
+    },
+    "peace": {
+      "hook": "peace",
+      "op": "truthy"
+    },
+    "curious": {
+      "hook": "curious",
+      "op": "truthy"
+    },
+    "duty": {
+      "hook": "duty",
+      "op": "truthy"
+    },
+    "watch": {
+      "hook": "watch",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "guide",
+      "gates": [
+        "decode"
+      ],
+      "ending": {
+        "hook": "guide",
+        "op": "truthy"
+      }
+    }
+  ]
+}

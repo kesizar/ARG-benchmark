@@ -1,7 +1,7 @@
 {
   "id": "jinbu-shizong",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L3",
   "obs_mode": "B",
   "obs_modes_to_run": ["B"],
   "computer_use": false,
@@ -24,7 +24,7 @@
   "text_scope": "page",
   "text_limit": 6000,
   "actions_enabled": ["click", "dblclick", "type", "key", "scroll", "drag", "back", "wait", "dialog", "give_up"],
-  "limits": {"max_steps": 120, "max_seconds": 1800, "max_answer_submits": 5},
+  "limits": {"max_steps": 250, "max_seconds": 1800, "max_answer_submits": 5},
   "settle_ms": 400,
   "history": {"full_obs_k": 4, "screenshot_k": 2},
   "judge_path": "judge/jinbu-shizong/judge.json",

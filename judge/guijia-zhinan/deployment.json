@@ -1,0 +1,30 @@
+{
+  "deployment_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\guijia-deployment-ec8c3fa6",
+  "archive_sha256": "b52413c7496afbe76e5711a57c9868b7b779bb55853c6a7c94c9bc6c0b26740e",
+  "manifest_files_verified": 36,
+  "port": 8812,
+  "status": "independent_bundle_complete_ui_pass",
+  "acceptance": "judge/guijia-zhinan/verification/acceptance.json",
+  "verified_nodes": 49,
+  "verified_endings": 5,
+  "negative_checks": 16,
+  "numbered_actions_only": true,
+  "standard_runner_smokes": {
+    "guijia-zhinan": {
+      "path": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\guijia-deployment-ec8c3fa6\\runs\\guijia-zhinan\\B\\20261026_161418\\summary.json",
+      "steps": 2,
+      "policy": "script",
+      "purpose": "integration smoke, not completion"
+    },
+    "guijia-zhinan-collection": {
+      "path": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\guijia-deployment-ec8c3fa6\\runs\\guijia-zhinan-collection\\B\\20261026_161515\\summary.json",
+      "steps": 2,
+      "policy": "script",
+      "purpose": "integration smoke, not completion"
+    }
+  },
+  "limitations": [
+    "Uses existing Windows Python environment and installed browser; not a fresh operating system or cross-platform install test.",
+    "Scripted engineering acceptance, no paid model API calls."
+  ]
+}

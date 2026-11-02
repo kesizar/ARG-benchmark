@@ -1,7 +1,7 @@
 {
   "id": "guimi-qiyun",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
@@ -11,9 +11,21 @@
     "title": "闺蜜正在偷走你气运",
     "intro": "你在查一件身边的事。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
   },
-  "entry_url": "https://886ced7870114bb3997ee26c49986458.app.workbuddy.link/",
+  "entry_url": "http://127.0.0.1:8831/",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/guimi-qiyun/mirror",
+      "--port",
+      "8831"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8831/",
+    "ready_timeout_s": 30,
+    "port": 8831
   },
   "viewport": {
     "width": 1366,
@@ -23,7 +35,7 @@
   "timezone": "Asia/Shanghai",
   "seed": 20261023,
   "allow_hosts": [
-    "886ced7870114bb3997ee26c49986458.app.workbuddy.link"
+    "127.0.0.1:8831"
   ],
   "shortcut_block": [],
   "guide_block_hosts": [
@@ -68,6 +80,7 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-23 终章把五档标题写进结局屏。彩蛋附在完美清算同一屏上。"
-  ]
+    "Pinned base664:0429; no paid API needed. All story branches retained. Original unvalidated compare buttons and unconditional hole rewards make this a narrative choice/resource task; no formal reasoning points certified. Source-derived route schedules are engineering regression fixtures, not proof of independent solving."
+  ],
+  "account_requirement": "none"
 }

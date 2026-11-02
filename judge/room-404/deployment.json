@@ -1,0 +1,43 @@
+{
+  "paths": {
+    "resources": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\room-404-resources-deploy-c78d317a",
+    "prepared": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\room-404-prepared-deploy-94ac450d"
+  },
+  "ports": {
+    "resources": 8812,
+    "prepared": 8813
+  },
+  "basis": "new directories; same installed Windows Python and browser",
+  "status": "independent_core_and_auxiliary_ui_replays_passed",
+  "acceptance": {
+    "resources": "judge/room-404/verification/resources-deployment/acceptance.json",
+    "prepared": "runs/room-404-prepared-deploy-94ac450d/judge/room-404/verification/acceptance.json",
+    "prepared_copy": "judge/room-404/verification/deployed-acceptance.json"
+  },
+  "runs": {
+    "resources": {
+      "port": 8812,
+      "steps": 598,
+      "pass": true
+    },
+    "prepared": {
+      "port": 8813,
+      "steps": 598,
+      "pass": true
+    }
+  },
+  "standard_cli_smoke": "runs/room-404-prepared-deploy-94ac450d/runs/room-404/B/20261026_232845/summary.json",
+  "base_environment": "Existing Windows Python3.11 environment and installed Edge reused; not clean OS install.",
+  "archive_hashes": [
+    {
+      "path": "packs/room-404.resources.zip",
+      "bytes": 1575839,
+      "sha256": "3592df018c33dd760ec85e3da4dac2b003208542d83ed34b13c1878d053b3e78"
+    },
+    {
+      "path": "packs/room-404.prepared.zip",
+      "bytes": 6967811,
+      "sha256": "d98ad60ed7d22b77418ed967da872cbbca8027d8cde25373c1c95d6c64e1f04d"
+    }
+  ]
+}

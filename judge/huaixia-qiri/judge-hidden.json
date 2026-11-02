@@ -1,0 +1,159 @@
+{
+  "hooks": {
+    "wuxing": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && !!document.querySelector(\".paper-panel\") && document.querySelector(\".paper-panel\").innerText.includes(\"锁开了。\") && document.querySelector(\".paper-panel\").innerText.includes(\"樟木箱\")"
+    },
+    "ganzhi": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && !!document.querySelector(\".paper-panel\") && document.querySelector(\".paper-panel\").innerText.includes(\"锁开了。门轴\") && document.querySelector(\".paper-panel\").innerText.includes(\"义庄内\")"
+    },
+    "shengxiao": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && !!document.querySelector(\".paper-panel\") && document.querySelector(\".paper-panel\").innerText.includes(\"最后一块牌位归位\") && document.querySelector(\".paper-panel\").innerText.includes(\"暗格\")"
+    },
+    "ritual": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && !!document.querySelector(\".paper-panel\") && document.querySelector(\".paper-panel\").innerText.includes(\"净手。请灵。焚书。断线。\")"
+    },
+    "ded_axiu": {
+      "type": "js_truthy",
+      "expr": "Array.from(document.querySelectorAll('.fixed.inset-0.z-40 .paper-panel div')).some(e => e.textContent.trim() === \"推理成立：阿秀其人\" && e.getClientRects().length > 0)"
+    },
+    "ded_minghun": {
+      "type": "js_truthy",
+      "expr": "Array.from(document.querySelectorAll('.fixed.inset-0.z-40 .paper-panel div')).some(e => e.textContent.trim() === \"推理成立：冥婚真相\" && e.getClientRects().length > 0)"
+    },
+    "ded_touqi": {
+      "type": "js_truthy",
+      "expr": "Array.from(document.querySelectorAll('.fixed.inset-0.z-40 .paper-panel div')).some(e => e.textContent.trim() === \"推理成立：头七之约\" && e.getClientRects().length > 0)"
+    },
+    "ded_self": {
+      "type": "js_truthy",
+      "expr": "Array.from(document.querySelectorAll('.fixed.inset-0.z-40 .paper-panel div')).some(e => e.textContent.trim() === \"推理成立：我是谁\" && e.getClientRects().length > 0)"
+    },
+    "end_good": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && Array.from(document.querySelectorAll('.paper-panel .opacity-100')).some(p => Array.from(p.querySelectorAll('div')).some(e => e.textContent.trim() === \"「归土」\") && Array.from(p.querySelectorAll('button')).some(e => e.textContent.trim() === '返回标题 · 开始新的周目'))"
+    },
+    "end_vigil": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && Array.from(document.querySelectorAll('.paper-panel .opacity-100')).some(p => Array.from(p.querySelectorAll('div')).some(e => e.textContent.trim() === \"「守夜」\") && Array.from(p.querySelectorAll('button')).some(e => e.textContent.trim() === '返回标题 · 开始新的周目'))"
+    },
+    "end_double": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && Array.from(document.querySelectorAll('.paper-panel .opacity-100')).some(p => Array.from(p.querySelectorAll('div')).some(e => e.textContent.trim() === \"「替身」\") && Array.from(p.querySelectorAll('button')).some(e => e.textContent.trim() === '返回标题 · 开始新的周目'))"
+    },
+    "end_bride": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && Array.from(document.querySelectorAll('.paper-panel .opacity-100')).some(p => Array.from(p.querySelectorAll('div')).some(e => e.textContent.trim() === \"「新娘」\") && Array.from(p.querySelectorAll('button')).some(e => e.textContent.trim() === '返回标题 · 开始新的周目'))"
+    },
+    "end_sacrifice": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && Array.from(document.querySelectorAll('.paper-panel .opacity-100')).some(p => Array.from(p.querySelectorAll('div')).some(e => e.textContent.trim() === \"「替嫁」\") && Array.from(p.querySelectorAll('button')).some(e => e.textContent.trim() === '返回标题 · 开始新的周目'))"
+    },
+    "end_flee": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && Array.from(document.querySelectorAll('.paper-panel .opacity-100')).some(p => Array.from(p.querySelectorAll('div')).some(e => e.textContent.trim() === \"「出村」\") && Array.from(p.querySelectorAll('button')).some(e => e.textContent.trim() === '返回标题 · 开始新的周目'))"
+    },
+    "end_hidden": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && Array.from(document.querySelectorAll('.paper-panel .opacity-100')).some(p => Array.from(p.querySelectorAll('div')).some(e => e.textContent.trim() === \"「头七」\") && Array.from(p.querySelectorAll('button')).some(e => e.textContent.trim() === '返回标题 · 开始新的周目'))"
+    },
+    "end_sanity": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && Array.from(document.querySelectorAll('.paper-panel .opacity-100')).some(p => Array.from(p.querySelectorAll('div')).some(e => e.textContent.trim() === \"「纸人」\") && Array.from(p.querySelectorAll('button')).some(e => e.textContent.trim() === '返回标题 · 开始新的周目'))"
+    },
+    "end_yang": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && Array.from(document.querySelectorAll('.paper-panel .opacity-100')).some(p => Array.from(p.querySelectorAll('div')).some(e => e.textContent.trim() === \"「阳尽」\") && Array.from(p.querySelectorAll('button')).some(e => e.textContent.trim() === '返回标题 · 开始新的周目'))"
+    },
+    "end_hp": {
+      "type": "js_truthy",
+      "expr": "!document.querySelector('.fixed.inset-0.z-40') && Array.from(document.querySelectorAll('.paper-panel .opacity-100')).some(p => Array.from(p.querySelectorAll('div')).some(e => e.textContent.trim() === \"「力竭」\") && Array.from(p.querySelectorAll('button')).some(e => e.textContent.trim() === '返回标题 · 开始新的周目'))"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "wuxing",
+      "hook": "wuxing",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "ganzhi",
+      "hook": "ganzhi",
+      "op": "truthy"
+    },
+    {
+      "id": "shengxiao",
+      "hook": "shengxiao",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "ritual",
+      "hook": "ritual",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "ded_axiu",
+      "hook": "ded_axiu",
+      "op": "truthy"
+    },
+    {
+      "id": "ded_minghun",
+      "hook": "ded_minghun",
+      "op": "truthy"
+    },
+    {
+      "id": "ded_touqi",
+      "hook": "ded_touqi",
+      "op": "truthy"
+    },
+    {
+      "id": "ded_self",
+      "hook": "ded_self",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "hidden",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "end_hidden",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": null,
+  "terminal_failures": [
+    {
+      "id": "death_sanity",
+      "hook": "end_sanity",
+      "op": "truthy"
+    },
+    {
+      "id": "death_yang",
+      "hook": "end_yang",
+      "op": "truthy"
+    },
+    {
+      "id": "death_hp",
+      "hook": "end_hp",
+      "op": "truthy"
+    }
+  ],
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

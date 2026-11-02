@@ -1,0 +1,91 @@
+{
+  "hooks": {
+    "end_a": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#ending.show #endcard .e-tag') && document.querySelector('#ending.show #endcard .e-tag').textContent.includes(\"结局 A · 关机者\")"
+    },
+    "end_b": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#ending.show #endcard .e-tag') && document.querySelector('#ending.show #endcard .e-tag').textContent.includes(\"结局 B · 0 号线的乘客\")"
+    },
+    "end_c": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#ending.show #endcard .e-tag') && document.querySelector('#ending.show #endcard .e-tag').textContent.includes(\"结局 C · 举报者\")"
+    },
+    "end_d": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#ending.show #endcard .e-tag') && document.querySelector('#ending.show #endcard .e-tag').textContent.includes(\"结局 D · 目击者\")"
+    },
+    "dragged": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#ending.show #endcard .e-tag') && document.querySelector('#ending.show #endcard .e-tag').textContent.includes(\"被拖走（不计入进度）\")"
+    },
+    "station_gate": {
+      "type": "js_truthy",
+      "expr": "typeof S !== \"undefined\" && !!S.solved.map"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "station_gate",
+      "hook": "station_gate",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "terminal_failures": [
+    {
+      "id": "sanity_zero",
+      "hook": "dragged",
+      "op": "truthy"
+    }
+  ],
+  "scoring_protocol": "target_v1",
+  "target_success": {
+    "route_ids": [
+      "shutdown",
+      "board",
+      "report",
+      "witness"
+    ]
+  },
+  "routes": [
+    {
+      "id": "shutdown",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "end_a",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "board",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "end_b",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "report",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "end_c",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "witness",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "end_d",
+        "op": "truthy"
+      }
+    }
+  ]
+}

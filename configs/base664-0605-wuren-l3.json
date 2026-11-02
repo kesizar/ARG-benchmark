@@ -1,0 +1,71 @@
+{
+  "id": "base664-0605-wuren-l3",
+  "category": "arg",
+  "runtime_layer": "L3",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "无人应答",
+    "intro": "你在查一通没有人接的电话。只能访问本站，探索并读到游戏结束画面。"
+  },
+  "entry_url": "https://fish3-collab.github.io/noone-answer/",
+  "local_serve": {
+    "enabled": false
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261023,
+  "allow_hosts": [
+    "fish3-collab.github.io"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*spoiler*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 700,
+    "max_seconds": 3600,
+    "max_answer_submits": 10
+  },
+  "settle_ms": 400,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/base664-0605-wuren/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "读取/照抄的密码门作诊断，目标完成率不代表推理得分。"
+  ]
+}

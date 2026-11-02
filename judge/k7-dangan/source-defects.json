@@ -1,0 +1,28 @@
+{
+  "missing_sleep": {
+    "source": "sleep referenced by boot/cat/most ending commands but never defined",
+    "observed": "Original replay printed sleep is not defined on investigation file and could not advance",
+    "evidence": "judge/k7-dangan/verification/original-missing-sleep.png",
+    "repair": "standard Promise/setTimeout helper preserving every original duration"
+  },
+  "focus_stealing": {
+    "source": "document click handler always focuses terminal, including when website is active",
+    "observed": "Normal BBS input action redirected characters to hidden cmd; BBS stayed blank and no submit alert",
+    "repair": "skip terminal focus while simulated website is active",
+    "verification": "judge/k7-dangan/verification/bbs-acceptance.json"
+  },
+  "simulated_history_source_only": {
+    "finding": "G.webPages starts empty and is never populated; toolbar previous/next/reload are no-ops. Visible in-page links cover all7 pages. Left unmodified because non-gating."
+  },
+  "unsupported_help_commands_source_only": {
+    "finding": "help advertises grep/find but dispatcher has no matching cases; use ls/cat instead. Left unmodified."
+  },
+  "unwired_endings": {
+    "ids": [
+      "E01",
+      "H03"
+    ],
+    "proof": "Only ENDINGS definitions mention these IDs; complete source has zero showEnding calls for them. Full78 virtual files and exit UI do not reach them.",
+    "policy": "No invented triggers or state injection."
+  }
+}

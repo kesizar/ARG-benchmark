@@ -1,0 +1,40 @@
+{
+  "localization": [
+    {
+      "file": "index.html",
+      "only_declared_URL_and_line_ending_changes": true,
+      "source_crlf": 1237,
+      "local_crlf": 1237,
+      "sha256": "ffbc9f8cecb555cd0b2e8a117c6c4e37dcac2c7a75b3e97b424430161625c4eb",
+      "remote_resource_attributes": []
+    },
+    {
+      "file": "school.html",
+      "only_declared_URL_and_line_ending_changes": false,
+      "source_crlf": 571,
+      "local_crlf": 571,
+      "sha256": "ccf5e3dcba4ebbae3430742fa601ec5a2a4c5314aca06dcc4fbb90acad0ecdfc",
+      "remote_resource_attributes": [],
+      "additional_declared_changes": "exactly z-index:120->320, z-index:250->350",
+      "presentation_diff": "layer-compatibility.diff"
+    },
+    {
+      "file": "forum.html",
+      "only_declared_URL_and_line_ending_changes": true,
+      "source_crlf": 1468,
+      "local_crlf": 1468,
+      "sha256": "1ac5d764c61fe7bf679f982d48cab3b6b5432bb8d458eac6d441b5cd36971f6d",
+      "remote_resource_attributes": []
+    }
+  ],
+  "entry_revision_diff": "source/entry-revision.diff",
+  "entry_difference_lines": 0,
+  "host_encoding_compatibility": "qingshu_serve.py sends UTF-8 Content-Type, matching official Pages; historical meta uses non-ASCII hyphen",
+  "no_paid_api_calls": true,
+  "clock_test": {
+    "mechanism": "Playwright page.clock.set_fixed_time(datetime.datetime(2026,10,26,18,tzinfo=datetime.timezone.utc))",
+    "displayed_local_time": "2026-10-27 02:00 Asia/Shanghai",
+    "effect": "Date is fixed for night_owl testing; ordinary timeout delays continue; no clock.install/fast_forward, no natural-night-wait claim",
+    "reuse": "previous 12-achievement UI test unchanged forum bytes; not rerun after CSS-only school compatibility patch"
+  }
+}

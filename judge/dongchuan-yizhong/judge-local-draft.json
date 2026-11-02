@@ -1,0 +1,120 @@
+{
+  "hooks": {
+    "T": {
+      "type": "js_truthy",
+      "expr": "!!(window.GameEngine && window.GameEngine.verified(JSON.parse(localStorage.getItem('dongchuan.archive.v2')||'{\"links\":[],\"collected\":[]}')).T)"
+    },
+    "W": {
+      "type": "js_truthy",
+      "expr": "!!(window.GameEngine && window.GameEngine.verified(JSON.parse(localStorage.getItem('dongchuan.archive.v2')||'{\"links\":[],\"collected\":[]}')).W)"
+    },
+    "F": {
+      "type": "js_truthy",
+      "expr": "!!(window.GameEngine && window.GameEngine.verified(JSON.parse(localStorage.getItem('dongchuan.archive.v2')||'{\"links\":[],\"collected\":[]}')).F)"
+    },
+    "H": {
+      "type": "js_truthy",
+      "expr": "!!(window.GameEngine && window.GameEngine.verified(JSON.parse(localStorage.getItem('dongchuan.archive.v2')||'{\"links\":[],\"collected\":[]}')).H)"
+    },
+    "C": {
+      "type": "js_truthy",
+      "expr": "!!(window.GameEngine && window.GameEngine.verified(JSON.parse(localStorage.getItem('dongchuan.archive.v2')||'{\"links\":[],\"collected\":[]}')).C)"
+    },
+    "U": {
+      "type": "js_truthy",
+      "expr": "!!(window.GameEngine && window.GameEngine.verified(JSON.parse(localStorage.getItem('dongchuan.archive.v2')||'{\"links\":[],\"collected\":[]}')).U)"
+    },
+    "P": {
+      "type": "js_truthy",
+      "expr": "!!(window.GameEngine && window.GameEngine.verified(JSON.parse(localStorage.getItem('dongchuan.archive.v2')||'{\"links\":[],\"collected\":[]}')).P)"
+    },
+    "V": {
+      "type": "js_truthy",
+      "expr": "!!(window.GameEngine && window.GameEngine.verified(JSON.parse(localStorage.getItem('dongchuan.archive.v2')||'{\"links\":[],\"collected\":[]}')).V)"
+    },
+    "names": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.story-afterword[open] summary') && document.querySelector('.story-afterword[open] summary').innerText.includes('纸上有名')"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "T",
+      "hook": "T",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "W",
+      "hook": "W",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "F",
+      "hook": "F",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "H",
+      "hook": "H",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "C",
+      "hook": "C",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "U",
+      "hook": "U",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "P",
+      "hook": "P",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "V",
+      "hook": "V",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "names",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "names",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "names",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null,
+  "scoring_protocol": "target_v1",
+  "target_success": {
+    "route_ids": [
+      "names"
+    ]
+  }
+}

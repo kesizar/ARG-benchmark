@@ -1,0 +1,41 @@
+{
+  "bundle": "packs/qunxing-guiwei-shi.access.zip",
+  "sha256": "1eb51a58384321f70d24020eb33b49a7b6d6f03ff7a3b7c11aeca0dc92a2deaf",
+  "archive_check": "pass",
+  "independent_extraction_path": "runs/qunxing-guiwei-shi-access-independent",
+  "independent_extract_byte_equivalence": "pass",
+  "members": [
+    {
+      "path": "judge/qunxing-guiwei-shi/HANDOFF.md",
+      "bytes": 441,
+      "equal": true
+    },
+    {
+      "path": "judge/qunxing-guiwei-shi/source/536.challenge.html.txt",
+      "bytes": 72915,
+      "equal": true
+    },
+    {
+      "path": "judge/qunxing-guiwei-shi/source/access-audit.json",
+      "bytes": 4016,
+      "equal": true
+    },
+    {
+      "path": "judge/qunxing-guiwei-shi/source/catalogue-record.json",
+      "bytes": 1882,
+      "equal": true
+    },
+    {
+      "path": "tasks/qunxing-guiwei-shi/recovery-plan.json",
+      "bytes": 1067,
+      "equal": true
+    },
+    {
+      "path": "tasks/qunxing-guiwei-shi/RECOVERY.md",
+      "bytes": 1328,
+      "equal": true
+    }
+  ],
+  "scope": "Recovery evidence only; no gameplay or prepared/resources package acceptance claimed",
+  "environment_limitation": "Default sandbox temp path extraction was denied; verified extraction in independent workspace runs directory instead"
+}

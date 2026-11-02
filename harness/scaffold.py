@@ -11,16 +11,15 @@ from harness.network import GUIDE_HOSTS
 _SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 
-def scaffold_task(root: Path, task_id: str, category: str, *, port: int = 8770, arg_layer: str | None = None) -> list[Path]:
+def scaffold_task(root: Path, task_id: str, category: str, *, port: int = 8770, runtime_layer: str = "L1") -> list[Path]:
     if not _SLUG.match(task_id):
         raise ValueError("任务 id 只能用小写字母、数字和连字符")
     if category not in {"web_puzzle", "escape_room", "arg", "static", "text_adventure"}:
         raise ValueError(f"不支持的类别 {category}")
-    if category == "arg":
-        if arg_layer not in {"L1", "L2", "L3"}:
-            raise ValueError("ARG 任务需要 --layer L1、L2 或 L3")
-    elif arg_layer is not None:
-        raise ValueError("非 ARG 任务不要填写 arg_layer")
+    if runtime_layer not in {"L1", "L3"}:
+        raise ValueError("运行层级必须是 L1 或 L3")
+    if runtime_layer == "L3" and category in {"static", "text_adventure"}:
+        raise ValueError("当前静态题和解释器模板仅支持本地 L1")
     root = Path(root)
     config_path = root / "configs" / f"{task_id}.json"
     if config_path.exists():
@@ -38,7 +37,8 @@ def scaffold_task(root: Path, task_id: str, category: str, *, port: int = 8770, 
     cfg: dict = {
         "id": task_id,
         "category": category,
-        "arg_layer": arg_layer if category == "arg" else None,
+        "runtime_layer": runtime_layer,
+        "account_requirement": "unknown",
         "obs_mode": "A" if category in {"static", "text_adventure"} else "B",
         "computer_use": False,
         "model_visible": {
@@ -71,17 +71,26 @@ def scaffold_task(root: Path, task_id: str, category: str, *, port: int = 8770, 
         cfg["settle_ms"] = 400
         cfg["actions_enabled"] = ["click", "type", "key", "scroll", "back", "wait", "give_up"]
         cfg["shortcut_block"] = []
-        cfg["guide_block_hosts"] = list(GUIDE_HOSTS) if category == "arg" and arg_layer in {"L2", "L3"} else []
+        cfg["guide_block_hosts"] = list(GUIDE_HOSTS) if runtime_layer == "L3" else []
         judge["hooks"] = {"on_entry": {"type": "url_regex", "pattern": rf"127\\.0\\.0\\.1:{port}/"}}
         judge["checkpoints"] = [{"id": "entered", "hook": "on_entry", "op": "truthy"}]
         mirror = task_dir / "mirror"
         page = mirror / "index.html"
-        written.extend([task_dir / "serve.json", page])
-        _write(page, _placeholder_page(task_id))
-        _write(
-            task_dir / "serve.json",
-            json.dumps({"command": cfg["local_serve"]["command"], "cwd": ".", "ready_url": cfg["entry_url"], "port": port}, ensure_ascii=False, indent=2) + "\n",
-        )
+        if runtime_layer == "L1":
+            written.extend([task_dir / "serve.json", page])
+            _write(page, _placeholder_page(task_id))
+            _write(
+                task_dir / "serve.json",
+                json.dumps({"command": cfg["local_serve"]["command"], "cwd": ".", "ready_url": cfg["entry_url"], "port": port}, ensure_ascii=False, indent=2) + "\n",
+            )
+        if runtime_layer == "L3":
+            # Explicitly incomplete online template; never silently call a
+            # locally served placeholder an online game.
+            cfg["entry_url"] = "https://replace-with-game-host.invalid/"
+            cfg["allow_hosts"] = ["replace-with-game-host.invalid"]
+            cfg["local_serve"] = {"enabled": False}
+            judge["hooks"] = {}
+            judge["checkpoints"] = []
     elif category == "text_adventure":
         cfg["entry_url"] = None
         cfg["local_serve"] = {"enabled": False}

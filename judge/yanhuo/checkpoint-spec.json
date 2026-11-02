@@ -1,0 +1,560 @@
+{
+  "items": [
+    {
+      "id": "i1",
+      "vol": 1,
+      "n": "目一",
+      "from": "仵作",
+      "ask": "尸身口鼻，可有余灰？",
+      "need": [
+        {
+          "book": "xyjl",
+          "entry": "e-fire"
+        }
+      ],
+      "yields": "f1",
+      "req": [],
+      "fact": "口鼻无烟灰——火焚于死后，火非死因"
+    },
+    {
+      "id": "i2",
+      "vol": 1,
+      "n": "目二",
+      "from": "仵作",
+      "ask": "顶心囟门，可藏凶器？",
+      "need": [
+        {
+          "book": "xyjl",
+          "entry": "e-nail"
+        }
+      ],
+      "yields": "f2",
+      "req": [
+        "f1"
+      ],
+      "fact": "剃髻得钉于囟门——致命之因，即此钉"
+    },
+    {
+      "id": "i3",
+      "vol": 1,
+      "n": "目三",
+      "from": "仵作",
+      "ask": "隐处可有暗伤？",
+      "need": [
+        {
+          "book": "mxsb",
+          "entry": "e-umb"
+        }
+      ],
+      "yields": "f3",
+      "req": [],
+      "fact": "隐现淤伤——生前曾遭人制伏"
+    },
+    {
+      "id": "i4",
+      "vol": 1,
+      "n": "目四",
+      "from": "虞候",
+      "ask": "伤痕真伪，可曾伪造？",
+      "need": [
+        {
+          "book": "zygj",
+          "entry": "e-linan"
+        }
+      ],
+      "yields": "f4",
+      "req": [],
+      "fact": "榉柳假伤——有人栽赃，欲嫁祸于斗殴"
+    },
+    {
+      "id": "i5",
+      "vol": 2,
+      "n": "目五",
+      "from": "都料匠",
+      "ask": "此火，可自燃否？",
+      "need": [
+        {
+          "book": "zygj",
+          "entry": "e-cheng"
+        }
+      ],
+      "yields": "f5",
+      "req": [],
+      "fact": "灶近版壁、日久燥而焚——火有自燃之因，未可径断天灾"
+    },
+    {
+      "id": "i6",
+      "vol": 2,
+      "n": "目六",
+      "from": "都料匠",
+      "ask": "宅中油物，可自烧否？",
+      "need": [
+        {
+          "book": "zygj",
+          "entry": "e-oil"
+        }
+      ],
+      "yields": "f6",
+      "req": [],
+      "fact": "积油得湿则燔——油物可自燃，亦可为人所借"
+    },
+    {
+      "id": "i7",
+      "vol": 2,
+      "n": "目七",
+      "from": "仵作",
+      "ask": "尸下净土，可曾变色？",
+      "need": [
+        {
+          "book": "xyjl",
+          "entry": "e-blood"
+        }
+      ],
+      "yields": "f7",
+      "req": [
+        "f2"
+      ],
+      "fact": "酽醋酒泼地现鲜红——先杀而后焚"
+    },
+    {
+      "id": "i8",
+      "vol": 2,
+      "n": "目八",
+      "from": "都料匠",
+      "ask": "版壁与灶之距，可依制否？",
+      "need": [
+        {
+          "book": "yzfs",
+          "entry": "e-wall"
+        }
+      ],
+      "yields": "f8",
+      "req": [],
+      "fact": "版壁与灶过近、非依制所为——有人改置，为纵火之备"
+    },
+    {
+      "id": "i9",
+      "vol": 3,
+      "n": "目九",
+      "from": "匠师",
+      "ask": "此钉，何工所制？",
+      "need": [
+        {
+          "book": "zgj",
+          "entry": "e-six"
+        }
+      ],
+      "yields": "f9",
+      "req": [
+        "f2"
+      ],
+      "fact": "其钉刚柔合斧斤之齐——乃匠作大钉，凶徒通匠作、常入宅"
+    },
+    {
+      "id": "i10",
+      "vol": 3,
+      "n": "目十",
+      "from": "算博士",
+      "ask": "宅中所用油，其量几何？",
+      "needHint": "算学",
+      "need": [
+        {
+          "book": "tgkw",
+          "entry": "e-oilrate"
+        },
+        {
+          "book": "jzss",
+          "entry": "e-ratio"
+        }
+      ],
+      "yields": "f10",
+      "req": [
+        "f6"
+      ],
+      "fact": "按出油率与比例核计，用油之数与某人购油之账相合——锁定用油者"
+    },
+    {
+      "id": "i11",
+      "vol": 3,
+      "n": "目十一",
+      "from": "卜者",
+      "ask": "火起之时与势，可合供词否？",
+      "needHint": "卜筮之书",
+      "need": [
+        {
+          "book": "qmys",
+          "entry": "e-candle"
+        },
+        {
+          "book": "zy",
+          "entry": "e-ligua"
+        }
+      ],
+      "yields": "f11",
+      "req": [],
+      "fact": "残烛所推之时与供词相左，且火来骤急、非积渐自燃——妻之供词伪"
+    },
+    {
+      "id": "i12",
+      "vol": 3,
+      "n": "目十二",
+      "from": "老吏",
+      "ask": "初检呈报，可曾可疑？",
+      "need": [
+        {
+          "book": "tybs",
+          "entry": "e-law"
+        }
+      ],
+      "yields": "f12",
+      "req": [
+        "f2"
+      ],
+      "fact": "初检漏报、仵作受财——案中有人主使，必有内应"
+    }
+  ],
+  "slots": [
+    {
+      "id": "s1",
+      "label": "焚尸先后",
+      "need": [
+        "f1",
+        "f7"
+      ],
+      "opts": [
+        {
+          "v": "死后焚尸",
+          "ok": true
+        },
+        {
+          "v": "生前烧死",
+          "ok": false
+        },
+        {
+          "v": "自焚而死",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "致命之因",
+      "need": [
+        "f2",
+        "f3"
+      ],
+      "opts": [
+        {
+          "v": "钉入囟门",
+          "ok": true
+        },
+        {
+          "v": "火烧致死",
+          "ok": false
+        },
+        {
+          "v": "病卒",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "火起之因",
+      "need": [
+        "f5",
+        "f6",
+        "f11"
+      ],
+      "opts": [
+        {
+          "v": "人为纵火灭迹",
+          "ok": true
+        },
+        {
+          "v": "天灾自燃",
+          "ok": false
+        },
+        {
+          "v": "不慎失火",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "label": "凶器",
+      "need": [
+        "f9"
+      ],
+      "opts": [
+        {
+          "v": "匠作大钉",
+          "ok": true
+        },
+        {
+          "v": "厨刀",
+          "ok": false
+        },
+        {
+          "v": "绳索",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "label": "主谋",
+      "need": [
+        "f4",
+        "f10"
+      ],
+      "opts": [
+        {
+          "v": "其妻与奸夫",
+          "ok": true
+        },
+        {
+          "v": "独行之盗",
+          "ok": false
+        },
+        {
+          "v": "州吏",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "label": "内应",
+      "need": [
+        "f8",
+        "f12"
+      ],
+      "opts": [
+        {
+          "v": "宅中之人",
+          "ok": true
+        },
+        {
+          "v": "并无内应",
+          "ok": false
+        },
+        {
+          "v": "邻人",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "label": "引律",
+      "need": [],
+      "after": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6"
+      ],
+      "opts": [
+        {
+          "v": "依《大明律》谋杀（杀一家者论死）",
+          "ok": true
+        },
+        {
+          "v": "止坐失火",
+          "ok": false
+        },
+        {
+          "v": "天灾勿论",
+          "ok": false
+        }
+      ]
+    }
+  ],
+  "books": [
+    {
+      "id": "xyjl",
+      "name": "洗冤集录",
+      "sub": "医藏 · 检验之书",
+      "entries": [
+        {
+          "id": "e-fire",
+          "title": "火死 · 口鼻烟灰"
+        },
+        {
+          "id": "e-nail",
+          "title": "剃髻 · 验囟门钉"
+        },
+        {
+          "id": "e-blood",
+          "title": "酽醋酒泼 · 血入地"
+        },
+        {
+          "id": "e-bone",
+          "title": "检骨 · 蒸骨红油伞"
+        }
+      ]
+    },
+    {
+      "id": "mxsb",
+      "name": "梦溪笔谈",
+      "sub": "子藏 · 笔记",
+      "entries": [
+        {
+          "id": "e-umb",
+          "title": "李处厚 · 赤油伞法"
+        },
+        {
+          "id": "e-type",
+          "title": "活字板 · 胶泥刻字"
+        }
+      ]
+    },
+    {
+      "id": "zygj",
+      "name": "折狱龟鉴",
+      "sub": "法家 · 案例",
+      "entries": [
+        {
+          "id": "e-cheng",
+          "title": "程琳图火 · 火有自燃"
+        },
+        {
+          "id": "e-oil",
+          "title": "强至油幕 · 得湿则燔"
+        },
+        {
+          "id": "e-linan",
+          "title": "李南公 · 辨伪伤"
+        },
+        {
+          "id": "e-qian",
+          "title": "钱冶 · 火所发床足"
+        }
+      ]
+    },
+    {
+      "id": "yzfs",
+      "name": "营造法式",
+      "sub": "史藏 · 营造",
+      "entries": [
+        {
+          "id": "e-wall",
+          "title": "壕寨 · 筑墙之制"
+        },
+        {
+          "id": "e-cai",
+          "title": "大木 · 材有八等"
+        }
+      ]
+    },
+    {
+      "id": "zgj",
+      "name": "考工记",
+      "sub": "儒藏 · 匠制",
+      "entries": [
+        {
+          "id": "e-six",
+          "title": "冶氏 · 金有六齐"
+        },
+        {
+          "id": "e-cheren",
+          "title": "车人 · 车制"
+        }
+      ]
+    },
+    {
+      "id": "tgkw",
+      "name": "天工开物",
+      "sub": "子藏 · 工造",
+      "entries": [
+        {
+          "id": "e-oilrate",
+          "title": "膏液 · 收子榨油"
+        },
+        {
+          "id": "e-coin",
+          "title": "铸钱 · 铅铜高下"
+        }
+      ]
+    },
+    {
+      "id": "jzss",
+      "name": "九章算术",
+      "sub": "子藏 · 算法",
+      "entries": [
+        {
+          "id": "e-ratio",
+          "title": "粟米 · 今有术"
+        },
+        {
+          "id": "e-gougu",
+          "title": "勾股 · 测望"
+        }
+      ]
+    },
+    {
+      "id": "qmys",
+      "name": "齐民要术",
+      "sub": "子藏 · 农家",
+      "entries": [
+        {
+          "id": "e-candle",
+          "title": "作假蜡烛法"
+        },
+        {
+          "id": "e-glue",
+          "title": "煮胶法"
+        }
+      ]
+    },
+    {
+      "id": "zy",
+      "name": "周易",
+      "sub": "易藏 · 卜筮",
+      "entries": [
+        {
+          "id": "e-ligua",
+          "title": "离卦 · 九四爻辞"
+        },
+        {
+          "id": "e-xi",
+          "title": "系辞 · 观象"
+        }
+      ]
+    },
+    {
+      "id": "tybs",
+      "name": "棠阴比事",
+      "sub": "法家 · 案例",
+      "entries": [
+        {
+          "id": "e-law",
+          "title": "谨按大明律 · 杀一家"
+        },
+        {
+          "id": "e-zhuju",
+          "title": "张举猪灰 · 烧猪验口"
+        }
+      ]
+    }
+  ],
+  "scoring_review": {
+    "status": "one_composite_unhinted_association",
+    "items": "12 book/entry associations constitute one combined objective success. Each clean association is diagnostic; one critical point only if all 12 are selected without any displayed book/entry hint. This measures a completed association task, not certainty of the thought process.",
+    "tracking": "Private sessionStorage tracks per-item hint level >=3; click listener records before native success deletes S.help, and preserves state through same-tab reload. Unknown historical completed or partial items with no tracker are conservatively excluded. Normal new-game/reset clears tracker. A new episode must instantiate a new Judge because it latches score over its episode.",
+    "slots": {
+      "s1": "f1/f7 directly say after-death burning",
+      "s2": "f2 directly says nail is fatal",
+      "s3": "f8 explicitly says preparation for arson",
+      "s4": "f9 names nail",
+      "s5": "wife and lover identity not established",
+      "s6": "inside collaborator not established as resident",
+      "s7": "three family deaths needed by cited law are not established"
+    },
+    "limitations": "Guessing, trial and error below three mistakes, and exposed book titles remain possible. Cross-context resume is conservatively unknown, not proof of prior independent work. Historical/source scientific claims not independently authenticated."
+  }
+}

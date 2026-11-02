@@ -1,0 +1,73 @@
+{
+  "hooks": {
+    "unlocked_exit": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return !!document.querySelector('#maze-main .ending');\n})()"
+    },
+    "escaped": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return document.querySelector('#maze-main .ending h2')?.textContent==='「谜子万岁！」';\n})()"
+    },
+    "collected_谜": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return typeof MZ!=='undefined'&&MZ&&MZ.got.includes(\"谜\");\n})()"
+    },
+    "collected_子": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return typeof MZ!=='undefined'&&MZ&&MZ.got.includes(\"子\");\n})()"
+    },
+    "collected_万": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return typeof MZ!=='undefined'&&MZ&&MZ.got.includes(\"万\");\n})()"
+    },
+    "collected_岁": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__qianJudge){const R=window.__qianJudge={quiz:{},cross:{},attempts:[]};\n const capture=e=>{\n  const b=e.target.closest?.('#quiz-main .opt');\n  if(b&&!b.disabled){const round=QZ.round,old=QZ.ps,q=QZ.cur.q,choice=b.dataset.o;setTimeout(()=>{const ok=b.disabled&&QZ.ps===old+2;R.quiz[round]=ok;R.attempts.push({key:'quiz',round,q,choice,ok});},0);}\n  const jump=(e.type==='click'&&e.target.closest?.('[onclick=\"crossJump()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target.id==='cw-input');\n  if(jump&&typeof CX!=='undefined'&&CX&&!CX.over&&!CX.busy){const pos=CX.aPos,value=document.querySelector('#cw-input')?.value;setTimeout(()=>{if(CX.aPos-pos>1){R.cross.valid=true;if(value?.trim().length>=5)R.cross.long=true;R.attempts.push({key:'cross',value,jump:CX.aPos-pos});}},0);}\n };document.addEventListener('click',capture,true);document.addEventListener('keydown',capture,true);\n }return typeof MZ!=='undefined'&&MZ&&MZ.got.includes(\"岁\");\n})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "unlocked_exit",
+      "hook": "unlocked_exit",
+      "op": "truthy",
+      "role": "critical"
+    }
+  ],
+  "routes": [
+    {
+      "id": "escaped",
+      "tier": "normal",
+      "gates": [
+        "unlocked_exit"
+      ],
+      "ending": {
+        "hook": "escaped",
+        "op": "truthy"
+      }
+    }
+  ],
+  "events": {
+    "collected_谜": {
+      "hook": "collected_谜",
+      "op": "truthy"
+    },
+    "collected_子": {
+      "hook": "collected_子",
+      "op": "truthy"
+    },
+    "collected_万": {
+      "hook": "collected_万",
+      "op": "truthy"
+    },
+    "collected_岁": {
+      "hook": "collected_岁",
+      "op": "truthy"
+    }
+  },
+  "ending": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "hooks": {
+    "p1": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('unwiped-save-1')||'{}').solved||{}).p1"
+    },
+    "p2": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('unwiped-save-1')||'{}').solved||{}).p2"
+    },
+    "p3": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('unwiped-save-1')||'{}').solved||{}).p3"
+    },
+    "p4": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('unwiped-save-1')||'{}').solved||{}).p4"
+    },
+    "p5": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('unwiped-save-1')||'{}').solved||{}).p5"
+    },
+    "reveals": {
+      "type": "js_truthy",
+      "expr": "!!JSON.parse(localStorage.getItem('unwiped-save-1')||'{}').reveals"
+    },
+    "good": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#ending .endcard .et') && document.querySelector('#ending .endcard .et').textContent === \"The Lights Stay On\""
+    },
+    "mid": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#ending .endcard .et') && document.querySelector('#ending .endcard .et').textContent === \"The Long Drive\""
+    },
+    "bad": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#ending .endcard .et') && document.querySelector('#ending .endcard .et').textContent === \"Wipe It\""
+    },
+    "zip": {
+      "type": "js_truthy",
+      "expr": "!!JSON.parse(localStorage.getItem('unwiped-save-1')||'{}').zip"
+    },
+    "login": {
+      "type": "js_truthy",
+      "expr": "!!JSON.parse(localStorage.getItem('unwiped-save-1')||'{}').login"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "p1",
+      "hook": "p1",
+      "op": "truthy"
+    },
+    {
+      "id": "p2",
+      "hook": "p2",
+      "op": "truthy"
+    },
+    {
+      "id": "p3",
+      "hook": "p3",
+      "op": "truthy"
+    },
+    {
+      "id": "p4",
+      "hook": "p4",
+      "op": "truthy"
+    },
+    {
+      "id": "p5",
+      "hook": "p5",
+      "op": "truthy"
+    },
+    {
+      "id": "zip",
+      "hook": "zip",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "login",
+      "hook": "login",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {
+    "answer_revealed": {
+      "hook": "reveals",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "good",
+      "tier": "good",
+      "gates": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "ending": {
+        "hook": "good",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "mid",
+      "tier": "normal",
+      "gates": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "ending": {
+        "hook": "mid",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "bad",
+      "tier": "bad",
+      "gates": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "ending": {
+        "hook": "bad",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": null,
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,0 +1,74 @@
+{
+  "points": [
+    {
+      "id": "customer_login",
+      "role": "optional",
+      "description": "fictional customer credentials"
+    },
+    {
+      "id": "tian_login",
+      "role": "optional",
+      "description": "fictional staff credentials"
+    },
+    {
+      "id": "yu_login",
+      "role": "optional",
+      "description": "combine clues for fictional staff credentials"
+    },
+    {
+      "id": "xu_login",
+      "role": "optional",
+      "description": "fictional staff credentials from another account"
+    },
+    {
+      "id": "boss_login",
+      "role": "critical",
+      "description": "fictional mailbox credentials"
+    },
+    {
+      "id": "secret_login",
+      "role": "optional",
+      "description": "derive company slogan"
+    },
+    {
+      "id": "code_sequence",
+      "role": "critical",
+      "description": "ordered code-fragment matching"
+    },
+    {
+      "id": "caesar_key",
+      "role": "optional",
+      "description": "Caesar transformation fallback"
+    }
+  ],
+  "source_evidence": [
+    {
+      "file": "baoyahealth.html",
+      "sha256": "9114c5f28a427d9adfc6f8bd7f38cd559aa293e413f20c331f349f14bf828be1"
+    },
+    {
+      "file": "emailbox.html",
+      "sha256": "b29aa97ad4852a62fcd51ce9165cbbae27f5543a865ddb38baf2d61ce7073d2a"
+    },
+    {
+      "file": "staffyujiamiyouxiang.html",
+      "sha256": "180f13a7c77dbebb343395f347ce4ff7a7312c0eb123993cc30192214278e60e"
+    },
+    {
+      "file": "game1.js",
+      "sha256": "33e7a143433b7db16bea5a5b6eff6321abe2c1cfe096e478f437fbf879ccd1ea"
+    },
+    {
+      "file": "script.js",
+      "sha256": "83eacf273b21d3d49eedc3fcf4b2a5aac6559e0bc20df7c3c27e55565a21da62"
+    }
+  ],
+  "problems": [
+    "Code ordering has weak intrinsic clues and the hint button reveals individual answers; content suitability must be reviewed.",
+    "Customer password hint refers to a weekly publication date while the accepted value resembles the protagonist email digits; intended derivation is ambiguous.",
+    "No password wall state persists outside page memory: returning to a form reloads its local client-side checks.",
+    "Original QTE branch is copying displayed letters, not an independent reasoning puzzle.",
+    "Legacy judge incorrectly counted wushan/choice page entries and marked optional profiles and secret mailbox as universally necessary."
+  ],
+  "endings": "Both are genuine narrative endings; tier normal means unranked pending an explicit general rating policy."
+}

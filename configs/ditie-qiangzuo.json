@@ -1,7 +1,7 @@
 {
   "id": "ditie-qiangzuo",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
@@ -9,11 +9,23 @@
   "computer_use": false,
   "model_visible": {
     "title": "地铁抢座大作战",
-    "intro": "你在一节车厢里。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
+    "intro": "通过页面中的移动、抢座与让座操作完成一趟地铁行程。只能访问本地游戏页面。"
   },
-  "entry_url": "https://www.escapefromhongye.xyz/hub111/",
+  "entry_url": "http://127.0.0.1:8831/",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/ditie-qiangzuo/mirror",
+      "--port",
+      "8831"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8831/",
+    "ready_timeout_s": 30,
+    "port": 8831
   },
   "viewport": {
     "width": 1366,
@@ -23,7 +35,7 @@
   "timezone": "Asia/Shanghai",
   "seed": 20261023,
   "allow_hosts": [
-    "www.escapefromhongye.xyz"
+    "127.0.0.1:8831"
   ],
   "shortcut_block": [],
   "guide_block_hosts": [
@@ -68,6 +80,7 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-24 行程结束卡带 hidden，结束才拿掉。"
-  ]
+    "base664:0400 pinned snapshot; telemetry removed only. Random real-time arcade simulator, no reasoning checkpoints. Completion is a diagnostic gameplay outcome, unsuitable as a reasoning benchmark. Custom route editor permits changing challenge duration."
+  ],
+  "account_requirement": "none"
 }

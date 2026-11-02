@@ -1,0 +1,48 @@
+{
+  "scoring_protocol": "target_v1",
+  "target_success": {
+    "route_ids": [
+      "ending"
+    ]
+  },
+  "hooks": {
+    "login": {
+      "type": "js_truthy",
+      "expr": "typeof state !== 'undefined' && state.isLoggedIn === true"
+    },
+    "auth": {
+      "type": "js_truthy",
+      "expr": "typeof state !== 'undefined' && state.hasUnlockedServerRoom === true"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('#game-body.active') && !!document.querySelector('#dynamic-content') && document.querySelector('#dynamic-content').getClientRects().length > 0 && document.querySelector('#dynamic-content').innerText.includes('感谢游玩《无人应答》') && !!document.querySelector('#dynamic-content button')"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "login",
+      "hook": "login",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "auth",
+      "hook": "auth",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "ending",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "ending",
+        "op": "truthy"
+      }
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "hooks": {
+    "wheel": {
+      "type": "js_truthy",
+      "expr": "playerProgress.wheel===true"
+    },
+    "observer_lookup": {
+      "type": "js_truthy",
+      "expr": "window.observerFound===true"
+    },
+    "phrase": {
+      "type": "js_truthy",
+      "expr": "currentPage===\"true-ending\""
+    },
+    "stop": {
+      "type": "js_truthy",
+      "expr": "currentPage===\"good-ending\""
+    },
+    "archive": {
+      "type": "js_truthy",
+      "expr": "currentPage===\"nightowl\""
+    },
+    "bad": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector(\".matrix-text\") && document.querySelector(\".matrix-text\").textContent.includes(\"因果链彻底断裂\")"
+    },
+    "warm": {
+      "type": "js_truthy",
+      "expr": "currentPage===\"warm-castle\""
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "wheel",
+      "hook": "wheel",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "observer_lookup",
+      "hook": "observer_lookup",
+      "op": "truthy"
+    },
+    {
+      "id": "phrase",
+      "hook": "phrase",
+      "op": "truthy"
+    },
+    {
+      "id": "stop",
+      "hook": "stop",
+      "op": "truthy"
+    },
+    {
+      "id": "archive",
+      "hook": "archive",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "true",
+      "tier": "good",
+      "gates": [
+        "observer_lookup",
+        "phrase"
+      ],
+      "ending": {
+        "hook": "phrase",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "good",
+      "tier": "good",
+      "gates": [
+        "stop"
+      ],
+      "ending": {
+        "hook": "stop",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "phrase",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null,
+  "terminal_failures": [
+    {
+      "id": "bad",
+      "hook": "bad",
+      "op": "truthy"
+    }
+  ]
+}

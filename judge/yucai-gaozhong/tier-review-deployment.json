@@ -1,0 +1,31 @@
+{
+  "resources": {
+    "archive": "packs/yucai-gaozhong.resources.zip",
+    "deployment": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\yucai-gaozhong\\tier-review-deployments\\resources",
+    "files": 42,
+    "hashes_passed": true
+  },
+  "prepared": {
+    "archive": "packs/yucai-gaozhong.prepared.zip",
+    "deployment": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\yucai-gaozhong\\tier-review-deployments\\prepared",
+    "files": 78,
+    "hashes_passed": true
+  },
+  "targeted_ui_acceptance": [
+    "runs/yucai-gaozhong/tier-review-deployments/prepared/tier-acceptance/summary.json",
+    "runs/yucai-gaozhong/tier-review-deployments/tier-resources-acceptance/summary.json"
+  ],
+  "ports": [
+    8832,
+    8833
+  ],
+  "tier_all_normal": true,
+  "good_ending_all_false": true,
+  "author_labels_preserved": true,
+  "reused_full_audit": [
+    "runs/yucai-gaozhong/deployments/prepared/acceptance/summary.json",
+    "runs/yucai-gaozhong/deployments/resources-acceptance/summary.json"
+  ],
+  "reuse_evidence": "judge/yucai-gaozhong/tier-review/byte-equivalence.json",
+  "all_owned_servers_stopped": true
+}

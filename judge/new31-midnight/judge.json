@@ -1,0 +1,62 @@
+{
+  "hooks": {
+    "case1": {
+      "type": "js_truthy",
+      "expr": "Number(localStorage.getItem('midnightDeskProgressV1') || 0) >= 1"
+    },
+    "case2": {
+      "type": "js_truthy",
+      "expr": "Number(localStorage.getItem('midnightDeskProgressV1') || 0) >= 2"
+    },
+    "case3": {
+      "type": "js_truthy",
+      "expr": "Number(localStorage.getItem('midnightDeskProgressV1') || 0) >= 3"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "Number(localStorage.getItem('midnightDeskProgressV1') || 0) === 3 && document.querySelector('#ending').classList.contains('show')"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "case1",
+      "hook": "case1",
+      "op": "truthy"
+    },
+    {
+      "id": "case2",
+      "hook": "case2",
+      "op": "truthy"
+    },
+    {
+      "id": "case3",
+      "hook": "case3",
+      "op": "truthy"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "closed",
+      "tier": "normal",
+      "gates": [
+        "case1",
+        "case2",
+        "case3"
+      ],
+      "ending": {
+        "hook": "ending",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": null,
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

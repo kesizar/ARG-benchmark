@@ -1,67 +1,78 @@
 {
   "hooks": {
-    "good": {
-      "type": "dom_regex",
-      "pattern": "沉默的传承"
-    },
-    "seal": {
-      "type": "dom_regex",
-      "pattern": "✓ 封印解除"
+    "name": {
+      "type": "js_truthy",
+      "expr": "unlocked[0] === true && !!document.querySelector('#l0 .lock-body.open')"
     },
     "choice": {
-      "type": "dom_regex",
-      "pattern": "✓ 选择正确"
+      "type": "js_truthy",
+      "expr": "unlocked[1] === true && !!document.querySelector('#l1 .lock-body.open')"
     },
     "glyphs": {
-      "type": "dom_regex",
-      "pattern": "✓ 字序正确"
+      "type": "js_truthy",
+      "expr": "unlocked[2] === true && !!document.querySelector('#l2 .lock-body.open')"
     },
     "timeline": {
-      "type": "dom_regex",
-      "pattern": "✓ 时间线正确"
+      "type": "js_truthy",
+      "expr": "unlocked[3] === true && !!document.querySelector('#l3 .lock-body.open')"
+    },
+    "final": {
+      "type": "js_truthy",
+      "expr": "unlocked[4] === true && !!document.querySelector('#l4 .lock-body.open')"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "unlocked.every(Boolean) && document.querySelector('#c5').classList.contains('visible') && document.querySelector('#story').classList.contains('active')"
     }
   },
   "checkpoints": [
     {
-      "id": "seal",
-      "hook": "seal",
-      "op": "truthy"
+      "id": "name",
+      "hook": "name",
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "choice",
       "hook": "choice",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "glyphs",
       "hook": "glyphs",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
       "id": "timeline",
       "hook": "timeline",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "final",
+      "hook": "final",
+      "op": "truthy",
+      "role": "diagnostic"
     }
   ],
   "events": {},
   "routes": [
     {
-      "id": "good",
-      "tier": "good",
+      "id": "complete",
+      "tier": "normal",
       "gates": [
-        "seal",
-        "choice",
-        "glyphs",
         "timeline"
       ],
       "ending": {
-        "hook": "good",
+        "hook": "ending",
         "op": "truthy"
       }
     }
   ],
   "ending": {
-    "hook": "good",
+    "hook": "ending",
     "op": "truthy"
   },
   "answer_sha256": [],

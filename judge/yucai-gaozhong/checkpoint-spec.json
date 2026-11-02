@@ -1,0 +1,74 @@
+{
+  "record_id": "base664:0408",
+  "reasoning_gates": [
+    {
+      "id": "school-number",
+      "hook": "school-number",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "netdisk-code",
+      "hook": "netdisk-code",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "guard-teacher",
+      "hook": "guard-teacher",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "report-five",
+      "hook": "report-five",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "routes": [
+    {
+      "id": "minute13",
+      "tier": "normal",
+      "authored_classification": "regular",
+      "authored_label": "常规结局 · 二",
+      "gates": [],
+      "ending": {
+        "hook": "minute13",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "restore",
+      "tier": "normal",
+      "authored_classification": "regular",
+      "authored_label": "常规结局 · 三",
+      "gates": [],
+      "ending": {
+        "hook": "restore",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "witness13",
+      "tier": "normal",
+      "authored_classification": "hidden",
+      "authored_label": "隐藏结局 · 二",
+      "gates": [],
+      "ending": {
+        "hook": "witness13",
+        "op": "truthy"
+      }
+    }
+  ],
+  "unreachable_authored_endings": {
+    "blank": "B requires guard trust, always awards V and Z, contradicts required absence",
+    "unresolved": "stage5 requires weight90 or A+B+Y(weight45), so final cannot have weight<45"
+  },
+  "artifact_count": 20,
+  "scene_count": 9,
+  "report_questions": 5,
+  "report_scoring": "diagnostic: rejection reveals answer explanations; no separate first-attempt tracking.",
+  "audit": "judge/yucai-gaozhong/CONTENT_AUDIT.md",
+  "tier_review": "No explicit author good/bad labels; all reachable routes neutral normal, authored regular/hidden metadata preserved."
+}

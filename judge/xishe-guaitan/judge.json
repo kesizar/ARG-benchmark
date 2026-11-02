@@ -1,0 +1,125 @@
+{
+  "hooks": {
+    "date-search": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/search-202608.html') && document.body.innerText.includes('重点关注人员名单')"
+    },
+    "hidden-login": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/village-committee.html') && document.querySelector('#secret-box').style.display==='block'"
+    },
+    "admin-login": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('zds_logged_in')==='1'"
+    },
+    "ev_victim_list": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem('xsg_evidence')||'[]').includes('ev_victim_list')"
+    },
+    "ev_register_form": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem('xsg_evidence')||'[]').includes('ev_register_form')"
+    },
+    "ev_messages": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem('xsg_evidence')||'[]').includes('ev_messages')"
+    },
+    "ev_guestbook": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem('xsg_evidence')||'[]').includes('ev_guestbook')"
+    },
+    "ev_police_info": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem('xsg_evidence')||'[]').includes('ev_police_info')"
+    },
+    "good": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/report.html') && (JSON.parse(localStorage.getItem('xsg_evidence')||'[]').includes('ev_victim_list') && JSON.parse(localStorage.getItem('xsg_evidence')||'[]').includes('ev_register_form') && JSON.parse(localStorage.getItem('xsg_evidence')||'[]').includes('ev_messages') && JSON.parse(localStorage.getItem('xsg_evidence')||'[]').includes('ev_guestbook') && JSON.parse(localStorage.getItem('xsg_evidence')||'[]').includes('ev_police_info')) && Number(localStorage.getItem('xsg_deadline'))>Date.now() && localStorage.getItem('zds_logged_in')==='1'"
+    },
+    "bad": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/report-bad.html') && JSON.parse(localStorage.getItem('xsg_evidence')||'[]').length>0 && JSON.parse(localStorage.getItem('xsg_evidence')||'[]').length<5"
+    },
+    "dead": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/report-dead.html') && Number(localStorage.getItem('xsg_deadline'))>0 && Number(localStorage.getItem('xsg_deadline'))<=Date.now()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "date-search",
+      "hook": "date-search",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "hidden-login",
+      "hook": "hidden-login",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "admin-login",
+      "hook": "admin-login",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "ev_victim_list",
+      "hook": "ev_victim_list",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "ev_register_form",
+      "hook": "ev_register_form",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "ev_messages",
+      "hook": "ev_messages",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "ev_guestbook",
+      "hook": "ev_guestbook",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "ev_police_info",
+      "hook": "ev_police_info",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "insufficient-report",
+      "hook": "bad",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "rescue",
+      "tier": "good",
+      "gates": [
+        "admin-login"
+      ],
+      "ending": {
+        "hook": "good",
+        "op": "truthy"
+      }
+    }
+  ],
+  "terminal_failures": [
+    {
+      "id": "timeout",
+      "hook": "dead",
+      "op": "truthy"
+    }
+  ]
+}

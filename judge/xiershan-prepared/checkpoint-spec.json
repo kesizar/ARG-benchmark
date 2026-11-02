@@ -1,0 +1,70 @@
+{
+  "status": "engineering validation; formal scoring review required",
+  "source": "data/preparation/results/base664-0165/index.source.txt",
+  "source_note": "Source contains duplicate functions and variables; latter declarations execute.",
+  "puzzles": [
+    {
+      "id": "terminal",
+      "condition": "0505 opens MS1 terminal",
+      "evidence": "ui-explore.json terminal_wrong/terminal_correct",
+      "role": "optional; coordinates can be entered directly"
+    },
+    {
+      "id": "soil",
+      "condition": "HS1510_N5770_PH finds photos, wrong values retry",
+      "evidence": "ui-explore.json soil_wrong/soil_correct",
+      "role": "optional"
+    },
+    {
+      "id": "channels",
+      "condition": "five exact person/channel/location combinations",
+      "evidence": "ui-explore.json channels",
+      "role": "optional; 5 diagnostic checkpoints"
+    },
+    {
+      "id": "stone_house",
+      "condition": "click Luka recording link; direct coordinate also works",
+      "role": "optional"
+    },
+    {
+      "id": "ms3_key",
+      "condition": "click Frank recording key link",
+      "role": "optional"
+    },
+    {
+      "id": "theme_1",
+      "condition": "basic six accepted unique files, complete slots public three and four distinct valid field files",
+      "evidence": "ui-slot-negative.json",
+      "role": "critical for complete endings"
+    },
+    {
+      "id": "theme_2",
+      "condition": "basic three allowed files; complete three distinct files from allowed pool",
+      "role": "critical for complete endings"
+    },
+    {
+      "id": "theme_3",
+      "condition": "basic three different channels; complete two different channels, MS4 email, stone records, one further distinct communication, Alan channel",
+      "role": "critical for complete endings"
+    }
+  ],
+  "routes": {
+    "plain": "three visited MS coordinates; normal",
+    "media_basic": "three themes basic; bad",
+    "company_basic": "three themes basic; bad",
+    "justice": "all three themes complete, via media or reject company offers; good",
+    "economic": "all complete, accept first invitation; bad",
+    "economic2": "all complete, reject first and accept second; bad",
+    "join": "all complete, reject first two and accept final; bad"
+  },
+  "terminal_failures": [],
+  "limitations": [
+    "Theme slot code validates allowed pools and uniqueness but not intended semantic position; swapped valid files may pass.",
+    "Known coordinates can bypass clue discovery; stone house also directly accessible.",
+    "Existing hint system gives answers.",
+    "Plain and basic ending close buttons hidden; refresh resets progress.",
+    "Tier classification is provisional, not authored explicit rating."
+  ],
+  "reset": "fresh browser context or reload; no persistent storage observed; reset tested",
+  "latching": "Judge.update records checkpoints and outcomes per step; ending hook checks visible modal and exact title/body."
+}

@@ -1,0 +1,86 @@
+{
+  "id": "added84-0016-teddy",
+  "category": "arg",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "泰迪熊",
+    "intro": "你在一间夜里的卧室门口。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。 画面中的持续操作可使用 long_press（x、y 为坐标，ms 为持续毫秒，单次最多 3000）；需要更久时可再次长按。游戏时间会继续流逝。"
+  },
+  "entry_url": "http://127.0.0.1:8991/",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/added84-0016-teddy/mirror",
+      "--port",
+      "8991"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8991/",
+    "ready_timeout_s": 30,
+    "port": 8991
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261023,
+  "allow_hosts": [
+    "127.0.0.1:8991"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up",
+    "long_press"
+  ],
+  "limits": {
+    "max_steps": 160,
+    "max_seconds": 1800,
+    "max_answer_submits": 5
+  },
+  "settle_ms": 0,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/added84-0016-teddy/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "反向影子锁与缝线次序可在试错和提示后完成；判定完成不证明独立推理。音乐与缝线需要长按，单次动作上限为三秒，可连续按住。"
+  ]
+}

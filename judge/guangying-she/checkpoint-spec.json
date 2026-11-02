@@ -1,0 +1,45 @@
+{
+  "critical": [
+    {
+      "id": "wall",
+      "condition": "All eight unique chosen photographs placed in chronology p1..p8 and normal check succeeds.",
+      "prerequisites": [],
+      "latch": "Harness checkpoint latches during one episode; new judge required after reset.",
+      "reasoning": "Cross-reference renamed attachments, original time codes, incorrect caption, exclusions and chronological memo. Memo itself directly lists the result, so difficulty low."
+    }
+  ],
+  "optional": [
+    {
+      "id": "darkroom",
+      "answer": "灯河纪事",
+      "condition": "Exact trimmed four-character current exhibition theme",
+      "not_required": "Wall allows arranging before login; no false route prerequisite."
+    }
+  ],
+  "ending": {
+    "count": 1,
+    "tier": "unclassified",
+    "condition": "Solved wall plus opening page displaying certificate; no original bad-ending route."
+  },
+  "non_scoring": [
+    "pins",
+    "visits",
+    "search/filter",
+    "guestbook",
+    "certificate name",
+    "print",
+    "older exhibitions",
+    "hint clicks"
+  ],
+  "failure_branches": [
+    "wrong password",
+    "incomplete wall",
+    "wrong wall with per-slot green feedback",
+    "opening locked when unsolved",
+    "empty guestbook rejected"
+  ],
+  "modes": [
+    "on: guide can reveal full answer; benchmark requires off",
+    "off: no guide but same puzzle and ending"
+  ]
+}

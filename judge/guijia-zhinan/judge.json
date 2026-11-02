@@ -1,66 +1,79 @@
 {
   "hooks": {
-    "guide": {
-      "type": "dom_regex",
-      "pattern": "真正的归家，是回到自己。"
+    "morse": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.ei') && document.querySelector('#el').textContent.includes('录音笔摩斯电码')"
     },
-    "peace": {
-      "type": "dom_regex",
-      "pattern": "结局 A · 安宁"
-    },
-    "curious": {
-      "type": "dom_regex",
-      "pattern": "结局 B · 好奇"
-    },
-    "duty": {
-      "type": "dom_regex",
-      "pattern": "结局 C · 职责"
-    },
-    "watch": {
-      "type": "dom_regex",
-      "pattern": "结局 D · 旁观者"
-    },
-    "chill": {
-      "type": "dom_regex",
-      "pattern": "陈默的后背一阵发凉。"
+    "decode": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#el').textContent.includes('网站源代码隐藏信息')"
     },
     "memo": {
-      "type": "dom_regex",
-      "pattern": "备忘录解锁了。里面的内容让陈默头皮发麻。"
+      "type": "js_truthy",
+      "expr": "document.querySelector('#el').textContent.includes('弟弟备忘录')"
+    },
+    "address": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#el').textContent.includes('暗网地址')"
+    },
+    "tor": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#el').textContent.includes('已安装 Tor Browser')"
+    },
+    "guide": {
+      "type": "js_truthy",
+      "expr": "!!document.querySelector('.he') && document.querySelector('.he').textContent.includes('隐藏结局 · 引路人')"
+    },
+    "peace": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#st h1')?.textContent === \"结局 A · 安宁\""
+    },
+    "curious": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#st h1')?.textContent === \"结局 B · 好奇\""
+    },
+    "duty": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#st h1')?.textContent === \"结局 C · 职责\""
+    },
+    "watch": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#st h1')?.textContent === \"结局 D · 旁观者\""
     }
   },
   "checkpoints": [
     {
-      "id": "chill",
-      "hook": "chill",
-      "op": "truthy"
+      "id": "decode",
+      "hook": "decode",
+      "op": "truthy",
+      "role": "critical"
     },
     {
-      "id": "memo",
-      "hook": "memo",
-      "op": "truthy"
+      "id": "morse",
+      "hook": "morse",
+      "op": "truthy",
+      "role": "optional"
     }
   ],
-  "events": {},
+  "events": {
+    "memo": {
+      "hook": "memo",
+      "op": "truthy"
+    },
+    "address": {
+      "hook": "address",
+      "op": "truthy"
+    },
+    "tor": {
+      "hook": "tor",
+      "op": "truthy"
+    }
+  },
   "routes": [
     {
-      "id": "guide",
-      "tier": "good",
-      "gates": [
-        "chill",
-        "memo"
-      ],
-      "ending": {
-        "hook": "guide",
-        "op": "truthy"
-      }
-    },
-    {
       "id": "peace",
-      "tier": "normal",
       "gates": [
-        "chill",
-        "memo"
+        "decode"
       ],
       "ending": {
         "hook": "peace",
@@ -69,10 +82,8 @@
     },
     {
       "id": "curious",
-      "tier": "normal",
       "gates": [
-        "chill",
-        "memo"
+        "decode"
       ],
       "ending": {
         "hook": "curious",
@@ -81,10 +92,8 @@
     },
     {
       "id": "duty",
-      "tier": "normal",
       "gates": [
-        "chill",
-        "memo"
+        "decode"
       ],
       "ending": {
         "hook": "duty",
@@ -93,27 +102,13 @@
     },
     {
       "id": "watch",
-      "tier": "normal",
       "gates": [
-        "chill",
-        "memo"
+        "decode"
       ],
       "ending": {
         "hook": "watch",
         "op": "truthy"
       }
     }
-  ],
-  "ending": {
-    "hook": "guide",
-    "op": "truthy"
-  },
-  "answer_sha256": [],
-  "answer_hash_file": null,
-  "request_milestones": [],
-  "submit_conclusion": {
-    "enabled": false,
-    "schema": null
-  },
-  "rubric_path": null
+  ]
 }

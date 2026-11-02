@@ -1,0 +1,207 @@
+{
+  "record_id": "base664:0003",
+  "html_pages": 37,
+  "source_graph": {
+    "auditreport.html": [],
+    "bank.html": [],
+    "calendar.html": [
+      "calendar.html",
+      "mailbox.html",
+      "message.html",
+      "note.html",
+      "setting.html"
+    ],
+    "capital.html": [],
+    "card.html": [],
+    "changyuan.html": [
+      "finalX.html"
+    ],
+    "contract.html": [],
+    "desk.html": [
+      "bank.html",
+      "calendar.html",
+      "capital.html",
+      "changyuan.html",
+      "contract.html",
+      "dingtalk.html",
+      "driver.html",
+      "hotel.html",
+      "intro.html",
+      "judge.html",
+      "mailbox.html",
+      "message.html",
+      "note.html",
+      "performance.html",
+      "qingmiao.html",
+      "resume.html",
+      "resume2.html",
+      "scholarship.html",
+      "setting.html",
+      "wangpan.html",
+      "wechat.html",
+      "wechatpage.html",
+      "weibo.html",
+      "wps.html"
+    ],
+    "dingtalk.html": [
+      "calendar.html",
+      "dingtalk.html",
+      "mailbox.html",
+      "message.html",
+      "note.html",
+      "setting.html",
+      "wechat.html",
+      "wps.html"
+    ],
+    "diploma.html": [],
+    "driver.html": [],
+    "expenseflow.html": [],
+    "finalX.html": [],
+    "hotel.html": [],
+    "index.html": [
+      "desk.html"
+    ],
+    "intro.html": [
+      "diploma.html"
+    ],
+    "judge.html": [],
+    "mailbox.html": [
+      "calendar.html",
+      "mailbox.html",
+      "message.html",
+      "note.html",
+      "setting.html"
+    ],
+    "message.html": [
+      "calendar.html",
+      "mailbox.html",
+      "message.html",
+      "note.html",
+      "setting.html"
+    ],
+    "note.html": [
+      "calendar.html",
+      "mailbox.html",
+      "message.html",
+      "note.html",
+      "qyskoa.html",
+      "setting.html"
+    ],
+    "oa.html": [],
+    "performance.html": [],
+    "qingmiao.html": [
+      "auditreport.html",
+      "qmjhsystem.html"
+    ],
+    "qmjhsystem.html": [],
+    "qyskoa.html": [
+      "expenseflow.html"
+    ],
+    "recording.html": [],
+    "resume.html": [],
+    "resume2.html": [],
+    "scholarship.html": [],
+    "setting.html": [
+      "calendar.html",
+      "mailbox.html",
+      "message.html",
+      "note.html",
+      "setting.html"
+    ],
+    "wangpan.html": [
+      "card.html",
+      "recording.html"
+    ],
+    "wechat.html": [
+      "calendar.html",
+      "dingtalk.html",
+      "mailbox.html",
+      "message.html",
+      "note.html",
+      "setting.html",
+      "wechat.html",
+      "wps.html"
+    ],
+    "wechatpage.html": [],
+    "weibo.html": [
+      "weiboWb$2025_xZ.html"
+    ],
+    "weiboWb$2025_xZ.html": [],
+    "wps.html": [
+      "calendar.html",
+      "dingtalk.html",
+      "mailbox.html",
+      "message.html",
+      "note.html",
+      "oa.html",
+      "setting.html",
+      "wechat.html",
+      "wps.html",
+      "zhuanzheng.html"
+    ],
+    "zhuanzheng.html": []
+  },
+  "coded_puzzles": [
+    "mailbox_login",
+    "weibo_login",
+    "recording_unlock",
+    "oa_login",
+    "financial_unlock"
+  ],
+  "route_gates": [
+    "financial_unlock"
+  ],
+  "optional_puzzles": [
+    "mailbox_login",
+    "weibo_login",
+    "recording_unlock",
+    "oa_login"
+  ],
+  "ending": "final report after financial unlock; one formal closure, no distinct death/failure ending in current source",
+  "decision": "Search entity lookup and plain page transitions recorded as retrieval/exploration, not independent solved-puzzle scores. Decoding and factual deductions have no separate submission state; validated downstream unlock is the observable composite evidence.",
+  "dependencies": {
+    "mailbox_login": [
+      "work computer account identity",
+      "calendar and chat identity/birthday evidence"
+    ],
+    "weibo_login": [
+      "recruiter identity and personal credentials clues"
+    ],
+    "recording_unlock": [
+      "car identification search",
+      "sharing/extraction-code evidence"
+    ],
+    "oa_login": [
+      "notes contain literal local OA URL",
+      "work chat and employee identity clues"
+    ],
+    "financial_unlock": [
+      "identify company in financial evidence",
+      "legal representative identity",
+      "bank-account final digits"
+    ]
+  },
+  "quality_findings": [
+    "Static filenames can be guessed, so visiting a protected result URL is not proof of solving its gate. Success markers are set only in original validation branches.",
+    "Full source exposes a single report ending. A sequel link is outside this record version and blocked.",
+    "Final static page can be manually addressed without solving. Judge requires observed financial unlock before accepting its ending.",
+    "Source text gives some credentials directly; puzzle difficulty should be reviewed separately from execution readiness."
+  ],
+  "success_marker_locations": {
+    "mailbox.html": [
+      361
+    ],
+    "weibo.html": [
+      199
+    ],
+    "wangpan.html": [
+      299
+    ],
+    "qyskoa.html": [
+      150
+    ],
+    "changyuan.html": [
+      459
+    ]
+  }
+}

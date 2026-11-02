@@ -1,0 +1,20 @@
+from pathlib import Path
+import json,hashlib,zipfile,datetime
+R=Path(__file__).resolve().parents[1];run=R/'runs/xishe-guaitan'
+ui=[run/'ui.json',run/'game-accept/ui.json',run/'prepared-accept/ui.json'];reports=[json.loads(p.read_text(encoding='utf-8')) for p in ui]
+assert all(d['passed'] and not d['errors'] and not any(r['status']>=400 for r in d['responses']) for d in reports)
+checks=[]
+for kind,path in [('game',R/'packs/xishe-guaitan.game.zip'),('prepared',R/'packs/xishe-guaitan.prepared.zip')]:
+ with zipfile.ZipFile(path) as z:
+  assert z.testzip() is None
+  if kind=='prepared':
+   m=json.loads(z.read('BUNDLE-MANIFEST.json'))
+   for f in m['files']:assert hashlib.sha256(z.read(f['path'])).hexdigest()==f['sha256']
+  else:
+   for p in (R/'tasks/xishe-guaitan/mirror').rglob('*'):
+    if p.is_file():assert z.read(p.relative_to(R/'tasks/xishe-guaitan/mirror').as_posix())==p.read_bytes()
+ checks.append({'kind':kind,'crc':'passed','file_sha256':'passed'})
+(run/'delivery-verification.json').write_text(json.dumps({'archives':checks,'ui':[{'path':p.relative_to(R).as_posix(),'checks':len(d['checks']),'passed':d['passed'],'port':d['port']} for p,d in zip(ui,reports)],'scope':'Windows Edge; fresh contexts; resource bundle tested with workspace evaluator, prepared bundle tested using its own included evaluator scripts and judge. Both block all external network. No cross-OS claim.'},ensure_ascii=False,indent=2),encoding='utf-8')
+result={'record_id':'added84:0071','task_id':'xishe-guaitan','title':'西社怪谈','status':'prepared_local_with_content_caveats_pending_parent_review','runtime_layer':'L1','account_requirement':'none','ready_for_local_execution':True,'ready_for_formal_scoring':False,'resource_status':'closed_36_files_hashed; historical_index_and_website_plus_2026-10-27_linked_assets','integration_status':'L1_config_validated; extracted_prepared_harness_script_smoke_passed; no_model_API','flow_status':'29_checks_each_on_source_game_zip_prepared_zip; all_3_endings; negative_search_password_swipe_export_cancel_and_reset','judge_status':'3_critical_reasoning_hooks_and_5_diagnostic_exports; naked_static_ending_URLs_rejected; routes_include_bad_and_timeout','delivery_status':'game_and_prepared_ZIPs_CRC_SHA_verified; fresh_context_full_UI_on_8812_and_8813','content_status':'engineering_ready_content_caveats_require_review','config':'configs/xishe-guaitan.json','judge':'judge/xishe-guaitan/judge.json','flow':'judge/xishe-guaitan/checkpoint-spec.json','provenance':'tasks/xishe-guaitan/provenance.json','acceptance':[p.relative_to(R).as_posix() for p in ui]+['runs/xishe-guaitan/delivery-verification.json','runs/xishe-guaitan/prepared-accept/harness-smoke.log'],'resources_bundle':'packs/xishe-guaitan.game.zip','evaluation_bundle':'packs/xishe-guaitan.prepared.zip','archives':json.loads((R/'packs/xishe-guaitan.delivery.json').read_text()),'caveats':['Static internal pages and ending pages have no access guards; model goto disabled and ending judge verifies source evidence/timer state.','Original footer five-click path bypasses speech acrostic; hidden-login checkpoint measures discovery of hidden UI, not proof of reading speech.','Final narrative fifth evidence describes diagnosis/notes but runtime fifth evidence ID is police info; preserved original inconsistency.','Historical entry/tourism snapshots plus current downstream assets form explicitly pinned local build, not a same-instant upstream snapshot.','48h expiry verified by advancing Playwright browser clock; no localStorage injection used for normal successful or failure routes.'],'game_changes':['Only CDN pinyin-pro@3.25.0 URL localized to vendor; original retained with diff.'],'shared_harness_changes':False,'progress_modified':False,'model_api_calls':0,'next_steps':['Parent audit judge and content caveats; decide formal scoring suitability separately from successful local execution.']}
+(R/'data/preparation/results/added84-0071.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+print(json.dumps({'result':'data/preparation/results/added84-0071.json','ui_checks':[len(x['checks']) for x in reports],'archives':checks}))

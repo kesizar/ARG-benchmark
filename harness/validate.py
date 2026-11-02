@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from urllib.parse import urlparse
 
-from harness.config import entry_allowed, exclusion_hit, load_config, load_exclude
+from harness.config import entry_allowed, exclusion_hit, load_config, load_exclude, resolve_runtime_layer
 from harness.network import allow_rule_problem, is_local_host, rule_host
 
 
@@ -41,13 +41,13 @@ def validate_file(path: Path, root: Path | None = None) -> list[str]:
         errors.append(f"裁判文件不存在：{judge_path}")
     if not entry_allowed(cfg):
         errors.append("entry_url 不在 allow_hosts 里")
-    errors.extend(l3_problems(cfg))
+    errors.extend(runtime_problems(cfg))
     return errors
 
 
 def l3_problems(cfg: dict) -> list[str]:
     """L3 is a live site on an explicit host list. Reject a config that is still local."""
-    if cfg.get("category") != "arg" or cfg.get("arg_layer") != "L3":
+    if resolve_runtime_layer(cfg) != "L3":
         return []
     errors: list[str] = []
     if (cfg.get("local_serve") or {}).get("enabled"):
@@ -68,4 +68,17 @@ def l3_problems(cfg: dict) -> list[str]:
         reason = allow_rule_problem(rule, guide_patterns)
         if reason:
             errors.append(f"L3 的白名单不能包含{reason}：{rule}")
+    return errors
+
+
+def runtime_problems(cfg: dict) -> list[str]:
+    if resolve_runtime_layer(cfg) == "L3":
+        return l3_problems(cfg)
+    errors = []
+    entry = str(cfg.get("entry_url") or "")
+    if entry and not is_local_host(urlparse(entry).hostname or ""):
+        errors.append("L1 的入口必须是本地地址，或使用本地解释器/静态资源")
+    for rule in cfg.get("allow_hosts") or []:
+        if not is_local_host(rule_host(str(rule))):
+            errors.append(f"L1 不能允许游戏访问外网：{rule}")
     return errors

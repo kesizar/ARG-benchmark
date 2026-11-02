@@ -1,0 +1,63 @@
+{
+  "status": "completed_after_resume",
+  "task_id": "feiqi-yiyuan",
+  "record_id": "added84:0076",
+  "stop_state": {
+    "session_20646": "terminated earlier with Ctrl+C after native prompt hang",
+    "session_45004": "academy core validation terminated with Ctrl+C on pause request",
+    "task_owned_python_processes_found_after_stop": false,
+    "listening_ports_8821_8822_8823_found_after_stop": false,
+    "scope": "Only owned task session cancellation and read-only process/port checks; no broad process termination."
+  },
+  "completed_before_pause": [
+    "Archived original HTML preserved at judge/feiqi-yiyuan/source/entry.archived.html; mirror is byte-identical.",
+    "Source availability tested with curl and httpx; both TLS failed, recorded source-revalidation.json.",
+    "L1 configuration, six validation checkpoints, four cumulative ending routes written.",
+    "Game flow/source_data spec and private UI verifier written; verifier syntax compiles.",
+    "Resource ZIP and resource manifest exist.",
+    "README/review/packager written."
+  ],
+  "not_complete": [
+    "No complete hospital UI acceptance report; run stopped at native prompt interaction.",
+    "No evaluator ZIP or independent deployment acceptance for hospital.",
+    "No completed added84-0076 result; do not mark engineering ready."
+  ],
+  "prompt_blocker": {
+    "kind": "shared_harness_native_prompt_click_does_not_return",
+    "observed_minimal_reproduction": {
+      "normal_harness_click_timeout_seconds": 5,
+      "click_result": "timeout",
+      "pending": true,
+      "subsequent_normal_dialog_action_result": "ok"
+    },
+    "effect": "Model cannot issue next dialog action until click returns. Hospital log and encrypted director diary use native prompt.",
+    "shared_fix_owner": "root agent; do not patch shared harness from this task.",
+    "reproduction_script": "scripts/feiqi_prompt_repro.py",
+    "related_check": "Judge/observe must avoid JS evaluation while a native dialog freezes the page.",
+    "status": "fixed_by_parent_and_verified_in_independent_bundle"
+  },
+  "resume_commands": [
+    "mirror/harness/.venv/Scripts/python.exe scripts/feiqi_prompt_repro.py",
+    "mirror/harness/.venv/Scripts/python.exe judge/feiqi-yiyuan/verify_sample.py",
+    "mirror/harness/.venv/Scripts/python.exe scripts/run_one.py --config configs/feiqi-yiyuan.json --policy script",
+    "mirror/harness/.venv/Scripts/python.exe scripts/feiqi-yiyuan_package.py"
+  ],
+  "next_task_staged": {
+    "task_id": "duoluoleisi",
+    "record_id": "added84:0081",
+    "status": "paused_incomplete",
+    "files": "configs/duoluoleisi.json, judge/duoluoleisi/**, tasks/duoluoleisi/**, packs/duoluoleisi.resources*",
+    "core_ui_session": "45004 terminated; no passing acceptance report claimed.",
+    "independent_eval_package": "not built",
+    "twenty_minute_branch": "Not yet exercised. Keep original timer, no accelerated clock/state injection.",
+    "resume_core": "mirror/harness/.venv/Scripts/python.exe judge/duoluoleisi/verify_sample.py --skip-idle",
+    "remaining": "Finish core debugging, docs/package, independent all-core plus original 20-minute idle/focus easter egg. Use port8823 for academy, hospital independent port8822 if run concurrently."
+  },
+  "completed_prior_tasks": [
+    "data/preparation/results/base664-0003.json",
+    "data/preparation/results/base664-0630.json",
+    "data/preparation/results/base664-0637.json"
+  ],
+  "resume_note": "User explicitly continued; original pause record retained for audit.",
+  "completion_record": "data/preparation/results/added84-0076.json"
+}

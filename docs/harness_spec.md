@@ -1,5 +1,7 @@
 # PuzzleBench Harness — Cursor 实现说明书
 
+> 当前运行层级已改为所有类别共用的 `runtime_layer: L1|L3`。本文原有 `arg_layer`、L2 和“仅 ARG 分层”内容属于历史规格，以 [runtime_layers.md](runtime_layers.md) 为准。
+
 **Cursor：请按本文在私有仓 [kesizar/ARG-benchmark](https://github.com/kesizar/ARG-benchmark)（默认分支 `main`）上扩展实现 PuzzleBench Harness。**  
 不要另起无关仓库；保留并升级现有《非自愿摄入 / INVOLUNTARY APPETITE》本地镜像通路作为首个任务样例。本文是**工程师规格书**：目录、接口、配置 schema、分阶段 PR 清单、验收标准。不要写空洞愿景；默认值已写死，标「可配置」处允许任务配置覆盖。
 

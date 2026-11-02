@@ -1,0 +1,75 @@
+{
+  "id": "new31-unwiped-l3",
+  "category": "web_puzzle",
+  "runtime_layer": "L3",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "UNWIPED",
+    "intro": "Investigate the used computer and work out what happened to the Halloran family."
+  },
+  "entry_url": "https://html-classic.itch.zone/html/19423756/index.html?v=1790495241",
+  "local_serve": {
+    "enabled": false
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "en-US",
+  "timezone": "America/Chicago",
+  "seed": 20261023,
+  "allow_hosts": [
+    "html-classic.itch.zone",
+    "static.itch.io"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 600,
+    "max_seconds": 5400,
+    "max_answer_submits": 20
+  },
+  "settle_ms": 800,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/new31-unwiped/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "Direct embedded original; remote availability and reset unverified."
+  ],
+  "account_requirement": "none"
+}

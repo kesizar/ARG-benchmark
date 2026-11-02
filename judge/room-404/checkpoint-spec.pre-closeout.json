@@ -1,0 +1,65 @@
+{
+  "record_id": "base664:0002",
+  "task_id": "room-404",
+  "version": "official current browser-captured index-DyrrZ4RJ.js 2026-10-26",
+  "pages": 28,
+  "sites": 10,
+  "chapters": 6,
+  "evidence": 18,
+  "puzzles": 10,
+  "formal_endings": 4,
+  "failure_endings": 0,
+  "critical_reasoning": {
+    "p1-usb": "Combine 1998 and 404; 1998404 or normalized authored variants accepted.",
+    "p6-timeline": "Sort node event years into 1998-2003-2011-2024-2026.",
+    "p7-darkweb": "Take first characters of first four puzzle answers: 1G48. Source does not require those prior puzzles to have been solved.",
+    "p8-server": "Decode Morse into TIDE; TIDE also appears in surrounding narrative so shortcut review remains."
+  },
+  "optional_noncritical": {
+    "p2-redacted": "Reveal five blacked-out fields then copy project name/code; interaction/retrieval.",
+    "p3-years": "Subtract dates to get404, but title, lease and hint disclose404; not critical.",
+    "p4-frequency": "Copy displayed radio frequency87.9; not critical.",
+    "p5-employee": "Copy email project codeGNS-404; not critical.",
+    "p10-hidden": "Room identityROOM404; author offers final choice directly in puzzle toolbar, so optional."
+  },
+  "routes": {
+    "normal": {
+      "choice": "police",
+      "author_gate": "act5; final choice is directly offered, no solved puzzle requirement",
+      "scored_gates": []
+    },
+    "hidden": {
+      "choice": "connect",
+      "author_gate": "act5; no solved puzzle requirement",
+      "scored_gates": []
+    },
+    "secret": {
+      "choice": "destroy",
+      "author_gate": "12 actual evidence records AND p7-darkweb+p8-server",
+      "scored_gates": [
+        "p7-darkweb",
+        "p8-server"
+      ]
+    },
+    "true": {
+      "choice": "broadcast",
+      "author_gate": "16 actual evidence records AND p1 through p8 solved",
+      "scored_gates": [
+        "p1-usb",
+        "p6-timeline",
+        "p7-darkweb",
+        "p8-server"
+      ],
+      "other_author_requirements_tracked_as_optional": [
+        "p2-redacted",
+        "p3-years",
+        "p4-frequency",
+        "p5-employee"
+      ]
+    }
+  },
+  "act_advancement": "Count all clue keys, including pz-puzzle markers, at thresholds2/4/6/8/10; public page-reading alone obtains18 actual clues and reaches act5. Final ending requirements count only actual evidence list (H), not pz markers.",
+  "latching": "Judge latches solvedPuzzles from original saved state. Ending also requires visible title; stale ending after reload does not count. New run uses fresh context.",
+  "failures": "Wrong nonempty answers show retry message; empty answers do nothing; special endings show locked explanatory toast until requirements met. No finite attempt/life loss or terminal failure implemented.",
+  "reset": "Author ending restart preserves evidence, solved puzzles, tenants and notes; title restart is confirmed destructive reset; title restart is only displayed after saved flag loaded by browser reload. Harness reset creates fresh context."
+}

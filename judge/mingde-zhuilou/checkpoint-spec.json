@@ -1,0 +1,71 @@
+{
+  "readiness": "conditional_missing_author_clue",
+  "diagnostic": {
+    "boot": {
+      "answer": "xdemydmm",
+      "clue": "MISSING supplied author identity; source known for engineering only"
+    },
+    "mail": {
+      "answer": "20200128",
+      "reachability": "orphan; not scored"
+    },
+    "server": {
+      "answer": "02",
+      "reachability": "orphan; Noah ark pair-count hint ambiguous"
+    },
+    "ark": {
+      "answer": "20200510",
+      "reachability": "orphan; 方舟计划启动日"
+    }
+  },
+  "latching": "Diagnostic states latch per run; fresh Judge/context reset. Ending hooks verify visibility.",
+  "routes": {
+    "silent": "any selected evidence without compensation, including witness only",
+    "late-justice": "compensation without witness",
+    "bright-trial": "compensation and witness"
+  },
+  "non_puzzles": [
+    "exact-keyword discovery",
+    "reading ordinary documents",
+    "navigation",
+    "collecting 14 keywords"
+  ],
+  "source": "tasks/mingde-zhuilou/evidence/source-structure.txt",
+  "diagnostic_report_selections": {
+    "compensation": "Selected 赔偿协议 on a visible submitted ending; diagnostic only.",
+    "witness": "Selected 李阳 on a visible submitted ending; diagnostic only."
+  },
+  "diagnostic_main_passwords": {
+    "diary": {
+      "answer": "20070315",
+      "clue": "江楠档案/桌面备忘录生日",
+      "success": "#diaryContent displayed"
+    },
+    "logs": {
+      "answer": "19871225",
+      "clue": "张磊档案出生日期",
+      "success": "#hiddenJournal displayed"
+    },
+    "account": {
+      "answer": "8888",
+      "clue": "张磊档案工资卡尾号",
+      "success": "#main-content.show"
+    },
+    "counseling": {
+      "answer": "zhaoxiaomei",
+      "clue": "页面咨询师姓名赵晓梅",
+      "success": "#recordSection displayed"
+    },
+    "monitor": {
+      "answer": "zhaotiejun",
+      "clue": "监控系统保安队长赵铁军",
+      "success": "#mainContainer displayed"
+    },
+    "office": {
+      "answer": "zhanglei",
+      "clue": "高二办公室班主任张磊",
+      "success": "officePasswordEntered boolean"
+    }
+  },
+  "scoring_note": "报告反馈指出关键证据、内容明示；文档密码可读取格式化，均诊断。"
+}

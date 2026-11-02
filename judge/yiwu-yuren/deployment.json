@@ -1,0 +1,38 @@
+{
+  "status": "two_independent_extractions_ui_passed",
+  "tests": [
+    {
+      "kind": "resources",
+      "port": 8812,
+      "source_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\yiwu-yuren-delivery-4d03c043\\resources",
+      "evaluator_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\yiwu-yuren-delivery-4d03c043\\prepared",
+      "archive_sha256": "05dde0eb0ce7c7cc0d0b67db9068e63c78cb9bc9c104ee4c74ca7a058b2f7098",
+      "all_manifest_files_equal_after_ui": true,
+      "crc_verified": true,
+      "complete_route": true,
+      "wrong_answers_rejected": true,
+      "completion_and_original_ui_replay": true,
+      "fresh_context_and_direct_ending_rejection": true,
+      "acceptance": "judge/yiwu-yuren/verification/deployed-resources/acceptance.json"
+    },
+    {
+      "kind": "prepared",
+      "port": 8813,
+      "source_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\yiwu-yuren-delivery-4d03c043\\prepared",
+      "evaluator_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\yiwu-yuren-delivery-4d03c043\\prepared",
+      "archive_sha256": "9556e6075184966fb78a95cbf54b5256dfd443113dc56e42d1378d259d5aab8b",
+      "all_manifest_files_equal_after_ui": true,
+      "crc_verified": true,
+      "complete_route": true,
+      "wrong_answers_rejected": true,
+      "completion_and_original_ui_replay": true,
+      "fresh_context_and_direct_ending_rejection": true,
+      "acceptance": "judge/yiwu-yuren/verification/deployed-prepared/acceptance.json"
+    }
+  ],
+  "runtime_harness_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\yiwu-yuren-delivery-4d03c043\\prepared\\harness",
+  "full_original_route_evidence": "judge/yiwu-yuren/acceptance-combined.json",
+  "reuse_scope": "Both archives all hashes equal declared files. Each independent extraction replays ending1 fully; original full three-ending/material evidence is reused for unchanged files, with hospital affected-behaviour retest.",
+  "prerequisites": "Existing installed Python 3.11 Windows packages and Edge/Chromium reused, not clean-OS or cross-platform validation.",
+  "model_api_used": false
+}

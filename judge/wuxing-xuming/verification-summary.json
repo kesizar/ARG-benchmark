@@ -1,0 +1,31 @@
+{
+  "record_id": "base664:0214",
+  "task_id": "wuxing-xuming",
+  "timestamp_utc": "2026-10-26T17:58:12.024403+00:00",
+  "passed_main_case": true,
+  "acceptance": [
+    {
+      "kind": "deployed-evaluator",
+      "stages": 60,
+      "main_route_checkpoints": 19,
+      "skip_route_checkpoints": 5,
+      "browser": "156.0.4314.42",
+      "trace": "runs/wuxing-xuming/deployed-evaluator/ui-trace.json",
+      "result": "runs/wuxing-xuming/deployed-evaluator/acceptance.json"
+    },
+    {
+      "kind": "deployed-game",
+      "stages": 60,
+      "main_route_checkpoints": 19,
+      "skip_route_checkpoints": 5,
+      "browser": "156.0.4314.42",
+      "trace": "runs/wuxing-xuming/deployed-game/ui-trace.json",
+      "result": "runs/wuxing-xuming/deployed-game/acceptance.json"
+    }
+  ],
+  "config_validation": "scripts/validate_config.py configs/wuxing-xuming.json -> ok",
+  "media_integrity": "judge/wuxing-xuming/media-integrity.json",
+  "deployment_integrity": "judge/wuxing-xuming/deployment-integrity.json",
+  "scope": "four-act title main case only; linked separate archive games not complete or evaluated",
+  "formal_suitability": "review required: bypassable earlier reasoning and inconsistent source prose; use checkpoint coverage rather than finale alone"
+}

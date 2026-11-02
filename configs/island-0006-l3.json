@@ -1,0 +1,74 @@
+{
+  "id": "island-0006-l3",
+  "category": "web_puzzle",
+  "runtime_layer": "L3",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "ISLAND",
+    "intro": "探索岛上的谜团，只根据画面交互和推理。若按钮对点击没有反应，可使用 200 毫秒的 long_press。"
+  },
+  "entry_url": "https://gd.games/games/c07cc2dd-3323-4114-a0c7-0a14fdd52667",
+  "local_serve": {
+    "enabled": false
+  },
+  "viewport": {
+    "width": 1600,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261023,
+  "allow_hosts": [
+    "gd.games",
+    "games.gdevelop-app.com",
+    "public-game-resources.gdevelop.io"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "long_press",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 250,
+    "max_seconds": 3600,
+    "max_answer_submits": 5
+  },
+  "settle_ms": 600,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/island-0006/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "account_requirement": "none"
+}

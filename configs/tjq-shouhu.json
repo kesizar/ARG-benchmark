@@ -1,7 +1,7 @@
 {
   "id": "tjq-shouhu",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
@@ -11,9 +11,21 @@
     "title": "TJQ-pleh亲情守护活动",
     "intro": "你在翻一份腕带说明。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
   },
-  "entry_url": "https://devfile.vip/preview/g18axl4d",
+  "entry_url": "http://127.0.0.1:8981/index.html",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/tjq-shouhu/mirror",
+      "--port",
+      "8981"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8981/index.html",
+    "ready_timeout_s": 30,
+    "port": 8981
   },
   "viewport": {
     "width": 1366,
@@ -23,7 +35,7 @@
   "timezone": "Asia/Shanghai",
   "seed": 20261023,
   "allow_hosts": [
-    "devfile.vip"
+    "127.0.0.1:8981"
   ],
   "shortcut_block": [],
   "guide_block_hosts": [
@@ -49,7 +61,7 @@
     "give_up"
   ],
   "limits": {
-    "max_steps": 110,
+    "max_steps": 180,
     "max_seconds": 1800,
     "max_answer_submits": 5
   },
@@ -68,6 +80,6 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-24 两条终局写进隐藏的结束屏，点下去才出现。"
+    "任何有效文档均可进入结局；关键词直接显示，均为诊断而非推理分。"
   ]
 }

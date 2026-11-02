@@ -1,0 +1,10 @@
+{
+  "hooks": {
+    "ending": {"type":"js_truthy","expr":"(()=>{let e=document.querySelector('#ending-screen');return !!e && getComputedStyle(e).display!=='none' && e.innerText.includes('你终于打开了那个加密文件')})()"},
+    "recovered_letter": {"type":"js_truthy","expr":"(()=>{let e=document.querySelector('#recovered-letter');return !!e && getComputedStyle(e).display!=='none' && !!e.closest('.window.active')})()"}
+  },
+  "checkpoints":[{"id":"recovered_letter","hook":"recovered_letter","op":"truthy","role":"diagnostic"}],
+  "events":{},"routes":[{"id":"ending","gates":[],"ending":{"hook":"ending","op":"truthy"}}],
+  "ending":{"hook":"ending","op":"truthy"},"answer_sha256":[],"answer_hash_file":null,"request_milestones":[],
+  "submit_conclusion":{"enabled":false,"schema":null},"rubric_path":null
+}

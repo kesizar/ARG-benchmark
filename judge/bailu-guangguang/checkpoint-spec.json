@@ -1,0 +1,77 @@
+{
+  "record_id": "base664:0368",
+  "scored_mode": "off",
+  "score_points": [
+    {
+      "id": "login",
+      "answer": "245",
+      "reasoning": "Missing journal24 + five markers, concatenate, whitespace removed. No evidence collection required by login."
+    },
+    {
+      "id": "marker_1",
+      "answer": "慢慢走",
+      "source": "album p4 caption",
+      "normalization": "removes whitespace and Chinese/ASCII quotes and punctuation"
+    },
+    {
+      "id": "marker_2",
+      "answer": "看花不摘花",
+      "source": "guestbook seeded message6",
+      "normalization": "removes whitespace and Chinese/ASCII quotes and punctuation"
+    },
+    {
+      "id": "marker_3",
+      "answer": "听风",
+      "source": "notices built-in source-view comment",
+      "normalization": "removes whitespace and Chinese/ASCII quotes and punctuation"
+    },
+    {
+      "id": "marker_4",
+      "answer": "过桥慢行",
+      "source": "archived log24",
+      "normalization": "removes whitespace and Chinese/ASCII quotes and punctuation"
+    },
+    {
+      "id": "marker_5",
+      "answer": "欢迎回来",
+      "source": "republished T-04 closing message",
+      "normalization": "removes whitespace and Chinese/ASCII quotes and punctuation"
+    }
+  ],
+  "workflow_not_scored": [
+    "trail-gap clue on T04 route/list",
+    "pin log24",
+    "visit draft auto-pins c_draft",
+    "login then all three clue flags enable republish",
+    "final publish letter requires republished and exactly5 markers, sets ended"
+  ],
+  "optional_unscored": [
+    "11 evidence board clues",
+    "date discrepancy June11 album vs June18 festival and June11 log25 trial walk",
+    "six souvenir stamps (S06 revealed after republish)",
+    "guestbook nickname20/text300 truncation, local only",
+    "role toggle visitor/volunteer extra notes",
+    "hint mode on provides direct answers, excluded from formal judge"
+  ],
+  "endings": [
+    {
+      "id": "thank-you-letter",
+      "tier": "normal",
+      "condition": "loggedIn, republished, all5 markers and explicit letter publish ended=true",
+      "evidence": "u0/a0 in recovered inline source",
+      "note": "Only one formal ending, no author quality ranking. Route-restored page before letter is intermediate and does not count."
+    }
+  ],
+  "failures": [
+    "wrong login adds attempts/message only",
+    "wrong marker feedback only",
+    "republish disabled without three evidence flags",
+    "letter disabled without route and5 markers",
+    "locked T04/S06 and unpublished ending",
+    "unknown route fictional404",
+    "no death, game-over, timer or irreversible fail branch"
+  ],
+  "latching": "Original localStorage persists across page changes/reload. Judge checkpoints latch per run. After original reset create fresh Judge/run.",
+  "ordering_risk": "Marker input n0 has no republished guard, evenY5 can be entered early if known; do not enforce marker-order or claim republish is prerequisite to entering Y5. Source-derived answer availability differs from input acceptance.",
+  "anti_false_positive": "Full ending hook validates all persistent requirements rather than matching always-visible route-restored text; hintMode must beoff."
+}

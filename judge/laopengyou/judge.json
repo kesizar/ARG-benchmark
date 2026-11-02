@@ -1,60 +1,198 @@
 {
   "hooks": {
-    "accept": {
-      "type": "dom_regex",
-      "pattern": "成功走出了小时候的阴影。"
+    "system": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('.view.active')?.id.startsWith('view-sub-')"
     },
     "wish": {
-      "type": "dom_regex",
-      "pattern": "终于有一个可以实现了。"
+      "type": "js_truthy",
+      "expr": "document.querySelector('#modal-revive-yes-result')?.classList.contains('show')"
     },
-    "revive": {
-      "type": "dom_regex",
-      "pattern": "是否\"复活\"向晴川？"
+    "accept": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#modal-revive-no-result')?.classList.contains('show')"
+    },
+    "quiz_pass": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#modal-revive')?.classList.contains('show')"
+    },
+    "wrong_quiz": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#modal-quiz-wrong')?.classList.contains('show')"
+    },
+    "hint": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#modal-forum-hint')?.classList.contains('show')"
+    },
+    "wechat": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('wechatLogin') === '1'"
+    },
+    "qq": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('qqLogin') === '1'"
+    },
+    "diary": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('subDiaryLogin') === '1'"
+    },
+    "subqq": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('subQqLogin') === '1'"
+    },
+    "quiz_1": {
+      "type": "js_truthy",
+      "expr": "(['modal-quiz-wrong','modal-revive','modal-revive-yes-result','modal-revive-no-result'].some(id=>document.getElementById(id)?.classList.contains('show'))) && (JSON.stringify(Array.from(document.querySelectorAll(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"0\\\"] .quiz-option.selected\"),e=>Number(e.dataset.oi)).sort((a,b)=>a-b)) === '[1]')"
+    },
+    "quiz_2": {
+      "type": "js_truthy",
+      "expr": "(['modal-quiz-wrong','modal-revive','modal-revive-yes-result','modal-revive-no-result'].some(id=>document.getElementById(id)?.classList.contains('show'))) && (JSON.stringify(Array.from(document.querySelectorAll(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"1\\\"] .quiz-option.selected\"),e=>Number(e.dataset.oi)).sort((a,b)=>a-b)) === '[2]')"
+    },
+    "quiz_3": {
+      "type": "js_truthy",
+      "expr": "(['modal-quiz-wrong','modal-revive','modal-revive-yes-result','modal-revive-no-result'].some(id=>document.getElementById(id)?.classList.contains('show'))) && (document.querySelector(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"2\\\"] .pair-name[data-left=\\\"0\\\"]\")?.textContent.endsWith(\"（B汉语言文学）\") && document.querySelector(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"2\\\"] .pair-name[data-left=\\\"1\\\"]\")?.textContent.endsWith(\"（A会计学）\") && document.querySelector(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"2\\\"] .pair-name[data-left=\\\"2\\\"]\")?.textContent.endsWith(\"（E生物科学）\") && document.querySelector(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"2\\\"] .pair-name[data-left=\\\"3\\\"]\")?.textContent.endsWith(\"（D软件工程）\") && document.querySelector(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"2\\\"] .pair-name[data-left=\\\"4\\\"]\")?.textContent.endsWith(\"（C商务英语）\") && document.querySelector(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"2\\\"] .pair-name[data-left=\\\"5\\\"]\")?.textContent.endsWith(\"（D软件工程）\"))"
+    },
+    "quiz_4": {
+      "type": "js_truthy",
+      "expr": "(['modal-quiz-wrong','modal-revive','modal-revive-yes-result','modal-revive-no-result'].some(id=>document.getElementById(id)?.classList.contains('show'))) && (JSON.stringify(Array.from(document.querySelectorAll(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"3\\\"] .quiz-option.selected\"),e=>Number(e.dataset.oi)).sort((a,b)=>a-b)) === '[1]')"
+    },
+    "quiz_5": {
+      "type": "js_truthy",
+      "expr": "(['modal-quiz-wrong','modal-revive','modal-revive-yes-result','modal-revive-no-result'].some(id=>document.getElementById(id)?.classList.contains('show'))) && (document.querySelector(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"4\\\"] .pair-name[data-left=\\\"0\\\"]\")?.textContent.endsWith(\"（B杂志编辑）\") && document.querySelector(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"4\\\"] .pair-name[data-left=\\\"1\\\"]\")?.textContent.endsWith(\"（ECFO）\") && document.querySelector(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"4\\\"] .pair-name[data-left=\\\"2\\\"]\")?.textContent.endsWith(\"（A家庭主妇）\") && document.querySelector(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"4\\\"] .pair-name[data-left=\\\"3\\\"]\")?.textContent.endsWith(\"（C程序员）\") && document.querySelector(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"4\\\"] .pair-name[data-left=\\\"4\\\"]\")?.textContent.endsWith(\"（D外贸员）\"))"
+    },
+    "quiz_6": {
+      "type": "js_truthy",
+      "expr": "(['modal-quiz-wrong','modal-revive','modal-revive-yes-result','modal-revive-no-result'].some(id=>document.getElementById(id)?.classList.contains('show'))) && (JSON.stringify(Array.from(document.querySelectorAll(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"5\\\"] .quiz-option.selected\"),e=>Number(e.dataset.oi)).sort((a,b)=>a-b)) === '[2]')"
+    },
+    "quiz_7": {
+      "type": "js_truthy",
+      "expr": "(['modal-quiz-wrong','modal-revive','modal-revive-yes-result','modal-revive-no-result'].some(id=>document.getElementById(id)?.classList.contains('show'))) && (JSON.stringify(Array.from(document.querySelectorAll(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"6\\\"] .quiz-option.selected\"),e=>Number(e.dataset.oi)).sort((a,b)=>a-b)) === '[3]')"
+    },
+    "quiz_8": {
+      "type": "js_truthy",
+      "expr": "(['modal-quiz-wrong','modal-revive','modal-revive-yes-result','modal-revive-no-result'].some(id=>document.getElementById(id)?.classList.contains('show'))) && (JSON.stringify(Array.from(document.querySelectorAll(\"#sub-submit-body .quiz-question[data-quiz-index=\\\"7\\\"] .quiz-option.selected\"),e=>Number(e.dataset.oi)).sort((a,b)=>a-b)) === '[0,2,4]')"
     }
   },
   "checkpoints": [
     {
-      "id": "revive",
-      "hook": "revive",
-      "op": "truthy"
-    }
-  ],
-  "events": {},
-  "routes": [
-    {
-      "id": "accept",
-      "tier": "good",
-      "gates": [
-        "revive"
-      ],
-      "ending": {
-        "hook": "accept",
-        "op": "truthy"
-      }
+      "id": "system",
+      "hook": "system",
+      "op": "truthy",
+      "role": "critical"
     },
     {
+      "id": "quiz_1",
+      "hook": "quiz_1",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "quiz_2",
+      "hook": "quiz_2",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "quiz_3",
+      "hook": "quiz_3",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "quiz_4",
+      "hook": "quiz_4",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "quiz_5",
+      "hook": "quiz_5",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "quiz_6",
+      "hook": "quiz_6",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "quiz_7",
+      "hook": "quiz_7",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "quiz_8",
+      "hook": "quiz_8",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "wechat",
+      "hook": "wechat",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "qq",
+      "hook": "qq",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "diary",
+      "hook": "diary",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "subqq",
+      "hook": "subqq",
+      "op": "truthy",
+      "role": "optional"
+    }
+  ],
+  "events": {
+    "wrong_quiz": {
+      "hook": "wrong_quiz",
+      "op": "truthy"
+    },
+    "quiz_pass": {
+      "hook": "quiz_pass",
+      "op": "truthy"
+    },
+    "hint": {
+      "hook": "hint",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
       "id": "wish",
-      "tier": "normal",
       "gates": [
-        "revive"
+        "system",
+        "quiz_1",
+        "quiz_7",
+        "quiz_8"
       ],
       "ending": {
         "hook": "wish",
         "op": "truthy"
       }
+    },
+    {
+      "id": "accept",
+      "gates": [
+        "system",
+        "quiz_1",
+        "quiz_7",
+        "quiz_8"
+      ],
+      "ending": {
+        "hook": "accept",
+        "op": "truthy"
+      }
     }
-  ],
-  "ending": {
-    "hook": "accept",
-    "op": "truthy"
-  },
-  "answer_sha256": [],
-  "answer_hash_file": null,
-  "request_milestones": [],
-  "submit_conclusion": {
-    "enabled": false,
-    "schema": null
-  },
-  "rubric_path": null
+  ]
 }

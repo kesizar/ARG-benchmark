@@ -1,0 +1,89 @@
+{
+  "id": "tade-xinhao",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "她的信号",
+    "intro": "调查失踪的小初，依据页面线索确认地点并探索结局。当前为本地冻结版本，真实搜索引擎访问不可用。"
+  },
+  "entry_url": "http://127.0.0.1:8831/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/tade-xinhao/mirror",
+      "--port",
+      "8831"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8831/index.html",
+    "ready_timeout_s": 30,
+    "port": 8831
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261012,
+  "allow_hosts": [
+    "127.0.0.1:8831"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up",
+    "switch_tab",
+    "close_tab"
+  ],
+  "limits": {
+    "max_steps": 1500,
+    "max_seconds": 14400,
+    "max_answer_submits": 200
+  },
+  "settle_ms": 350,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/tade-xinhao/judge.json",
+  "policy_script": [
+    {
+      "op": "click",
+      "n": 0
+    },
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "PREPARATION INCOMPLETE: candidate engineering configuration; full routes and scoring not accepted.",
+    "Original requests real-world search and multi-modal decoding; closed-network suitability unresolved."
+  ],
+  "account_requirement": "none"
+}

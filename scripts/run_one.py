@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import logging
+import json
 import sys
 from pathlib import Path
 
@@ -24,7 +25,14 @@ def main() -> None:
     parser.add_argument("--policy", choices=["script", "llm"], default="script")
     parser.add_argument("--obs-mode", choices=["A", "B", "C"], default=None)
     parser.add_argument("--show", action="store_true", help="打开可见浏览器")
+    parser.add_argument("--run-kind", choices=["test", "official"], default="test", help="正式评测须显式指定 official")
+    parser.add_argument("--manifest", help="正式运行的冻结评分清单")
+    parser.add_argument("--repetition", type=int, help="正式运行的重复局编号，从 1 开始")
+    parser.add_argument("--attempt", type=int, default=1, help="同一局的重跑序号，从 1 开始")
     args = parser.parse_args()
+    if args.run_kind == "official" and (not args.manifest or args.repetition is None):
+        parser.error("正式运行须提供 --manifest 和 --repetition")
+    manifest = json.loads((ROOT / args.manifest).read_text(encoding="utf-8-sig")) if args.manifest else None
     try:
         summary = asyncio.run(
             run(
@@ -33,6 +41,10 @@ def main() -> None:
                 obs_mode=args.obs_mode,
                 headless=not args.show,
                 repo_root=ROOT,
+                run_kind=args.run_kind,
+                manifest=manifest,
+                repetition=args.repetition,
+                attempt=args.attempt,
             )
         )
     except SystemExit as exc:

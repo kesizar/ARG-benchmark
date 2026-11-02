@@ -1,0 +1,90 @@
+{
+  "id": "fengnian-gaiban",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "奉念（改版）",
+    "intro": "只依据本地网页可见信息探索并到达任一结局。不得查看源码或私有评测文件。"
+  },
+  "entry_url": "http://127.0.0.1:8821/index.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/fengnian-gaiban/mirror",
+      "--port",
+      "8821"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8821/index.html",
+    "ready_timeout_s": 30,
+    "port": 8821
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261012,
+  "allow_hosts": [
+    "127.0.0.1:8821"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up",
+    "switch_tab",
+    "close_tab"
+  ],
+  "limits": {
+    "max_steps": 700,
+    "max_seconds": 3600,
+    "max_answer_submits": 80
+  },
+  "settle_ms": 350,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/fengnian-gaiban/judge.json",
+  "policy_script": [
+    {
+      "op": "click",
+      "n": 0
+    },
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "入口生日线索未随材料提供；当前只验收私有源码辅助工程回放，不能据此宣称模型能解。",
+    "全局fresh context重置；解锁后直接reload有原作TDZ异常。摄像头拒绝通路允许继续，不授权真实摄像。",
+    "AES与生辰八字换算辅助工具未提供给模型，正式推理评分待复核。"
+  ],
+  "account_requirement": "none"
+}

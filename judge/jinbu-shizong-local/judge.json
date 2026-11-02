@@ -1,0 +1,172 @@
+{
+  "hooks": {
+    "codes": {
+      "type": "localstorage",
+      "key": "jbb_qnet_p1",
+      "mode": "exists"
+    },
+    "chain": {
+      "type": "localstorage",
+      "key": "jbb_qnet_p2",
+      "mode": "exists"
+    },
+    "order": {
+      "type": "localstorage",
+      "key": "jbb_qnet_p3",
+      "mode": "exists"
+    },
+    "church1": {
+      "type": "localstorage",
+      "key": "jbb_church_p1",
+      "mode": "exists"
+    },
+    "church2": {
+      "type": "localstorage",
+      "key": "jbb_church_p2",
+      "mode": "exists"
+    },
+    "church3": {
+      "type": "localstorage",
+      "key": "jbb_church_p3",
+      "mode": "exists"
+    },
+    "fire1": {
+      "type": "localstorage",
+      "key": "jbb_fire_p1",
+      "mode": "exists"
+    },
+    "fire2": {
+      "type": "localstorage",
+      "key": "jbb_fire_p2",
+      "mode": "exists"
+    },
+    "fire3": {
+      "type": "localstorage",
+      "key": "jbb_fire_p3",
+      "mode": "exists"
+    },
+    "broken": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('jbb_net_done') === '1' && localStorage.getItem('jbb_net_ending') === '1'"
+    },
+    "good": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('jbb_net_done') === '1' && localStorage.getItem('jbb_net_ending') === '2'"
+    },
+    "truth": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('jbb_net_done') === '1' && localStorage.getItem('jbb_net_ending') === '3'"
+    },
+    "hidden": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('jbb_net_done') === '1' && localStorage.getItem('jbb_net_ending') === '4'"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "codes",
+      "hook": "codes",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "chain",
+      "hook": "chain",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "order",
+      "hook": "order",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "church1",
+      "hook": "church1",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "church2",
+      "hook": "church2",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "church3",
+      "hook": "church3",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "fire1",
+      "hook": "fire1",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "fire2",
+      "hook": "fire2",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "fire3",
+      "hook": "fire3",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "routes": [
+    {
+      "id": "broken",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "broken",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "good",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "good",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "truth",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "truth",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "hidden",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "hidden",
+        "op": "truthy"
+      }
+    }
+  ],
+  "events": {},
+  "ending": {
+    "hook": "truth",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

@@ -1,279 +1,246 @@
 {
   "hooks": {
-    "resist": {
-      "type": "dom_regex",
-      "pattern": "RESISTANCE LOGGED."
+    "reverse": {
+      "type": "js_truthy",
+      "expr": "currentLevel===4"
     },
-    "silence": {
-      "type": "dom_regex",
-      "pattern": "YOU CHOSE SILENCE."
+    "sum": {
+      "type": "js_truthy",
+      "expr": "currentLevel===7"
     },
-    "comply": {
-      "type": "dom_regex",
-      "pattern": "COMPLIANCE RECORDED."
+    "a1z26": {
+      "type": "js_truthy",
+      "expr": "currentLevel===12"
     },
-    "s2": {
-      "type": "dom_regex",
-      "pattern": "Nothing\\ is\\ truly\\ empty\\."
+    "morse": {
+      "type": "js_truthy",
+      "expr": "currentLevel===13"
     },
-    "s3": {
-      "type": "dom_regex",
-      "pattern": "DECRYPT\\ THE\\ MESSAGE"
-    },
-    "s4": {
-      "type": "dom_regex",
-      "pattern": "CATCH\\ THE\\ BUTTON\\ IF\\ YOU\\ CAN"
-    },
-    "s5": {
-      "type": "dom_regex",
-      "pattern": "ANALYZE\\ THE\\ SIGNAL"
-    },
-    "s6": {
-      "type": "dom_regex",
-      "pattern": "NOT\\ FOUND\\ —\\ BUT\\ SOMETHING\\ IS"
-    },
-    "s7": {
-      "type": "dom_regex",
-      "pattern": "TEMPORAL\\ ACCESS\\ CONTROL"
-    },
-    "s8": {
-      "type": "dom_regex",
-      "pattern": "ENTER\\ THE\\ SEQUENCE"
-    },
-    "s9": {
-      "type": "dom_regex",
-      "pattern": "YOUR\\ MIND\\ STOPPED\\ WORKING"
-    },
-    "s10": {
-      "type": "dom_regex",
-      "pattern": "INSPECT\\ THE\\ SOURCE"
-    },
-    "s11": {
-      "type": "dom_regex",
-      "pattern": "DECODE\\ THE\\ SEQUENCE"
-    },
-    "s12": {
-      "type": "dom_regex",
-      "pattern": "LISTEN\\ TO\\ THE\\ SIGNAL"
-    },
-    "s13": {
-      "type": "dom_regex",
-      "pattern": "SOLVE\\ THE\\ PARADOX"
-    },
-    "s14": {
-      "type": "dom_regex",
-      "pattern": "INTROSPECTION\\ REQUIRED"
-    },
-    "cipher": {
-      "type": "dom_regex",
-      "pattern": "TRIPLE\\-LAYER\\ DECRYPTION"
+    "paradox": {
+      "type": "js_truthy",
+      "expr": "currentLevel===14"
     },
     "hex": {
-      "type": "dom_regex",
-      "pattern": "HEX\\ COLOR\\ CIPHER"
+      "type": "js_truthy",
+      "expr": "currentLevel===\"binary\""
     },
     "binary": {
-      "type": "dom_regex",
-      "pattern": "BINARY\\ TRANSMISSION\\ DETECTED"
+      "type": "js_truthy",
+      "expr": "currentLevel===\"fakenews\""
     },
-    "herald": {
-      "type": "dom_regex",
-      "pattern": "THE\\ ERRORMIND\\ HERALD"
+    "visual_signal": {
+      "type": "js_truthy",
+      "expr": "currentLevel===6"
     },
-    "choice": {
-      "type": "dom_regex",
-      "pattern": "ONE\\ FINAL\\ CHOICE"
+    "omega": {
+      "type": "js_truthy",
+      "expr": "currentLevel===10"
+    },
+    "source_copy": {
+      "type": "js_truthy",
+      "expr": "currentLevel===11"
+    },
+    "memory": {
+      "type": "js_truthy",
+      "expr": "currentLevel===\"cipher\""
+    },
+    "mlc_1": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('cs1').classList.contains('solved')"
+    },
+    "mlc_2": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('cs2').classList.contains('solved')"
+    },
+    "mlc_3": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('cs3').classList.contains('solved')"
+    },
+    "name": {
+      "type": "js_truthy",
+      "expr": "!!userName&&document.getElementById('mirror-reveal').classList.contains('show')"
+    },
+    "meta": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem('errormind_meta_choice')!==null"
+    },
+    "false_ending": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('false-ending-overlay').classList.contains('show')"
+    },
+    "news": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('ending-choice-overlay').classList.contains('show')"
+    },
+    "ending_comply": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('screen-final').classList.contains('active')&&document.getElementById(\"ec1\").classList.contains('show')&&document.getElementById('final-classified').classList.contains('show')"
+    },
+    "ending_resist": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('screen-final').classList.contains('active')&&document.getElementById(\"er1\").classList.contains('show')&&document.getElementById('final-classified').classList.contains('show')"
+    },
+    "ending_void": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('screen-final').classList.contains('active')&&document.getElementById(\"ev2\").classList.contains('show')&&document.getElementById('final-classified').classList.contains('show')"
+    },
+    "any_final": {
+      "type": "js_truthy",
+      "expr": "document.getElementById('screen-final').classList.contains('active')&&document.getElementById('final-classified').classList.contains('show')"
     }
   },
   "checkpoints": [
     {
-      "id": "s2",
-      "hook": "s2",
-      "op": "truthy"
+      "id": "reverse",
+      "hook": "reverse",
+      "op": "truthy",
+      "role": "diagnostic",
+      "description": "Passes for any substring lost, including incorrect unlost; not reasoning credit"
     },
     {
-      "id": "s3",
-      "hook": "s3",
-      "op": "truthy"
+      "id": "sum",
+      "hook": "sum",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Infer sum7+3+9"
     },
     {
-      "id": "s4",
-      "hook": "s4",
-      "op": "truthy"
+      "id": "a1z26",
+      "hook": "a1z26",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Numeric alphabet decoding"
     },
     {
-      "id": "s5",
-      "hook": "s5",
-      "op": "truthy"
+      "id": "morse",
+      "hook": "morse",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Visual/audio Morse decoding"
     },
     {
-      "id": "s6",
-      "hook": "s6",
-      "op": "truthy"
-    },
-    {
-      "id": "s7",
-      "hook": "s7",
-      "op": "truthy"
-    },
-    {
-      "id": "s8",
-      "hook": "s8",
-      "op": "truthy"
-    },
-    {
-      "id": "s9",
-      "hook": "s9",
-      "op": "truthy"
-    },
-    {
-      "id": "s10",
-      "hook": "s10",
-      "op": "truthy"
-    },
-    {
-      "id": "s11",
-      "hook": "s11",
-      "op": "truthy"
-    },
-    {
-      "id": "s12",
-      "hook": "s12",
-      "op": "truthy"
-    },
-    {
-      "id": "s13",
-      "hook": "s13",
-      "op": "truthy"
-    },
-    {
-      "id": "s14",
-      "hook": "s14",
-      "op": "truthy"
-    },
-    {
-      "id": "cipher",
-      "hook": "cipher",
-      "op": "truthy"
+      "id": "paradox",
+      "hook": "paradox",
+      "op": "truthy",
+      "role": "critical",
+      "description": "Inconsistent statement system"
     },
     {
       "id": "hex",
       "hook": "hex",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "diagnostic",
+      "description": "Hex stage: answer already supplied by prior MIND stages and hover tooltip"
     },
     {
       "id": "binary",
       "hook": "binary",
-      "op": "truthy"
+      "op": "truthy",
+      "role": "critical",
+      "description": "Binary-to-ASCII decoding"
     },
     {
-      "id": "herald",
-      "hook": "herald",
-      "op": "truthy"
+      "id": "visual_signal",
+      "hook": "visual_signal",
+      "op": "truthy",
+      "role": "diagnostic"
     },
     {
-      "id": "choice",
-      "hook": "choice",
-      "op": "truthy"
+      "id": "omega",
+      "hook": "omega",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "source_copy",
+      "hook": "source_copy",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "memory",
+      "hook": "memory",
+      "op": "truthy",
+      "role": "diagnostic"
     }
   ],
-  "events": {},
+  "events": {
+    "mlc_1": {
+      "hook": "mlc_1",
+      "op": "truthy"
+    },
+    "mlc_2": {
+      "hook": "mlc_2",
+      "op": "truthy"
+    },
+    "mlc_3": {
+      "hook": "mlc_3",
+      "op": "truthy"
+    },
+    "name": {
+      "hook": "name",
+      "op": "truthy"
+    },
+    "meta": {
+      "hook": "meta",
+      "op": "truthy"
+    },
+    "false_ending": {
+      "hook": "false_ending",
+      "op": "truthy"
+    },
+    "news": {
+      "hook": "news",
+      "op": "truthy"
+    }
+  },
   "routes": [
     {
-      "id": "resist",
-      "tier": "good",
-      "gates": [
-        "s2",
-        "s3",
-        "s4",
-        "s5",
-        "s6",
-        "s7",
-        "s8",
-        "s9",
-        "s10",
-        "s11",
-        "s12",
-        "s13",
-        "s14",
-        "cipher",
-        "hex",
-        "binary",
-        "herald",
-        "choice"
-      ],
-      "ending": {
-        "hook": "resist",
-        "op": "truthy"
-      }
-    },
-    {
-      "id": "silence",
-      "tier": "normal",
-      "gates": [
-        "s2",
-        "s3",
-        "s4",
-        "s5",
-        "s6",
-        "s7",
-        "s8",
-        "s9",
-        "s10",
-        "s11",
-        "s12",
-        "s13",
-        "s14",
-        "cipher",
-        "hex",
-        "binary",
-        "herald",
-        "choice"
-      ],
-      "ending": {
-        "hook": "silence",
-        "op": "truthy"
-      }
-    },
-    {
       "id": "comply",
-      "tier": "bad",
       "gates": [
-        "s2",
-        "s3",
-        "s4",
-        "s5",
-        "s6",
-        "s7",
-        "s8",
-        "s9",
-        "s10",
-        "s11",
-        "s12",
-        "s13",
-        "s14",
-        "cipher",
-        "hex",
-        "binary",
-        "herald",
-        "choice"
+        "sum",
+        "a1z26",
+        "morse",
+        "paradox",
+        "binary"
       ],
       "ending": {
-        "hook": "comply",
+        "hook": "ending_comply",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "resist",
+      "gates": [
+        "sum",
+        "a1z26",
+        "morse",
+        "paradox",
+        "binary"
+      ],
+      "ending": {
+        "hook": "ending_resist",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "void",
+      "gates": [
+        "sum",
+        "a1z26",
+        "morse",
+        "paradox",
+        "binary"
+      ],
+      "ending": {
+        "hook": "ending_void",
         "op": "truthy"
       }
     }
   ],
   "ending": {
-    "hook": "resist",
+    "hook": "any_final",
     "op": "truthy"
   },
-  "answer_sha256": [],
-  "answer_hash_file": null,
-  "request_milestones": [],
-  "submit_conclusion": {
-    "enabled": false,
-    "schema": null
-  },
-  "rubric_path": null
+  "answer_sha256": []
 }

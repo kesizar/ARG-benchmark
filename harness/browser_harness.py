@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import os
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -28,19 +29,35 @@ class BrowserHarness:
         self.step_requests: list[dict] = []
         self.step_dialogs: list[dict] = []
         self.pending = None
+        self._strict_generation = 0
+        self._strict_transitioning = False
+        self._dialog_ready = asyncio.Event()
+        self._action_tasks: set[asyncio.Task] = set()
+        self._deferred_actions: set[asyncio.Task] = set()
+        self._deferred_results: list[str] = []
+        self._last_observation: dict[str, Any] = {}
+        self._bound_pages: set = set()
         self.step = 0
         self.shot_index = 0
         self.last_screenshot = ""
         self.settle_ms = int(cfg.get("settle_ms") or 0)
+        self.judge_init_script = ""
 
     async def start(self) -> None:
         from playwright.async_api import async_playwright
 
         self.playwright = await async_playwright().start()
         last_error: Exception | None = None
-        for kwargs in ({"channel": "msedge"}, {"channel": "chrome"}, {}):
+        channel = os.environ.get("BENCHMARK_BROWSER_CHANNEL", "auto")
+        if channel not in {"auto", "chromium", "msedge", "chrome"}:
+            raise ValueError("BENCHMARK_BROWSER_CHANNEL must be auto/chromium/msedge/chrome")
+        choices = ({"channel": "msedge"}, {"channel": "chrome"}, {}) if channel == "auto" else (
+            {} if channel == "chromium" else {"channel": channel},
+        )
+        for kwargs in choices:
             try:
-                self.browser = await self.playwright.chromium.launch(headless=self.headless, **kwargs)
+                self.browser = await self.playwright.chromium.launch(
+                    headless=self.headless, args=self.cfg.get("browser_launch_args") or [], **kwargs)
                 return
             except Exception as exc:  # noqa: BLE001
                 last_error = exc
@@ -48,6 +65,9 @@ class BrowserHarness:
         raise RuntimeError(f"没有可用的浏览器: {last_error}")
 
     async def close(self) -> None:
+        self._strict_generation += 1
+        self._strict_transitioning = True
+        await self._cancel_actions()
         if self.context:
             await self.context.close()
             self.context = None
@@ -59,6 +79,14 @@ class BrowserHarness:
             self.playwright = None
 
     async def reset(self) -> None:
+        self._strict_generation += 1
+        self._strict_transitioning = True
+        await self._cancel_actions()
+        self.pending = None
+        self._dialog_ready.clear()
+        self._last_observation = {}
+        self.elements = []
+        self._bound_pages.clear()
         if self.context:
             await self.context.close()
         viewport = self.cfg.get("viewport") or {"width": 1366, "height": 900}
@@ -77,6 +105,8 @@ class BrowserHarness:
             self.context = await self.browser.new_context(**options)
         await self.context.add_init_script(_seed_script(int(self.cfg.get("seed") or 1)))
         await self.context.add_init_script(INPUT_WATCH_JS)
+        if self.judge_init_script:
+            await self.context.add_init_script(self.judge_init_script)
         await self.context.route("**/*", self._route)
         self.context.on("page", self._on_page)
         self.page = await self.context.new_page()
@@ -85,6 +115,7 @@ class BrowserHarness:
         if entry:
             await self.page.goto(entry, wait_until="domcontentloaded", timeout=45000)
             await self._settle()
+        self._strict_transitioning = False
 
     async def _screenshot(self, path) -> None:
         from playwright.async_api import TimeoutError as PlaywrightTimeout
@@ -106,6 +137,16 @@ class BrowserHarness:
 
     async def observe(self, label: str | None = None) -> dict[str, Any]:
         assert self.page is not None
+        if self.pending:
+            # JavaScript and screenshot requests may block behind a native
+            # dialog. Reuse the last game image and report the live dialog.
+            raw = dict(self._last_observation)
+            raw.update({"url": self.page.url if self.cfg.get("show_url", True) else "",
+                        "visible_text": raw.get("visible_text", ""), "elements": [],
+                        "tabs": raw.get("tabs", []), "dialogs": list(self.step_dialogs),
+                        "pending_dialog": self._pending_view()})
+            self.elements = []
+            return raw
         self.shot_index += 1
         name = label or f"step_{self.shot_index:03d}.png"
         path = self.run_dir / name
@@ -132,16 +173,66 @@ class BrowserHarness:
             "pending_dialog": self._pending_view(),
             "screenshot": str(path),
         }
+        self._last_observation = dict(raw)
         return raw
 
     async def act(self, action: dict[str, Any]) -> str:
         from playwright.async_api import Error
 
+        if self.pending and action.get("op") not in {"dialog", "wait"}:
+            return "请先用 dialog 动作处理待回应的对话框"
+
+        async def execute():
+            try:
+                return await self._dispatch(action)
+            except (Error, TypeError, ValueError, KeyError) as exc:
+                detail = str(exc).splitlines()[0].strip()
+                return f"无法执行：{detail[:180]}"
+
+        self._dialog_ready.clear()
+        task = asyncio.create_task(execute())
+        self._action_tasks.add(task)
+        task.add_done_callback(self._action_finished)
+        waiter = asyncio.create_task(self._dialog_ready.wait())
         try:
-            return await self._dispatch(action)
-        except (Error, TypeError, ValueError, KeyError) as exc:
-            detail = str(exc).splitlines()[0].strip()
-            return f"无法执行：{detail[:180]}"
+            done, _ = await asyncio.wait({task, waiter}, return_when=asyncio.FIRST_COMPLETED)
+            if task in done:
+                result = await task
+            else:
+                # Keep the triggering click alive until the player's next
+                # dialog action accepts/dismisses the native dialog.
+                self._deferred_actions.add(task)
+                result = "ok"
+            if self._deferred_results:
+                result += "；先前动作：" + "；".join(self._deferred_results)
+                self._deferred_results.clear()
+            return result
+        finally:
+            waiter.cancel()
+            await asyncio.gather(waiter, return_exceptions=True)
+
+    def _action_finished(self, task) -> None:
+        self._action_tasks.discard(task)
+        deferred = task in self._deferred_actions
+        self._deferred_actions.discard(task)
+        if task.cancelled():
+            return
+        try:
+            result = task.result()
+        except Exception as exc:
+            result = f"无法执行：{str(exc)[:180]}"
+        if deferred and result != "ok":
+            self._deferred_results.append(result)
+
+    async def _cancel_actions(self) -> None:
+        tasks = list(self._action_tasks)
+        for task in tasks:
+            task.cancel()
+        if tasks:
+            await asyncio.gather(*tasks, return_exceptions=True)
+        self._action_tasks.clear()
+        self._deferred_actions.clear()
+        self._deferred_results.clear()
 
     async def input_hashes(self, selector: str | None = None) -> set[str]:
         from harness.judge import answer_sha256
@@ -168,6 +259,23 @@ class BrowserHarness:
                 if await self._evaluate(frame, PAGE_EXPR_JS, expr):
                     return True
         return False
+
+    async def strict_page_expr(self, expr: str) -> bool:
+        """Private judge read: unavailable state is an error, never a false score."""
+        page, context = self.page, self.context
+        generation = self._strict_generation
+        if self.pending or context is None or page is None or not expr or self._strict_transitioning:
+            raise RuntimeError("strict judge page unavailable")
+        try:
+            value = await asyncio.wait_for(page.evaluate("(expr) => eval(expr)", expr), 15)
+        except Exception as exc:
+            raise RuntimeError("strict judge evaluation unavailable") from exc
+        if (self.pending or self.page is not page or self.context is not context
+                or self._strict_generation != generation or self._strict_transitioning):
+            raise RuntimeError("strict judge page changed during evaluation")
+        if type(value) is not bool:
+            raise RuntimeError("strict judge returned non-boolean")
+        return value
 
     async def urls(self) -> list[str]:
         if not self.context:
@@ -196,7 +304,7 @@ class BrowserHarness:
             if pattern and not pattern.search(frame.url or ""):
                 continue
             try:
-                data = await frame.evaluate(
+                data = await self._evaluate(frame,
                     """() => {
                       const out = {};
                       for (let i = 0; i < localStorage.length; i++) {
@@ -312,6 +420,8 @@ class BrowserHarness:
         return "动作未启用"
 
     async def _evaluate(self, target, script: str, arg: Any | None = None, timeout: float = 15) -> Any:
+        if self.pending:
+            return None
         try:
             call = target.evaluate(script) if arg is None else target.evaluate(script, arg)
             return await asyncio.wait_for(call, timeout)
@@ -357,6 +467,9 @@ class BrowserHarness:
         return {"type": self.pending.type, "message": self.pending.message}
 
     def _bind_page(self, page) -> None:
+        if page in self._bound_pages:
+            return
+        self._bound_pages.add(page)
         page.on("dialog", self._on_dialog)
 
     def _on_page(self, page) -> None:
@@ -369,6 +482,7 @@ class BrowserHarness:
             await dialog.accept()
             return
         self.pending = dialog
+        self._dialog_ready.set()
 
     async def _route(self, route) -> None:
         request = route.request
@@ -392,6 +506,8 @@ class BrowserHarness:
         await route.continue_()
 
     async def _settle(self) -> None:
+        if self.pending:
+            return
         if self.settle_ms:
             await self.page.wait_for_timeout(self.settle_ms)
         await self._drop_blocked_pages()
@@ -413,7 +529,8 @@ class BrowserHarness:
         open_pages = [page for page in self.context.pages if not str(page.url or "").startswith("chrome-error:")]
         if not open_pages:
             return
-        self.page = open_pages[-1]
+        if self.page not in open_pages:
+            self.page = open_pages[-1]
         await self.page.bring_to_front()
 
 

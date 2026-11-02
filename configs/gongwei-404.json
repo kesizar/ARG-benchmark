@@ -1,44 +1,89 @@
 {
   "id": "gongwei-404",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L1",
   "obs_mode": "B",
-  "obs_modes_to_run": ["B"],
+  "obs_modes_to_run": [
+    "B"
+  ],
   "computer_use": false,
   "model_visible": {
     "title": "404工位消失事件",
     "intro": "你在一个本地托管的网页解谜里。只能用列出的动作，只根据屏幕上能看到的信息推理。不要假设能访问外网。"
   },
-  "entry_url": "http://127.0.0.1:8772/index.html",
+  "entry_url": "http://127.0.0.1:8821/index.html",
   "local_serve": {
     "enabled": true,
-    "command": ["python", "scripts/serve_static.py", "--root", "tasks/gongwei-404/mirror", "--port", "8772"],
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/gongwei-404/mirror",
+      "--port",
+      "8821"
+    ],
     "cwd": ".",
-    "ready_url": "http://127.0.0.1:8772/index.html",
+    "ready_url": "http://127.0.0.1:8821/index.html",
     "ready_timeout_s": 30,
-    "port": 8772
+    "port": 8821
   },
-  "viewport": {"width": 1366, "height": 900},
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
   "locale": "zh-CN",
   "timezone": "Asia/Shanghai",
   "seed": 20261012,
-  "allow_hosts": ["127.0.0.1:8772"],
+  "allow_hosts": [
+    "127.0.0.1:8821"
+  ],
   "shortcut_block": [],
   "guide_block_hosts": [],
-  "allow_model_goto": false,
-  "goto_scope": "none",
+  "allow_model_goto": true,
+  "goto_scope": "same_host",
   "show_url": true,
   "text_scope": "page",
   "text_limit": 6000,
-  "actions_enabled": ["click", "dblclick", "type", "key", "scroll", "drag", "back", "wait", "dialog", "give_up"],
-  "limits": {"max_steps": 80, "max_seconds": 1800, "max_answer_submits": 20},
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up",
+    "goto",
+    "switch_tab",
+    "close_tab"
+  ],
+  "limits": {
+    "max_steps": 160,
+    "max_seconds": 1800,
+    "max_answer_submits": 20
+  },
   "settle_ms": 400,
-  "history": {"full_obs_k": 4, "screenshot_k": 2},
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
   "judge_path": "judge/gongwei-404/judge.json",
   "policy_script": [
-    {"op": "click", "n": 0},
-    {"op": "give_up"}
+    {
+      "op": "click",
+      "n": 0
+    },
+    {
+      "op": "give_up"
+    }
   ],
-  "isolation": {"container": false},
-  "notes_for_report": ["网页解谜本地镜像。离开封面、页码和错误提示只记在 events。主分是各处登录或解锁后才出现的状态。通关看终局页。"]
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "游戏账号是本地剧情谜题，不是真实服务账号。笔记含字面网址，允许站内地址栏导航。外部搜索遥测已移除；解锁成功分支添加仅供裁判读取的标记。"
+  ],
+  "account_requirement": "none"
 }

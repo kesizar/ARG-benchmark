@@ -1,20 +1,44 @@
 {
   "hooks": {
-    "truth": {
-      "type": "dom_regex",
-      "pattern": "真结局 · 全真相"
-    },
-    "follow": {
-      "type": "dom_regex",
-      "pattern": "帖子后续 · 已更新"
-    },
     "space": {
-      "type": "dom_regex",
-      "pattern": "口令正确。空间已解锁。"
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").spaceUnlocked===true"
+    },
+    "log": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").logUnlocked===true"
     },
     "phone": {
-      "type": "dom_regex",
-      "pattern": "手机已解锁。"
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").phoneUnlocked===true"
+    },
+    "drawer": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").drawerOpen===true"
+    },
+    "intranet": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").intranetUnlocked===true"
+    },
+    "chen": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").chenUnlocked===true"
+    },
+    "follow_ending": {
+      "type": "js_truthy",
+      "expr": "document.getElementById(\"screen-thread\").classList.contains(\"active\") && document.getElementById(\"epilogue\").textContent.includes(\"帖子后续 · 已更新\") && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").spaceUnlocked===true"
+    },
+    "truth_ending": {
+      "type": "js_truthy",
+      "expr": "document.getElementById(\"screen-thread\").classList.contains(\"active\") && document.getElementById(\"epilogue\").textContent.includes(\"真结局 · 全真相\") && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").spaceUnlocked===true && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").phoneUnlocked===true"
+    },
+    "deeper_ending": {
+      "type": "js_truthy",
+      "expr": "document.getElementById(\"screen-thread\").classList.contains(\"active\") && document.getElementById(\"epilogue\").textContent.includes(\"更深的真相 · 人体实验\") && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").spaceUnlocked===true && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").phoneUnlocked===true && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").intranetUnlocked===true"
+    },
+    "final_ending": {
+      "type": "js_truthy",
+      "expr": "document.getElementById(\"screen-thread\").classList.contains(\"active\") && document.getElementById(\"epilogue\").textContent.includes(\"亡魂的真相 · 禁入区\") && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").spaceUnlocked===true && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").phoneUnlocked===true && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").intranetUnlocked===true && JSON.parse(localStorage.getItem(\"anning_arg_v2\")||\"{}\").chenUnlocked===true"
     }
   },
   "checkpoints": [
@@ -24,39 +48,65 @@
       "op": "truthy"
     },
     {
+      "id": "log",
+      "hook": "log",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
       "id": "phone",
       "hook": "phone",
       "op": "truthy"
+    },
+    {
+      "id": "drawer",
+      "hook": "drawer",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "intranet",
+      "hook": "intranet",
+      "op": "truthy"
+    },
+    {
+      "id": "chen",
+      "hook": "chen",
+      "op": "truthy"
     }
   ],
-  "events": {},
+  "events": {
+    "follow_observed": {
+      "hook": "follow_ending",
+      "op": "truthy"
+    },
+    "truth_observed": {
+      "hook": "truth_ending",
+      "op": "truthy"
+    },
+    "deeper_observed": {
+      "hook": "deeper_ending",
+      "op": "truthy"
+    }
+  },
   "routes": [
     {
-      "id": "truth",
+      "id": "final",
       "tier": "good",
       "gates": [
         "space",
-        "phone"
+        "phone",
+        "intranet",
+        "chen"
       ],
       "ending": {
-        "hook": "truth",
-        "op": "truthy"
-      }
-    },
-    {
-      "id": "follow",
-      "tier": "normal",
-      "gates": [
-        "space"
-      ],
-      "ending": {
-        "hook": "follow",
+        "hook": "final_ending",
         "op": "truthy"
       }
     }
   ],
   "ending": {
-    "hook": "truth",
+    "hook": "final_ending",
     "op": "truthy"
   },
   "answer_sha256": [],

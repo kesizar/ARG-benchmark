@@ -1,0 +1,27 @@
+{
+  "record_id": "added84:0024",
+  "source_sha256": "806e73b8a49400ad7bb2746639b4e15fe52179f2c28164d22e168a9c31083da7",
+  "source_matches_catalogue": true,
+  "runtime_sha256": "fc67b2d771228e32b90760d7841d52318ce665c3dce505275fd292bff169aa21",
+  "resource_files": 1,
+  "virtual_base_files": 70,
+  "virtual_dynamic_files": 1,
+  "virtual_vault_files": 7,
+  "external_game_dependencies": [],
+  "account_requirement": "none",
+  "compatibility_changes": [
+    {
+      "type": "compatibility_missing_helper",
+      "detail": "Define sleep(ms) as Promise(setTimeout); original referenced it throughout but never declared it. Preserve all timing values, narrative, command logic and ending conditions.",
+      "original": "judge/k7-dangan/source/original.html"
+    },
+    {
+      "type": "compatibility_focus",
+      "detail": "Only focus terminal on document click when simulated website panel is closed; otherwise original stole BBS input focus. No puzzle/ending logic changed."
+    }
+  ],
+  "byte_reverse_verification": "Removing added delay helper and restoring original focus guard exactly reproduces original bytes.",
+  "diff": "judge/k7-dangan/compatibility.diff",
+  "original": "judge/k7-dangan/source/original.html",
+  "live_origin_parity": "not checked"
+}

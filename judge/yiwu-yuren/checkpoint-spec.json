@@ -1,0 +1,157 @@
+{
+  "record_id": "base664:0268",
+  "scope": "Live case001; accepted-commission desktop start. Other two commissions on shared index excluded.",
+  "reasoning_checkpoints": [
+    {
+      "id": "wechat",
+      "role": "optional",
+      "condition": "recover alexshen0110 with 183794677 then log in",
+      "evidence": [
+        "001/shenqinjianli.html old phone 138112805 and WeChat ID",
+        "001/yuxiaoli.html current contact 183794677"
+      ],
+      "negative": [
+        "ordinary login always rejects",
+        "old phone is cancelled",
+        "malformed phone or unknown ID rejected"
+      ],
+      "why_optional": "student dialogue can be reached independently"
+    },
+    {
+      "id": "hospital",
+      "role": "optional",
+      "condition": "沈沁 / 2001-10-05 / 2025-03-01",
+      "evidence": [
+        "001/shenqinjianli.html birth clues",
+        "001/baodao.html death and hospital date",
+        "001/yiyuanjilu.html identity code 2132001100576"
+      ],
+      "negative": "any absent or mismatched field rejects",
+      "why_optional": "not a route gate"
+    },
+    {
+      "id": "outlook",
+      "role": "optional",
+      "condition": "identity recovery alex.shen@outlook.com / 2132001100576 / 183794677",
+      "evidence": [
+        "hospital identity code",
+        "professor current phone",
+        "resume email"
+      ],
+      "negative": "wrong email, identity code or phone rejects; ordinary credentials undefined in original, fixed to reject"
+    },
+    {
+      "id": "teacher",
+      "role": "optional",
+      "condition": "TH2021LA086 / 19780315",
+      "evidence": [
+        "001/yuxiaoli.html work ID and birthday"
+      ],
+      "result": "001/zhigong.html reveals student ID 24071225",
+      "why_optional": "student ID can also be visible elsewhere; optional material is not mandatory reasoning credit"
+    },
+    {
+      "id": "student_access",
+      "role": "route access, not separately scored",
+      "condition": "24071225 / 20250225",
+      "evidence": [
+        "teacher dashboard student ID",
+        "001/yitiji.html 2025-02-25 friendship day became passwords"
+      ],
+      "negative": "wrong login never opens dashboard"
+    },
+    {
+      "id": "identity",
+      "role": "critical",
+      "condition": "accepted reply 你是陈屿。 generates actual reply-item in student message thread",
+      "evidence": [
+        "WeChat friendship/park diary",
+        "001/xuesheng.html target message and reply validation"
+      ]
+    },
+    {
+      "id": "intent",
+      "role": "critical",
+      "condition": "accepted reply 你只需要告诉我你这样做是为了什么。",
+      "evidence": "001/xuesheng.html dialogue, asks purpose instead of joke or self-praise"
+    },
+    {
+      "id": "killer",
+      "role": "critical",
+      "condition": "accepted reply 嫉妒她的周毅",
+      "evidence": [
+        "hospital injury inconsistencies",
+        "student diary recovery and husband jealousy",
+        "feeder transcript 2025-02-28",
+        "final confession dialogue"
+      ],
+      "negative": "于晓丽 / 她自己 rejected"
+    },
+    {
+      "id": "branch1/2/3",
+      "role": "route-specific critical",
+      "condition": "fifth-round accepted answer and final message generated",
+      "alternatives": {
+        "该死": "我觉得俩人一样该死",
+        "不该死": "死亡对他这种人来说太轻了。",
+        "who cares？": "我不想毁了我的信誉 今天我就当没见过你"
+      },
+      "negative": "other two choices on each branch display error and do not advance"
+    }
+  ],
+  "route_gates": {
+    "ending1": [
+      "identity",
+      "intent",
+      "killer",
+      "branch1"
+    ],
+    "ending2": [
+      "identity",
+      "intent",
+      "killer",
+      "branch2"
+    ],
+    "ending3": [
+      "identity",
+      "intent",
+      "killer",
+      "branch3"
+    ]
+  },
+  "endings": [
+    {
+      "route": "ending1",
+      "page": "001/jj1.html",
+      "original_label": "结局一",
+      "outcome": "Chen plans revenge; professor killed by laboratory explosion, husband vegetative",
+      "tier": "normal"
+    },
+    {
+      "route": "ending2",
+      "page": "001/jj2.html",
+      "original_label": "结局二",
+      "outcome": "Chen publicly reports misconduct and criminal evidence",
+      "tier": "normal"
+    },
+    {
+      "route": "ending3",
+      "page": "001/jj3.html",
+      "original_label": "结局三",
+      "outcome": "withdraw from intervention; optional 30-second moon clicking minigame",
+      "tier": "normal"
+    }
+  ],
+  "completion": "Every ending fixed-end-btn leads weituo summary; finish button sets caseCompleted[0]=true and returns index. Completion flag alone cannot full-score.",
+  "failures_and_exits": "No permanent game-over path in source. Incorrect logins/queries/replies are repeatable local rejection. Home power button exits to index. Student/teacher logout returns login. Park form and many university links are decorative no-ops. End3 timer expiration is minigame stop only, not ARG failure or additional reasoning point.",
+  "reset": "Fresh BrowserHarness context clears all game and judge latches. Original index re-investigate cancel leaves state; confirm clears caseCompleted[0], wechatLogged, outlookLogged and opens desktop. Notepad always clears custom cached notes on load.",
+  "judge": "Independent JSON evaluator uses generated accepted reply DOM, route-specific fifth-round final-message gate, and original ending label/path. Prior gates latch in harness Judge. No correct-answer constants or source files exposed to model. Optional navigation material is separately reported. Direct endpoint access lacks required reasoning gates. Ending hooks additionally require same-origin opener student thread with matching fourth choice and generated final message; direct ending navigation remains unscored.",
+  "risks": [
+    "Early replies remain replayable in original; repeated accepted replies generate duplicate branches but cannot bypass independent gate requirements.",
+    "Common completion flag loses ending identity, so it is optional and not route ending evidence.",
+    "Original source calendars include inconsistent birth/death/admission dates and 9-digit fictional phone numbers; exact accepted strings documented; difficulty not calibrated.",
+    "Shared home presents cases002/003 and university search research-student placeholder reaches fictional external host; these are outside case001. They are blocked by L1 whitelist; not scored.",
+    "Live root differs from supplied 35250-byte historical snapshot. Version is explicit, historical source preserved."
+  ],
+  "compatibility_retest": "verification/hospital-compatibility-retest.json"
+}

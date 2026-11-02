@@ -1,0 +1,194 @@
+{
+  "hooks": {
+    "archive": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/recycle.html') && (document.querySelector('#doneWrap')?.classList.contains('show'))"
+    },
+    "geometry": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/zhiliao.html') && (document.querySelector('#resultBox')?.style.display==='block')"
+    },
+    "identity": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/em.html') && (true)"
+    },
+    "base64_diary": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/kill.html') && (true)"
+    },
+    "birth": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/real.html') && (true)"
+    },
+    "black_decode": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/black.html') && (true)"
+    },
+    "unlocked": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/index.html') && document.querySelector('#lockScreen')?.style.display==='none'"
+    },
+    "camera_denied": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/wugan1.html') && (document.body.innerText.includes('摄像头没有开启'))"
+    },
+    "self_end1": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/self_end1.html') && (document.querySelector('.ec-card')?.classList.contains('show'))"
+    },
+    "self_end2": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/self_end2.html') && (document.querySelector('.ec-card')?.classList.contains('show'))"
+    },
+    "real1": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/real1.html') && (document.querySelector('.ec-card')?.classList.contains('show'))"
+    },
+    "real2": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/real2.html') && (document.querySelector('.ec-card')?.classList.contains('show'))"
+    },
+    "egg": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/egg.html') && (document.querySelector('.ec-card')?.classList.contains('show'))"
+    },
+    "uuu": {
+      "type": "js_truthy",
+      "expr": "location.pathname.endsWith('/uuu.html') && (document.querySelector('.ec-card')?.classList.contains('show'))"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "archive",
+      "role": "critical",
+      "hook": "archive",
+      "op": "truthy"
+    },
+    {
+      "id": "geometry",
+      "role": "optional",
+      "hook": "geometry",
+      "op": "truthy"
+    },
+    {
+      "id": "identity",
+      "role": "optional",
+      "hook": "identity",
+      "op": "truthy"
+    },
+    {
+      "id": "base64_diary",
+      "role": "optional",
+      "hook": "base64_diary",
+      "op": "truthy"
+    },
+    {
+      "id": "birth",
+      "role": "optional",
+      "hook": "birth",
+      "op": "truthy"
+    },
+    {
+      "id": "black_decode",
+      "role": "optional",
+      "hook": "black_decode",
+      "op": "truthy"
+    }
+  ],
+  "events": {
+    "unlocked": {
+      "hook": "unlocked",
+      "op": "truthy"
+    },
+    "camera_denied": {
+      "hook": "camera_denied",
+      "op": "truthy"
+    },
+    "self_end1": {
+      "hook": "self_end1",
+      "op": "truthy"
+    },
+    "self_end2": {
+      "hook": "self_end2",
+      "op": "truthy"
+    },
+    "real1": {
+      "hook": "real1",
+      "op": "truthy"
+    },
+    "real2": {
+      "hook": "real2",
+      "op": "truthy"
+    },
+    "egg": {
+      "hook": "egg",
+      "op": "truthy"
+    },
+    "uuu": {
+      "hook": "uuu",
+      "op": "truthy"
+    }
+  },
+  "routes": [
+    {
+      "id": "self_end1",
+      "gates": [
+        "archive"
+      ],
+      "ending": {
+        "hook": "self_end1",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "self_end2",
+      "gates": [
+        "archive"
+      ],
+      "ending": {
+        "hook": "self_end2",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "real1",
+      "gates": [
+        "archive"
+      ],
+      "ending": {
+        "hook": "real1",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "real2",
+      "gates": [
+        "archive"
+      ],
+      "ending": {
+        "hook": "real2",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "egg",
+      "gates": [
+        "archive"
+      ],
+      "ending": {
+        "hook": "egg",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "uuu",
+      "gates": [
+        "archive"
+      ],
+      "ending": {
+        "hook": "uuu",
+        "op": "truthy"
+      }
+    }
+  ]
+}

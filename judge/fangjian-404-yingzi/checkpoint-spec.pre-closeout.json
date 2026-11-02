@@ -1,0 +1,35 @@
+{
+  "record_id": "base664:0359",
+  "critical_points": [
+    "admin_login",
+    "offering_cancelled"
+  ],
+  "optional_points": [
+    "brother_login",
+    "guardian_login"
+  ],
+  "story_endings": [
+    "true",
+    "bad",
+    "hidden"
+  ],
+  "failure_endings": [
+    "loop_failure"
+  ],
+  "flow": "search engine → forum → investigate/log in → cult contact → cancellation prompt and confirm → narrative choice; five wrong passwords produce failure independently",
+  "coverage": {
+    "posts": 93,
+    "guardian_logs": 15,
+    "precise_searches": 36,
+    "fake_searches": 22
+  },
+  "limitations": [
+    "Source-view clues unavailable through present model action set; engineering replay source-assisted; not formal scoring approved."
+  ],
+  "evidence": [
+    "source-inventory.json",
+    "review.md",
+    "verification/acceptance.json"
+  ],
+  "failure_policy": "loop_failure is terminal_failures, never a completed route; bad remains a story ending."
+}

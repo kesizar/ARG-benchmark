@@ -1,0 +1,591 @@
+{
+  "record_id": "base664:0426",
+  "nodes": [
+    {
+      "id": "1-1",
+      "chapter": 1,
+      "title": "雨夜",
+      "next_nodes": [
+        "1-2"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "1-2",
+      "chapter": 1,
+      "title": "弟弟的房间",
+      "next_nodes": [
+        "1-3",
+        "1-4"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": [
+        "!S.f.cola",
+        "!S.f.chg",
+        "!S.f.win"
+      ]
+    },
+    {
+      "id": "1-3",
+      "chapter": 1,
+      "title": "录音笔",
+      "next_nodes": [],
+      "puzzle": true,
+      "puzzle_success_next": [
+        "1-4"
+      ],
+      "conditional_actions": []
+    },
+    {
+      "id": "1-4",
+      "chapter": 1,
+      "title": "笔记本电脑",
+      "next_nodes": [
+        "1-5"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "1-5",
+      "chapter": 1,
+      "title": "诡异的网站",
+      "next_nodes": [
+        "1-6"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "1-6",
+      "chapter": 1,
+      "title": "源代码里的注释",
+      "next_nodes": [],
+      "puzzle": true,
+      "puzzle_success_next": [
+        "1-7"
+      ],
+      "conditional_actions": []
+    },
+    {
+      "id": "1-7",
+      "chapter": 1,
+      "title": "聊天室 · 归家小径",
+      "next_nodes": [
+        "1-8",
+        "1-9"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "1-8",
+      "chapter": 1,
+      "title": "访客_2847",
+      "next_nodes": [
+        "1-9"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "1-9",
+      "chapter": 1,
+      "title": "引路人",
+      "next_nodes": [
+        "1-10",
+        "1-11"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "1-10",
+      "chapter": 1,
+      "title": "1998年的照片",
+      "next_nodes": [
+        "1-11"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "1-11",
+      "chapter": 1,
+      "title": "「我看到了。」",
+      "next_nodes": [
+        "1-12"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "1-12",
+      "chapter": 1,
+      "title": "弟弟的手机备份",
+      "next_nodes": [],
+      "puzzle": true,
+      "puzzle_success_next": [
+        "1-13"
+      ],
+      "conditional_actions": []
+    },
+    {
+      "id": "1-13",
+      "chapter": 1,
+      "title": "隐藏文件夹",
+      "next_nodes": [
+        "1-14"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "1-14",
+      "chapter": 1,
+      "title": "隐藏页面",
+      "next_nodes": [
+        "1-15"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "1-15",
+      "chapter": 1,
+      "title": "报警",
+      "next_nodes": [
+        "2-1"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "2-1",
+      "chapter": 2,
+      "title": "审讯室",
+      "next_nodes": [
+        "2-2"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "2-2",
+      "chapter": 2,
+      "title": "「你弟弟还活着。」",
+      "next_nodes": [],
+      "puzzle": true,
+      "puzzle_success_next": [
+        "2-3"
+      ],
+      "conditional_actions": []
+    },
+    {
+      "id": "2-3",
+      "chapter": 2,
+      "title": "安装暗网浏览器",
+      "next_nodes": [
+        "2-4"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": [
+        "!S.f.tor",
+        "S.f.tor"
+      ]
+    },
+    {
+      "id": "2-4",
+      "chapter": 2,
+      "title": "归家圣殿",
+      "next_nodes": [
+        "2-5"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "2-5",
+      "chapter": 2,
+      "title": "论坛",
+      "next_nodes": [
+        "2-6"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "2-6",
+      "chapter": 2,
+      "title": "功德任务",
+      "next_nodes": [
+        "2-7"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "2-7",
+      "chapter": 2,
+      "title": "归家仪式录像",
+      "next_nodes": [
+        "2-8"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "2-8",
+      "chapter": 2,
+      "title": "第三阶段",
+      "next_nodes": [
+        "2-9"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "2-9",
+      "chapter": 2,
+      "title": "红色水塔",
+      "next_nodes": [
+        "2-10"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "2-10",
+      "chapter": 2,
+      "title": "突袭",
+      "next_nodes": [
+        "2-11"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "2-11",
+      "chapter": 2,
+      "title": "找到弟弟",
+      "next_nodes": [
+        "3-1"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "3-1",
+      "chapter": 3,
+      "title": "墙后的房间",
+      "next_nodes": [
+        "3-2"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "3-2",
+      "chapter": 3,
+      "title": "照片墙",
+      "next_nodes": [
+        "3-3"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "3-3",
+      "chapter": 3,
+      "title": "初代日记",
+      "next_nodes": [
+        "3-4"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "3-4",
+      "chapter": 3,
+      "title": "最后一页",
+      "next_nodes": [
+        "3-5"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "3-5",
+      "chapter": 3,
+      "title": "空无一物",
+      "next_nodes": [
+        "3-6"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "3-6",
+      "chapter": 3,
+      "title": "「祂被带走了。」",
+      "next_nodes": [
+        "4-1"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "4-1",
+      "chapter": 4,
+      "title": "医院",
+      "next_nodes": [
+        "4-2"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "4-2",
+      "chapter": 4,
+      "title": "弟弟的画",
+      "next_nodes": [
+        "4-3"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "4-3",
+      "chapter": 4,
+      "title": "医生的报告",
+      "next_nodes": [
+        "4-4"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "4-4",
+      "chapter": 4,
+      "title": "废墟中的线索",
+      "next_nodes": [
+        "4-5"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "4-5",
+      "chapter": 4,
+      "title": "城西教堂",
+      "next_nodes": [
+        "4-6"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "4-6",
+      "chapter": 4,
+      "title": "归家圣典",
+      "next_nodes": [
+        "4-7"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "4-7",
+      "chapter": 4,
+      "title": "镜前",
+      "next_nodes": [
+        "4-8"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "4-8",
+      "chapter": 4,
+      "title": "恶心",
+      "next_nodes": [
+        "5-1"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "5-1",
+      "chapter": 5,
+      "title": "四年后",
+      "next_nodes": [
+        "5-2"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "5-2",
+      "chapter": 5,
+      "title": "归家指南",
+      "next_nodes": [
+        "5-3"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "5-3",
+      "chapter": 5,
+      "title": "第一条视频",
+      "next_nodes": [
+        "5-4"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "5-4",
+      "chapter": 5,
+      "title": "弟弟的画册（新）",
+      "next_nodes": [
+        "5-5"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "5-5",
+      "chapter": 5,
+      "title": "未知来信",
+      "next_nodes": [
+        "ea",
+        "eb",
+        "ec",
+        "ed"
+      ],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "ea",
+      "chapter": 5,
+      "title": "结局 A · 安宁",
+      "next_nodes": [],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "eb",
+      "chapter": 5,
+      "title": "结局 B · 好奇",
+      "next_nodes": [],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "ec",
+      "chapter": 5,
+      "title": "结局 C · 职责",
+      "next_nodes": [],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    },
+    {
+      "id": "ed",
+      "chapter": 5,
+      "title": "结局 D · 旁观者",
+      "next_nodes": [],
+      "puzzle": false,
+      "puzzle_success_next": [],
+      "conditional_actions": []
+    }
+  ],
+  "endings": [
+    {
+      "id": "peace",
+      "type": "formal_completion",
+      "rank": null,
+      "node": "ea"
+    },
+    {
+      "id": "curious",
+      "type": "formal_completion",
+      "rank": null,
+      "node": "eb"
+    },
+    {
+      "id": "duty",
+      "type": "formal_completion",
+      "rank": null,
+      "node": "ec"
+    },
+    {
+      "id": "watch",
+      "type": "formal_completion",
+      "rank": null,
+      "node": "ed"
+    },
+    {
+      "id": "guide",
+      "type": "hidden_completion",
+      "rank": null,
+      "condition": "same JS page lifetime: visit ea, eb, ec, ed; final ending render injects .he"
+    }
+  ],
+  "failures": "Wrong puzzle inputs show feedback and allow retry; no terminal death or failure node.",
+  "exits": "Credits/back-to-menu are UI navigation, not endings. Ending D closes a fictional screen only, not the actual browser.",
+  "state": "rg clears node/evidence/flags but preserves S.end; refresh/context reset clears all.",
+  "optional": [
+    "1-3 Morse puzzle may be bypassed by choosing laptop at 1-2",
+    "cola/charger/window clues",
+    "1-8 private chat",
+    "1-10 historical avatar",
+    "chapter2/3/4 keyword searches"
+  ]
+}

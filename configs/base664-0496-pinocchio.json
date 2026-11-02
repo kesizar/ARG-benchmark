@@ -1,0 +1,86 @@
+{
+  "id": "base664-0496-pinocchio",
+  "category": "web_puzzle",
+  "runtime_layer": "L1",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "马克·皮诺丘博物馆",
+    "intro": "阅读交接文件，调查博物馆和相关机构；继续探索，直至完成游戏中的报道。"
+  },
+  "entry_url": "http://127.0.0.1:8991/yingqi-office.html",
+  "local_serve": {
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/base664-0496-pinocchio/mirror",
+      "--port",
+      "8991"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8991/",
+    "ready_timeout_s": 30,
+    "port": 8991
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "zh-CN",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261023,
+  "allow_hosts": [
+    "127.0.0.1:8991"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*spoiler*",
+    "*walkthrough*",
+    "*writeup*",
+    "*攻略*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 400,
+    "max_seconds": 7200,
+    "max_answer_submits": 5
+  },
+  "settle_ms": 400,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/base664-0496-pinocchio/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "四展区异常图案与纹章对应为一个推理点；原作允许无限试错，得分不能证明未猜测。24道展区题和4条规程批注作为诊断。三个结局均可继续，目标为本地模拟报道完成。"
+  ]
+}

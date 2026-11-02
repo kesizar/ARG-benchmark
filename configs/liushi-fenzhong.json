@@ -1,7 +1,7 @@
 {
   "id": "liushi-fenzhong",
   "category": "web_puzzle",
-  "arg_layer": null,
+  "runtime_layer": "L1",
   "obs_mode": "B",
   "obs_modes_to_run": [
     "B"
@@ -11,9 +11,21 @@
     "title": "60分钟 再死一次",
     "intro": "你在一场限时酒会上。只能访问这个站点，只根据屏幕上能看到的信息推理。不要打开其他网站。"
   },
-  "entry_url": "https://8a065c332599425bb494a9444eebdccb.app.workbuddy.link/",
+  "entry_url": "http://127.0.0.1:8811/index.html",
   "local_serve": {
-    "enabled": false
+    "enabled": true,
+    "command": [
+      "python",
+      "scripts/serve_static.py",
+      "--root",
+      "tasks/liushi-fenzhong/mirror",
+      "--port",
+      "8811"
+    ],
+    "cwd": ".",
+    "ready_url": "http://127.0.0.1:8811/index.html",
+    "ready_timeout_s": 30,
+    "port": 8811
   },
   "viewport": {
     "width": 1366,
@@ -23,7 +35,7 @@
   "timezone": "Asia/Shanghai",
   "seed": 20261023,
   "allow_hosts": [
-    "8a065c332599425bb494a9444eebdccb.app.workbuddy.link"
+    "127.0.0.1:8811"
   ],
   "shortcut_block": [],
   "guide_block_hosts": [
@@ -49,9 +61,9 @@
     "give_up"
   ],
   "limits": {
-    "max_steps": 100,
-    "max_seconds": 1800,
-    "max_answer_submits": 5
+    "max_steps": 350,
+    "max_seconds": 3900,
+    "max_answer_submits": 30
   },
   "settle_ms": 400,
   "history": {
@@ -68,6 +80,9 @@
     "container": false
   },
   "notes_for_report": [
-    "2026-10-23 这些句子不在首屏正文里，通关时才写进页面。"
-  ]
+    "原样冻结；原作五问通过不验证被指认者身份，next不重置内存角色/警觉/截止时间，正式计分暂不推荐。",
+    "默认60分钟；?test为原作90秒诊断模式，绝非60分钟实际等待证据。",
+    "捐款图片收款码.jpg未获取，非谜题资源；保留原始引用。"
+  ],
+  "account_requirement": "none"
 }

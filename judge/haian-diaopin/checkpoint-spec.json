@@ -1,0 +1,8 @@
+{
+  "checkpoint": "intern_password",
+  "condition": "Native successful intern login in no-hint mode; Judge latches on observation.",
+  "evidence": "DJ DouDou blog supplies formula; station introduction gives 1994; marathon timeline gives 02:40. Correct input unlocks intern.",
+  "negative": "Wrong password or selecting hint mode yields no checkpoint, even if hint-mode player does not actually open hint. This is a conservative scoring boundary.",
+  "route": "The restored recording is the sole normal ending. Five of six key clues, in any combination, plus login allow restoration. Pinning is collection, not individual inference scoring. No loss ending found; wrong password remains playable.",
+  "limitation": "Guessing or memorizing password can satisfy native state without evidence of reasoning; the benchmark must review this weakness before formal scoring. Ending may be achieved with hints and no checkpoint. Judge latch is per episode and does not reset when in-game progress is reset."
+}

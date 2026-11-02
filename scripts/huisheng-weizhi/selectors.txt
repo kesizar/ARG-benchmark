@@ -1,0 +1,33 @@
+tasks/huisheng-weizhi/game\game.html:1352:      <div class="app" id="browserIcon">
+tasks/huisheng-weizhi/game\game.html:1357:      <div class="app" id="echoIcon">
+tasks/huisheng-weizhi/game\game.html:1362:      <div class="app files" id="filesIcon">
+tasks/huisheng-weizhi/game\game.html:1401:        <div class="menu-item" id="settingsButton">
+tasks/huisheng-weizhi/game\game.html:1490:      <div class="system-button" id="systemButton">
+tasks/huisheng-weizhi/game\game.html:1710:      <button class="echo-contact active" data-echo-chat="wan"><span class="echo-contact-avatar">婉</span><span class="echo-contact-copy"><b>婉婉</b><span>我还是觉得很不真实</span></span><time>2024/07/23</time></button>
+tasks/huisheng-weizhi/game\game.html:1711:      <button class="echo-contact" data-echo-chat="mumian"><span class="echo-contact-avatar">沐</span><span class="echo-contact-copy"><b>木棉</b><span>林沐，你到底去哪了？</span></span><time>2024/07/20</time></button>
+tasks/huisheng-weizhi/game\game.html:1712:      <button class="echo-contact echo-trigger-only" data-echo-chat="null"><span class="echo-contact-avatar">N</span><span class="echo-contact-copy"><b>NULL</b><span>你都查到这里了吗？</span><span class="echo-unread" data-unread-for="null">1</span></span><time>刚刚</time></button>
+tasks/huisheng-weizhi/game\game.html:1713:      <button class="echo-contact" data-echo-chat="transfer"><span class="echo-contact-avatar">⇄</span><span class="echo-contact-copy"><b>回声传输助手</b><span class="echo-normal-transfer">文件传输与系统通知</span><span class="echo-trigger-only">您的账户因为异常行为被停用</span><span class="echo-unread hidden" data-unread-for="transfer">1</span></span><time>刚刚</time></button>
+tasks/huisheng-weizhi/game\game.html:1714:      <button class="echo-contact" data-echo-chat="project"><span class="echo-contact-avatar">组</span><span class="echo-contact-copy"><b>项目组-客户端</b><span>明早十点同步一下版本</span></span><time>昨天</time></button>
+tasks/huisheng-weizhi/game\game.html:2838:      document.querySelectorAll("[data-echo-chat]").forEach(btn => btn.classList.toggle("active", btn.dataset.echoChat === key));
+tasks/huisheng-weizhi/game\game.html:2885:    document.querySelectorAll("[data-echo-chat]").forEach(btn => {
+tasks/huisheng-weizhi/game\huisheng.html:1127:    <button class="active" data-view="discover" onclick="handleNav('discover')">发现</button>
+tasks/huisheng-weizhi/game\huisheng.html:1128:    <button data-view="community" onclick="handleNav('community')">社区</button>
+tasks/huisheng-weizhi/game\huisheng.html:1129:    <button data-view="hot" onclick="handleNav('hot')">热门</button>
+tasks/huisheng-weizhi/game\huisheng.html:1130:    <button data-view="messages" class="logged-only-nav" onclick="handleNav('messages')">消息<span class="nav-dot" id="messageNavUnread">10</span></button>
+tasks/huisheng-weizhi/game\huisheng.html:1131:    <button data-view="help" onclick="handleNav('help')">帮助中心</button>
+tasks/huisheng-weizhi/game\huisheng.html:1139:    <button class="login-btn" id="loginButton" onclick="openLogin()">登录</button>
+tasks/huisheng-weizhi/game\huisheng.html:1741:  const loginButton = document.getElementById('loginButton');
+tasks/huisheng-weizhi/game\huisheng.html:1742:  if(loginButton){
+tasks/huisheng-weizhi/game\huisheng.html:1743:    loginButton.textContent = '登录';
+tasks/huisheng-weizhi/game\huisheng.html:1744:    loginButton.onclick = openLogin;
+tasks/huisheng-weizhi/game\huisheng.html:1814:  const loginButton = document.getElementById('loginButton');
+tasks/huisheng-weizhi/game\huisheng.html:1815:  if(loginButton){
+tasks/huisheng-weizhi/game\huisheng.html:1816:    loginButton.textContent = '木棉';
+tasks/huisheng-weizhi/game\huisheng.html:1817:    loginButton.onclick = openProfile;
+tasks/huisheng-weizhi/game\jiangdudaxue.html:226:        <button class="navbtn active" data-page="home">首页</button>
+tasks/huisheng-weizhi/game\jiangdudaxue.html:227:        <button class="navbtn" data-page="about">学校概况</button>
+tasks/huisheng-weizhi/game\jiangdudaxue.html:228:        <button class="navbtn" data-page="majors">院系专业</button>
+tasks/huisheng-weizhi/game\jiangdudaxue.html:229:        <button class="navbtn" data-page="news">校园新闻</button>
+tasks/huisheng-weizhi/game\jiangdudaxue.html:230:        <button class="navbtn" data-page="partners">合作伙伴</button>
+tasks/huisheng-weizhi/game\jiangdudaxue.html:231:        <button class="navbtn" data-page="media">校媒中心</button>
+tasks/huisheng-weizhi/game\qichuankeji.html:215:  <div class="nav"><div class="nav-links"><button class="active" data-page="home">首页</button><button data-page="about">公司介绍</button><button data-page="products">公司产品</button><button data-page="notices">公告栏</button></div><div class="search-wrap"><input id="siteSearch" type="text" placeholder="搜索公司信息、产品、公告……"><button onclick="runSearch()">搜索</button></div></div>

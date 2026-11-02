@@ -34,6 +34,28 @@ DEFAULT_ACTIONS = [
 ]
 
 
+def resolve_runtime_layer(cfg: dict) -> str:
+    """Runtime dependence is independent of game genre.
+
+    Old arg_layer inputs remain readable; legacy L2 is classified by its
+    actual entry point. This classification does not certify resource quality.
+    """
+    explicit = cfg.get("runtime_layer")
+    if explicit is not None:
+        if explicit not in {"L1", "L3"}:
+            raise ValueError("runtime_layer 必须是 L1 或 L3")
+        return explicit
+    legacy = cfg.get("arg_layer")
+    if legacy in {"L1", "L3"}:
+        return legacy
+    entry = str(cfg.get("entry_url") or "")
+    from harness.network import is_local_host
+    parsed = urlparse(entry)
+    if parsed.scheme in {"http", "https"} and not is_local_host(parsed.hostname or ""):
+        return "L3"
+    return "L1"
+
+
 def repo_root_from(start: Path | None = None) -> Path:
     cursor = (start or Path.cwd()).resolve()
     for candidate in [cursor, *cursor.parents]:
@@ -94,11 +116,9 @@ def apply_defaults(cfg: dict) -> dict:
     window = int(history["full_obs_k"])
     if window < 3 or window > 5:
         raise ValueError("history.full_obs_k 必须在 3 到 5 之间")
-    if cfg.get("category") == "arg" and cfg.get("arg_layer") not in {"L1", "L2", "L3"}:
-        raise ValueError("ARG 任务必须标明 arg_layer 为 L1、L2 或 L3")
-    if cfg.get("category") != "arg" and cfg.get("arg_layer") not in {None, "null"}:
-        if "arg_layer" in cfg and cfg["arg_layer"] is not None:
-            raise ValueError("非 ARG 任务的 arg_layer 必须为 null")
+    cfg["runtime_layer"] = resolve_runtime_layer(cfg)
+    cfg.pop("arg_layer", None)
+    cfg.setdefault("account_requirement", "unknown")
     return cfg
 
 

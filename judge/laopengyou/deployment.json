@@ -1,0 +1,34 @@
+{
+  "deployment_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\laopengyou-deployment-cfd4e4c0",
+  "archive_sha256": "32653cde04ce31639c8a8bef6bb0b11f4445d369bd4ef70e34c2c91c454b9850",
+  "manifest_files_verified": 35,
+  "port": 8813,
+  "previous_full_deployment": {
+    "deployment_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\laopengyou-deployment-837c0d0e",
+    "archive_sha256": "4bc5c02e9b7789f192bc4640bad0a6ecd2b3632ad6e56dd1a1670ed5e480e1ac",
+    "manifest_files_verified": 35,
+    "port": 8812
+  },
+  "compatible_full_ui_evidence": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\laopengyou-deployment-837c0d0e\\judge\\laopengyou\\verification\\acceptance.json",
+  "changed_files": [
+    "judge/laopengyou/review.md",
+    "judge/laopengyou/verify_sample.py"
+  ],
+  "compatibility": "Game/config/private judge/gold and all shared runtime bytes identical; only audit assertions and notes tightened.",
+  "status": "full_ui_compatible_with_stronger_current_negative_assertions_passed",
+  "full_ui": "judge/laopengyou/verification/full-acceptance.json",
+  "current_ui": "judge/laopengyou/verification/strong-negative-acceptance.json",
+  "standard_runner_smoke": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\laopengyou-deployment-cfd4e4c0\\runs\\laopengyou\\B\\20261026_170825\\summary.json",
+  "views_covered": 23,
+  "material_records_opened": 57,
+  "negative_checks_full_paths": 21,
+  "current_extra_negative_checks": 8,
+  "reasoning_points": {
+    "critical": 9,
+    "optional": 4
+  },
+  "limitations": [
+    "Existing Windows Python/browser used, not fresh OS/cross-platform install.",
+    "Source-informed engineering replay, not autonomous model solving."
+  ]
+}

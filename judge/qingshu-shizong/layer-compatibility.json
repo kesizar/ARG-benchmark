@@ -1,0 +1,34 @@
+{
+  "authorization": "root review explicitly authorized existing final choice/terminal stacking compatibility repair",
+  "changes": [
+    {
+      "selector": ".choice-popup-mask",
+      "before_z_index": 120,
+      "after_z_index": 320
+    },
+    {
+      "selector": "#terminalModal",
+      "before_z_index": 250,
+      "after_z_index": 350
+    }
+  ],
+  "unchanged_blackScreen_z_index": 300,
+  "source_sha256": "727d79fb63b861a3da99395bd3c0fc4632bb84aa4a477b443a12dd0d285d0c46",
+  "compatible_sha256": "ccf5e3dcba4ebbae3430742fa601ec5a2a4c5314aca06dcc4fbb90acad0ecdfc",
+  "only_two_style_values_changed": true,
+  "no_changes": [
+    "puzzles",
+    "answers",
+    "gates",
+    "timers",
+    "narrative",
+    "fragment counting"
+  ],
+  "retained_original_evidence": [
+    "verification/choice-occluded.png",
+    "verification/terminal-occluded.png",
+    "verification/original-acceptance.json",
+    "verification/original-branches.json"
+  ],
+  "reuse_scope": "Entry, forum and images byte-identical; school differs only two CSS z-index numbers. Prior school/forum/achievements evidence reused. Retest only affected final choice/terminal/endings/exit/reset."
+}

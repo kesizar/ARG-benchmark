@@ -1,91 +1,97 @@
 {
   "hooks": {
-    "hidden-2": {
-      "type": "dom_regex",
-      "pattern": "隐藏结局 · 二"
+    "school-number": {
+      "type": "js_truthy",
+      "expr": "(()=>{let s=JSON.parse(localStorage.getItem('yc_state_v1')||'{}');return !!((s.clues||{}).E)})()"
     },
-    "hidden-1": {
-      "type": "dom_regex",
-      "pattern": "隐藏结局 · 一"
+    "netdisk-code": {
+      "type": "js_truthy",
+      "expr": "(()=>{let s=JSON.parse(localStorage.getItem('yc_state_v1')||'{}');return !!((s.clues||{}).C)})()"
     },
-    "plain-3": {
-      "type": "dom_regex",
-      "pattern": "常规结局 · 三"
+    "guard-teacher": {
+      "type": "js_truthy",
+      "expr": "(()=>{let s=JSON.parse(localStorage.getItem('yc_state_v1')||'{}');return !!((s.flags||{}).zhaoTrust)})()"
     },
-    "plain-2": {
-      "type": "dom_regex",
-      "pattern": "常规结局 · 二"
+    "report-five": {
+      "type": "js_truthy",
+      "expr": "(()=>{let s=JSON.parse(localStorage.getItem('yc_state_v1')||'{}');return !!((s.flags||{}).reportOk)})()"
     },
-    "plain-1": {
-      "type": "dom_regex",
-      "pattern": "常规结局 · 一"
+    "minute13": {
+      "type": "js_truthy",
+      "expr": "(()=>{let s=JSON.parse(localStorage.getItem('yc_state_v1')||'{}');let e=document.querySelector('#ycEndT');return s.ended&&s.ending==='minute13'&&e&&e.style.display==='block'})()"
     },
-    "counted": {
-      "type": "dom_regex",
-      "pattern": "你还是数了："
+    "restore": {
+      "type": "js_truthy",
+      "expr": "(()=>{let s=JSON.parse(localStorage.getItem('yc_state_v1')||'{}');let e=document.querySelector('#ycEndT');return s.ended&&s.ending==='restore'&&e&&e.style.display==='block'})()"
+    },
+    "witness13": {
+      "type": "js_truthy",
+      "expr": "(()=>{let s=JSON.parse(localStorage.getItem('yc_state_v1')||'{}');let e=document.querySelector('#ycEndT');return s.ended&&s.ending==='witness13'&&e&&e.style.display==='block'})()"
     }
   },
   "checkpoints": [
     {
-      "id": "counted",
-      "hook": "counted",
-      "op": "truthy"
+      "id": "school-number",
+      "hook": "school-number",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "netdisk-code",
+      "hook": "netdisk-code",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "guard-teacher",
+      "hook": "guard-teacher",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "report-five",
+      "hook": "report-five",
+      "op": "truthy",
+      "role": "diagnostic"
     }
   ],
   "events": {},
   "routes": [
     {
-      "id": "hidden-2",
-      "tier": "good",
-      "gates": [
-        "counted"
-      ],
-      "ending": {
-        "hook": "hidden-2",
-        "op": "truthy"
-      }
-    },
-    {
-      "id": "hidden-1",
-      "tier": "good",
-      "gates": [],
-      "ending": {
-        "hook": "hidden-1",
-        "op": "truthy"
-      }
-    },
-    {
-      "id": "plain-3",
-      "tier": "good",
-      "gates": [],
-      "ending": {
-        "hook": "plain-3",
-        "op": "truthy"
-      }
-    },
-    {
-      "id": "plain-2",
+      "id": "minute13",
       "tier": "normal",
+      "authored_classification": "regular",
+      "authored_label": "常规结局 · 二",
       "gates": [],
       "ending": {
-        "hook": "plain-2",
+        "hook": "minute13",
         "op": "truthy"
       }
     },
     {
-      "id": "plain-1",
-      "tier": "bad",
+      "id": "restore",
+      "tier": "normal",
+      "authored_classification": "regular",
+      "authored_label": "常规结局 · 三",
       "gates": [],
       "ending": {
-        "hook": "plain-1",
+        "hook": "restore",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "witness13",
+      "tier": "normal",
+      "authored_classification": "hidden",
+      "authored_label": "隐藏结局 · 二",
+      "gates": [],
+      "ending": {
+        "hook": "witness13",
         "op": "truthy"
       }
     }
   ],
-  "ending": {
-    "hook": "hidden-2",
-    "op": "truthy"
-  },
+  "ending": null,
   "answer_sha256": [],
   "answer_hash_file": null,
   "request_milestones": [],

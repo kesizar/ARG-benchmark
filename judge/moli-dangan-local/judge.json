@@ -1,0 +1,154 @@
+{
+  "hooks": {
+    "restored": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#page-ending.active .ending-badge')?.innerText.includes('档案已全部恢复') === true"
+    },
+    "student": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#card-student') !== null"
+    },
+    "teacher": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#card-teacher') !== null"
+    },
+    "log": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#card-log') !== null"
+    },
+    "bbs": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#card-bbs') !== null"
+    },
+    "essay": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#card-essay') !== null"
+    },
+    "finance": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#card-finance') !== null"
+    },
+    "chat": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#card-chat') !== null"
+    },
+    "medical": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#card-medical') !== null"
+    },
+    "notebook": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#card-notebook') !== null"
+    },
+    "library": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#card-library') !== null"
+    },
+    "photo": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#card-photo') !== null"
+    },
+    "final": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#card-final') !== null"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "student",
+      "hook": "student",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "teacher",
+      "hook": "teacher",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "log",
+      "hook": "log",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "bbs",
+      "hook": "bbs",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "essay",
+      "hook": "essay",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "finance",
+      "hook": "finance",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "chat",
+      "hook": "chat",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "medical",
+      "hook": "medical",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "notebook",
+      "hook": "notebook",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "library",
+      "hook": "library",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "photo",
+      "hook": "photo",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "final",
+      "hook": "final",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
+  "events": {},
+  "routes": [
+    {
+      "id": "main",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "restored",
+        "op": "truthy"
+      }
+    }
+  ],
+  "ending": {
+    "hook": "restored",
+    "op": "truthy"
+  },
+  "answer_sha256": [],
+  "answer_hash_file": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
+  "rubric_path": null
+}

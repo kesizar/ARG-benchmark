@@ -1,0 +1,81 @@
+{
+  "record_id": "added84:0083",
+  "views": [
+    "view-lock",
+    "view-home",
+    "view-search",
+    "view-guide",
+    "view-wechat-login",
+    "view-wechat-main",
+    "view-wechat-chat",
+    "view-memo",
+    "view-memo-detail",
+    "view-qq-login",
+    "view-qq-main",
+    "view-qq-chat",
+    "view-settings",
+    "view-sub-home",
+    "view-sub-diary-login",
+    "view-sub-diary",
+    "view-sub-memo",
+    "view-sub-memo-detail",
+    "view-sub-qq-login",
+    "view-sub-qq-main",
+    "view-sub-qq-chat",
+    "view-sub-submit",
+    "view-qq-xiang"
+  ],
+  "search_keys": [
+    "枕时安",
+    "风尚志",
+    "市场营销分析师",
+    "吸血千金",
+    "腾跃集团",
+    "时东健",
+    "安安爸爸",
+    "创源",
+    "牧深",
+    "校园论坛",
+    "归家行动"
+  ],
+  "mandatory": [
+    "unlock and death notice (story setup, unscored)",
+    "settings advanced system credentials",
+    "final quiz8 questions then revival yes/no"
+  ],
+  "optional_gates": [
+    "wechat pinyin identity",
+    "QQ Hamiltonian account and two-rail birthday password",
+    "diary departure date",
+    "subQQ private account/password"
+  ],
+  "narrative_material": [
+    "all main/sub memo entries",
+    "wechat chats and moments",
+    "main/sub QQ chats including xiang view",
+    "11 simulated search articles and forum home/me/secret posts",
+    "diary expandable entries"
+  ],
+  "endings": [
+    {
+      "id": "wish",
+      "type": "formal_completion",
+      "rank": null,
+      "choice": "revive yes"
+    },
+    {
+      "id": "accept",
+      "type": "formal_completion",
+      "rank": null,
+      "choice": "revive no"
+    }
+  ],
+  "non_endings": [
+    "opening death modal is premise, not player failure",
+    "3 system errors show retry hint",
+    "wrong quiz can retry",
+    "both endings agree merge to creator credits; not another ending"
+  ],
+  "reset": "No in-game full reset; new browser context clears localStorage and closure quiz/login state. Reload preserves localStorage tokens/searchHistory, resets quiz closure.",
+  "legacy_judge_risk": "Old dom_regex can match hidden result texts at initial page load. New hooks explicitly require modal show class."
+}

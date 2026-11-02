@@ -1,0 +1,70 @@
+{
+  "stages": [
+    {
+      "index": 0,
+      "id": "checkbox"
+    },
+    {
+      "index": 1,
+      "id": "traffic"
+    },
+    {
+      "index": 2,
+      "id": "crosswalk"
+    },
+    {
+      "index": 3,
+      "id": "watched"
+    },
+    {
+      "index": 4,
+      "id": "word"
+    },
+    {
+      "index": 5,
+      "id": "real"
+    },
+    {
+      "index": 6,
+      "id": "soul"
+    },
+    {
+      "index": 7,
+      "id": "questions"
+    },
+    {
+      "index": 8,
+      "id": "reveal"
+    }
+  ],
+  "endings": [
+    {
+      "id": "complete",
+      "type": "formal_completion",
+      "rank": null
+    },
+    {
+      "id": "mask",
+      "type": "post_completion_continuation",
+      "rank": null
+    }
+  ],
+  "terminal_failure_or_death": [],
+  "question_branches": {
+    "identity": [
+      "是",
+      "不是",
+      "我不确定",
+      "问题本身就是答案"
+    ],
+    "fear": [
+      "屏幕",
+      "身后",
+      "记忆",
+      "它"
+    ],
+    "all": "16 combinations converge; four pairings used for UI option coverage"
+  },
+  "randomness": "drawing, phrase and humanity increments; no outcome change",
+  "reset": "reload/fresh context resets all state, no localStorage"
+}

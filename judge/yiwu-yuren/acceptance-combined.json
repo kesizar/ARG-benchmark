@@ -1,0 +1,93 @@
+{
+  "pass": true,
+  "record_id": "base664:0268",
+  "game_scope": "case001 only",
+  "material_ui_evidence": "verification/materials-verified.json",
+  "material_evidence_note": "All clue paths and four optional access checks passed before later auditor reply-selector timeout. Missing original hospital feedback element then fixed and separately retested. No other material changed.",
+  "routes_ui_evidence": "verification/three-routes-before-moon-auditor-fix.json",
+  "routes_evidence_note": "All three route scores=1; ending1/2 completion and replay checks passed. Run stopped on auditor scroll-to-stability at animated moon, after ending3 was already correctly judged.",
+  "affected_behaviour_retests": [
+    "verification/acceptance.json",
+    "verification/hospital-compatibility-retest.json"
+  ],
+  "route3_all_finish_and_reset_passed": true,
+  "routes": [
+    {
+      "checkpoints_reached": 4,
+      "checkpoints_total": 6,
+      "checkpoints": {
+        "identity": 13,
+        "intent": 16,
+        "killer": 19,
+        "branch1": 24
+      },
+      "diagnostic": {},
+      "route_id": "ending1",
+      "route_progress": 1.0,
+      "ending_reached": true,
+      "ending_tier": "normal",
+      "good_ending": false,
+      "ending_step": 25,
+      "events": [],
+      "milestones": {},
+      "answer_correct": false,
+      "judge_error": null
+    },
+    {
+      "checkpoints_reached": 4,
+      "checkpoints_total": 6,
+      "checkpoints": {
+        "identity": 48,
+        "intent": 51,
+        "killer": 54,
+        "branch2": 59
+      },
+      "diagnostic": {},
+      "route_id": "ending2",
+      "route_progress": 1.0,
+      "ending_reached": true,
+      "ending_tier": "normal",
+      "good_ending": false,
+      "ending_step": 60,
+      "events": [],
+      "milestones": {},
+      "answer_correct": false,
+      "judge_error": null
+    },
+    {
+      "checkpoints_reached": 4,
+      "checkpoints_total": 6,
+      "checkpoints": {
+        "identity": 83,
+        "intent": 86,
+        "killer": 89,
+        "branch3": 94
+      },
+      "diagnostic": {},
+      "route_id": "ending3",
+      "route_progress": 1.0,
+      "ending_reached": true,
+      "ending_tier": "normal",
+      "good_ending": false,
+      "ending_step": 95,
+      "events": [],
+      "milestones": {},
+      "answer_correct": false,
+      "judge_error": null
+    }
+  ],
+  "all_route_tiers": "normal",
+  "fresh_context_and_direct_ending_negative": true,
+  "page_error_resolution": "Six material audit exceptions originate from original missing hospital feedback container. Restored container passes zero-error empty/wrong/correct-query retest. Current route3 test also has zero errors.",
+  "critical_points_per_route": 4,
+  "critical_points_union": 6,
+  "optional_material_accesses": 4,
+  "resource_files": 36,
+  "html_documents": 25,
+  "model_api_used": false,
+  "limits": [
+    "Live version differs from historical root.",
+    "cases002/003 and fictional graduate external placeholder outside scope.",
+    "Windows installed prerequisites reused; difficulty and step/time budgets uncalibrated."
+  ]
+}

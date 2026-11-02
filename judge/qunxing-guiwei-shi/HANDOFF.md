@@ -1,0 +1,1 @@
+base664:0536 / qunxing-guiwei-shi：停止于资源阻塞。唯一历史快照为挑战页，公开收录页未获得真正入口且浏览器证书不匹配。不得将该页当游戏、不得执行挑战或绕过安全警告。恢复接入包 packs/qunxing-guiwei-shi.access.zip；结果 data/preparation/results/base664-0536.json。无需常驻进程；8831–8833 均未启动。下一步等待有效公开入口或完整合法材料。

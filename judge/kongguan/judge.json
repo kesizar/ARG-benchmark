@@ -1,24 +1,290 @@
 {
   "hooks": {
-    "ordinary": {"type": "dom_regex", "pattern": "结局 · 平凡的一生"},
-    "detective": {"type": "dom_regex", "pattern": "结局 · 不谨慎的侦探"},
-    "husband": {"type": "dom_regex", "pattern": "结局 · 听话的丈夫"},
-    "endless": {"type": "dom_regex", "pattern": "结局 · 没有终点的调查"},
-    "truth": {"type": "dom_regex", "pattern": "结局 · 通往真相的路"}
+    "mail_anniversary": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"mail_state\")||\"{}\").loggedIn===\"hanxiu\""
+    },
+    "employee_credential": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem(\"intranet_login\")===\"dingwenqian\" || (JSON.parse(localStorage.getItem(\"achievements_state\")||\"{}\").unlocked||[]).includes(\"main_truth\")"
+    },
+    "physics_archive": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"intranet_state\")||\"{}\").physicsFolderUnlocked===true"
+    },
+    "chat_birthday": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"tqchat_state\")||\"{}\").loggedIn===true || (JSON.parse(localStorage.getItem(\"tqchat_state\")||\"{}\").importedContacts||[]).length>0"
+    },
+    "report_base64": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem(\"dingwenqian_locked\")===\"true\""
+    },
+    "job_identity_referral": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem(\"job_apply_done\")===\"true\""
+    },
+    "exam_q5": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return String(a[\"q5\"]||'').toLowerCase().replace(/\\s+/g,'')===\"陌生人\";})()"
+    },
+    "exam_q6": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return String(a[\"q6\"]||'').toLowerCase().replace(/\\s+/g,'')===\"陌生人\";})()"
+    },
+    "exam_q8": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return String(a[\"q8\"]||'').toLowerCase().replace(/\\s+/g,'')===\"目标\";})()"
+    },
+    "exam_q9": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return String(a[\"q9\"]||'').toLowerCase().replace(/\\s+/g,'')===\"多维实体\";})()"
+    },
+    "exam_q10": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return String(a[\"q10\"]||'').toLowerCase().replace(/\\s+/g,'')===\"φ能量\";})()"
+    },
+    "exam_q11": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return String(a[\"q11\"]||'').toLowerCase().replace(/\\s+/g,'')===\"额外维度中\";})()"
+    },
+    "exam_q16": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return String(a[\"q16\"]||'').toLowerCase().replace(/\\s+/g,'')===\"onlytruth\";})()"
+    },
+    "exam_q19": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return String(a[\"q19\"]||'').toLowerCase().replace(/\\s+/g,'')===\"happybirthday\";})()"
+    },
+    "exam_q21": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return String(a[\"q21\"]||'').toLowerCase().replace(/\\s+/g,'')===\"多维实体\";})()"
+    },
+    "exam_q29": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return String(a[\"q29\"]||'').toLowerCase().replace(/\\s+/g,'')===\"真相\";})()"
+    },
+    "exam_q31": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return String(a[\"q31\"]||'').toLowerCase().replace(/\\s+/g,'')===\"生命\";})()"
+    },
+    "exam_q7": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return a.q7===(localStorage.getItem('recommendation_source')==='REF#DAT-2026A05'?'获取情报':'出于善意');})()"
+    },
+    "exam_q18": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return ['目标','多维实体','真相','truth'].some(v=>String(a.q18||'').toLowerCase().replace(/\\s+/g,'').includes(v));})()"
+    },
+    "exam_q27": {
+      "type": "js_truthy",
+      "expr": "(()=>{const a=typeof answers==='object'?answers:JSON.parse(localStorage.getItem('exam_answers')||'{}');return Array.isArray(a.q27)&&a.q27.length===4&&['健康','财富','自由','尊严'].every(v=>a.q27.includes(v));})()"
+    },
+    "exam_all_correct": {
+      "type": "js_truthy",
+      "expr": "localStorage.getItem(\"exam_passed\")===\"true\""
+    },
+    "ordinary": {
+      "type": "js_truthy",
+      "expr": "(()=>{if((typeof isReviewMode==='boolean'&&isReviewMode)||!location.pathname.endsWith(\"e1ordinary.html\")||new URLSearchParams(location.search).has('review'))return false;const e=JSON.parse(localStorage.getItem('endings_unlocked')||'{}');return e.end01===true&&Array.from(document.querySelectorAll('.ending-title,.ending-label')).some(x=>x.textContent.replace(/\\s/g,'').includes(\"结局·平凡的一生\")&&x.getBoundingClientRect().height>0&&x.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}));})()"
+    },
+    "detective": {
+      "type": "js_truthy",
+      "expr": "(()=>{if((typeof isReviewMode==='boolean'&&isReviewMode)||!location.pathname.endsWith(\"e2detective.html\")||new URLSearchParams(location.search).has('review'))return false;const e=JSON.parse(localStorage.getItem('endings_unlocked')||'{}');return e.end02===true&&Array.from(document.querySelectorAll('.ending-title,.ending-label')).some(x=>x.textContent.replace(/\\s/g,'').includes(\"结局·不谨慎的侦探\")&&x.getBoundingClientRect().height>0&&x.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}));})()"
+    },
+    "husband": {
+      "type": "js_truthy",
+      "expr": "(()=>{if((typeof isReviewMode==='boolean'&&isReviewMode)||!location.pathname.endsWith(\"e3funeral.html\")||new URLSearchParams(location.search).has('review'))return false;const e=JSON.parse(localStorage.getItem('endings_unlocked')||'{}');return e.end03===true&&Array.from(document.querySelectorAll('.ending-title,.ending-label')).some(x=>x.textContent.replace(/\\s/g,'').includes(\"结局·听话的丈夫\")&&x.getBoundingClientRect().height>0&&x.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}));})()"
+    },
+    "endless": {
+      "type": "js_truthy",
+      "expr": "(()=>{if((typeof isReviewMode==='boolean'&&isReviewMode)||!location.pathname.endsWith(\"e3funeral.html\")||new URLSearchParams(location.search).has('review'))return false;const e=JSON.parse(localStorage.getItem('endings_unlocked')||'{}');return e.end04===true&&Array.from(document.querySelectorAll('.ending-title,.ending-label')).some(x=>x.textContent.replace(/\\s/g,'').includes(\"结局·没有终点的调查\")&&x.getBoundingClientRect().height>0&&x.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}));})()"
+    },
+    "truth": {
+      "type": "js_truthy",
+      "expr": "(()=>{if((typeof isReviewMode==='boolean'&&isReviewMode)||!location.pathname.endsWith(\"e3funeral.html\")||new URLSearchParams(location.search).has('review'))return false;const e=JSON.parse(localStorage.getItem('endings_unlocked')||'{}');return e.end05===true&&Array.from(document.querySelectorAll('.ending-title,.ending-label')).some(x=>x.textContent.replace(/\\s/g,'').includes(\"结局·通往真相的路\")&&x.getBoundingClientRect().height>0&&x.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}));})()"
+    }
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "id": "mail_anniversary",
+      "hook": "mail_anniversary",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "employee_credential",
+      "hook": "employee_credential",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "physics_archive",
+      "hook": "physics_archive",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "chat_birthday",
+      "hook": "chat_birthday",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "report_base64",
+      "hook": "report_base64",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "job_identity_referral",
+      "hook": "job_identity_referral",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q5",
+      "hook": "exam_q5",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q6",
+      "hook": "exam_q6",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q8",
+      "hook": "exam_q8",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q9",
+      "hook": "exam_q9",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q10",
+      "hook": "exam_q10",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q11",
+      "hook": "exam_q11",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q16",
+      "hook": "exam_q16",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q19",
+      "hook": "exam_q19",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q21",
+      "hook": "exam_q21",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q29",
+      "hook": "exam_q29",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q31",
+      "hook": "exam_q31",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q7",
+      "hook": "exam_q7",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q18",
+      "hook": "exam_q18",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_q27",
+      "hook": "exam_q27",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "exam_all_correct",
+      "hook": "exam_all_correct",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "detective",
+      "hook": "detective",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
   "events": {},
   "routes": [
-    {"id": "truth", "tier": "good", "gates": [], "ending": {"hook": "truth", "op": "truthy"}},
-    {"id": "husband", "tier": "normal", "gates": [], "ending": {"hook": "husband", "op": "truthy"}},
-    {"id": "endless", "tier": "normal", "gates": [], "ending": {"hook": "endless", "op": "truthy"}},
-    {"id": "ordinary", "tier": "bad", "gates": [], "ending": {"hook": "ordinary", "op": "truthy"}},
-    {"id": "detective", "tier": "bad", "gates": [], "ending": {"hook": "detective", "op": "truthy"}}
+    {
+      "id": "ordinary",
+      "tier": "bad",
+      "gates": [],
+      "ending": {
+        "hook": "ordinary",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "husband",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "husband",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "endless",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "endless",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "truth",
+      "tier": "good",
+      "gates": [],
+      "ending": {
+        "hook": "truth",
+        "op": "truthy"
+      }
+    }
   ],
-  "ending": {"hook": "truth", "op": "truthy"},
-  "answer_sha256": [],
-  "answer_hash_file": null,
+  "ending": {
+    "hook": "truth",
+    "op": "truthy"
+  },
   "request_milestones": [],
-  "submit_conclusion": {"enabled": false, "schema": null},
-  "rubric_path": null
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  }
 }

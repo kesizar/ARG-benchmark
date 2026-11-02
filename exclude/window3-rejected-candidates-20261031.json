@@ -1,0 +1,34 @@
+{
+  "deleted": [
+    {
+      "original_record_id": "base664:0014",
+      "deleted_path": "data/preparation/window3-base664-0014/base664-0014-fixed-7x7-seed12345-candidate.zip",
+      "bytes": 509624,
+      "sha256": "9b46effc3e18c24ab9ed43e0909a4f967c9e1c66c15d9b2cb28e9c2004127d2d",
+      "reason": "Hidden Solve remained reachable by normal keyboard; replaced by verified repaired-v2a."
+    },
+    {
+      "original_record_id": "base664:0152",
+      "deleted_path": "data/preparation/window3-base664-0152/base664-0152-offline-truth-candidate.zip",
+      "bytes": 11212301,
+      "sha256": "ff3fe32f0c2a766704bb4bf20643dc6d327f76daf972361f8637aaf9ab5fdeb3",
+      "reason": "Superseded offline candidate lacked final source-access and reset protections; verified v3 is delivered."
+    },
+    {
+      "original_record_id": "base664:0152",
+      "deleted_path": "data/preparation/window3-base664-0152/base664-0152-offline-truth-v2-candidate.zip",
+      "bytes": 11212565,
+      "sha256": "b40803d13700de08c9f5baf27c52a3ce7e2e8072b1593baa97a4b037e4ecc78c",
+      "reason": "Old login events could survive in-game reset; verified epoch-aware v3 is delivered."
+    },
+    {
+      "original_record_id": "base664:0056",
+      "deleted_path": "data/preparation/window3-base664-0056/base664-0056-candidate.zip",
+      "bytes": 155316,
+      "sha256": "28d3acd3b89328de28ef3c651194002074d24d7ab5f75b32c805db792ea45a84",
+      "reason": "Missing original resources/version proof and unverified arrival-text Progress gates; not accepted."
+    }
+  ],
+  "updated_at_utc": "2026-10-31T10:03:32.345116+00:00",
+  "disposition": "Rejected ZIPs removed from working candidates; accepted deliveries and original source/diff evidence retained. No pending-delivery status is implied."
+}

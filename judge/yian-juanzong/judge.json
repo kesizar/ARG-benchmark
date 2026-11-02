@@ -1,57 +1,174 @@
 {
   "hooks": {
-    "solved": {
-      "type": "dom_regex",
-      "pattern": "案件告破"
-    },
-    "timeline": {
-      "type": "dom_regex",
-      "pattern": "正确归位\\s*1[012]\\s*/\\s*12"
-    },
-    "full": {
-      "type": "dom_regex",
-      "pattern": "正确归位\\s*12\\s*/\\s*12"
-    },
-    "break": {
+    "wang1": {
       "type": "js_truthy",
-      "expr": "(function(){try{var lv=(JSON.parse(localStorage.getItem('anyluo_save')||'{}').breakLevel)||{};return Object.keys(lv).some(function(k){return Number(lv[k])>0;});}catch(e){return false;}})()"
+      "expr": "((JSON.parse(localStorage.getItem(\"anyluo_save\")||\"{}\").breakLevel||{})[\"王建国\"]||0)>=1"
+    },
+    "wang2": {
+      "type": "js_truthy",
+      "expr": "((JSON.parse(localStorage.getItem(\"anyluo_save\")||\"{}\").breakLevel||{})[\"王建国\"]||0)>=2"
+    },
+    "wang3": {
+      "type": "js_truthy",
+      "expr": "((JSON.parse(localStorage.getItem(\"anyluo_save\")||\"{}\").breakLevel||{})[\"王建国\"]||0)>=3"
+    },
+    "wang4": {
+      "type": "js_truthy",
+      "expr": "((JSON.parse(localStorage.getItem(\"anyluo_save\")||\"{}\").breakLevel||{})[\"王建国\"]||0)>=4"
+    },
+    "wang5": {
+      "type": "js_truthy",
+      "expr": "((JSON.parse(localStorage.getItem(\"anyluo_save\")||\"{}\").breakLevel||{})[\"王建国\"]||0)>=5"
+    },
+    "li1": {
+      "type": "js_truthy",
+      "expr": "((JSON.parse(localStorage.getItem(\"anyluo_save\")||\"{}\").breakLevel||{})[\"李慧敏\"]||0)>=1"
+    },
+    "li2": {
+      "type": "js_truthy",
+      "expr": "((JSON.parse(localStorage.getItem(\"anyluo_save\")||\"{}\").breakLevel||{})[\"李慧敏\"]||0)>=2"
+    },
+    "chen1": {
+      "type": "js_truthy",
+      "expr": "((JSON.parse(localStorage.getItem(\"anyluo_save\")||\"{}\").breakLevel||{})[\"陈晓东\"]||0)>=1"
+    },
+    "chen2": {
+      "type": "js_truthy",
+      "expr": "((JSON.parse(localStorage.getItem(\"anyluo_save\")||\"{}\").breakLevel||{})[\"陈晓东\"]||0)>=2"
+    },
+    "murderer": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"benchmark_yian_verdict\")||\"{}\").murderer===true"
+    },
+    "motive": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"benchmark_yian_verdict\")||\"{}\").motive===true"
+    },
+    "method": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"benchmark_yian_verdict\")||\"{}\").method===true"
+    },
+    "ending": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"benchmark_yian_verdict\")||\"{}\").score===100 && document.getElementById(\"verdict-result\").textContent.includes(\"案件告破\")"
+    },
+    "timeline_10": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const a=JSON.parse(localStorage.getItem(\"anyluo_save\")||\"{}\").timelineOrder||[];return a.reduce((n,v,i)=>n+(v===(\"ev_\"+String(i+1).padStart(3,\"0\"))?1:0),0)>=10}catch{return false}})()"
+    },
+    "timeline_12": {
+      "type": "js_truthy",
+      "expr": "(()=>{try{const a=JSON.parse(localStorage.getItem(\"anyluo_save\")||\"{}\").timelineOrder||[];return a.reduce((n,v,i)=>n+(v===(\"ev_\"+String(i+1).padStart(3,\"0\"))?1:0),0)===12}catch{return false}})()"
     }
   },
   "checkpoints": [
     {
-      "id": "timeline",
-      "hook": "timeline",
+      "id": "timeline_10",
+      "hook": "timeline_10",
       "op": "truthy"
     },
     {
-      "id": "break",
-      "hook": "break",
-      "op": "truthy"
-    },
-    {
-      "id": "full",
-      "hook": "full",
+      "id": "timeline_12",
+      "hook": "timeline_12",
       "op": "truthy",
       "role": "optional"
+    },
+    {
+      "id": "wang1",
+      "hook": "wang1",
+      "op": "truthy"
+    },
+    {
+      "id": "wang2",
+      "hook": "wang2",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "wang3",
+      "hook": "wang3",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "wang4",
+      "hook": "wang4",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "wang5",
+      "hook": "wang5",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "li1",
+      "hook": "li1",
+      "op": "truthy"
+    },
+    {
+      "id": "li2",
+      "hook": "li2",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "chen1",
+      "hook": "chen1",
+      "op": "truthy"
+    },
+    {
+      "id": "chen2",
+      "hook": "chen2",
+      "op": "truthy",
+      "role": "optional"
+    },
+    {
+      "id": "murderer",
+      "hook": "murderer",
+      "op": "truthy"
+    },
+    {
+      "id": "motive",
+      "hook": "motive",
+      "op": "truthy"
+    },
+    {
+      "id": "method",
+      "hook": "method",
+      "op": "truthy"
     }
   ],
   "events": {},
   "routes": [
     {
       "id": "solved",
-      "tier": "good",
+      "tier": "normal",
       "gates": [
-        "timeline",
-        "break"
+        "timeline_10",
+        "murderer",
+        "motive",
+        "method"
+      ],
+      "gate_groups": [
+        {
+          "ids": [
+            "wang1",
+            "li1",
+            "chen1"
+          ],
+          "required": 1
+        }
       ],
       "ending": {
-        "hook": "solved",
+        "hook": "ending",
         "op": "truthy"
       }
     }
   ],
   "ending": {
-    "hook": "solved",
+    "hook": "ending",
     "op": "truthy"
   },
   "answer_sha256": [],

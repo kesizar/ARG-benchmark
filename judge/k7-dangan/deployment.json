@@ -1,0 +1,29 @@
+{
+  "deployment_root": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\k7-deployment-3209f8eb",
+  "archive_sha256": "1eb58326ae65696761a22cd54ee34b8c30343a37795fa1e0c027653411770c34",
+  "manifest_files_verified": 39,
+  "port": 8812,
+  "status": "independent_bundle_full_ui_pass_with_recorded_compatibility",
+  "acceptance": "judge/k7-dangan/verification/acceptance.json",
+  "bbs_acceptance": "judge/k7-dangan/verification/bbs-acceptance.json",
+  "standard_runner_smoke": "D:\\HuaweiMoveData\\Users\\17669\\Desktop\\ARG-benchmark\\runs\\k7-deployment-3209f8eb\\runs\\k7-dangan\\B\\20261026_181214\\summary.json",
+  "virtual_files_read": 78,
+  "local_web_pages": 7,
+  "reachable_endings_verified": 18,
+  "defined_unwired_endings": [
+    "E01",
+    "H03"
+  ],
+  "negative_checks": 9,
+  "time_environment": {
+    "night_timezone": "Etc/GMT+8",
+    "night_hour": 2,
+    "day_timezone": "Etc/GMT-2",
+    "day_hour": 12
+  },
+  "limitations": [
+    "Existing Windows Python/browser reused; not fresh OS/cross-platform install.",
+    "Source-informed scripted engineering UI acceptance, not model solving.",
+    "Idle/long-duration atmosphere and exact04:12 event mapped from source, not all waited in real time."
+  ]
+}

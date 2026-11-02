@@ -1,0 +1,75 @@
+{
+  "id": "new31-midnight-l3",
+  "category": "web_puzzle",
+  "runtime_layer": "L3",
+  "account_requirement": "none",
+  "obs_mode": "B",
+  "obs_modes_to_run": [
+    "B"
+  ],
+  "computer_use": false,
+  "model_visible": {
+    "title": "The Midnight Desk",
+    "intro": "Investigate the three case files and connect the evidence."
+  },
+  "entry_url": "https://html-classic.itch.zone/html/19313233/index.html?v=1789878387",
+  "local_serve": {
+    "enabled": false
+  },
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "locale": "en-US",
+  "timezone": "Asia/Shanghai",
+  "seed": 20261027,
+  "allow_hosts": [
+    "html-classic.itch.zone",
+    "static.itch.io"
+  ],
+  "shortcut_block": [],
+  "guide_block_hosts": [
+    "*walkthrough*",
+    "*writeup*",
+    "*\u93c0\u8364\u6690*"
+  ],
+  "allow_model_goto": false,
+  "goto_scope": "none",
+  "show_url": true,
+  "text_scope": "page",
+  "text_limit": 6000,
+  "actions_enabled": [
+    "click",
+    "dblclick",
+    "type",
+    "key",
+    "scroll",
+    "drag",
+    "back",
+    "wait",
+    "dialog",
+    "give_up"
+  ],
+  "limits": {
+    "max_steps": 100,
+    "max_seconds": 1800,
+    "max_answer_submits": 10
+  },
+  "settle_ms": 800,
+  "history": {
+    "full_obs_k": 4,
+    "screenshot_k": 2
+  },
+  "judge_path": "judge/new31-midnight/judge.json",
+  "policy_script": [
+    {
+      "op": "give_up"
+    }
+  ],
+  "isolation": {
+    "container": false
+  },
+  "notes_for_report": [
+    "Case completion accepts extraneous connections; not suitable for formal scoring without policy review."
+  ]
+}

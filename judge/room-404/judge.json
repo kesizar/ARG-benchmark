@@ -1,103 +1,122 @@
 {
   "hooks": {
-    "true": {
-      "type": "dom_regex",
-      "pattern": "真结局：潮汐协议"
+    "p1-usb": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p1-usb\")"
     },
-    "hidden": {
-      "type": "dom_regex",
-      "pattern": "隐藏结局：潮汐之间"
+    "p2-redacted": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p2-redacted\")"
     },
-    "secret": {
-      "type": "dom_regex",
-      "pattern": "秘密结局：第 13 位房客"
+    "p3-years": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p3-years\")"
     },
-    "plain": {
-      "type": "dom_regex",
-      "pattern": "普通结局：真相大白"
+    "p4-frequency": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p4-frequency\")"
     },
-    "usb": {
-      "type": "dom_regex",
-      "pattern": "U盘解锁成功！"
+    "p5-employee": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p5-employee\")"
     },
-    "years": {
-      "type": "dom_regex",
-      "pattern": "密码正确！年份序列揭示了失踪的规律"
+    "p6-timeline": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p6-timeline\")"
     },
-    "freq": {
-      "type": "dom_regex",
-      "pattern": "频率正确！"
+    "p7-darkweb": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p7-darkweb\")"
     },
-    "login": {
-      "type": "dom_regex",
-      "pattern": "系统登录成功！"
+    "p8-server": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p8-server\")"
     },
-    "timeline": {
-      "type": "dom_regex",
-      "pattern": "时间线正确！"
+    "p10-hidden": {
+      "type": "js_truthy",
+      "expr": "(JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\" ).solvedPuzzles||[]).includes(\"p10-hidden\")"
     },
-    "darkweb": {
-      "type": "dom_regex",
-      "pattern": "暗网访问成功！"
+    "ending_normal": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\").ending===\"normal\" && Array.from(document.querySelectorAll(\"h2\")).some(x=>/结局：|Ending:/.test(x.textContent))"
     },
-    "server": {
-      "type": "dom_regex",
-      "pattern": "服务器密码正确！"
+    "ending_hidden": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\").ending===\"hidden\" && Array.from(document.querySelectorAll(\"h2\")).some(x=>/结局：|Ending:/.test(x.textContent))"
+    },
+    "ending_secret": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\").ending===\"secret\" && Array.from(document.querySelectorAll(\"h2\")).some(x=>/结局：|Ending:/.test(x.textContent))"
+    },
+    "ending_true": {
+      "type": "js_truthy",
+      "expr": "JSON.parse(localStorage.getItem(\"room404-save\")||\"{}\").ending===\"true\" && Array.from(document.querySelectorAll(\"h2\")).some(x=>/结局：|Ending:/.test(x.textContent))"
     }
   },
   "checkpoints": [
     {
-      "id": "usb",
-      "hook": "usb",
-      "op": "truthy"
+      "id": "p1-usb",
+      "hook": "p1-usb",
+      "op": "truthy",
+      "role": "critical"
     },
     {
-      "id": "years",
-      "hook": "years",
-      "op": "truthy"
+      "id": "p2-redacted",
+      "hook": "p2-redacted",
+      "op": "truthy",
+      "role": "optional"
     },
     {
-      "id": "freq",
-      "hook": "freq",
-      "op": "truthy"
+      "id": "p3-years",
+      "hook": "p3-years",
+      "op": "truthy",
+      "role": "optional"
     },
     {
-      "id": "login",
-      "hook": "login",
-      "op": "truthy"
+      "id": "p4-frequency",
+      "hook": "p4-frequency",
+      "op": "truthy",
+      "role": "optional"
     },
     {
-      "id": "timeline",
-      "hook": "timeline",
-      "op": "truthy"
+      "id": "p5-employee",
+      "hook": "p5-employee",
+      "op": "truthy",
+      "role": "optional"
     },
     {
-      "id": "darkweb",
-      "hook": "darkweb",
-      "op": "truthy"
+      "id": "p6-timeline",
+      "hook": "p6-timeline",
+      "op": "truthy",
+      "role": "critical"
     },
     {
-      "id": "server",
-      "hook": "server",
-      "op": "truthy"
+      "id": "p7-darkweb",
+      "hook": "p7-darkweb",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "p8-server",
+      "hook": "p8-server",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "p10-hidden",
+      "hook": "p10-hidden",
+      "op": "truthy",
+      "role": "optional"
     }
   ],
   "events": {},
   "routes": [
     {
-      "id": "true",
-      "tier": "good",
-      "gates": [
-        "usb",
-        "years",
-        "freq",
-        "login",
-        "timeline",
-        "darkweb",
-        "server"
-      ],
+      "id": "normal",
+      "tier": "normal",
+      "gates": [],
       "ending": {
-        "hook": "true",
+        "hook": "ending_normal",
         "op": "truthy"
       }
     },
@@ -106,7 +125,7 @@
       "tier": "normal",
       "gates": [],
       "ending": {
-        "hook": "hidden",
+        "hook": "ending_hidden",
         "op": "truthy"
       }
     },
@@ -114,34 +133,34 @@
       "id": "secret",
       "tier": "normal",
       "gates": [
-        "darkweb",
-        "server"
+        "p7-darkweb"
       ],
       "ending": {
-        "hook": "secret",
+        "hook": "ending_secret",
         "op": "truthy"
       }
     },
     {
-      "id": "plain",
-      "tier": "normal",
-      "gates": [],
+      "id": "true",
+      "tier": "good",
+      "gates": [
+        "p1-usb",
+        "p6-timeline",
+        "p7-darkweb"
+      ],
       "ending": {
-        "hook": "plain",
+        "hook": "ending_true",
         "op": "truthy"
       }
     }
   ],
   "ending": {
-    "hook": "true",
+    "hook": "ending_true",
     "op": "truthy"
   },
-  "answer_sha256": [],
-  "answer_hash_file": null,
   "request_milestones": [],
   "submit_conclusion": {
     "enabled": false,
     "schema": null
-  },
-  "rubric_path": null
+  }
 }

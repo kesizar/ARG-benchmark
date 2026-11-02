@@ -1,0 +1,77 @@
+{
+  "candidate_only": true,
+  "points": [
+    {
+      "id": "clock",
+      "answer": "2009-04-12 17:02",
+      "source": "level1-sz.html performCalibration",
+      "route_role": "optional: no enforced dependency to terminal login"
+    },
+    {
+      "id": "employee",
+      "answer": "943851198907209213 / YH82-GS71-LH36-CV94",
+      "source": "level1-yght.html handleLogin",
+      "route_role": "optional: terminal credential accepted on same login surface without employee route"
+    },
+    {
+      "id": "statistics",
+      "answer": {
+        "2005": 6,
+        "2006": 5,
+        "2007": 2,
+        "2008": 3,
+        "2009": 16
+      },
+      "source": "level2-qftctz.html correctValues",
+      "route_role": "optional: no enforced prerequisite to terminal login"
+    },
+    {
+      "id": "terminal",
+      "answer": "灁㵒瘞軎禷禩䫻䫹 / G7s9-kR2p-Bt4n-Qm6z",
+      "source": "level1-yght.html handleLogin",
+      "route_role": "critical normal UI access to terminal and ending"
+    },
+    {
+      "id": "archive_gw",
+      "answer": "3461",
+      "source": "level3-1.html button onclick",
+      "route_role": "optional: records/logout remain available without archive unlock; Enter 0414 bypass excluded"
+    },
+    {
+      "id": "archive_yl",
+      "answer": "3538",
+      "source": "level3-1.html button onclick",
+      "route_role": "optional: records/logout remain available without archive unlock; Enter 0414 bypass excluded"
+    },
+    {
+      "id": "archive_ls",
+      "answer": "5779",
+      "source": "level3-1.html button onclick",
+      "route_role": "optional: records/logout remain available without archive unlock; Enter 0414 bypass excluded"
+    }
+  ],
+  "inference_coverage": "All input-based authored validators enumerated; clue-to-answer derivations across PDF/images/audio not fully reconstructed. Formal scoring withheld.",
+  "non_reasoning": [
+    "search keyword navigation",
+    "newspaper/news/PDF/video viewing and downloads",
+    "terminal tabs and recovered diary",
+    "delete-record horror sequence",
+    "logout horror sequence",
+    "agree/refuse narrative choice",
+    "final credits"
+  ],
+  "endings": {
+    "agree": "failure: next annual sacrifice",
+    "refuse": "successful story resolution; refuse unlocks after actual 5 second wait",
+    "credits": "common credits, not independent proof of success"
+  },
+  "failures": "Blank/wrong credentials, clock and statistic answers or archive passwords allow retries; no distinct terminal failure until agree.",
+  "latching": "harness Judge.update latches checkpoint IDs across pages and frames; hook requires actual success DOM; archive hooks additionally exclude 0414 Enter bypass.",
+  "missing_links": "resource-audit.json enumerates 5 missing targets, some intercepted as authored 404 alerts but level1-gyxw/lxcd internal query performs real missing navigation.",
+  "unknowns": [
+    "Media/PDF clue readability in screenshot harness",
+    "Whether repository omits author-intended content behind missing links",
+    "All document-derived inference chains and difficulty calibration"
+  ],
+  "terminal_failure_classification": "agree: player imprisoned and destined for sacrifice; terminal failure; refuse remains formal ending"
+}

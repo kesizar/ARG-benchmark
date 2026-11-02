@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "7_critical_candidates": true,
+    "4_diagnostics": true,
+    "three_unranked_routes": true,
+    "same7_gates_all_routes": true,
+    "final_required_all_routes": true,
+    "no_actual_failure_ending": true
+  },
+  "game_sha256": "a80cc255185c41c04e97d5c69a57664613b31f9b69dc5233a1a2eb72f121f16a",
+  "classification": "engineering validation only; candidate reasoning points require editorial review",
+  "risks": [
+    "Reverse permits unlost and arbitrary lost substrings.",
+    "OMEGA/10/TEN acceptance is broad; direct visible copy can pass.",
+    "Source key is printed on screen.",
+    "MIND is repeated in 3 stages with final mapping printed; events only.",
+    "Hex swatch title discloses decimal and ASCII character, making candidate inference copyable.",
+    "Newspaper initials do not derive VOID; IDENTITY ERASURE and REPLACED are accepted literal concepts.",
+    "No evidence supports good/normal/bad ranking among 3 formal endings.",
+    "Mobile directional controls call undefined mobileKey; desktop keyboard covered."
+  ],
+  "compatibility": [
+    {
+      "type": "offline_font_compatibility",
+      "detail": "RemoveGoogleFontsCSSimport; keepdeclaredfallbackfonts. Publicdownloadapprovaltimedouttwice, notproofoforiginunavailability."
+    },
+    {
+      "type": "missing_function_guard",
+      "detail": "GuardinitLevel12callbecauseauthorneverdefinesit; originalhadalreadyenteredlevel12beforethrowing. Noanswers,conditions,delaysorflowedited."
+    }
+  ]
+}

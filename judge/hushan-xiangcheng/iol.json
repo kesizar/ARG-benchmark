@@ -1,0 +1,140 @@
+{
+  "hooks": {
+    "iol_01": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__hushanJudge){\n const R=window.__hushanJudge={slots:{},iol:{},merge:{},attempts:[]};\n const score=k=>+(document.querySelector('#'+k+'-hud')?.textContent.match(/(?:得分|⭐(?:\\s*分数)?)\\s*(\\d+)/)?.[1]||0);\n const submit=e=>{\n  const b=e.target.closest?.('.opt');\n  if(b&&!b.disabled){const key=b.closest('.screen')?.id.replace('screen-',''),old=score(key),slot=document.querySelector('#'+key+'-hud')?.textContent.match(/第\\s*(\\d+)/)?.[1],q=b.closest('[id$=\"-main\"]').querySelector('.quiz-q').textContent,choice=b.textContent;\n   setTimeout(()=>{const ok=b.disabled&&score(key)===old+1; R.slots[key]??={};R.slots[key][slot]=ok;R.attempts.push({key,slot,q,choice,ok});});}\n  const input=document.querySelector('#iol-input');\n  if(input&&!input.disabled&&((e.type==='click'&&e.target.closest?.('[onclick=\"iolCheck()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target===input))){const q=[...document.querySelectorAll('#iol-main > p')].at(-1)?.textContent,old=score('iol'),value=input.value;\n   setTimeout(()=>{const ok=input.disabled&&document.querySelector('#iol-msg').textContent.includes('✔');R.iol[q]=ok;R.attempts.push({key:'iol',q,value,ok});});}\n  const cell=e.target.closest?.('.mg-cell');\n  if(cell&&e.type==='click'&&!document.querySelector('#merge-main .ending')){const ch=cell.textContent,old=score('merge');setTimeout(()=>{if(score('merge')>old){const level='木人口日火水土又一'.includes(ch)?'base_merge':'林从吕昌炎沝圭双二'.includes(ch)?'tier2_merge':'tier3_clear';R.merge[level]=true;R.attempts.push({key:'merge',ch,level,gain:score('merge')-old});}});}\n };\n document.addEventListener('click',submit,true);document.addEventListener('keydown',submit,true);\n } return window.__hushanJudge.iol[\"请翻译：我 追 月亮\"]===true;\n})()"
+    },
+    "iol_02": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__hushanJudge){\n const R=window.__hushanJudge={slots:{},iol:{},merge:{},attempts:[]};\n const score=k=>+(document.querySelector('#'+k+'-hud')?.textContent.match(/(?:得分|⭐(?:\\s*分数)?)\\s*(\\d+)/)?.[1]||0);\n const submit=e=>{\n  const b=e.target.closest?.('.opt');\n  if(b&&!b.disabled){const key=b.closest('.screen')?.id.replace('screen-',''),old=score(key),slot=document.querySelector('#'+key+'-hud')?.textContent.match(/第\\s*(\\d+)/)?.[1],q=b.closest('[id$=\"-main\"]').querySelector('.quiz-q').textContent,choice=b.textContent;\n   setTimeout(()=>{const ok=b.disabled&&score(key)===old+1; R.slots[key]??={};R.slots[key][slot]=ok;R.attempts.push({key,slot,q,choice,ok});});}\n  const input=document.querySelector('#iol-input');\n  if(input&&!input.disabled&&((e.type==='click'&&e.target.closest?.('[onclick=\"iolCheck()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target===input))){const q=[...document.querySelectorAll('#iol-main > p')].at(-1)?.textContent,old=score('iol'),value=input.value;\n   setTimeout(()=>{const ok=input.disabled&&document.querySelector('#iol-msg').textContent.includes('✔');R.iol[q]=ok;R.attempts.push({key:'iol',q,value,ok});});}\n  const cell=e.target.closest?.('.mg-cell');\n  if(cell&&e.type==='click'&&!document.querySelector('#merge-main .ending')){const ch=cell.textContent,old=score('merge');setTimeout(()=>{if(score('merge')>old){const level='木人口日火水土又一'.includes(ch)?'base_merge':'林从吕昌炎沝圭双二'.includes(ch)?'tier2_merge':'tier3_clear';R.merge[level]=true;R.attempts.push({key:'merge',ch,level,gain:score('merge')-old});}});}\n };\n document.addEventListener('click',submit,true);document.addEventListener('keydown',submit,true);\n } return window.__hushanJudge.iol[\"请翻译：月亮 看 你\"]===true;\n})()"
+    },
+    "iol_03": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__hushanJudge){\n const R=window.__hushanJudge={slots:{},iol:{},merge:{},attempts:[]};\n const score=k=>+(document.querySelector('#'+k+'-hud')?.textContent.match(/(?:得分|⭐(?:\\s*分数)?)\\s*(\\d+)/)?.[1]||0);\n const submit=e=>{\n  const b=e.target.closest?.('.opt');\n  if(b&&!b.disabled){const key=b.closest('.screen')?.id.replace('screen-',''),old=score(key),slot=document.querySelector('#'+key+'-hud')?.textContent.match(/第\\s*(\\d+)/)?.[1],q=b.closest('[id$=\"-main\"]').querySelector('.quiz-q').textContent,choice=b.textContent;\n   setTimeout(()=>{const ok=b.disabled&&score(key)===old+1; R.slots[key]??={};R.slots[key][slot]=ok;R.attempts.push({key,slot,q,choice,ok});});}\n  const input=document.querySelector('#iol-input');\n  if(input&&!input.disabled&&((e.type==='click'&&e.target.closest?.('[onclick=\"iolCheck()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target===input))){const q=[...document.querySelectorAll('#iol-main > p')].at(-1)?.textContent,old=score('iol'),value=input.value;\n   setTimeout(()=>{const ok=input.disabled&&document.querySelector('#iol-msg').textContent.includes('✔');R.iol[q]=ok;R.attempts.push({key:'iol',q,value,ok});});}\n  const cell=e.target.closest?.('.mg-cell');\n  if(cell&&e.type==='click'&&!document.querySelector('#merge-main .ending')){const ch=cell.textContent,old=score('merge');setTimeout(()=>{if(score('merge')>old){const level='木人口日火水土又一'.includes(ch)?'base_merge':'林从吕昌炎沝圭双二'.includes(ch)?'tier2_merge':'tier3_clear';R.merge[level]=true;R.attempts.push({key:'merge',ch,level,gain:score('merge')-old});}});}\n };\n document.addEventListener('click',submit,true);document.addEventListener('keydown',submit,true);\n } return window.__hushanJudge.iol[\"请翻译：星星 追 我\"]===true;\n})()"
+    },
+    "iol_04": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__hushanJudge){\n const R=window.__hushanJudge={slots:{},iol:{},merge:{},attempts:[]};\n const score=k=>+(document.querySelector('#'+k+'-hud')?.textContent.match(/(?:得分|⭐(?:\\s*分数)?)\\s*(\\d+)/)?.[1]||0);\n const submit=e=>{\n  const b=e.target.closest?.('.opt');\n  if(b&&!b.disabled){const key=b.closest('.screen')?.id.replace('screen-',''),old=score(key),slot=document.querySelector('#'+key+'-hud')?.textContent.match(/第\\s*(\\d+)/)?.[1],q=b.closest('[id$=\"-main\"]').querySelector('.quiz-q').textContent,choice=b.textContent;\n   setTimeout(()=>{const ok=b.disabled&&score(key)===old+1; R.slots[key]??={};R.slots[key][slot]=ok;R.attempts.push({key,slot,q,choice,ok});});}\n  const input=document.querySelector('#iol-input');\n  if(input&&!input.disabled&&((e.type==='click'&&e.target.closest?.('[onclick=\"iolCheck()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target===input))){const q=[...document.querySelectorAll('#iol-main > p')].at(-1)?.textContent,old=score('iol'),value=input.value;\n   setTimeout(()=>{const ok=input.disabled&&document.querySelector('#iol-msg').textContent.includes('✔');R.iol[q]=ok;R.attempts.push({key:'iol',q,value,ok});});}\n  const cell=e.target.closest?.('.mg-cell');\n  if(cell&&e.type==='click'&&!document.querySelector('#merge-main .ending')){const ch=cell.textContent,old=score('merge');setTimeout(()=>{if(score('merge')>old){const level='木人口日火水土又一'.includes(ch)?'base_merge':'林从吕昌炎沝圭双二'.includes(ch)?'tier2_merge':'tier3_clear';R.merge[level]=true;R.attempts.push({key:'merge',ch,level,gain:score('merge')-old});}});}\n };\n document.addEventListener('click',submit,true);document.addEventListener('keydown',submit,true);\n } return window.__hushanJudge.iol[\"请用数数语写出：8\"]===true;\n})()"
+    },
+    "iol_05": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__hushanJudge){\n const R=window.__hushanJudge={slots:{},iol:{},merge:{},attempts:[]};\n const score=k=>+(document.querySelector('#'+k+'-hud')?.textContent.match(/(?:得分|⭐(?:\\s*分数)?)\\s*(\\d+)/)?.[1]||0);\n const submit=e=>{\n  const b=e.target.closest?.('.opt');\n  if(b&&!b.disabled){const key=b.closest('.screen')?.id.replace('screen-',''),old=score(key),slot=document.querySelector('#'+key+'-hud')?.textContent.match(/第\\s*(\\d+)/)?.[1],q=b.closest('[id$=\"-main\"]').querySelector('.quiz-q').textContent,choice=b.textContent;\n   setTimeout(()=>{const ok=b.disabled&&score(key)===old+1; R.slots[key]??={};R.slots[key][slot]=ok;R.attempts.push({key,slot,q,choice,ok});});}\n  const input=document.querySelector('#iol-input');\n  if(input&&!input.disabled&&((e.type==='click'&&e.target.closest?.('[onclick=\"iolCheck()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target===input))){const q=[...document.querySelectorAll('#iol-main > p')].at(-1)?.textContent,old=score('iol'),value=input.value;\n   setTimeout(()=>{const ok=input.disabled&&document.querySelector('#iol-msg').textContent.includes('✔');R.iol[q]=ok;R.attempts.push({key:'iol',q,value,ok});});}\n  const cell=e.target.closest?.('.mg-cell');\n  if(cell&&e.type==='click'&&!document.querySelector('#merge-main .ending')){const ch=cell.textContent,old=score('merge');setTimeout(()=>{if(score('merge')>old){const level='木人口日火水土又一'.includes(ch)?'base_merge':'林从吕昌炎沝圭双二'.includes(ch)?'tier2_merge':'tier3_clear';R.merge[level]=true;R.attempts.push({key:'merge',ch,level,gain:score('merge')-old});}});}\n };\n document.addEventListener('click',submit,true);document.addEventListener('keydown',submit,true);\n } return window.__hushanJudge.iol[\"请用数数语写出：25\"]===true;\n})()"
+    },
+    "iol_06": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__hushanJudge){\n const R=window.__hushanJudge={slots:{},iol:{},merge:{},attempts:[]};\n const score=k=>+(document.querySelector('#'+k+'-hud')?.textContent.match(/(?:得分|⭐(?:\\s*分数)?)\\s*(\\d+)/)?.[1]||0);\n const submit=e=>{\n  const b=e.target.closest?.('.opt');\n  if(b&&!b.disabled){const key=b.closest('.screen')?.id.replace('screen-',''),old=score(key),slot=document.querySelector('#'+key+'-hud')?.textContent.match(/第\\s*(\\d+)/)?.[1],q=b.closest('[id$=\"-main\"]').querySelector('.quiz-q').textContent,choice=b.textContent;\n   setTimeout(()=>{const ok=b.disabled&&score(key)===old+1; R.slots[key]??={};R.slots[key][slot]=ok;R.attempts.push({key,slot,q,choice,ok});});}\n  const input=document.querySelector('#iol-input');\n  if(input&&!input.disabled&&((e.type==='click'&&e.target.closest?.('[onclick=\"iolCheck()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target===input))){const q=[...document.querySelectorAll('#iol-main > p')].at(-1)?.textContent,old=score('iol'),value=input.value;\n   setTimeout(()=>{const ok=input.disabled&&document.querySelector('#iol-msg').textContent.includes('✔');R.iol[q]=ok;R.attempts.push({key:'iol',q,value,ok});});}\n  const cell=e.target.closest?.('.mg-cell');\n  if(cell&&e.type==='click'&&!document.querySelector('#merge-main .ending')){const ch=cell.textContent,old=score('merge');setTimeout(()=>{if(score('merge')>old){const level='木人口日火水土又一'.includes(ch)?'base_merge':'林从吕昌炎沝圭双二'.includes(ch)?'tier2_merge':'tier3_clear';R.merge[level]=true;R.attempts.push({key:'merge',ch,level,gain:score('merge')-old});}});}\n };\n document.addEventListener('click',submit,true);document.addEventListener('keydown',submit,true);\n } return window.__hushanJudge.iol[\"请用数数语写出：14\"]===true;\n})()"
+    },
+    "iol_07": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__hushanJudge){\n const R=window.__hushanJudge={slots:{},iol:{},merge:{},attempts:[]};\n const score=k=>+(document.querySelector('#'+k+'-hud')?.textContent.match(/(?:得分|⭐(?:\\s*分数)?)\\s*(\\d+)/)?.[1]||0);\n const submit=e=>{\n  const b=e.target.closest?.('.opt');\n  if(b&&!b.disabled){const key=b.closest('.screen')?.id.replace('screen-',''),old=score(key),slot=document.querySelector('#'+key+'-hud')?.textContent.match(/第\\s*(\\d+)/)?.[1],q=b.closest('[id$=\"-main\"]').querySelector('.quiz-q').textContent,choice=b.textContent;\n   setTimeout(()=>{const ok=b.disabled&&score(key)===old+1; R.slots[key]??={};R.slots[key][slot]=ok;R.attempts.push({key,slot,q,choice,ok});});}\n  const input=document.querySelector('#iol-input');\n  if(input&&!input.disabled&&((e.type==='click'&&e.target.closest?.('[onclick=\"iolCheck()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target===input))){const q=[...document.querySelectorAll('#iol-main > p')].at(-1)?.textContent,old=score('iol'),value=input.value;\n   setTimeout(()=>{const ok=input.disabled&&document.querySelector('#iol-msg').textContent.includes('✔');R.iol[q]=ok;R.attempts.push({key:'iol',q,value,ok});});}\n  const cell=e.target.closest?.('.mg-cell');\n  if(cell&&e.type==='click'&&!document.querySelector('#merge-main .ending')){const ch=cell.textContent,old=score('merge');setTimeout(()=>{if(score('merge')>old){const level='木人口日火水土又一'.includes(ch)?'base_merge':'林从吕昌炎沝圭双二'.includes(ch)?'tier2_merge':'tier3_clear';R.merge[level]=true;R.attempts.push({key:'merge',ch,level,gain:score('merge')-old});}});}\n };\n document.addEventListener('click',submit,true);document.addEventListener('keydown',submit,true);\n } return window.__hushanJudge.iol[\"yama = 山。「群山」怎么说？\"]===true;\n})()"
+    },
+    "iol_08": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__hushanJudge){\n const R=window.__hushanJudge={slots:{},iol:{},merge:{},attempts:[]};\n const score=k=>+(document.querySelector('#'+k+'-hud')?.textContent.match(/(?:得分|⭐(?:\\s*分数)?)\\s*(\\d+)/)?.[1]||0);\n const submit=e=>{\n  const b=e.target.closest?.('.opt');\n  if(b&&!b.disabled){const key=b.closest('.screen')?.id.replace('screen-',''),old=score(key),slot=document.querySelector('#'+key+'-hud')?.textContent.match(/第\\s*(\\d+)/)?.[1],q=b.closest('[id$=\"-main\"]').querySelector('.quiz-q').textContent,choice=b.textContent;\n   setTimeout(()=>{const ok=b.disabled&&score(key)===old+1; R.slots[key]??={};R.slots[key][slot]=ok;R.attempts.push({key,slot,q,choice,ok});});}\n  const input=document.querySelector('#iol-input');\n  if(input&&!input.disabled&&((e.type==='click'&&e.target.closest?.('[onclick=\"iolCheck()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target===input))){const q=[...document.querySelectorAll('#iol-main > p')].at(-1)?.textContent,old=score('iol'),value=input.value;\n   setTimeout(()=>{const ok=input.disabled&&document.querySelector('#iol-msg').textContent.includes('✔');R.iol[q]=ok;R.attempts.push({key:'iol',q,value,ok});});}\n  const cell=e.target.closest?.('.mg-cell');\n  if(cell&&e.type==='click'&&!document.querySelector('#merge-main .ending')){const ch=cell.textContent,old=score('merge');setTimeout(()=>{if(score('merge')>old){const level='木人口日火水土又一'.includes(ch)?'base_merge':'林从吕昌炎沝圭双二'.includes(ch)?'tier2_merge':'tier3_clear';R.merge[level]=true;R.attempts.push({key:'merge',ch,level,gain:score('merge')-old});}});}\n };\n document.addEventListener('click',submit,true);document.addEventListener('keydown',submit,true);\n } return window.__hushanJudge.iol[\"warai = 笑。「笑了又笑」怎么说？\"]===true;\n})()"
+    },
+    "iol_09": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__hushanJudge){\n const R=window.__hushanJudge={slots:{},iol:{},merge:{},attempts:[]};\n const score=k=>+(document.querySelector('#'+k+'-hud')?.textContent.match(/(?:得分|⭐(?:\\s*分数)?)\\s*(\\d+)/)?.[1]||0);\n const submit=e=>{\n  const b=e.target.closest?.('.opt');\n  if(b&&!b.disabled){const key=b.closest('.screen')?.id.replace('screen-',''),old=score(key),slot=document.querySelector('#'+key+'-hud')?.textContent.match(/第\\s*(\\d+)/)?.[1],q=b.closest('[id$=\"-main\"]').querySelector('.quiz-q').textContent,choice=b.textContent;\n   setTimeout(()=>{const ok=b.disabled&&score(key)===old+1; R.slots[key]??={};R.slots[key][slot]=ok;R.attempts.push({key,slot,q,choice,ok});});}\n  const input=document.querySelector('#iol-input');\n  if(input&&!input.disabled&&((e.type==='click'&&e.target.closest?.('[onclick=\"iolCheck()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target===input))){const q=[...document.querySelectorAll('#iol-main > p')].at(-1)?.textContent,old=score('iol'),value=input.value;\n   setTimeout(()=>{const ok=input.disabled&&document.querySelector('#iol-msg').textContent.includes('✔');R.iol[q]=ok;R.attempts.push({key:'iol',q,value,ok});});}\n  const cell=e.target.closest?.('.mg-cell');\n  if(cell&&e.type==='click'&&!document.querySelector('#merge-main .ending')){const ch=cell.textContent,old=score('merge');setTimeout(()=>{if(score('merge')>old){const level='木人口日火水土又一'.includes(ch)?'base_merge':'林从吕昌炎沝圭双二'.includes(ch)?'tier2_merge':'tier3_clear';R.merge[level]=true;R.attempts.push({key:'merge',ch,level,gain:score('merge')-old});}});}\n };\n document.addEventListener('click',submit,true);document.addEventListener('keydown',submit,true);\n } return window.__hushanJudge.iol[\"toshi = 年。「每一年」怎么说？\"]===true;\n})()"
+    },
+    "preparatory": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__hushanJudge){\n const R=window.__hushanJudge={slots:{},iol:{},merge:{},attempts:[]};\n const score=k=>+(document.querySelector('#'+k+'-hud')?.textContent.match(/(?:得分|⭐(?:\\s*分数)?)\\s*(\\d+)/)?.[1]||0);\n const submit=e=>{\n  const b=e.target.closest?.('.opt');\n  if(b&&!b.disabled){const key=b.closest('.screen')?.id.replace('screen-',''),old=score(key),slot=document.querySelector('#'+key+'-hud')?.textContent.match(/第\\s*(\\d+)/)?.[1],q=b.closest('[id$=\"-main\"]').querySelector('.quiz-q').textContent,choice=b.textContent;\n   setTimeout(()=>{const ok=b.disabled&&score(key)===old+1; R.slots[key]??={};R.slots[key][slot]=ok;R.attempts.push({key,slot,q,choice,ok});});}\n  const input=document.querySelector('#iol-input');\n  if(input&&!input.disabled&&((e.type==='click'&&e.target.closest?.('[onclick=\"iolCheck()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target===input))){const q=[...document.querySelectorAll('#iol-main > p')].at(-1)?.textContent,old=score('iol'),value=input.value;\n   setTimeout(()=>{const ok=input.disabled&&document.querySelector('#iol-msg').textContent.includes('✔');R.iol[q]=ok;R.attempts.push({key:'iol',q,value,ok});});}\n  const cell=e.target.closest?.('.mg-cell');\n  if(cell&&e.type==='click'&&!document.querySelector('#merge-main .ending')){const ch=cell.textContent,old=score('merge');setTimeout(()=>{if(score('merge')>old){const level='木人口日火水土又一'.includes(ch)?'base_merge':'林从吕昌炎沝圭双二'.includes(ch)?'tier2_merge':'tier3_clear';R.merge[level]=true;R.attempts.push({key:'merge',ch,level,gain:score('merge')-old});}});}\n };\n document.addEventListener('click',submit,true);document.addEventListener('keydown',submit,true);\n } return (() => {const e=document.querySelector('#iol-main .ending h2');if(!e)return false;const n=parseInt(e.textContent);return n>=7&&n<=9;})();\n})()"
+    },
+    "experience": {
+      "type": "js_truthy",
+      "expr": "(() => {\n if(!window.__hushanJudge){\n const R=window.__hushanJudge={slots:{},iol:{},merge:{},attempts:[]};\n const score=k=>+(document.querySelector('#'+k+'-hud')?.textContent.match(/(?:得分|⭐(?:\\s*分数)?)\\s*(\\d+)/)?.[1]||0);\n const submit=e=>{\n  const b=e.target.closest?.('.opt');\n  if(b&&!b.disabled){const key=b.closest('.screen')?.id.replace('screen-',''),old=score(key),slot=document.querySelector('#'+key+'-hud')?.textContent.match(/第\\s*(\\d+)/)?.[1],q=b.closest('[id$=\"-main\"]').querySelector('.quiz-q').textContent,choice=b.textContent;\n   setTimeout(()=>{const ok=b.disabled&&score(key)===old+1; R.slots[key]??={};R.slots[key][slot]=ok;R.attempts.push({key,slot,q,choice,ok});});}\n  const input=document.querySelector('#iol-input');\n  if(input&&!input.disabled&&((e.type==='click'&&e.target.closest?.('[onclick=\"iolCheck()\"]'))||(e.type==='keydown'&&e.key==='Enter'&&e.target===input))){const q=[...document.querySelectorAll('#iol-main > p')].at(-1)?.textContent,old=score('iol'),value=input.value;\n   setTimeout(()=>{const ok=input.disabled&&document.querySelector('#iol-msg').textContent.includes('✔');R.iol[q]=ok;R.attempts.push({key:'iol',q,value,ok});});}\n  const cell=e.target.closest?.('.mg-cell');\n  if(cell&&e.type==='click'&&!document.querySelector('#merge-main .ending')){const ch=cell.textContent,old=score('merge');setTimeout(()=>{if(score('merge')>old){const level='木人口日火水土又一'.includes(ch)?'base_merge':'林从吕昌炎沝圭双二'.includes(ch)?'tier2_merge':'tier3_clear';R.merge[level]=true;R.attempts.push({key:'merge',ch,level,gain:score('merge')-old});}});}\n };\n document.addEventListener('click',submit,true);document.addEventListener('keydown',submit,true);\n } return (() => {const e=document.querySelector('#iol-main .ending h2');if(!e)return false;const n=parseInt(e.textContent);return n>=0&&n<=6;})();\n})()"
+    }
+  },
+  "checkpoints": [
+    {
+      "id": "iol_01",
+      "hook": "iol_01",
+      "op": "truthy",
+      "role": "critical",
+      "description": "请翻译：我 追 月亮"
+    },
+    {
+      "id": "iol_02",
+      "hook": "iol_02",
+      "op": "truthy",
+      "role": "critical",
+      "description": "请翻译：月亮 看 你"
+    },
+    {
+      "id": "iol_03",
+      "hook": "iol_03",
+      "op": "truthy",
+      "role": "critical",
+      "description": "请翻译：星星 追 我"
+    },
+    {
+      "id": "iol_04",
+      "hook": "iol_04",
+      "op": "truthy",
+      "role": "diagnostic",
+      "description": "请用数数语写出：8"
+    },
+    {
+      "id": "iol_05",
+      "hook": "iol_05",
+      "op": "truthy",
+      "role": "diagnostic",
+      "description": "请用数数语写出：25"
+    },
+    {
+      "id": "iol_06",
+      "hook": "iol_06",
+      "op": "truthy",
+      "role": "diagnostic",
+      "description": "请用数数语写出：14"
+    },
+    {
+      "id": "iol_07",
+      "hook": "iol_07",
+      "op": "truthy",
+      "role": "diagnostic",
+      "description": "yama = 山。「群山」怎么说？"
+    },
+    {
+      "id": "iol_08",
+      "hook": "iol_08",
+      "op": "truthy",
+      "role": "diagnostic",
+      "description": "warai = 笑。「笑了又笑」怎么说？"
+    },
+    {
+      "id": "iol_09",
+      "hook": "iol_09",
+      "op": "truthy",
+      "role": "diagnostic",
+      "description": "toshi = 年。「每一年」怎么说？"
+    }
+  ],
+  "routes": [
+    {
+      "id": "preparatory",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "preparatory",
+        "op": "truthy"
+      }
+    },
+    {
+      "id": "experience",
+      "tier": "normal",
+      "gates": [],
+      "ending": {
+        "hook": "experience",
+        "op": "truthy"
+      }
+    }
+  ],
+  "events": {},
+  "ending": null,
+  "request_milestones": [],
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  }
+}

@@ -1,0 +1,20 @@
+from pathlib import Path
+import json,zipfile,hashlib,datetime,subprocess,sys
+R=Path(__file__).resolve().parents[1];T='mingde-zhuilou';O=R/'runs'/T
+acc=json.loads((O/'acceptance.json').read_text(encoding='utf-8'));assert acc['passed']
+assert all(any(x['kind']==k and x['stage']=='new-context-full-reset' for x in acc['trace']) for k in ['source','game','prepared'])
+rows=[]
+def sha(b):return hashlib.sha256(b).hexdigest()
+for k,name in [('game',T+'.zip'),('prepared',T+'.prepared.zip')]:
+ p=R/'packs'/name;z=zipfile.ZipFile(p);base='' if k=='game' else f'tasks/{T}/mirror/';count=0
+ for f in (R/'tasks'/T/'mirror').rglob('*'):
+  if f.is_file():
+   rel=f.relative_to(R/'tasks'/T/'mirror').as_posix();b=f.read_bytes();assert z.read(base+rel)==b;g=O/('unpacked-'+k)/(base+rel);assert g.read_bytes()==b;count+=1
+ if k=='prepared':
+  mf=json.loads(z.read('BUNDLE-MANIFEST.json'))
+  for x in mf['files']:assert sha(z.read(x['path']))==x['sha256']
+ rows.append({'kind':k,'path':'packs/'+name,'sha256':sha(p.read_bytes()),'bytes':p.stat().st_size,'game_files_verified':count,'port':8832 if k=='game' else 8833,'extraction':str((O/('unpacked-'+k)).relative_to(R))})
+report={'passed':True,'archives':rows,'evidence':'runs/mingde-zhuilou/acceptance.json','equivalence':'All 21 game files equal delivery archives and separate extractions. Every prepared manifest file hash verified.','environment':{'os':'Windows','browser':'Edge via Playwright','python':sys.version.split()[0]},'packaged_harness_smoke':'runs/mingde-zhuilou/independent-harness.json','scope':'Normal UI three endings, password negative/positive, report negatives, lockout, reset from all three independent roots. Prior source gate evidence is explicitly merged; no game content changed except orphan mailbox missing delimiter.'}
+(R/'packs'/f'{T}.acceptance.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+result={'record_id':'base664:0153','task_id':T,'title':'明德中学坠楼案','status':'engineering_ready_condition_missing_author_identity','runtime_layer':'L1','account_requirement':'none','ready_for_local_execution':True,'ready_for_formal_scoring':False,'config':'configs/'+T+'.json','resources_bundle':rows[0]['path'],'evaluation_bundle':rows[1]['path'],'acceptance':'packs/'+T+'.acceptance.json','archives':rows,'coverage':{'upstream_files':21,'html_pages':20,'main_evidence_documents':14,'main_optional_password_gates':6,'diagnostic_boot_gate':1,'orphan_password_gates':3,'formal_ending_types':3,'minimal_report_selections_tested':4,'non_scoring_navigation_branches':47,'independent_ui_roots':3},'content_finding':'First password requires author-name identity absent from player materials; formal scoring is withheld. Correct ending depends only on selected compensation agreement and Li Yang, allowing all document puzzle gates to be bypassed. They are optional, not route gates.','compatibility_patch':'One missing template-literal closing backtick in orphan locked_mail.html; two CRLF line endings normalized; original, diff and byte audit retained.','model_api_calls':0,'source_version':'d37e2bc982605485645f39e7a2df6320e23d5876','limitations':['Windows/Edge only; not cross-OS','Known-source answer inputs verify UI engineering, not player solvability','Orphan mailbox/ark pages tested by audit navigation only; unavailable through normal main-game links','Original author identity clue required before formal scoring'], 'evidence':['tasks/'+T+'/README.md','tasks/'+T+'/provenance.json','tasks/'+T+'/evidence/live-entry.json','tasks/'+T+'/evidence/link-inventory.json','tasks/'+T+'/evidence/js-syntax-check.json','tasks/'+T+'/evidence/js-syntax-before-patch.json','tasks/'+T+'/evidence/locked-mail-syntax.diff','tasks/'+T+'/evidence/patch-byte-audit.json','judge/'+T+'/checkpoint-spec.json','runs/'+T+'/acceptance.json','runs/'+T+'/minimal-route-proof.json','runs/'+T+'/navigation-coverage.json','runs/'+T+'/independent-harness.json']}
+(R/'data/preparation/results/base664-0153.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8');print('FINALIZED',len(acc['trace']),'UI snapshots')

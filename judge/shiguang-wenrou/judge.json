@@ -1,20 +1,167 @@
 {
   "hooks": {
-    "corner": {"type": "dom_regex", "pattern": "她还在。只是从今以后，我不会再回头找她了。"},
-    "cherish": {"type": "dom_regex", "pattern": "我做了一场很美的梦。醒来以后，还是今天。"},
-    "cannot": {"type": "dom_regex", "pattern": "她没回我。"}
+    "boot": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('totor_gameState_v2')||'{}').flags||{}).bootPasswordSolved"
+    },
+    "friendster": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('totor_gameState_v2')||'{}').flags||{}).friendsterLoggedIn"
+    },
+    "tablet": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('totor_gameState_v2')||'{}').flags||{}).tabletUnlocked"
+    },
+    "secret": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('totor_gameState_v2')||'{}').flags||{}).secretNoteUnlocked"
+    },
+    "yuqing_capsule": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('totor_gameState_v2')||'{}').flags||{}).yuqingCapsuleUnlocked"
+    },
+    "chen_capsule": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('totor_gameState_v2')||'{}').flags||{}).timeCapsuleUnlocked"
+    },
+    "maze_hints": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('totor_gameState_v2')||'{}').flags||{}).passwordHintsFound"
+    },
+    "maze_lanotte": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('totor_gameState_v2')||'{}').flags||{}).laNotteFound"
+    },
+    "maze_gino": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('totor_gameState_v2')||'{}').flags||{}).ginoFound"
+    },
+    "identity_labels": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('totor_gameState_v2')||'{}').flags||{}).ch2XiaotuziAllCorrectSeen"
+    },
+    "zhou_contact": {
+      "type": "js_truthy",
+      "expr": "!!(JSON.parse(localStorage.getItem('totor_gameState_v2')||'{}').flags||{}).zhouStatusViewed"
+    },
+    "cannot": {
+      "type": "js_truthy",
+      "expr": "location.pathname==='/pages/chapter3/ending-wufa.html' && !!document.querySelector('#es-content.es-content--show')"
+    },
+    "cherish": {
+      "type": "js_truthy",
+      "expr": "location.pathname==='/pages/chapter3/ending-zhenxi.html' && !!document.querySelector('#es-content.es-content--show')"
+    },
+    "corner": {
+      "type": "js_truthy",
+      "expr": "location.pathname==='/pages/chapter3/ending-corner.html' && !!document.querySelector('#es-content.es-content--show')"
+    }
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "id": "boot",
+      "hook": "boot",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "friendster",
+      "hook": "friendster",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "tablet",
+      "hook": "tablet",
+      "op": "truthy",
+      "role": "critical"
+    },
+    {
+      "id": "secret",
+      "hook": "secret",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "yuqing_capsule",
+      "hook": "yuqing_capsule",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "chen_capsule",
+      "hook": "chen_capsule",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "maze_hints",
+      "hook": "maze_hints",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "maze_lanotte",
+      "hook": "maze_lanotte",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "maze_gino",
+      "hook": "maze_gino",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "identity_labels",
+      "hook": "identity_labels",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "zhou_contact",
+      "hook": "zhou_contact",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "cannot",
+      "hook": "cannot",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "cherish",
+      "hook": "cherish",
+      "op": "truthy",
+      "role": "diagnostic"
+    }
+  ],
   "events": {},
   "routes": [
-    {"id": "corner", "tier": "good", "gates": [], "ending": {"hook": "corner", "op": "truthy"}},
-    {"id": "cherish", "tier": "normal", "gates": [], "ending": {"hook": "cherish", "op": "truthy"}},
-    {"id": "cannot", "tier": "bad", "gates": [], "ending": {"hook": "cannot", "op": "truthy"}}
+    {
+      "id": "corner",
+      "tier": "good",
+      "gates": [
+        "boot",
+        "tablet"
+      ],
+      "ending": {
+        "hook": "corner",
+        "op": "truthy"
+      }
+    }
   ],
-  "ending": {"hook": "corner", "op": "truthy"},
+  "ending": {
+    "hook": "corner",
+    "op": "truthy"
+  },
   "answer_sha256": [],
   "answer_hash_file": null,
   "request_milestones": [],
-  "submit_conclusion": {"enabled": false, "schema": null},
+  "submit_conclusion": {
+    "enabled": false,
+    "schema": null
+  },
   "rubric_path": null
 }

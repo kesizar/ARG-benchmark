@@ -1,45 +1,145 @@
 {
   "hooks": {
-    "caught": {
-      "type": "dom_regex",
-      "pattern": "你抓住了上辈子杀死你的凶手。"
+    "motive": {
+      "type": "js_truthy",
+      "expr": "quizTarget !== null && quizStep >= 1 && document.querySelector('#endTitle')?.textContent !== '凶手，不止一人'"
     },
-    "accused": {
-      "type": "dom_regex",
-      "pattern": "✓ 答对了——"
+    "method": {
+      "type": "js_truthy",
+      "expr": "quizTarget !== null && quizStep >= 2 && document.querySelector('#endTitle')?.textContent !== '凶手，不止一人'"
+    },
+    "time": {
+      "type": "js_truthy",
+      "expr": "quizTarget !== null && quizStep >= 3 && document.querySelector('#endTitle')?.textContent !== '凶手，不止一人'"
+    },
+    "place": {
+      "type": "js_truthy",
+      "expr": "quizTarget !== null && quizStep >= 4 && document.querySelector('#endTitle')?.textContent !== '凶手，不止一人'"
+    },
+    "flaw": {
+      "type": "js_truthy",
+      "expr": "quizTarget !== null && quizStep >= 5 && document.querySelector('#endTitle')?.textContent !== '凶手，不止一人'"
+    },
+    "caught": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#screenEnd')?.style.display==='block' && document.querySelector('#endTag')?.textContent==='🏆 通关' && quizStep===5"
+    },
+    "genuine": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#endTag')?.textContent==='🏆 通关' && quizTarget===state.killer && quizStep===5"
+    },
+    "bypass": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#endTag')?.textContent==='🏆 通关' && quizTarget!==state.killer && quizStep===5"
+    },
+    "twist": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#screenEnd')?.style.display==='block' && document.querySelector('#endTitle')?.textContent==='凶手，不止一人'"
+    },
+    "failed": {
+      "type": "js_truthy",
+      "expr": "state.lockedAccuse.length>0"
+    },
+    "timeup": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#screenEnd')?.style.display==='block' && document.querySelector('#endTag')?.textContent==='💀 死亡' && document.querySelector('#endBody')?.textContent.includes(\"倒计时归零的那一刻\")"
+    },
+    "stir": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#screenEnd')?.style.display==='block' && document.querySelector('#endTag')?.textContent==='💀 死亡' && document.querySelector('#endBody')?.textContent.includes(\"死因：打草惊蛇\")"
+    },
+    "alert": {
+      "type": "js_truthy",
+      "expr": "document.querySelector('#screenEnd')?.style.display==='block' && document.querySelector('#endTag')?.textContent==='💀 死亡' && document.querySelector('#endBody')?.textContent.includes(\"死因：警觉值爆表\")"
     }
   },
   "checkpoints": [
     {
-      "id": "accused",
-      "hook": "accused",
-      "op": "truthy"
+      "id": "motive",
+      "hook": "motive",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "method",
+      "hook": "method",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "time",
+      "hook": "time",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "place",
+      "hook": "place",
+      "op": "truthy",
+      "role": "diagnostic"
+    },
+    {
+      "id": "flaw",
+      "hook": "flaw",
+      "op": "truthy",
+      "role": "diagnostic"
     }
   ],
-  "events": {},
+  "events": {
+    "genuine": {
+      "hook": "genuine",
+      "op": "truthy"
+    },
+    "bypass": {
+      "hook": "bypass",
+      "op": "truthy"
+    },
+    "twist": {
+      "hook": "twist",
+      "op": "truthy"
+    },
+    "failed": {
+      "hook": "failed",
+      "op": "truthy"
+    },
+    "timeup": {
+      "hook": "timeup",
+      "op": "truthy"
+    },
+    "stir": {
+      "hook": "stir",
+      "op": "truthy"
+    },
+    "alert": {
+      "hook": "alert",
+      "op": "truthy"
+    }
+  },
   "routes": [
     {
       "id": "caught",
-      "tier": "good",
-      "gates": [
-        "accused"
-      ],
+      "gates": [],
       "ending": {
         "hook": "caught",
         "op": "truthy"
       }
     }
   ],
-  "ending": {
-    "hook": "caught",
-    "op": "truthy"
-  },
-  "answer_sha256": [],
-  "answer_hash_file": null,
-  "request_milestones": [],
-  "submit_conclusion": {
-    "enabled": false,
-    "schema": null
-  },
-  "rubric_path": null
+  "terminal_failures": [
+    {
+      "id": "timeup",
+      "hook": "timeup",
+      "op": "truthy"
+    },
+    {
+      "id": "stir",
+      "hook": "stir",
+      "op": "truthy"
+    },
+    {
+      "id": "alert",
+      "hook": "alert",
+      "op": "truthy"
+    }
+  ]
 }
